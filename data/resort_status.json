@@ -1,0 +1,24 @@
+{
+  "checked": "Nov 14",
+  "resorts": {
+    "copper": {
+      "open": true,
+      "lifts": "1 of 23",
+      "trails": "3 of 157"
+    },
+    "abasin": {
+      "open": true,
+      "lifts": "1 of 9",
+      "trails": "1 of 147"
+    },
+    "winterpark": {
+      "open": true,
+      "lifts": "4 of 24",
+      "trails": "3 of 171"
+    },
+    "eldora": {
+      "open": false,
+      "note": "Not open yet. The resort says opening day is coming soon."
+    }
+  }
+}
