@@ -163,7 +163,8 @@ function delaySeries(speedRows, segs, refs, day) {
 function snowSummary(rows, key) {
   const pts = rows.filter(r => r.resort === key && num(r.depth_in) != null)
     .map(r => ({ t: new Date(r.obs_time_mst.replace(" ", "T") + ":00-07:00"), depth: +r.depth_in, temp: num(r.temp_f) })).sort((a, b) => a.t - b.t);
-  if (!pts.length) return null;
+  const temps = rows.filter(r => r.resort === key && num(r.temp_f) != null);
+  if (!pts.length) return temps.length ? { t: null, depth: null, temp: +temps[temps.length - 1].temp_f, new24: null, new72: null } : null;
   const last = pts[pts.length - 1];
   const since = h => {
     const cut = last.t - h * 3600e3; let ref = null;
@@ -196,8 +197,8 @@ function scoreResort(key, ctx) {
   const R = RESORTS[key], why = [], chips = [];
   let s = 50;
   const sn = ctx.snow[key], fc = (ctx.forecast[key] || { w: {} }).w["0-24h"];
-  const new24 = sn ? sn.new24.inches : 0, fc24 = fc ? num(fc.snow_in) || 0 : 0, gust = fc ? num(fc.gust_max_mph) : null;
-  s += Math.min(40, 6 * new24 + 4 * fc24);
+  const new24 = sn && sn.new24 ? sn.new24.inches : 0, fc24 = fc ? num(fc.snow_in) || 0 : 0, gust = fc ? num(fc.gust_max_mph) : null;
+  s += Math.min(40, (new24 >= 1 ? 6 * new24 : 0) + (fc24 >= 1 ? 4 * fc24 : 0));
   if (new24 >= 1) chips.push({ t: `${new24}" new`, k: "plus" });
   if (fc24 >= 1) chips.push({ t: `${fc24}" forecast`, k: "plus" });
   if (gust != null && gust > 35) { s -= Math.min(20, gust - 35); chips.push({ t: `Gusts ${Math.round(gust)} mph`, k: "bad" }); }
@@ -213,7 +214,7 @@ function scoreResort(key, ctx) {
   const conds = ctx.conds.filter(c => onRoute(R, c.route, c.start_mp, c.end_mp));
   const lvl = Math.max(0, ...conds.map(c => condLevel(c.condition)));
   if (lvl >= 2) { s -= 6; chips.push({ t: lvl === 3 ? "Road closed" : "Snowy or icy roads", k: "bad" }); }
-  else if (lvl === 1) chips.push({ t: "Wet roads", k: "" });
+  else if (lvl === 1) { s -= 1; chips.push({ t: "Wet roads", k: "" }); }
   else if (conds.length) chips.push({ t: "Dry roads", k: "" });
   if (R.westLon == null) chips.push({ t: "No I-70", k: "" });
   return { key, name: R.name, via: R.via, score: Math.max(0, Math.min(100, Math.round(s))), chips, new24, fc24, gust, delay, closed: closed.length, snowPts: 6 * new24 + 4 * fc24 };
@@ -328,7 +329,7 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
         strip.append(svg);
       }
       const ax = svgEl("svg", { height: 26 });
-      const marks = W < 520 ? ["Copper", "the tunnel", "Idaho Springs", "C-470"] : ["Copper", "Silverthorne", "the tunnel", "Georgetown", "Idaho Springs", "Genesee", "C-470"];
+      const marks = W < 420 ? ["Copper", "the tunnel", "Idaho Springs", "C-470"] : ["Copper", "the tunnel", "Georgetown", "Idaho Springs", "C-470"];
       LANDMARKS.filter(l => marks.includes(l[0])).forEach(([name, lon], i, arr) => {
         const px = x(lon); ax.append(svgEl("line", { x1: px, x2: px, y1: 0, y2: 6, stroke: "var(--axis)" }));
         const t = svgEl("text", { x: px, y: 18, "text-anchor": i === 0 ? "start" : i === arr.length - 1 ? "end" : "middle" });
@@ -376,7 +377,7 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
     const work = ctx.events.filter(e => e.class === "roadWork" && mine(e)).length;
     if (work) al.append(el("p", "note", `${work} road work ${work === 1 ? "zone" : "zones"} listed on these routes, including scheduled night work.`));
     const cd = $("conds"); cd.replaceChildren();
-    const rel = ctx.conds.filter(mine).sort((a, b) => normRoute(a.route).localeCompare(normRoute(b.route)) || b.start_mp - a.start_mp);
+    const rel = ctx.conds.filter(c => Object.values(RESORTS).some(R => onRoute(R, c.route, c.start_mp, c.end_mp))).sort((a, b) => normRoute(a.route).localeCompare(normRoute(b.route)) || b.start_mp - a.start_mp);
     if (!rel.length) cd.append(el("p", "note", "No condition reports yet."));
     rel.forEach(c => { const d = el("div", "cond"); d.append(el("span", "", `${c.route}: ${c.area}`), el("span", "", cleanCond(c.condition))); cd.append(d); });
   }
