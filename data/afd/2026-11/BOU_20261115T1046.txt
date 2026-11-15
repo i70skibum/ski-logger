@@ -1,0 +1,115 @@
+
+000
+FXUS65 KBOU 151746
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1046 AM MST Sun Nov 15 2026
+
+.KEY MESSAGES...
+
+- Areas of fog again this morning, including the northern I-25 
+  corridor and I-70 corridor. 
+
+- A return to mild and dry conditions Sunday through Tuesday.
+
+&&
+
+.DISCUSSION /Through Saturday/...
+Issued at 1158 PM MST Sat Nov 14 2026
+
+Fog has been slow to make progress in the last couple of hours, with 
+observations showing an area of fog over Lincoln County, and another 
+area of fog spilling over the CO-WY border over northernmost Weld 
+County. At this time, a Dense Fog Advisory remains in effect for 
+Lincoln County until 10 am Sunday morning. Visibilities could drop 
+to <1/4 mile at times in the advisory area and adjacent plains. The 
+advisory may need to be expanded if dense fog develops elsewhere. 
+While we still expect fog to increase in coverage closer to sunrise, 
+low clouds may limit the duration and extent of the lower (<1/4 mi) 
+visibilities. 
+
+How much temperatures warm up Sunday afternoon will be heavily 
+dependent on the erosion (or lack thereof) of fog and/or low clouds. 
+Given the trends in model guidance and was has been observed over 
+the last couple of days, fog may be slow to erode over the 
+southeastern portion of our CWA, with scattered low clouds lingering 
+into the afternoon. As such, high temperatures over areas affected 
+by the stubborn low clouds (mainly Lincoln County) may run 5-10 
+degrees cooler than areas with direct sunshine Sunday afternoon. 
+Residual moisture west of the Continental Divide may also lead to 
+low clouds persisting through the late morning for our western 
+counties. 
+
+An upper level ridge to our west will continue to strengthen and 
+drift east over our area on Monday, bringing us temperatures that 
+are about 10 degrees warmer than climatology. Afternoon temperatures 
+on Monday and Tuesday will climb into the low 60s for the Denver 
+metro and east CO plains, with most mountain valleys warming up into 
+the 50s each day as well. Flow aloft turns southerly and strengthens 
+ahead of the next system on Tuesday afternoon, although the 
+strongest winds now appear to remain just east of our area.
+
+A weakening shortwave move over Colorado on Wednesday, and this will 
+be our next chance for precipitation. As the previous AFD stated, 
+this shortwave will move rather quick, only allowing for a few hours 
+of light snow showers at the high elevations. Given the quick nature 
+of this system, only a trace of snow accumulation is expected, with 
+amounts up to 1-2 inches at the highest peaks >12kft. Cross-barrier 
+westerly flow aloft on the backside of this disturbance will also 
+encourage a period of downsloping winds late Wednesday morning. Wind 
+gusts up to 35 mph could be possible for mountains valleys, with 
+gusts as high as 55 mph for ridgelines and areas above the tree 
+line. At low elevations, a cold front will push through the northern 
+Colorado plains and Denver metro sometime late Wednesday with breezy 
+northerly winds behind it. Slightly cooler temperatures should 
+arrive behind this cold front, although temperatures are still 
+likely to remain a couple of degrees above average. 
+
+Unfortunately for snow lovers, both global ensembles and 
+deterministic runs have trended downward in snow amounts with the 
+system for next weekend. What was previously a potent cutoff low 
+is now being depicted as a much weaker, open trough. This weaker 
+solution would only suggest light mountain snow at best Friday 
+into the weekend. However, it is worth noting that some ensemble 
+members still bring at least one inch of snow to the Denver metro
+sometime next weekend. One possible reason for the whiplash in 
+solutions seems to be that global models keep struggling with the
+location of cyclogenesis upstream off the northern Pacific Coast.
+As has become evident over the last few days, there is a 
+considerable uncertainty in the forecast beyond day 4, and the 
+forecast could still shift in either direction. Decent agreement
+still exists in temperatures cooling down to seasonal averages 
+for the weekend.
+
+&&
+
+.AVIATION /18Z TAFS through 18Z Monday/...
+Issued at 1038 AM MST Sun Nov 15 2026
+
+With the clearing of fog over the past couple of hours, VFR
+conditions are expected through the TAF period now. Winds are
+currently light (<7 kts) and variable at all TAF sites. Expect
+them to gradually transition to an easterly component in the next
+hour, before increasing in speed by 20Z-22Z. Drainage flow will
+return later tonight. 
+
+Overnight tonight, fog will redevelop in Weld County. However,
+with westerly/southwesterly winds at all terminals throughout the
+night, it should not reach the airports. If we see northerly
+winds instead, fog has a better chance of reaching DEN and BJC.
+Typical diurnal wind pattern expected for tomorrow, with winds
+remaining under 10 kts. 
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...AA
+AVIATION...MAI
