@@ -1,0 +1,38 @@
+name: ski-logger
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # every 15 minutes (GitHub may start runs a few minutes late)
+  workflow_dispatch:          # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ski-logger
+  cancel-in-progress: false
+
+jobs:
+  log:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Collect data
+        env:
+          CDOT_API_KEY: ${{ secrets.CDOT_API_KEY }}
+        run: python3 logger.py
+
+      - name: Save data to the repo
+        run: |
+          git config user.name "ski-logger"
+          git config user.email "ski-logger"
+          git add data
+          if git diff --cached --quiet; then echo "no new data"; exit 0; fi
+          git commit -q -m "data $(date -u +%Y-%m-%dT%H:%MZ)"
+          for i in 1 2 3; do
+            git pull -q --rebase && git push -q && exit 0
+            sleep 5
+          done
+          exit 1
