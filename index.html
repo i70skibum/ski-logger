@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ski day pick</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
 <style>
 :root {
   --bg: #f4f3ef; --card: #fcfcfb; --ink: #0b0b0b; --ink2: #52514e; --line: #e1e0d9; --axis: #c3c2b7;
@@ -66,7 +67,13 @@ th:first-child, td:first-child { text-align: left; font-weight: 600; position: s
 footer { color: var(--ink2); font-size: 12px; padding: 4px 2px; }
 footer a { color: var(--accent); }
 #tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--card); font-size: 12px; padding: 4px 8px; border-radius: 6px; display: none; z-index: 5; max-width: 240px; }
-.err { color: var(--crit); }
+#map { height: 330px; border-radius: 8px; margin-bottom: 6px; z-index: 0; background: var(--line); }
+.pinwrap { overflow: visible; }
+.pin { position: absolute; transform: translate(-50%, -50%); white-space: nowrap; background: #fcfcfb; color: #0b0b0b; border: 2px solid #0b0b0b; border-radius: 999px; padding: 1px 8px; font: 600 12px system-ui, sans-serif; }
+.pin.top { background: #0b0b0b; color: #fff; }
+.pin.off { border-style: dashed; border-color: #6b6b66; color: #52514e; font-weight: 400; }
+.pin.city { border: 0; background: transparent; font-weight: 700; text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff; }
+.rrow.closed { opacity: .65; }
 </style>
 </head>
 <body>
@@ -74,9 +81,9 @@ footer a { color: var(--accent); }
   <header><h1>Ski day pick</h1><p id="asof">Loading data</p></header>
   <section id="pick" aria-live="polite"></section>
   <section>
-    <h2>I-70 right now</h2>
+    <h2>Map and I-70 right now</h2>
     <div class="stats" id="i70stats"></div>
-    <div id="strip"></div>
+    <div id="map"></div>
     <div class="legend" id="striplegend"></div>
     <h3>Delay today, Copper to C-470</h3>
     <div id="delaychart"></div>
@@ -90,6 +97,7 @@ footer a { color: var(--accent); }
 </main>
 <div id="tip"></div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script id="core">
 const RESORTS = {
   copper:     { name: "Copper",      westLon: -106.145, roads: [["I70", 195, 260]],                       via: "I-70 through the tunnel" },
@@ -97,6 +105,7 @@ const RESORTS = {
   winterpark: { name: "Winter Park", westLon: -105.665, roads: [["I70", 232, 260], ["US40", 231.5, 258.5]], via: "I-70, then Berthoud Pass" },
   eldora:     { name: "Eldora",      westLon: null,     roads: [["CO119", 25, 42]],                       via: "Boulder Canyon, no I-70" },
 };
+const PINS = { copper: [39.502, -106.151], abasin: [39.642, -105.872], winterpark: [39.887, -105.763], eldora: [39.937, -105.583] };
 const LANDMARKS = [["Copper", -106.145], ["Frisco", -106.10], ["Silverthorne", -106.07], ["the tunnel", -105.92],
   ["Georgetown", -105.70], ["Empire", -105.66], ["Idaho Springs", -105.52], ["Floyd Hill", -105.42], ["Genesee", -105.30], ["C-470", -105.20]];
 const EAST_LON = -105.185;
@@ -219,11 +228,12 @@ function scoreResort(key, ctx) {
   if (R.westLon == null) chips.push({ t: "No I-70", k: "" });
   return { key, name: R.name, via: R.via, score: Math.max(0, Math.min(100, Math.round(s))), chips, new24, fc24, gust, delay, closed: closed.length, snowPts: 6 * new24 + 4 * fc24 };
 }
-function rank(ctx) { return Object.keys(RESORTS).map(k => scoreResort(k, ctx)).sort((a, b) => b.score - a.score || (a.delay || 0) - (b.delay || 0)); }
+function isOpen(ctx, k) { const s = (ctx.status || {})[k]; return !s || s.open !== false; }
+function rank(ctx) { return Object.keys(RESORTS).filter(k => isOpen(ctx, k)).map(k => scoreResort(k, ctx)).sort((a, b) => b.score - a.score || (a.delay || 0) - (b.delay || 0)); }
 function headline(ranked) {
   const top = ranked[0], anySnow = ranked.some(r => r.new24 + r.fc24 >= 1);
   if (!anySnow && top.score - ranked[ranked.length - 1].score <= 2)
-    return { title: "Toss-up", kicker: "No fresh snow anywhere", why: "Nothing new on the ground, under an inch forecast in the next 24 hours, and no road trouble on any route. Pick on what is open." };
+    return { title: "Toss-up", kicker: "No fresh snow anywhere", why: "Nothing new on the ground, under an inch forecast in the next 24 hours, and no road trouble on any route. Any of the open mountains works." };
   if (!anySnow)
     return { title: top.name, kicker: "No fresh snow anywhere", why: `Nothing new on the ground and under an inch forecast in the next 24 hours, so this comes down to the drive. ${top.name} has the least hassle right now (${top.via}).` };
   const bits = [];
@@ -267,14 +277,14 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
   }
   async function load() {
     const now = new Date(), { day, month } = denverParts(now);
-    const [state, segRows, speedRows, snow, fc, rc] = await Promise.all([
+    const [state, segRows, speedRows, snow, fc, rc, rs] = await Promise.all([
       get("state.json", true), get("speed/segments.csv").then(parseCSV), csv2("speed", month, false),
-      csv2("snotel", month, true), csv2("forecast", month, true), csv2("road_conditions", month, true)]);
+      csv2("snotel", month, true), csv2("forecast", month, true), csv2("road_conditions", month, true), get("resort_status.json", true)]);
     if (!state.last_run) throw new Error("Could not load the logger data.");
     const segs = segments(segRows), refs = refSpeeds(speedRows, segs), speedRow = speedRows[speedRows.length - 1] || null;
-    const ctx = { segs, refs, speedRow, events: Object.values(state.events || {}), conds: latestConds(rc), forecast: latestForecast(fc), snow: {} };
+    const ctx = { segs, refs, speedRow, events: Object.values(state.events || {}), conds: latestConds(rc), forecast: latestForecast(fc), snow: {}, status: rs.resorts || {}, statusDate: rs.checked || "" };
     for (const k in RESORTS) ctx.snow[k] = snowSummary(snow, k);
-    D = { now, day, state, ctx, speedRows, series: delaySeries(speedRows, segs, refs, day), ranked: rank(ctx) };
+    D = { now, day, state, ctx, segRows, speedRows, series: delaySeries(speedRows, segs, refs, day), ranked: rank(ctx) };
     render();
   }
 
@@ -287,17 +297,23 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
 
     // Pick
     const pick = $("pick"); pick.replaceChildren();
-    const h = headline(ranked);
+    const h = ranked.length ? headline(ranked) : { title: "Nothing open", kicker: "", why: "None of your mountains are open yet." };
     pick.append(el("div", "kicker", h.kicker), el("div", "pickname", h.title), el("p", "why", h.why));
     const list = el("div", "rank");
     ranked.forEach((r, i) => {
       const row = el("div", "rrow"), mid = el("div");
       mid.append(el("div", "rname", r.name), el("div", "rsub", r.via));
-      const chips = el("div", "chips"); r.chips.forEach(c => chips.append(el("span", "chip " + c.k, c.t))); mid.append(chips);
-      const sc = el("div", "score", String(r.score)); sc.title = "Score out of 100: snow adds, wind, delays and closures subtract";
+      const chips = el("div", "chips"), st = ctx.status[r.key]; if (st && st.lifts) chips.append(el("span", "chip", `${st.lifts} lifts, ${st.trails} trails open`)); r.chips.forEach(c => chips.append(el("span", "chip " + c.k, c.t))); mid.append(chips);
+      const sc = el("div", "score", r.score + " / 100"); sc.title = "Score out of 100: snow adds, wind, delays and closures subtract";
       row.append(el("div", "rnum", String(i + 1)), mid, sc); list.append(row);
     });
+    Object.keys(RESORTS).filter(k => !isOpen(ctx, k)).forEach(k => {
+      const row = el("div", "rrow closed"), mid = el("div");
+      mid.append(el("div", "rname", RESORTS[k].name), el("div", "rsub", ctx.status[k].note || "Not open yet"));
+      row.append(el("div", "rnum", ""), mid, el("div", "tag", "Closed")); list.append(row);
+    });
     pick.append(list);
+    if (ctx.statusDate) pick.append(el("p", "note", `Open or closed, and lift counts, were checked by hand on ${ctx.statusDate} from each resort's own report. They do not update on their own yet.`));
 
     // I-70 stats
     const stats = $("i70stats"); stats.replaceChildren();
@@ -312,34 +328,12 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
       if (live) addStat("Slowest stretch", `${live.v} mph`, `${live.s.dir === "W" ? "Westbound" : "Eastbound"} near ${nearLandmark(live.s.mid)}`);
     } else stats.append(el("p", "note", "No speed readings yet."));
 
-    // Corridor strip
-    const strip = $("strip"); strip.replaceChildren();
-    if (row && ctx.segs.length) {
-      const W = Math.max(280, strip.clientWidth), lo = -106.22, hi = -105.18, x = lon => (lon - lo) / (hi - lo) * W;
-      for (const [dir, label] of [["W", "Westbound, toward the mountains"], ["E", "Eastbound, toward Denver"]]) {
-        strip.append(el("div", "striplabel", label));
-        const svg = svgEl("svg", { height: 22, role: "img", "aria-label": `${label}: speed by road segment` });
-        ctx.segs.filter(s => s.dir === dir).forEach(s => {
-          const v = num(row[s.id]), x0 = x(s.lonA), w = Math.max(2, x(s.lonB) - x0 - 2);
-          const r = svgEl("rect", { x: x0 + 1, y: 2, width: w, height: 18, rx: 3, fill: speedColor(v) });
-          const text = `${dir === "W" ? "Westbound" : "Eastbound"} near ${nearLandmark(s.mid)}: ${v == null ? "no reading" : v + " mph, " + speedWord(v)}`;
-          r.addEventListener("pointermove", ev => showTip(ev, text)); r.addEventListener("pointerdown", ev => showTip(ev, text)); r.addEventListener("pointerleave", hideTip);
-          svg.append(r);
-        });
-        strip.append(svg);
-      }
-      const ax = svgEl("svg", { height: 26 });
-      const marks = W < 420 ? ["Copper", "the tunnel", "Idaho Springs", "C-470"] : ["Copper", "the tunnel", "Georgetown", "Idaho Springs", "C-470"];
-      LANDMARKS.filter(l => marks.includes(l[0])).forEach(([name, lon], i, arr) => {
-        const px = x(lon); ax.append(svgEl("line", { x1: px, x2: px, y1: 0, y2: 6, stroke: "var(--axis)" }));
-        const t = svgEl("text", { x: px, y: 18, "text-anchor": i === 0 ? "start" : i === arr.length - 1 ? "end" : "middle" });
-        t.textContent = name === "the tunnel" ? "Tunnel" : name; ax.append(t);
-      });
-      strip.append(ax);
-      const lg = $("striplegend"); lg.replaceChildren();
-      [["var(--good)", "50+ mph, moving"], ["var(--warn)", "30 to 49, slow"], ["var(--crit)", "Under 30, crawling"], ["var(--none)", "No reading"]].forEach(([c, t]) => {
-        const s = el("span"), sw = el("span", "sw"); sw.style.background = c; s.append(sw, t); lg.append(s); });
-    }
+    // Map
+    drawMap();
+    const lg = $("striplegend"); lg.replaceChildren();
+    [["var(--good)", "50+ mph, moving"], ["var(--warn)", "30 to 49, slow"], ["var(--crit)", "Under 30, crawling"], ["var(--none)", "No reading"]].forEach(([c, t]) => {
+      const s = el("span"), sw = el("span", "sw"); sw.style.background = c; s.append(sw, t); lg.append(s); });
+    lg.append(el("span", "", "Upper line is westbound, lower line is eastbound. Tap a stretch for its speed."));
 
     drawDelay();
 
@@ -380,6 +374,32 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
     const rel = ctx.conds.filter(c => Object.values(RESORTS).some(R => onRoute(R, c.route, c.start_mp, c.end_mp))).sort((a, b) => normRoute(a.route).localeCompare(normRoute(b.route)) || b.start_mp - a.start_mp);
     if (!rel.length) cd.append(el("p", "note", "No condition reports yet."));
     rel.forEach(c => { const d = el("div", "cond"); d.append(el("span", "", `${c.route}: ${c.area}`), el("span", "", cleanCond(c.condition))); cd.append(d); });
+  }
+
+  let map = null, layer = null;
+  function drawMap() {
+    if (typeof L === "undefined") { $("map").textContent = "The map could not load."; return; }
+    const { ctx, ranked } = D, row = ctx.speedRow || {};
+    if (!map) {
+      map = L.map("map", { scrollWheelZoom: false });
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 13, attribution: "&copy; OpenStreetMap contributors" }).addTo(map);
+      map.fitBounds([[39.45, -106.22], [39.98, -104.95]]);
+      layer = L.layerGroup().addTo(map);
+    }
+    map.invalidateSize(); layer.clearLayers();
+    const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+    const col = v => v == null ? "#8a8a84" : v >= 50 ? css("--good") : v >= 30 ? css("--warn") : css("--crit");
+    D.segRows.forEach(s => {
+      const v = num(row[s.segment_id]), west = /W$/.test(s.route), off = west ? 0.007 : -0.007;
+      L.polyline([[+s.start_lat + off, +s.start_lon], [+s.end_lat + off, +s.end_lon]], { color: col(v), weight: 5, opacity: 0.95 })
+        .bindTooltip(`${west ? "Westbound" : "Eastbound"} near ${nearLandmark((+s.start_lon + +s.end_lon) / 2)}: ${v == null ? "no reading" : v + " mph, " + speedWord(v)}`, { sticky: true }).addTo(layer);
+    });
+    const pin = (ll, text, cls) => L.marker(ll, { interactive: false, icon: L.divIcon({ className: "pinwrap", html: el("div", "pin " + cls, text), iconSize: [0, 0] }) }).addTo(layer);
+    Object.keys(RESORTS).forEach(k => {
+      const i = ranked.findIndex(r => r.key === k);
+      pin(PINS[k], i < 0 ? `${RESORTS[k].name}: closed` : `${i + 1}. ${RESORTS[k].name}`, i < 0 ? "off" : i === 0 ? "top" : "");
+    });
+    pin([39.74, -104.99], "Denver", "city");
   }
 
   function drawDelay() {
