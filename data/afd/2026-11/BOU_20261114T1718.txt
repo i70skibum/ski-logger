@@ -1,0 +1,129 @@
+
+000
+FXUS65 KBOU 150018
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+518 PM MST Sat Nov 14 2026
+
+.KEY MESSAGES...
+
+- Scattered rain and mountain snow showers today.
+
+- Areas of fog are expected again Sunday morning, including the
+  northern I-25 corridor and I-70 corridor. 
+
+- A return to mild and dry conditions Sunday through Tuesday.
+
+&&
+
+.UPDATE...
+Issued at 501 PM MST Sat Nov 14 2026
+
+Fog has begun to develop over parts of the east Colorado plains. 
+Current webcams and observations show visibilities deteriorating 
+over much of Lincoln County and parts of Elbert County, particularly 
+along I-70. We have opted to issue a Dense Fog Advisory for Lincoln 
+County at this time, but it may need to be expanded to surrounding 
+counties as the fog continues to spread in the overnight hours. 
+Visibilities may drop to less than 1/4 mile at times, and this has 
+already been observed in Limon over the last hour. We expect 
+visibilities to improve by late Sunday morning. We have adjusted 
+low temperatures over the eastern Colorado plains tonight to 
+better reflect the heat-trapping effect of the fog and low clouds.
+
+&&
+
+.DISCUSSION /Through Saturday/...
+Issued at 1239 PM MST Sat Nov 14 2026
+
+A negatively tilted trough is moving over the area this afternoon. 
+Moisture has increased significantly at mid and upper levels as this 
+system approached the area. As of early this afternoon, the DCVZ 
+was just to the east of Denver, with very light showers to its 
+east and north. We still have a bit of a dry layer around 750mb 
+across the plains, and with how light the precip is, it could 
+struggle to make it to the ground in some areas until the layer 
+starts to saturate more. Overall rain amounts are expected to be 
+very light for much of the plains. Snow showers are moving into 
+the mountains from the west and south as of early this afternoon. 
+Coverage of snow showers this afternoon and evening will be best 
+south of I-70, with most likely accumulations around a trace to 3 
+inches above 9000ft. Elevations around 8000ft to 9000ft could see 
+a rain/snow mix today, but accumulations are unlikely. 
+
+Overnight, we're expecting more fog development across the plains. 
+The REFS currently has a medium to high chance (50-75%) that 
+portions of the I-70 and northern I-25 corridors will see fog with
+visiblities less than 0.5 mile in the early morning. Fog should 
+start to clear around 10AM give or take an hour. 
+
+Upper level ridging begins to build over the area again on 
+Sunday. Warmer and drier conditions will prevail Sunday through 
+much of Tuesday. On Tuesday, an upper level trough will move onto
+the West Coast. Winds at mid levels will strengthen as the 
+pressure gradient tightens between the upper ridge and trough. 
+However, the strongest winds are forecast to remain to the south 
+and east of our area. The trough will weaken and move east, 
+sending a shortwave through the area early Wednesday. Precip 
+chances will increase late Tuesday in the higher terrain as the 
+shortwave approaches. The shortwave will be moving rather quickly 
+and the southwesterly to westerly winds aloft are not super 
+favorable for our area, so impacts from this event will be rather 
+limited with snow totals around an inch or less for the higher 
+elevations. For the plains, a cold front is forecast to move 
+through sometime Wednesday, bringing slightly cooler temps for 
+Wednesday into the end of the work week. Rain chances remain low 
+(<20%) for the plains with the this system.
+
+That shortwave will quickly move off to the northeast as an upper 
+low moves onto the West Coast. The progression of this upper 
+low/trough Thursday into the weekend is highly uncertain. A 
+couple of days ago, models had a slower moving closed low headed 
+towards the four corners region, now the most recent runs have a 
+quicker moving more open wave going over and out of the area by 
+late Saturday. The former is much more favorable for snowfall 
+across our area, which is why we've seen a steady downward trend 
+in precip amounts in the ensemble members. However, we are still 
+quite a ways out, so things could swing back the other direction.
+We'll be keeping a close eye on this system. 
+
+&&
+
+.AVIATION /00Z TAFS through 00Z Monday/...
+Issued at 508 PM MST Sat Nov 14 2026
+
+A boundary is currently moving over the airport at KDEN which is 
+shifting winds from the southeast to the northwest or west. The 
+west/northwest winds will continue at all terminals this evening. 
+
+The main concern tonight will be fog/low clouds which will reduce
+visibility. Fog at BJC and DEN is possible anywhere from 04Z
+through 18Z Sunday. However, the most likely timing for fog at BJC
+and DEN is between 09-10Z and 16Z. When the fog is in place,
+visibility should be between 1/4 and 1/2 SM. There may be breaks
+from time to time in the fog at both airports throughout the early
+morning hours. With a surface cyclone well to the north of Denver,
+the west winds may push the fog away from the airports at times.
+At APA, fog is certainly possible, but unlikely (30% chance). The
+fog that develops should be very close to to APA but should stay
+just to the north. 
+
+After the fog mixes out, VFR conditions with east winds are
+expected for the rest of the day. Some gusts in the late afternoon
+could reach 18 knots at DEN. Winds will turn southeasterly then to
+drainage during the evening and overnight. 
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+Dense Fog Advisory until 10 AM MST Sunday for COZ046-047.
+
+&&
+
+$$
+
+UPDATE...AA
+DISCUSSION...AP
+AVIATION...Danielson
