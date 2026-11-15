@@ -1,17 +1,29 @@
 {
- "afd_last": "f4060962-d1fe-4ea9-84d7-3c6fb6379ed1",
+ "afd_last": "c74e0b53-f8a1-437c-8cf2-be730a306575",
  "events": {
-  "chainLaws:CDOT-36382778083BOTH": {
-   "began": "2026-11-15T05:16:33-07:00",
-   "class": "chainLaws",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36382778083BOTH",
-   "mp_end": 159.00058410956444,
-   "mp_start": 139.0086264740911,
+  "roadClosures:CDOT-36391884516WB": {
+   "began": "2026-11-15T16:20:18-07:00",
+   "class": "roadClosures",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36391884516WB",
+   "mp_end": "",
+   "mp_start": 239.80352848742962,
    "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40 in both directions: Passenger vehicle traction law.",
-   "type": "standard"
+   "route": "I-70",
+   "title": "I-70 westbound: Road closed.",
+   "type": "critical"
+  },
+  "roadReports:CDOT-36391884516WB": {
+   "began": "2026-11-15T16:20:18-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36391884516WB",
+   "mp_end": "",
+   "mp_start": 239.80352848742962,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Road closed.",
+   "type": "critical"
   },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
@@ -792,22 +804,10 @@
    "route": "US 40",
    "title": "US 40 (Colfax Ave) westbound: Right lane closed.",
    "type": "routine"
-  },
-  "winterDriving:COSEG-587500": {
-   "began": "2026-11-15T11:12:50.078000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-587500",
-   "mp_end": 137.32318525182112,
-   "mp_start": 121.26224323617745,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40: Wet.",
-   "type": "standard"
   }
  },
- "forecast_last": "2026-11-15T19:26:39+00:00",
- "last_run": "2026-11-15T12:26:39-07:00",
+ "forecast_last": "2026-11-15T23:29:22+00:00",
+ "last_run": "2026-11-15T16:29:22-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "copper": "https://api.weather.gov/gridpoints/BOU/21,53",
@@ -819,7 +819,7 @@
   "132": "3 - dry",
   "198": "3 - dry",
   "199": "3 - dry",
-  "200": "4 - wet",
+  "200": "3 - dry",
   "201": "3 - dry",
   "202": "3 - dry",
   "270": "3 - dry",
@@ -844,10 +844,10 @@
   "517": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-15 11:00",
-  "copper": "2026-11-15 11:00",
-  "eldora": "2026-11-15 11:00",
-  "winterpark": "2026-11-15 11:00"
+  "abasin": "2026-11-15 15:00",
+  "copper": "2026-11-15 15:00",
+  "eldora": "2026-11-15 15:00",
+  "winterpark": "2026-11-15 15:00"
  },
  "speed_segments": [
   "I70E044",
