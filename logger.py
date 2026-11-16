@@ -44,13 +44,16 @@ RESORTS = {
     "abasin":     {"name": "Arapahoe Basin", "lat": 39.6350, "lon": -105.8710, "snotel": "505:CO:SNTL"},
     "winterpark": {"name": "Winter Park",    "lat": 39.8700, "lon": -105.7750, "snotel": "335:CO:SNTL"},
     "eldora":     {"name": "Eldora",         "lat": 39.9370, "lon": -105.5840, "snotel": "564:CO:SNTL"},
+    # Overnight trips. Tower is above Steamboat; Chapman Tunnel is the closest station to Aspen.
+    "steamboat":  {"name": "Steamboat",      "lat": 40.4570, "lon": -106.7950, "snotel": "825:CO:SNTL"},
+    "aspen":      {"name": "Aspen Snowmass", "lat": 39.2000, "lon": -106.9550, "snotel": "1101:CO:SNTL"},
 }
 
-# Roads that matter for these four mountains: I-70, Berthoud Pass (US 40),
-# Loveland Pass (US 6), Boulder Canyon / Nederland (CO 119).
-ROUTES = {"I70", "US40", "US6", "CO119"}
-# Only keep I-70 events in the mountain corridor (roughly Vail Pass to C-470).
-I70_MP_RANGE = (175.0, 262.0)
+# Roads that matter: I-70, Berthoud and Rabbit Ears Passes (US 40), Loveland Pass (US 6),
+# Boulder Canyon / Nederland (CO 119), Silverthorne to Kremmling (CO 9), Glenwood to Aspen (CO 82).
+ROUTES = {"I70", "US40", "US6", "CO119", "CO9", "CO82"}
+# Only keep I-70 events in the mountain corridor (Glenwood Springs to C-470).
+I70_MP_RANGE = (114.0, 262.0)
 
 CARS_BASE = "https://api-511x-co.carsprogram.org/events/map-features"
 CARS_CLASSES = ["roadClosures", "chainLaws", "winterDriving", "roadReports", "roadWork"]
@@ -386,8 +389,8 @@ def log_events(state):
 
 CDOT_API = "https://data.cotrip.org/api/v1/{ep}?apiKey={key}&limit=10000"
 # I-70 speed segments are numbered sequentially, so pick the mountain corridor by location:
-# from Copper (west) to C-470 (east).
-SPEED_BOX = {"lon": (-106.20, -105.19), "lat": (39.45, 39.85)}
+# from Glenwood Springs (west) to C-470 (east).
+SPEED_BOX = {"lon": (-107.36, -105.19), "lat": (39.45, 39.85)}
 MIN_CONFIDENCE = 50  # CDOT confidence score; below this the speed is left blank
 
 
@@ -407,7 +410,15 @@ def append_wide(subdir, fixed_cols, values_by_col):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     if os.path.exists(path):
         with open(path, newline="") as f:
-            header = next(csv.reader(f))
+            rows = list(csv.reader(f))
+        header = rows[0]
+        added = sorted(k for k in values_by_col if k not in header)
+        if added:  # new columns mid-month: rewrite the file with them, older rows left blank
+            header = header + added
+            with open(path, "w", newline="") as f:
+                w = csv.writer(f)
+                w.writerow(header)
+                w.writerows(r + [""] * (len(header) - len(r)) for r in rows[1:])
     else:
         header = list(fixed_cols) + sorted(k for k in values_by_col if k not in fixed_cols)
         with open(path, "w", newline="") as f:
