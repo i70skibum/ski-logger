@@ -1,5 +1,5 @@
 {
-  "checked": "Nov 15",
+  "checked": "Nov 15, 7:19 PM",
   "resorts": {
     "copper": {
       "open": true,
@@ -14,19 +14,26 @@
     "winterpark": {
       "open": true,
       "lifts": "4 of 24",
-      "trails": "3 of 171"
+      "trails": "4 of 171"
     },
     "eldora": {
       "open": false,
-      "note": "Not open yet. The resort says opening day is coming soon."
+      "note": "Opening Day is coming soon, and we've extended savings on 26/27 passes",
+      "lifts": "0 of 10",
+      "trails": "0 of 63"
     },
     "steamboat": {
       "open": false,
-      "note": "Scheduled to open Nov 21."
+      "note": "Scheduled to open Nov 21.",
+      "lifts": "0 of 23",
+      "trails": "0 of 184"
     },
     "aspen": {
       "open": false,
-      "note": "Aspen Mountain and Snowmass scheduled to open Nov 26."
+      "note": "Aspen Mountain and Snowmass scheduled to open Nov 26.",
+      "lifts": "0 of 36",
+      "trails": "0 of 374"
     }
-  }
+  },
+  "auto": true
 }
