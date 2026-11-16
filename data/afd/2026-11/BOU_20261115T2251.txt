@@ -1,0 +1,103 @@
+
+000
+FXUS65 KBOU 160551
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1051 PM MST Sun Nov 15 2026
+
+.KEY MESSAGES... 
+
+- Mild and dry conditions through Tuesday.
+
+- Chances for mountain snow late Tuesday night into Wednesday
+  morning.
+
+- Strong winds for the higher elevations of the Front Range
+  Wednesday morning.
+
+&&
+
+.DISCUSSION /Through Sunday/...
+Issued at 113 PM MST Sun Nov 15 2026
+
+Observations show skies starting to clear up over the foothills and 
+urban corridor, with some cloud cover lingering over the eastern 
+plains. Temperatures should start warming up as clouds continue to 
+lift, with highs expected to be in the 50s for most of the 
+plains/urban corridor and 40s in the mountains. Areas where cloud 
+cover is expected to stick around longer (mainly Lincoln County and 
+southern Elbert County) will stay cooler, with highs in the upper 
+40s/low 50s.
+
+Fog development is expected again tomorrow morning over the eastern 
+plains and pushing into the urban corridor. Highest confidence for 
+visibility less than 2SM is over Lincoln County and southern Weld 
+County into Morgan County, though isolated visibility reductions 
+over the plains and the Denver metro area can't be ruled out. Once 
+fog/low clouds lift, temperatures will warm back up and stay warmer 
+than average through Tuesday thanks to an upper-level ridge moving 
+east across Colorado. Highs will climb into the mid 50s in the 
+mountain valleys and the low 60s across the plains & urban corridor 
+both days.
+
+Things get a bit more interesting on Wednesday, with a shortwave 
+entering the area and bringing rain/snow showers to the 
+mountains. At the start of the system late Tuesday night, 
+elevations above 8500ft will see snow, with lower valleys seeing 
+rain or a rain/snow mix. This should transition to all snow as the
+shortwave moves eastward Wednesday morning. Accumulations are 
+expected to be low, only a trace to a couple hundredths, though 
+the highest peaks could see up to an inch. With the progression of
+the shortwave, cross-barrier westerly flow aloft and strong 
+subsidence could create favorable conditions for a high wind event
+for the Front Range Wednesday morning. The current forecast has 
+wind gusts reaching 60-70mph at the highest peaks, with more 
+widespread gusts of 35-45mph along the Front Range. Multiple 
+models have also started indicating the potential for a stable 
+layer between 700-500mb, which, coupled with the cross-barrier 
+flow and subsidence, could be a favorable environment for a 
+mountain wave. We'll be watching this and the other ingredients 
+for high wind/mountain wave events as we get closer to Wednesday 
+morning. 
+
+Thursday should be cool and dry behind the shortwave, with the next 
+system moving in over the weekend. Recent runs favor the more open 
+trough solution, with the bulk of precipitation staying west of our 
+CWA. Ensembles continue to trend downward for precipitation chances 
+over the plains, though the mountains could still see some snow. 
+Mountain snow could start late Thursday and continue through mid 
+Saturday, and for now the best chance for precip over the plains 
+looks to be late Friday. At this time, the chance for snow 
+accumulations over the plains is low, about 10% chance or less for a 
+trace.
+
+&&
+
+.AVIATION /06Z TAFS through 06Z Tuesday/...
+Issued at 1051 PM MST Sun Nov 15 2026
+
+Low clouds and fog are expected to form again across eastern 
+Colorado overnight and into Monday morning. The fog will come 
+close to reaching DEN, but if southwest winds persist as expected,
+it should remain just north to northeast of the airport. Will 
+have VCFG in the TAF for DEN, but not in the prevailing or a tempo
+group. At BJC and APA, fog chances are lower, but haze could drop
+visibility to 3 to 5 miles toward 12Z Monday. However confidence 
+(20-30% chance) in the haze is not high enough at this time to add
+it to the TAF. Winds are expected to be light, less than 10 knots
+through the TAF period and follow a typical diurnal direction 
+pattern. 
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...AGS
+AVIATION...BM
