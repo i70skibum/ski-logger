@@ -87,6 +87,8 @@ footer a { color: var(--accent); }
 .pin.off { border-style: dashed; border-color: #6b6b66; color: #52514e; font-weight: 400; }
 .pin.city { border: 0; background: transparent; font-weight: 700; text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff; }
 .rrow.closed { opacity: .65; }
+.toggle { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink2); margin-top: 10px; cursor: pointer; }
+.toggle input { width: 16px; height: 16px; margin: 0; accent-color: var(--accent); }
 </style>
 </head>
 <body>
@@ -118,9 +120,14 @@ const RESORTS = {
   abasin:     { name: "A-Basin",     westLon: -105.89,  roads: [["I70", 216, 260], ["US6", 216, 230]],    via: "I-70, then Loveland Pass" },
   winterpark: { name: "Winter Park", westLon: -105.665, roads: [["I70", 232, 260], ["US40", 231.5, 258.5]], via: "I-70, then Berthoud Pass" },
   eldora:     { name: "Eldora",      westLon: null,     roads: [["CO119", 25, 42]],                       via: "Boulder Canyon, no I-70" },
+  steamboat:  { name: "Steamboat",   westLon: -106.07,  roads: [["I70", 205, 260], ["CO9", 99, 140], ["US40", 134, 185]], via: "I-70 to Silverthorne, CO 9, then Rabbit Ears Pass", overnight: true },
+  aspen:      { name: "Aspen Snowmass", westLon: -107.32, roads: [["I70", 116, 260], ["CO82", 0, 45]],   via: "I-70 to Glenwood Springs, then CO 82. 7 days on your pass", overnight: true },
 };
-const PINS = { copper: [39.502, -106.151], abasin: [39.642, -105.872], winterpark: [39.887, -105.763], eldora: [39.937, -105.583] };
-const LANDMARKS = [["Copper", -106.145], ["Frisco", -106.10], ["Silverthorne", -106.07], ["the tunnel", -105.92],
+function shown(k) { return !RESORTS[k].overnight || SHOW_OVERNIGHT; }
+let SHOW_OVERNIGHT = false;
+try { SHOW_OVERNIGHT = localStorage.getItem("ski-overnight") === "1"; } catch (e) {}
+const PINS = { copper: [39.502, -106.151], abasin: [39.642, -105.872], winterpark: [39.887, -105.763], eldora: [39.937, -105.583], steamboat: [40.457, -106.804], aspen: [39.209, -106.949] };
+const LANDMARKS = [["Glenwood Springs", -107.32], ["Glenwood Canyon", -107.2], ["Eagle", -106.83], ["Edwards", -106.59], ["Vail", -106.37], ["Vail Pass", -106.22], ["Copper", -106.145], ["Frisco", -106.10], ["Silverthorne", -106.07], ["the tunnel", -105.92],
   ["Georgetown", -105.70], ["Empire", -105.66], ["Idaho Springs", -105.52], ["Floyd Hill", -105.42], ["Genesee", -105.30], ["C-470", -105.20]];
 const EAST_LON = -105.185;
 
@@ -240,10 +247,11 @@ function scoreResort(key, ctx) {
   else if (lvl === 1) { s -= 1; chips.push({ t: "Wet roads", k: "" }); }
   else if (conds.length) chips.push({ t: "Dry roads", k: "" });
   if (R.westLon == null) chips.push({ t: "No I-70", k: "" });
+  if (R.overnight) chips.push({ t: "Overnight trip", k: "" });
   return { key, name: R.name, via: R.via, score: Math.max(0, Math.min(100, Math.round(s))), chips, new24, fc24, gust, delay, closed: closed.length, snowPts: 6 * new24 + 4 * fc24 };
 }
 function isOpen(ctx, k) { const s = (ctx.status || {})[k]; return !s || s.open !== false; }
-function rank(ctx) { return Object.keys(RESORTS).filter(k => isOpen(ctx, k)).map(k => scoreResort(k, ctx)).sort((a, b) => b.score - a.score || (a.delay || 0) - (b.delay || 0)); }
+function rank(ctx) { return Object.keys(RESORTS).filter(k => shown(k) && isOpen(ctx, k)).map(k => scoreResort(k, ctx)).sort((a, b) => b.score - a.score || (a.delay || 0) - (b.delay || 0)); }
 function headline(ranked) {
   const top = ranked[0], anySnow = ranked.some(r => r.new24 + r.fc24 >= 1);
   if (!anySnow && top.score - ranked[ranked.length - 1].score <= 2)
@@ -321,12 +329,15 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
       const sc = el("div", "score", r.score + " / 100"); sc.title = "Score out of 100: snow adds, wind, delays and closures subtract";
       row.append(el("div", "rnum", String(i + 1)), mid, sc); list.append(row);
     });
-    Object.keys(RESORTS).filter(k => !isOpen(ctx, k)).forEach(k => {
+    Object.keys(RESORTS).filter(k => shown(k) && !isOpen(ctx, k)).forEach(k => {
       const row = el("div", "rrow closed"), mid = el("div");
       mid.append(el("div", "rname", RESORTS[k].name), el("div", "rsub", ctx.status[k].note || "Not open yet"));
       row.append(el("div", "rnum", ""), mid, el("div", "tag", "Closed")); list.append(row);
     });
     pick.append(list);
+    const tog = el("label", "toggle"), cb = el("input"); cb.type = "checkbox"; cb.checked = SHOW_OVERNIGHT;
+    cb.onchange = () => { SHOW_OVERNIGHT = cb.checked; try { localStorage.setItem("ski-overnight", cb.checked ? "1" : "0"); } catch (e) {} D.ranked = rank(D.ctx); fitMap = true; render(); };
+    tog.append(cb, " Include overnight trips: Steamboat and Aspen Snowmass"); pick.append(tog);
     if (ctx.statusDate) pick.append(el("p", "note", `Open or closed, and lift counts, were checked by hand on ${ctx.statusDate} from each resort's own report. They do not update on their own yet.`));
 
     // I-70 stats
@@ -357,6 +368,7 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
     ["", "Base depth", "New 24h", "New 72h", "Temp now", "Snow next 24h", "24 to 48h", "48 to 72h", "Low / high", "Max gust"].forEach(t => hr.append(el("th", "", t)));
     tb.append(hr); let partial = false;
     for (const k in RESORTS) {
+      if (!shown(k)) continue;
       const sn = ctx.snow[k], w = (ctx.forecast[k] || { w: {} }).w, f = n => w[n] || {}, tr = el("tr");
       const inch = v => v == null || v === "" ? "n/a" : `${+v}"`;
       const newCell = o => { if (!o) return "n/a"; if (!o.full) partial = true; return `${o.inches}"${o.full ? "" : "*"}`; };
@@ -372,34 +384,35 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
 
     // Alerts
     const al = $("alerts"); al.replaceChildren();
-    const mine = e => Object.values(RESORTS).some(R => onRoute(R, e.route, e.mp_start, e.mp_end));
+    const vis = Object.keys(RESORTS).filter(shown).map(k => RESORTS[k]);
+    const mine = e => vis.some(R => onRoute(R, e.route, e.mp_start, e.mp_end));
     const order = { roadClosures: 0, chainLaws: 1, roadReports: 2 }, names = { roadClosures: ["Closure", "crit"], chainLaws: ["Traction law", "warn"], roadReports: ["Incident", ""] };
     const evs = ctx.events.filter(e => e.class in order && mine(e)).sort((a, b) => order[a.class] - order[b.class]);
     if (!evs.length) al.append(el("p", "note", "No closures, traction laws or incidents on your routes right now."));
     evs.forEach(e => {
       const d = el("div", "alert"), [n, c] = names[e.class];
-      const who = Object.values(RESORTS).filter(R => onRoute(R, e.route, e.mp_start, e.mp_end)).map(R => R.name).join(", ");
+      const who = vis.filter(R => onRoute(R, e.route, e.mp_start, e.mp_end)).map(R => R.name).join(", ");
       d.append(el("span", "tag " + c, n), el("div", "", e.title), el("small", "", `Affects ${who}${e.began ? ", since " + fmtTime(new Date(e.began)) : ""}`));
       al.append(d);
     });
     const work = ctx.events.filter(e => e.class === "roadWork" && mine(e)).length;
     if (work) al.append(el("p", "note", `${work} road work ${work === 1 ? "zone" : "zones"} listed on these routes, including scheduled night work.`));
     const cd = $("conds"); cd.replaceChildren();
-    const rel = ctx.conds.filter(c => Object.values(RESORTS).some(R => onRoute(R, c.route, c.start_mp, c.end_mp))).sort((a, b) => normRoute(a.route).localeCompare(normRoute(b.route)) || b.start_mp - a.start_mp);
+    const rel = ctx.conds.filter(c => vis.some(R => onRoute(R, c.route, c.start_mp, c.end_mp))).sort((a, b) => normRoute(a.route).localeCompare(normRoute(b.route)) || b.start_mp - a.start_mp);
     if (!rel.length) cd.append(el("p", "note", "No condition reports yet."));
     rel.forEach(c => { const d = el("div", "cond"); d.append(el("span", "", `${c.route}: ${c.area}`), el("span", "", cleanCond(c.condition))); cd.append(d); });
   }
 
-  let map = null, layer = null;
+  let map = null, layer = null, fitMap = true;
   function drawMap() {
     if (typeof L === "undefined") { $("map").textContent = "The map could not load."; return; }
     const { ctx, ranked } = D, row = ctx.speedRow || {};
     if (!map) {
       map = L.map("map", { scrollWheelZoom: false });
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 13, attribution: "&copy; OpenStreetMap contributors" }).addTo(map);
-      map.fitBounds([[39.45, -106.22], [39.98, -104.95]]);
       layer = L.layerGroup().addTo(map);
     }
+    if (fitMap) { map.fitBounds(SHOW_OVERNIGHT ? [[39.15, -107.36], [40.52, -104.95]] : [[39.45, -106.22], [39.98, -104.95]]); fitMap = false; }
     map.invalidateSize(); layer.clearLayers();
     const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
     const col = v => v == null ? "#8a8a84" : v >= 50 ? css("--good") : v >= 30 ? css("--warn") : css("--crit");
@@ -409,7 +422,7 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
         .bindTooltip(`${west ? "Westbound" : "Eastbound"} near ${nearLandmark((+s.start_lon + +s.end_lon) / 2)}: ${v == null ? "no reading" : v + " mph, " + speedWord(v)}`, { sticky: true }).addTo(layer);
     });
     const pin = (ll, text, cls) => L.marker(ll, { interactive: false, icon: L.divIcon({ className: "pinwrap", html: el("div", "pin " + cls, text), iconSize: [0, 0] }) }).addTo(layer);
-    Object.keys(RESORTS).forEach(k => {
+    Object.keys(RESORTS).filter(shown).forEach(k => {
       const i = ranked.findIndex(r => r.key === k);
       pin(PINS[k], i < 0 ? `${RESORTS[k].name}: closed` : `${i + 1}. ${RESORTS[k].name}`, i < 0 ? "off" : i === 0 ? "top" : "");
     });
