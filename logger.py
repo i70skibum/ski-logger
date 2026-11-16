@@ -550,7 +550,7 @@ def log_resort_status(state):
         r["open"], r["lifts"], r["trails"] = bool(v.get("open")), str(v["lifts"]), str(v.get("trails", ""))
         if r["open"]:
             r.pop("note", None)
-        elif v.get("note"):
+        elif v.get("note") and re.search(r"\d", str(v["note"])):  # only notes that carry a date
             r["note"] = str(v["note"])[:120]
         rows.append([NOW_ISO, key, r["open"], r["lifts"], r["trails"], r.get("note", "")])
     if rows:
