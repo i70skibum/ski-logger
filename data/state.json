@@ -926,12 +926,14 @@
    "type": "standard"
   }
  },
- "forecast_last": "2026-11-15T23:29:22+00:00",
- "last_run": "2026-11-15T19:21:46-07:00",
+ "forecast_last": "2026-11-16T02:30:50+00:00",
+ "last_run": "2026-11-15T19:30:50-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
+  "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
   "copper": "https://api.weather.gov/gridpoints/BOU/21,53",
   "eldora": "https://api.weather.gov/gridpoints/BOU/43,72",
+  "steamboat": "https://api.weather.gov/gridpoints/GJT/162,159",
   "winterpark": "https://api.weather.gov/gridpoints/BOU/36,70"
  },
  "road_conditions": {
