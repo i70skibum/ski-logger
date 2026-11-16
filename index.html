@@ -304,7 +304,7 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
       csv2("snotel", month, true), csv2("forecast", month, true), csv2("road_conditions", month, true), get("resort_status.json", true)]);
     if (!state.last_run) throw new Error("Could not load the logger data.");
     const segs = segments(segRows), refs = refSpeeds(speedRows, segs), speedRow = speedRows[speedRows.length - 1] || null;
-    const ctx = { segs, refs, speedRow, events: Object.values(state.events || {}), conds: latestConds(rc), forecast: latestForecast(fc), snow: {}, status: rs.resorts || {}, statusDate: rs.checked || "" };
+    const ctx = { segs, refs, speedRow, events: Object.values(state.events || {}), conds: latestConds(rc), forecast: latestForecast(fc), snow: {}, status: rs.resorts || {}, statusDate: rs.checked || "", statusAuto: !!rs.auto };
     for (const k in RESORTS) ctx.snow[k] = snowSummary(snow, k);
     D = { now, day, state, ctx, segRows, speedRows, series: delaySeries(speedRows, segs, refs, day), ranked: rank(ctx) };
     render();
@@ -338,7 +338,7 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
     const tog = el("label", "toggle"), cb = el("input"); cb.type = "checkbox"; cb.checked = SHOW_OVERNIGHT;
     cb.onchange = () => { SHOW_OVERNIGHT = cb.checked; try { localStorage.setItem("ski-overnight", cb.checked ? "1" : "0"); } catch (e) {} D.ranked = rank(D.ctx); fitMap = true; render(); };
     tog.append(cb, " Include overnight trips: Steamboat and Aspen Snowmass"); pick.append(tog);
-    if (ctx.statusDate) pick.append(el("p", "note", `Open or closed, and lift counts, were checked by hand on ${ctx.statusDate} from each resort's own report. They do not update on their own yet.`));
+    if (ctx.statusDate) pick.append(el("p", "note", ctx.statusAuto ? `Lifts, trails and opening dates are read from each resort's own report at 6 AM and noon. Last check: ${ctx.statusDate}.` : `Open or closed, and lift counts, were checked by hand on ${ctx.statusDate} from each resort's own report.`));
 
     // I-70 stats
     const stats = $("i70stats"); stats.replaceChildren();
@@ -497,6 +497,7 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
     ["snotel", "Snow stations", "Hourly snow depth, snow water content and temperature near each mountain. Times are Mountain Standard Time."],
     ["forecast", "Forecasts", "National Weather Service summaries for each mountain, every 3 hours."],
     ["travel", "Travel times", "CDOT segment travel times, kept only when CDOT reports a nonzero value."],
+    ["resort_status", "Lifts and trails open", "Each resort's open lifts and trails, read from its own report twice a day."],
     ["errors", "Errors", "Any source that failed on a given run."],
   ];
   const kb = n => n > 1e6 ? (n / 1e6).toFixed(1) + " MB" : Math.max(1, Math.round(n / 1e3)) + " KB";
