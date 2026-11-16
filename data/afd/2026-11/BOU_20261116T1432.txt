@@ -1,0 +1,134 @@
+
+000
+FXUS65 KBOU 162132
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+232 PM MST Mon Nov 16 2026
+
+.KEY MESSAGES... 
+
+- Increasing confidence in gusty winds across the Front Range
+  mountains and foothills late Tuesday night into Wednesday. Some
+  more isolated stronger wind gusts could reach the lower 
+  elevations on Wednesday. 
+
+- Remaining mild and dry across the plains over the next several
+  days.
+
+- Chances for mountain snow late Tuesday night into Wednesday
+  morning, and again Friday into Saturday.
+
+
+&&
+
+.DISCUSSION /Through Monday/...
+Issued at 220 PM MST Mon Nov 16 2026
+
+GOES-19 satellite imagery shows mostly clear skies this afternoon 
+after dense fog this morning across northeast Colorado. Today and 
+Tuesday will be dry for the area and mild with ridging aloft. High 
+temperatures on the plains are forecast to be in the low to mid 60s. 
+High-resolution guidance is in good agreement that a Denver Cyclone 
+is likely to form on Tuesday. As a result, some locations on the 
+eastern plains could see wind gusts of 25-35 mph tomorrow afternoon. 
+As the week progresses, high temperatures on the plains will cool 
+down into the 50s. By late Tuesday evening into early Wednesday 
+morning, troughing should move into the state. This will open the 
+door for snow chances in the high country. Most locations will only 
+see a dusting at most with limited moisture in place, but the Park 
+Range and northern Gore Range could get up to 2 inches of snow given 
+favorable upslope.
+
+By early Wednesday morning as any precipitation begins to wind down, 
+the ingredients for a Bora event could come together for our area. 
+Cold air advection, little wind shear, and strong near-westerly 
+cross barrier flow is expected to develop with mixed layer winds 
+reaching or even exceeding 50-60 kts through much of Wednesday 
+morning and into the early afternoon. On Wednesday morning, models 
+show northeast CO near the right exit region of a jet aloft as well 
+as strong subsidence which would aid in increasing wind speeds. 
+Model soundings from the latest RRFS runs have shown a stable layer 
+around 650-700 mb, so this could be something to watch for in terms 
+of any enhancement of winds. Some potential limiting factors include 
+only a very weak surface pressure gradient and the jet positioning. 
+By Wednesday afternoon, the jet could be overhead, which would 
+likely confine the strong wind gusts to far northern portions of our 
+area and into Wyoming. 
+
+REFS and NBM mean max wind gusts on Wednesday now show peak wind 
+gusts of at least 60-65 mph for the northern Front Range mountains 
+and 50-60 mph for the northern Front Range foothills. The high 
+resolution guidance that has come in today is hinting at the 
+potential for a few stronger wind gusts to make it down into the 
+typical windy areas in these setups along the Front Range such as 
+the Hwy 93 corridor as well as northern Weld County. This solution 
+is still rather uncertain, but as of now we expect wind gusts to 
+stay below high wind criteria for the Hwy 93 corridor. 
+
+As is typical in these setups, there could be some narrow channels 
+of 30-40 mph wind gusts for the Denver metro if the ingredients can 
+come together. In general, confidence is increasing in the potential 
+for a high wind event for portions of the high country north of I-70 
+including the higher terrain of Larimer and Boulder counties on 
+Wednesday morning and potentially lasting into the afternoon. 
+Therefore, we have issued a High Wind Watch for the northern
+Front Range foothills from 2am to 2pm Wednesday. The High Wind
+Watch could need to be expanded in future packages if confidence 
+increases in the peak wind gusts meeting criteria at the highest 
+elevations.
+
+On Thursday, we expect some weak ridging with near-average 
+temperatures. The next system looks to move in starting Friday, but 
+should progress slower than the early week system. Once again, 
+this system will favor the high country for any precipitation with
+southwest to west flow aloft. Precipitation chances will likely 
+continue on Saturday. Ensemble guidance shows that the plains has 
+a very low chance for some light scattered rain from this system. 
+At this time, snow chances remain near zero for Denver through at 
+least this weekend. Therefore, we are nearly guaranteed to have a 
+top 5 latest first snow for Denver. With another strong jet aloft 
+moving through and a tightening pressure gradient, we could be in 
+for another period of stronger wind gusts Friday afternoon into 
+Saturday. From Sunday onward, a more zonal pattern looks to be in 
+place with signs in ensemble guidance of near-average to below 
+average temperatures becoming more likely.
+
+&&
+
+.AVIATION /18Z TAFS through 18Z Tuesday/...
+Issued at 1053 AM MST Mon Nov 16 2026
+
+VFR conditions expected to prevail through the TAF period. Winds are 
+light and variable and are expected to stay that way for the next 
+few hours before settling in easterly flow for most of the afternoon 
+and evening. Around 02Z, winds should start turning southeasterly, 
+then become south/southwesterly overnight. Patchy fog could develop 
+over the eastern plains again tomorrow morning, though the 
+predominantly southerly winds expected across the area would keep 
+any fog to the east/northeast of the TAF sites. That being said, if 
+KDEN or KBJC sees any northerly winds in the early morning hours, 
+they could experience fog.
+
+There is good agreement in the models for a Denver cyclone to start 
+developing Tuesday morning around 18/19Z and strengthening through 
+the afternoon. Current guidance places the center of the low 
+slightly to the west/northwest of KDEN, with increasing chances for 
+gusty (20-30kts) southwesterly winds over both KDEN and KAPA. Should 
+this solution pan out, KBJC would not experience these gusty winds. 
+Ultimately, both the wind direction and speed tomorrow afternoon 
+will depend on where the center of the cyclone develops.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+High Wind Watch from late Tuesday night through Wednesday 
+afternoon for COZ035.
+
+&&
+
+$$
+
+DISCUSSION...MV
+AVIATION...AGS
