@@ -1,5 +1,5 @@
 {
-  "checked": "Nov 15, 7:21 PM",
+  "checked": "Nov 16, 6:02 AM",
   "resorts": {
     "copper": {
       "open": true,
@@ -18,7 +18,6 @@
     },
     "eldora": {
       "open": false,
-      "note": "Opening Day is coming soon, and we've extended savings on 26/27 passes",
       "lifts": "0 of 10",
       "trails": "0 of 63"
     },

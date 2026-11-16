@@ -25,18 +25,6 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadClosures:CDOT-36402401704WB": {
-   "began": "2026-11-16T05:05:59-07:00",
-   "class": "roadClosures",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36402401704WB",
-   "mp_end": "",
-   "mp_start": 283.38683937097085,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6 westbound: Road closed.",
-   "type": "critical"
-  },
   "roadClosures:COSEG-585450": {
    "began": "2026-11-15T17:29:04.830000-07:00",
    "class": "roadClosures",
@@ -939,7 +927,7 @@
   }
  },
  "forecast_last": "2026-11-16T11:45:46+00:00",
- "last_run": "2026-11-16T05:45:54-07:00",
+ "last_run": "2026-11-16T06:02:52-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -991,7 +979,7 @@
   "aspen": "2026-11-16 04:00",
   "copper": "2026-11-16 04:00",
   "eldora": "2026-11-16 04:00",
-  "steamboat": "2026-11-16 04:00",
+  "steamboat": "2026-11-16 05:00",
   "winterpark": "2026-11-16 04:00"
  },
  "speed_segments": [
