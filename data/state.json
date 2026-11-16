@@ -1,18 +1,6 @@
 {
  "afd_last": "43886f4c-020d-4c5d-afce-1ae55d3a26d1",
  "events": {
-  "chainLaws:CDOT-36371135250BOTH": {
-   "began": "2026-11-14T15:07:17-07:00",
-   "class": "chainLaws",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36371135250BOTH",
-   "mp_end": 80.00021689015102,
-   "mp_start": 72.0002670906958,
-   "pos_bearing": "N",
-   "route": "CO 9",
-   "title": "CO 9 in both directions: Passenger vehicle traction law.",
-   "type": "standard"
-  },
   "roadClosures:CDOT-36057055825BOTH": {
    "began": "2026-10-29T15:49:45-06:00",
    "class": "roadClosures",
@@ -913,6 +901,18 @@
    "title": "I-70 eastbound: Right lane closed.",
    "type": "routine"
   },
+  "roadWork:CDOT-36404644841EB": {
+   "began": "2026-11-16T07:49:33-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36404644841EB",
+   "mp_end": "",
+   "mp_start": 132.9996032570736,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road maintenance operations.",
+   "type": "routine"
+  },
   "winterDriving:COSEG-522873": {
    "began": "2026-11-15T17:22:57.777000-07:00",
    "class": "winterDriving",
@@ -939,7 +939,7 @@
   }
  },
  "forecast_last": "2026-11-16T14:45:47+00:00",
- "last_run": "2026-11-16T07:45:47-07:00",
+ "last_run": "2026-11-16T08:00:46-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
