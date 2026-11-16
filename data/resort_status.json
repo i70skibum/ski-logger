@@ -1,5 +1,5 @@
 {
-  "checked": "Nov 14",
+  "checked": "Nov 15",
   "resorts": {
     "copper": {
       "open": true,
@@ -19,6 +19,14 @@
     "eldora": {
       "open": false,
       "note": "Not open yet. The resort says opening day is coming soon."
+    },
+    "steamboat": {
+      "open": false,
+      "note": "Scheduled to open Nov 21."
+    },
+    "aspen": {
+      "open": false,
+      "note": "Aspen Mountain and Snowmass scheduled to open Nov 26."
     }
   }
 }
