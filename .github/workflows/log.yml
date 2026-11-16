@@ -3,7 +3,12 @@ name: ski-logger
 on:
   schedule:
     - cron: "7,22,37,52 * * * *"   # every 15 minutes, off the busy minutes (GitHub may start runs late)
-  workflow_dispatch:          # lets you run it by hand from the Actions tab
+  workflow_dispatch:          # lets you run it by hand from the Actions tab, and the Cloudflare Worker start it
+    inputs:
+      status:
+        description: "Resort lift and trail status from the Cloudflare Worker (JSON)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -22,6 +27,7 @@ jobs:
       - name: Collect data
         env:
           CDOT_API_KEY: ${{ secrets.CDOT_API_KEY }}
+          RESORT_STATUS: ${{ inputs.status }}
         run: python3 logger.py
 
       - name: Save data to the repo
