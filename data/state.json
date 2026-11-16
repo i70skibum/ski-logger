@@ -913,6 +913,18 @@
    "title": "I-70 westbound: Right lane closed.",
    "type": "routine"
   },
+  "roadWork:CDOT-36399310570EB": {
+   "began": "2026-11-16T01:21:10-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36399310570EB",
+   "mp_end": 125.00018665094078,
+   "mp_start": 124.00000047107157,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Right lane closed.",
+   "type": "routine"
+  },
   "winterDriving:COSEG-522873": {
    "began": "2026-11-15T17:22:57.777000-07:00",
    "class": "winterDriving",
@@ -939,7 +951,7 @@
   }
  },
  "forecast_last": "2026-11-16T05:30:53+00:00",
- "last_run": "2026-11-16T01:15:46-07:00",
+ "last_run": "2026-11-16T01:30:52-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -989,10 +1001,10 @@
  "snotel_last": {
   "abasin": "2026-11-16 00:00",
   "aspen": "2026-11-15 23:00",
-  "copper": "2026-11-15 23:00",
-  "eldora": "2026-11-15 23:00",
+  "copper": "2026-11-16 00:00",
+  "eldora": "2026-11-16 00:00",
   "steamboat": "2026-11-16 00:00",
-  "winterpark": "2026-11-15 23:00"
+  "winterpark": "2026-11-16 00:00"
  },
  "speed_segments": [
   "I70E024",
