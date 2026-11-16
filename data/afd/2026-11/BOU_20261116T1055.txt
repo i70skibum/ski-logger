@@ -1,0 +1,120 @@
+
+000
+FXUS65 KBOU 161755
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1055 AM MST Mon Nov 16 2026
+
+.KEY MESSAGES... 
+
+- Remaining mild and dry across the plains over the next several
+  days.
+
+- Chances for mountain snow late Tuesday night into Wednesday
+  morning, and again Friday into Saturday.
+
+- Gusty winds possible across the Front Range mountains and
+  foothills Tuesday night into Wednesday.
+
+&&
+
+.UPDATE...
+Issued at 449 AM MST Mon Nov 16 2026
+
+Webcams show fog has become dense in areas along I-76
+fromBrighton to Sterling. Because of this, decided to issue a
+Dense Fog Advisory until 10 AM. 
+
+&&
+
+.DISCUSSION /Through Sunday/...
+Issued at 1129 PM MST Sun Nov 15 2026
+
+A mix of stratus, mist, and fog are evident across the eastern
+plains tonight. Based on surface observations, most of the lower
+visibilities seem to be east of the main stratus deck that has
+persisted across Lincoln county into the far northeastern corner
+this evening. Short term guidance continues to develop additional
+fog across most of the Platte River valley into the
+northern/northwestern Denver metro, though recent HRRR runs have
+backed off of the southwestern extent of this fog through Monday
+AM. We've kept patchy fog in the grids across most of the lower
+elevations but did trim some of it out of the I-25 corridor. 
+
+Monday should be a mild day across most of our forecast area as
+the ridge axis shifts eastward. We'll have broad but dry
+southwesterly flow aloft during the day ahead of our next
+shortwave, with temperatures again reaching the low to mid 60s
+across the plains. Similar conditions are expected on Tuesday as
+the shortwave continues to approach the region and the mid-level
+flow strengthens in response. Highs are likely to reach the mid
+60s in the metro with some guidance hinting at potentially warmer
+temperatures.
+
+The first of two storm systems will reach the area on Wednesday,
+though this one looks to only provide a glancing blow to the
+region as it quickly ejects into the northern Rockies/northern
+Great Plains. Guidance does have a decent push of moisture across
+the western half of the state Tuesday night, but quickly dries us
+out as the mid-level low pushes into northeastern Montana during 
+the day Wednesday. While the 700-500mb flow briefly is favorable 
+for orographic snow showers, the limited duration of sufficient 
+moisture will keep snow accumulations to a minimum (generally an 
+inch or less). The main story this period may be wind, as this 
+looks to be our first bora type event of the season. Cross 
+sections reveal a brief/marginally favorable mountain wave 
+amplification setup Wednesday morning. I am a bit skeptical of 
+the higher end solution advertised by the RRFS at this time, but 
+50kt cross barrier flow along with a modest stable layer would 
+support a few gusts near high wind criteria over the Front Range 
+mountains and higher foothills. On the other hand, any additional 
+northward shift with this shortwave would likely limit wind 
+potential across our forecast area.
+
+There should be a brief break between systems on Thursday, with
+mild and generally quiet weather across the state. The next system
+arrives Friday and looks a little more organized and longer 
+lasting, as a broad trough axis moves through the region. While 
+this is still unlikely to produce much (other than maybe some 
+gusty winds) across the plains, the overall setup does look more 
+favorable for mountain snow across the northern half of the state.
+Guidance generally features a longer period of orographic snow, 
+initially supported by some QG ascent and a favorable jet 
+position. Chances for snow should linger into Saturday before
+moisture diminishes on Sunday.
+
+&&
+
+.AVIATION /18Z TAFS through 18Z Tuesday/...
+Issued at 1053 AM MST Mon Nov 16 2026
+
+VFR conditions expected to prevail through the TAF period. Winds are 
+light and variable and are expected to stay that way for the next 
+few hours before settling in easterly flow for most of the afternoon 
+and evening. Around 02Z, winds should start turning southeasterly, 
+then become south/southwesterly overnight. Patchy fog could develop 
+over the eastern plains again tomorrow morning, though the 
+predominantly southerly winds expected across the area would keep 
+any fog to the east/northeast of the TAF sites. That being said, if 
+KDEN or KBJC sees any northerly winds in the early morning hours, 
+they could experience fog.
+
+There is good agreement in the models for a Denver cyclone to start 
+developing Tuesday morning around 18/19Z and strengthening through 
+the afternoon. Current guidance places the center of the low 
+slightly to the west/northwest of KDEN, with increasing chances for 
+gusty (20-30kts) southwesterly winds over both KDEN and KAPA. Should 
+this solution pan out, KBJC would not experience these gusty winds. 
+Ultimately, both the wind direction and speed tomorrow afternoon 
+will depend on where the center of the cyclone develops.
+
+
+&&
+
+$$
+
+UPDATE...BM
+DISCUSSION...Hiris
+AVIATION...AGS
