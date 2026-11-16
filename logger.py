@@ -526,11 +526,49 @@ def log_cdot(state):
 
 
 # ---------------------------------------------------------------------------
+# Resort status (lifts, trails, opening day), read by the Cloudflare Worker
+# ---------------------------------------------------------------------------
+
+def log_resort_status(state):
+    """The Worker reads each resort's conditions page twice a day and passes the result here."""
+    raw = os.environ.get("RESORT_STATUS", "").strip()
+    if not raw:
+        return "no update this run"
+    new = json.loads(raw)
+    path = os.path.join(DATA, "resort_status.json")
+    try:
+        with open(path) as f:
+            cur = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        cur = {}
+    res = cur.setdefault("resorts", {})
+    rows = []
+    for key, v in new.items():
+        if key not in RESORTS or not isinstance(v, dict) or not v.get("lifts"):
+            continue  # resort page could not be read: keep what we had
+        r = res.setdefault(key, {})
+        r["open"], r["lifts"], r["trails"] = bool(v.get("open")), str(v["lifts"]), str(v.get("trails", ""))
+        if r["open"]:
+            r.pop("note", None)
+        elif v.get("note"):
+            r["note"] = str(v["note"])[:120]
+        rows.append([NOW_ISO, key, r["open"], r["lifts"], r["trails"], r.get("note", "")])
+    if rows:
+        cur["checked"] = NOW.strftime("%b %d, %I:%M %p").replace(" 0", " ")
+        cur["auto"] = True
+        with open(path, "w") as f:
+            json.dump(cur, f, indent=2)
+            f.write("\n")
+    append_rows("resort_status", ["checked_at", "resort", "open", "lifts", "trails", "note"], rows)
+    return len(rows)
+
+
+# ---------------------------------------------------------------------------
 
 def main():
     state = load_state()
     jobs = [("snotel", log_snotel), ("forecast", log_forecast), ("afd", log_afd),
-            ("events", log_events), ("cdot", log_cdot)]
+            ("events", log_events), ("cdot", log_cdot), ("resort_status", log_resort_status)]
     for name, fn in jobs:
         try:
             print(f"{name}: {fn(state)}")
