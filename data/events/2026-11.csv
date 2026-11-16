@@ -119,3 +119,4 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-15T18:15:50-07:00,start,CDOT-36346713439BOTH,roadWork,routine,I-70,BOTH_DIRECTIONS,E,138.998142632835,147.00513338165797,I-70 in both directions: Right lane closed.,2026-11-17T07:00:00-07:00
 2026-11-15T18:15:50-07:00,start,CDOT-36346713193BOTH,roadWork,routine,I-70,BOTH_DIRECTIONS,E,138.998142632835,147.00513338165797,I-70 in both directions: Right lane closed.,2026-11-15T07:00:00-07:00
 2026-11-15T18:15:50-07:00,end,CDOT-36392789537EB,roadReports,urgent,US 6,POSITIVE_DIRECTION,E,284.47700001474004,,US 6 eastbound: Lane(s) reopened to traffic.,2026-11-15T17:26:35-07:00
+2026-11-15T19:00:46-07:00,end,CDOT-36346713193BOTH,roadWork,routine,I-70,BOTH_DIRECTIONS,E,138.998142632835,147.00513338165797,I-70 in both directions: Right lane closed.,2026-11-15T07:00:00-07:00
