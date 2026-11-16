@@ -25,6 +25,18 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadClosures:CDOT-36404206471EB": {
+   "began": "2026-11-16T07:17:37-07:00",
+   "class": "roadClosures",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36404206471EB",
+   "mp_end": "",
+   "mp_start": 244.00539291801527,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
+   "type": "critical"
+  },
   "roadClosures:COSEG-585450": {
    "began": "2026-11-15T17:29:04.830000-07:00",
    "class": "roadClosures",
@@ -47,6 +59,18 @@
    "pos_bearing": "E",
    "route": "CO 82",
    "title": "CO 82 in both directions: Road closed.",
+   "type": "critical"
+  },
+  "roadReports:CDOT-36404206471EB": {
+   "began": "2026-11-16T07:17:37-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36404206471EB",
+   "mp_end": "",
+   "mp_start": 244.00539291801527,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
    "type": "critical"
   },
   "roadWork:CDOT-35509814419BOTH": {
@@ -915,7 +939,7 @@
   }
  },
  "forecast_last": "2026-11-16T11:45:46+00:00",
- "last_run": "2026-11-16T07:15:53-07:00",
+ "last_run": "2026-11-16T07:30:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -965,10 +989,10 @@
  "snotel_last": {
   "abasin": "2026-11-16 06:00",
   "aspen": "2026-11-16 05:00",
-  "copper": "2026-11-16 05:00",
-  "eldora": "2026-11-16 05:00",
+  "copper": "2026-11-16 06:00",
+  "eldora": "2026-11-16 06:00",
   "steamboat": "2026-11-16 06:00",
-  "winterpark": "2026-11-16 05:00"
+  "winterpark": "2026-11-16 06:00"
  },
  "speed_segments": [
   "I70E024",
