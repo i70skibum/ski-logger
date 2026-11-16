@@ -67,6 +67,18 @@ th:first-child, td:first-child { text-align: left; font-weight: 600; position: s
 footer { color: var(--ink2); font-size: 12px; padding: 4px 2px; }
 footer a { color: var(--accent); }
 #tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--card); font-size: 12px; padding: 4px 8px; border-radius: 6px; display: none; z-index: 5; max-width: 240px; }
+.tabs { display: flex; gap: 4px; }
+.tabs a { color: var(--ink2); text-decoration: none; font-size: 14px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); }
+.tabs a.on { color: var(--card); background: var(--ink); border-color: var(--ink); }
+.dsrow { display: grid; grid-template-columns: 1fr auto; gap: 6px 10px; padding: 8px 0; border-top: 1px solid var(--line); align-items: center; font-size: 13px; }
+.dsrow .btns { display: flex; gap: 6px; }
+.btn { font: inherit; font-size: 12px; padding: 3px 10px; border-radius: 6px; border: 1px solid var(--axis); background: var(--card); color: var(--ink); cursor: pointer; }
+.btn:hover { border-color: var(--ink2); }
+.preview { grid-column: 1 / -1; max-height: 320px; overflow: auto; border: 1px solid var(--line); border-radius: 6px; }
+.preview th, .preview td { text-align: left; font-weight: 400; }
+.preview th { position: sticky; top: 0; background: var(--card); font-weight: 600; }
+.preview th:first-child, .preview td:first-child { position: static; }
+.dsdesc { color: var(--ink2); font-size: 13px; margin: -4px 0 6px; }
 #map { height: 330px; border-radius: 8px; margin-bottom: 6px; z-index: 0; background: var(--line); }
 .leaflet-pane svg { width: auto; display: inline; }
 .pinwrap { overflow: visible; }
@@ -79,7 +91,8 @@ footer a { color: var(--accent); }
 </head>
 <body>
 <main>
-  <header><h1>Ski day pick</h1><p id="asof">Loading data</p></header>
+  <header><h1>Ski day pick</h1><nav class="tabs"><a href="#" id="tab-dash" class="on">Dashboard</a><a href="#data" id="tab-data">Raw data</a></nav><p id="asof">Loading data</p></header>
+  <section id="dataview" hidden><h2>Raw data</h2><p class="dsdesc">Everything the logger has saved, by month. Preview shows the newest rows. Downloads are CSV files that open in Excel, Numbers or Google Sheets. <a id="zipall" href="#">Download everything as a zip</a>.</p><div id="datasets">Loading file list</div></section>
   <section id="pick" aria-live="polite"></section>
   <section>
     <h2>Map and I-70 right now</h2>
@@ -453,6 +466,93 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
   setInterval(() => load().catch(fail), 300000);
   let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(render, 150); });
   document.addEventListener("pointerdown", ev => { if (!ev.target.closest("svg")) hideTip(); });
+})();
+</script>
+<script>
+(() => {
+  const host = location.hostname, owner = host.endsWith(".github.io") ? host.split(".")[0] : "i70skibum";
+  const repo = (host.endsWith(".github.io") && location.pathname.split("/")[1]) || "ski-logger";
+  const API = `https://api.github.com/repos/${owner}/${repo}/contents/data`;
+  const RAW = `https://raw.githubusercontent.com/${owner}/${repo}/main/data/`;
+  const $ = id => document.getElementById(id);
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  $("zipall").href = `https://github.com/${owner}/${repo}/archive/refs/heads/main.zip`;
+  const SETS = [
+    ["speed", "I-70 speeds", "Speed in mph for each road segment, every 15 minutes. One column per segment; the segments file says where each one is."],
+    ["road_conditions", "Road conditions", "CDOT's official condition reports (dry, wet, snow packed, icy), logged each time one changes."],
+    ["events", "Road alerts", "Closures, traction laws, incidents and road work, logged when each starts and ends."],
+    ["snotel", "Snow stations", "Hourly snow depth, snow water content and temperature near each mountain. Times are Mountain Standard Time."],
+    ["forecast", "Forecasts", "National Weather Service summaries for each mountain, every 3 hours."],
+    ["travel", "Travel times", "CDOT segment travel times, kept only when CDOT reports a nonzero value."],
+    ["errors", "Errors", "Any source that failed on a given run."],
+  ];
+  const kb = n => n > 1e6 ? (n / 1e6).toFixed(1) + " MB" : Math.max(1, Math.round(n / 1e3)) + " KB";
+  async function text(url) { const r = await fetch(url + "?t=" + Date.now(), { cache: "no-store" }); if (!r.ok) throw new Error(r.status); return r.text(); }
+  async function download(path, name) {
+    const blob = new Blob([await text(RAW + path)], { type: "text/csv" }), a = el("a");
+    a.href = URL.createObjectURL(blob); a.download = name; document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  }
+  function parse(t) {
+    const rows = [], q = /("([^"]|"")*"|[^,]*)(,|$)/g;
+    for (const line of t.split(/\r?\n/)) { if (!line) continue; const r = []; let m; q.lastIndex = 0;
+      while ((m = q.exec(line)) && m[0] !== "") { r.push(m[1].replace(/^"|"$/g, "").replace(/""/g, '"')); if (!m[3]) break; } rows.push(r); }
+    return rows;
+  }
+  async function preview(box, path) {
+    if (box.firstChild) { box.replaceChildren(); box.hidden = true; return; }
+    box.hidden = false; box.textContent = "Loading";
+    try {
+      const rows = parse(await text(RAW + path)), head = rows[0] || [], body = rows.slice(1).slice(-25).reverse();
+      const tb = el("table"), hr = el("tr"); head.forEach(h => hr.append(el("th", "", h))); tb.append(hr);
+      body.forEach(r => { const tr = el("tr"); head.forEach((_, i) => tr.append(el("td", "", r[i] ?? ""))); tb.append(tr); });
+      box.replaceChildren(el("p", "note", `${rows.length - 1} rows in this file. Newest ${body.length} shown first.`), tb);
+    } catch (e) { box.textContent = "Could not load this file."; }
+  }
+  function fileRow(label, sub, path, name, canPreview) {
+    const row = el("div", "dsrow"), left = el("div"), btns = el("div", "btns"), box = el("div", "preview"); box.hidden = true;
+    left.append(el("div", "", label), el("div", "rsub", sub));
+    if (canPreview) { const b = el("button", "btn", "Preview"); b.onclick = () => preview(box, path); btns.append(b); }
+    const d = el("button", "btn", "Download"); d.onclick = () => download(path, name).catch(() => alertless(d)); btns.append(d);
+    row.append(left, btns, box); return row;
+  }
+  const alertless = b => { b.textContent = "Failed, try again"; };
+  let built = false;
+  async function build() {
+    if (built) return; built = true;
+    const box = $("datasets");
+    try {
+      const top = await (await fetch(API, { cache: "no-store" })).json();
+      if (!Array.isArray(top)) throw new Error("list");
+      const dirs = new Set(top.filter(f => f.type === "dir").map(f => f.name));
+      box.replaceChildren();
+      for (const [dir, title, desc] of SETS) {
+        if (!dirs.has(dir)) continue;
+        const files = (await (await fetch(`${API}/${dir}`, { cache: "no-store" })).json()).filter(f => /^\d{4}-\d{2}\.csv$/.test(f.name)).sort((a, b) => b.name.localeCompare(a.name));
+        const sec = el("div"); sec.append(el("h3", "", title), el("p", "dsdesc", desc));
+        files.forEach(f => sec.append(fileRow(new Date(f.name.slice(0, 7) + "-15").toLocaleDateString("en-US", { month: "long", year: "numeric" }), kb(f.size), `${dir}/${f.name}`, `ski-${dir}-${f.name}`, true)));
+        if (dir === "speed") sec.append(fileRow("Segment locations", "Where each speed column is on I-70", "speed/segments.csv", "ski-speed-segments.csv", true));
+        box.append(sec);
+      }
+      if (dirs.has("afd")) {
+        const sec = el("div"); sec.append(el("h3", "", "Forecast discussions"), el("p", "dsdesc", "The Boulder weather office's written reasoning, one text file per issue."));
+        const months = (await (await fetch(`${API}/afd`, { cache: "no-store" })).json()).filter(f => f.type === "dir").map(f => f.name).sort().reverse();
+        if (months[0]) {
+          const files = (await (await fetch(`${API}/afd/${months[0]}`, { cache: "no-store" })).json()).sort((a, b) => b.name.localeCompare(a.name)).slice(0, 10);
+          files.forEach(f => { const row = el("div", "dsrow"), a = el("a", "", f.name.replace(/^BOU_|\.txt$/g, "").replace(/(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})/, "$1-$2-$3 $4:$5")); a.href = RAW + `afd/${months[0]}/${f.name}`; a.style.color = "var(--accent)"; row.append(a, el("span", "rsub", kb(f.size))); sec.append(row); });
+          sec.append(el("p", "note", "The 10 newest are shown. The zip download has all of them."));
+        }
+        box.append(sec);
+      }
+    } catch (e) { built = false; box.textContent = "Could not load the file list. GitHub limits how often this page can ask, so try again in a few minutes."; }
+  }
+  function route() {
+    const data = location.hash === "#data";
+    document.querySelectorAll("main > section").forEach(s => { s.hidden = data ? s.id !== "dataview" : s.id === "dataview"; });
+    $("tab-data").classList.toggle("on", data); $("tab-dash").classList.toggle("on", !data);
+    if (data) build(); else window.dispatchEvent(new Event("resize"));
+  }
+  addEventListener("hashchange", route); route();
 })();
 </script>
 </body>
