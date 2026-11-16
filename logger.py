@@ -529,6 +529,9 @@ def log_cdot(state):
 # Resort status (lifts, trails, opening day), read by the Cloudflare Worker
 # ---------------------------------------------------------------------------
 
+MONTH_DAY = re.compile(r"(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.? \d{1,2}\b", re.I)
+
+
 def log_resort_status(state):
     """The Worker reads each resort's conditions page twice a day and passes the result here."""
     raw = os.environ.get("RESORT_STATUS", "").strip()
@@ -550,8 +553,10 @@ def log_resort_status(state):
         r["open"], r["lifts"], r["trails"] = bool(v.get("open")), str(v["lifts"]), str(v.get("trails", ""))
         if r["open"]:
             r.pop("note", None)
-        elif v.get("note") and re.search(r"\d", str(v["note"])):  # only notes that carry a date
+        elif MONTH_DAY.search(str(v.get("note", ""))):  # keep only notes that carry a date
             r["note"] = str(v["note"])[:120]
+        elif not MONTH_DAY.search(r.get("note", "")):
+            r.pop("note", None)
         rows.append([NOW_ISO, key, r["open"], r["lifts"], r["trails"], r.get("note", "")])
     if rows:
         cur["checked"] = NOW.strftime("%b %d, %I:%M %p").replace(" 0", " ")
