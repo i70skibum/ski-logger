@@ -181,18 +181,6 @@
    "title": "US 6 eastbound: Bridge construction.",
    "type": "routine"
   },
-  "roadWork:CDOT-36311758540EB": {
-   "began": "2026-11-16T06:30:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36311758540EB",
-   "mp_end": "",
-   "mp_start": 455.99674105752536,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6 eastbound: Bridge construction.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36311758597EB": {
    "began": "2026-11-17T06:30:00-07:00",
    "class": "roadWork",
@@ -224,18 +212,6 @@
    "id": "CDOT-36311758632EB",
    "mp_end": "",
    "mp_start": 455.99674105752536,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6 eastbound: Bridge construction.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36311758662EB": {
-   "began": "2026-11-16T06:30:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36311758662EB",
-   "mp_end": "",
-   "mp_start": 452.9990021480323,
    "pos_bearing": "E",
    "route": "US 6",
    "title": "US 6 eastbound: Bridge construction.",
@@ -855,7 +831,7 @@
   }
  },
  "forecast_last": "2026-11-16T23:45:55+00:00",
- "last_run": "2026-11-16T17:15:46-07:00",
+ "last_run": "2026-11-16T17:30:53-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
