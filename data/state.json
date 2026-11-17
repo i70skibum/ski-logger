@@ -843,7 +843,7 @@
   }
  },
  "forecast_last": "2026-11-16T23:45:55+00:00",
- "last_run": "2026-11-16T19:30:51-07:00",
+ "last_run": "2026-11-16T19:45:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
