@@ -1,0 +1,178 @@
+
+000
+FXUS65 KBOU 171753
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1053 AM MST Tue Nov 17 2026
+
+.KEY MESSAGES... 
+
+- Locally dense fog across the plains this morning, mainly in 
+  Weld and Morgan counties.
+
+- First wind event of the season likely for the northern Front
+  Range mountains and foothills Tuesday night into Wednesday. A
+  few gusts up to 75 mph plausible. 
+
+- Elevated or near-critical fire weather conditions possible
+  across the Denver metro and Palmer Divide Wednesday afternoon.
+
+- Chances for mountain snow late Tuesday night into Wednesday
+  morning. Another event likely Friday into Saturday.
+
+&&
+
+.DISCUSSION /Through Monday/...
+Issued at 1134 PM MST Mon Nov 16 2026
+
+We're starting to see stratus and fog increase again across
+portions of the northeast plains tonight, with some patchy dense
+fog noted near the edge of the stratus deck in Weld county.
+Guidance again favors fog across the Poudre/South Platte River
+valleys east of I-25 late tonight into the mid-morning hours.
+There's some signals we could get dense fog again across 
+Weld/Morgan/Logan counties but will punt a decision on Dense Fog 
+Advisories for a couple hours longer.
+
+Tuesday should be another warm and dry day across the forecast
+area, with southwesterly flow aloft increasing through the day
+ahead of a sharp shortwave. That shortwave is expected to push
+through/north of the region Tuesday night, before quickly lifting
+into the Dakotas by Wednesday afternoon.
+
+Guidance produces a well-defined area of rain and snow across Utah
+during the day Tuesday - associated with the mid-level 
+trough/front - which quickly advances into the western fringes of
+our CWA late Tuesday evening. High resolution guidance continues
+to be more bullish with the eastward extent of precip/snow with 
+this wave, producing a few inches of snow across the Park Range 
+and an inch or so for most of the central/northern mountains 
+overnight. Steep lapse rates and mid-level frontogenesis, along 
+with 0-2km mean winds near 30-35kt would favor some 
+convective/snow squall like structures across the northern 
+mountains that could produce some briefly moderate/heavy snow 
+before moisture quickly dries up overnight. Models also hold on to
+a little bit of additional light snow for the Park Range 
+Wednesday morning before completely drying out the boundary layer 
+after noon.
+
+While the snow is a welcome arrival, this system will also produce
+quite a bit of wind for the Front Range. Cross-barrier flow
+increases to around 50kt Wednesday morning in a substantially
+subsident regime between 800-500mb. Both the RRFS and HRRR
+continue to advertise >60kt gusts across northern Front Range
+mountains and higher foothills, and I don't see a reason to make
+any changes to the existing High Wind Watch at this time. The main
+question at this point is if any of these stronger mountain wave
+winds make it into the I-25 corridor before the wave breaks down.
+There is not a clear signal with tonight's guidance, but there is
+good agreement that the flow will weaken Wednesday afternoon
+leading to some gusty but not significantly strong winds across
+the I-25 corridor and plains. The main concern there will be fire
+weather - see the section further below for additional discussion.
+
+Thursday looks to be a quieter day across the region in between
+storm systems. Temperatures should moderate a bit across the
+higher elevations with highs remaining in the low to mid 50s
+across the plains.
+
+The end of week system still looks to take a more favorable track
+for snow across the higher elevations. A broad upper low is 
+expected to transition back to an open wave as it approaches the 
+region, with a couple of shortwaves moving through Colorado as 
+they rotate around the base of the trough. This leaves most of the
+higher elevations in a broad, moist west-southwesterly flow aloft
+for about 24-36 hours from Friday through Saturday before the 
+final shortwave lifts out of the region during the day Saturday. 
+Of course, a WSW direction is still modestly unfavorable for a lot
+of our terrain, but the longer duration of this event would at 
+least provide a few inches for most of our mountains. While the 
+day shift was (understandably) bearish about any chances for 
+precipitation across the plains, it was interesting to see the 
+GFS/ECMWF/ICON all throw some light QPF across some of the lower 
+elevations early Saturday, with a slightly more favorable look at 
+500mb. Given what looks to be a low predictability synoptic setup 
+across the west, I suppose this period is worth watching if you're
+desperate to see some flakes fly east of the divide.
+
+Beyond that storm system, guidance does indicate a fairly active
+storm track across the western CONUS, with chances for light
+precipitation (mainly over the mountains) every few days. Nothing 
+particularly stands out at this point, but NBM seems to capture 
+the chances for mountain snow well enough.
+
+&&
+
+.AVIATION /18Z TAFS through 18Z Wednesday/...
+Issued at 1045 AM MST Tue Nov 17 2026
+
+VFR conditions expected through the TAF period. Light and
+generally variable winds have taken over all TAF sites and should
+remain for the next couple of hours. We are still on track for a
+Denver cyclone to develop this afternoon and impact all terminals.
+Still some uncertainty with wind direction, especially for DEN,
+and it will depend on exactly where the cyclone sets up and
+evolves. Overall, do expect southwest winds to develop as the
+cyclone moves northeast, with speeds up to 20-25 kts at DEN and
+APA. BJC will likely stay a lighter north/northeast. However,
+winds could remain easterly and transition to the northwest at DEN
+if they cyclone stays east of the airport. Tonight, strong 
+drainage flow is expected, with speeds of 10-17 kts at times. 
+
+Gusty westerly winds are likely tomorrow morning, with a more
+northwesterly component by the afternoon. Gusts of 20-28 kts are
+possible, but wouldn't be surprised if a few gusts up to 30-35 kts
+occur in the late morning (15Z-19Z). 
+
+&&
+
+.FIRE WEATHER...
+Issued at 1134 PM MST Mon Nov 16 2026
+
+Near critical fire weather conditions are likely at times from
+late Wednesday morning through the afternoon hours behind a trough
+passage. Guidance indicates a remarkably dry, subsident airmass in
+the wake of a shortwave which passes north of the region early
+Wednesday morning... with dew point temperatures falling to the
+single digits (or perhaps below 0F in the Foothills). We have
+relatively high confidence that humidity values could fall to as
+low as 10% across portions of the southern Foothills and Denver
+metro during the afternoon hours despite high temperatures only
+reaching the mid 50s.
+
+The more difficult aspect of the forecast remains the wind. A
+brief mountain wave event is likely to be ongoing Wednesday
+morning, but should start to transition to more of a gradient
+wind during the daytime as the wave diminishes and the flow aloft
+decreases. Evening guidance varies quite a bit on when and what 
+that transition looks like. Typical events feature a couple of 
+channels of enhanced wind across the metro (typically something 
+from BDU- EIK to somewhere near/north of DEN and one near the 
+southern C-470 corridor) where brief periods of Red Flag 
+conditions would be likely, while most other locations remain in 
+light winds. We did contemplate a broad Fire Weather Watch, but 
+would like to see more overlap in wind/RH before committing to any
+zone based product.
+
+Additional wind event looks plausible with the next trough passage
+towards the end of the week, but at this time the wind looks to
+generally settle south of I-70... and the event also should
+feature more moisture.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+High Wind Watch from late tonight through Wednesday afternoon 
+for COZ033-035.
+
+Dense Fog Advisory until noon MST today for COZ038-042>044.
+
+&&
+
+$$
+
+DISCUSSION...Hiris
+AVIATION...MAI
+FIRE WEATHER...Hiris
