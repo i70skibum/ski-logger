@@ -37,6 +37,18 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadReports:CDOT-36422246417SB": {
+   "began": "2026-11-17T05:18:33-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36422246417SB",
+   "mp_end": "",
+   "mp_start": 37.00062666547008,
+   "pos_bearing": "N",
+   "route": "CO 9",
+   "title": "CO 9 southbound: Crash.",
+   "type": "routine"
+  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -783,7 +795,7 @@
   }
  },
  "forecast_last": "2026-11-17T12:15:57+00:00",
- "last_run": "2026-11-17T05:15:57-07:00",
+ "last_run": "2026-11-17T05:30:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
