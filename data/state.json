@@ -685,18 +685,6 @@
    "title": "I-70 westbound: Road construction.",
    "type": "routine"
   },
-  "roadWork:CDOT-36346713273BOTH": {
-   "began": "2026-11-16T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36346713273BOTH",
-   "mp_end": 147.00513338165797,
-   "mp_start": 138.998142632835,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 in both directions: Right lane closed.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36346713439BOTH": {
    "began": "2026-11-17T07:00:00-07:00",
    "class": "roadWork",
@@ -831,7 +819,7 @@
   }
  },
  "forecast_last": "2026-11-16T23:45:55+00:00",
- "last_run": "2026-11-16T18:45:54-07:00",
+ "last_run": "2026-11-16T19:00:52-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
