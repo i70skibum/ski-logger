@@ -756,22 +756,10 @@
    "route": "US 40",
    "title": "US 40 (Colfax Ave) westbound: Right lane closed.",
    "type": "routine"
-  },
-  "roadWork:CDOT-36424231163EB": {
-   "began": "2026-11-17T07:44:59-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36424231163EB",
-   "mp_end": 226.01015400072032,
-   "mp_start": 225.01576854199575,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6 eastbound: Road maintenance operations.",
-   "type": "routine"
   }
  },
  "forecast_last": "2026-11-17T15:30:48+00:00",
- "last_run": "2026-11-17T09:00:56-07:00",
+ "last_run": "2026-11-17T09:15:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -819,7 +807,7 @@
   "517": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-17 07:00",
+  "abasin": "2026-11-17 08:00",
   "aspen": "2026-11-17 07:00",
   "copper": "2026-11-16 10:00",
   "eldora": "2026-11-16 10:00",
