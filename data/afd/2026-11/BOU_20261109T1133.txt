@@ -1,0 +1,75 @@
+
+000
+FXUS65 KBOU 091833
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1133 AM MST Mon Nov 9 2026
+
+.KEY MESSAGES...
+ 
+- Above normal temperatures and dry conditions will continue for
+  atleast the next several days.
+
+&&
+
+.DISCUSSION /Through Monday/...
+Issued at 1111 AM MST Mon Nov 9 2026
+
+Northern Colorado remains on the edge of a broad upper level ridge
+today, with weak zonal flow aloft. The little moisture aloft has
+been enough for a few cirrus clouds closer to the state border.
+High temperatures are still expected to warm into the upper 60s
+across most of the plains this afternoon with light winds.
+
+Tomorrow will feature much of the same weather, with temperatures
+again in the upper 60s. A shortwave moving from the northern
+Rockies into the central Great Plains will also drag a weak cold
+front through the region. Some gusty winds will be possible across
+the northern/northeastern portions of our forecast area during the
+afternoon into Tuesday night. That could lead to some spotty
+elevated/near critical fire weather conditions across the plains,
+generally north of Highway 34. 
+
+Temperatures are expected to be a few degrees cooler on Wednesday,
+though highs should still reach the low/mid 60s across the plains,
+which is several degrees above normal. By the latter half of the 
+week, a stronger upper level ridge is expected to build across the
+Four Corners region, leading to warmer and dry weather. It 
+wouldn't be surprising to see one or both of Thursday/Friday to 
+end up in the low 70s. 
+
+The next potential for precipitation in our CWA will come this
+weekend, as guidance tries to push a weak trough across the region
+by Saturday. This system won't feature any significant synoptic
+scale ascent and only some light rain and snow showers are
+expected across the high country during the weekend.
+
+Quiet weather looks to continue into early next week, with hints
+of a cooler/more active forecast pattern in the 8-10 day period.
+
+&&
+
+.AVIATION /18Z TAFS through 18Z Tuesday/...
+Issued at 1051 AM MST Mon Nov 9 2026
+
+VFR will continue through the TAF period with cirrus clouds at
+times above 20,000 feet MSL. Light and variable winds at the
+moment will turn easterly and increase to 10-15 knots with gusts
+to 20 knots after 19Z. Winds will then turn clockwise after 00Z
+Tuesday and become a typical southerly drainage direction by 06Z.
+Once the southerly drainage winds end, light and variable winds
+are expected for most of Tuesday.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...Hiris
+AVIATION...BM
