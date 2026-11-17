@@ -817,18 +817,6 @@
    "title": "I-70 eastbound: Left lane closed.",
    "type": "routine"
   },
-  "winterDriving:COSEG-522873": {
-   "began": "2026-11-15T17:22:57.777000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-522873",
-   "mp_end": 97.23000005133508,
-   "mp_start": 66.57713676843773,
-   "pos_bearing": "N",
-   "route": "CO 9",
-   "title": "CO 9: Icy spots.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-585450": {
    "began": "2026-11-15T17:29:04.830000-07:00",
    "class": "winterDriving",
@@ -843,7 +831,7 @@
   }
  },
  "forecast_last": "2026-11-17T03:00:51+00:00",
- "last_run": "2026-11-16T21:00:54-07:00",
+ "last_run": "2026-11-16T21:15:51-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
