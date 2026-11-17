@@ -37,6 +37,18 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadReports:CDOT-36414150636EB": {
+   "began": "2026-11-16T19:27:12-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36414150636EB",
+   "mp_end": "",
+   "mp_start": 216.73700001124234,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Left lane closed.",
+   "type": "routine"
+  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -793,6 +805,18 @@
    "title": "I-70 eastbound: Road maintenance operations.",
    "type": "routine"
   },
+  "roadWork:CDOT-36414150636EB": {
+   "began": "2026-11-16T19:27:12-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36414150636EB",
+   "mp_end": "",
+   "mp_start": 216.73700001124234,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Left lane closed.",
+   "type": "routine"
+  },
   "winterDriving:COSEG-522873": {
    "began": "2026-11-15T17:22:57.777000-07:00",
    "class": "winterDriving",
@@ -819,7 +843,7 @@
   }
  },
  "forecast_last": "2026-11-16T23:45:55+00:00",
- "last_run": "2026-11-16T19:15:46-07:00",
+ "last_run": "2026-11-16T19:30:51-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
