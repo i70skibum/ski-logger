@@ -783,7 +783,7 @@
   }
  },
  "forecast_last": "2026-11-17T18:45:55+00:00",
- "last_run": "2026-11-17T13:00:46-07:00",
+ "last_run": "2026-11-17T13:15:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -831,7 +831,7 @@
   "517": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-17 11:00",
+  "abasin": "2026-11-17 12:00",
   "aspen": "2026-11-17 11:00",
   "copper": "2026-11-17 11:00",
   "eldora": "2026-11-17 11:00",
