@@ -37,18 +37,6 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36414150636EB": {
-   "began": "2026-11-16T19:27:12-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36414150636EB",
-   "mp_end": "",
-   "mp_start": 216.73700001124234,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Left lane closed.",
-   "type": "routine"
-  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -131,18 +119,6 @@
    "pos_bearing": "E",
    "route": "US 6",
    "title": "US 6 westbound: Both shoulders closed.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36241165000WB": {
-   "began": "2026-11-16T00:01:00-07:00",
-   "class": "roadWork",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36241165000WB",
-   "mp_end": 297.34697028062703,
-   "mp_start": 297.515289189431,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40 (Colfax Ave) westbound: Right lane closed.",
    "type": "routine"
   },
   "roadWork:CDOT-36260874077WB": {
@@ -805,18 +781,6 @@
    "title": "I-70 eastbound: Road maintenance operations.",
    "type": "routine"
   },
-  "roadWork:CDOT-36414150636EB": {
-   "began": "2026-11-16T19:27:12-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36414150636EB",
-   "mp_end": "",
-   "mp_start": 216.73700001124234,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Left lane closed.",
-   "type": "routine"
-  },
   "winterDriving:COSEG-585450": {
    "began": "2026-11-15T17:29:04.830000-07:00",
    "class": "winterDriving",
@@ -831,7 +795,7 @@
   }
  },
  "forecast_last": "2026-11-17T06:00:51+00:00",
- "last_run": "2026-11-16T23:45:53-07:00",
+ "last_run": "2026-11-17T00:00:54-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
