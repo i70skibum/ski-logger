@@ -77,3 +77,5 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-17T16:15:48-07:00,516,US 40,Limon-Kit Carson,386.0,444.4,3 - dry,"US 40, between US 24 (12 miles west of Hugo) and Forrest Avenue (near Kit Carson)"
 2026-11-17T16:15:48-07:00,336,US 6,Denver-Golden,271.5,284.5,3 - dry,"US 6 (6th Ave), between CO 119 (Golden) and I-25 (Denver)"
 2026-11-17T16:15:48-07:00,517,US 40,Kit Carson-Cheyenne Wells,444.4,486.9,3 - dry,"US 40, between County Road 17 (near Kit Carson) and the Kansas Border (7 miles east of Arapahoe)"
+2026-11-17T16:30:46-07:00,198,US 40,Dinosaur-Elk Springs-Maybell,0.0,90.6,4 - wet,"US 40, between the Utah Border (near Dinosaur) and Barclay Street (Craig)"
+2026-11-17T16:30:46-07:00,199,US 40,Craig-Hayden-Milner,90.6,121.3,4 - wet,"US 40, between Taylor Street (Craig) and Main Street (near Milner)"
