@@ -13,6 +13,18 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadClosures:COSEG-588228": {
+   "began": "2026-11-18T16:43:27.092000-07:00",
+   "class": "roadClosures",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588228",
+   "mp_end": 67.43132185934407,
+   "mp_start": 41.9266038100445,
+   "pos_bearing": "E",
+   "route": "CO 82",
+   "title": "CO 82: Seasonal Closure.",
+   "type": "routine"
+  },
   "roadReports:CDOT-36057055825BOTH": {
    "began": "2026-10-29T15:49:45-06:00",
    "class": "roadReports",
@@ -732,10 +744,22 @@
    "route": "CO 9",
    "title": "CO 9: High wind.",
    "type": "standard"
+  },
+  "winterDriving:COSEG-588228": {
+   "began": "2026-11-18T16:43:27.092000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588228",
+   "mp_end": 67.43132185934407,
+   "mp_start": 41.9266038100445,
+   "pos_bearing": "E",
+   "route": "CO 82",
+   "title": "CO 82: Seasonal Closure.",
+   "type": "standard"
   }
  },
  "forecast_last": "2026-11-18T22:45:47+00:00",
- "last_run": "2026-11-18T16:30:47-07:00",
+ "last_run": "2026-11-18T16:45:46-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -747,7 +771,7 @@
  "road_conditions": {
   "100": "3 - dry",
   "101": "3 - dry",
-  "102": "3 - dry",
+  "102": "seasonal closure",
   "131": "3 - dry",
   "132": "3 - dry",
   "198": "3 - dry",
@@ -784,7 +808,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-18 15:00",
-  "aspen": "2026-11-18 14:00",
+  "aspen": "2026-11-18 15:00",
   "copper": "2026-11-18 15:00",
   "eldora": "2026-11-18 15:00",
   "steamboat": "2026-11-18 15:00",
