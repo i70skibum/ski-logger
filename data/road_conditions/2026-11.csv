@@ -108,3 +108,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-17T21:15:55-07:00,457,I-70,Vail Pass-Copper Mtn,188.3,194.3,4s - wet in areas; 6 - snow,"I-70, between Exit 180: East Vail and Exit 195: CO 91; Copper Mountain (Vail Pass)"
 2026-11-17T21:30:46-07:00,447,US 6,Sterling-Holyoke,403.4,453.6,1 - high wind; 3 - dry,"US 6, between Kochia Way (Sterling) and Sheridan Avenue (Holyoke)"
 2026-11-17T21:30:46-07:00,262,I-70,Rifle -Glenwood Springs,90.2,116.2,5 - rain; 6 - snow,"I-70, between Exit 87: US 6; Rifle (Rifle) and Exit 116: CO 82; Glenwood Springs (Glenwood Canyon)"
+2026-11-17T22:00:48-07:00,491,US 40,I-70 to Winter Park (Berthoud Pass),231.5,258.3,4 - wet; 6 - snow,"US 40, between Moffat Road (Winter Park) and I-70 (near Empire)"
