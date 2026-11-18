@@ -144,3 +144,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-18T03:15:47-07:00,101,CO 82,Aspen-Basalt,11.5,41.9,6 - snow; 9 - icy spots,"CO 82, between Satank Road (near Carbondale) and Riverside Drive (Aspen)"
 2026-11-18T03:15:47-07:00,516,US 40,Limon-Kit Carson,386.0,444.4,1 - high wind; 3 - dry,"US 40, between US 24 (12 miles west of Hugo) and Forrest Avenue (near Kit Carson)"
 2026-11-18T03:15:47-07:00,517,US 40,Kit Carson-Cheyenne Wells,444.4,486.9,1 - high wind; 3 - dry,"US 40, between County Road 17 (near Kit Carson) and the Kansas Border (7 miles east of Arapahoe)"
+2026-11-18T03:30:47-07:00,100,CO 82,Basalt-Glenwood Springs,0.0,11.5,4s - wet in areas,"CO 82, between I-70 (Glenwood Springs) and CO 133 (near Carbondale)"

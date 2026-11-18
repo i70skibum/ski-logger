@@ -97,18 +97,6 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36438251142EB": {
-   "began": "2026-11-18T00:54:11-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36438251142EB",
-   "mp_end": 213.03048826018272,
-   "mp_start": 205.0228791353092,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Roadway reopened to traffic.",
-   "type": "urgent"
-  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -1154,8 +1142,8 @@
    "type": "standard"
   }
  },
- "forecast_last": "2026-11-18T07:30:47+00:00",
- "last_run": "2026-11-18T03:15:47-07:00",
+ "forecast_last": "2026-11-18T10:30:47+00:00",
+ "last_run": "2026-11-18T03:30:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1165,7 +1153,7 @@
   "winterpark": "https://api.weather.gov/gridpoints/BOU/36,70"
  },
  "road_conditions": {
-  "100": "6 - snow; 9 - icy spots",
+  "100": "4s - wet in areas",
   "101": "6 - snow; 9 - icy spots",
   "102": "seasonal closure",
   "131": "4 - wet; 6 - snow; 9 - icy spots",
@@ -1205,10 +1193,10 @@
  "snotel_last": {
   "abasin": "2026-11-18 02:00",
   "aspen": "2026-11-18 01:00",
-  "copper": "2026-11-18 01:00",
-  "eldora": "2026-11-18 01:00",
+  "copper": "2026-11-18 02:00",
+  "eldora": "2026-11-18 02:00",
   "steamboat": "2026-11-18 02:00",
-  "winterpark": "2026-11-18 01:00"
+  "winterpark": "2026-11-18 02:00"
  },
  "speed_segments": [
   "I70E024",
