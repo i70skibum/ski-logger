@@ -37,18 +37,6 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36432624097WB": {
-   "began": "2026-11-17T18:01:35-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36432624097WB",
-   "mp_end": "",
-   "mp_start": 7.000474519244453,
-   "pos_bearing": "E",
-   "route": "CO 82",
-   "title": "CO 82 westbound: Right lane closed.",
-   "type": "routine"
-  },
   "roadReports:CDOT-36432644158WB": {
    "began": "2026-11-17T18:02:46-07:00",
    "class": "roadReports",
@@ -999,7 +987,7 @@
   }
  },
  "forecast_last": "2026-11-18T01:15:47+00:00",
- "last_run": "2026-11-17T19:15:54-07:00",
+ "last_run": "2026-11-17T19:30:46-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1049,10 +1037,10 @@
  "snotel_last": {
   "abasin": "2026-11-17 18:00",
   "aspen": "2026-11-17 17:00",
-  "copper": "2026-11-17 17:00",
-  "eldora": "2026-11-17 17:00",
+  "copper": "2026-11-17 18:00",
+  "eldora": "2026-11-17 18:00",
   "steamboat": "2026-11-17 18:00",
-  "winterpark": "2026-11-17 17:00"
+  "winterpark": "2026-11-17 18:00"
  },
  "speed_segments": [
   "I70E024",
