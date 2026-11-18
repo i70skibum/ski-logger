@@ -433,18 +433,6 @@
    "title": "I-70 eastbound: Two right lanes closed.",
    "type": "urgent"
   },
-  "roadWork:CDOT-36345483176EB": {
-   "began": "2026-11-17T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36345483176EB",
-   "mp_end": 269.44297993570217,
-   "mp_start": 270.0012481069761,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40 eastbound: Road construction.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36345483321EB": {
    "began": "2026-11-18T07:00:00-07:00",
    "class": "roadWork",
@@ -831,7 +819,7 @@
   }
  },
  "forecast_last": "2026-11-17T22:00:52+00:00",
- "last_run": "2026-11-17T16:45:46-07:00",
+ "last_run": "2026-11-17T17:00:52-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -883,7 +871,7 @@
   "aspen": "2026-11-17 15:00",
   "copper": "2026-11-17 15:00",
   "eldora": "2026-11-17 15:00",
-  "steamboat": "2026-11-17 15:00",
+  "steamboat": "2026-11-17 16:00",
   "winterpark": "2026-11-17 15:00"
  },
  "speed_segments": [
