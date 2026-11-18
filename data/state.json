@@ -145,18 +145,6 @@
    "title": "I-70 eastbound: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36437349643WB": {
-   "began": "2026-11-17T23:48:32-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36437349643WB",
-   "mp_end": "",
-   "mp_start": 225.50788913317874,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 westbound: Left lane closed.",
-   "type": "routine"
-  },
   "roadReports:CDOT-36438196974EB": {
    "began": "2026-11-18T00:50:30-07:00",
    "class": "roadReports",
@@ -1131,7 +1119,7 @@
   }
  },
  "forecast_last": "2026-11-18T07:30:47+00:00",
- "last_run": "2026-11-18T01:00:46-07:00",
+ "last_run": "2026-11-18T01:15:54-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1179,7 +1167,7 @@
   "517": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-17 23:00",
+  "abasin": "2026-11-18 00:00",
   "aspen": "2026-11-17 23:00",
   "copper": "2026-11-17 23:00",
   "eldora": "2026-11-17 23:00",
