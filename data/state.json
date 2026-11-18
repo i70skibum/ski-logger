@@ -37,17 +37,17 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36432644158WB": {
+  "roadReports:CDOT-36432644158BOTH": {
    "began": "2026-11-17T18:02:46-07:00",
    "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36432644158WB",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36432644158BOTH",
    "mp_end": "",
    "mp_start": 7.940523628082823,
    "pos_bearing": "E",
    "route": "CO 82",
-   "title": "CO 82 westbound: Right lane closed.",
-   "type": "routine"
+   "title": "CO 82 in both directions: Roadway reopened to traffic.",
+   "type": "critical"
   },
   "roadReports:CDOT-36433594961EB": {
    "began": "2026-11-17T19:12:47-07:00",
@@ -987,7 +987,7 @@
   }
  },
  "forecast_last": "2026-11-18T01:15:47+00:00",
- "last_run": "2026-11-17T19:45:46-07:00",
+ "last_run": "2026-11-17T19:55:53-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",

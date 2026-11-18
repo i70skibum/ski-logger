@@ -219,3 +219,5 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-17T19:15:54-07:00,end,CDOT-36432644158BOTH,roadClosures,critical,CO 82,BOTH_DIRECTIONS,E,7.940523628082823,,CO 82 in both directions: Road closed.,2026-11-17T18:02:46-07:00
 2026-11-17T19:15:54-07:00,end,CDOT-36432644158BOTH,roadReports,critical,CO 82,BOTH_DIRECTIONS,E,7.940523628082823,,CO 82 in both directions: Road closed.,2026-11-17T18:02:46-07:00
 2026-11-17T19:30:46-07:00,end,CDOT-36432624097WB,roadReports,routine,CO 82,NEGATIVE_DIRECTION,E,7.000474519244453,,CO 82 westbound: Right lane closed.,2026-11-17T18:01:35-07:00
+2026-11-17T19:55:53-07:00,start,CDOT-36432644158BOTH,roadReports,critical,CO 82,BOTH_DIRECTIONS,E,7.940523628082823,,CO 82 in both directions: Roadway reopened to traffic.,2026-11-17T18:02:46-07:00
+2026-11-17T19:55:53-07:00,end,CDOT-36432644158WB,roadReports,routine,CO 82,NEGATIVE_DIRECTION,E,7.940523628082823,,CO 82 westbound: Right lane closed.,2026-11-17T18:02:46-07:00
