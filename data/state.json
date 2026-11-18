@@ -1,5 +1,5 @@
 {
- "afd_last": "30440f8e-4f62-4bf5-a790-2738bb7869be",
+ "afd_last": "a96cafa1-0e51-453e-9612-013d9177cad8",
  "events": {
   "roadClosures:CDOT-36057055825BOTH": {
    "began": "2026-10-29T15:49:45-06:00",
@@ -11,18 +11,6 @@
    "pos_bearing": "E",
    "route": "CO 82",
    "title": "CO 82 in both directions: Road closed.",
-   "type": "critical"
-  },
-  "roadClosures:CDOT-36447341348EB": {
-   "began": "2026-11-18T12:01:48-07:00",
-   "class": "roadClosures",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36447341348EB",
-   "mp_end": 228.99849663202585,
-   "mp_start": 216.9999999376014,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6 eastbound: Safety closure.",
    "type": "critical"
   },
   "roadClosures:COSEG-588027": {
@@ -913,18 +901,6 @@
    "title": "CO 82: Seasonal Closure.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588101": {
-   "began": "2026-11-17T20:05:06.365000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588101",
-   "mp_end": 203.7258464806865,
-   "mp_start": 194.34189728928501,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Snow.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588114": {
    "began": "2026-11-18T00:11:01.368000-07:00",
    "class": "winterDriving",
@@ -937,21 +913,21 @@
    "title": "I-70: Snow.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588115": {
-   "began": "2026-11-18T00:11:01.368000-07:00",
+  "winterDriving:COSEG-588188": {
+   "began": "2026-11-18T11:43:04.390000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588115",
-   "mp_end": 194.34189728928501,
+   "id": "COSEG-588188",
+   "mp_end": 203.7258464806865,
    "mp_start": 188.34154771955997,
    "pos_bearing": "E",
    "route": "I-70",
-   "title": "I-70: Snow.",
+   "title": "I-70: Icy spots.",
    "type": "standard"
   }
  },
  "forecast_last": "2026-11-18T19:45:47+00:00",
- "last_run": "2026-11-18T12:45:47-07:00",
+ "last_run": "2026-11-18T13:00:48-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
