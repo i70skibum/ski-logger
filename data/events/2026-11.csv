@@ -328,3 +328,4 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-18T08:15:46-07:00,end,CDOT-36443163013EB,roadClosures,critical,I-70,POSITIVE_DIRECTION,E,244.00539291801527,,I-70 eastbound: Road closed.,2026-11-18T06:54:25-07:00
 2026-11-18T08:30:52-07:00,end,CDOT-36435193760BOTH,roadReports,urgent,CO 9,BOTH_DIRECTIONS,N,72.0002670906958,80.00021689015102,CO 9 in both directions: Roadway reopened to traffic.,2026-11-17T21:09:27-07:00
 2026-11-18T08:30:52-07:00,end,CDOT-36443163013EB,roadReports,critical,I-70,POSITIVE_DIRECTION,E,244.00539291801527,,I-70 eastbound: Road closed.,2026-11-18T06:54:25-07:00
+2026-11-18T08:45:48-07:00,start,CDOT-36444449918EB,roadWork,routine,US 6,POSITIVE_DIRECTION,E,43.0334534394027,43.467450423347145,US 6 (Front St) eastbound: Road maintenance operations.,2026-11-18T08:29:13-07:00
