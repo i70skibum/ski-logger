@@ -613,18 +613,6 @@
    "title": "I-70 eastbound: Road construction.",
    "type": "routine"
   },
-  "roadWork:CDOT-36346713439BOTH": {
-   "began": "2026-11-17T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36346713439BOTH",
-   "mp_end": 147.00513338165797,
-   "mp_start": 138.998142632835,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 in both directions: Right lane closed.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36346713468BOTH": {
    "began": "2026-11-18T07:00:00-07:00",
    "class": "roadWork",
@@ -805,6 +793,42 @@
    "title": "US 6 eastbound: Road maintenance operations.",
    "type": "routine"
   },
+  "winterDriving:COSEG-522941": {
+   "began": "2026-11-17T18:57:05.512000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-522941",
+   "mp_end": 138.9199999597622,
+   "mp_start": 101.56200180608491,
+   "pos_bearing": "N",
+   "route": "CO 9",
+   "title": "CO 9: Wet in areas.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-586393": {
+   "began": "2026-11-17T18:52:35.724000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-586393",
+   "mp_end": 178.67290150809615,
+   "mp_start": 137.32318525182112,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40: Wet.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-586962": {
+   "began": "2026-11-17T18:52:06.500000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-586962",
+   "mp_end": 219.86348555050597,
+   "mp_start": 208.65900086727643,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6: Wet.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-587960": {
    "began": "2026-11-17T16:23:35.610000-07:00",
    "class": "winterDriving",
@@ -817,6 +841,30 @@
    "title": "US 40: Wet.",
    "type": "standard"
   },
+  "winterDriving:COSEG-587983": {
+   "began": "2026-11-17T18:51:57.453000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-587983",
+   "mp_end": 188.34154771955997,
+   "mp_start": 176.19604734763578,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Wet.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588001": {
+   "began": "2026-11-17T18:51:42.961000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588001",
+   "mp_end": 176.19604734763578,
+   "mp_start": 145.78001438944648,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Wet.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588008": {
    "began": "2026-11-17T16:23:35.610000-07:00",
    "class": "winterDriving",
@@ -824,6 +872,42 @@
    "id": "COSEG-588008",
    "mp_end": 121.26224323617745,
    "mp_start": 90.59834604336295,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40: Wet.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588009": {
+   "began": "2026-11-17T18:52:35.724000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588009",
+   "mp_end": 137.32318525182112,
+   "mp_start": 121.26224323617745,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40: Wet.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588010": {
+   "began": "2026-11-17T18:52:35.724000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588010",
+   "mp_end": 211.57416959762907,
+   "mp_start": 178.67290150809615,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40: Wet.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588011": {
+   "began": "2026-11-17T18:52:35.724000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588011",
+   "mp_end": 231.52362708977432,
+   "mp_start": 211.57416959762907,
    "pos_bearing": "E",
    "route": "US 40",
    "title": "US 40: Wet.",
@@ -877,6 +961,18 @@
    "title": "I-70: Wet.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588090": {
+   "began": "2026-11-17T18:51:57.453000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588090",
+   "mp_end": 203.7258464806865,
+   "mp_start": 188.34154771955997,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Wet.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588091": {
    "began": "2026-11-17T17:52:17.403000-07:00",
    "class": "winterDriving",
@@ -891,7 +987,7 @@
   }
  },
  "forecast_last": "2026-11-18T01:15:47+00:00",
- "last_run": "2026-11-17T18:45:47-07:00",
+ "last_run": "2026-11-17T19:00:49-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -908,9 +1004,9 @@
   "132": "3 - dry",
   "198": "4 - wet",
   "199": "4 - wet",
-  "200": "3 - dry",
-  "201": "3 - dry",
-  "202": "3 - dry",
+  "200": "4 - wet",
+  "201": "4 - wet",
+  "202": "4 - wet",
   "262": "4 - wet",
   "270": "3 - dry",
   "271": "3 - dry",
@@ -922,19 +1018,19 @@
   "336": "3 - dry",
   "447": "3 - dry",
   "45": "3 - dry",
-  "456": "3 - dry",
-  "457": "3 - dry",
-  "458": "3 - dry",
+  "456": "4 - wet",
+  "457": "4 - wet",
+  "458": "4 - wet",
   "459": "3 - dry",
   "47": "3 - dry",
   "483": "4 - wet",
-  "484": "3 - dry",
-  "485": "3 - dry",
+  "484": "4 - wet",
+  "485": "4 - wet",
   "486": "3 - dry",
-  "489": "3 - dry",
+  "489": "4s - wet in areas",
   "49": "3 - dry",
   "491": "3 - dry",
-  "492": "3 - dry",
+  "492": "4 - wet",
   "516": "3 - dry",
   "517": "3 - dry"
  },
@@ -943,7 +1039,7 @@
   "aspen": "2026-11-17 17:00",
   "copper": "2026-11-17 17:00",
   "eldora": "2026-11-17 17:00",
-  "steamboat": "2026-11-17 17:00",
+  "steamboat": "2026-11-17 18:00",
   "winterpark": "2026-11-17 17:00"
  },
  "speed_segments": [
