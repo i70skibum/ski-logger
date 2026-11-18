@@ -1,0 +1,158 @@
+
+000
+FXUS65 KBOU 181746
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1046 AM MST Wed Nov 18 2026
+
+.KEY MESSAGES... 
+
+- First wind event of the season for the northern Front Range 
+  mountains and foothills this morning. Gusts of 60-75 mph with 
+  isolated stronger gusts possible.
+
+- Brief potential for wind gusts of 40-50 mph and isolated
+  stronger wind gusts for wind prone locations near the base of
+  the foothills this morning.
+
+- Elevated to critical fire weather conditions across portions of
+  the foothills, I-25 corridor, and Palmer Divide today.
+
+- Better chances for mountain snow Friday and Saturday.
+
+&&
+
+.DISCUSSION /Through Tuesday/...
+Issued at 1134 PM MST Tue Nov 17 2026
+
+The first part of this storm system arrived earlier this evening
+as a band of rain and snow progressed from southwest to northeast
+across the mountains. There was enough moisture to maintain this
+band of precipitation as far east as the continental divide, with
+webcams from CDOT and various ski areas showing some brief light
+to moderate snow... though accumulations were generally around an
+inch. A few orographic snow showers are expected to continue
+overnight with minimal additional snowfall totals.
+
+The second part of this system will be the wind. Surface
+observations across the higher Front Range foothills have been
+slowly increasing over the last couple of hours, with a few gusts
+in the 45-50 mph range noted in the last hour or so. Near term
+guidance has been too bullish with the initial development of the
+mountain wave, and I would expect that we continue to see a
+slow increase in wind gusts overnight before the mountain wave
+begins to become better established closer to 12z. From an
+ingredients perspective just about everything is "marginal". While
+the ridgetop/cross-barrier flow is around 45-55kt, the stable
+layer is somewhat diffuse and a bit higher than you'd expect for a
+more classic mountain wave. The setup is also rather brief - with
+the wave quickly diminishing after 18z Wednesday when winds 
+transition to more of a subsident/gradient type regime. Ultimately
+the current headlines seem representative enough. We still expect
+a few gusts around 75 mph over the foothills with a few gusts to 
+around 60 mph possible for the typical wind prone areas near the 
+base of the foothills. These winds will also produce some fire 
+weather concerns during the day (discussed further below).
+
+Thursday still looks to be a quiet day across the forecast area as
+we sit in between systems in a dry southwesterly flow aloft.
+Forecast high temperatures will be back in the 50s again across
+most of the plains.
+
+Our next system of interest is still on track to arrive on Friday.
+Across the plains, Friday looks mild and breezy in a broad
+southwesterly flow regime. Meanwhile, boundary layer moisture
+should increase across the higher elevations, and should allow 
+mountain snow showers to develop as early as Friday morning. The
+first of two shortwaves races across the northern half of the
+state during the day, and aided by a 110kt jet streak... this
+could produce a band or two of light to moderate snow
+accumulations across the central/northern mountains.
+
+The second of two shortwaves associated with the large scale
+trough then pivots through the region Friday night into Saturday.
+This should provide another round of snow across most of the
+higher elevations. There's been noteworthy shifts with the 
+timing/orientation of this wave in relation to the northern stream
+vort max in this period, and it seems likely there are still 
+several shifts to go here. In the meantime, this interim solution 
+is a bit wetter across the plains, with a handful of deterministic
+solutions (and about 30-50% of ensemble members) producing some 
+very light snow accumulation across portions of northern Colorado.
+I would like to see a few more cycles of both physics-based and 
+AI ensemble guidance before getting to enthused about precip 
+chances along the I-25 corridor.
+
+Guidance throws another weak shortwave towards our forecast area
+sometime early next week, with generally light QPF amounts over
+the mountains. There's also a good signal that cooler weather will
+arrive and stick around through at least the first half of next
+week, with temperatures near/below normal favored.
+
+&&
+
+.AVIATION /18Z TAFS through 18Z Thursday/...
+Issued at 1030 AM MST Wed Nov 18 2026
+
+There remains relatively high uncertainty on the exact locations 
+of the narrow channels of stronger westerly/northwesterly winds
+which could affect KAPA and KDEN over the next few hours. If 
+these channels are not located directly over the site, we expect 
+weak easterly winds. At this hour, one of these channels is 
+located over KAPA with some gusts at or slightly above 30 kts. We 
+expect winds to weaken at KAPA by about 20z. At KDEN, the 
+potential remains over the next few hours for gusty winds given 
+several observations 5-10 miles west of KDEN nearing 25-30 kts. We
+remain most confident that KBJC will see wind gusts around 30 kts
+for the next few hours due to its position closer to the higher 
+terrain before weakening this afternoon.
+
+Winds are forecast to turn clockwise and start northeast this 
+afternoon. They will eventually turn to drainage and/or a modified
+drainage this evening. Winds could approach 12-15 kts at times, 
+but are forecast to be much weaker than this morning and early 
+afternoon. For Thursday afternoon, after a brief period of vrb 
+winds in the morning, winds are forecast to turn to the northeast, 
+but remain under 10 kts.
+
+&&
+
+.FIRE WEATHER...
+Issued at 1134 PM MST Tue Nov 17 2026
+
+Most of the day Wednesday will feature elevated to critical fire
+weather conditions across the lower foothills and adjacent plains.
+While we have fairly high confidence in both the morning wind and
+the afternoon's very dry humidity, this still remains a very 
+challenging fire weather forecast.
+
+The lingering question tonight is how long gusty winds persist
+into the early afternoon hours. Guidance quickly weakens the winds
+aloft beyond 18z, with the pressure gradient also relaxing in this
+timeframe. High resolution guidance continues to slowly back off
+on the afternoon wind gust potential outside of the foothills as
+well. There will likely be some sporadic gusts across the base of
+the foothills, where we have slightly higher confidence in the
+overlap of critical RH and wind gusts. To the east, a few channels
+of enhanced wind still appear likely, but the consensus from the
+evening shift forecasters was that we will not see sufficient
+spatial/temporal coverage across 240/243 to justify a Red Flag
+Warning. 
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+High Wind Warning until 11 AM MST this morning for COZ033-035.
+
+Red Flag Warning until 4 PM MST this afternoon for COZ216-238-
+239-241.
+
+&&
+
+$$
+
+DISCUSSION...Hiris
+AVIATION...MV
+FIRE WEATHER...Hiris
