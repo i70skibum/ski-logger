@@ -829,18 +829,6 @@
    "title": "I-70 in both directions: Both shoulders closed.",
    "type": "routine"
   },
-  "winterDriving:COSEG-522841": {
-   "began": "2026-11-17T21:16:30.705000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-522841",
-   "mp_end": 453.5784634698443,
-   "mp_start": 403.37730494536066,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6: High wind.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-522873": {
    "began": "2026-11-17T20:47:39.081000-07:00",
    "class": "winterDriving",
@@ -925,6 +913,18 @@
    "title": "I-70: Wet.",
    "type": "standard"
   },
+  "winterDriving:COSEG-587960": {
+   "began": "2026-11-18T02:53:42.450000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-587960",
+   "mp_end": 90.59834604336295,
+   "mp_start": 1.3242356516934172e-06,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40: Icy spots.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588001": {
    "began": "2026-11-17T18:51:42.961000-07:00",
    "class": "winterDriving",
@@ -971,6 +971,42 @@
    "pos_bearing": "E",
    "route": "US 40",
    "title": "US 40: Wet.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588009": {
+   "began": "2026-11-18T02:53:42.450000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588009",
+   "mp_end": 137.32318525182112,
+   "mp_start": 121.26224323617745,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40: Icy spots.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588010": {
+   "began": "2026-11-18T02:53:42.450000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588010",
+   "mp_end": 211.57416959762907,
+   "mp_start": 178.67290150809615,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40: Icy spots.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588011": {
+   "began": "2026-11-18T02:53:42.450000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588011",
+   "mp_end": 231.52362708977432,
+   "mp_start": 211.57416959762907,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40: Icy spots.",
    "type": "standard"
   },
   "winterDriving:COSEG-588012": {
@@ -1083,7 +1119,7 @@
   }
  },
  "forecast_last": "2026-11-18T07:30:47+00:00",
- "last_run": "2026-11-18T02:45:46-07:00",
+ "last_run": "2026-11-18T03:00:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1098,11 +1134,11 @@
   "102": "seasonal closure",
   "131": "4 - wet; 6 - snow; 9 - icy spots",
   "132": "3 - dry",
-  "198": "3 - dry",
-  "199": "4s - wet in areas",
-  "200": "3 - dry",
+  "198": "9 - icy spots",
+  "199": "9 - icy spots",
+  "200": "9 - icy spots",
   "201": "9 - icy spots",
-  "202": "3 - dry",
+  "202": "9 - icy spots",
   "262": "4s-9 - wet in areas, icy spots",
   "270": "6-9-11 snow, icy spots, snow packed spots",
   "271": "4s - wet in areas",
@@ -1121,12 +1157,12 @@
   "47": "3 - dry",
   "483": "4s-9 - wet in areas, icy spots",
   "484": "4s-9 - wet in areas, icy spots",
-  "485": "8 - icy",
+  "485": "6 - snow; 8 - icy",
   "486": "6-9-11 snow, icy spots, snow packed spots",
   "489": "6 - snow; 9 - icy spots; icy bridges",
   "49": "6-9-11 snow, icy spots, snow packed spots",
   "491": "6-9-11 snow, icy spots, snow packed spots",
-  "492": "3 - dry",
+  "492": "9 - icy spots",
   "516": "3 - dry",
   "517": "3 - dry"
  },
