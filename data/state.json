@@ -37,18 +37,6 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36432644158BOTH": {
-   "began": "2026-11-17T18:02:46-07:00",
-   "class": "roadReports",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36432644158BOTH",
-   "mp_end": "",
-   "mp_start": 7.940523628082823,
-   "pos_bearing": "E",
-   "route": "CO 82",
-   "title": "CO 82 in both directions: Roadway reopened to traffic.",
-   "type": "critical"
-  },
   "roadReports:CDOT-36433594961EB": {
    "began": "2026-11-17T19:12:47-07:00",
    "class": "roadReports",
@@ -961,18 +949,6 @@
    "title": "I-70: Wet.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588090": {
-   "began": "2026-11-17T18:51:57.453000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588090",
-   "mp_end": 203.7258464806865,
-   "mp_start": 188.34154771955997,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Wet.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588091": {
    "began": "2026-11-17T17:52:17.403000-07:00",
    "class": "winterDriving",
@@ -984,10 +960,22 @@
    "route": "I-70",
    "title": "I-70: Wet.",
    "type": "standard"
+  },
+  "winterDriving:COSEG-588097": {
+   "began": "2026-11-17T20:05:06.365000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588097",
+   "mp_end": 203.7258464806865,
+   "mp_start": 188.34154771955997,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Snow.",
+   "type": "standard"
   }
  },
  "forecast_last": "2026-11-18T01:15:47+00:00",
- "last_run": "2026-11-17T20:00:46-07:00",
+ "last_run": "2026-11-17T20:15:51-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1018,9 +1006,9 @@
   "336": "3 - dry",
   "447": "3 - dry",
   "45": "3 - dry",
-  "456": "4 - wet",
-  "457": "4 - wet",
-  "458": "4 - wet",
+  "456": "6 - snow",
+  "457": "6 - snow",
+  "458": "6 - snow",
   "459": "3 - dry",
   "47": "3 - dry",
   "483": "4 - wet",
@@ -1035,11 +1023,11 @@
   "517": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-17 18:00",
+  "abasin": "2026-11-17 19:00",
   "aspen": "2026-11-17 18:00",
   "copper": "2026-11-17 18:00",
   "eldora": "2026-11-17 18:00",
-  "steamboat": "2026-11-17 18:00",
+  "steamboat": "2026-11-17 19:00",
   "winterpark": "2026-11-17 18:00"
  },
  "speed_segments": [
