@@ -1,5 +1,5 @@
 {
-  "checked": "Nov 17, 12:02 PM",
+  "checked": "Nov 18, 6:02 AM",
   "resorts": {
     "copper": {
       "open": true,
@@ -30,8 +30,8 @@
     "aspen": {
       "open": false,
       "note": "Aspen Mountain and Snowmass scheduled to open Nov 26.",
-      "lifts": "0 of 36",
-      "trails": "0 of 374"
+      "lifts": "0 of 31",
+      "trails": "0 of 257"
     }
   },
   "auto": true
