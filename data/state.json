@@ -793,6 +793,30 @@
    "title": "US 40: Wet.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588025": {
+   "began": "2026-11-17T17:57:10.238000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588025",
+   "mp_end": 11.536687588057866,
+   "mp_start": 0,
+   "pos_bearing": "E",
+   "route": "CO 82",
+   "title": "CO 82: Wet and rain.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588026": {
+   "began": "2026-11-17T17:57:10.238000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588026",
+   "mp_end": 41.9266038100445,
+   "mp_start": 11.536687588057866,
+   "pos_bearing": "E",
+   "route": "CO 82",
+   "title": "CO 82: Wet and rain.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588027": {
    "began": "2026-11-17T10:58:59.640000-07:00",
    "class": "winterDriving",
@@ -804,10 +828,34 @@
    "route": "CO 82",
    "title": "CO 82: Seasonal Closure.",
    "type": "standard"
+  },
+  "winterDriving:COSEG-588054": {
+   "began": "2026-11-17T17:52:17.403000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588054",
+   "mp_end": 145.78001438944648,
+   "mp_start": 116.20486386191877,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Wet.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588091": {
+   "began": "2026-11-17T17:52:17.403000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588091",
+   "mp_end": 116.20486386191877,
+   "mp_start": 30.482471345651067,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Wet.",
+   "type": "standard"
   }
  },
  "forecast_last": "2026-11-17T22:00:52+00:00",
- "last_run": "2026-11-17T17:45:53-07:00",
+ "last_run": "2026-11-17T18:00:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -817,8 +865,8 @@
   "winterpark": "https://api.weather.gov/gridpoints/BOU/36,70"
  },
  "road_conditions": {
-  "100": "3 - dry",
-  "101": "3 - dry",
+  "100": "4-5 wet, rain",
+  "101": "4-5 wet, rain",
   "102": "seasonal closure",
   "131": "3 - dry",
   "132": "3 - dry",
@@ -827,7 +875,7 @@
   "200": "3 - dry",
   "201": "3 - dry",
   "202": "3 - dry",
-  "262": "3 - dry",
+  "262": "4 - wet",
   "270": "3 - dry",
   "271": "3 - dry",
   "272": "3 - dry",
@@ -843,7 +891,7 @@
   "458": "3 - dry",
   "459": "3 - dry",
   "47": "3 - dry",
-  "483": "3 - dry",
+  "483": "4 - wet",
   "484": "3 - dry",
   "485": "3 - dry",
   "486": "3 - dry",
