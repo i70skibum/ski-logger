@@ -152,3 +152,5 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-18T04:45:48-07:00,202,US 40,Kremmling-Granby,178.7,211.6,3 - dry,"US 40, between CO 134 (3 miles west of the Kremmling area) and Mesa Street (near Granby)"
 2026-11-18T04:45:48-07:00,200,US 40,Steamboat Springs,121.3,137.3,3 - dry,"US 40, between Foss Drive (near Milner) and County Road 20 (near Rabbit Ears Pass)"
 2026-11-18T04:45:48-07:00,484,I-70,Eagle-Vail,145.8,176.2,3 - dry; icy bridges,"I-70, between Exit 140: US 6; Gypsum (near Eagle) and Exit 180: East Vail (Vail)"
+2026-11-18T05:00:47-07:00,201,US 40,Rabbit Ears Pass,137.3,178.7,6 - snow; 9 - icy spots,"US 40, between Kemry Lane (near Rabbit Ears Pass) and Utility Road (3 miles west of the Kremmling area)"
+2026-11-18T05:00:47-07:00,492,US 40,Granby-Winter Park,211.6,231.5,6 - snow; 9 - icy spots,"US 40, between US 34 (near Granby) and Lakota Trail (Winter Park)"
