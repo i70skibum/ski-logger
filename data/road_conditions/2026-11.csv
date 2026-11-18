@@ -145,3 +145,7 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-18T03:15:47-07:00,516,US 40,Limon-Kit Carson,386.0,444.4,1 - high wind; 3 - dry,"US 40, between US 24 (12 miles west of Hugo) and Forrest Avenue (near Kit Carson)"
 2026-11-18T03:15:47-07:00,517,US 40,Kit Carson-Cheyenne Wells,444.4,486.9,1 - high wind; 3 - dry,"US 40, between County Road 17 (near Kit Carson) and the Kansas Border (7 miles east of Arapahoe)"
 2026-11-18T03:30:47-07:00,100,CO 82,Basalt-Glenwood Springs,0.0,11.5,4s - wet in areas,"CO 82, between I-70 (Glenwood Springs) and CO 133 (near Carbondale)"
+2026-11-18T04:00:47-07:00,198,US 40,Dinosaur-Elk Springs-Maybell,0.0,90.6,3 - dry,"US 40, between the Utah Border (near Dinosaur) and Barclay Street (Craig)"
+2026-11-18T04:00:47-07:00,483,I-70,Glenwood-Eagle,116.2,145.8,3 - dry; icy bridges,"I-70, between Exit 114: West Glenwood (Glenwood Canyon) and Exit 147: Eagle (near Eagle)"
+2026-11-18T04:00:47-07:00,199,US 40,Craig-Hayden-Milner,90.6,121.3,3 - dry,"US 40, between Taylor Street (Craig) and Main Street (near Milner)"
+2026-11-18T04:00:47-07:00,262,I-70,Rifle -Glenwood Springs,90.2,116.2,3 - dry; icy bridges,"I-70, between Exit 87: US 6; Rifle (Rifle) and Exit 116: CO 82; Glenwood Springs (Glenwood Canyon)"

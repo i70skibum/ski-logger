@@ -97,6 +97,30 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadReports:CDOT-36440754134WB": {
+   "began": "2026-11-18T03:57:21-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36440754134WB",
+   "mp_end": "",
+   "mp_start": 211.9706948194304,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Left lane closed.",
+   "type": "routine"
+  },
+  "roadReports:CDOT-36440767800WB": {
+   "began": "2026-11-18T03:58:04-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36440767800WB",
+   "mp_end": 211.9706948194304,
+   "mp_start": 214.99426860245345,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Road closed.",
+   "type": "critical"
+  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -937,18 +961,6 @@
    "title": "I-70: Wet.",
    "type": "standard"
   },
-  "winterDriving:COSEG-587960": {
-   "began": "2026-11-18T02:53:42.450000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-587960",
-   "mp_end": 90.59834604336295,
-   "mp_start": 1.3242356516934172e-06,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40: Icy spots.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588001": {
    "began": "2026-11-17T18:51:42.961000-07:00",
    "class": "winterDriving",
@@ -983,18 +995,6 @@
    "pos_bearing": "E",
    "route": "I-70",
    "title": "I-70: Wet in areas.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588008": {
-   "began": "2026-11-17T16:23:35.610000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588008",
-   "mp_end": 121.26224323617745,
-   "mp_start": 90.59834604336295,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40: Wet.",
    "type": "standard"
   },
   "winterDriving:COSEG-588009": {
@@ -1081,30 +1081,6 @@
    "title": "CO 82: Seasonal Closure.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588054": {
-   "began": "2026-11-17T17:52:17.403000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588054",
-   "mp_end": 145.78001438944648,
-   "mp_start": 116.20486386191877,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Wet.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588099": {
-   "began": "2026-11-17T19:42:22.618000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588099",
-   "mp_end": 116.20486386191877,
-   "mp_start": 90.2072229740423,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Wet.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588101": {
    "began": "2026-11-17T20:05:06.365000-07:00",
    "class": "winterDriving",
@@ -1143,7 +1119,7 @@
   }
  },
  "forecast_last": "2026-11-18T10:30:47+00:00",
- "last_run": "2026-11-18T03:45:46-07:00",
+ "last_run": "2026-11-18T04:00:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1158,12 +1134,12 @@
   "102": "seasonal closure",
   "131": "4 - wet; 6 - snow; 9 - icy spots",
   "132": "3 - dry",
-  "198": "9 - icy spots",
-  "199": "9 - icy spots",
+  "198": "3 - dry",
+  "199": "3 - dry",
   "200": "9 - icy spots",
   "201": "9 - icy spots",
   "202": "9 - icy spots",
-  "262": "4s-9 - wet in areas, icy spots",
+  "262": "3 - dry; icy bridges",
   "270": "6-9-11 snow, icy spots, snow packed spots",
   "271": "4s - wet in areas",
   "272": "3 - dry",
@@ -1179,7 +1155,7 @@
   "458": "6 - snow",
   "459": "6-9-11 snow, icy spots, snow packed spots",
   "47": "3 - dry",
-  "483": "4s-9 - wet in areas, icy spots",
+  "483": "3 - dry; icy bridges",
   "484": "4s-9 - wet in areas, icy spots",
   "485": "6 - snow; 8 - icy",
   "486": "6-9-11 snow, icy spots, snow packed spots",
