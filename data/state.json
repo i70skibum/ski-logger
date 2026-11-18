@@ -85,30 +85,6 @@
    "title": "I-70 eastbound: Left lane closed.",
    "type": "routine"
   },
-  "roadReports:CDOT-36434689814EB": {
-   "began": "2026-11-17T20:33:34-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36434689814EB",
-   "mp_end": 190.00647076056157,
-   "mp_start": 178.00084672700905,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Roadway reopened to traffic.",
-   "type": "urgent"
-  },
-  "roadReports:CDOT-36434879728WB": {
-   "began": "2026-11-17T20:47:21-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36434879728WB",
-   "mp_end": 190.00648817541213,
-   "mp_start": 195.0400157431849,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 westbound: Roadway reopened to traffic.",
-   "type": "urgent"
-  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -841,6 +817,18 @@
    "title": "I-70 eastbound: Left lane closed.",
    "type": "routine"
   },
+  "winterDriving:COSEG-522841": {
+   "began": "2026-11-17T21:16:30.705000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-522841",
+   "mp_end": 453.5784634698443,
+   "mp_start": 403.37730494536066,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6: High wind.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-522873": {
    "began": "2026-11-17T20:47:39.081000-07:00",
    "class": "winterDriving",
@@ -1095,7 +1083,7 @@
   }
  },
  "forecast_last": "2026-11-18T04:15:55+00:00",
- "last_run": "2026-11-17T21:15:55-07:00",
+ "last_run": "2026-11-17T21:30:46-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1115,7 +1103,7 @@
   "200": "4 - wet",
   "201": "4 - wet",
   "202": "4 - wet",
-  "262": "4 - wet",
+  "262": "5 - rain; 6 - snow",
   "270": "4 - wet; 6 - snow",
   "271": "3 - dry",
   "272": "3 - dry",
@@ -1124,7 +1112,7 @@
   "322": "3 - dry",
   "335": "3 - dry",
   "336": "3 - dry",
-  "447": "3 - dry",
+  "447": "1 - high wind; 3 - dry",
   "45": "3 - dry",
   "456": "4s - wet in areas; 6 - snow",
   "457": "4s - wet in areas; 6 - snow",
@@ -1145,10 +1133,10 @@
  "snotel_last": {
   "abasin": "2026-11-17 20:00",
   "aspen": "2026-11-17 19:00",
-  "copper": "2026-11-17 19:00",
-  "eldora": "2026-11-17 19:00",
+  "copper": "2026-11-17 20:00",
+  "eldora": "2026-11-17 20:00",
   "steamboat": "2026-11-17 20:00",
-  "winterpark": "2026-11-17 19:00"
+  "winterpark": "2026-11-17 20:00"
  },
  "speed_segments": [
   "I70E024",
