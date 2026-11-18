@@ -123,3 +123,7 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-18T00:30:47-07:00,489,CO 9,Silverthorne-Kremmling,101.6,138.9,6 - snow; 9 - icy spots; icy bridges,"CO 9, between I-70; US 6 (Silverthorne) and US 40 (Kremmling)"
 2026-11-18T00:30:47-07:00,101,CO 82,Aspen-Basalt,11.5,41.9,9 - icy spots,"CO 82, between Satank Road (near Carbondale) and Riverside Drive (Aspen)"
 2026-11-18T00:30:47-07:00,492,US 40,Granby-Winter Park,211.6,231.5,3 - dry,"US 40, between US 34 (near Granby) and Lakota Trail (Winter Park)"
+2026-11-18T01:00:46-07:00,270,I-70,Eisenhower/Johnson tunnels-Georgetown,212.5,226.9,"6-9-11 snow, icy spots, snow packed spots","I-70, between Exit 205: CO 9; US 6; Silverthorne (near Eisenhower Tunnel) and Exit 228: Georgetown (near Georgetown)"
+2026-11-18T01:00:46-07:00,486,US 6,Loveland Pass,219.9,229.9,"6-9-11 snow, icy spots, snow packed spots","US 6, between Montezuma Road and I-70 (Loveland Pass)"
+2026-11-18T01:00:46-07:00,491,US 40,I-70 to Winter Park (Berthoud Pass),231.5,258.3,"6-9-11 snow, icy spots, snow packed spots","US 40, between Moffat Road (Winter Park) and I-70 (near Empire)"
+2026-11-18T01:00:46-07:00,459,I-70,Silverthorne-Eisenhower/Johnson tunnels,203.7,212.5,"6-9-11 snow, icy spots, snow packed spots","I-70, between Exit 203: CO 9; East Frisco (near Frisco) and Exit 216: US 6; Loveland Pass (near Eisenhower Tunnel)"
