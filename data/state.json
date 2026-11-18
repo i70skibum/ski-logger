@@ -829,18 +829,6 @@
    "title": "CO 9: High wind.",
    "type": "standard"
   },
-  "winterDriving:COSEG-522873": {
-   "began": "2026-11-17T20:47:39.081000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-522873",
-   "mp_end": 97.23000005133508,
-   "mp_start": 66.57713676843773,
-   "pos_bearing": "N",
-   "route": "CO 9",
-   "title": "CO 9: Snow with icy and snow packed spots.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-522941": {
    "began": "2026-11-17T18:57:05.512000-07:00",
    "class": "winterDriving",
@@ -925,25 +913,13 @@
    "title": "CO 82: Seasonal Closure.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588114": {
-   "began": "2026-11-18T00:11:01.368000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588114",
-   "mp_end": 188.34154771955997,
-   "mp_start": 176.19604734763578,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Snow.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588188": {
+  "winterDriving:COSEG-588195": {
    "began": "2026-11-18T11:43:04.390000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588188",
+   "id": "COSEG-588195",
    "mp_end": 203.7258464806865,
-   "mp_start": 188.34154771955997,
+   "mp_start": 176.19604734763578,
    "pos_bearing": "E",
    "route": "I-70",
    "title": "I-70: Icy spots.",
@@ -951,7 +927,7 @@
   }
  },
  "forecast_last": "2026-11-18T19:45:47+00:00",
- "last_run": "2026-11-18T14:00:47-07:00",
+ "last_run": "2026-11-18T14:15:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -992,18 +968,18 @@
   "485": "6 - snow; 8 - icy",
   "486": "3 - dry",
   "489": "4s - wet in areas; 6 - snow; 9 - icy spots",
-  "49": "9-11 icy spots, snow packed spots",
+  "49": "3 - dry",
   "491": "3 - dry",
   "492": "4 - wet; 9 - icy spots",
   "516": "3 - dry",
   "517": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-18 12:00",
+  "abasin": "2026-11-18 13:00",
   "aspen": "2026-11-18 12:00",
   "copper": "2026-11-18 12:00",
   "eldora": "2026-11-18 12:00",
-  "steamboat": "2026-11-18 12:00",
+  "steamboat": "2026-11-18 13:00",
   "winterpark": "2026-11-18 12:00"
  },
  "speed_segments": [
