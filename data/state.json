@@ -1,5 +1,5 @@
 {
- "afd_last": "bfc45d52-5009-4be0-be86-304e384b1a82",
+ "afd_last": "78b9ee49-7703-4ba5-a7ae-56564a8df525",
  "events": {
   "chainLaws:CDOT-36434866592BOTH": {
    "began": "2026-11-17T20:46:25-07:00",
@@ -61,18 +61,6 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadClosures:CDOT-36436905419EB": {
-   "began": "2026-11-17T23:15:55-07:00",
-   "class": "roadClosures",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36436905419EB",
-   "mp_end": "",
-   "mp_start": 224.0239442203847,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Road closed.",
-   "type": "critical"
-  },
   "roadClosures:CDOT-36437179137EB": {
    "began": "2026-11-17T23:35:51-07:00",
    "class": "roadClosures",
@@ -121,18 +109,6 @@
    "title": "I-70 eastbound: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36436932033EB": {
-   "began": "2026-11-17T23:17:38-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36436932033EB",
-   "mp_end": "",
-   "mp_start": 227.0199025138958,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Right lane closed.",
-   "type": "routine"
-  },
   "roadReports:CDOT-36437179137EB": {
    "began": "2026-11-17T23:35:51-07:00",
    "class": "roadReports",
@@ -144,6 +120,18 @@
    "route": "I-70",
    "title": "I-70 eastbound: Road closed.",
    "type": "critical"
+  },
+  "roadReports:CDOT-36437349643WB": {
+   "began": "2026-11-17T23:48:32-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36437349643WB",
+   "mp_end": "",
+   "mp_start": 225.50788913317874,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Left lane closed.",
+   "type": "routine"
   },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
@@ -227,18 +215,6 @@
    "pos_bearing": "E",
    "route": "US 6",
    "title": "US 6 westbound: Both shoulders closed.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36260874077WB": {
-   "began": "2026-11-17T00:01:00-07:00",
-   "class": "roadWork",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36260874077WB",
-   "mp_end": 297.34697028062703,
-   "mp_start": 297.515289189431,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40 (Colfax Ave) westbound: Right lane closed.",
    "type": "routine"
   },
   "roadWork:CDOT-36280528554WB": {
@@ -1009,6 +985,18 @@
    "title": "I-70: Wet.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588004": {
+   "began": "2026-11-18T00:00:08.533000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588004",
+   "mp_end": 238.72646079049417,
+   "mp_start": 226.92501014010733,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Wet in areas.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588008": {
    "began": "2026-11-17T16:23:35.610000-07:00",
    "class": "winterDriving",
@@ -1155,7 +1143,7 @@
   }
  },
  "forecast_last": "2026-11-18T04:15:55+00:00",
- "last_run": "2026-11-17T23:45:52-07:00",
+ "last_run": "2026-11-18T00:00:51-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1176,8 +1164,8 @@
   "201": "4 - wet",
   "202": "4 - wet",
   "262": "5 - rain; 6 - snow",
-  "270": "4 - wet; 6 - snow",
-  "271": "3 - dry",
+  "270": "4 - wet; 6 - snow; 8 - icy",
+  "271": "4s - wet in areas",
   "272": "3 - dry",
   "273": "3 - dry",
   "274": "3 - dry",
@@ -1189,7 +1177,7 @@
   "456": "4s - wet in areas; 6 - snow",
   "457": "4s - wet in areas; 6 - snow",
   "458": "6 - snow",
-  "459": "4 - wet; 6 - snow",
+  "459": "4 - wet; 6 - snow; 8 - icy",
   "47": "3 - dry",
   "483": "4 - wet",
   "484": "4 - wet",
