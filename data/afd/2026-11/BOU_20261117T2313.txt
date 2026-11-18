@@ -1,0 +1,178 @@
+
+000
+FXUS65 KBOU 180613
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1113 PM MST Tue Nov 17 2026
+
+.KEY MESSAGES... 
+
+- First wind event of the season likely (>70%) for the northern
+  Front Range mountains and foothills late tonight into 
+  Wednesday. Gusts of 60-75 mph with isolated stronger gusts 
+  possible.
+
+- Brief potential for wind gusts of 40-50 mph and isolated
+  stronger wind gusts for the Hwy 93 corridor (Boulder to Golden)
+  and northern Weld County.
+
+- Critical fire weather conditions for the southern Front Range
+  foothills and Palmer Divide on Wednesday. Elevated fire weather
+  conditions possible across the northern Front Range mountains,
+  foothills, and adjacent plains.
+
+- Chance for mountain snow late tonight into Wednesday morning. 
+  Another event likely Friday into Saturday.
+
+&&
+
+.DISCUSSION /Through Tuesday/...
+Issued at 234 PM MST Tue Nov 17 2026
+
+Today has been a pleasant day with high temperatures topping out in 
+the upper 50s for the majority of the plains. A trough currently 
+located over Nevada will approach Colorado tonight and move through 
+on Wednesday. This will bring some snow to the central and northern 
+mountains tonight and into Wednesday morning. The Park Range 
+continues to look most favored for 2-4 inches of snow. Our central 
+and northern mountains are forecast to see a dusting to perhaps an 
+inch or two of snow. Modeling has trended to a slight increase in 
+moisture leading to the slight bump in snowfall totals. Some briefly 
+moderate to heavy snow is possible overnight given steep lapse rates.
+
+Wednesday is shaping up to be an impactful day for the majority of 
+our area. Some ingredients appear increasingly likely to come into 
+place for a Bora event producing high winds. Subsidence and cross 
+barrier, near-westerly flow of 50-60 kts looks likely. Our area will 
+be in the right exit region of the jet in the morning before the jet 
+is nearly overhead by Wednesday afternoon. Some high-resolution 
+model soundings continues to show a stable layer/inversion in the 
+600 to 700 mb range, which would help to enhance the already strong 
+winds.
+
+Gusty winds look to first begin in the northern mountains as early 
+as 11pm tonight. Stronger winds should slowly spread to the east 
+into the northern foothills as we progress through Wednesday 
+morning. Wind gusts between 60 and 75 mph are expected with perhaps 
+a few gusts stronger than that at the highest peaks in the northern 
+Front Range mountains and foothills. DESI REFS probabilities 
+highlight this potential well with increasing probabilities (50-70% 
+chance) of gusts >70 mph with the greatest chances for locations 
+above 9,000 feet. We have upgraded to a High Wind Warning in these 
+locations from 11pm Tuesday through 11am Wednesday.
+
+As of now, high-resolution model guidance shows the peak of the 
+winds along the Hwy 93 corridor- Boulder to Golden- between 7am and 
+noon Wednesday. There is increased confidence compared to yesterday 
+of a slightly stronger surface pressure gradient and stronger 
+momentum transfer. This would introduce a few hour window of wind 
+gusts of 40-50 mph with the potential for some isolated locations 
+seeing slightly stronger wind gusts in this corridor. These stronger 
+winds could possibly extend as far east as KBJC to KLMO, but there 
+is uncertainty on how far east the strongest winds could make it. 
+Once we reach late Wednesday morning into the afternoon, areas along 
+our far northern tier, including the I-25 corridor north of Fort 
+Collins, could see gusts of 40-50 mph with some isolated stronger 
+wind gusts possible. As is typical in these setups, narrow channels 
+of 30 to 45 mph wind gusts could extend to the east across southern 
+Weld County and in the southern Denver metro. 18z modeling shows the 
+potential for a secondary push of stronger wind gusts along the Hwy 
+93 corridor early Wednesday afternoon as cold air advection 
+continues, but this scenario remains rather uncertain. In addition, 
+we have continued to trend dewpoints lower given the increased 
+subsidence for Wednesday morning and afternoon. Elevated to critical 
+fire weather conditions are expected. See the Fire Weather 
+Discussion for more details.
+
+Thursday will feature a much calmer weather pattern with weak 
+ridging aloft. High temperatures will remain in the mid to upper 50s 
+for the plains. The next storm system will move into the area on 
+Thursday night into Friday. A trough will once again move in, but 
+take a slightly more southerly and slower track compared to 
+Wednesday's trough. A few shortwaves associated with the trough will 
+bring precipitation chances on Friday and Saturday to our area. The 
+highest confidence of any snowfall accumulations remains for our 
+central and northern mountains given the flow aloft. As we get into 
+Friday night and Saturday morning, some light rain showers are 
+possible with perhaps a few snowflakes making it into the lower 
+elevations. These chances remain rather unimpressive- only about 20-
+30% of ensemble guidance shows any sort of light dusting. We do note 
+that the last few runs of both the ECMWF and GFS deterministic 
+models do try to bring some flakes into the Denver metro on Saturday 
+morning as a surface low develops and brings light upslope winds to 
+the area. As previously noted, this will be a period to keep an eye 
+on.
+
+After Saturday, ensemble guidance is in good agreement that below 
+normal temperatures and on and off precipitation chances look to 
+continue through much of next week. This should finally bring us our 
+first prolonged taste of some cooler temperatures to the lower 
+elevations!
+
+&&
+
+.AVIATION /06Z TAFS through 06Z Thursday/...
+Issued at 1113 PM MST Tue Nov 17 2026
+
+VFR conditions will prevail through the TAF period with skies
+clearing for Wednesday. Wind forecast will be highly uncertain
+Wednesday as a shortwave trough passes north of Colorado. Expect a
+period of gusty west winds as the trough axis moves through
+sometime between 12Z and 18Z. After 18Z, models show channels of
+west-northwest winds with the general wind direction turning
+clockwise. After 21Z, confidence in the wind forecast improves as
+the threat for stronger westerly wind diminishand wind direction
+continues to turn clockwise to the northeast to east. Southeast
+winds are expected around 00Z, with typical southerly winds
+developing mid evening 03-04Z. 
+
+&&
+
+.FIRE WEATHER...
+Issued at 240 PM MST Tue Nov 17 2026
+
+Elevated to critical fire weather conditions are 
+increasingly likely for much of Wednesday. As a result, we have 
+issued a Red Flag Warning for the southern Front Range foothills and 
+the Palmer Divide from 8am to 5pm Wednesday. We have the most 
+confidence that these locations will see a several hour overlap 
+between low relative humidity and wind gusts exceeding 25-30 mph. 
+Confidence is not high enough on the exact locations of any narrow 
+channels of stronger winds possible across the I-25 corridor (from 
+Centennial to Fort Collins and eastward). Note that these winds 
+would likely reach thresholds for near-critical fire weather 
+conditions. We are confident that relative humidity values will drop 
+to below 20% for nearly all of the Red Flag Warning and Fire Weather 
+Watch locations. Some locations could see relative humidity drop 
+into the upper single digits to low teens. For the northern Front 
+Range mountains and foothills, RH values are likely to be slightly 
+higher than other locations with gusty winds decreasing by the early 
+afternoon. If confidence were to increase in the overlap between 
+RH/winds for the northern Front Range mountains and foothills and/or 
+the placement of the strongest winds for the adjacent plains, the 
+Red Flag Warning could need to be expanded in a future package.
+
+Gusty winds are possible on Friday and Saturday with the next
+storm system mainly for the high country and southern portions of
+our area. More moisture is expected at this time, so there is only
+a low risk for elevated fire weather conditions.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+High Wind Warning until 11 AM MST Wednesday for COZ033-035.
+
+Fire Weather Watch from 8 AM MST Wednesday through Wednesday 
+afternoon for COZ215-238>240-243.
+
+Red Flag Warning from 8 AM to 5 PM MST Wednesday for COZ216-241.
+
+&&
+
+$$
+
+DISCUSSION...MV
+AVIATION...BM
+FIRE WEATHER...MV

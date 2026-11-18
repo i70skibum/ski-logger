@@ -1,5 +1,5 @@
 {
- "afd_last": "bc9e89bb-4592-4cea-b6f5-a7caa95cb838",
+ "afd_last": "bfc45d52-5009-4be0-be86-304e384b1a82",
  "events": {
   "chainLaws:CDOT-36434866592BOTH": {
    "began": "2026-11-17T20:46:25-07:00",
@@ -61,6 +61,18 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadClosures:CDOT-36436905419EB": {
+   "began": "2026-11-17T23:15:55-07:00",
+   "class": "roadClosures",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36436905419EB",
+   "mp_end": "",
+   "mp_start": 224.0239442203847,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
+   "type": "critical"
+  },
   "roadClosures:COSEG-588027": {
    "began": "2026-11-17T10:58:59.640000-07:00",
    "class": "roadClosures",
@@ -84,6 +96,30 @@
    "route": "CO 82",
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
+  },
+  "roadReports:CDOT-36436905419EB": {
+   "began": "2026-11-17T23:15:55-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36436905419EB",
+   "mp_end": "",
+   "mp_start": 224.0239442203847,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
+   "type": "critical"
+  },
+  "roadReports:CDOT-36436932033EB": {
+   "began": "2026-11-17T23:17:38-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36436932033EB",
+   "mp_end": "",
+   "mp_start": 227.0199025138958,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Right lane closed.",
+   "type": "routine"
   },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
@@ -1107,7 +1143,7 @@
   }
  },
  "forecast_last": "2026-11-18T04:15:55+00:00",
- "last_run": "2026-11-17T23:15:46-07:00",
+ "last_run": "2026-11-17T23:30:52-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1157,10 +1193,10 @@
  "snotel_last": {
   "abasin": "2026-11-17 22:00",
   "aspen": "2026-11-17 21:00",
-  "copper": "2026-11-17 21:00",
-  "eldora": "2026-11-17 21:00",
+  "copper": "2026-11-17 22:00",
+  "eldora": "2026-11-17 22:00",
   "steamboat": "2026-11-17 22:00",
-  "winterpark": "2026-11-17 21:00"
+  "winterpark": "2026-11-17 22:00"
  },
  "speed_segments": [
   "I70E024",
