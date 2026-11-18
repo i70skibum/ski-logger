@@ -1057,13 +1057,25 @@
    "title": "I-70: Snow.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588107": {
-   "began": "2026-11-17T22:03:23.824000-07:00",
+  "winterDriving:COSEG-588114": {
+   "began": "2026-11-18T00:11:01.368000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588107",
-   "mp_end": 194.34189728928501,
+   "id": "COSEG-588114",
+   "mp_end": 188.34154771955997,
    "mp_start": 176.19604734763578,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Snow.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588115": {
+   "began": "2026-11-18T00:11:01.368000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588115",
+   "mp_end": 194.34189728928501,
+   "mp_start": 188.34154771955997,
    "pos_bearing": "E",
    "route": "I-70",
    "title": "I-70: Snow.",
@@ -1071,7 +1083,7 @@
   }
  },
  "forecast_last": "2026-11-18T07:30:47+00:00",
- "last_run": "2026-11-18T01:45:46-07:00",
+ "last_run": "2026-11-18T02:00:54-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1123,7 +1135,7 @@
   "aspen": "2026-11-18 00:00",
   "copper": "2026-11-18 00:00",
   "eldora": "2026-11-18 00:00",
-  "steamboat": "2026-11-18 00:00",
+  "steamboat": "2026-11-18 01:00",
   "winterpark": "2026-11-18 00:00"
  },
  "speed_segments": [
