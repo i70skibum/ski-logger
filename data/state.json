@@ -73,6 +73,18 @@
    "title": "I-70 eastbound: Road closed.",
    "type": "critical"
   },
+  "roadClosures:CDOT-36437179137EB": {
+   "began": "2026-11-17T23:35:51-07:00",
+   "class": "roadClosures",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36437179137EB",
+   "mp_end": 224.0239442203847,
+   "mp_start": 220.99952785085512,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
+   "type": "critical"
+  },
   "roadClosures:COSEG-588027": {
    "began": "2026-11-17T10:58:59.640000-07:00",
    "class": "roadClosures",
@@ -120,6 +132,18 @@
    "route": "I-70",
    "title": "I-70 eastbound: Right lane closed.",
    "type": "routine"
+  },
+  "roadReports:CDOT-36437179137EB": {
+   "began": "2026-11-17T23:35:51-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36437179137EB",
+   "mp_end": 224.0239442203847,
+   "mp_start": 220.99952785085512,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
+   "type": "critical"
   },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
@@ -961,18 +985,6 @@
    "title": "US 40: Wet.",
    "type": "standard"
   },
-  "winterDriving:COSEG-587983": {
-   "began": "2026-11-17T18:51:57.453000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-587983",
-   "mp_end": 188.34154771955997,
-   "mp_start": 176.19604734763578,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Wet.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588001": {
    "began": "2026-11-17T18:51:42.961000-07:00",
    "class": "winterDriving",
@@ -1117,18 +1129,6 @@
    "title": "I-70: Wet.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588100": {
-   "began": "2026-11-17T20:29:42.934000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588100",
-   "mp_end": 194.34189728928501,
-   "mp_start": 188.34154771955997,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Snow with ice and snow packed.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588101": {
    "began": "2026-11-17T20:05:06.365000-07:00",
    "class": "winterDriving",
@@ -1140,10 +1140,22 @@
    "route": "I-70",
    "title": "I-70: Snow.",
    "type": "standard"
+  },
+  "winterDriving:COSEG-588107": {
+   "began": "2026-11-17T22:03:23.824000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588107",
+   "mp_end": 194.34189728928501,
+   "mp_start": 176.19604734763578,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Snow.",
+   "type": "standard"
   }
  },
  "forecast_last": "2026-11-18T04:15:55+00:00",
- "last_run": "2026-11-17T23:30:52-07:00",
+ "last_run": "2026-11-17T23:45:52-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1192,7 +1204,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-17 22:00",
-  "aspen": "2026-11-17 21:00",
+  "aspen": "2026-11-17 22:00",
   "copper": "2026-11-17 22:00",
   "eldora": "2026-11-17 22:00",
   "steamboat": "2026-11-17 22:00",
