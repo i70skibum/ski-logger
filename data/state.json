@@ -49,6 +49,18 @@
    "title": "US 40 in both directions: Passenger vehicle traction law.",
    "type": "standard"
   },
+  "chainLaws:CDOT-36437621833BOTH": {
+   "began": "2026-11-18T00:08:24-07:00",
+   "class": "chainLaws",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36437621833BOTH",
+   "mp_end": 228.99849663202585,
+   "mp_start": 219.99962298631988,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6 in both directions: Passenger vehicle traction law.",
+   "type": "standard"
+  },
   "roadClosures:CDOT-36057055825BOTH": {
    "began": "2026-10-29T15:49:45-06:00",
    "class": "roadClosures",
@@ -949,18 +961,6 @@
    "title": "I-70: Wet.",
    "type": "standard"
   },
-  "winterDriving:COSEG-587960": {
-   "began": "2026-11-17T16:23:35.610000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-587960",
-   "mp_end": 90.59834604336295,
-   "mp_start": 1.3242356516934172e-06,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40: Wet.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588001": {
    "began": "2026-11-17T18:51:42.961000-07:00",
    "class": "winterDriving",
@@ -1004,42 +1004,6 @@
    "id": "COSEG-588008",
    "mp_end": 121.26224323617745,
    "mp_start": 90.59834604336295,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40: Wet.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588009": {
-   "began": "2026-11-17T18:52:35.724000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588009",
-   "mp_end": 137.32318525182112,
-   "mp_start": 121.26224323617745,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40: Wet.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588010": {
-   "began": "2026-11-17T18:52:35.724000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588010",
-   "mp_end": 211.57416959762907,
-   "mp_start": 178.67290150809615,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40: Wet.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588011": {
-   "began": "2026-11-17T18:52:35.724000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588011",
-   "mp_end": 231.52362708977432,
-   "mp_start": 211.57416959762907,
    "pos_bearing": "E",
    "route": "US 40",
    "title": "US 40: Wet.",
@@ -1143,7 +1107,7 @@
   }
  },
  "forecast_last": "2026-11-18T04:15:55+00:00",
- "last_run": "2026-11-18T00:00:51-07:00",
+ "last_run": "2026-11-18T00:15:54-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1158,11 +1122,11 @@
   "102": "seasonal closure",
   "131": "4 - wet; 6 - snow; 9 - icy spots",
   "132": "3 - dry",
-  "198": "4 - wet",
-  "199": "4 - wet",
-  "200": "4 - wet",
-  "201": "4 - wet",
-  "202": "4 - wet",
+  "198": "3 - dry",
+  "199": "4s - wet in areas",
+  "200": "3 - dry",
+  "201": "9 - icy spots",
+  "202": "3 - dry",
   "262": "5 - rain; 6 - snow",
   "270": "4 - wet; 6 - snow; 8 - icy",
   "271": "4s - wet in areas",
@@ -1181,7 +1145,7 @@
   "47": "3 - dry",
   "483": "4 - wet",
   "484": "4 - wet",
-  "485": "4 - wet",
+  "485": "8 - icy",
   "486": "4 - wet; 6 - snow",
   "489": "4s - wet in areas",
   "49": "6-9-11 snow, icy spots, snow packed spots",
@@ -1191,11 +1155,11 @@
   "517": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-17 22:00",
+  "abasin": "2026-11-17 23:00",
   "aspen": "2026-11-17 22:00",
   "copper": "2026-11-17 22:00",
   "eldora": "2026-11-17 22:00",
-  "steamboat": "2026-11-17 22:00",
+  "steamboat": "2026-11-17 23:00",
   "winterpark": "2026-11-17 22:00"
  },
  "speed_segments": [
