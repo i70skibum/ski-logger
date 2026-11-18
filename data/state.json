@@ -781,18 +781,6 @@
    "title": "US 6 eastbound: Road maintenance operations.",
    "type": "routine"
   },
-  "roadWork:CDOT-36436243704BOTH": {
-   "began": "2026-11-17T22:27:17-07:00",
-   "class": "roadWork",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36436243704BOTH",
-   "mp_end": 269.0015185998042,
-   "mp_start": 259.02699996241427,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 in both directions: Both shoulders closed.",
-   "type": "routine"
-  },
   "winterDriving:COSEG-522841": {
    "began": "2026-11-18T03:01:29.345000-07:00",
    "class": "winterDriving",
@@ -1035,7 +1023,7 @@
   }
  },
  "forecast_last": "2026-11-18T10:30:47+00:00",
- "last_run": "2026-11-18T05:00:47-07:00",
+ "last_run": "2026-11-18T05:15:48-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1083,7 +1071,7 @@
   "517": "1 - high wind; 3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-18 03:00",
+  "abasin": "2026-11-18 04:00",
   "aspen": "2026-11-18 03:00",
   "copper": "2026-11-18 03:00",
   "eldora": "2026-11-18 03:00",
