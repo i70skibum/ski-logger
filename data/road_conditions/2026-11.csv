@@ -154,3 +154,6 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-18T04:45:48-07:00,484,I-70,Eagle-Vail,145.8,176.2,3 - dry; icy bridges,"I-70, between Exit 140: US 6; Gypsum (near Eagle) and Exit 180: East Vail (Vail)"
 2026-11-18T05:00:47-07:00,201,US 40,Rabbit Ears Pass,137.3,178.7,6 - snow; 9 - icy spots,"US 40, between Kemry Lane (near Rabbit Ears Pass) and Utility Road (3 miles west of the Kremmling area)"
 2026-11-18T05:00:47-07:00,492,US 40,Granby-Winter Park,211.6,231.5,6 - snow; 9 - icy spots,"US 40, between US 34 (near Granby) and Lakota Trail (Winter Park)"
+2026-11-18T06:30:47-07:00,447,US 6,Sterling-Holyoke,403.4,453.6,3 - dry,"US 6, between Kochia Way (Sterling) and Sheridan Avenue (Holyoke)"
+2026-11-18T06:30:47-07:00,516,US 40,Limon-Kit Carson,386.0,444.4,3 - dry,"US 40, between US 24 (12 miles west of Hugo) and Forrest Avenue (near Kit Carson)"
+2026-11-18T06:30:47-07:00,517,US 40,Kit Carson-Cheyenne Wells,444.4,486.9,3 - dry,"US 40, between County Road 17 (near Kit Carson) and the Kansas Border (7 miles east of Arapahoe)"

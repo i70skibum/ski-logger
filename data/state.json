@@ -109,6 +109,18 @@
    "title": "I-70 eastbound: Crash.",
    "type": "routine"
   },
+  "roadReports:CDOT-36442565503SB": {
+   "began": "2026-11-18T06:10:17-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36442565503SB",
+   "mp_end": "",
+   "mp_start": 259.9043,
+   "pos_bearing": "",
+   "route": "I-70",
+   "title": "I-70 westbound: Exit ramp partially closed.",
+   "type": "urgent"
+  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -781,18 +793,6 @@
    "title": "US 6 eastbound: Road maintenance operations.",
    "type": "routine"
   },
-  "winterDriving:COSEG-522841": {
-   "began": "2026-11-18T03:01:29.345000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-522841",
-   "mp_end": 453.5784634698443,
-   "mp_start": 403.37730494536066,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6: High wind.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-522873": {
    "began": "2026-11-17T20:47:39.081000-07:00",
    "class": "winterDriving",
@@ -863,30 +863,6 @@
    "pos_bearing": "E",
    "route": "US 40",
    "title": "US 40: Snow.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-587779": {
-   "began": "2026-11-18T03:01:29.345000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-587779",
-   "mp_end": 444.4169293,
-   "mp_start": 386.0100000422681,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40: High wind.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-587780": {
-   "began": "2026-11-18T03:01:29.345000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-587780",
-   "mp_end": 486.9240000252903,
-   "mp_start": 444.4169293,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40: High wind.",
    "type": "standard"
   },
   "winterDriving:COSEG-587882": {
@@ -1022,8 +998,8 @@
    "type": "standard"
   }
  },
- "forecast_last": "2026-11-18T10:30:47+00:00",
- "last_run": "2026-11-18T06:15:48-07:00",
+ "forecast_last": "2026-11-18T13:30:47+00:00",
+ "last_run": "2026-11-18T06:30:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1052,7 +1028,7 @@
   "322": "3 - dry",
   "335": "3 - dry",
   "336": "3 - dry",
-  "447": "1 - high wind; 3 - dry",
+  "447": "3 - dry",
   "45": "3 - dry",
   "456": "6 - snow",
   "457": "6 - snow",
@@ -1067,16 +1043,16 @@
   "49": "9-11 icy spots, snow packed spots",
   "491": "6-9-11 snow, icy spots, snow packed spots",
   "492": "6 - snow; 9 - icy spots",
-  "516": "1 - high wind; 3 - dry",
-  "517": "1 - high wind; 3 - dry"
+  "516": "3 - dry",
+  "517": "3 - dry"
  },
  "snotel_last": {
   "abasin": "2026-11-18 05:00",
   "aspen": "2026-11-18 04:00",
-  "copper": "2026-11-18 04:00",
-  "eldora": "2026-11-18 04:00",
+  "copper": "2026-11-18 05:00",
+  "eldora": "2026-11-18 05:00",
   "steamboat": "2026-11-18 05:00",
-  "winterpark": "2026-11-18 04:00"
+  "winterpark": "2026-11-18 05:00"
  },
  "speed_segments": [
   "I70E024",
