@@ -119,3 +119,7 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-18T00:15:54-07:00,200,US 40,Steamboat Springs,121.3,137.3,3 - dry,"US 40, between Foss Drive (near Milner) and County Road 20 (near Rabbit Ears Pass)"
 2026-11-18T00:15:54-07:00,199,US 40,Craig-Hayden-Milner,90.6,121.3,4s - wet in areas,"US 40, between Taylor Street (Craig) and Main Street (near Milner)"
 2026-11-18T00:15:54-07:00,485,US 6,Silverthorne to Arapahoe Basin,208.7,219.9,8 - icy,"US 6, between I-70; CO 9 (Silverthorne) and I-70 (near Loveland Pass)"
+2026-11-18T00:30:47-07:00,100,CO 82,Basalt-Glenwood Springs,0.0,11.5,9 - icy spots,"CO 82, between I-70 (Glenwood Springs) and CO 133 (near Carbondale)"
+2026-11-18T00:30:47-07:00,489,CO 9,Silverthorne-Kremmling,101.6,138.9,6 - snow; 9 - icy spots; icy bridges,"CO 9, between I-70; US 6 (Silverthorne) and US 40 (Kremmling)"
+2026-11-18T00:30:47-07:00,101,CO 82,Aspen-Basalt,11.5,41.9,9 - icy spots,"CO 82, between Satank Road (near Carbondale) and Riverside Drive (Aspen)"
+2026-11-18T00:30:47-07:00,492,US 40,Granby-Winter Park,211.6,231.5,3 - dry,"US 40, between US 34 (near Granby) and Lakota Trail (Winter Park)"
