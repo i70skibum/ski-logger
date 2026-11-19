@@ -37,18 +37,6 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36465051535BOTH": {
-   "began": "2026-11-19T09:52:04-07:00",
-   "class": "roadReports",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36465051535BOTH",
-   "mp_end": 249.99971699266234,
-   "mp_start": 247.01492780236165,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40 in both directions: Road closed.",
-   "type": "critical"
-  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -710,8 +698,8 @@
    "type": "standard"
   }
  },
- "forecast_last": "2026-11-19T14:30:50+00:00",
- "last_run": "2026-11-19T10:30:48-07:00",
+ "forecast_last": "2026-11-19T17:45:47+00:00",
+ "last_run": "2026-11-19T10:45:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -760,11 +748,11 @@
  },
  "snotel_last": {
   "abasin": "2026-11-19 09:00",
-  "aspen": "2026-11-19 08:00",
-  "copper": "2026-11-19 08:00",
+  "aspen": "2026-11-19 09:00",
+  "copper": "2026-11-19 09:00",
   "eldora": "2026-11-19 09:00",
   "steamboat": "2026-11-19 09:00",
-  "winterpark": "2026-11-19 08:00"
+  "winterpark": "2026-11-19 09:00"
  },
  "speed_segments": [
   "I70E024",
