@@ -195,3 +195,5 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-18T16:30:47-07:00,262,I-70,Rifle -Glenwood Springs,90.2,116.2,3 - dry,"I-70, between Exit 87: US 6; Rifle (Rifle) and Exit 116: CO 82; Glenwood Springs (Glenwood Canyon)"
 2026-11-18T16:30:47-07:00,485,US 6,Silverthorne to Arapahoe Basin,208.7,219.9,3 - dry,"US 6, between I-70; CO 9 (Silverthorne) and I-70 (near Loveland Pass)"
 2026-11-18T16:45:46-07:00,102,CO 82,Independence Pass,41.9,67.4,seasonal closure,"CO 82, between Benedict Drive (Aspen) and Carlton Tunnel Road (Independence Pass)"
+2026-11-18T17:15:47-07:00,47,CO 9,US 24 to Fairplay,47.6,63.7,3 - dry,"CO 9, between US 24 and US 285 (Fairplay)"
+2026-11-18T17:15:47-07:00,45,CO 9,US 50 to US 24,0.0,47.0,3 - dry,"CO 9, between US 50 and US 24"

@@ -1,0 +1,120 @@
+
+000
+FXUS65 KBOU 190002
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+502 PM MST Wed Nov 18 2026
+
+.KEY MESSAGES... 
+
+- Gusty winds will continue for portions of the mountains,
+  foothills, and northern plains through the late afternoon.
+
+- Elevated to critical fire weather conditions across portions of
+  the foothills, I-25 corridor, northern plains, and Palmer 
+  Divide today.
+
+- Better chances for mountain snow Friday and Saturday.
+
+&&
+
+.DISCUSSION /Through Wednesday/...
+Issued at 1239 PM MST Wed Nov 18 2026
+
+Looking at Water Vapor, the upper level shortwave is moving
+through the area to the east, taking the strongest upper level 
+winds with it. Winds will gradually decrease into the evening, 
+dropping off significantly a little after sunset. We'll see very 
+brief upper level ridging in between our two systems on Thursday. 
+An upper level trough will move onto the northwest coast of the
+U.S. on Thursday, approaching the area on Friday. A little 
+shortwave will precede the main trough late Thursday into early 
+Friday, bringing snow chances to the mountains during this time. 
+Pacific moisture will move into the higher terrain with this 
+system at low to mid levels, helping with precip chances in the 
+mountains. Moisture will generally remain higher to the west of 
+our area, with the best chances of snow for our CWA in the Park 
+Range.
+
+The main trough will approach the region late Friday, moving through 
+on Saturday. Surface low pressure will develop on the lee side of 
+the mountains ahead of this system. This low will drag a cold front 
+through the area late Friday into early Saturday, bringing much 
+cooler temperatures.
+
+We could briefly sit in the right entrance of the upper level jet 
+Saturday morning. At the same time we'll see broad upper level 
+support ahead of the trough. Unfortunately, moisture throughout 
+the column doesn't look great, but there should be enough for snow
+showers in the higher terrain and potentially some light showers 
+in the plains as well. Behind the overnight front, a few models 
+are showing weak upslope flow across the southern foothills and 
+Palmer Divide area in the mid to late morning and early afternoon.
+This could be enough to trigger some shower activity in the 
+southern foothills and Palmer Divide area, potentially extending 
+into the southern metro. Right now, the NBM has a medium chance 
+(30% to 60%) that the southern metro, Palmer, and southern 
+foothills get at least a trace of snow, with very low chances 
+(<10%) that Denver sees more than an inch. For the higher terrain,
+snow levels will start out around 6000ft, dropping closer to 
+4000ft by Saturday morning. As mentioned previously, moisture with
+this event isn't particularly high, so overall accumulation's 
+will be on the lower end, with liquid amounts generally around a 
+few hundredths to a quarter of an inch (with potential for higher 
+amounts in the Park Range). 
+
+Behind the front, conditions are expected to be much cooler. Lows 
+Saturday morning in the plains will drop into the 20s to mid 30s.
+Lows for Sunday into the middle of next week are forecast to be 
+in the teens to mid 20s for the plains with highs only reaching 
+into the 40s each afternoon. Another shortwave trough is forecast 
+to approach the area late Monday into early Tuesday, bringing
+additional snow chances to the mountains. 
+
+&&
+
+.AVIATION /00Z TAFS through 00Z Friday/...
+Issued at 501 PM MST Wed Nov 18 2026
+
+Downsloping winds have mostly subsided at this time with current 
+observations over the Denver metro showing winds are turning 
+clockwise and becoming ESE/SE. Winds at KBJC are more westerly, 
+although gusts are decreasing and seem to be limited to the Boulder 
+area. For tonight, drainage SSW flow (10-15KT) should become 
+established at KDEN and KAPA by ~04Z, while KBJC experiences near-
+calm conditions or a very light WNW wind. 
+
+Winds Thursday morning will start out light and variable before a 
+gradual shift to NE in the afternoon. While some guidance suggests a 
+cyclone developing southeast of Denver, we expect minimal impacts at 
+this time due to the light speeds forecast (05-08KT). 
+
+&&
+
+.FIRE WEATHER...
+Issued at 1239 PM MST Wed Nov 18 2026
+
+The Red Flag Warning will remain in effect until 4pm this
+afternoon. Zones 242 and 248 (northern plains) were added to the
+RFW today due to winds gusting around 45 to 60mph and RHs dropping
+into the 12% to 20% range. The strongest winds will be in the 
+northern portions of those zones. Winds in the other zones in the
+RFW are generally gusting around 25 to 50mph with RHs down in the
+single digits to around 20%. Winds will gradually decrease over 
+the next couple of hours, decreasing significantly between 23Z and
+01Z. RHs will reach their minimum around 21Z.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...AP
+AVIATION...AA
+FIRE WEATHER...AP
