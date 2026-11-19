@@ -37,18 +37,6 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36460073988WB": {
-   "began": "2026-11-19T03:46:00-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36460073988WB",
-   "mp_end": "",
-   "mp_start": 259.02699996241427,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 westbound: Right lane closed.",
-   "type": "routine"
-  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -639,7 +627,7 @@
   }
  },
  "forecast_last": "2026-11-19T11:30:47+00:00",
- "last_run": "2026-11-19T06:30:46-07:00",
+ "last_run": "2026-11-19T06:45:48-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -688,7 +676,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-19 05:00",
-  "aspen": "2026-11-19 04:00",
+  "aspen": "2026-11-19 05:00",
   "copper": "2026-11-19 05:00",
   "eldora": "2026-11-19 05:00",
   "steamboat": "2026-11-19 05:00",
