@@ -37,18 +37,6 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36463101714WB": {
-   "began": "2026-11-19T07:28:31-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36463101714WB",
-   "mp_end": "",
-   "mp_start": 208.99856373789012,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 westbound: Roadway reopened to traffic.",
-   "type": "urgent"
-  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -625,18 +613,6 @@
    "title": "US 6 eastbound: Bridge construction.",
    "type": "routine"
   },
-  "roadWork:CDOT-36464276461BOTH": {
-   "began": "2026-11-19T08:54:45-07:00",
-   "class": "roadWork",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36464276461BOTH",
-   "mp_end": 100.70234138846665,
-   "mp_start": 100.56684318238146,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6 in both directions: Road maintenance operations.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36464588410WB": {
    "began": "2026-11-19T09:17:57-07:00",
    "class": "roadWork",
@@ -711,7 +687,7 @@
   }
  },
  "forecast_last": "2026-11-19T17:45:47+00:00",
- "last_run": "2026-11-19T11:30:48-07:00",
+ "last_run": "2026-11-19T11:45:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -760,7 +736,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-19 10:00",
-  "aspen": "2026-11-19 09:00",
+  "aspen": "2026-11-19 10:00",
   "copper": "2026-11-19 10:00",
   "eldora": "2026-11-19 10:00",
   "steamboat": "2026-11-19 10:00",
