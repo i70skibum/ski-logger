@@ -625,6 +625,66 @@
    "title": "US 6 eastbound: Bridge construction.",
    "type": "routine"
   },
+  "roadWork:CDOT-36464588410WB": {
+   "began": "2026-11-19T09:17:57-07:00",
+   "class": "roadWork",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36464588410WB",
+   "mp_end": 247.02085414084988,
+   "mp_start": 248.0257040991646,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Right lane closed.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36464710162NB": {
+   "began": "2026-11-22T12:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36464710162NB",
+   "mp_end": 65.41353571036487,
+   "mp_start": 65.26523036068296,
+   "pos_bearing": "N",
+   "route": "CO 9",
+   "title": "CO 9 northbound: Road construction.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36464710162SB": {
+   "began": "2026-11-22T12:00:00-07:00",
+   "class": "roadWork",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36464710162SB",
+   "mp_end": 65.41353571036487,
+   "mp_start": 65.26523036068296,
+   "pos_bearing": "N",
+   "route": "CO 9",
+   "title": "CO 9 southbound: Right shoulder closed.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36464711798BOTH": {
+   "began": "2026-11-19T21:00:00-07:00",
+   "class": "roadWork",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36464711798BOTH",
+   "mp_end": 293.70039508052474,
+   "mp_start": 293.0003878439367,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6 in both directions: Lanes closed.",
+   "type": "urgent"
+  },
+  "roadWork:CDOT-36464711832BOTH": {
+   "began": "2026-11-20T21:00:00-07:00",
+   "class": "roadWork",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36464711832BOTH",
+   "mp_end": 293.70039508052474,
+   "mp_start": 293.0003878439367,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6 in both directions: Lanes closed.",
+   "type": "urgent"
+  },
   "winterDriving:COSEG-588228": {
    "began": "2026-11-18T16:43:27.092000-07:00",
    "class": "winterDriving",
@@ -639,7 +699,7 @@
   }
  },
  "forecast_last": "2026-11-19T14:30:50+00:00",
- "last_run": "2026-11-19T09:15:48-07:00",
+ "last_run": "2026-11-19T09:30:49-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -689,10 +749,10 @@
  "snotel_last": {
   "abasin": "2026-11-19 08:00",
   "aspen": "2026-11-19 07:00",
-  "copper": "2026-11-19 07:00",
-  "eldora": "2026-11-19 07:00",
+  "copper": "2026-11-19 08:00",
+  "eldora": "2026-11-19 08:00",
   "steamboat": "2026-11-19 08:00",
-  "winterpark": "2026-11-19 07:00"
+  "winterpark": "2026-11-19 08:00"
  },
  "speed_segments": [
   "I70E024",
