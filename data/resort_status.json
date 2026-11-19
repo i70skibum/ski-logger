@@ -32,6 +32,56 @@
       "note": "Aspen Mountain and Snowmass scheduled to open Nov 26.",
       "lifts": "0 of 36",
       "trails": "0 of 374"
+    },
+    "beavercreek": {
+      "open": false,
+      "note": "Scheduled to open Nov 25.",
+      "opens": "2026-11-25"
+    },
+    "crestedbutte": {
+      "open": false,
+      "note": "Scheduled to open Nov 25.",
+      "opens": "2026-11-25"
+    },
+    "telluride": {
+      "open": false,
+      "note": "Scheduled to open Nov 26.",
+      "opens": "2026-11-26"
+    },
+    "granby": {
+      "open": false,
+      "note": "Scheduled to open Nov 25.",
+      "opens": "2026-11-25"
+    },
+    "purgatory": {
+      "open": false,
+      "note": "Scheduled to open Nov 20.",
+      "opens": "2026-11-20"
+    },
+    "powderhorn": {
+      "open": false,
+      "note": "Targeting Nov 20 (some listings say Dec 4).",
+      "opens": "2026-11-20"
+    },
+    "monarch": {
+      "open": false,
+      "note": "Expected early December, around Dec 4.",
+      "opens": "2026-12-04"
+    },
+    "cooper": {
+      "open": false,
+      "note": "Scheduled to open Dec 9.",
+      "opens": "2026-12-09"
+    },
+    "sunlight": {
+      "open": false,
+      "note": "Scheduled to open Dec 11.",
+      "opens": "2026-12-11"
+    },
+    "echo": {
+      "open": false,
+      "note": "Expected Dec 12.",
+      "opens": "2026-12-12"
     }
   },
   "auto": true
