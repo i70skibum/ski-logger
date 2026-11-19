@@ -47,19 +47,40 @@ RESORTS = {
     # Overnight trips. Tower is above Steamboat; Chapman Tunnel is the closest station to Aspen.
     "steamboat":  {"name": "Steamboat",      "lat": 40.4570, "lon": -106.7950, "snotel": "825:CO:SNTL"},
     "aspen":      {"name": "Aspen Snowmass", "lat": 39.2000, "lon": -106.9550, "snotel": "1101:CO:SNTL"},
+    # Epic Pass resorts
+    "breck":       {"name": "Breckenridge",  "lat": 39.4750, "lon": -106.0800, "snotel": "531:CO:SNTL"},   # Hoosier Pass
+    "keystone":    {"name": "Keystone",      "lat": 39.5900, "lon": -105.9450, "snotel": "505:CO:SNTL"},   # Grizzly Peak
+    "vail":        {"name": "Vail",          "lat": 39.6150, "lon": -106.3700, "snotel": "842:CO:SNTL"},   # Vail Mountain
+    "beavercreek": {"name": "Beaver Creek",  "lat": 39.5950, "lon": -106.5200, "snotel": "1041:CO:SNTL"},  # Beaver Ck Village
+    "crestedbutte": {"name": "Crested Butte", "lat": 38.8900, "lon": -106.9550, "snotel": "380:CO:SNTL"},  # Butte
+    "telluride":   {"name": "Telluride",     "lat": 37.9250, "lon": -107.8300, "snotel": "1344:CO:SNTL"},  # Alta Lakes
+    # Independent resorts
+    "loveland":    {"name": "Loveland",      "lat": 39.6750, "lon": -105.8950, "snotel": "602:CO:SNTL"},   # Loveland Basin
+    "echo":        {"name": "Echo Mountain", "lat": 39.6850, "lon": -105.5200, "snotel": "936:CO:SNTL"},   # Echo Lake
+    "cooper":      {"name": "Ski Cooper",    "lat": 39.3600, "lon": -106.3000, "snotel": "485:CO:SNTL"},   # Fremont Pass
+    "granby":      {"name": "Granby Ranch",  "lat": 40.0400, "lon": -105.9100, "snotel": "1187:CO:SNTL"},  # High Lonesome
+    "monarch":     {"name": "Monarch",       "lat": 38.5100, "lon": -106.3300, "snotel": "701:CO:SNTL"},   # Porphyry Creek
+    "sunlight":    {"name": "Sunlight",      "lat": 39.3950, "lon": -107.3450, "snotel": "618:CO:SNTL"},   # McClure Pass
+    "powderhorn":  {"name": "Powderhorn",    "lat": 39.0650, "lon": -108.1500, "snotel": "622:CO:SNTL"},   # Mesa Lakes
+    "wolfcreek":   {"name": "Wolf Creek",    "lat": 37.4750, "lon": -106.7950, "snotel": "874:CO:SNTL"},   # Wolf Creek Summit
+    "purgatory":   {"name": "Purgatory",     "lat": 37.6300, "lon": -107.8200, "snotel": "387:CO:SNTL"},   # Cascade #2
 }
 
-# Roads that matter: I-70, Berthoud and Rabbit Ears Passes (US 40), Loveland Pass (US 6),
-# Boulder Canyon / Nederland (CO 119), Silverthorne to Kremmling (CO 9), Glenwood to Aspen (CO 82).
-ROUTES = {"I70", "US40", "US6", "CO119", "CO9", "CO82"}
-# Only keep I-70 events in the mountain corridor (Glenwood Springs to C-470).
-I70_MP_RANGE = (114.0, 262.0)
+# Roads that matter: I-70, Berthoud and Rabbit Ears Passes (US 40), Loveland Pass and Keystone (US 6),
+# Boulder Canyon / Nederland (CO 119), CO 9 (Breckenridge and Kremmling), Glenwood to Aspen (CO 82),
+# Fremont and Tennessee Passes (CO 91, US 24), Squaw Pass (CO 103), Grand Mesa (CO 65),
+# and the southern routes: US 285, US 50 over Monarch Pass, CO 135 to Crested Butte,
+# US 160 over Wolf Creek Pass, US 550 to Purgatory, CO 62 and CO 145 to Telluride.
+ROUTES = {"I70", "US40", "US6", "CO119", "CO9", "CO82", "CO91", "US24", "CO103", "CO65",
+          "US285", "US50", "CO135", "US160", "US550", "CO62", "CO145"}
+# Only keep I-70 events in the mountain corridor (Palisade, for Powderhorn, to C-470).
+I70_MP_RANGE = (40.0, 262.0)
 
 CARS_BASE = "https://api-511x-co.carsprogram.org/events/map-features"
 CARS_CLASSES = ["roadClosures", "chainLaws", "winterDriving", "roadReports", "roadWork"]
 
 NWS_BASE = "https://api.weather.gov"
-NWS_OFFICE = "BOU"  # Boulder office covers all four mountains
+NWS_OFFICE = "BOU"  # Boulder office: the Front Range and I-70 mountains
 FORECAST_EVERY = timedelta(hours=3)
 
 
