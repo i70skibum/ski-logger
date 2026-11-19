@@ -1,0 +1,105 @@
+
+000
+FXUS65 KBOU 191133
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+433 AM MST Thu Nov 19 2026
+
+.KEY MESSAGES... 
+
+- Next storm system arrives Friday, bringing chances for mountain
+  snow through Saturday.
+
+- Gusty winds and elevated fire weather conditions on Friday
+  across most of the Front Range foothills and plains.
+
+- Cooler pattern emerges this weekend into next week.
+
+&&
+
+.DISCUSSION /Through Wednesday/...
+Issued at 1115 PM MST Wed Nov 18 2026
+
+The flow aloft will increase on Friday ahead of another trough
+axis. This also looks to be the last warm day before a cooler
+pattern takes over for the weekend into next week, with highs
+reaching the upper 50s to low 60s. 700mb flow reaches about 40kt 
+by midday Friday in a broadly subsident regime, meaning that 
+widespread wind gusts are expected to develop across the Front 
+Range and plains during the afternoon. For the lower elevations, 
+elevated fire weather conditions will again be a concern in this 
+pattern. Two limiting factors are (1) the northern I-25 corridor 
+often ends up at least partially sheltered in SW flow, and (2) 
+relative humidity looks to be at least a little bit higher than 
+Wednesday.
+
+Across the mountains, moisture will begin to increase during the
+morning hours, leading to a gradual increase in snow. With a 
+~120kt jet streak remaining nearly stationary over northwestern 
+Colorado, one dominant band of light (to at times moderate) snow 
+somewhere over northern Colorado, with weaker orographic snow 
+showers across the rest of the mountains. Overall moisture is 
+still somewhat limited, and there may be a break in between 
+shortwaves Friday afternoon into Friday night.
+
+A second shortwave is expected to track through the state on
+Saturday. There's enough moisture for another organized round of
+light snow, this time focused along and south of the I-70
+mountains. Snowfall totals in this period will again be on the
+light side. Guidance continues to struggle with the evolution of
+this shortwave as is tracks into southwestern Kansas during the
+day. Several deterministic models (e.g., ECMWF, RGEM) are 
+insistent that a band of snow will spread into the Denver metro 
+and/or Palmer Divide during the morning hours Saturday, with 
+generally light (roughly a half inch to inch) snowfall amounts 
+possible. On the other hand, the GFS and most of the American
+short term/regional guidance is weaker with the developing surface
+low over the OK panhandle and struggle to produce any QPF outside
+of the higher terrain. I have a slight preference towards the
+ECMWF solution in this time period and our grids are close to
+the previous forecast - which is higher than the current NBM.
+
+This system will also usher in a period of cooler weather across 
+the forecast area. Even between systems Sunday and Monday, 
+temperatures across the plains will likely settle in the mid to 
+upper 40s. Guidance is in good agreement that near to below normal
+temperatures will continue through the rest of the forecast 
+period with highs sticking in the 40s.
+
+A fairly active pattern also looks likely to continue next week,
+with trough working through the region every few days. This means
+there's chance for additional mountain snow Monday into Tuesday,
+and again sometime late week next week. What system brings the
+best chance at snow to the region? It's difficult to say.
+Deterministic solutions continue to swing wildly from run to run
+in this period. As we've seen with this upcoming Friday/Saturday
+system, this pattern continues to have low predictability, and
+large day-to-day/run-to-run swings are likely to continue through
+most of the upcoming forecast period.
+
+&&
+
+.AVIATION /12Z TAFS through 12Z Friday/...
+Issued at 433 AM MST Thu Nov 19 2026
+
+VFR to prevail through the TAF period with high clouds at times. 
+Winds will remain light (less than 15 kts, and mostly less than 10
+kts) through 00Z Friday. Wind direction will follow a typical 
+diurnal pattern, with west southwest winds this morning 
+transitioning to the north to northeast after 18Z. After 00Z 
+Friday, winds will return to a southerly direction and may gust to
+around 20 knots. 
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...Hiris
+AVIATION...BM

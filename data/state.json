@@ -1,5 +1,5 @@
 {
- "afd_last": "d004e5dd-8e48-496b-80ab-7c9289d5db47",
+ "afd_last": "e7985f20-3753-432b-9c0e-7e70df1fb141",
  "events": {
   "roadClosures:CDOT-36057055825BOTH": {
    "began": "2026-10-29T15:49:45-06:00",
@@ -663,7 +663,7 @@
   }
  },
  "forecast_last": "2026-11-19T11:30:47+00:00",
- "last_run": "2026-11-19T04:30:47-07:00",
+ "last_run": "2026-11-19T04:45:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -712,7 +712,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-19 03:00",
-  "aspen": "2026-11-19 02:00",
+  "aspen": "2026-11-19 03:00",
   "copper": "2026-11-19 03:00",
   "eldora": "2026-11-19 03:00",
   "steamboat": "2026-11-19 03:00",
