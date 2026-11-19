@@ -88,7 +88,12 @@ footer a { color: var(--accent); }
 .pin.city { border: 0; background: transparent; font-weight: 700; text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff; }
 .rrow.closed { opacity: .65; }
 .toggle { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink2); margin-top: 10px; cursor: pointer; }
-.toggle input { width: 16px; height: 16px; margin: 0; accent-color: var(--accent); }
+.toggle input { width: 16px; height: 16px; margin: 0; accent-color: var(--accent); flex: none; }
+.toggles { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 4px 0 6px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+details.shut > summary { cursor: pointer; font-size: 13px; color: var(--ink2); padding: 10px 0 4px; }
+.toggles .toggle { margin-top: 0; align-items: flex-start; }
+.toggle b { font-weight: 600; color: var(--ink); }
+.toggle .tlist { display: block; font-size: 12px; color: var(--ink3, var(--ink2)); }
 </style>
 </head>
 <body>
@@ -115,18 +120,39 @@ footer a { color: var(--accent); }
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script id="core">
+// pass: ikon (Ian's pass, always shown), epic or indy (behind toggles). hrs: normal drive from Denver.
+// Road milepost ranges for the Epic and independent resorts are first estimates.
 const RESORTS = {
-  copper:     { name: "Copper",      westLon: -106.145, roads: [["I70", 195, 260]],                       via: "I-70 through the tunnel" },
-  abasin:     { name: "A-Basin",     westLon: -105.89,  roads: [["I70", 216, 260], ["US6", 216, 230]],    via: "I-70, then Loveland Pass" },
-  winterpark: { name: "Winter Park", westLon: -105.665, roads: [["I70", 232, 260], ["US40", 231.5, 258.5]], via: "I-70, then Berthoud Pass" },
-  eldora:     { name: "Eldora",      westLon: null,     roads: [["CO119", 25, 42]],                       via: "Boulder Canyon, no I-70" },
-  steamboat:  { name: "Steamboat",   westLon: -106.07,  roads: [["I70", 205, 260], ["CO9", 99, 140], ["US40", 134, 185]], via: "I-70 to Silverthorne, CO 9, then Rabbit Ears Pass", overnight: true },
-  aspen:      { name: "Aspen Snowmass", westLon: -107.32, roads: [["I70", 116, 260], ["CO82", 0, 45]],   via: "I-70 to Glenwood Springs, then CO 82. 7 days on your pass", overnight: true },
+  copper:     { name: "Copper",      pass: "ikon", hrs: 1.5, westLon: -106.145, roads: [["I70", 195, 260]],                       via: "I-70 through the tunnel" },
+  abasin:     { name: "A-Basin",     pass: "ikon", hrs: 1.5, westLon: -105.89,  roads: [["I70", 216, 260], ["US6", 216, 230]],    via: "I-70, then Loveland Pass" },
+  winterpark: { name: "Winter Park", pass: "ikon", hrs: 1.6, westLon: -105.665, roads: [["I70", 232, 260], ["US40", 231.5, 258.5]], via: "I-70, then Berthoud Pass" },
+  eldora:     { name: "Eldora",      pass: "ikon", hrs: 1.0, westLon: null,     roads: [["CO119", 25, 42]],                       via: "Boulder Canyon, no I-70" },
+  steamboat:  { name: "Steamboat",   pass: "ikon", hrs: 3.0, westLon: -106.07,  roads: [["I70", 205, 260], ["CO9", 99, 140], ["US40", 134, 185]], via: "I-70 to Silverthorne, CO 9, then Rabbit Ears Pass", overnight: true },
+  aspen:      { name: "Aspen Snowmass", pass: "ikon", hrs: 3.7, westLon: -107.32, roads: [["I70", 116, 260], ["CO82", 0, 45]],   via: "I-70 to Glenwood Springs, then CO 82. 7 days on your pass", overnight: true },
+  keystone:   { name: "Keystone",    pass: "epic", hrs: 1.4, westLon: -106.07,  roads: [["I70", 205, 260], ["US6", 205, 218]],    via: "I-70 to Silverthorne, then US 6" },
+  breck:      { name: "Breckenridge", pass: "epic", hrs: 1.7, westLon: -106.10, roads: [["I70", 203, 260], ["CO9", 75, 88]],      via: "I-70 to Frisco, then CO 9" },
+  vail:       { name: "Vail",        pass: "epic", hrs: 1.9, westLon: -106.37,  roads: [["I70", 176, 260]],                       via: "I-70 over Vail Pass" },
+  beavercreek: { name: "Beaver Creek", pass: "epic", hrs: 2.1, westLon: -106.52, roads: [["I70", 167, 260]],                      via: "I-70 over Vail Pass to Avon" },
+  crestedbutte: { name: "Crested Butte", pass: "epic", hrs: 4.3, westLon: null, roads: [["US285", 125, 250], ["US50", 150, 215], ["CO135", 0, 30]], via: "US 285, US 50 over Monarch Pass, then CO 135", overnight: true },
+  telluride:  { name: "Telluride",   pass: "epic", hrs: 6.0, westLon: null,     roads: [["US285", 125, 250], ["US50", 90, 215], ["US550", 100, 130], ["CO62", 0, 25], ["CO145", 60, 80]], via: "US 285 and US 50 to Montrose, then US 550, CO 62 and CO 145", overnight: true },
+  loveland:   { name: "Loveland",    pass: "indy", hrs: 1.1, westLon: -105.89,  roads: [["I70", 216, 260]],                       via: "I-70 to the tunnel, east side" },
+  echo:       { name: "Echo Mountain", pass: "indy", hrs: 0.9, westLon: -105.52, roads: [["I70", 240, 260], ["CO103", 0, 15]],   via: "I-70 to Idaho Springs, then CO 103" },
+  cooper:     { name: "Ski Cooper",  pass: "indy", hrs: 2.2, westLon: -106.145, roads: [["I70", 195, 260], ["CO91", 0, 23], ["US24", 155, 180]], via: "I-70 to Copper, CO 91 over Fremont Pass, then US 24" },
+  granby:     { name: "Granby Ranch", pass: "indy", hrs: 1.8, westLon: -105.665, roads: [["I70", 232, 260], ["US40", 210, 258.5]], via: "I-70, then Berthoud Pass past Winter Park" },
+  monarch:    { name: "Monarch",     pass: "indy", hrs: 3.0, westLon: null,     roads: [["US285", 125, 250], ["US50", 195, 215]], via: "US 285 to Poncha Springs, then US 50", overnight: true },
+  sunlight:   { name: "Sunlight",    pass: "indy", hrs: 3.0, westLon: -107.32,  roads: [["I70", 116, 260], ["CO82", 0, 5]],      via: "I-70 to Glenwood Springs", overnight: true },
+  powderhorn: { name: "Powderhorn",  pass: "indy", hrs: 4.0, westLon: -107.36,  roads: [["I70", 40, 260], ["CO65", 0, 70]],      via: "I-70 past Glenwood to Palisade, then CO 65", overnight: true },
+  wolfcreek:  { name: "Wolf Creek",  pass: "indy", hrs: 4.5, westLon: null,     roads: [["US285", 0, 250], ["US160", 150, 175]], via: "US 285 to Monte Vista, then US 160", overnight: true },
+  purgatory:  { name: "Purgatory",   pass: "indy", hrs: 6.0, westLon: null,     roads: [["US285", 0, 250], ["US160", 80, 175], ["US550", 20, 35]], via: "US 285 and US 160 to Durango, then US 550", overnight: true },
 };
-function shown(k) { return !RESORTS[k].overnight || SHOW_OVERNIGHT; }
-let SHOW_OVERNIGHT = false;
-try { SHOW_OVERNIGHT = localStorage.getItem("ski-overnight") === "1"; } catch (e) {}
-const PINS = { copper: [39.502, -106.151], abasin: [39.642, -105.872], winterpark: [39.887, -105.763], eldora: [39.937, -105.583], steamboat: [40.457, -106.804], aspen: [39.209, -106.949] };
+const SHOW = { overnight: false, epic: false, indy: false };
+const SHOW_KEYS = { overnight: "ski-overnight", epic: "ski-epic", indy: "ski-indy" };
+try { for (const g in SHOW) SHOW[g] = localStorage.getItem(SHOW_KEYS[g]) === "1"; } catch (e) {}
+function shown(k) { const R = RESORTS[k]; return (R.pass === "ikon" || SHOW[R.pass]) && (!R.overnight || SHOW.overnight); }
+const PINS = { copper: [39.502, -106.151], abasin: [39.642, -105.872], winterpark: [39.887, -105.763], eldora: [39.937, -105.583], steamboat: [40.457, -106.804], aspen: [39.209, -106.949],
+  keystone: [39.605, -105.954], breck: [39.480, -106.066], vail: [39.606, -106.355], beavercreek: [39.604, -106.517], crestedbutte: [38.899, -106.965], telluride: [37.936, -107.846],
+  loveland: [39.680, -105.898], echo: [39.684, -105.519], cooper: [39.361, -106.302], granby: [40.045, -105.906], monarch: [38.512, -106.332], sunlight: [39.399, -107.338],
+  powderhorn: [39.069, -108.150], wolfcreek: [37.472, -106.793], purgatory: [37.630, -107.814] };
 const LANDMARKS = [["Glenwood Springs", -107.32], ["Glenwood Canyon", -107.2], ["Eagle", -106.83], ["Edwards", -106.59], ["Vail", -106.37], ["Vail Pass", -106.22], ["Copper", -106.145], ["Frisco", -106.10], ["Silverthorne", -106.07], ["the tunnel", -105.92],
   ["Georgetown", -105.70], ["Empire", -105.66], ["Idaho Springs", -105.52], ["Floyd Hill", -105.42], ["Genesee", -105.30], ["C-470", -105.20]];
 const EAST_LON = -105.185;
@@ -248,10 +274,16 @@ function scoreResort(key, ctx) {
   else if (conds.length) chips.push({ t: "Dry roads", k: "" });
   if (R.westLon == null) chips.push({ t: "No I-70", k: "" });
   if (R.overnight) chips.push({ t: "Overnight trip", k: "" });
-  return { key, name: R.name, via: R.via, score: Math.max(0, Math.min(100, Math.round(s))), chips, new24, fc24, gust, delay, closed: closed.length, snowPts: 6 * new24 + 4 * fc24 };
+  // Ikon is the pass in hand, so anything else costs a lift ticket: a small penalty breaks ties toward Ikon.
+  if (R.pass !== "ikon") { s -= 8; chips.push({ t: R.pass === "epic" ? "Epic Pass, not Ikon" : "Not on Ikon, lift ticket", k: "" }); }
+  const st = (ctx.status || {})[key];
+  if (st && st.open === false) chips.push({ t: st.opens === ctx.today ? "Scheduled to open today, not confirmed" : `Opening date ${+st.opens.slice(5, 7)}/${+st.opens.slice(8)} passed, not confirmed`, k: "" });
+  else if (!st || !st.lifts) chips.push({ t: "No lift report", k: "" });
+  return { key, name: R.name, hrs: R.hrs, via: R.via, score: Math.max(0, Math.min(100, Math.round(s))), chips, new24, fc24, gust, delay, closed: closed.length, snowPts: 6 * new24 + 4 * fc24 };
 }
-function isOpen(ctx, k) { const s = (ctx.status || {})[k]; return !s || s.open !== false; }
-function rank(ctx) { return Object.keys(RESORTS).filter(k => shown(k) && isOpen(ctx, k)).map(k => scoreResort(k, ctx)).sort((a, b) => b.score - a.score || (a.delay || 0) - (b.delay || 0)); }
+// A resort marked closed counts as open once its scheduled opening date has arrived.
+function isOpen(ctx, k) { const s = (ctx.status || {})[k]; return !s || s.open !== false || (!!s.opens && !!ctx.today && ctx.today >= s.opens); }
+function rank(ctx) { return Object.keys(RESORTS).filter(k => shown(k) && isOpen(ctx, k)).map(k => scoreResort(k, ctx)).sort((a, b) => b.score - a.score || (a.hrs + (a.delay || 0) / 60) - (b.hrs + (b.delay || 0) / 60)); }
 function headline(ranked) {
   const top = ranked[0], anySnow = ranked.some(r => r.new24 + r.fc24 >= 1);
   if (!anySnow && top.score - ranked[ranked.length - 1].score <= 2)
@@ -304,7 +336,7 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
       csv2("snotel", month, true), csv2("forecast", month, true), csv2("road_conditions", month, true), get("resort_status.json", true)]);
     if (!state.last_run) throw new Error("Could not load the logger data.");
     const segs = segments(segRows), refs = refSpeeds(speedRows, segs), speedRow = speedRows[speedRows.length - 1] || null;
-    const ctx = { segs, refs, speedRow, events: Object.values(state.events || {}), conds: latestConds(rc), forecast: latestForecast(fc), snow: {}, status: rs.resorts || {}, statusDate: rs.checked || "", statusAuto: !!rs.auto };
+    const ctx = { segs, refs, speedRow, events: Object.values(state.events || {}), conds: latestConds(rc), forecast: latestForecast(fc), snow: {}, status: rs.resorts || {}, statusDate: rs.checked || "", statusAuto: !!rs.auto, today: day };
     for (const k in RESORTS) ctx.snow[k] = snowSummary(snow, k);
     D = { now, day, state, ctx, segRows, speedRows, series: delaySeries(speedRows, segs, refs, day), ranked: rank(ctx) };
     render();
@@ -326,19 +358,29 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
       const row = el("div", "rrow"), mid = el("div");
       mid.append(el("div", "rname", r.name), el("div", "rsub", r.via));
       const chips = el("div", "chips"), st = ctx.status[r.key]; if (st && st.lifts) chips.append(el("span", "chip", `${st.lifts} lifts, ${st.trails} trails open`)); r.chips.forEach(c => chips.append(el("span", "chip " + c.k, c.t))); mid.append(chips);
-      const sc = el("div", "score", r.score + " / 100"); sc.title = "Score out of 100: snow adds, wind, delays and closures subtract";
+      const sc = el("div", "score", r.score + " / 100"); sc.title = "Score out of 100: snow adds; wind, delays, closures and needing a non-Ikon ticket subtract";
       row.append(el("div", "rnum", String(i + 1)), mid, sc); list.append(row);
     });
-    Object.keys(RESORTS).filter(k => shown(k) && !isOpen(ctx, k)).forEach(k => {
+    const shut = Object.keys(RESORTS).filter(k => shown(k) && !isOpen(ctx, k));
+    let box = list;
+    if (shut.length > 3) { box = el("details", "shut"); box.append(el("summary", "", `${shut.length} more mountains not open yet`)); list.append(box); }
+    shut.forEach(k => {
       const row = el("div", "rrow closed"), mid = el("div");
       mid.append(el("div", "rname", RESORTS[k].name), el("div", "rsub", ctx.status[k].note || "Not open yet"));
-      row.append(el("div", "rnum", ""), mid, el("div", "tag", "Closed")); list.append(row);
+      row.append(el("div", "rnum", ""), mid, el("div", "tag", "Closed")); box.append(row);
     });
-    pick.append(list);
-    const tog = el("label", "toggle"), cb = el("input"); cb.type = "checkbox"; cb.checked = SHOW_OVERNIGHT;
-    cb.onchange = () => { SHOW_OVERNIGHT = cb.checked; try { localStorage.setItem("ski-overnight", cb.checked ? "1" : "0"); } catch (e) {} D.ranked = rank(D.ctx); fitMap = true; render(); };
-    tog.append(cb, " Include overnight trips: Steamboat and Aspen Snowmass"); pick.append(tog);
-    if (ctx.statusDate) pick.append(el("p", "note", ctx.statusAuto ? `Lifts, trails and opening dates are read from each resort's own report at 6 AM and noon. Last check: ${ctx.statusDate}.` : `Open or closed, and lift counts, were checked by hand on ${ctx.statusDate} from each resort's own report.`));
+    const groupNames = f => Object.keys(RESORTS).filter(f).map(k => RESORTS[k].name).join(", ");
+    const togs = el("div", "toggles");
+    [["epic", "Epic resorts", groupNames(k => RESORTS[k].pass === "epic" && !RESORTS[k].overnight)],
+     ["indy", "Independent resorts", groupNames(k => RESORTS[k].pass === "indy" && !RESORTS[k].overnight)],
+     ["overnight", "Overnight trips", groupNames(k => RESORTS[k].overnight && (RESORTS[k].pass === "ikon" || SHOW[RESORTS[k].pass]))]].forEach(([g, label, list]) => {
+      const tog = el("label", "toggle"), cb = el("input"), txt = el("span");
+      cb.type = "checkbox"; cb.checked = SHOW[g];
+      cb.onchange = () => { SHOW[g] = cb.checked; try { localStorage.setItem(SHOW_KEYS[g], cb.checked ? "1" : "0"); } catch (e) {} D.ranked = rank(D.ctx); fitMap = true; render(); };
+      txt.append(el("b", "", label), el("span", "tlist", list)); tog.append(cb, txt); togs.append(tog);
+    });
+    pick.append(togs, list);
+    if (ctx.statusDate) pick.append(el("p", "note", ctx.statusAuto ? `Lifts, trails and opening dates for the Ikon resorts are read from each resort's own report at 6 AM and noon. Last check: ${ctx.statusDate}.` + (SHOW.epic || SHOW.indy ? " Epic and independent resorts go by their announced opening dates for now, so check their sites before you drive." : "") : `Open or closed, and lift counts, were checked by hand on ${ctx.statusDate} from each resort's own report.`));
 
     // I-70 stats
     const stats = $("i70stats"); stats.replaceChildren();
@@ -412,7 +454,10 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 13, attribution: "&copy; OpenStreetMap contributors" }).addTo(map);
       layer = L.layerGroup().addTo(map);
     }
-    if (fitMap) { map.fitBounds(SHOW_OVERNIGHT ? [[39.15, -107.36], [40.52, -104.95]] : [[39.45, -106.22], [39.98, -104.95]]); fitMap = false; }
+    if (fitMap) {
+      const pts = Object.keys(RESORTS).filter(shown).map(k => PINS[k]).concat([[39.74, -104.99]]);
+      map.fitBounds(L.latLngBounds(pts).pad(0.08)); fitMap = false;
+    }
     map.invalidateSize(); layer.clearLayers();
     const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
     const col = v => v == null ? "#8a8a84" : v >= 50 ? css("--good") : v >= 30 ? css("--warn") : css("--crit");
