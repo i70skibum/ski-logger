@@ -639,7 +639,7 @@
   }
  },
  "forecast_last": "2026-11-19T20:45:47+00:00",
- "last_run": "2026-11-19T15:15:47-07:00",
+ "last_run": "2026-11-19T15:30:54-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -689,10 +689,10 @@
  "snotel_last": {
   "abasin": "2026-11-19 14:00",
   "aspen": "2026-11-19 13:00",
-  "copper": "2026-11-19 13:00",
-  "eldora": "2026-11-19 13:00",
+  "copper": "2026-11-19 14:00",
+  "eldora": "2026-11-19 14:00",
   "steamboat": "2026-11-19 14:00",
-  "winterpark": "2026-11-19 13:00"
+  "winterpark": "2026-11-19 14:00"
  },
  "speed_segments": [
   "I70E024",
