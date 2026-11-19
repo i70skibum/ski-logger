@@ -349,18 +349,6 @@
    "title": "US 40 (Colfax Ave) westbound: Right lane closed.",
    "type": "routine"
   },
-  "roadWork:CDOT-36345483321EB": {
-   "began": "2026-11-18T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36345483321EB",
-   "mp_end": 269.44297993570217,
-   "mp_start": 270.0012481069761,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40 eastbound: Road construction.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36345483344EB": {
    "began": "2026-11-19T07:00:00-07:00",
    "class": "roadWork",
@@ -395,18 +383,6 @@
    "pos_bearing": "E",
    "route": "I-70",
    "title": "I-70 eastbound: Left lane closed.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36345483392EB": {
-   "began": "2026-11-18T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36345483392EB",
-   "mp_end": 244.54010558262695,
-   "mp_start": 243.52096293664752,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Right lane closed.",
    "type": "routine"
   },
   "roadWork:CDOT-36345483423EB": {
@@ -661,30 +637,6 @@
    "title": "US 6 eastbound: Road maintenance operations.",
    "type": "routine"
   },
-  "roadWork:CDOT-36445155986WB": {
-   "began": "2026-11-18T09:30:00-07:00",
-   "class": "roadWork",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36445155986WB",
-   "mp_end": 232.83795812676198,
-   "mp_start": 242.5078500370741,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 westbound: Left lane closed.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36445156028EB": {
-   "began": "2026-11-18T09:30:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36445156028EB",
-   "mp_end": 242.99921860041002,
-   "mp_start": 231.99933683572206,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Left lane closed.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36447074848EB": {
    "began": "2026-11-23T06:30:00-07:00",
    "class": "roadWork",
@@ -759,7 +711,7 @@
   }
  },
  "forecast_last": "2026-11-18T22:45:47+00:00",
- "last_run": "2026-11-18T16:45:46-07:00",
+ "last_run": "2026-11-18T17:00:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -811,7 +763,7 @@
   "aspen": "2026-11-18 15:00",
   "copper": "2026-11-18 15:00",
   "eldora": "2026-11-18 15:00",
-  "steamboat": "2026-11-18 15:00",
+  "steamboat": "2026-11-18 16:00",
   "winterpark": "2026-11-18 15:00"
  },
  "speed_segments": [
