@@ -385,3 +385,4 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-18T17:45:47-07:00,end,CDOT-36311758617EB,roadWork,routine,US 6,POSITIVE_DIRECTION,E,455.99674105752536,,US 6 eastbound: Bridge construction.,2026-11-18T06:30:00-07:00
 2026-11-18T19:00:46-07:00,end,CDOT-36346713468BOTH,roadWork,routine,I-70,BOTH_DIRECTIONS,E,138.998142632835,147.00513338165797,I-70 in both directions: Right lane closed.,2026-11-18T07:00:00-07:00
 2026-11-18T19:15:52-07:00,start,CDOT-36451309142EB,roadReports,urgent,I-70,POSITIVE_DIRECTION,E,256.9942909165564,,I-70 eastbound: Roadway reopened to traffic.,2026-11-18T16:53:54-07:00
+2026-11-18T19:30:47-07:00,end,CDOT-36451309142EB,roadReports,urgent,I-70,POSITIVE_DIRECTION,E,256.9942909165564,,I-70 eastbound: Roadway reopened to traffic.,2026-11-18T16:53:54-07:00

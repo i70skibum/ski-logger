@@ -37,18 +37,6 @@
    "title": "CO 82 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36451309142EB": {
-   "began": "2026-11-18T16:53:54-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36451309142EB",
-   "mp_end": "",
-   "mp_start": 256.9942909165564,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Roadway reopened to traffic.",
-   "type": "urgent"
-  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -675,7 +663,7 @@
   }
  },
  "forecast_last": "2026-11-19T01:45:47+00:00",
- "last_run": "2026-11-18T19:15:52-07:00",
+ "last_run": "2026-11-18T19:30:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -725,10 +713,10 @@
  "snotel_last": {
   "abasin": "2026-11-18 18:00",
   "aspen": "2026-11-18 17:00",
-  "copper": "2026-11-18 17:00",
-  "eldora": "2026-11-18 17:00",
+  "copper": "2026-11-18 18:00",
+  "eldora": "2026-11-18 18:00",
   "steamboat": "2026-11-18 18:00",
-  "winterpark": "2026-11-18 17:00"
+  "winterpark": "2026-11-18 18:00"
  },
  "speed_segments": [
   "I70E024",
