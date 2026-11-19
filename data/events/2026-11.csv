@@ -416,3 +416,4 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-19T11:24:24-07:00,start,CDOT-36463101714WB,roadReports,urgent,I-70,NEGATIVE_DIRECTION,E,208.99856373789012,,I-70 westbound: Roadway reopened to traffic.,2026-11-19T07:28:31-07:00
 2026-11-19T11:45:47-07:00,end,CDOT-36463101714WB,roadReports,urgent,I-70,NEGATIVE_DIRECTION,E,208.99856373789012,,I-70 westbound: Roadway reopened to traffic.,2026-11-19T07:28:31-07:00
 2026-11-19T11:45:47-07:00,end,CDOT-36464276461BOTH,roadWork,routine,US 6,BOTH_DIRECTIONS,E,100.56684318238146,100.70234138846665,US 6 in both directions: Road maintenance operations.,2026-11-19T08:54:45-07:00
+2026-11-19T14:00:47-07:00,end,CDOT-36464588410WB,roadWork,routine,I-70,NEGATIVE_DIRECTION,E,248.0257040991646,247.02085414084988,I-70 westbound: Right lane closed.,2026-11-19T09:17:57-07:00
