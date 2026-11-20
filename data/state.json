@@ -373,18 +373,6 @@
    "title": "US 40 (Colfax Ave) westbound: Right lane closed.",
    "type": "routine"
   },
-  "roadWork:CDOT-36345483344EB": {
-   "began": "2026-11-19T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36345483344EB",
-   "mp_end": 269.44297993570217,
-   "mp_start": 270.0012481069761,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40 eastbound: Road construction.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36345483360EB": {
    "began": "2026-11-20T07:00:00-07:00",
    "class": "roadWork",
@@ -407,18 +395,6 @@
    "pos_bearing": "E",
    "route": "I-70",
    "title": "I-70 eastbound: Left lane closed.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36345483423EB": {
-   "began": "2026-11-19T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36345483423EB",
-   "mp_end": 244.54010558262695,
-   "mp_start": 243.52096293664752,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Right lane closed.",
    "type": "routine"
   },
   "roadWork:CDOT-36345483446EB": {
@@ -951,7 +927,7 @@
   }
  },
  "forecast_last": "2026-11-19T23:45:47+00:00",
- "last_run": "2026-11-19T16:45:47-07:00",
+ "last_run": "2026-11-19T17:00:49-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1071,7 +1047,7 @@
   "purgatory": "2026-11-19 15:00",
   "steamboat": "2026-11-19 15:00",
   "sunlight": "2026-11-19 15:00",
-  "telluride": "2026-11-19 14:00",
+  "telluride": "2026-11-19 15:00",
   "vail": "2026-11-19 15:00",
   "winterpark": "2026-11-19 15:00",
   "wolfcreek": "2026-11-19 15:00"
