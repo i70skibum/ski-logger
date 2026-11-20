@@ -853,6 +853,30 @@
    "title": "US 160: High wind.",
    "type": "standard"
   },
+  "winterDriving:COSEG-522889": {
+   "began": "2026-11-20T01:03:07.998000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-522889",
+   "mp_end": 497.22299720921126,
+   "mp_start": 344.57199994799157,
+   "pos_bearing": "E",
+   "route": "US 160",
+   "title": "US 160: High wind.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-522893": {
+   "began": "2026-11-20T01:03:41.022000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-522893",
+   "mp_end": 34.10199994056893,
+   "mp_start": 0,
+   "pos_bearing": "N",
+   "route": "US 285",
+   "title": "US 285: High wind.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-522919": {
    "began": "2026-11-19T14:26:59.140000-07:00",
    "class": "winterDriving",
@@ -949,6 +973,18 @@
    "title": "CO 145: Icy spots.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588225": {
+   "began": "2026-11-20T01:16:07.549000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588225",
+   "mp_end": 467.582997686033,
+   "mp_start": 435.7321144062969,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50: High wind.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588228": {
    "began": "2026-11-18T16:43:27.092000-07:00",
    "class": "winterDriving",
@@ -1011,7 +1047,7 @@
   }
  },
  "forecast_last": "2026-11-20T05:45:50+00:00",
- "last_run": "2026-11-20T01:00:50-07:00",
+ "last_run": "2026-11-20T01:15:46-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1052,11 +1088,11 @@
   "202": "3 - dry",
   "214": "3 - dry",
   "215": "3 - dry",
-  "226": "9 - icy spots",
+  "226": "1 - high wind; 9 - icy spots",
   "227": "3 - dry",
   "228": "1 - high wind; 3 - dry",
-  "229": "3 - dry",
-  "230": "3 - dry",
+  "229": "1 - high wind; 3 - dry",
+  "230": "1 - high wind; 3 - dry",
   "243": "3 - dry",
   "245": "3 - dry",
   "246": "9 - icy spots",
@@ -1114,7 +1150,7 @@
   "72": "9-11 icy spots, snow packed spots"
  },
  "snotel_last": {
-  "abasin": "2026-11-19 23:00",
+  "abasin": "2026-11-20 00:00",
   "aspen": "2026-11-19 23:00",
   "beavercreek": "2026-11-19 23:00",
   "breck": "2026-11-19 23:00",
@@ -1124,7 +1160,7 @@
   "echo": "2026-11-19 23:00",
   "eldora": "2026-11-19 23:00",
   "granby": "2026-11-19 23:00",
-  "keystone": "2026-11-19 23:00",
+  "keystone": "2026-11-20 00:00",
   "loveland": "2026-11-19 23:00",
   "monarch": "2026-11-19 23:00",
   "powderhorn": "2026-11-19 23:00",
