@@ -493,30 +493,6 @@
    "title": "US 50 in both directions: Right lane closed.",
    "type": "routine"
   },
-  "roadWork:CDOT-36346713491BOTH": {
-   "began": "2026-11-19T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36346713491BOTH",
-   "mp_end": 147.00513338165797,
-   "mp_start": 138.998142632835,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 in both directions: Right lane closed.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36346713570EB": {
-   "began": "2026-11-19T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36346713570EB",
-   "mp_end": "",
-   "mp_start": 148.02879946520554,
-   "pos_bearing": "E",
-   "route": "US 24",
-   "title": "US 24 eastbound: Road construction.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36346713585EB": {
    "began": "2026-11-20T07:00:00-07:00",
    "class": "roadWork",
@@ -939,7 +915,7 @@
   }
  },
  "forecast_last": "2026-11-19T23:45:47+00:00",
- "last_run": "2026-11-19T18:45:46-07:00",
+ "last_run": "2026-11-19T19:00:57-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1057,9 +1033,9 @@
   "monarch": "2026-11-19 17:00",
   "powderhorn": "2026-11-19 17:00",
   "purgatory": "2026-11-19 17:00",
-  "steamboat": "2026-11-19 17:00",
+  "steamboat": "2026-11-19 18:00",
   "sunlight": "2026-11-19 17:00",
-  "telluride": "2026-11-19 16:00",
+  "telluride": "2026-11-19 17:00",
   "vail": "2026-11-19 17:00",
   "winterpark": "2026-11-19 17:00",
   "wolfcreek": "2026-11-19 17:00"
