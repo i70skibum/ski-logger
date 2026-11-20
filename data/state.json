@@ -145,30 +145,6 @@
    "title": "I-70 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36489035507EB": {
-   "began": "2026-11-20T15:07:01-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36489035507EB",
-   "mp_end": "",
-   "mp_start": 431.9996072484359,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50 eastbound: Debris on roadway.",
-   "type": "routine"
-  },
-  "roadReports:CDOT-36489280802WB": {
-   "began": "2026-11-20T15:25:55-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36489280802WB",
-   "mp_end": "",
-   "mp_start": 260.8579999888607,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 westbound: Right lane closed.",
-   "type": "routine"
-  },
   "roadReports:CDOT-36489854828WB": {
    "began": "2026-11-20T16:07:49-07:00",
    "class": "roadReports",
@@ -337,18 +313,6 @@
    "title": "US 6 eastbound: Bridge construction.",
    "type": "routine"
   },
-  "roadWork:CDOT-36329547155BOTH": {
-   "began": "2026-11-20T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36329547155BOTH",
-   "mp_end": "",
-   "mp_start": 357.9988647379575,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50 in both directions: Right shoulder closed.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36330933271NB": {
    "began": "2026-11-15T12:00:00-07:00",
    "class": "roadWork",
@@ -371,30 +335,6 @@
    "pos_bearing": "N",
    "route": "CO 9",
    "title": "CO 9 southbound: Right shoulder closed.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36331704828EB": {
-   "began": "2026-11-20T06:30:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36331704828EB",
-   "mp_end": 404.0004668696125,
-   "mp_start": 398.15816387588694,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6 eastbound: Road maintenance operations.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36331704929WB": {
-   "began": "2026-11-20T06:30:00-07:00",
-   "class": "roadWork",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36331704929WB",
-   "mp_end": 398.15816387588694,
-   "mp_start": 404.0004668696125,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6 westbound: Road maintenance operations.",
    "type": "routine"
   },
   "roadWork:CDOT-36339023306WB": {
@@ -1707,7 +1647,7 @@
   }
  },
  "forecast_last": "2026-11-20T21:30:50+00:00",
- "last_run": "2026-11-20T16:15:48-07:00",
+ "last_run": "2026-11-20T16:30:46-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1812,25 +1752,25 @@
  "snotel_last": {
   "abasin": "2026-11-20 15:00",
   "aspen": "2026-11-20 14:00",
-  "beavercreek": "2026-11-20 14:00",
-  "breck": "2026-11-20 14:00",
-  "cooper": "2026-11-20 14:00",
-  "copper": "2026-11-20 14:00",
-  "crestedbutte": "2026-11-20 14:00",
-  "echo": "2026-11-20 14:00",
-  "eldora": "2026-11-20 14:00",
+  "beavercreek": "2026-11-20 15:00",
+  "breck": "2026-11-20 15:00",
+  "cooper": "2026-11-20 15:00",
+  "copper": "2026-11-20 15:00",
+  "crestedbutte": "2026-11-20 15:00",
+  "echo": "2026-11-20 15:00",
+  "eldora": "2026-11-20 15:00",
   "granby": "2026-11-20 14:00",
   "keystone": "2026-11-20 15:00",
-  "loveland": "2026-11-20 14:00",
+  "loveland": "2026-11-20 15:00",
   "monarch": "2026-11-20 14:00",
-  "powderhorn": "2026-11-20 14:00",
-  "purgatory": "2026-11-20 14:00",
+  "powderhorn": "2026-11-20 15:00",
+  "purgatory": "2026-11-20 15:00",
   "steamboat": "2026-11-20 15:00",
   "sunlight": "2026-11-20 14:00",
   "telluride": "2026-11-20 14:00",
-  "vail": "2026-11-20 14:00",
-  "winterpark": "2026-11-20 14:00",
-  "wolfcreek": "2026-11-20 14:00"
+  "vail": "2026-11-20 15:00",
+  "winterpark": "2026-11-20 15:00",
+  "wolfcreek": "2026-11-20 15:00"
  },
  "speed_segments": [
   "I70E024",
