@@ -217,18 +217,6 @@
    "title": "US 6 westbound: Both shoulders closed.",
    "type": "routine"
   },
-  "roadWork:CDOT-36300261785WB": {
-   "began": "2026-11-19T00:01:00-07:00",
-   "class": "roadWork",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36300261785WB",
-   "mp_end": 297.34697028062703,
-   "mp_start": 297.515289189431,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40 (Colfax Ave) westbound: Right lane closed.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36310733219EB": {
    "began": "2026-11-11T13:40:00-07:00",
    "class": "roadWork",
@@ -1035,7 +1023,7 @@
   }
  },
  "forecast_last": "2026-11-20T05:45:50+00:00",
- "last_run": "2026-11-19T23:45:47-07:00",
+ "last_run": "2026-11-20T00:00:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1065,7 +1053,7 @@
   "102": "seasonal closure",
   "131": "3 - dry",
   "132": "3 - dry",
-  "141": "3 - dry; 4s - wet in areas",
+  "141": "9 - icy spots",
   "150": "3 - dry",
   "151": "3 - dry",
   "152": "3 - dry",
@@ -1153,9 +1141,9 @@
   "monarch": "2026-11-19 22:00",
   "powderhorn": "2026-11-19 22:00",
   "purgatory": "2026-11-19 22:00",
-  "steamboat": "2026-11-19 22:00",
+  "steamboat": "2026-11-19 23:00",
   "sunlight": "2026-11-19 22:00",
-  "telluride": "2026-11-19 21:00",
+  "telluride": "2026-11-19 22:00",
   "vail": "2026-11-19 22:00",
   "winterpark": "2026-11-19 22:00",
   "wolfcreek": "2026-11-19 22:00"
