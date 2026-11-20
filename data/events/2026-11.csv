@@ -696,3 +696,4 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-20T15:30:48-07:00,start,CDOT-36489280802WB,roadReports,routine,I-70,NEGATIVE_DIRECTION,E,260.8579999888607,,I-70 westbound: Right lane closed.,2026-11-20T15:25:55-07:00
 2026-11-20T15:30:48-07:00,end,CDOT-36488816239EB,roadReports,routine,I-70,POSITIVE_DIRECTION,E,247.60400001158996,,I-70 eastbound: Right lane closed.,2026-11-20T14:51:57-07:00
 2026-11-20T15:30:48-07:00,end,CDOT-36488933761EB,roadReports,routine,US 6,POSITIVE_DIRECTION,E,282.9876498802927,,US 6 eastbound: Lane(s) reopened to traffic.,2026-11-20T15:00:31-07:00
+2026-11-20T16:15:48-07:00,start,CDOT-36489854828WB,roadReports,routine,US 40,NEGATIVE_DIRECTION,E,287.90300003261655,,US 40 (Colfax Ave) westbound: Crash.,2026-11-20T16:07:49-07:00
