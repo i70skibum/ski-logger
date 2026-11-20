@@ -312,3 +312,7 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-20T12:30:47-07:00,457,I-70,Vail Pass-Copper Mtn,188.3,194.3,11 - snow packed spots; 6 - snow; 9 - icy spots,"I-70, between Exit 180: East Vail and Exit 195: CO 91; Copper Mountain (Vail Pass)"
 2026-11-20T12:30:47-07:00,484,I-70,Eagle-Vail,145.8,176.2,11 - snow packed spots; 6 - snow; 9 - icy spots,"I-70, between Exit 140: US 6; Gypsum (near Eagle) and Exit 180: East Vail (Vail)"
 2026-11-20T12:30:47-07:00,458,I-70,Copper Mtn-Silverthorne,194.3,203.7,11 - snow packed spots; 6 - snow; 9 - icy spots,"I-70, between Exit 190: Vail Pass Summit (Vail Pass) and Exit 205: CO 9; US 6; Silverthorne (near Frisco)"
+2026-11-20T12:45:46-07:00,412,US 285,Grant-Bailey-Pine Jct,213.1,229.0,1 - high wind,"US 285 (Hampden Ave), between MP 213 (near Kenosha Pass) and MP 229 (Pine Junction)"
+2026-11-20T12:45:46-07:00,411,US 285,Kenosha Pass,199.0,213.1,1 - high wind,"US 285 (Hampden Ave), between Willard Street and River Street (near Kenosha Pass)"
+2026-11-20T12:45:46-07:00,410,US 285,Antero Jct-Fairplay-Jefferson (South Park),161.8,199.0,1 - high wind,"US 285 (Hampden Ave), between US 24 (Antero Junction) and MP 199 (near Kenosha Pass)"
+2026-11-20T12:45:46-07:00,47,CO 9,US 24 to Fairplay,47.6,63.7,1 - high wind,"CO 9, between US 24 and US 285 (Fairplay)"
