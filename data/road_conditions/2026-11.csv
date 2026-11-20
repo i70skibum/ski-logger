@@ -273,3 +273,5 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-20T06:02:23-07:00,215,US 50,Delta-Montrose,66.6,92.4,3 - dry,"US 50, between Alkali Basin Road (Delta) and 65.3 Road (Montrose)"
 2026-11-20T06:02:23-07:00,390,US 50,Montrose-Cerro Summit-Blue Mesa-Gunnison,92.4,190.3,3 - dry,"US 50, between Park Avenue (Montrose) and County Road 32YY (1 mile west of the Monarch Pass area)"
 2026-11-20T06:15:46-07:00,70,CO 62,Dallas Divide,0.0,23.4,8 - icy,"CO 62, between CO 145 (4 miles west of the Dallas Divide area) and US 550; Hunter Parkway (Ridgway)"
+2026-11-20T06:45:47-07:00,151,CO 145,Lizard Head Pass,46.4,71.6,6 - snow; 9 - icy spots,"CO 145, between Scotch Creek Road (Lizard Head Pass) and Nimbus Drive (near Telluride)"
+2026-11-20T06:45:47-07:00,152,CO 145,"Telluride/Keystone, Lawson, Norwood hills",71.6,116.9,6 - snow; 9 - icy spots,"CO 145, between Colorado Avenue (near Telluride) and US 141 (13 miles north of the Norwood area)"
