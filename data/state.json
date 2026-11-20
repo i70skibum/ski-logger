@@ -61,6 +61,30 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadClosures:CDOT-36485723167WB": {
+   "began": "2026-11-23T21:00:00-07:00",
+   "class": "roadClosures",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36485723167WB",
+   "mp_end": 244.5343739114466,
+   "mp_start": 244.0118738188844,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Road closed.",
+   "type": "critical"
+  },
+  "roadClosures:CDOT-36485723930WB": {
+   "began": "2026-11-22T21:00:00-07:00",
+   "class": "roadClosures",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36485723930WB",
+   "mp_end": 244.5343739114466,
+   "mp_start": 244.0118738188844,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Road closed.",
+   "type": "critical"
+  },
   "roadReports:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadReports",
@@ -85,29 +109,17 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36483560558NB": {
-   "began": "2026-11-20T08:28:08-07:00",
+  "roadReports:CDOT-36485744112BOTH": {
+   "began": "2026-11-20T11:06:45-07:00",
    "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36483560558NB",
-   "mp_end": 69.99946529489782,
-   "mp_start": 63.985403419143076,
-   "pos_bearing": "N",
-   "route": "US 550",
-   "title": "US 550 northbound: Roadway reopened to traffic.",
-   "type": "urgent"
-  },
-  "roadReports:CDOT-36483628352NB": {
-   "began": "2026-11-20T08:32:54-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36483628352NB",
-   "mp_end": 80.00012510369761,
-   "mp_start": 69.99946529489782,
-   "pos_bearing": "N",
-   "route": "US 550",
-   "title": "US 550 northbound: Roadway reopened to traffic.",
-   "type": "urgent"
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36485744112BOTH",
+   "mp_end": "",
+   "mp_start": 242.10300004268356,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50 in both directions: Crash.",
+   "type": "routine"
   },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
@@ -1009,6 +1021,102 @@
    "title": "US 40 (Colfax Ave) westbound: Right lane closed.",
    "type": "routine"
   },
+  "roadWork:CDOT-36485723097WB": {
+   "began": "2026-11-24T09:00:00-07:00",
+   "class": "roadWork",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36485723097WB",
+   "mp_end": "",
+   "mp_start": 244.0118738188844,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Road construction.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36485723117EB": {
+   "began": "2026-11-24T07:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36485723117EB",
+   "mp_end": 271.9987926750137,
+   "mp_start": 269.44297993570217,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40 eastbound: Road construction.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36485723130EB": {
+   "began": "2026-11-24T09:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36485723130EB",
+   "mp_end": "",
+   "mp_start": 244.00539291801527,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road construction.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36485723154EB": {
+   "began": "2026-11-23T07:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36485723154EB",
+   "mp_end": 271.9987926750137,
+   "mp_start": 269.44297993570217,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40 eastbound: Road construction.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36485723167WB": {
+   "began": "2026-11-23T21:00:00-07:00",
+   "class": "roadWork",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36485723167WB",
+   "mp_end": 244.5343739114466,
+   "mp_start": 244.0118738188844,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Road closed.",
+   "type": "critical"
+  },
+  "roadWork:CDOT-36485723192EB": {
+   "began": "2026-11-22T20:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36485723192EB",
+   "mp_end": 244.54010558262695,
+   "mp_start": 242.99921860041002,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Left lane closed.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36485723297EB": {
+   "began": "2026-11-23T20:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36485723297EB",
+   "mp_end": 244.54010558262695,
+   "mp_start": 242.99921860041002,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Left lane closed.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36485723930WB": {
+   "began": "2026-11-22T21:00:00-07:00",
+   "class": "roadWork",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36485723930WB",
+   "mp_end": 244.5343739114466,
+   "mp_start": 244.0118738188844,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Road closed.",
+   "type": "critical"
+  },
   "winterDriving:COSEG-522887": {
    "began": "2026-11-19T22:46:22.683000-07:00",
    "class": "winterDriving",
@@ -1249,6 +1357,18 @@
    "title": "I-70: Rain.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588244": {
+   "began": "2026-11-20T11:04:09.253000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588244",
+   "mp_end": 314.59800003071723,
+   "mp_start": 279.65274341819594,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50: High wind.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588298": {
    "began": "2026-11-20T01:53:34.862000-07:00",
    "class": "winterDriving",
@@ -1345,6 +1465,18 @@
    "title": "I-70: Snow.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588533": {
+   "began": "2026-11-20T11:04:09.253000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588533",
+   "mp_end": 285.039998010669,
+   "mp_start": 210.7626940782348,
+   "pos_bearing": "E",
+   "route": "US 24",
+   "title": "US 24: High wind.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588534": {
    "began": "2026-11-20T07:58:22.598000-07:00",
    "class": "winterDriving",
@@ -1418,8 +1550,8 @@
    "type": "standard"
   }
  },
- "forecast_last": "2026-11-20T15:15:47+00:00",
- "last_run": "2026-11-20T11:00:49-07:00",
+ "forecast_last": "2026-11-20T18:15:48+00:00",
+ "last_run": "2026-11-20T11:15:48-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1451,7 +1583,7 @@
   "132": "3 - dry",
   "141": "9 - icy spots",
   "150": "3 - dry",
-  "151": "6 - snow; 9 - icy spots",
+  "151": "4 - wet",
   "152": "6 - snow; 9 - icy spots",
   "198": "4s - wet in areas",
   "199": "3 - dry",
@@ -1482,7 +1614,7 @@
   "335": "3 - dry",
   "336": "3 - dry",
   "390": "3 - dry",
-  "393": "3 - dry",
+  "393": "1 - high wind; 3 - dry",
   "394": "1 - high wind; 3 - dry",
   "395": "1 - high wind; 3 - dry",
   "396": "1 - high wind; 3 - dry",
@@ -1522,7 +1654,7 @@
   "72": "11 - snow packed spots; 14 - drifting snow; 9 - icy spots"
  },
  "snotel_last": {
-  "abasin": "2026-11-20 09:00",
+  "abasin": "2026-11-20 10:00",
   "aspen": "2026-11-20 09:00",
   "beavercreek": "2026-11-20 09:00",
   "breck": "2026-11-20 09:00",
@@ -1532,7 +1664,7 @@
   "echo": "2026-11-20 09:00",
   "eldora": "2026-11-20 09:00",
   "granby": "2026-11-20 09:00",
-  "keystone": "2026-11-20 09:00",
+  "keystone": "2026-11-20 10:00",
   "loveland": "2026-11-20 09:00",
   "monarch": "2026-11-20 09:00",
   "powderhorn": "2026-11-20 09:00",

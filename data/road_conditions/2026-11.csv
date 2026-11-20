@@ -301,3 +301,5 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-20T11:00:49-07:00,458,I-70,Copper Mtn-Silverthorne,194.3,203.7,4 - wet; 6 - snow,"I-70, between Exit 190: Vail Pass Summit (Vail Pass) and Exit 205: CO 9; US 6; Silverthorne (near Frisco)"
 2026-11-20T11:00:49-07:00,394,US 50,Pueblo-LaJunta,315.7,379.8,1 - high wind; 3 - dry,"US 50, between I-25 (Pueblo) and Smithland Avenue (La Junta)"
 2026-11-20T11:00:49-07:00,485,US 6,Silverthorne to Arapahoe Basin,208.7,219.9,4 - wet; 5 - rain,"US 6, between I-70; CO 9 (Silverthorne) and I-70 (near Loveland Pass)"
+2026-11-20T11:15:48-07:00,151,CO 145,Lizard Head Pass,46.4,71.6,4 - wet,"CO 145, between Scotch Creek Road (Lizard Head Pass) and Nimbus Drive (near Telluride)"
+2026-11-20T11:15:48-07:00,393,US 50,Canon City-Pueblo,279.7,314.6,1 - high wind; 3 - dry,"US 50, between 19th Street (Canon City) and I-25; CO 47 (Pueblo)"
