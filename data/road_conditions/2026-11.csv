@@ -303,3 +303,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-20T11:00:49-07:00,485,US 6,Silverthorne to Arapahoe Basin,208.7,219.9,4 - wet; 5 - rain,"US 6, between I-70; CO 9 (Silverthorne) and I-70 (near Loveland Pass)"
 2026-11-20T11:15:48-07:00,151,CO 145,Lizard Head Pass,46.4,71.6,4 - wet,"CO 145, between Scotch Creek Road (Lizard Head Pass) and Nimbus Drive (near Telluride)"
 2026-11-20T11:15:48-07:00,393,US 50,Canon City-Pueblo,279.7,314.6,1 - high wind; 3 - dry,"US 50, between 19th Street (Canon City) and I-25; CO 47 (Pueblo)"
+2026-11-20T11:30:48-07:00,274,I-70,Denver C470 to I-25,259.8,274.1,1 - high wind; 3 - dry,"I-70, between Exit 260: C-470; C-470; Morrison (Mount Vernon Canyon) and Exit 274: I-25 (Denver)"
