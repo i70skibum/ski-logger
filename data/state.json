@@ -61,6 +61,18 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadClosures:CDOT-36481708525BOTH": {
+   "began": "2026-11-20T06:12:34-07:00",
+   "class": "roadClosures",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36481708525BOTH",
+   "mp_end": "",
+   "mp_start": 413.99842634064197,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40 in both directions: Road closed.",
+   "type": "critical"
+  },
   "roadClosures:COSEG-588228": {
    "began": "2026-11-18T16:43:27.092000-07:00",
    "class": "roadClosures",
@@ -95,6 +107,18 @@
    "pos_bearing": "E",
    "route": "US 160",
    "title": "US 160 in both directions: Road closed.",
+   "type": "critical"
+  },
+  "roadReports:CDOT-36481708525BOTH": {
+   "began": "2026-11-20T06:12:34-07:00",
+   "class": "roadReports",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36481708525BOTH",
+   "mp_end": "",
+   "mp_start": 413.99842634064197,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40 in both directions: Road closed.",
    "type": "critical"
   },
   "roadWork:CDOT-35509265054EB": {
@@ -841,6 +865,18 @@
    "title": "CO 135: Wet in areas.",
    "type": "standard"
   },
+  "winterDriving:COSEG-522935": {
+   "began": "2026-11-20T06:03:54.751000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-522935",
+   "mp_end": 23.413999986179988,
+   "mp_start": 1.6892547705932946e-06,
+   "pos_bearing": "E",
+   "route": "CO 62",
+   "title": "CO 62: Icy.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-522937": {
    "began": "2026-11-19T23:08:51.070000-07:00",
    "class": "winterDriving",
@@ -987,7 +1023,7 @@
   }
  },
  "forecast_last": "2026-11-20T12:00:49+00:00",
- "last_run": "2026-11-20T06:02:23-07:00",
+ "last_run": "2026-11-20T06:15:46-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1086,11 +1122,11 @@
   "501": "1 - high wind; 3 - dry",
   "516": "3 - dry",
   "517": "3 - dry",
-  "70": "3 - dry",
+  "70": "8 - icy",
   "72": "11 - snow packed spots; 14 - drifting snow; 9 - icy spots"
  },
  "snotel_last": {
-  "abasin": "2026-11-20 04:00",
+  "abasin": "2026-11-20 05:00",
   "aspen": "2026-11-20 04:00",
   "beavercreek": "2026-11-20 04:00",
   "breck": "2026-11-20 04:00",
@@ -1100,7 +1136,7 @@
   "echo": "2026-11-20 04:00",
   "eldora": "2026-11-20 04:00",
   "granby": "2026-11-20 04:00",
-  "keystone": "2026-11-20 04:00",
+  "keystone": "2026-11-20 05:00",
   "loveland": "2026-11-20 04:00",
   "monarch": "2026-11-20 04:00",
   "powderhorn": "2026-11-20 04:00",
