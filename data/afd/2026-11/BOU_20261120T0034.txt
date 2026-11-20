@@ -1,0 +1,112 @@
+
+000
+FXUS65 KBOU 200734
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1234 AM MST Fri Nov 20 2026
+
+.KEY MESSAGES... 
+
+- Next storm system arrives today, bringing chances for light 
+  mountain snow through Saturday.
+
+- Gusty winds and elevated fire weather conditions this afternoon across
+  most of the Front Range foothills and plains.
+
+- Cooler pattern emerges this weekend into next week. 
+
+&&
+
+.DISCUSSION /Through Thursday/...
+Issued at 1214 AM MST Fri Nov 20 2026
+
+Our next approaching storm system is visible on satellite imagery 
+moving across the Great Basin tonight. Current METAR observations 
+show snow showers have begun to move into the northern mountains, 
+where southwesterly flow will favor the Park Range. 3-6 inches 
+are forecast between today and Saturday, with locally higher 
+amounts possible at the highest elevations. As this shortwave approaches,
+southwesterly flow will steadily increase as the night progresses
+and an 80-90kt 500mb jet moves over Colorado. While there will be
+enough moisture for light mountain snow showers today, the main 
+weather impacts will be with gusty winds and elevated to near- 
+critical fire weather conditions developing across portions of the
+plains and Palmer Divide this afternoon. Gusty southwesterly 
+winds mixed with above-normal temperatures are expected to drop 
+relative humidity (RH) values down to 17%-22% across the plains, 
+where 30-40mph winds are expected to develop by late morning. 
+There isn't expected to be enough of an overlap with the lowest RH
+and gusty winds to warrant any fire weather highlights, but 
+elevated fire weather conditions can be expected across much of 
+the lower elevations this afternoon. Additionally, with the jet 
+overhead, expect strong winds gusting up to 65-70mph at times over
+our high mountain peaks, but gusts should generally be 40-50mph 
+over the mountains, with some 30-40mph gusts making their way down
+the lee of the Front Range. A cold front is expected to slide 
+across the forecast area later this afternoon and evening that 
+will shift surface winds to the northwest, advecting a much colder
+airmass into Colorado. 
+
+With colder temperatures expected behind the front, snow levels will 
+drop overnight, and we may see some snow flurries across the lower 
+elevations by Saturday morning when temperatures will drop below 
+freezing, and QG forcing is greatest as the shortwave passes just to 
+our south. Unfortunately, this once robust looking system just 
+won't have enough juice to bring any accumulating snowfall to our 
+lower elevations, but we may see a few tenths in our high mountain
+valleys, southern foothills, and along the Palmer Divide when all
+is said and done. Saturday's afternoon high temperatures will be 
+roughly 5 to 10 degrees below seasonal values across the forecast 
+area, with 30s and 40s forecasted for the plains, and 30s for the 
+mountain valleys. 
+
+Brief upper-level ridging is expected to return by Saturday night 
+that will bring drier conditions back to Colorado, but won't have 
+much impact on the cooler temperatures. Afternoon high temps will 
+finally start to resemble November normals, with the plains actually 
+looking to be a few degrees below seasonal values through at least 
+the middle of next week. Uncertainties remain with the strength and 
+track of our next potential shortwave (Monday?), but it's not
+looking like any significant precipitation will be possible
+outside of a few waves of light mountain snowfall through the 
+forecast period. 
+
+
+&&
+
+.AVIATION /06Z TAFS through 06Z Saturday/...
+Issued at 1026 PM MST Thu Nov 19 2026
+
+VFR conditions expected to prevail for all terminals through at
+least 06Z Sat. Southerly drainage winds will steadily increase at
+KDEN/KAPA through the early morning hours, with a more defined
+shift to SW (220-240) winds beginning near 17Z as daytime mixing
+develops. Anticipating sustained winds of 15-20 kts will be
+prevalent at both terminals through much of the afternoon, with
+potential for stronger gusts to around 30 kts, or slightly higher
+at KAPA. Much more uncertain wind speed forecast for KBJC, which
+tends to be more sheltered from said wind direction. Opted to
+lower speeds for the latter, though periods of stronger gusts can
+still be expected. Ultimately, the stronger SW flow should just be
+more intermittent relative to the other two terminals. Expect a
+more westerly shift late afternoon into the evening with a fairly
+quick weakening in speeds after sunset.
+
+Favoring development of SCT cloud bases near 040-060 after ~06Z
+Sat. There's some potential for occasional CIGS thereafter as well
+or even a brief and very light -SHSN, but confidence remains far
+too low for any explicit inclusion in the TAFs.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...9
+AVIATION...BRQ

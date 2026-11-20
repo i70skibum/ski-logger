@@ -1,5 +1,5 @@
 {
- "afd_last": "f405aa0d-df1f-4bb3-8eed-c295f548615f",
+ "afd_last": "767420bb-d37d-405d-b072-eaf5ac7331a9",
  "events": {
   "roadClosures:CDOT-36057055825BOTH": {
    "began": "2026-10-29T15:49:45-06:00",
@@ -72,18 +72,6 @@
    "route": "US 160",
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
-  },
-  "roadReports:CDOT-36476273543WB": {
-   "began": "2026-11-19T23:35:30-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36476273543WB",
-   "mp_end": "",
-   "mp_start": 300.06158636689554,
-   "pos_bearing": "E",
-   "route": "US 24",
-   "title": "US 24 westbound: Debris on roadway.",
-   "type": "routine"
   },
   "roadReports:CDOT-36476329345WB": {
    "began": "2026-11-19T23:39:51-07:00",
@@ -853,18 +841,6 @@
    "title": "US 24 in both directions: Right shoulder closed.",
    "type": "routine"
   },
-  "roadWork:CDOT-36472849415EB": {
-   "began": "2026-11-19T19:25:15-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36472849415EB",
-   "mp_end": 258.0311682595861,
-   "mp_start": 257.2389108414832,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Right lane closed.",
-   "type": "routine"
-  },
   "winterDriving:COSEG-522887": {
    "began": "2026-11-19T22:46:22.683000-07:00",
    "class": "winterDriving",
@@ -1047,7 +1023,7 @@
   }
  },
  "forecast_last": "2026-11-20T05:45:50+00:00",
- "last_run": "2026-11-20T00:30:48-07:00",
+ "last_run": "2026-11-20T00:45:45-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1151,7 +1127,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-19 23:00",
-  "aspen": "2026-11-19 22:00",
+  "aspen": "2026-11-19 23:00",
   "beavercreek": "2026-11-19 23:00",
   "breck": "2026-11-19 23:00",
   "cooper": "2026-11-19 23:00",
@@ -1159,14 +1135,14 @@
   "crestedbutte": "2026-11-19 23:00",
   "echo": "2026-11-19 23:00",
   "eldora": "2026-11-19 23:00",
-  "granby": "2026-11-19 22:00",
+  "granby": "2026-11-19 23:00",
   "keystone": "2026-11-19 23:00",
   "loveland": "2026-11-19 23:00",
-  "monarch": "2026-11-19 22:00",
+  "monarch": "2026-11-19 23:00",
   "powderhorn": "2026-11-19 23:00",
   "purgatory": "2026-11-19 23:00",
   "steamboat": "2026-11-19 23:00",
-  "sunlight": "2026-11-19 22:00",
+  "sunlight": "2026-11-19 23:00",
   "telluride": "2026-11-19 22:00",
   "vail": "2026-11-19 23:00",
   "winterpark": "2026-11-19 23:00",
