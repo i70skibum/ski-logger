@@ -361,18 +361,6 @@
    "title": "US 40 eastbound: Road construction.",
    "type": "routine"
   },
-  "roadWork:CDOT-36345483375EB": {
-   "began": "2026-11-19T20:00:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36345483375EB",
-   "mp_end": 244.00539291801527,
-   "mp_start": 242.99921860041002,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Left lane closed.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36345483446EB": {
    "began": "2026-11-20T07:00:00-07:00",
    "class": "roadWork",
@@ -913,18 +901,6 @@
    "title": "US 550: Icy spots.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588009": {
-   "began": "2026-11-19T23:01:35.934000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588009",
-   "mp_end": 137.32318525182112,
-   "mp_start": 121.26224323617745,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40: Icy spots.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588145": {
    "began": "2026-11-20T00:00:40.498000-07:00",
    "class": "winterDriving",
@@ -973,28 +949,16 @@
    "title": "CO 145: Icy spots.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588453": {
-   "began": "2026-11-20T03:49:45.750000-07:00",
+  "winterDriving:COSEG-588385": {
+   "began": "2026-11-20T05:58:15.874000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588453",
-   "mp_end": 92.43700153238498,
-   "mp_start": 66.62475631073863,
+   "id": "COSEG-588385",
+   "mp_end": 90.59834604336295,
+   "mp_start": 1.3242356516934172e-06,
    "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50: Wet in areas with icy spots.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588454": {
-   "began": "2026-11-20T03:49:57.468000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588454",
-   "mp_end": 190.283999779025,
-   "mp_start": 92.43700153238498,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50: Wet in areas with icy spots.",
+   "route": "US 40",
+   "title": "US 40: Wet and rain.",
    "type": "standard"
   },
   "winterDriving:COSEG-588526": {
@@ -1023,7 +987,7 @@
   }
  },
  "forecast_last": "2026-11-20T12:00:49+00:00",
- "last_run": "2026-11-20T05:45:46-07:00",
+ "last_run": "2026-11-20T06:02:23-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1057,13 +1021,13 @@
   "150": "3 - dry",
   "151": "9 - icy spots",
   "152": "9 - icy spots",
-  "198": "3 - dry",
+  "198": "4-5 wet, rain",
   "199": "3 - dry",
-  "200": "4s - wet in areas",
+  "200": "3 - dry",
   "201": "9 - icy spots",
   "202": "3 - dry",
   "214": "3 - dry",
-  "215": "4s-9 - wet in areas, icy spots",
+  "215": "3 - dry",
   "226": "1-6-25 - high wind, snow, adverse conditions",
   "227": "3 - dry",
   "228": "1 - high wind; 3 - dry",
@@ -1085,7 +1049,7 @@
   "322": "3 - dry",
   "335": "3 - dry",
   "336": "3 - dry",
-  "390": "4s-9 - wet in areas, icy spots",
+  "390": "3 - dry",
   "393": "3 - dry",
   "394": "3 - dry",
   "395": "3 - dry",
@@ -1123,7 +1087,7 @@
   "516": "3 - dry",
   "517": "3 - dry",
   "70": "3 - dry",
-  "72": "9-11 icy spots, snow packed spots"
+  "72": "11 - snow packed spots; 14 - drifting snow; 9 - icy spots"
  },
  "snotel_last": {
   "abasin": "2026-11-20 04:00",
@@ -1141,9 +1105,9 @@
   "monarch": "2026-11-20 04:00",
   "powderhorn": "2026-11-20 04:00",
   "purgatory": "2026-11-20 04:00",
-  "steamboat": "2026-11-20 04:00",
+  "steamboat": "2026-11-20 05:00",
   "sunlight": "2026-11-20 04:00",
-  "telluride": "2026-11-20 03:00",
+  "telluride": "2026-11-20 04:00",
   "vail": "2026-11-20 04:00",
   "winterpark": "2026-11-20 04:00",
   "wolfcreek": "2026-11-20 04:00"
