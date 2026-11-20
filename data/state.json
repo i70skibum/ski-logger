@@ -805,18 +805,6 @@
    "title": "US 50 in both directions: Right shoulder closed.",
    "type": "routine"
   },
-  "roadWork:CDOT-36484359572NB": {
-   "began": "2026-11-20T09:25:37-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36484359572NB",
-   "mp_end": 201.99126137624626,
-   "mp_start": 199.0000000224245,
-   "pos_bearing": "N",
-   "route": "US 285",
-   "title": "US 285 northbound: Road maintenance operations.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36484821014EB": {
    "began": "2026-11-22T19:00:00-07:00",
    "class": "roadWork",
@@ -1153,6 +1141,18 @@
    "title": "US 40: Icy spots.",
    "type": "standard"
   },
+  "winterDriving:COSEG-586962": {
+   "began": "2026-11-20T10:46:41.178000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-586962",
+   "mp_end": 219.86348555050597,
+   "mp_start": 208.65900086727643,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6: Rain.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-587017": {
    "began": "2026-11-20T07:58:46.391000-07:00",
    "class": "winterDriving",
@@ -1381,6 +1381,30 @@
    "title": "I-70: Snow.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588558": {
+   "began": "2026-11-20T10:59:58.568000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588558",
+   "mp_end": 379.83304153264623,
+   "mp_start": 315.7090000555909,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50: High wind.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588559": {
+   "began": "2026-11-20T10:59:58.568000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588559",
+   "mp_end": 435.7321144062969,
+   "mp_start": 379.83304153264623,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50: High wind.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588565": {
    "began": "2026-11-20T07:49:34.929000-07:00",
    "class": "winterDriving",
@@ -1395,7 +1419,7 @@
   }
  },
  "forecast_last": "2026-11-20T15:15:47+00:00",
- "last_run": "2026-11-20T10:45:52-07:00",
+ "last_run": "2026-11-20T11:00:49-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1459,8 +1483,8 @@
   "336": "3 - dry",
   "390": "3 - dry",
   "393": "3 - dry",
-  "394": "3 - dry",
-  "395": "3 - dry",
+  "394": "1 - high wind; 3 - dry",
+  "395": "1 - high wind; 3 - dry",
   "396": "1 - high wind; 3 - dry",
   "406": "1 - high wind; 3 - dry",
   "407": "3 - dry",
@@ -1477,14 +1501,14 @@
   "442": "3 - dry",
   "447": "3 - dry",
   "45": "3 - dry",
-  "456": "3 - dry",
-  "457": "3 - dry",
-  "458": "3 - dry",
+  "456": "4 - wet; 6 - snow",
+  "457": "4 - wet; 6 - snow",
+  "458": "4 - wet; 6 - snow",
   "459": "3 - dry",
   "47": "3 - dry",
   "483": "4 - wet; 5 - rain",
   "484": "4-5 wet, rain",
-  "485": "3 - dry",
+  "485": "4 - wet; 5 - rain",
   "486": "3 - dry",
   "489": "3 - dry",
   "49": "3 - dry",
@@ -1513,9 +1537,9 @@
   "monarch": "2026-11-20 09:00",
   "powderhorn": "2026-11-20 09:00",
   "purgatory": "2026-11-20 09:00",
-  "steamboat": "2026-11-20 09:00",
+  "steamboat": "2026-11-20 10:00",
   "sunlight": "2026-11-20 09:00",
-  "telluride": "2026-11-20 08:00",
+  "telluride": "2026-11-20 09:00",
   "vail": "2026-11-20 09:00",
   "winterpark": "2026-11-20 09:00",
   "wolfcreek": "2026-11-20 09:00"
