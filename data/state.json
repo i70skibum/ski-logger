@@ -73,6 +73,18 @@
    "title": "US 40 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadClosures:CDOT-36482289690EB": {
+   "began": "2026-11-20T06:55:00-07:00",
+   "class": "roadClosures",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36482289690EB",
+   "mp_end": "",
+   "mp_start": 244.00539291801527,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
+   "type": "critical"
+  },
   "roadClosures:COSEG-588228": {
    "began": "2026-11-18T16:43:27.092000-07:00",
    "class": "roadClosures",
@@ -132,6 +144,18 @@
    "route": "US 6",
    "title": "US 6 eastbound: Left lane closed.",
    "type": "routine"
+  },
+  "roadReports:CDOT-36482289690EB": {
+   "began": "2026-11-20T06:55:00-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36482289690EB",
+   "mp_end": "",
+   "mp_start": 244.00539291801527,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
+   "type": "critical"
   },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
@@ -433,18 +457,6 @@
    "title": "I-70 eastbound: Road construction.",
    "type": "routine"
   },
-  "roadWork:CDOT-36346644252EB": {
-   "began": "2026-11-19T19:00:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36346644252EB",
-   "mp_end": 89.49492568542203,
-   "mp_start": 88.0037676507493,
-   "pos_bearing": "E",
-   "route": "US 160",
-   "title": "US 160 eastbound: Paving operations.",
-   "type": "urgent"
-  },
   "roadWork:CDOT-36346644270EB": {
    "began": "2026-11-20T19:00:00-07:00",
    "class": "roadWork",
@@ -462,18 +474,6 @@
    "class": "roadWork",
    "direction": "BOTH_DIRECTIONS",
    "id": "CDOT-36346644365BOTH",
-   "mp_end": 92.01325628664806,
-   "mp_start": 86.00042707324741,
-   "pos_bearing": "E",
-   "route": "US 160",
-   "title": "US 160 in both directions: Right lane closed.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36346644384BOTH": {
-   "began": "2026-11-19T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36346644384BOTH",
    "mp_end": 92.01325628664806,
    "mp_start": 86.00042707324741,
    "pos_bearing": "E",
@@ -1047,7 +1047,7 @@
   }
  },
  "forecast_last": "2026-11-20T12:00:49+00:00",
- "last_run": "2026-11-20T06:45:47-07:00",
+ "last_run": "2026-11-20T07:00:46-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1165,9 +1165,9 @@
   "monarch": "2026-11-20 05:00",
   "powderhorn": "2026-11-20 05:00",
   "purgatory": "2026-11-20 05:00",
-  "steamboat": "2026-11-20 05:00",
+  "steamboat": "2026-11-20 06:00",
   "sunlight": "2026-11-20 05:00",
-  "telluride": "2026-11-20 04:00",
+  "telluride": "2026-11-20 05:00",
   "vail": "2026-11-20 05:00",
   "winterpark": "2026-11-20 05:00",
   "wolfcreek": "2026-11-20 05:00"
