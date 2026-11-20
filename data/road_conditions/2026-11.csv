@@ -277,3 +277,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-20T06:45:47-07:00,152,CO 145,"Telluride/Keystone, Lawson, Norwood hills",71.6,116.9,6 - snow; 9 - icy spots,"CO 145, between Colorado Avenue (near Telluride) and US 141 (13 miles north of the Norwood area)"
 2026-11-20T07:30:47-07:00,198,US 40,Dinosaur-Elk Springs-Maybell,0.0,90.6,4s - wet in areas,"US 40, between the Utah Border (near Dinosaur) and Barclay Street (Craig)"
 2026-11-20T07:30:47-07:00,248,US 550,Silverton-Red Mountain Pass,74.9,98.1,6 - snow; 9 - icy spots,"US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)"
+2026-11-20T07:45:53-07:00,248,US 550,Silverton-Red Mountain Pass,74.9,98.1,"6-8-10 snow, icy, snow packed","US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)"
