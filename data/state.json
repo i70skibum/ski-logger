@@ -913,6 +913,18 @@
    "title": "CO 91: Wet in areas.",
    "type": "standard"
   },
+  "winterDriving:COSEG-587073": {
+   "began": "2026-11-19T18:42:14.449000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-587073",
+   "mp_end": 186.12914980107246,
+   "mp_start": 145.81651330012022,
+   "pos_bearing": "E",
+   "route": "US 160",
+   "title": "US 160: Wet in areas with icy spots.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588228": {
    "began": "2026-11-18T16:43:27.092000-07:00",
    "class": "winterDriving",
@@ -927,7 +939,7 @@
   }
  },
  "forecast_last": "2026-11-19T23:45:47+00:00",
- "last_run": "2026-11-19T18:30:50-07:00",
+ "last_run": "2026-11-19T18:45:46-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -968,7 +980,7 @@
   "202": "3 - dry",
   "214": "3 - dry",
   "215": "3 - dry",
-  "226": "3 - dry",
+  "226": "4s-9 - wet in areas, icy spots",
   "227": "3 - dry",
   "228": "3 - dry",
   "229": "3 - dry",
@@ -1031,7 +1043,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-19 17:00",
-  "aspen": "2026-11-19 16:00",
+  "aspen": "2026-11-19 17:00",
   "beavercreek": "2026-11-19 17:00",
   "breck": "2026-11-19 17:00",
   "cooper": "2026-11-19 17:00",
@@ -1039,14 +1051,14 @@
   "crestedbutte": "2026-11-19 17:00",
   "echo": "2026-11-19 17:00",
   "eldora": "2026-11-19 17:00",
-  "granby": "2026-11-19 16:00",
+  "granby": "2026-11-19 17:00",
   "keystone": "2026-11-19 17:00",
   "loveland": "2026-11-19 17:00",
-  "monarch": "2026-11-19 16:00",
+  "monarch": "2026-11-19 17:00",
   "powderhorn": "2026-11-19 17:00",
   "purgatory": "2026-11-19 17:00",
   "steamboat": "2026-11-19 17:00",
-  "sunlight": "2026-11-19 16:00",
+  "sunlight": "2026-11-19 17:00",
   "telluride": "2026-11-19 16:00",
   "vail": "2026-11-19 17:00",
   "winterpark": "2026-11-19 17:00",
