@@ -318,3 +318,5 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-20T12:45:46-07:00,47,CO 9,US 24 to Fairplay,47.6,63.7,1 - high wind,"CO 9, between US 24 and US 285 (Fairplay)"
 2026-11-20T13:00:47-07:00,459,I-70,Silverthorne-Eisenhower/Johnson tunnels,203.7,212.5,21 - scattered showers,"I-70, between Exit 203: CO 9; East Frisco (near Frisco) and Exit 216: US 6; Loveland Pass (near Eisenhower Tunnel)"
 2026-11-20T13:15:47-07:00,274,I-70,Denver C470 to I-25,259.8,274.1,1 - high wind; 3 - dry; high wind caution,"I-70, between Exit 260: C-470; C-470; Morrison (Mount Vernon Canyon) and Exit 274: I-25 (Denver)"
+2026-11-20T13:30:47-07:00,486,US 6,Loveland Pass,219.9,229.9,2 - poor visibility; 21 - scattered showers; 6 - snow,"US 6, between Montezuma Road and I-70 (Loveland Pass)"
+2026-11-20T13:30:47-07:00,459,I-70,Silverthorne-Eisenhower/Johnson tunnels,203.7,212.5,2 - poor visibility; 21 - scattered showers; 6 - snow,"I-70, between Exit 203: CO 9; East Frisco (near Frisco) and Exit 216: US 6; Loveland Pass (near Eisenhower Tunnel)"
