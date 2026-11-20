@@ -553,18 +553,6 @@
    "title": "I-70 westbound: Right lane closed.",
    "type": "routine"
   },
-  "roadWork:CDOT-36399310570EB": {
-   "began": "2026-11-16T01:21:10-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36399310570EB",
-   "mp_end": 125.00018665094078,
-   "mp_start": 124.00000047107157,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Right lane closed.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36403740312BOTH": {
    "began": "2026-11-16T06:42:59-07:00",
    "class": "roadWork",
@@ -1009,6 +997,18 @@
    "title": "CO 145: Icy spots.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588385": {
+   "began": "2026-11-20T01:20:41.293000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588385",
+   "mp_end": 90.59834604336295,
+   "mp_start": 1.3242356516934172e-06,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40: Icy and snow packed spots.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588386": {
    "began": "2026-11-19T23:01:30.729000-07:00",
    "class": "winterDriving",
@@ -1047,7 +1047,7 @@
   }
  },
  "forecast_last": "2026-11-20T05:45:50+00:00",
- "last_run": "2026-11-20T01:15:46-07:00",
+ "last_run": "2026-11-20T01:30:50-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1081,7 +1081,7 @@
   "150": "3 - dry",
   "151": "9 - icy spots",
   "152": "9 - icy spots",
-  "198": "3 - dry",
+  "198": "9-11 icy spots, snow packed spots",
   "199": "9 - icy spots",
   "200": "9 - icy spots",
   "201": "9 - icy spots",
@@ -1113,7 +1113,7 @@
   "393": "3 - dry",
   "394": "3 - dry",
   "395": "3 - dry",
-  "396": "3 - dry",
+  "396": "1 - high wind; 3 - dry",
   "406": "3 - dry",
   "407": "3 - dry",
   "408": "3 - dry",
@@ -1152,25 +1152,25 @@
  "snotel_last": {
   "abasin": "2026-11-20 00:00",
   "aspen": "2026-11-19 23:00",
-  "beavercreek": "2026-11-19 23:00",
-  "breck": "2026-11-19 23:00",
-  "cooper": "2026-11-19 23:00",
-  "copper": "2026-11-19 23:00",
-  "crestedbutte": "2026-11-19 23:00",
-  "echo": "2026-11-19 23:00",
-  "eldora": "2026-11-19 23:00",
+  "beavercreek": "2026-11-20 00:00",
+  "breck": "2026-11-20 00:00",
+  "cooper": "2026-11-20 00:00",
+  "copper": "2026-11-20 00:00",
+  "crestedbutte": "2026-11-20 00:00",
+  "echo": "2026-11-20 00:00",
+  "eldora": "2026-11-20 00:00",
   "granby": "2026-11-19 23:00",
   "keystone": "2026-11-20 00:00",
-  "loveland": "2026-11-19 23:00",
+  "loveland": "2026-11-20 00:00",
   "monarch": "2026-11-19 23:00",
-  "powderhorn": "2026-11-19 23:00",
-  "purgatory": "2026-11-19 23:00",
+  "powderhorn": "2026-11-20 00:00",
+  "purgatory": "2026-11-20 00:00",
   "steamboat": "2026-11-20 00:00",
   "sunlight": "2026-11-19 23:00",
   "telluride": "2026-11-19 23:00",
-  "vail": "2026-11-19 23:00",
-  "winterpark": "2026-11-19 23:00",
-  "wolfcreek": "2026-11-19 23:00"
+  "vail": "2026-11-20 00:00",
+  "winterpark": "2026-11-20 00:00",
+  "wolfcreek": "2026-11-20 00:00"
  },
  "speed_segments": [
   "I70E024",
