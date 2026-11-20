@@ -251,3 +251,6 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-19T23:15:47-07:00,248,US 550,Silverton-Red Mountain Pass,74.9,98.1,9 - icy spots,"US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)"
 2026-11-19T23:15:47-07:00,246,US 550,Coal Bank Pass,55.8,65.9,9 - icy spots,"US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)"
 2026-11-20T00:00:47-07:00,141,CO 135,Crested Butte,0.0,27.5,9 - icy spots,"CO 135, between US 50; Main Street (Gunnison) and the end of CO 135 (Crested Butte)"
+2026-11-20T00:15:46-07:00,151,CO 145,Lizard Head Pass,46.4,71.6,9 - icy spots,"CO 145, between Scotch Creek Road (Lizard Head Pass) and Nimbus Drive (near Telluride)"
+2026-11-20T00:15:46-07:00,226,US 160,Wolf Creek Pass,145.8,186.1,9 - icy spots,"US 160, between Paul Hood Place (near Pagosa Springs) and Park Drive (South Fork)"
+2026-11-20T00:15:46-07:00,152,CO 145,"Telluride/Keystone, Lawson, Norwood hills",71.6,116.9,9 - icy spots,"CO 145, between Colorado Avenue (near Telluride) and US 141 (13 miles north of the Norwood area)"

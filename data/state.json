@@ -985,6 +985,18 @@
    "title": "US 40: Icy spots.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588145": {
+   "began": "2026-11-20T00:00:40.498000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588145",
+   "mp_end": 116.87899764402346,
+   "mp_start": 71.57274062998921,
+   "pos_bearing": "N",
+   "route": "CO 145",
+   "title": "CO 145: Icy spots.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588228": {
    "began": "2026-11-18T16:43:27.092000-07:00",
    "class": "winterDriving",
@@ -995,6 +1007,18 @@
    "pos_bearing": "E",
    "route": "CO 82",
    "title": "CO 82: Seasonal Closure.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588364": {
+   "began": "2026-11-20T00:00:32.950000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588364",
+   "mp_end": 71.57274062998921,
+   "mp_start": 46.43321074882593,
+   "pos_bearing": "N",
+   "route": "CO 145",
+   "title": "CO 145: Icy spots.",
    "type": "standard"
   },
   "winterDriving:COSEG-588386": {
@@ -1023,7 +1047,7 @@
   }
  },
  "forecast_last": "2026-11-20T05:45:50+00:00",
- "last_run": "2026-11-20T00:00:47-07:00",
+ "last_run": "2026-11-20T00:15:46-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1055,8 +1079,8 @@
   "132": "3 - dry",
   "141": "9 - icy spots",
   "150": "3 - dry",
-  "151": "3 - dry",
-  "152": "3 - dry",
+  "151": "9 - icy spots",
+  "152": "9 - icy spots",
   "198": "3 - dry",
   "199": "9 - icy spots",
   "200": "9 - icy spots",
@@ -1064,7 +1088,7 @@
   "202": "3 - dry",
   "214": "3 - dry",
   "215": "3 - dry",
-  "226": "6 - snow",
+  "226": "9 - icy spots",
   "227": "3 - dry",
   "228": "1 - high wind; 3 - dry",
   "229": "3 - dry",
@@ -1126,7 +1150,7 @@
   "72": "9-11 icy spots, snow packed spots"
  },
  "snotel_last": {
-  "abasin": "2026-11-19 22:00",
+  "abasin": "2026-11-19 23:00",
   "aspen": "2026-11-19 22:00",
   "beavercreek": "2026-11-19 22:00",
   "breck": "2026-11-19 22:00",
@@ -1136,7 +1160,7 @@
   "echo": "2026-11-19 22:00",
   "eldora": "2026-11-19 22:00",
   "granby": "2026-11-19 22:00",
-  "keystone": "2026-11-19 22:00",
+  "keystone": "2026-11-19 23:00",
   "loveland": "2026-11-19 22:00",
   "monarch": "2026-11-19 22:00",
   "powderhorn": "2026-11-19 22:00",
