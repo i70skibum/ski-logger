@@ -73,18 +73,6 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36476329345WB": {
-   "began": "2026-11-19T23:39:51-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36476329345WB",
-   "mp_end": "",
-   "mp_start": 15.127908850034753,
-   "pos_bearing": "E",
-   "route": "CO 82",
-   "title": "CO 82 westbound: Right shoulder closed.",
-   "type": "routine"
-  },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
    "class": "roadWork",
@@ -1023,7 +1011,7 @@
   }
  },
  "forecast_last": "2026-11-20T05:45:50+00:00",
- "last_run": "2026-11-20T00:49:58-07:00",
+ "last_run": "2026-11-20T01:00:50-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1141,7 +1129,7 @@
   "monarch": "2026-11-19 23:00",
   "powderhorn": "2026-11-19 23:00",
   "purgatory": "2026-11-19 23:00",
-  "steamboat": "2026-11-19 23:00",
+  "steamboat": "2026-11-20 00:00",
   "sunlight": "2026-11-19 23:00",
   "telluride": "2026-11-19 23:00",
   "vail": "2026-11-19 23:00",
