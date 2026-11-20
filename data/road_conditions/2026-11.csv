@@ -304,3 +304,7 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-20T11:15:48-07:00,151,CO 145,Lizard Head Pass,46.4,71.6,4 - wet,"CO 145, between Scotch Creek Road (Lizard Head Pass) and Nimbus Drive (near Telluride)"
 2026-11-20T11:15:48-07:00,393,US 50,Canon City-Pueblo,279.7,314.6,1 - high wind; 3 - dry,"US 50, between 19th Street (Canon City) and I-25; CO 47 (Pueblo)"
 2026-11-20T11:30:48-07:00,274,I-70,Denver C470 to I-25,259.8,274.1,1 - high wind; 3 - dry,"I-70, between Exit 260: C-470; C-470; Morrison (Mount Vernon Canyon) and Exit 274: I-25 (Denver)"
+2026-11-20T11:45:46-07:00,245,US 550,Durango-Ski Area,26.9,55.8,"7-9-11 - slushy, icy spots, snow packed spots","US 550, between Animas View Drive (near Durango) and Lime Creek Road (near Coal Bank Pass)"
+2026-11-20T11:45:46-07:00,491,US 40,I-70 to Winter Park (Berthoud Pass),231.5,258.3,21 - scattered showers; 6 - snow,"US 40, between Moffat Road (Winter Park) and I-70 (near Empire)"
+2026-11-20T11:45:46-07:00,246,US 550,Coal Bank Pass,55.8,65.9,"7-9-11 - slushy, icy spots, snow packed spots","US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)"
+2026-11-20T11:45:46-07:00,247,US 550,Molas Pass,65.9,74.9,"7-9-11 - slushy, icy spots, snow packed spots","US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)"

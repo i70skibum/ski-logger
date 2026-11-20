@@ -1,30 +1,6 @@
 {
  "afd_last": "cef547e8-f757-4304-8489-6c4d3c298eb6",
  "events": {
-  "chainLaws:CDOT-36483508278NB": {
-   "began": "2026-11-20T08:24:14-07:00",
-   "class": "chainLaws",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36483508278NB",
-   "mp_end": 63.985403419143076,
-   "mp_start": 48.00029520261711,
-   "pos_bearing": "N",
-   "route": "US 550",
-   "title": "US 550 northbound: Passenger vehicle traction law.",
-   "type": "standard"
-  },
-  "chainLaws:CDOT-36483538899NB": {
-   "began": "2026-11-20T08:26:19-07:00",
-   "class": "chainLaws",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36483538899NB",
-   "mp_end": 63.985403419143076,
-   "mp_start": 48.00029520261711,
-   "pos_bearing": "N",
-   "route": "US 550",
-   "title": "US 550 northbound: Commercial motor vehicle chain law.",
-   "type": "standard"
-  },
   "roadClosures:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadClosures",
@@ -108,6 +84,18 @@
    "route": "US 160",
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
+  },
+  "roadReports:CDOT-36483538899NB": {
+   "began": "2026-11-20T08:26:19-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36483538899NB",
+   "mp_end": 63.985403419143076,
+   "mp_start": 48.00029520261711,
+   "pos_bearing": "N",
+   "route": "US 550",
+   "title": "US 550 northbound: Roadway reopened to traffic.",
+   "type": "urgent"
   },
   "roadReports:CDOT-36485744112BOTH": {
    "began": "2026-11-20T11:06:45-07:00",
@@ -1285,6 +1273,18 @@
    "title": "US 160: Snow.",
    "type": "standard"
   },
+  "winterDriving:COSEG-587590": {
+   "began": "2026-11-20T11:38:24.769000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-587590",
+   "mp_end": 258.2579999693553,
+   "mp_start": 231.52362708977432,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40: Snow.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-587761": {
    "began": "2026-11-20T07:49:34.929000-07:00",
    "class": "winterDriving",
@@ -1549,21 +1549,33 @@
    "title": "US 50: High wind.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588565": {
-   "began": "2026-11-20T07:49:34.929000-07:00",
+  "winterDriving:COSEG-588569": {
+   "began": "2026-11-20T11:39:43.771000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588565",
-   "mp_end": 74.88257952888567,
+   "id": "COSEG-588569",
+   "mp_end": 65.88309991558688,
    "mp_start": 55.7869149410012,
    "pos_bearing": "N",
    "route": "US 550",
-   "title": "US 550: Snow with ice and snow packed.",
+   "title": "US 550: Slushy with icy and snow packed spots.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588570": {
+   "began": "2026-11-20T11:39:43.771000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588570",
+   "mp_end": 74.88257952888567,
+   "mp_start": 65.88309991558688,
+   "pos_bearing": "N",
+   "route": "US 550",
+   "title": "US 550: Slushy with icy and snow packed spots.",
    "type": "standard"
   }
  },
  "forecast_last": "2026-11-20T18:15:48+00:00",
- "last_run": "2026-11-20T11:30:48-07:00",
+ "last_run": "2026-11-20T11:45:46-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1610,9 +1622,9 @@
   "229": "1 - high wind; 3 - dry",
   "230": "1 - high wind; 3 - dry",
   "243": "6-8-10 snow, icy, snow packed",
-  "245": "6-8-10 snow, icy, snow packed",
-  "246": "7 - slushy; 9 - icy spots",
-  "247": "7 - slushy; 9 - icy spots",
+  "245": "7-9-11 - slushy, icy spots, snow packed spots",
+  "246": "7-9-11 - slushy, icy spots, snow packed spots",
+  "247": "7-9-11 - slushy, icy spots, snow packed spots",
   "248": "4 - wet; 8-10 icy, snow packed",
   "249": "6-8-10 snow, icy, snow packed",
   "261": "4-5 wet, rain",
@@ -1657,7 +1669,7 @@
   "489": "3 - dry",
   "49": "3 - dry",
   "490": "9 - icy spots",
-  "491": "3 - dry",
+  "491": "21 - scattered showers; 6 - snow",
   "492": "3 - dry",
   "501": "1 - high wind; 3 - dry",
   "516": "3 - dry",
@@ -1667,7 +1679,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-20 10:00",
-  "aspen": "2026-11-20 09:00",
+  "aspen": "2026-11-20 10:00",
   "beavercreek": "2026-11-20 10:00",
   "breck": "2026-11-20 10:00",
   "cooper": "2026-11-20 10:00",
@@ -1675,16 +1687,16 @@
   "crestedbutte": "2026-11-20 10:00",
   "echo": "2026-11-20 10:00",
   "eldora": "2026-11-20 10:00",
-  "granby": "2026-11-20 09:00",
+  "granby": "2026-11-20 10:00",
   "keystone": "2026-11-20 10:00",
-  "loveland": "2026-11-20 09:00",
-  "monarch": "2026-11-20 09:00",
+  "loveland": "2026-11-20 10:00",
+  "monarch": "2026-11-20 10:00",
   "powderhorn": "2026-11-20 10:00",
   "purgatory": "2026-11-20 10:00",
   "steamboat": "2026-11-20 10:00",
-  "sunlight": "2026-11-20 09:00",
+  "sunlight": "2026-11-20 10:00",
   "telluride": "2026-11-20 09:00",
-  "vail": "2026-11-20 09:00",
+  "vail": "2026-11-20 10:00",
   "winterpark": "2026-11-20 10:00",
   "wolfcreek": "2026-11-20 10:00"
  },
