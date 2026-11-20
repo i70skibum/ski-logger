@@ -1047,7 +1047,7 @@
   }
  },
  "forecast_last": "2026-11-20T12:00:49+00:00",
- "last_run": "2026-11-20T07:00:46-07:00",
+ "last_run": "2026-11-20T07:15:46-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1150,7 +1150,7 @@
   "72": "11 - snow packed spots; 14 - drifting snow; 9 - icy spots"
  },
  "snotel_last": {
-  "abasin": "2026-11-20 05:00",
+  "abasin": "2026-11-20 06:00",
   "aspen": "2026-11-20 05:00",
   "beavercreek": "2026-11-20 05:00",
   "breck": "2026-11-20 05:00",
@@ -1160,7 +1160,7 @@
   "echo": "2026-11-20 05:00",
   "eldora": "2026-11-20 05:00",
   "granby": "2026-11-20 05:00",
-  "keystone": "2026-11-20 05:00",
+  "keystone": "2026-11-20 06:00",
   "loveland": "2026-11-20 05:00",
   "monarch": "2026-11-20 05:00",
   "powderhorn": "2026-11-20 05:00",
