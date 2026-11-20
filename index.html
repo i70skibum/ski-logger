@@ -59,6 +59,7 @@ th:first-child, td:first-child { text-align: left; font-weight: 600; position: s
 .alert { padding: 8px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: auto 1fr; gap: 2px 8px; }
 .alert:first-child { border-top: 0; padding-top: 0; }
 .tag { font-size: 11px; font-weight: 700; border-radius: 4px; padding: 1px 6px; align-self: start; margin-top: 2px; border: 1px solid var(--axis); }
+h3.sub { font-size: 13px; font-weight: 600; color: var(--ink2); margin: 14px 0 6px; }
 .tag.crit { background: var(--crit); color: #fff; border-color: var(--crit); }
 .tag.warn { background: var(--warn); color: #0b0b0b; border-color: var(--warn); }
 .alert small { color: var(--ink2); grid-column: 2; }
@@ -267,6 +268,9 @@ function scoreResort(key, ctx) {
   const closed = evs.filter(e => e.class === "roadClosures"), chain = evs.filter(e => e.class === "chainLaws");
   if (closed.length) { s -= 40; chips.push({ t: "Closure on route", k: "bad" }); }
   if (chain.length) { s -= 4; chips.push({ t: "Traction law", k: "bad" }); }
+  // CDOT posts planned closures days ahead. They don't count until they start, but flag one starting within 12 hours.
+  const soon = (ctx.upcoming || []).filter(e => e.class === "roadClosures" && onRoute(R, e.route, e.mp_start, e.mp_end) && Date.parse(e.began) - (ctx.now || Date.now()) < 12 * 3600e3);
+  if (soon.length) chips.push({ t: "Closure starts " + new Date(Math.min(...soon.map(e => Date.parse(e.began)))).toLocaleTimeString("en-US", { timeZone: "America/Denver", hour: "numeric", minute: "2-digit" }), k: "" });
   const conds = ctx.conds.filter(c => onRoute(R, c.route, c.start_mp, c.end_mp));
   const lvl = Math.max(0, ...conds.map(c => condLevel(c.condition)));
   if (lvl >= 2) { s -= 6; chips.push({ t: lvl === 3 ? "Road closed" : "Snowy or icy roads", k: "bad" }); }
@@ -336,7 +340,8 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
       csv2("snotel", month, true), csv2("forecast", month, true), csv2("road_conditions", month, true), get("resort_status.json", true)]);
     if (!state.last_run) throw new Error("Could not load the logger data.");
     const segs = segments(segRows), refs = refSpeeds(speedRows, segs), speedRow = speedRows[speedRows.length - 1] || null;
-    const ctx = { segs, refs, speedRow, events: Object.values(state.events || {}), conds: latestConds(rc), forecast: latestForecast(fc), snow: {}, status: rs.resorts || {}, statusDate: rs.checked || "", statusAuto: !!rs.auto, today: day };
+    const allEv = Object.values(state.events || {}), nowMs = Date.now(), started = e => !e.began || Date.parse(e.began) <= nowMs;
+    const ctx = { segs, refs, speedRow, events: allEv.filter(started), upcoming: allEv.filter(e => !started(e)), now: nowMs, conds: latestConds(rc), forecast: latestForecast(fc), snow: {}, status: rs.resorts || {}, statusDate: rs.checked || "", statusAuto: !!rs.auto, today: day };
     for (const k in RESORTS) ctx.snow[k] = snowSummary(snow, k);
     D = { now, day, state, ctx, segRows, speedRows, series: delaySeries(speedRows, segs, refs, day), ranked: rank(ctx) };
     render();
@@ -431,7 +436,8 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
     const vis = Object.keys(RESORTS).filter(shown).map(k => RESORTS[k]);
     const mine = e => vis.some(R => onRoute(R, e.route, e.mp_start, e.mp_end));
     const order = { roadClosures: 0, chainLaws: 1, roadReports: 2 }, names = { roadClosures: ["Closure", "crit"], chainLaws: ["Traction law", "warn"], roadReports: ["Incident", ""] };
-    const evs = ctx.events.filter(e => e.class in order && mine(e)).sort((a, b) => order[a.class] - order[b.class]);
+    const seen = new Set(), once = e => !seen.has(e.id) && seen.add(e.id);  // CDOT lists some closures under two categories
+    const evs = ctx.events.filter(e => e.class in order && mine(e)).sort((a, b) => order[a.class] - order[b.class]).filter(once);
     if (!evs.length) al.append(el("p", "note", "No closures, traction laws or incidents on your routes right now."));
     evs.forEach(e => {
       const d = el("div", "alert"), [n, c] = names[e.class];
@@ -439,6 +445,17 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
       d.append(el("span", "tag " + c, n), el("div", "", e.title), el("small", "", `Affects ${who}${e.began ? ", since " + fmtTime(new Date(e.began)) : ""}`));
       al.append(d);
     });
+    const fmtDay = d => d.toLocaleString("en-US", { timeZone: "America/Denver", weekday: "short", hour: "numeric", minute: "2-digit" });
+    const planned = (ctx.upcoming || []).filter(e => (e.class === "roadClosures" || /road closed/i.test(e.title)) && mine(e) && Date.parse(e.began) - ctx.now < 7 * 864e5)
+      .sort((a, b) => Date.parse(a.began) - Date.parse(b.began)).filter(once);
+    if (planned.length) {
+      al.append(el("h3", "sub", "Planned closures, not in effect yet"));
+      planned.forEach(e => {
+        const d = el("div", "alert"), who = vis.filter(R => onRoute(R, e.route, e.mp_start, e.mp_end)).map(R => R.name).join(", ");
+        d.append(el("span", "tag", "Planned"), el("div", "", `${e.title} Near mile ${Math.round(e.mp_start)}.`), el("small", "", `Starts ${fmtDay(new Date(e.began))}. Affects ${who}`));
+        al.append(d);
+      });
+    }
     const work = ctx.events.filter(e => e.class === "roadWork" && mine(e)).length;
     if (work) al.append(el("p", "note", `${work} road work ${work === 1 ? "zone" : "zones"} listed on these routes, including scheduled night work.`));
     const cd = $("conds"); cd.replaceChildren();
