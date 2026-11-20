@@ -13,6 +13,18 @@
    "title": "I-70 eastbound: Passenger vehicle traction law.",
    "type": "standard"
   },
+  "chainLaws:CDOT-36486728981EB": {
+   "began": "2026-11-20T12:19:23-07:00",
+   "class": "chainLaws",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36486728981EB",
+   "mp_end": 190.00647076056157,
+   "mp_start": 178.00084672700905,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Commercial motor vehicle chain law.",
+   "type": "standard"
+  },
   "roadClosures:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadClosures",
@@ -73,16 +85,16 @@
    "title": "I-70 westbound: Road closed.",
    "type": "critical"
   },
-  "roadClosures:CDOT-36486379199WB": {
+  "roadClosures:CDOT-36486379199BOTH": {
    "began": "2026-11-20T11:53:51-07:00",
    "class": "roadClosures",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36486379199WB",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36486379199BOTH",
    "mp_end": "",
    "mp_start": 186.00000004915637,
    "pos_bearing": "E",
    "route": "I-70",
-   "title": "I-70 westbound: Road closed.",
+   "title": "I-70 in both directions: Road closed.",
    "type": "critical"
   },
   "roadClosures:CDOT-36486455511BOTH": {
@@ -95,6 +107,18 @@
    "pos_bearing": "E",
    "route": "I-70",
    "title": "I-70 in both directions: Road closed.",
+   "type": "critical"
+  },
+  "roadClosures:CDOT-36486838959EB": {
+   "began": "2026-11-20T12:27:23-07:00",
+   "class": "roadClosures",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36486838959EB",
+   "mp_end": "",
+   "mp_start": 180.07784125304053,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
    "type": "critical"
   },
   "roadReports:CDOT-20653903231BOTH": {
@@ -133,16 +157,16 @@
    "title": "US 50 in both directions: Crash.",
    "type": "routine"
   },
-  "roadReports:CDOT-36486379199WB": {
+  "roadReports:CDOT-36486379199BOTH": {
    "began": "2026-11-20T11:53:51-07:00",
    "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36486379199WB",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36486379199BOTH",
    "mp_end": "",
    "mp_start": 186.00000004915637,
    "pos_bearing": "E",
    "route": "I-70",
-   "title": "I-70 westbound: Road closed.",
+   "title": "I-70 in both directions: Road closed.",
    "type": "critical"
   },
   "roadReports:CDOT-36486455511BOTH": {
@@ -155,6 +179,30 @@
    "pos_bearing": "E",
    "route": "I-70",
    "title": "I-70 in both directions: Road closed.",
+   "type": "critical"
+  },
+  "roadReports:CDOT-36486802375WB": {
+   "began": "2026-11-20T12:24:39-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36486802375WB",
+   "mp_end": "",
+   "mp_start": 279.5758735461337,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6 westbound: Debris on roadway.",
+   "type": "routine"
+  },
+  "roadReports:CDOT-36486838959EB": {
+   "began": "2026-11-20T12:27:23-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36486838959EB",
+   "mp_end": "",
+   "mp_start": 180.07784125304053,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
    "type": "critical"
   },
   "roadWork:CDOT-35509265054EB": {
@@ -1489,30 +1537,6 @@
    "title": "US 40: Wet and rain.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588446": {
-   "began": "2026-11-20T10:41:44.273000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588446",
-   "mp_end": 176.19604734763578,
-   "mp_start": 145.78001438944648,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Wet and rain.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588447": {
-   "began": "2026-11-20T10:45:14.722000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588447",
-   "mp_end": 188.34154771955997,
-   "mp_start": 176.19604734763578,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Snow.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588533": {
    "began": "2026-11-20T11:04:09.253000-07:00",
    "class": "winterDriving",
@@ -1620,10 +1644,22 @@
    "route": "US 550",
    "title": "US 550: Slushy with icy and snow packed spots.",
    "type": "standard"
+  },
+  "winterDriving:COSEG-588571": {
+   "began": "2026-11-20T12:21:03.416000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588571",
+   "mp_end": 188.34154771955997,
+   "mp_start": 145.78001438944648,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Icy spots.",
+   "type": "standard"
   }
  },
  "forecast_last": "2026-11-20T18:15:48+00:00",
- "last_run": "2026-11-20T12:15:47-07:00",
+ "last_run": "2026-11-20T12:30:47-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1705,13 +1741,13 @@
   "442": "3 - dry",
   "447": "3 - dry",
   "45": "3 - dry",
-  "456": "4 - wet; 6 - snow",
-  "457": "4 - wet; 6 - snow",
-  "458": "4 - wet; 6 - snow",
+  "456": "11 - snow packed spots; 6 - snow; 9 - icy spots",
+  "457": "11 - snow packed spots; 6 - snow; 9 - icy spots",
+  "458": "11 - snow packed spots; 6 - snow; 9 - icy spots",
   "459": "3 - dry",
   "47": "3 - dry",
   "483": "4 - wet; 5 - rain",
-  "484": "4-5 wet, rain",
+  "484": "11 - snow packed spots; 6 - snow; 9 - icy spots",
   "485": "4 - wet; 5 - rain",
   "486": "3 - dry",
   "489": "3 - dry",
@@ -1726,27 +1762,27 @@
   "72": "11 - snow packed spots; 14 - drifting snow; 9 - icy spots"
  },
  "snotel_last": {
-  "abasin": "2026-11-20 10:00",
+  "abasin": "2026-11-20 11:00",
   "aspen": "2026-11-20 10:00",
-  "beavercreek": "2026-11-20 10:00",
-  "breck": "2026-11-20 10:00",
-  "cooper": "2026-11-20 10:00",
-  "copper": "2026-11-20 10:00",
-  "crestedbutte": "2026-11-20 10:00",
-  "echo": "2026-11-20 10:00",
-  "eldora": "2026-11-20 10:00",
+  "beavercreek": "2026-11-20 11:00",
+  "breck": "2026-11-20 11:00",
+  "cooper": "2026-11-20 11:00",
+  "copper": "2026-11-20 11:00",
+  "crestedbutte": "2026-11-20 11:00",
+  "echo": "2026-11-20 11:00",
+  "eldora": "2026-11-20 11:00",
   "granby": "2026-11-20 10:00",
-  "keystone": "2026-11-20 10:00",
-  "loveland": "2026-11-20 10:00",
+  "keystone": "2026-11-20 11:00",
+  "loveland": "2026-11-20 11:00",
   "monarch": "2026-11-20 10:00",
-  "powderhorn": "2026-11-20 10:00",
-  "purgatory": "2026-11-20 10:00",
+  "powderhorn": "2026-11-20 11:00",
+  "purgatory": "2026-11-20 11:00",
   "steamboat": "2026-11-20 11:00",
   "sunlight": "2026-11-20 10:00",
   "telluride": "2026-11-20 10:00",
-  "vail": "2026-11-20 10:00",
-  "winterpark": "2026-11-20 10:00",
-  "wolfcreek": "2026-11-20 10:00"
+  "vail": "2026-11-20 11:00",
+  "winterpark": "2026-11-20 11:00",
+  "wolfcreek": "2026-11-20 11:00"
  },
  "speed_segments": [
   "I70E024",
