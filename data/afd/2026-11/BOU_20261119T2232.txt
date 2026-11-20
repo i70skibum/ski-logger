@@ -1,0 +1,109 @@
+
+000
+FXUS65 KBOU 200532
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1032 PM MST Thu Nov 19 2026
+
+.KEY MESSAGES... 
+
+- Next storm system arrives Friday, bringing chances for light mountain
+  snow through Saturday.
+
+- Gusty winds and elevated fire weather conditions on Friday
+  across most of the Front Range foothills and plains.
+
+- Cooler pattern emerges this weekend into next week.
+
+&&
+
+.DISCUSSION /Through Thursday/...
+Issued at 1241 PM MST Thu Nov 19 2026
+
+Tomorrow, an 80kt 500mb jet will move over the area ahead of the 
+approaching shortwave. At 700mb, models have winds around 35kts 
+to 55kts. Conditions do not look favorable for mountain wave 
+amplification in our area due to the flow being more southwesterly and
+a few other factors. However, we are expecting strong winds to be
+forced/mixed down to the surface in the late morning through the 
+afternoon. Wind gusts across the plains will be around 30 to 50mph
+in the afternoon. The one exception will be the northern I-25 
+corridor and portions of the northern plains, which tend to remain
+more sheltered from the strong winds in southwest flow. In the 
+higher elevations, wind gusts will near 50 to 65mph in the late 
+morning. A front will approach our northern counties late Friday 
+afternoon, turning winds more towards the west/northwest in our 
+northern counties. This will allow for stronger winds to finally 
+make their way into the northern I-25 corridor and northern 
+plains, with gusts around 25mph to 40mph. There will be elevated 
+fire weather conditions Friday afternoon due to the winds, but 
+relative humidities are forecast to remain above critical 
+thresholds. The front will move through the area overnight, 
+bringing cooler temperatures for Saturday.
+
+The approaching shortwave, weak orographics, and weak surface 
+convergence could be enough to trigger a few showers in the 
+higher terrain and plains overnight Friday into the late morning
+Saturday. Moisture will be rather limited, so snow accumulations 
+will remain on the low end. With the exception of the Park Range, 
+which should see slightly higher amounts, snow accumulations will 
+generally be a few hundredths to about 3 inches in the higher 
+terrain. Chances for at least a trace of snow in the metro remains
+on the low end (~20% chance or less). Temperatures will likely 
+support at least a rain/snow mix if not all snow Saturday morning 
+across the plains, it's just the lack of moisture and lack of a 
+strong forcing that's inhibiting snow chances across the plains.
+
+Cooler temperatures will continue across the forecast area 
+through this forecast. Low temperatures Sunday through the middle
+of next week will be in the teens to 20s. Our next system will 
+approach Colorado on Monday, with a shortwave moving through late 
+Monday into Tuesday. The timing and positioning of the shortwave 
+varies between models, lowering our confidence in precip chances 
+with this system. Right now, we expect light snow showers in the 
+mountains with a medium chance (30% to 50%) that snow showers make
+it onto the plains. If we do end up with some snow over the 
+plains, accumulations will be light and impacts are not 
+anticipated. The active pattern is expected to continue into later 
+next week, but models continue to swing back and forth with the 
+potential impacts and confidence in any one model solution is very
+low at this time.
+
+&&
+
+.AVIATION /06Z TAFS through 06Z Saturday/...
+Issued at 1026 PM MST Thu Nov 19 2026
+
+VFR conditions expected to prevail for all terminals through at
+least 06Z Sat. Southerly drainage winds will steadily increase at
+KDEN/KAPA through the early morning hours, with a more defined
+shift to SW (220-240) winds beginning near 17Z as daytime mixing
+develops. Anticipating sustained winds of 15-20 kts will be
+prevalent at both terminals through much of the afternoon, with
+potential for stronger gusts to around 30 kts, or slightly higher
+at KAPA. Much more uncertain wind speed forecast for KBJC, which
+tends to be more sheltered from said wind direction. Opted to
+lower speeds for the latter, though periods of stronger gusts can
+still be expected. Ultimately, the stronger SW flow should just be
+more intermittent relative to the other two terminals. Expect a
+more westerly shift late afternoon into the evening with a fairly
+quick weakening in speeds after sunset.
+
+Favoring development of SCT cloud bases near 040-060 after ~06Z
+Sat. There's some potential for occasional CIGS thereafter as well
+or even a brief and very light -SHSN, but confidence remains far
+too low for any explicit inclusion in the TAFs.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...AP
+AVIATION...BRQ

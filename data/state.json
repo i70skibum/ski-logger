@@ -1,5 +1,5 @@
 {
- "afd_last": "0876205a-2023-444d-bdab-4a9610525270",
+ "afd_last": "f405aa0d-df1f-4bb3-8eed-c295f548615f",
  "events": {
   "roadClosures:CDOT-36057055825BOTH": {
    "began": "2026-10-29T15:49:45-06:00",
@@ -912,10 +912,22 @@
    "route": "CO 82",
    "title": "CO 82: Seasonal Closure.",
    "type": "standard"
+  },
+  "winterDriving:COSEG-588519": {
+   "began": "2026-11-19T22:42:45.973000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588519",
+   "mp_end": 74.88257952888567,
+   "mp_start": 65.88309991558688,
+   "pos_bearing": "N",
+   "route": "US 550",
+   "title": "US 550: Icy spots.",
+   "type": "standard"
   }
  },
- "forecast_last": "2026-11-20T02:45:50+00:00",
- "last_run": "2026-11-19T22:30:47-07:00",
+ "forecast_last": "2026-11-20T05:45:50+00:00",
+ "last_run": "2026-11-19T22:45:50-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -964,7 +976,7 @@
   "243": "3 - dry",
   "245": "3 - dry",
   "246": "3 - dry",
-  "247": "3 - dry",
+  "247": "9 - icy spots",
   "248": "3 - dry",
   "249": "3 - dry",
   "261": "3 - dry",
@@ -1019,7 +1031,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-19 21:00",
-  "aspen": "2026-11-19 20:00",
+  "aspen": "2026-11-19 21:00",
   "beavercreek": "2026-11-19 21:00",
   "breck": "2026-11-19 21:00",
   "cooper": "2026-11-19 21:00",
@@ -1027,14 +1039,14 @@
   "crestedbutte": "2026-11-19 21:00",
   "echo": "2026-11-19 21:00",
   "eldora": "2026-11-19 21:00",
-  "granby": "2026-11-19 20:00",
+  "granby": "2026-11-19 21:00",
   "keystone": "2026-11-19 21:00",
   "loveland": "2026-11-19 21:00",
-  "monarch": "2026-11-19 20:00",
+  "monarch": "2026-11-19 21:00",
   "powderhorn": "2026-11-19 21:00",
   "purgatory": "2026-11-19 21:00",
   "steamboat": "2026-11-19 21:00",
-  "sunlight": "2026-11-19 20:00",
+  "sunlight": "2026-11-19 21:00",
   "telluride": "2026-11-19 20:00",
   "vail": "2026-11-19 21:00",
   "winterpark": "2026-11-19 21:00",
