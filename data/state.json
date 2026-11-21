@@ -121,18 +121,6 @@
    "title": "I-70 westbound: Road closed.",
    "type": "critical"
   },
-  "roadClosures:CDOT-36486455511BOTH": {
-   "began": "2026-11-20T11:59:27-07:00",
-   "class": "roadClosures",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36486455511BOTH",
-   "mp_end": "",
-   "mp_start": 190.09500001152628,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 in both directions: Road closed.",
-   "type": "critical"
-  },
   "roadReports:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadReports",
@@ -1465,30 +1453,6 @@
    "title": "US 24: High wind.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588558": {
-   "began": "2026-11-20T10:59:58.568000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588558",
-   "mp_end": 379.83304153264623,
-   "mp_start": 315.7090000555909,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50: High wind.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588559": {
-   "began": "2026-11-20T10:59:58.568000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588559",
-   "mp_end": 435.7321144062969,
-   "mp_start": 379.83304153264623,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50: High wind.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588572": {
    "began": "2026-11-20T12:21:03.416000-07:00",
    "class": "winterDriving",
@@ -1511,30 +1475,6 @@
    "pos_bearing": "E",
    "route": "I-70",
    "title": "I-70: Icy spots.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588579": {
-   "began": "2026-11-20T12:32:11.330000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588579",
-   "mp_end": 213.08022691196732,
-   "mp_start": 198.9953926446148,
-   "pos_bearing": "N",
-   "route": "US 285",
-   "title": "US 285: High wind.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588580": {
-   "began": "2026-11-20T12:32:11.330000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588580",
-   "mp_end": 228.95438196973706,
-   "mp_start": 213.08022691196732,
-   "pos_bearing": "N",
-   "route": "US 285",
-   "title": "US 285: High wind.",
    "type": "standard"
   },
   "winterDriving:COSEG-588597": {
@@ -1572,10 +1512,34 @@
    "route": "US 550",
    "title": "US 550: Slushy with icy and snow packed spots.",
    "type": "standard"
+  },
+  "winterDriving:COSEG-588610": {
+   "began": "2026-11-20T17:17:48.892000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588610",
+   "mp_end": 228.95438196973706,
+   "mp_start": 198.9953926446148,
+   "pos_bearing": "N",
+   "route": "US 285",
+   "title": "US 285: High wind.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588612": {
+   "began": "2026-11-20T17:17:48.892000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588612",
+   "mp_end": 435.7321144062969,
+   "mp_start": 315.7090000555909,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50: High wind.",
+   "type": "standard"
   }
  },
  "forecast_last": "2026-11-21T00:44:33+00:00",
- "last_run": "2026-11-20T18:00:47-07:00",
+ "last_run": "2026-11-20T18:15:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-20": {
@@ -2311,7 +2275,7 @@
   "72": "11 - snow packed spots; 14 - drifting snow; 9 - icy spots"
  },
  "snotel_last": {
-  "abasin": "2026-11-20 16:00",
+  "abasin": "2026-11-20 17:00",
   "aspen": "2026-11-20 16:00",
   "beavercreek": "2026-11-20 16:00",
   "breck": "2026-11-20 16:00",
@@ -2321,7 +2285,7 @@
   "echo": "2026-11-20 16:00",
   "eldora": "2026-11-20 16:00",
   "granby": "2026-11-20 16:00",
-  "keystone": "2026-11-20 16:00",
+  "keystone": "2026-11-20 17:00",
   "loveland": "2026-11-20 16:00",
   "monarch": "2026-11-20 16:00",
   "powderhorn": "2026-11-20 16:00",
