@@ -1,0 +1,115 @@
+
+000
+FXUS65 KBOU 211933
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1233 PM MST Sat Nov 21 2026
+
+.KEY MESSAGES... 
+
+- Snow showers mainly over the southern foothills and Morgan and
+  eastern Weld Counties ending this afternoon.
+
+- Another system brings the chance for light mountain snow 
+  showers late Monday.
+
+- Cooler fall temperatures to continue through mid next week. 
+
+- No major travel impacts are expected during the Thanksgiving
+  travel period. 
+ 
+
+&&
+
+.DISCUSSION /Through Saturday/...
+Issued at 1222 PM MST Sat Nov 21 2026
+
+Water vapor imagery shows a trough over Colorado with a strong upper 
+level jet across the eastern half of the state. This jet and PVA 
+from the trough are providing forcing for what has turned into a 
+decent snow event for the foothills and western suburbs of the 
+Denver metro. There were some reports of 3-5" of snow in the 
+foothills with up to 2" in the western metro. This jet is still 
+producing snow showers mainly in two areas. One area is in Morgan 
+and eastern Weld Counties where the best low level frontogenesis in 
+occurring. With the little bit of added elevation in northeastern
+Weld County, some snow accumulation may have occurred and may 
+continue this afternoon. The other area of snow is mainly across 
+the southern foothills and South Park. It's possible some areas 
+near Westcreek receive 1-3" of snow from the snow showers this 
+afternoon mainly on grassy surfaces. PoPs were increased for both 
+of those areas this afternoon. In the Denver metro, there appears 
+to be too much dry air for any snow showers to form this 
+afternoon. Otherwise, there will be isolated convective snow 
+showers this afternoon over the higher terrain as some instability
+builds in. 
+
+Tonight, skies will clear as the trough moves past Colorado. Light 
+northeast winds will advect moisture from the Northern Plains into 
+Colorado. There may be some patchy fog that develops and with 
+temperatures below freezing, it could create some slick spots on the 
+roadways. 
+
+On Sunday, weak ridging will be overhead which will keep conditions 
+dry. Temperatures will remain cool with high clouds and generally 
+light winds. 
+
+On Monday, a shortwave trough will move over Colorado. The main PVA 
+forcing from this trough will be split around Colorado with a 
+wave over New Mexico and another in Montana. Lee cyclogenesis 
+will develop across northeast Colorado which will attempt to bring
+in moisture but there will remain very limited moisture with this
+system. Due to the weak forcing and limited moisture, the plains 
+are expected to remain dry. The I-70 corridor mountains, Park 
+County, and the southern foothills will have enough instability 
+that develops that snow showers will likely (70% chance) form. 
+Despite the high chance of snow, the snow amounts will be 
+minimal. Generally less than 2" of snow is expected in the 
+mountains with light impacts. 
+
+The back edge of the trough will move east of Colorado Tuesday 
+afternoon. Most ensemble members are showing ridging generally over 
+Colorado and the Southwest US starting Wednesday and lasting 
+through the weekend. However, a few (roughly 10-20%) have a trough
+moving close to Colorado out of northwest flow that could produce
+light precipitation mainly in the mountains of Colorado Thursday 
+into Friday. Therefore, the forecast calls for a dry Thanksgiving 
+in Denver and across the plains with a chance of light snow in the
+mountains. Overall, no major travel impacts are expected for the 
+Thanksgiving travel period.
+
+&&
+
+.AVIATION /18Z TAFS through 18Z Sunday/...
+Issued at 1040 AM MST Sat Nov 21 2026
+
+With the dissipation of snow showers on radar, no more impacts 
+are expected. Ceilings have already began to rise and VFR will 
+prevail for the rest of the afternoon and evening. Heading into 
+Sunday morning, there is uncertainty regarding the potential for 
+fog. The current likelihood is for fog to be in the vicinity of 
+the airport with low stratus clouds for a few hours. However, a 
+cyclone could develop tomorrow morning and this will heavily 
+influence where the fog rolls in. After the morning fog potential,
+VFR conditions will prevail. 
+
+As for winds, expect light SSW winds the remainder of the
+afternoon for KDEN and KAPA while KBJC should be a touch more
+S/SE. Light and variable winds develop towards sunset before
+shifting later in the night to a southeasterly flow. Sunday's
+pattern will likely favor a light S/SE direction in the 
+afternoon.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...Danielson
+AVIATION...Schnell

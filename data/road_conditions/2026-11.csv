@@ -495,3 +495,8 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-21T12:30:46-07:00,70,CO 62,Dallas Divide,0.0,23.4,4 - wet; 7 - slushy; 9 - icy spots,"CO 62, between CO 145 (4 miles west of the Dallas Divide area) and US 550; Hunter Parkway (Ridgway)"
 2026-11-21T12:30:46-07:00,390,US 50,Montrose-Cerro Summit-Blue Mesa-Gunnison,92.4,190.3,3 - dry,"US 50, between Park Avenue (Montrose) and County Road 32YY (1 mile west of the Monarch Pass area)"
 2026-11-21T12:30:46-07:00,262,I-70,Rifle -Glenwood Springs,90.2,116.2,3 - dry,"I-70, between Exit 87: US 6; Rifle (Rifle) and Exit 116: CO 82; Glenwood Springs (Glenwood Canyon)"
+2026-11-21T12:45:46-07:00,249,US 550,Ouray-Ridgway-Montrose,98.1,130.2,4s - wet in areas,"US 550, between County Road 23 (1 mile north of the Ouray area) and US 50 (Montrose)"
+2026-11-21T12:45:46-07:00,248,US 550,Silverton-Red Mountain Pass,74.9,98.1,4 - wet; 9 - icy spots,"US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)"
+2026-11-21T12:45:46-07:00,228,US 160,La Veta Pass-Walsenburg,259.0,305.4,4s - wet in areas; 6 - snow,"US 160, between CO 159 (1 mile east of Fort Garland) and I-25; CO 10 (near Walsenburg)"
+2026-11-21T12:45:46-07:00,246,US 550,Coal Bank Pass,55.8,65.9,4s - wet in areas,"US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)"
+2026-11-21T12:45:46-07:00,247,US 550,Molas Pass,65.9,74.9,4s - wet in areas,"US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)"
