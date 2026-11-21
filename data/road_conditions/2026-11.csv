@@ -393,3 +393,7 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-21T03:30:47-07:00,484,I-70,Eagle-Vail,145.8,176.2,"9-11 icy spots, snow packed spots","I-70, between Exit 140: US 6; Gypsum (near Eagle) and Exit 180: East Vail (Vail)"
 2026-11-21T03:30:47-07:00,458,I-70,Copper Mtn-Silverthorne,194.3,203.7,"9-11 icy spots, snow packed spots","I-70, between Exit 190: Vail Pass Summit (Vail Pass) and Exit 205: CO 9; US 6; Silverthorne (near Frisco)"
 2026-11-21T03:30:47-07:00,485,US 6,Silverthorne to Arapahoe Basin,208.7,219.9,6 - snow,"US 6, between I-70; CO 9 (Silverthorne) and I-70 (near Loveland Pass)"
+2026-11-21T03:45:46-07:00,100,CO 82,Basalt-Glenwood Springs,0.0,11.5,22 - blowing snow; 4 - wet,"CO 82, between I-70 (Glenwood Springs) and CO 133 (near Carbondale)"
+2026-11-21T03:45:46-07:00,102,CO 82,Independence Pass,41.9,67.4,seasonal closure,"CO 82, between Benedict Drive (Aspen) and Carlton Tunnel Road (Independence Pass)"
+2026-11-21T03:45:46-07:00,101,CO 82,Aspen-Basalt,11.5,41.9,22 - blowing snow; 4 - wet,"CO 82, between Satank Road (near Carbondale) and Riverside Drive (Aspen)"
+2026-11-21T03:45:46-07:00,70,CO 62,Dallas Divide,0.0,23.4,2 - poor visibility; 6 - snow,"CO 62, between CO 145 (4 miles west of the Dallas Divide area) and US 550; Hunter Parkway (Ridgway)"
