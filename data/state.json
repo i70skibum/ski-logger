@@ -493,6 +493,18 @@
    "title": "US 6 westbound: Road closed.",
    "type": "critical"
   },
+  "roadClosures:CDOT-36502361544EB": {
+   "began": "2026-11-21T07:23:14-07:00",
+   "class": "roadClosures",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36502361544EB",
+   "mp_end": "",
+   "mp_start": 240.99887700981859,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
+   "type": "critical"
+  },
   "roadClosures:COSEG-588228": {
    "began": "2026-11-21T03:32:15.148000-07:00",
    "class": "roadClosures",
@@ -611,6 +623,18 @@
    "pos_bearing": "E",
    "route": "US 6",
    "title": "US 6 westbound: Road closed.",
+   "type": "critical"
+  },
+  "roadReports:CDOT-36502361544EB": {
+   "began": "2026-11-21T07:23:14-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36502361544EB",
+   "mp_end": "",
+   "mp_start": 240.99887700981859,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
    "type": "critical"
   },
   "roadWork:CDOT-35509265054EB": {
@@ -1825,6 +1849,18 @@
    "title": "US 285: Snow with icy and snow packed spots.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588652": {
+   "began": "2026-11-21T07:25:36.471000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588652",
+   "mp_end": 274.07541539571974,
+   "mp_start": 259.7767666351,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Snow.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588668": {
    "began": "2026-11-21T04:42:01.577000-07:00",
    "class": "winterDriving",
@@ -1897,6 +1933,18 @@
    "title": "I-70: Icy and snow packed spots.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588704": {
+   "began": "2026-11-21T07:25:36.471000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588704",
+   "mp_end": 263.94605476030455,
+   "mp_start": 250.07666474452282,
+   "pos_bearing": "N",
+   "route": "US 285",
+   "title": "US 285: Snow.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588716": {
    "began": "2026-11-21T05:34:47.404000-07:00",
    "class": "winterDriving",
@@ -1947,7 +1995,7 @@
   }
  },
  "forecast_last": "2026-11-21T13:02:20+00:00",
- "last_run": "2026-11-21T07:22:31-07:00",
+ "last_run": "2026-11-21T07:30:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-21": {
@@ -2638,7 +2686,7 @@
   "271": "21 - scattered showers; 4 - wet; 6 - snow; 9 - icy spots",
   "272": "21 - scattered showers; 4 - wet; 6 - snow",
   "273": "4s-9 - wet in areas, icy spots; 6 - snow",
-  "274": "3 - dry",
+  "274": "21 - scattered showers; 4s - wet in areas; 6 - snow",
   "322": "3 - dry",
   "335": "6 - snow",
   "336": "3 - dry",
@@ -2654,7 +2702,7 @@
   "411": "6-9-11 snow, icy spots, snow packed spots",
   "412": "6-9-11 snow, icy spots, snow packed spots",
   "413": "3 - dry",
-  "414": "3 - dry",
+  "414": "21 - scattered showers; 4s - wet in areas; 6 - snow",
   "429": "3 - dry",
   "430": "6-9-11 snow, icy spots, snow packed spots",
   "440": "3 - dry",
@@ -2690,7 +2738,7 @@
   "cooper": "2026-11-21 06:00",
   "copper": "2026-11-21 06:00",
   "crestedbutte": "2026-11-21 06:00",
-  "echo": "2026-11-21 05:00",
+  "echo": "2026-11-21 06:00",
   "eldora": "2026-11-21 06:00",
   "granby": "2026-11-21 05:00",
   "keystone": "2026-11-21 06:00",

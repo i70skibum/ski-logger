@@ -425,3 +425,5 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-21T06:02:20-07:00,243,US 550,Bondad Hill-Durango,0.0,16.6,3 - dry,"US 550, between the New Mexico Border (13 miles south of the Durango area) and US 160 (near Durango)"
 2026-11-21T06:45:46-07:00,273,I-70,Genesee-C470,252.4,259.8,"4s-9 - wet in areas, icy spots; 6 - snow","I-70, between Exit 253: Chief Hosa and Exit 260: C-470; C-470; Morrison (Mount Vernon Canyon)"
 2026-11-21T06:45:46-07:00,335,US 6,Clear Creek Canyon,257.1,271.5,6 - snow,"US 6 (6th Ave), between I-70; US 6 (Clear Creek Canyon) and CO 58; CO 93 (Golden)"
+2026-11-21T07:30:47-07:00,274,I-70,Denver C470 to I-25,259.8,274.1,21 - scattered showers; 4s - wet in areas; 6 - snow,"I-70, between Exit 260: C-470; C-470; Morrison (Mount Vernon Canyon) and Exit 274: I-25 (Denver)"
+2026-11-21T07:30:47-07:00,414,US 285,C-470 to I-25,250.1,263.9,21 - scattered showers; 4s - wet in areas; 6 - snow,"US 285 (Hampden Ave), between C-470 (Lakewood) and the end of US 285 (Hampden Ave) (Denver)"
