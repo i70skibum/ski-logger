@@ -421,18 +421,6 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadClosures:CDOT-36403740312BOTH": {
-   "began": "2026-11-16T06:42:59-07:00",
-   "class": "roadClosures",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36403740312BOTH",
-   "mp_end": 184.00309387336893,
-   "mp_start": 151.00547065163937,
-   "pos_bearing": "E",
-   "route": "US 160",
-   "title": "US 160 in both directions: Road closed.",
-   "type": "critical"
-  },
   "roadClosures:CDOT-36485723167WB": {
    "began": "2026-11-23T21:00:00-07:00",
    "class": "roadClosures",
@@ -529,6 +517,18 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadReports:CDOT-36403740312BOTH": {
+   "began": "2026-11-16T06:42:59-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36403740312BOTH",
+   "mp_end": 184.00309387336893,
+   "mp_start": 151.00547065163937,
+   "pos_bearing": "E",
+   "route": "US 160",
+   "title": "US 160 westbound: Roadway reopened to traffic.",
+   "type": "critical"
+  },
   "roadReports:CDOT-36496177322WB": {
    "began": "2026-11-20T23:50:17-07:00",
    "class": "roadReports",
@@ -540,18 +540,6 @@
    "route": "I-70",
    "title": "I-70 westbound: Road closed.",
    "type": "critical"
-  },
-  "roadReports:CDOT-36499475494EB": {
-   "began": "2026-11-21T03:51:49-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36499475494EB",
-   "mp_end": 113.99927644260688,
-   "mp_start": 101.00134242876648,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50 eastbound: Roadway reopened to traffic.",
-   "type": "urgent"
   },
   "roadReports:CDOT-36500997519WB": {
    "began": "2026-11-21T05:42:53-07:00",
@@ -588,6 +576,30 @@
    "route": "US 40",
    "title": "US 40 westbound: Road closed.",
    "type": "critical"
+  },
+  "roadReports:CDOT-36502158811WB": {
+   "began": "2026-11-21T07:08:19-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36502158811WB",
+   "mp_end": "",
+   "mp_start": 157.99939268124078,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Crash.",
+   "type": "routine"
+  },
+  "roadReports:CDOT-36502208010EB": {
+   "began": "2026-11-21T07:12:04-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36502208010EB",
+   "mp_end": "",
+   "mp_start": 147.00513338165797,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Left lane closed.",
+   "type": "routine"
   },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
@@ -792,18 +804,6 @@
    "route": "US 40",
    "title": "US 40 (Colfax Ave) westbound: Right lane closed.",
    "type": "routine"
-  },
-  "roadWork:CDOT-36403740312BOTH": {
-   "began": "2026-11-16T06:42:59-07:00",
-   "class": "roadWork",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36403740312BOTH",
-   "mp_end": 184.00309387336893,
-   "mp_start": 151.00547065163937,
-   "pos_bearing": "E",
-   "route": "US 160",
-   "title": "US 160 in both directions: Road closed.",
-   "type": "critical"
   },
   "roadWork:CDOT-36417959773WB": {
    "began": "2026-11-25T00:01:00-07:00",
@@ -1393,6 +1393,18 @@
    "title": "CO 119 southbound: Right lane closed.",
    "type": "routine"
   },
+  "roadWork:CDOT-36500997519WB": {
+   "began": "2026-11-21T05:42:53-07:00",
+   "class": "roadWork",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36500997519WB",
+   "mp_end": 246.60032820725255,
+   "mp_start": 245.00746518406154,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Road closed.",
+   "type": "critical"
+  },
   "winterDriving:COSEG-522873": {
    "began": "2026-11-21T00:02:18.259000-07:00",
    "class": "winterDriving",
@@ -1923,7 +1935,7 @@
   }
  },
  "forecast_last": "2026-11-21T13:02:20+00:00",
- "last_run": "2026-11-21T07:00:48-07:00",
+ "last_run": "2026-11-21T07:15:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-21": {
@@ -2659,7 +2671,7 @@
   "72": "6-8-10 snow, icy, snow packed"
  },
  "snotel_last": {
-  "abasin": "2026-11-21 05:00",
+  "abasin": "2026-11-21 06:00",
   "aspen": "2026-11-21 05:00",
   "beavercreek": "2026-11-21 05:00",
   "breck": "2026-11-21 05:00",
@@ -2669,7 +2681,7 @@
   "echo": "2026-11-21 05:00",
   "eldora": "2026-11-21 05:00",
   "granby": "2026-11-21 05:00",
-  "keystone": "2026-11-21 05:00",
+  "keystone": "2026-11-21 06:00",
   "loveland": "2026-11-21 05:00",
   "monarch": "2026-11-21 05:00",
   "powderhorn": "2026-11-21 05:00",
