@@ -1097,9 +1097,10 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' });
       const stadia = L.tileLayer("https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png", { maxZoom: 13,
         attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' });
-      let fails = 0, swapped = false;
-      stadia.on("tileerror", () => { if (++fails >= 2 && !swapped) { swapped = true; map.removeLayer(stadia); osm().addTo(map).bringToBack(); } });
-      stadia.addTo(map);
+      // Stadia answers an unregistered site with a "not authorized" picture (HTTP 401) that Leaflet would happily show,
+      // so ask for one tile first and only use Stadia when that comes back OK.
+      fetch("https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/8/52/97.png", { cache: "no-store" })
+        .then(r => r.ok, () => false).then(ok => (ok ? stadia : osm()).addTo(map).bringToBack());
       layer = L.layerGroup().addTo(map);
     }
     map.invalidateSize();
