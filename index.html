@@ -1025,7 +1025,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     });
     // Which way the map is showing: a big arrow under Georgetown to Floyd Hill.
     const ar = el("div", "lm-arrow " + dir); ar.append(el("i"), el("span", "", dir === "W" ? "Westbound \u00b7 heading up" : "Eastbound \u00b7 heading home"));
-    Object.assign(ar.style, { left: "560px", top: "468px", width: "300px" }); box.append(ar);
+    Object.assign(ar.style, { left: "560px", top: "511px", width: "300px" }); box.append(ar);
     box.setAttribute("aria-label", `Line map, ${dname}, of every way up from Coors Field on the right. ` + (desc.length ? desc.join(". ") + "." : "Everything is moving."));
     layoutLine(false);
   }
