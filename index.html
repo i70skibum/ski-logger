@@ -309,12 +309,13 @@ function scoreResort(key, ctx) {
   // Ikon is the pass in hand, so anything else costs a lift ticket: a small penalty breaks ties toward Ikon.
   if (R.pass !== "ikon") { s -= 8; chips.push({ t: R.pass === "epic" ? "Epic Pass, not Ikon" : "Not on Ikon, lift ticket", k: "" }); }
   const st = (ctx.status || {})[key];
-  if (st && st.open === false) chips.push({ t: st.opens === ctx.today ? "Scheduled to open today, not confirmed" : `Opening date ${+st.opens.slice(5, 7)}/${+st.opens.slice(8)} passed, not confirmed`, k: "" });
+  const op = st && st.open === false ? opensOf(st) : null;
+  if (op) chips.push({ t: op === ctx.today ? "Scheduled to open today, not confirmed" : `Opening date ${+op.slice(5, 7)}/${+op.slice(8)} passed, not confirmed`, k: "" });
   else if (!st || !st.lifts) chips.push({ t: "No lift report", k: "" });
   return { key, name: R.name, hrs: R.hrs, via: R.via, score: Math.max(0, Math.min(100, Math.round(s))), chips, new24, fc24, gust, delay, closed: closed.length, snowPts: 6 * new24 + 4 * fc24 };
 }
 // A resort marked closed counts as open once its scheduled opening date has arrived.
-function isOpen(ctx, k) { const s = (ctx.status || {})[k]; return !s || s.open !== false || (!!s.opens && !!ctx.today && ctx.today >= s.opens); }
+function isOpen(ctx, k) { const s = (ctx.status || {})[k]; if (!s || s.open !== false) return true; const o = opensOf(s); return !!o && !!ctx.today && ctx.today >= o; }
 function rank(ctx) { return Object.keys(RESORTS).filter(k => shown(k) && isOpen(ctx, k)).map(k => scoreResort(k, ctx)).sort((a, b) => b.score - a.score || (a.hrs + (a.delay || 0) / 60) - (b.hrs + (b.delay || 0) / 60)); }
 
 // ---- 7-day outlook ------------------------------------------------------
@@ -349,7 +350,16 @@ function trafficDay(model, iso) {
     tier: up.tier, homeTier: home.tier, holiday: up.holiday, up, homeHours: home,
   };
 }
-function openOn(status, key, iso) { const s = (status || {})[key]; return !s || s.open !== false || (!!s.opens && iso >= s.opens); }
+// Opening date: the seeded "opens" field, or a date in the resort's own note ("Scheduled to open Nov 26.").
+function opensOf(s) {
+  if (s.opens) return s.opens;
+  const m = /(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.? (\d{1,2})\b/i.exec(s.note || "");
+  if (!m) return null;
+  const mo = "janfebmaraprmayjunjulaugsepoctnovdec".indexOf(m[1].toLowerCase()) / 3 + 1, now = new Date();
+  const y = now.getFullYear() + (mo < now.getMonth() - 1 ? 1 : 0);
+  return `${y}-${String(mo).padStart(2, "0")}-${m[2].padStart(2, "0")}`;
+}
+function openOn(status, key, iso) { const s = (status || {})[key]; if (!s || s.open !== false) return true; const o = opensOf(s); return !!o && iso >= o; }
 // Score one resort on one day, with the same weights as today's pick where they apply.
 function dayScore(key, i, W) {
   const R = RESORTS[key], days = (W.outlook.resorts || {})[key] || [], d = days[i], prev = days[i - 1];
