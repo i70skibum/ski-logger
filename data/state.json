@@ -61,6 +61,42 @@
    "title": "US 550 northbound: Passenger vehicle traction law.",
    "type": "standard"
   },
+  "chainLaws:CDOT-36492148261NB": {
+   "began": "2026-11-20T18:55:48-07:00",
+   "class": "chainLaws",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36492148261NB",
+   "mp_end": 69.99946529489782,
+   "mp_start": 63.985403419143076,
+   "pos_bearing": "N",
+   "route": "US 550",
+   "title": "US 550 northbound: Commercial motor vehicle chain law.",
+   "type": "standard"
+  },
+  "chainLaws:CDOT-36492168763NB": {
+   "began": "2026-11-20T18:57:27-07:00",
+   "class": "chainLaws",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36492168763NB",
+   "mp_end": 69.99946529489782,
+   "mp_start": 63.985403419143076,
+   "pos_bearing": "N",
+   "route": "US 550",
+   "title": "US 550 northbound: Passenger vehicle traction law.",
+   "type": "standard"
+  },
+  "chainLaws:CDOT-36492180289NB": {
+   "began": "2026-11-20T18:58:17-07:00",
+   "class": "chainLaws",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36492180289NB",
+   "mp_end": 63.985403419143076,
+   "mp_start": 48.629146549379065,
+   "pos_bearing": "N",
+   "route": "US 550",
+   "title": "US 550 northbound: Commercial motor vehicle chain law.",
+   "type": "standard"
+  },
   "roadClosures:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadClosures",
@@ -335,30 +371,6 @@
    "pos_bearing": "E",
    "route": "US 160",
    "title": "US 160 in both directions: Right lane closed.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36346713585EB": {
-   "began": "2026-11-20T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36346713585EB",
-   "mp_end": "",
-   "mp_start": 148.02879946520554,
-   "pos_bearing": "E",
-   "route": "US 24",
-   "title": "US 24 eastbound: Road construction.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36346713654EB": {
-   "began": "2026-11-20T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36346713654EB",
-   "mp_end": 171.99706061090916,
-   "mp_start": 166.00028671186692,
-   "pos_bearing": "E",
-   "route": "US 24",
-   "title": "US 24 eastbound: Road construction.",
    "type": "routine"
   },
   "roadWork:CDOT-36358695906WB": {
@@ -1515,7 +1527,7 @@
   }
  },
  "forecast_last": "2026-11-21T00:44:33+00:00",
- "last_run": "2026-11-20T18:45:45-07:00",
+ "last_run": "2026-11-20T19:00:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-20": {
@@ -2266,9 +2278,9 @@
   "monarch": "2026-11-20 17:00",
   "powderhorn": "2026-11-20 17:00",
   "purgatory": "2026-11-20 17:00",
-  "steamboat": "2026-11-20 17:00",
+  "steamboat": "2026-11-20 18:00",
   "sunlight": "2026-11-20 17:00",
-  "telluride": "2026-11-20 16:00",
+  "telluride": "2026-11-20 17:00",
   "vail": "2026-11-20 17:00",
   "winterpark": "2026-11-20 17:00",
   "wolfcreek": "2026-11-20 17:00"
