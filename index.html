@@ -117,6 +117,13 @@ th:first-child, td:first-child { text-align: left; font-weight: 600; }
 .lm-card span { font-size: 12px; color: var(--ink3); }
 .lm-sign { width: 20px; height: 20px; box-sizing: border-box; border-radius: 50%; background: var(--bad); border: 2px solid #fff; box-shadow: 0 1px 3px rgba(0,0,0,.5); }
 .lm-sign::after { content: ""; position: absolute; left: 3px; right: 3px; top: 6px; height: 4px; background: #fff; border-radius: 1px; }
+.lm-arrow { display: flex; flex-direction: column; align-items: center; gap: 4px; pointer-events: none; }
+.lm-arrow i { display: block; width: 100%; height: 12px; position: relative; background: linear-gradient(var(--ink2), var(--ink2)) center / calc(100% - 18px) 4px no-repeat; }
+.lm-arrow i::before { content: ""; position: absolute; top: -4px; border: 10px solid transparent; }
+.lm-arrow.W i::before { left: -6px; border-right: 16px solid var(--ink2); border-left: 0; }
+.lm-arrow.E i::before { right: -6px; border-left: 16px solid var(--ink2); border-right: 0; }
+.lm-arrow.W i { background-position: right center; } .lm-arrow.E i { background-position: left center; }
+.lm-arrow span { font-size: 14px; font-weight: 600; color: var(--ink3); letter-spacing: .02em; }
 .zoom { position: absolute; left: 12px; bottom: 12px; display: flex; flex-direction: column; border-radius: 10px; overflow: hidden; background: var(--ink); box-shadow: 0 2px 8px rgba(0,0,0,.4); z-index: 2; }
 .zoom button { width: 40px; height: 40px; border: 0; background: var(--ink); color: var(--bg); font: 600 21px Inter, sans-serif; cursor: pointer; }
 .zoom button + button { border-top: 1px solid var(--ink3); }
@@ -244,7 +251,7 @@ footer { color: var(--ink2); font-size: 12px; }
     </section>
 
     <section class="drive">
-      <div class="sechead"><h2>The drive</h2><div class="seg" role="group" aria-label="Map style"><button id="b-line" class="on">Line map</button><button id="b-real">Real map</button></div></div>
+      <div class="sechead"><h2>The drive</h2><div class="pills"><div class="seg" id="dirseg" role="group" aria-label="Direction on the line map"><button id="d-w" aria-label="Westbound, heading up">&larr; Westbound</button><button id="d-e" aria-label="Eastbound, heading home">Eastbound &rarr;</button></div><div class="seg" role="group" aria-label="Map style"><button id="b-line" class="on">Line map</button><button id="b-real">Real map</button></div></div></div>
       <div class="panel">
         <div id="linebox">
           <div id="linewrap"><div id="lineinner" role="img"></div></div>
@@ -734,19 +741,26 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   // ---- Road states ----------------------------------------------------------
   const ALT = k => ALTERNATES.find(a => a.key === k);
   // A TomTom route: CDOT closure first, then TomTom finding no way through, then how slow it is versus an empty road.
-  function routeState(key) {
+  // dir "W" or "E" looks at one direction only; without it, the worse of the two.
+  function routeState(key, dir) {
     const A = ALT(key), st = altStatus(D.ctx, A), lv = st.live || {};
-    const dirs = ["W", "E"].map(k => lv[k]).filter(x => x && x.minutes != null && !x.detour);
+    const one = dir ? lv[dir] : null;
+    const blocked = dir ? !!(one && one.detour) || !!(lv.closed) : st.tomtomBlocked;
+    const dirs = (dir ? [dir] : ["W", "E"]).map(k => lv[k]).filter(x => x && x.minutes != null && !x.detour);
     const ratio = dirs.length ? Math.max(...dirs.map(x => x.free_min ? x.minutes / x.free_min : 1)) : null;
     const delay = dirs.length ? Math.max(0, ...dirs.map(x => x.delay_min || 0)) : null;
-    const kind = st.closed ? "closed" : st.tomtomBlocked ? "check" : ratio == null ? "none" : ratio <= 1.15 ? "open" : ratio <= 1.5 ? "slow" : "heavy";
+    const kind = st.closed ? "closed" : blocked ? "check" : ratio == null ? "none" : ratio <= 1.15 ? "open" : ratio <= 1.5 ? "slow" : "heavy";
+    if (dir) return { A, st, kind, delay, minutes: one && one.minutes != null && !one.detour ? one.minutes : null, traction: st.traction };
     const ski = lv.W && lv.W.minutes != null && !lv.W.detour ? lv.W : lv.E && lv.E.minutes != null && !lv.E.detour ? lv.E : null;
     return { A, st, kind, delay, minutes: ski ? ski.minutes : null, traction: st.traction };
   }
   // I-70 between mileposts a and b, and between longitudes lon0 and lon1 for the speed sensors.
-  function i70Stretch(mpA, mpB, lon0, lon1) {
+  // A closure counts for a direction when its title names that direction, both, or neither.
+  const forDir = (e, dir) => { const t = e.title.toLowerCase(), w = /westbound/.test(t), ea = /eastbound/.test(t);
+    return !dir || /both directions/.test(t) || (!w && !ea) || (dir === "W" ? w : ea); };
+  function i70Stretch(mpA, mpB, lon0, lon1, dir) {
     const { ctx } = D, row = ctx.speedRow || {};
-    const closures = ctx.events.filter(e => isClosure(e) && normRoute(e.route) === "I70" && overlaps(e.mp_start, e.mp_end, mpA, mpB));
+    const closures = ctx.events.filter(e => isClosure(e) && normRoute(e.route) === "I70" && overlaps(e.mp_start, e.mp_end, mpA, mpB) && forDir(e, dir));
     const sp = {};
     for (const dir of ["W", "E"]) {
       let w = 0, t = 0, r = 0;
@@ -758,7 +772,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       sp[dir] = w ? { mph: Math.round(t / w), ratio: t / r } : null;
     }
     const kindOf = x => !x ? "none" : x.ratio >= 0.8 ? "open" : x.ratio >= 0.55 ? "slow" : "heavy";
-    return { closures, sp, kind: closures.length ? "closed" : worse(kindOf(sp.W), kindOf(sp.E)) };
+    return { closures, sp, kind: closures.length ? "closed" : dir ? kindOf(sp[dir]) : worse(kindOf(sp.W), kindOf(sp.E)) };
   }
   function i70Overall() {
     const { ctx } = D, row = ctx.speedRow, morning = denverHour() < 12;
@@ -946,6 +960,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   const MAP_RESORTS = [["eldora", 580, 118], ["winterpark", 488, 266], ["abasin", 236, 272], ["copper", 20, 346], ["keystone", 290, 498]];
   const RESORT_DOT = { copper: [60, Y], winterpark: [650, 290], abasin: [330, 340], keystone: [260, 520], eldora: [740, 140] };
 
+  let mapDir = null;   // "W" or "E"; null until set, then it follows the time of day until someone taps the toggle
   let view = "line"; try { view = localStorage.getItem("ski-mapview") === "real" ? "real" : "line"; } catch (e) {}
   const mz = { w: 0, base: 1, z: 1, px: 0, py: 0, h: 0 };
   function piece(box, x1, y1, x2, y2, kind, tipText) {
@@ -958,14 +973,16 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   function at(box, cls, x, y, w, h, text) { const d = el("div", cls, text); Object.assign(d.style, { left: (x - w / 2) + "px", top: (y - h / 2) + "px", width: w + "px", height: h + "px" }); box.append(d); return d; }
   function drawLine() {
     const { ctx, ranked } = D, box = $("lineinner"); box.replaceChildren();
+    const dir = mapDir || (denverHour() < 12 ? "W" : "E"), dname = dir === "W" ? "westbound" : "eastbound";
+    $("d-w").classList.toggle("on", dir === "W"); $("d-e").classList.toggle("on", dir === "E");
     const states = {}, desc = [];
-    for (const k in ROUTE_GEO) states[k] = routeState(k);
+    for (const k in ROUTE_GEO) states[k] = routeState(k, dir);
     // Routes first, so I-70 sits on top where they meet.
     for (const k in ROUTE_GEO) {
       if (/^eldora/.test(k) && !shown("eldora")) continue;
-      const s = states[k], words = s.kind === "closed" ? "closed (COtrip)" : s.kind === "check" ? "TomTom can't route along it but COtrip lists no closure, so check" :
-        s.kind === "none" ? "no reading yet" : `${s.delay < 1 ? "normal" : "about " + Math.round(s.delay) + " min slower than an empty road"}` + (s.minutes != null && /^eldora/.test(k) ? `, ${Math.round(s.minutes)} min from Coors Field` : "");
-      const pieces = ROUTE_GEO[k].pieces;
+      const s = states[k]; let words = s.kind === "closed" ? "closed (COtrip)" : s.kind === "check" ? "TomTom can't route along it but COtrip lists no closure, so check" :
+        s.kind === "none" ? (/^eldora/.test(k) ? `no ${dname} reading (Eldora is timed in the ski direction only)` : `no ${dname} reading yet`) : `${s.delay < 1 ? "normal" : "about " + Math.round(s.delay) + " min slower than an empty road"}` + (s.minutes != null && /^eldora/.test(k) ? `, ${Math.round(s.minutes)} min from Coors Field` : "");
+      const pieces = ROUTE_GEO[k].pieces; words = `${dname}, ` + words;
       // Peak to Peak is shared by Coal Creek and Black Hawk: color it by the better of the two.
       pieces.forEach(([a, b, c, d], j) => {
         let kind = s.kind;
@@ -975,9 +992,9 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       desc.push(`${ROUTE_NAME[k]} ${KIND[s.kind][1].toLowerCase()}`);
     }
     I70_BANDS.forEach(b => {
-      const s = i70Stretch(b.mp[0], b.mp[1], b.lon[0], b.lon[1]);
-      const sp = ["W", "E"].map(dk => s.sp[dk] ? `${dk === "W" ? "west" : "east"}bound ${s.sp[dk].mph} mph` : null).filter(Boolean).join(", ");
-      piece(box, b.x[0], Y, b.x[1], Y, s.kind, `I-70, ${b.name}: ` + (s.closures.length ? s.closures.map(e => e.title).join(" ") : sp ? sp + ` (${speedWord(Math.min(...["W", "E"].map(dk => s.sp[dk] ? s.sp[dk].mph : 99)))})` : "no reading"));
+      const s = i70Stretch(b.mp[0], b.mp[1], b.lon[0], b.lon[1], dir), o = s.sp[dir === "W" ? "E" : "W"];
+      piece(box, b.x[0], Y, b.x[1], Y, s.kind, `I-70 ${dname}, ${b.name}: ` + (s.closures.length ? s.closures.map(e => e.title).join(" ") :
+        s.sp[dir] ? `${s.sp[dir].mph} mph (${speedWord(s.sp[dir].mph)})` : "no reading") + (o ? `. Other direction ${o.mph} mph.` : ""));
       if (s.kind !== "open") desc.push(`I-70 ${b.name} ${KIND[s.kind][1].toLowerCase()}`);
     });
     // Junction dots, resort stops and Coors Field.
@@ -986,7 +1003,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const coors = at(box, "lm-dot", CX, Y, 34, 34); Object.assign(coors.style, { background: COL.ink, borderWidth: "6px", borderColor: "var(--bg)", boxShadow: "0 0 0 3px " + COL.ink });
     // Closure signs where COtrip lists a closure.
     const signed = new Set();
-    ctx.events.filter(e => isClosure(e) && normRoute(e.route) === "I70" && overlaps(e.mp_start, e.mp_end, 195, 276)).forEach(e => {
+    ctx.events.filter(e => isClosure(e) && normRoute(e.route) === "I70" && overlaps(e.mp_start, e.mp_end, 195, 276) && forDir(e, dir)).forEach(e => {
       const mp = Math.max(195, Math.min(276, num(e.mp_start))), x = Math.round(mpToX(mp) / 8) * 8;
       if (signed.has(x)) return; signed.add(x);
       at(box, "lm-sign", x, Y, 20, 20).dataset.tip = e.title;
@@ -1006,7 +1023,10 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       c.append(el("b", "", (i >= 0 ? `${i + 1}. ` : "") + RESORTS[k].name), el("span", "", line + (!shown(k) ? ` · ${RESORTS[k].pass === "epic" ? "Epic" : "Not Ikon"}` : "")));
       Object.assign(c.style, { left: x + "px", top: y + "px" }); box.append(c);
     });
-    box.setAttribute("aria-label", "Line map of every way up from Coors Field on the right. " + (desc.length ? desc.join(". ") + "." : "Everything is moving."));
+    // Which way the map is showing: a big arrow under Georgetown to Floyd Hill.
+    const ar = el("div", "lm-arrow " + dir); ar.append(el("i"), el("span", "", dir === "W" ? "Westbound \u00b7 heading up" : "Eastbound \u00b7 heading home"));
+    Object.assign(ar.style, { left: "560px", top: "468px", width: "300px" }); box.append(ar);
+    box.setAttribute("aria-label", `Line map, ${dname}, of every way up from Coors Field on the right. ` + (desc.length ? desc.join(". ") + "." : "Everything is moving."));
     layoutLine(false);
   }
   // Fit the width by default (never smaller than half size, so labels stay readable on a phone; then it starts on the Denver end and drags).
@@ -1046,7 +1066,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
 
   function renderDrive() {
     $("b-line").classList.toggle("on", view === "line"); $("b-real").classList.toggle("on", view === "real");
-    $("linebox").hidden = view !== "line"; $("realbox").hidden = view !== "real";
+    $("linebox").hidden = view !== "line"; $("realbox").hidden = view !== "real"; $("dirseg").hidden = view !== "line";
     if (view === "line") drawLine(); else drawMap();
     const lg = $("maplegend"); lg.replaceChildren();
     const sw = bg => { const s = el("span", "lsw"); s.style.background = bg; return s; };
@@ -1054,9 +1074,11 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       .forEach(([c, t]) => { const s = el("span"); s.append(sw(c), t); lg.append(s); });
     { const s = el("span"); s.append(el("span", "closeicon"), "Closed (COtrip)"); lg.append(s); }
     $("mapnote").textContent = view === "line"
-      ? "Not to scale. I-70 shows the slower direction from CDOT's sensors; the passes, the canyon and the Eldora routes are TomTom times against an empty road. Tap or hover a line for details, drag to move, + and − to zoom."
+      ? "Not to scale. Shows one direction at a time: westbound until noon, eastbound after, or tap the toggle. I-70 is CDOT's sensors; the passes, the canyon and the Eldora routes are TomTom times against an empty road. Tap or hover a line for details, drag to move, + and − to zoom."
       : "On I-70 the upper line is westbound and the lower is eastbound (CDOT sensors). Other roads are TomTom, colored against that road's normal speed; dashed means TomTom thinks it's blocked but COtrip doesn't. Tap a stretch for its speed.";
   }
+  $("d-w").onclick = () => { mapDir = "W"; drawLine(); };
+  $("d-e").onclick = () => { mapDir = "E"; drawLine(); };
   $("b-line").onclick = () => { view = "line"; try { localStorage.setItem("ski-mapview", "line"); } catch (e) {} renderDrive(); requestAnimationFrame(() => layoutLine(true)); };
   $("b-real").onclick = () => { view = "real"; try { localStorage.setItem("ski-mapview", "real"); } catch (e) {} fitMap = true; renderDrive(); };
 
