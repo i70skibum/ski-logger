@@ -74,7 +74,7 @@ RESORTS = {
 ROUTES = {"I70", "US40", "US6", "CO119", "CO72", "CO46", "CO9", "CO82", "CO91", "US24", "CO103", "CO65",
           "US285", "US50", "CO135", "US160", "US550", "CO62", "CO145"}
 # Only keep I-70 events in the mountain corridor (Palisade, for Powderhorn, to C-470).
-I70_MP_RANGE = (40.0, 262.0)
+I70_MP_RANGE = (40.0, 276.0)
 
 CARS_BASE = "https://api-511x-co.carsprogram.org/events/map-features"
 CARS_CLASSES = ["roadClosures", "chainLaws", "winterDriving", "roadReports", "roadWork"]
@@ -451,7 +451,7 @@ def log_events(state):
 CDOT_API = "https://data.cotrip.org/api/v1/{ep}?apiKey={key}&limit=10000"
 # I-70 speed segments are numbered sequentially, so pick the mountain corridor by location:
 # from Glenwood Springs (west) to C-470 (east).
-SPEED_BOX = {"lon": (-107.36, -105.19), "lat": (39.45, 39.85)}
+SPEED_BOX = {"lon": (-107.36, -104.98), "lat": (39.45, 39.85)}   # east edge: I-25 downtown, so I-70 runs from Coors Field
 MIN_CONFIDENCE = 50  # CDOT confidence score; below this the speed is left blank
 
 
@@ -746,8 +746,9 @@ ROUTE_POINTS = {
     # it on the road: without it the router would take I-70 through the tunnel instead of
     # Loveland Pass. Flow points are spread along the road. All coordinates are vertices of
     # TomTom's own geometry for these roads (from the calibration output), so they sit on the road.
-    "canyon":   {"name": "Clear Creek Canyon (US 6, Golden to I-70 exit 244)", "max_km": 30,
-                 "route": [(39.75454, -105.23687), (39.74168, -105.33004), (39.74238, -105.43138)],
+    # From Coors Field by 6th Ave (US 6) through Golden; before Nov 21 it started at Golden (min_km drops those rows).
+    "canyon":   {"name": "Clear Creek Canyon (Coors Field by 6th Ave and US 6 to I-70 exit 244)", "max_km": 60, "min_km": 35,
+                 "route": [(39.7562, -104.9942), (39.7254, -105.0800), (39.75454, -105.23687), (39.74168, -105.33004), (39.74238, -105.43138)],
                  "points": [(39.74204, -105.26940), (39.74168, -105.33004), (39.72766, -105.42222)]},
     "pass":     {"name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)", "max_km": 27,
                  "route": [(39.6800, -105.8950), (39.6636, -105.8794), (39.6050, -105.9440)],
@@ -948,7 +949,7 @@ def log_routes(state):
 # how much data it has (weekends logged per window), which kinds of weekends it has seen,
 # and how far off its predictions were. Predictions are saved on Friday and graded on Monday.
 
-CORRIDOR_WEST_LON, CORRIDOR_EAST_LON = -106.145, -105.185   # Copper to C-470
+CORRIDOR_WEST_LON, CORRIDOR_EAST_LON = -106.145, -104.99   # Copper to I-25 downtown (C-470 before Nov 21)
 # Day types. Only "typical" days build the normal profile. Holidays, school-break weeks and
 # disrupted days (a closure or a flagged storm during ski hours) are kept and labeled, and
 # each type gets its own measure of how far it runs above typical once there is data.
@@ -1200,7 +1201,8 @@ def route_delays():
             for r in csv.DictReader(f):
                 if r.get("route") not in ROUTE_POINTS or r.get("detour") == "True" or not r.get("travel_s") or not r.get("no_traffic_s"):
                     continue
-                if not r.get("length_m") or float(r["length_m"]) > ROUTE_POINTS[r["route"]]["max_km"] * 1000:
+                if (not r.get("length_m") or float(r["length_m"]) > ROUTE_POINTS[r["route"]]["max_km"] * 1000
+                        or float(r["length_m"]) < ROUTE_POINTS[r["route"]].get("min_km", 0) * 1000):
                     continue   # went the long way: a detour or a bad waypoint
                 yield (datetime.fromisoformat(r["snapshot_time"]).astimezone(DENVER), r["route"], r["dir"],
                        max(0.0, float(r["travel_s"]) - float(r["no_traffic_s"])) / 60)
