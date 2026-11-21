@@ -881,6 +881,20 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     // US 6 and US 40 from TomTom. First the whole road from the routing call, colored by its overall delay
     // (the slower direction); then the flow readings on top, each covering a long stretch at its own speed.
     const tt = (ctx.routes || {}).routes || {}, drawn = new Set();
+    // TomTom route ends sit a little way up each road from the interchange, so join an end to the
+    // nearest point on I-70 when it is within 1.5 km.
+    const i70pts = Object.entries(D.segGeo).filter(([id]) => /^I70/.test(id)).flatMap(([, g]) => g);
+    const kmApart = (a, b) => Math.hypot((a[0] - b[0]) * 111, (a[1] - b[1]) * 85);
+    const toI70 = line => {
+      const out = line.slice();
+      for (const last of [false, true]) {
+        const p = last ? out[out.length - 1] : out[0];
+        let best = null, d = 1.5;
+        for (const q of i70pts) { const k = kmApart(p, q); if (k < d) { d = k; best = q; } }
+        if (best && d > 0.05) last ? out.push(best) : out.unshift(best);
+      }
+      return out;
+    };
     ALTERNATES.forEach(A => {
       const r = tt[A.key]; if (!r) return;
       const cdotClosed = altStatus(ctx, A).closed;
@@ -889,7 +903,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
         const ratio = Math.max(...dirs.map(x => x.minutes && x.free_min ? x.minutes / x.free_min : 1));
         const worst = Math.max(...dirs.map(x => x.delay_min || 0));
         const c = cdotClosed ? css("--crit") : ratio <= 1.15 ? css("--good") : ratio <= 1.5 ? css("--warn") : css("--crit");
-        L.polyline(dirs[0].line, { color: c, weight: 5, opacity: 0.9 })
+        L.polyline(toI70(dirs[0].line), { color: c, weight: 5, opacity: 0.9 })
           .bindTooltip(`${A.name}: ${cdotClosed ? "closed (COtrip)" : worst >= 1 ? `about ${Math.round(worst)} min slower than an empty road` : "normal"}`, { sticky: true }).addTo(layer);
       }
       (r.points || []).forEach(p => {
@@ -899,7 +913,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
         const ratio = p.mph / Math.max(1, p.normal_mph);
         const c = cdotClosed ? css("--crit") : p.closed ? css("--warn") : ratio >= 0.8 ? css("--good") : ratio >= 0.5 ? css("--warn") : css("--crit");
         const words = cdotClosed ? "closed (COtrip)" : p.closed ? "TomTom shows it blocked; COtrip doesn't list a closure, so check" : `${p.mph} mph, normal ${p.normal_mph}`;
-        L.polyline(p.line, { color: c, weight: 5, opacity: 0.9, dashArray: p.closed && !cdotClosed ? "6 6" : null })
+        L.polyline(toI70(p.line), { color: c, weight: 5, opacity: 0.9, dashArray: p.closed && !cdotClosed ? "6 6" : null })
           .bindTooltip(`${A.name}: ${words}`, { sticky: true }).addTo(layer);
       });
     });
