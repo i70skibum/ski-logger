@@ -125,6 +125,8 @@ details.shut > summary { cursor: pointer; font-size: 13px; color: var(--ink2); p
 .verdict .vline { font-size: 24px; font-weight: 800; line-height: 1.2; }
 .verdict .vwhy { font-size: 14px; color: var(--ink2); margin-top: 4px; }
 .daytags { font-size: 12px; color: var(--ink2); margin-top: 4px; }
+.closeicon { width: 18px; height: 18px; border-radius: 50%; background: var(--crit); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35), 0 1px 3px rgba(0,0,0,.3); position: relative; box-sizing: border-box; display: inline-block; vertical-align: middle; }
+.closeicon::after { content: ""; position: absolute; left: 3px; right: 3px; top: 5px; height: 4px; background: #fff; border-radius: 1px; }
 </style>
 </head>
 <body>
@@ -760,6 +762,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const lg = $("striplegend"); lg.replaceChildren();
     [["var(--good)", "50+ mph, moving"], ["var(--warn)", "30 to 49, slow"], ["var(--crit)", "Under 30, crawling"], ["var(--none)", "No reading"]].forEach(([c, t]) => {
       const s = el("span"), sw = el("span", "sw"); sw.style.background = c; s.append(sw, t); lg.append(s); });
+    { const s = el("span"); s.append(el("span", "closeicon"), " Closed (COtrip)"); lg.append(s); }
     lg.append(el("span", "", "On I-70 the upper line is westbound and the lower is eastbound (CDOT sensors). US 6 and US 40 are one line each from TomTom, colored against that road's normal speed; dashed means TomTom thinks it's blocked but COtrip doesn't. Tap a stretch for its speed."));
 
     drawDelay();
@@ -897,6 +900,16 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
           .bindTooltip(`${A.name}: ${words}`, { sticky: true }).addTo(layer);
       });
     });
+    // Closures from COtrip, like its own map: the closed stretch in dark red dashes and a closure sign where it starts.
+    const shownC = new Set();
+    ctx.events.filter(e => (e.class === "roadClosures" || /road closed/i.test(e.title)) && e.lat != null && e.lon != null)
+      .filter(e => !shownC.has(e.id) && shownC.add(e.id)).forEach(e => {
+        const tip = `${e.title}${e.began ? ` Since ${fmtTime(new Date(e.began))}.` : ""}`;
+        if (e.line && e.line.length > 1)
+          L.polyline(e.line, { color: "#6e0b0b", weight: 7, opacity: 0.9, dashArray: "1 9", lineCap: "round" }).bindTooltip(tip, { sticky: true }).addTo(layer);
+        L.marker([e.lat, e.lon], { zIndexOffset: 1000, icon: L.divIcon({ className: "", html: '<div class="closeicon"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }) })
+          .bindTooltip(tip).addTo(layer);
+      });
     const pin = (ll, text, cls) => L.marker(ll, { interactive: false, icon: L.divIcon({ className: "pinwrap", html: el("div", "pin " + cls, text), iconSize: [0, 0] }) }).addTo(layer);
     Object.keys(RESORTS).filter(shown).forEach(k => {
       const i = ranked.findIndex(r => r.key === k);
