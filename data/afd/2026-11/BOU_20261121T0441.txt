@@ -1,0 +1,128 @@
+
+000
+FXUS65 KBOU 211141
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+441 AM MST Sat Nov 21 2026
+
+.KEY MESSAGES... 
+
+- Light mountain snow continues through Saturday. Flurries up to 
+  a dusting of snow possible from the urban corridor to the Palmer
+  Divide on Saturday morning.
+
+- Another system brings the chance for mountain snow showers late
+  Monday.
+
+- Cooler fall temperatures to continue through mid next week. 
+ 
+
+&&
+
+.DISCUSSION /Through Friday/...
+Issued at 1200 AM MST Sat Nov 21 2026
+
+The positively tilted upper level trough over the Great Basin 
+continues to slide east this morning, weakening as it tracks over
+Colorado Saturday afternoon. The southwest jet ahead of this wave
+which was responsible for the widespread gusty winds Friday 
+afternoon also begins to weaken and become more southerly. As 
+previous AFDs have stated, this system will bring another round of
+snow showers to our mountains, this time favoring the central 
+mountains and southern Front Range. We have increased snow 
+accumulations a tad to better reflect recent trends, with totals 
+now ranging between 1.0 and 2.0 inches. 
+
+The chance for some snowflakes falling over the Denver metro still 
+exists, and as the finer details become more clear, there are a 
+few features that we have been examining. First, although the 
+trough passing over the region looks quite weak, it will still 
+bring some favorable ingredients for synoptic ascent. One of 
+these ingredients would be the position of the right-entrance 
+region of an embedded jet streak, favoring ascent over the Denver 
+metro sometime Saturday morning. Other features that would promote
+and/or indicate QG ascent would be the passage of the remaining 
+PV anomaly, and strong positive vorticity advection, albeit these 
+will be at their strongest just to our south and east. At the 
+same time, both global model solutions and CAMs suggest an area of
+frontogenesis at the 700mb level oriented SW-NE, extending from 
+the central mountains and across Denver. This area of 
+frontogenesis could be the key for the development of a more 
+organized snowband. At the lowest levels, surface winds Saturday 
+morning are expected to remain light (<8 mph). However, guidance 
+has continued to suggest a broad anticyclonic circulation east of 
+Denver, which could help promote some weak upsloping if positioned
+at just the right spot. The most obvious limiting factor appears 
+to be moisture, with model soundings showing dry air near the 
+surface that will need to be overcome for snowfall to reach the 
+lower elevations. With all of these ingredients in mind, we have 
+concluded that there is about a 30% chance for light snow 
+accumulations (up to 0.5 in.) at the lower foothills and east over
+parts of the urban corridor. However, snowfall is likely to occur
+along a narrow band, meaning that only a small portion of our 
+area will end up experiencing the first snowflakes of the season 
+at low elevations. We expect this to be a very low-impact event, 
+with a high-end scenario (10% chance) snowfall amount of just 
+under one inch. Snow activity should exit the area by around noon,
+with decreasing cloud cover and temperatures rising into the 
+upper 30s and low 40s for the afternoon. 
+
+Sunday morning is shaping up to be quite chilly, particularly for 
+our mountains and high valleys, where morning lows will dip into the 
+teens and single digits under the mostly clear skies. For the Denver 
+metro and plains, morning lows should have no problem dropping into 
+the 20s, with perhaps even some upper teens over the usual cold 
+spots. We are monitoring the potential for some freezing fog over 
+the northeast Colorado plains Sunday morning, although reduced 
+visibilities are likely to be the main impact. Afternoon 
+temperatures will be similar to Saturday, generally in the 40s, 
+due to high clouds filling in from the west ahead of the next 
+disturbance. 
+
+Another weakening upper level trough is set to move through the area 
+Monday afternoon/evening, bringing another round of 1.0 to 2.0 inch 
+snow totals for our mountains. We are fairly confident in 
+temperatures staying at seasonal averages or slightly below average 
+through at least Wednesday. However, long-range guidance has trended 
+slightly drier and warmer late next week and into next weekend, with 
+perhaps only a few shortwave passages that would bring sporadic snow 
+chances for the mountains, or a few snowflakes at best for the 
+Denver metro and plains. 
+
+&&
+
+.AVIATION /06Z TAFS through 06Z Sunday/...
+Issued at 1020 PM MST Fri Nov 20 2026
+
+Radar shows elevated banding developing over the Front Range and
+urban corridor, with generally SCT cloud decks ~050-070 forming
+across the Denver metro. Expect increasing potential for periods
+of BKN CIGS after sunrise, with greater confidence for the late
+morning period when the potential for flurries and light SHSN will
+be highest (~30%) for the terminals. There should be a steady
+lifting of CIGS and bases through the afternoon from north to
+south. Near sunrise Sun, low stratus could encroach on KDEN from
+the east. Confidence is low in any direct impacts to the terminal
+at this time, but there's sufficient a signal to incorporate VCFG
+starting ~13Z. The window for impacts, if any, looks to be 
+relatively short (~13-16Z).
+
+As for winds, anticipating current SSE/SE flow to mostly hold,
+although some variability in direction is likely throughout the
+day, with period of more easterly or southerly flow not out of the
+question for KDEN/KAPA. Regardless, prevailing wind speeds are 
+forecast to remain below 10 kts.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...AA
+AVIATION...BRQ

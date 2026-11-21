@@ -1,5 +1,5 @@
 {
- "afd_last": "d7d3ad51-8361-49d0-acee-4b2636452fe9",
+ "afd_last": "aae9c03c-621f-4131-a09e-a728c904a90e",
  "events": {
   "chainLaws:CDOT-36486551000EB": {
    "began": "2026-11-20T12:06:36-07:00",
@@ -1489,6 +1489,18 @@
    "title": "I-70: Scattered showers.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588271": {
+   "began": "2026-11-21T04:42:45.327000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588271",
+   "mp_end": 238.72646079049417,
+   "mp_start": 226.92501014010733,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Icy spots.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588298": {
    "began": "2026-11-20T01:53:34.862000-07:00",
    "class": "winterDriving",
@@ -1621,6 +1633,18 @@
    "title": "I-70: Icy spots.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588668": {
+   "began": "2026-11-21T04:42:01.577000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588668",
+   "mp_end": 252.37015997775518,
+   "mp_start": 238.72646079049417,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Snow.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588693": {
    "began": "2026-11-21T03:17:17.442000-07:00",
    "class": "winterDriving",
@@ -1683,7 +1707,7 @@
   }
  },
  "forecast_last": "2026-11-21T10:00:47+00:00",
- "last_run": "2026-11-21T04:30:46-07:00",
+ "last_run": "2026-11-21T04:45:49-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-21": {
@@ -2364,15 +2388,15 @@
   "230": "3 - dry",
   "243": "4s-9 - wet in areas, icy spots",
   "245": "7-9-11 - slushy, icy spots, snow packed spots",
-  "246": "7-9-11 - slushy, icy spots, snow packed spots",
-  "247": "7-9-11 - slushy, icy spots, snow packed spots",
-  "248": "7-9-11 - slushy, icy spots, snow packed spots",
-  "249": "4s-9 - wet in areas, icy spots",
+  "246": "6-8-10 snow, icy, snow packed",
+  "247": "6-8-10 snow, icy, snow packed",
+  "248": "6-8-10 snow, icy, snow packed",
+  "249": "7-9-11 - slushy, icy spots, snow packed spots",
   "261": "9 - icy spots",
   "262": "9 - icy spots",
   "270": "6-9-11 snow, icy spots, snow packed spots",
-  "271": "3 - dry",
-  "272": "3 - dry",
+  "271": "21 - scattered showers; 4 - wet; 6 - snow; 9 - icy spots",
+  "272": "21 - scattered showers; 4 - wet; 6 - snow",
   "273": "3 - dry",
   "274": "3 - dry",
   "322": "3 - dry",
@@ -2420,7 +2444,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-21 03:00",
-  "aspen": "2026-11-21 02:00",
+  "aspen": "2026-11-21 03:00",
   "beavercreek": "2026-11-21 03:00",
   "breck": "2026-11-21 03:00",
   "cooper": "2026-11-21 03:00",
@@ -2428,14 +2452,14 @@
   "crestedbutte": "2026-11-21 03:00",
   "echo": "2026-11-21 03:00",
   "eldora": "2026-11-21 03:00",
-  "granby": "2026-11-21 02:00",
+  "granby": "2026-11-21 03:00",
   "keystone": "2026-11-21 03:00",
   "loveland": "2026-11-21 03:00",
-  "monarch": "2026-11-21 02:00",
+  "monarch": "2026-11-21 03:00",
   "powderhorn": "2026-11-21 03:00",
   "purgatory": "2026-11-21 03:00",
   "steamboat": "2026-11-21 03:00",
-  "sunlight": "2026-11-21 02:00",
+  "sunlight": "2026-11-21 03:00",
   "telluride": "2026-11-21 02:00",
   "vail": "2026-11-21 03:00",
   "winterpark": "2026-11-21 03:00",
