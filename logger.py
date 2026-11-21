@@ -497,7 +497,7 @@ US40_BOX = (-105.95, -105.60, 39.74, 40.10)   # lon min, lon max, lat min, lat m
 
 
 def log_speeds(state, key):
-    segs, values, feed_ts = [], {}, []
+    segs, values, feed_ts, geo = [], {}, [], {}
     for f in cdot_get("speed", key):
         p = f.get("properties") or f
         route = str(p.get("route_name", ""))
@@ -516,6 +516,9 @@ def log_speeds(state, key):
         if us6 and min(lon0, lon1) < US6_WEST_LON:
             continue  # US 6 only from Silverthorne east: Keystone, Loveland Pass, Clear Creek Canyon
         sid = p.get("segment_id")
+        geo[sid] = [[round(y, 5), round(x, 5)] for x, y in (c[:2] for c in coords[::max(1, -(-len(coords) // 60))])]
+        if geo[sid][-1] != [round(lat1, 5), round(lon1, 5)]:
+            geo[sid].append([round(lat1, 5), round(lon1, 5)])
         segs.append([sid, route, round(lon0, 4), round(lat0, 4), round(lon1, 4), round(lat1, 4)])
         conf, speed = p.get("confidence_level") or 0, p.get("speed")
         values[sid] = round(speed) if speed is not None and conf >= MIN_CONFIDENCE else ""
@@ -531,6 +534,12 @@ def log_speeds(state, key):
             w.writerow(["segment_id", "route", "start_lon", "start_lat", "end_lon", "end_lat"])
             w.writerows(sorted(segs))
         state["speed_segments"] = sorted(values)
+    # The road shape of each segment, for the dashboard map (the CSV keeps only the ends).
+    geo_path = os.path.join(DATA, "speed", "segments_geo.json")
+    if not os.path.exists(geo_path) or state.get("speed_geo") != sorted(values):
+        with open(geo_path, "w") as fh:
+            json.dump(geo, fh, separators=(",", ":"))
+        state["speed_geo"] = sorted(values)
     values["snapshot_time"] = NOW_ISO
     values["feed_time"] = epoch_to_local(max(feed_ts)) if feed_ts else ""
     append_wide("speed", ["snapshot_time", "feed_time"], values)
