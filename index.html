@@ -141,7 +141,7 @@ details.shut > summary { cursor: pointer; font-size: 13px; color: var(--ink2); p
     <div class="stats" id="i70stats"></div>
     <div id="map"></div>
     <div class="legend" id="striplegend"></div>
-    <h3>Delay today, Copper to C-470</h3>
+    <h3>Delay today, Copper to Coors Field</h3>
     <div id="delaychart"></div>
     <p class="note" id="modelline"></p>
   </section>
@@ -194,8 +194,8 @@ const PINS = { copper: [39.502, -106.151], abasin: [39.642, -105.872], winterpar
   loveland: [39.680, -105.898], echo: [39.684, -105.519], cooper: [39.361, -106.302], granby: [40.045, -105.906], monarch: [38.512, -106.332], sunlight: [39.399, -107.338],
   powderhorn: [39.069, -108.150], wolfcreek: [37.472, -106.793], purgatory: [37.630, -107.814] };
 const LANDMARKS = [["Glenwood Springs", -107.32], ["Glenwood Canyon", -107.2], ["Eagle", -106.83], ["Edwards", -106.59], ["Vail", -106.37], ["Vail Pass", -106.22], ["Copper", -106.145], ["Frisco", -106.10], ["Silverthorne", -106.07], ["the tunnel", -105.92],
-  ["Georgetown", -105.70], ["Empire", -105.66], ["Idaho Springs", -105.52], ["Floyd Hill", -105.42], ["Genesee", -105.30], ["C-470", -105.20]];
-const EAST_LON = -105.185;
+  ["Georgetown", -105.70], ["Empire", -105.66], ["Idaho Springs", -105.52], ["Floyd Hill", -105.42], ["Genesee", -105.30], ["C-470", -105.20], ["Wheat Ridge", -105.10], ["downtown Denver", -105.02]];
+const EAST_LON = -104.99;   // I-25 downtown: I-70 is measured from Coors Field (C-470 before Nov 21)
 
 function parseCSV(text) {
   const rows = []; let row = [], cur = "", q = false;
@@ -242,7 +242,7 @@ function refSpeeds(speedRows, segs) {
   }
   return out;
 }
-// Minutes lost versus normal speeds, on I-70 between westLon and C-470, one direction.
+// Minutes lost versus normal speeds, on I-70 between westLon and downtown, one direction.
 function delayMin(row, segs, refs, dir, westLon) {
   let d = 0, n = 0;
   for (const s of segs) {
@@ -441,7 +441,7 @@ function dayScore(key, i, W) {
 // The canyon is a few minutes longer than I-70 from west Denver even with no traffic.
 const CANYON_EXTRA_MIN = 5;
 const ALTERNATES = [
-  { key: "canyon", name: "Clear Creek Canyon", short: "canyon", road: "US6", what: "US 6 from Golden to I-70 exit 244, instead of I-70 over Floyd Hill",
+  { key: "canyon", name: "Clear Creek Canyon", short: "canyon", road: "US6", what: "From Coors Field by 6th Ave through Golden and up US 6 to I-70 exit 244, instead of I-70 over Floyd Hill",
     mp: [257.1, 271.5], box: [-105.45, -105.19, 39.68, 39.80], i70Lon: [-105.44, EAST_LON] },
   { key: "pass", name: "Loveland Pass", short: "pass", road: "US6", what: "US 6 over the pass, instead of I-70 through the Eisenhower Tunnel. Also the way to A-Basin",
     mp: [219.9, 229.9], box: [-105.96, -105.86, 39.60, 39.70], i70Lon: [-106.07, -105.88] },
@@ -762,8 +762,8 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     if (row) {
       const wb = delayMin(row, ctx.segs, ctx.refs, "W", RESORTS.copper.westLon), eb = delayMin(row, ctx.segs, ctx.refs, "E", RESORTS.copper.westLon);
       const word = d => d == null ? "No data" : d < 3 ? "No delay" : `+${d} min`;
-      addStat("Westbound, C-470 to Copper", word(wb), "versus normal speeds");
-      addStat("Eastbound, Copper to C-470", word(eb), "versus normal speeds");
+      addStat("Westbound, Coors Field to Copper", word(wb), "versus normal speeds");
+      addStat("Eastbound, Copper to Coors Field", word(eb), "versus normal speeds");
       const live = ctx.segs.map(s => ({ s, v: num(row[s.id]) })).filter(x => x.v != null).sort((a, b) => a.v - b.v)[0];
       if (live) addStat("Slowest stretch", `${live.v} mph`, `${live.s.dir === "W" ? "Westbound" : "Eastbound"} near ${nearLandmark(live.s.mid)}`);
     } else stats.append(el("p", "note", "No speed readings yet."));
