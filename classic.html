@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ski day pick (old layout)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css">
+<style>
+:root {
+  --bg: #f4f3ef; --card: #fcfcfb; --ink: #0b0b0b; --ink2: #52514e; --line: #e1e0d9; --axis: #c3c2b7;
+  --good: #0ca30c; --warn: #fab219; --crit: #d03b3b; --none: #c3c2b7;
+  --wb: #2a78d6; --eb: #eb6834; --accent: #2a78d6; --goodtext: #006300;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111110; --card: #1a1a19; --ink: #f0efec; --ink2: #c3c2b7; --line: #2c2c2a; --axis: #383835;
+    --none: #4a4a46; --wb: #3987e5; --eb: #d95926; --accent: #3987e5; --goodtext: #0ca30c;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 860px; margin: 0 auto; padding: 16px 14px 40px; }
+h1 { font-size: 22px; margin: 0; }
+h2 { font-size: 16px; margin: 0 0 10px; }
+h3 { font-size: 13px; margin: 18px 0 6px; color: var(--ink2); font-weight: 600; }
+header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; margin-bottom: 12px; }
+#asof { margin: 0; color: var(--ink2); font-size: 13px; }
+.stale { color: var(--crit); font-weight: 600; }
+.weekpicks { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 8px; margin: 10px 0 14px; }
+.daycard { border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+.dname { font-size: 12px; color: var(--ink2); }
+.dpick { font-weight: 600; margin: 2px 0; }
+.dsub { font-size: 12px; color: var(--ink2); }
+.dleave { font-size: 13px; margin-top: 6px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.warnline { color: var(--crit); }
+.tier { font-size: 11px; font-weight: 600; border-radius: 4px; padding: 1px 6px; border: 1px solid var(--axis); white-space: nowrap; }
+.tier.t-est { border-color: var(--warn); }
+.tier.t-rough { border-color: var(--axis); }
+.tier.t-ok, .tier.t-solid { border-color: var(--good); color: var(--goodtext); }
+table.wk { border-collapse: separate; border-spacing: 2px; width: 100%; font-size: 13px; table-layout: fixed; min-width: 640px; }
+table.wk th.rn, table.wk tr:first-child th:first-child { width: 112px; }
+table.wk th { font-size: 12px; color: var(--ink2); font-weight: 600; text-align: center; padding: 4px; }
+table.wk th.rn { text-align: left; white-space: nowrap; color: var(--ink); }
+table.wk td { text-align: center; padding: 6px 4px; border-radius: 4px; min-width: 64px; vertical-align: top; }
+table.wk td, table.wk td small { white-space: normal; }
+table.wk td small { display: block; font-size: 11px; line-height: 1.25; color: var(--ink2); }
+table.wk td.cl, .muted { color: var(--ink2); }
+.mhead { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 17px; font-weight: 600; }
+.mrows { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 2fr) 72px; gap: 8px 12px; align-items: center; font-size: 13px; margin: 10px 0; }
+.blocks { display: flex; gap: 3px; } .blocks span { flex: 1; height: 8px; border-radius: 2px; background: var(--line); } .blocks span.on { background: var(--accent); }
+.mcards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 10px; }
+.mcard { background: var(--bg); border-radius: 8px; padding: 10px 12px; font-size: 13px; }
+.mlabel { font-size: 12px; color: var(--ink2); } .mbig { font-size: 17px; font-weight: 600; margin: 2px 0; }
+section { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-bottom: 12px; }
+.pickname { font-size: 26px; font-weight: 700; margin: 2px 0 4px; }
+.kicker { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink2); }
+.why { margin: 0 0 12px; color: var(--ink2); }
+.rank { display: grid; gap: 8px; }
+.rrow { display: grid; grid-template-columns: 22px 1fr auto; gap: 8px; align-items: start; padding-top: 8px; border-top: 1px solid var(--line); }
+.rnum { color: var(--ink2); font-variant-numeric: tabular-nums; }
+.rname { font-weight: 600; }
+.rsub { color: var(--ink2); font-size: 13px; }
+.score { font-variant-numeric: tabular-nums; font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.chip { font-size: 12px; border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; color: var(--ink2); }
+.chip.bad { border-color: var(--crit); color: var(--ink); }
+.chip.plus { border-color: var(--good); color: var(--ink); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 12px; }
+.stat .v { font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.stat .l { font-size: 12px; color: var(--ink2); }
+.stat .s { font-size: 12px; color: var(--ink2); }
+.striplabel { font-size: 12px; color: var(--ink2); margin: 8px 0 2px; }
+svg { display: block; width: 100%; overflow: visible; }
+svg text { fill: var(--ink2); font-size: 10px; font-family: inherit; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--ink2); margin-top: 6px; }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.lsw { display: inline-block; width: 14px; height: 2px; margin-right: 5px; vertical-align: 4px; }
+.note { font-size: 12px; color: var(--ink2); margin: 6px 0 0; }
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { text-align: right; padding: 6px 8px; border-top: 1px solid var(--line); white-space: nowrap; font-variant-numeric: tabular-nums; }
+th { font-weight: 600; color: var(--ink2); border-top: 0; font-size: 12px; }
+th:first-child, td:first-child { text-align: left; font-weight: 600; position: sticky; left: 0; background: var(--card); }
+.alert { padding: 8px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: auto 1fr; gap: 2px 8px; }
+.alert:first-child { border-top: 0; padding-top: 0; }
+.tag { font-size: 11px; font-weight: 700; border-radius: 4px; padding: 1px 6px; align-self: start; margin-top: 2px; border: 1px solid var(--axis); }
+h3.sub { font-size: 13px; font-weight: 600; color: var(--ink2); margin: 14px 0 6px; }
+.tag.crit { background: var(--crit); color: #fff; border-color: var(--crit); }
+.tag.warn { background: var(--warn); color: #0b0b0b; border-color: var(--warn); }
+.alert small { color: var(--ink2); grid-column: 2; }
+.cond { display: grid; grid-template-columns: 1fr auto; gap: 8px; padding: 5px 0; border-top: 1px solid var(--line); font-size: 13px; }
+.cond span:last-child { color: var(--ink2); text-align: right; }
+footer { color: var(--ink2); font-size: 12px; padding: 4px 2px; }
+footer a { color: var(--accent); }
+#tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--card); font-size: 12px; padding: 4px 8px; border-radius: 6px; display: none; z-index: 5; max-width: 240px; }
+.tabs { display: flex; gap: 4px; }
+.tabs a { color: var(--ink2); text-decoration: none; font-size: 14px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); }
+.tabs a.on { color: var(--card); background: var(--ink); border-color: var(--ink); }
+.dsrow { display: grid; grid-template-columns: 1fr auto; gap: 6px 10px; padding: 8px 0; border-top: 1px solid var(--line); align-items: center; font-size: 13px; }
+.dsrow .btns { display: flex; gap: 6px; }
+.btn { font: inherit; font-size: 12px; padding: 3px 10px; border-radius: 6px; border: 1px solid var(--axis); background: var(--card); color: var(--ink); cursor: pointer; }
+.btn:hover { border-color: var(--ink2); }
+.preview { grid-column: 1 / -1; max-height: 320px; overflow: auto; border: 1px solid var(--line); border-radius: 6px; }
+.preview th, .preview td { text-align: left; font-weight: 400; }
+.preview th { position: sticky; top: 0; background: var(--card); font-weight: 600; }
+.preview th:first-child, .preview td:first-child { position: static; }
+.dsdesc { color: var(--ink2); font-size: 13px; margin: -4px 0 6px; }
+#map { height: 330px; border-radius: 8px; margin-bottom: 6px; z-index: 0; background: var(--line); }
+.leaflet-pane svg { width: auto; display: inline; }
+.pinwrap { overflow: visible; }
+.pin { position: absolute; transform: translate(-50%, -50%); white-space: nowrap; background: #fcfcfb; color: #0b0b0b; border: 2px solid #0b0b0b; border-radius: 999px; padding: 1px 8px; font: 600 12px system-ui, sans-serif; }
+.pin.top { background: #0b0b0b; color: #fff; }
+.pin.off { border-style: dashed; border-color: #6b6b66; color: #52514e; font-weight: 400; }
+.pin.city { border: 0; background: transparent; font-weight: 700; text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 3px #fff; }
+.rrow.closed { opacity: .65; }
+.toggle { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink2); margin-top: 10px; cursor: pointer; }
+.toggle input { width: 16px; height: 16px; margin: 0; accent-color: var(--accent); flex: none; }
+.toggles { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 4px 0 6px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+details.shut > summary { cursor: pointer; font-size: 13px; color: var(--ink2); padding: 10px 0 4px; }
+.toggles .toggle { margin-top: 0; align-items: flex-start; }
+.toggle b { font-weight: 600; color: var(--ink); }
+.toggle .tlist { display: block; font-size: 12px; color: var(--ink3, var(--ink2)); }
+.verdict { border-left: 6px solid var(--none); padding: 6px 0 6px 14px; margin: 0 0 18px; }
+.verdict.crit { border-color: var(--crit); } .verdict.warn { border-color: var(--warn); } .verdict.good { border-color: var(--good); }
+.verdict .vline { font-size: 24px; font-weight: 800; line-height: 1.2; }
+.verdict .vwhy { font-size: 14px; color: var(--ink2); margin-top: 4px; }
+.daytags { font-size: 12px; color: var(--ink2); margin-top: 4px; }
+.closeicon { width: 18px; height: 18px; border-radius: 50%; background: var(--crit); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.35), 0 1px 3px rgba(0,0,0,.3); position: relative; box-sizing: border-box; display: inline-block; vertical-align: middle; }
+.closeicon::after { content: ""; position: absolute; left: 3px; right: 3px; top: 5px; height: 4px; background: #fff; border-radius: 1px; }
+</style>
+</head>
+<body>
+<main>
+  <header><h1>Ski day pick</h1><nav class="tabs"><a href="#" id="tab-dash" class="on">Dashboard</a><a href="#week" id="tab-week">7-day</a><a href="#data" id="tab-data">Raw data</a></nav><p id="asof">Loading data</p></header>
+  <section id="dataview" hidden><h2>Raw data</h2><p class="dsdesc">Everything the logger has saved, by month. Preview shows the newest rows. Downloads are CSV files that open in Excel, Numbers or Google Sheets. <a id="zipall" href="#">Download everything as a zip</a>.</p><div id="datasets">Loading file list</div></section>
+  <section id="weekview" hidden><h2>Next 7 days</h2><p class="dsdesc" id="weekdesc"></p><div id="weekpicks" class="weekpicks"></div><div class="tablewrap" id="weekgrid"></div><p class="note" id="weeknote"></p></section>
+  <section id="modelview" hidden><h2>How much to trust the traffic times</h2><div id="modelpanel"></div></section>
+  <section id="pick" aria-live="polite"></section>
+  <section>
+    <h2>Map and I-70 right now</h2>
+    <div class="stats" id="i70stats"></div>
+    <div id="map"></div>
+    <div class="legend" id="striplegend"></div>
+    <h3>Delay today, Copper to Coors Field</h3>
+    <div id="delaychart"></div>
+    <p class="note" id="modelline"></p>
+  </section>
+  <section><h2>Mountains</h2><div class="tablewrap" id="mtn"></div><p class="note" id="mtnnote"></p></section>
+  <section><h2>Road alerts and conditions</h2><div id="alerts"></div><h3>Passes and alternate routes</h3><div id="alts"></div><h3>Reported conditions</h3><div id="conds"></div></section>
+  <footer>
+    Sources: CDOT COtrip (speeds, alerts, conditions), USDA SNOTEL (snow), National Weather Service (forecast).
+    Logged every 15 minutes by <a id="repolink" href="#">ski-logger</a>. The pick does not know lift or terrain status yet, so check the resort is open.
+  </footer>
+</main>
+<div id="tip"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script id="core">
+// pass: ikon, epic or indy, each behind a toggle (Ikon on by default). hrs: normal drive from Denver.
+// Milepost ranges follow CDOT's road-condition segments.
+const RESORTS = {
+  copper:     { name: "Copper",      pass: "ikon", hrs: 1.5, westLon: -106.145, roads: [["I70", 195, 260]],                       via: "I-70 through the tunnel" },
+  abasin:     { name: "A-Basin",     pass: "ikon", hrs: 1.5, westLon: -105.89,  roads: [["I70", 216, 260], ["US6", 216, 230]],    via: "I-70, then Loveland Pass" },
+  winterpark: { name: "Winter Park", pass: "ikon", hrs: 1.6, westLon: -105.665, roads: [["I70", 232, 260], ["US40", 231.5, 258.5]], via: "I-70, then Berthoud Pass" },
+  eldora:     { name: "Eldora",      pass: "ikon", hrs: 1.0, westLon: null,     roads: [["CO119", 25, 42]],                       via: "Boulder Canyon, no I-70" },
+  steamboat:  { name: "Steamboat",   pass: "ikon", hrs: 3.0, westLon: -106.07,  roads: [["I70", 205, 260], ["CO9", 99, 140], ["US40", 134, 185]], via: "I-70 to Silverthorne, CO 9, then Rabbit Ears Pass", overnight: true },
+  aspen:      { name: "Aspen Snowmass", pass: "ikon", hrs: 3.7, westLon: -107.32, roads: [["I70", 116, 260], ["CO82", 0, 45]],   via: "I-70 to Glenwood Springs, then CO 82. 7 days on your pass", overnight: true },
+  keystone:   { name: "Keystone",    pass: "epic", hrs: 1.4, westLon: -106.07,  roads: [["I70", 205, 260], ["US6", 208.7, 216]],    via: "I-70 to Silverthorne, then US 6" },
+  breck:      { name: "Breckenridge", pass: "epic", hrs: 1.7, westLon: -106.10, roads: [["I70", 203, 260], ["CO9", 85, 97.2]],      via: "I-70 to Frisco, then CO 9" },
+  vail:       { name: "Vail",        pass: "epic", hrs: 1.9, westLon: -106.37,  roads: [["I70", 176, 260]],                       via: "I-70 over Vail Pass" },
+  beavercreek: { name: "Beaver Creek", pass: "epic", hrs: 2.1, westLon: -106.52, roads: [["I70", 167, 260]],                      via: "I-70 over Vail Pass to Avon" },
+  crestedbutte: { name: "Crested Butte", pass: "epic", hrs: 4.3, westLon: null, roads: [["US285", 126.9, 250], ["US50", 155, 209], ["CO135", 0, 27.5]], via: "US 285, US 50 over Monarch Pass, then CO 135", overnight: true },
+  telluride:  { name: "Telluride",   pass: "epic", hrs: 6.0, westLon: null,     roads: [["US285", 126.9, 250], ["US50", 92.4, 209], ["US550", 98.1, 130.2], ["CO62", 0, 23.4], ["CO145", 71.6, 90]], via: "US 285 and US 50 to Montrose, then US 550, CO 62 and CO 145", overnight: true },
+  loveland:   { name: "Loveland",    pass: "indy", hrs: 1.1, westLon: -105.89,  roads: [["I70", 216, 260]],                       via: "I-70 to the tunnel, east side" },
+  echo:       { name: "Echo Mountain", pass: "indy", hrs: 0.9, westLon: -105.52, roads: [["I70", 240, 260], ["CO103", 0, 15]],   via: "I-70 to Idaho Springs, then CO 103" },
+  cooper:     { name: "Ski Cooper",  pass: "indy", hrs: 2.2, westLon: -106.145, roads: [["I70", 195, 260], ["CO91", 0, 23], ["US24", 155, 180]], via: "I-70 to Copper, CO 91 over Fremont Pass, then US 24" },
+  granby:     { name: "Granby Ranch", pass: "indy", hrs: 1.8, westLon: -105.665, roads: [["I70", 232, 260], ["US40", 210, 258.5]], via: "I-70, then Berthoud Pass past Winter Park" },
+  monarch:    { name: "Monarch",     pass: "indy", hrs: 3.0, westLon: null,     roads: [["US285", 126.9, 250], ["US50", 190.3, 209]], via: "US 285 to Poncha Springs, then US 50", overnight: true },
+  sunlight:   { name: "Sunlight",    pass: "indy", hrs: 3.0, westLon: -107.32,  roads: [["I70", 116, 260], ["CO82", 0, 5]],      via: "I-70 to Glenwood Springs", overnight: true },
+  powderhorn: { name: "Powderhorn",  pass: "indy", hrs: 4.0, westLon: -107.36,  roads: [["I70", 40, 260], ["CO65", 0, 51.2]],      via: "I-70 past Glenwood to Palisade, then CO 65", overnight: true },
+  wolfcreek:  { name: "Wolf Creek",  pass: "indy", hrs: 4.5, westLon: null,     roads: [["US285", 51.2, 250], ["US160", 145.8, 205]], via: "US 285 to Monte Vista, then US 160", overnight: true },
+  purgatory:  { name: "Purgatory",   pass: "indy", hrs: 6.0, westLon: null,     roads: [["US285", 51.2, 250], ["US160", 79.9, 205], ["US550", 16.6, 50]], via: "US 285 and US 160 to Durango, then US 550", overnight: true },
+};
+// Passes on the way, from TomTom: added to the I-70 delay for these resorts.
+const VIA_ROUTE = { winterpark: "berthoud", granby: "berthoud", abasin: "pass", keystone: "dillon", eldora: "eldora_boulder" };
+const ROUTE_LABEL = { berthoud: "Berthoud", pass: "Loveland Pass", canyon: "Clear Creek Canyon", dillon: "US 6 through Dillon",
+  eldora_boulder: "Boulder Canyon", eldora_coal: "Coal Creek", eldora_119: "CO 119 via Black Hawk" };
+const SHOW = { ikon: true, epic: false, indy: false, overnight: false };
+const SHOW_KEYS = { ikon: "ski-ikon", epic: "ski-epic", indy: "ski-indy", overnight: "ski-overnight" };
+try { for (const g in SHOW) { const v = localStorage.getItem(SHOW_KEYS[g]); if (v != null) SHOW[g] = v === "1"; } } catch (e) {}
+function shown(k) { const R = RESORTS[k]; return SHOW[R.pass] && (!R.overnight || SHOW.overnight); }
+const PINS = { copper: [39.502, -106.151], abasin: [39.642, -105.872], winterpark: [39.887, -105.763], eldora: [39.937, -105.583], steamboat: [40.457, -106.804], aspen: [39.209, -106.949],
+  keystone: [39.605, -105.954], breck: [39.480, -106.066], vail: [39.606, -106.355], beavercreek: [39.604, -106.517], crestedbutte: [38.899, -106.965], telluride: [37.936, -107.846],
+  loveland: [39.680, -105.898], echo: [39.684, -105.519], cooper: [39.361, -106.302], granby: [40.045, -105.906], monarch: [38.512, -106.332], sunlight: [39.399, -107.338],
+  powderhorn: [39.069, -108.150], wolfcreek: [37.472, -106.793], purgatory: [37.630, -107.814] };
+const LANDMARKS = [["Glenwood Springs", -107.32], ["Glenwood Canyon", -107.2], ["Eagle", -106.83], ["Edwards", -106.59], ["Vail", -106.37], ["Vail Pass", -106.22], ["Copper", -106.145], ["Frisco", -106.10], ["Silverthorne", -106.07], ["the tunnel", -105.92],
+  ["Georgetown", -105.70], ["Empire", -105.66], ["Idaho Springs", -105.52], ["Floyd Hill", -105.42], ["Genesee", -105.30], ["C-470", -105.20], ["Wheat Ridge", -105.10], ["downtown Denver", -105.02]];
+const EAST_LON = -104.99;   // I-25 downtown: I-70 is measured from Coors Field (C-470 before Nov 21)
+
+function parseCSV(text) {
+  const rows = []; let row = [], cur = "", q = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (q) { if (c === '"') { if (text[i + 1] === '"') { cur += '"'; i++; } else q = false; } else cur += c; }
+    else if (c === '"') q = true;
+    else if (c === ",") { row.push(cur); cur = ""; }
+    else if (c === "\n") { row.push(cur); rows.push(row); row = []; cur = ""; }
+    else if (c !== "\r") cur += c;
+  }
+  if (cur !== "" || row.length) { row.push(cur); rows.push(row); }
+  if (!rows.length) return [];
+  const head = rows[0];
+  return rows.slice(1).filter(r => r.length > 1 || r[0] !== "").map(r => Object.fromEntries(head.map((h, i) => [h, r[i] === undefined ? "" : r[i]])));
+}
+function denverParts(d) {
+  const p = Object.fromEntries(new Intl.DateTimeFormat("en-CA", { timeZone: "America/Denver", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(d).map(x => [x.type, x.value]));
+  return { day: `${p.year}-${p.month}-${p.day}`, month: `${p.year}-${p.month}` };
+}
+function prevMonth(m) { let [y, mo] = m.split("-").map(Number); mo--; if (!mo) { mo = 12; y--; } return `${y}-${String(mo).padStart(2, "0")}`; }
+function normRoute(r) { return String(r || "").toUpperCase().replace(/[^A-Z0-9]/g, "").replace(/^SH/, "CO"); }
+function num(v) { return v === "" || v == null || isNaN(+v) ? null : +v; }
+function nearLandmark(lon) { return LANDMARKS.reduce((a, b) => Math.abs(b[1] - lon) < Math.abs(a[1] - lon) ? b : a)[0]; }
+function miles(lon0, lat0, lon1, lat1) {
+  const R = 3958.8, r = Math.PI / 180, dLa = (lat1 - lat0) * r, dLo = (lon1 - lon0) * r;
+  const a = Math.sin(dLa / 2) ** 2 + Math.cos(lat0 * r) * Math.cos(lat1 * r) * Math.sin(dLo / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(a)) * 1.12; // 1.12: roads curve more than the straight line
+}
+function segments(segRows) {
+  return segRows.map(s => {
+    const lon0 = +s.start_lon, lon1 = +s.end_lon;
+    return { id: s.segment_id, route: s.route, i70: /^I70/.test(s.route), midLat: (+s.start_lat + +s.end_lat) / 2, dir: /W$/.test(s.route) ? "W" : "E", lonA: Math.min(lon0, lon1), lonB: Math.max(lon0, lon1),
+      mid: (lon0 + lon1) / 2, len: miles(lon0, +s.start_lat, lon1, +s.end_lat) };
+  });
+}
+function refSpeeds(speedRows, segs) {
+  const out = {};
+  for (const s of segs) {
+    let ref = 58;
+    const v = speedRows.map(r => num(r[s.id])).filter(x => x != null).sort((a, b) => a - b);
+    if (v.length >= 48) ref = v[Math.floor(v.length * 0.85)];
+    out[s.id] = Math.max(45, Math.min(65, ref));
+  }
+  return out;
+}
+// Minutes lost versus normal speeds, on I-70 between westLon and downtown, one direction.
+function delayMin(row, segs, refs, dir, westLon) {
+  let d = 0, n = 0;
+  for (const s of segs) {
+    if (!s.i70 || s.dir !== dir || s.mid < westLon || s.mid > EAST_LON) continue;
+    const sp = num(row[s.id]); if (sp == null) continue;
+    n++; d += Math.max(0, s.len / Math.max(sp, 3) - s.len / refs[s.id]) * 60;
+  }
+  return n ? Math.round(d) : null;
+}
+function delaySeries(speedRows, segs, refs, day) {
+  return speedRows.map(r => ({ t: new Date(r.snapshot_time), r })).filter(x => denverParts(x.t).day === day)
+    .map(x => ({ t: x.t, wb: delayMin(x.r, segs, refs, "W", RESORTS.copper.westLon), eb: delayMin(x.r, segs, refs, "E", RESORTS.copper.westLon) }));
+}
+function snowSummary(rows, key) {
+  const pts = rows.filter(r => r.resort === key && num(r.depth_in) != null)
+    .map(r => ({ t: new Date(r.obs_time_mst.replace(" ", "T") + ":00-07:00"), depth: +r.depth_in, temp: num(r.temp_f) })).sort((a, b) => a.t - b.t);
+  const temps = rows.filter(r => r.resort === key && num(r.temp_f) != null);
+  if (!pts.length) return temps.length ? { t: null, depth: null, temp: +temps[temps.length - 1].temp_f, new24: null, new72: null } : null;
+  const last = pts[pts.length - 1];
+  const since = h => {
+    const cut = last.t - h * 3600e3; let ref = null;
+    for (const p of pts) if (p.t <= cut) ref = p;
+    const span = ref ? h : Math.round((last.t - pts[0].t) / 3600e3);
+    return { inches: Math.max(0, last.depth - (ref || pts[0]).depth), spanH: span, full: !!ref };
+  };
+  return { t: last.t, depth: last.depth, temp: last.temp, new24: since(24), new72: since(72) };
+}
+function latestForecast(rows) {
+  const out = {};
+  for (const r of rows) {
+    const o = out[r.resort];
+    if (!o || r.snapshot_time > o.snap) out[r.resort] = { snap: r.snapshot_time, w: {} };
+    if (out[r.resort].snap === r.snapshot_time) out[r.resort].w[r.window] = r;
+  }
+  return out;
+}
+function overlaps(a, b, lo, hi) {
+  a = num(a); b = num(b); if (a == null) return false;
+  if (b == null) return a >= lo && a <= hi;
+  return Math.min(Math.max(a, b), hi) - Math.max(Math.min(a, b), lo) > 0.3;
+}
+function onRoute(resort, route, a, b) { const n = normRoute(route); return resort.roads.some(([r, lo, hi]) => r === n && overlaps(a, b, lo, hi)); }
+function cleanCond(c) { return String(c).split(";").map(p => { p = p.trim().replace(/^\d+[a-z]?(-\d+[a-z]?)?\s*(-\s*)?/i, ""); return p.charAt(0).toUpperCase() + p.slice(1); }).join("; "); }
+function condLevel(c) { c = String(c).toLowerCase(); return /clos/.test(c) ? 3 : /snow|ice|icy|slush|pack|blow|drift/.test(c) ? 2 : /wet|rain|fog|wind/.test(c) ? 1 : 0; }
+function latestConds(rows) { const m = {}; for (const r of rows) m[r.segment_id] = r; return Object.values(m); }
+
+function scoreResort(key, ctx) {
+  const R = RESORTS[key], why = [], chips = [];
+  let s = 50;
+  const sn = ctx.snow[key], fc = (ctx.forecast[key] || { w: {} }).w["0-24h"];
+  const new24 = sn && sn.new24 ? sn.new24.inches : 0, fc24 = fc ? num(fc.snow_in) || 0 : 0, gust = fc ? num(fc.gust_max_mph) : null;
+  s += Math.min(40, (new24 >= 1 ? 6 * new24 : 0) + (fc24 >= 1 ? 4 * fc24 : 0));
+  if (new24 >= 1) chips.push({ t: `${new24}" new`, k: "plus" });
+  if (fc24 >= 1) chips.push({ t: `${fc24}" forecast`, k: "plus" });
+  if (gust != null && gust > 35) { s -= Math.min(20, gust - 35); chips.push({ t: `Gusts ${Math.round(gust)} mph`, k: "bad" }); }
+  let delay = null;
+  if (R.westLon != null && ctx.speedRow) {
+    delay = delayMin(ctx.speedRow, ctx.segs, ctx.refs, "W", R.westLon);
+    if (delay != null) { s -= Math.min(20, delay * 0.5); if (delay >= 5) chips.push({ t: `+${delay} min on I-70`, k: "bad" }); }
+  }
+  const via = VIA_ROUTE[key], rt = via && ((ctx.routes || {}).routes || {})[via];
+  if (rt && (rt.closed || (rt.W && rt.W.detour))) { s -= 15; chips.push({ t: `TomTom shows ${ROUTE_LABEL[via]} blocked, check COtrip`, k: "bad" }); }
+  else if (rt && rt.W && rt.W.delay_min != null) {
+    const d = Math.max(0, Math.round(rt.W.delay_min));
+    s -= Math.min(15, d * 0.5);
+    if (d >= 3) chips.push({ t: `+${d} min on ${ROUTE_LABEL[via]}`, k: "bad" });
+  }
+  const evs = ctx.events.filter(e => onRoute(R, e.route, e.mp_start, e.mp_end));
+  const closed = evs.filter(e => e.class === "roadClosures"), chain = evs.filter(e => e.class === "chainLaws");
+  if (closed.length) { s -= 40; chips.push({ t: "Closure on route", k: "bad" }); }
+  if (chain.length) { s -= 4; chips.push({ t: "Traction law", k: "bad" }); }
+  // CDOT posts planned closures days ahead. They don't count until they start, but flag one starting within 12 hours.
+  const soon = (ctx.upcoming || []).filter(e => e.class === "roadClosures" && onRoute(R, e.route, e.mp_start, e.mp_end) && Date.parse(e.began) - (ctx.now || Date.now()) < 12 * 3600e3);
+  if (soon.length) chips.push({ t: "Closure starts " + new Date(Math.min(...soon.map(e => Date.parse(e.began)))).toLocaleTimeString("en-US", { timeZone: "America/Denver", hour: "numeric", minute: "2-digit" }), k: "" });
+  const conds = ctx.conds.filter(c => onRoute(R, c.route, c.start_mp, c.end_mp));
+  const lvl = Math.max(0, ...conds.map(c => condLevel(c.condition)));
+  if (lvl >= 2) { s -= 6; chips.push({ t: lvl === 3 ? "Road closed" : "Snowy or icy roads", k: "bad" }); }
+  else if (lvl === 1) { s -= 1; chips.push({ t: "Wet roads", k: "" }); }
+  else if (conds.length) chips.push({ t: "Dry roads", k: "" });
+  if (R.westLon == null) chips.push({ t: "No I-70", k: "" });
+  if (R.overnight) chips.push({ t: "Overnight trip", k: "" });
+  // Ikon is the pass in hand, so anything else costs a lift ticket: a small penalty breaks ties toward Ikon.
+  if (R.pass !== "ikon") { s -= 8; chips.push({ t: R.pass === "epic" ? "Epic Pass, not Ikon" : "Not on Ikon, lift ticket", k: "" }); }
+  const st = (ctx.status || {})[key];
+  const op = st && st.open === false ? opensOf(st) : null;
+  if (op) chips.push({ t: op === ctx.today ? "Scheduled to open today, not confirmed" : `Opening date ${+op.slice(5, 7)}/${+op.slice(8)} passed, not confirmed`, k: "" });
+  else if (!st || !st.lifts) chips.push({ t: "No lift report", k: "" });
+  return { key, name: R.name, hrs: R.hrs, via: R.via, score: Math.max(0, Math.min(100, Math.round(s))), chips, new24, fc24, gust, delay, closed: closed.length, snowPts: 6 * new24 + 4 * fc24 };
+}
+// A resort marked closed counts as open once its scheduled opening date has arrived.
+function isOpen(ctx, k) { const s = (ctx.status || {})[k]; if (!s || s.open !== false) return true; const o = opensOf(s); return !!o && !!ctx.today && ctx.today >= o; }
+function rank(ctx) { return Object.keys(RESORTS).filter(k => shown(k) && isOpen(ctx, k)).map(k => scoreResort(k, ctx)).sort((a, b) => b.score - a.score || (a.hrs + (a.delay || 0) / 60) - (b.hrs + (b.delay || 0) / 60)); }
+
+// ---- 7-day outlook ------------------------------------------------------
+// Traffic model days use Python's weekday numbers (Mon=0); JS Date uses Sun=0.
+const pyDow = iso => (new Date(iso + "T12:00:00Z").getUTCDay() + 6) % 7;
+function tierOf(n) { return n >= 6 ? "Solid" : n >= 3 ? "Decent" : n >= 1 ? "Rough" : "Estimate"; }
+// Day type from the logger's calendar: holiday, school break, disrupted or typical. Older model files only list holidays.
+function dayInfo(model, iso) {
+  const d = ((model || {}).days || {})[iso]; if (d) return d;
+  const h = ((model || {}).holidays || []).find(([a, b]) => iso >= a && iso <= b);
+  return h ? { type: "holiday", tags: [h[2]] } : { type: "typical", tags: [] };
+}
+// Label for a busy day (holiday or school break), or null. Typical profiles leave these days out.
+function holidayOn(model, iso) {
+  const d = dayInfo(model, iso);
+  if (d.type === "holiday") return d.tags[0];
+  if (d.type === "break") return (d.tags.find(t => t.startsWith("School break")) || "School break").replace(/ \(.*$/, "").replace(/;.*$/, "");
+  return null;
+}
+// How much heavier than typical a busy day runs: measured once there are a few such days, else a rough guess.
+function busyLift(model, iso) {
+  const d = dayInfo(model, iso), t = ((model || {}).day_types || {})[d.type];
+  if (d.type !== "holiday" && d.type !== "break") return 1;
+  return (t && t.lift) || (d.type === "holiday" ? 1.5 : 1.25);
+}
+// Typical delay by hour for one day and direction: the logged profile where that window has data, else the known pattern.
+function hourly(model, iso, dir, h0, h1, win) {
+  const dow = pyDow(iso), cov = (((model || {}).coverage || {})[`${dow}-${win}`] || {}).n || 0, hol = holidayOn(model, iso);
+  const gen = (((model || {}).generic || {})[dir] || {})[dow] || {}, slots = (model || {}).slots || {}, out = {};
+  for (let h = h0; h < h1; h++) {
+    let v = null;
+    if (cov && !hol) {
+      const xs = ["00", "30"].map(m => (slots[`${dow}-${String(h).padStart(2, "0")}${m}-${dir}`] || {}).median).filter(x => x != null);
+      if (xs.length) v = xs.reduce((a, b) => a + b, 0) / xs.length;
+    }
+    if (v == null) v = (gen[h] || 0) * busyLift(model, iso);
+    out[h] = Math.round(v);
+  }
+  return { byHour: out, weekends: cov, tier: hol ? "Estimate" : tierOf(cov), holiday: hol };
+}
+const clock = h => `${h % 12 || 12} ${h < 12 ? "AM" : "PM"}`;
+function trafficDay(model, iso) {
+  const up = hourly(model, iso, "W", 5, 11, "amW"), home = hourly(model, iso, "E", 12, 20, "pmE");
+  const upBad = Object.keys(up.byHour).map(Number).filter(h => up.byHour[h] >= 10);
+  const homeBad = Object.keys(home.byHour).map(Number).filter(h => home.byHour[h] >= 15);
+  return {
+    leave: upBad.length ? `Leave before ${clock(upBad[0])}` : "No rush going up",
+    home: homeBad.length ? `Home before ${clock(homeBad[0])} or after ${clock(homeBad[homeBad.length - 1] + 1)}` : "No rush coming home",
+    upPeak: Math.max(0, ...Object.values(up.byHour)), homePeak: Math.max(0, ...Object.values(home.byHour)),
+    tier: up.tier, homeTier: home.tier, holiday: up.holiday, up, homeHours: home,
+  };
+}
+// Opening date: the seeded "opens" field, or a date in the resort's own note ("Scheduled to open Nov 26.").
+function opensOf(s) {
+  if (s.opens) return s.opens;
+  const m = /(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.? (\d{1,2})\b/i.exec(s.note || "");
+  if (!m) return null;
+  const mo = "janfebmaraprmayjunjulaugsepoctnovdec".indexOf(m[1].toLowerCase()) / 3 + 1, now = new Date();
+  const y = now.getFullYear() + (mo < now.getMonth() - 1 ? 1 : 0);
+  return `${y}-${String(mo).padStart(2, "0")}-${m[2].padStart(2, "0")}`;
+}
+// Typical delay on a pass or alternate for one day, by hour: logged profile where the window has data, else a rough guess.
+function routeHourly(model, iso, rk, h0, h1) {
+  const r = ((model || {}).routes || {})[rk]; if (!r) return null;
+  const dow = pyDow(iso), hol = holidayOn(model, iso), slots = model.route_slots || {}, gen = (r.generic || {})[dow] || {};
+  const win = Object.entries(model.route_windows || {}).find(([w, [d, a]]) => d === dow && a === h0);
+  const n = win ? ((r.coverage || {})[win[0]] || {}).n || 0 : 0, dir = win ? win[1][3] : (h0 < 12 ? "W" : "E"), out = {};
+  for (let h = h0; h < h1; h++) {
+    let v = null;
+    if (n && !hol) { const xs = ["00", "30"].map(m => (slots[`${rk}-${dir}-${dow}-${String(h).padStart(2, "0")}${m}`] || {}).median).filter(x => x != null); if (xs.length) v = xs.reduce((a, b) => a + b, 0) / xs.length; }
+    if (v == null) v = (gen[h] || 0) * busyLift(model, iso);
+    out[h] = Math.round(v);
+  }
+  return { byHour: out, peak: Math.max(0, ...Object.values(out)), tier: hol ? "Estimate" : tierOf(n) };
+}
+function openOn(status, key, iso) { const s = (status || {})[key]; if (!s || s.open !== false) return true; const o = opensOf(s); return !!o && iso >= o; }
+// Score one resort on one day, with the same weights as today's pick where they apply.
+function dayScore(key, i, W) {
+  const R = RESORTS[key], days = (W.outlook.resorts || {})[key] || [], d = days[i], prev = days[i - 1];
+  if (!d) return null;
+  if (!openOn(W.status, key, d.date)) return { key, closed: true };
+  const chips = [];
+  let s = 50;
+  const before = prev ? prev.snow || 0 : (W.new24 || {})[key] || 0, during = d.snow || 0;
+  const fresh = before + 0.5 * during;
+  s += Math.min(40, fresh >= 1 ? 6 * fresh : 0);
+  const agree = d.n >= 3 && d.hi - d.lo <= Math.max(2, 0.6 * (d.snow || 0));
+  if (before + during >= 1) chips.push(`${Math.round(before + during)}"${agree ? "" : ", models split"}`);
+  if (d.gust != null && d.gust > 35) { s -= Math.min(20, d.gust - 35); chips.push(`Gusts ${d.gust}`); }
+  if (before + during >= 6) { s -= 6; chips.push("Snowy drive"); } else if (before + during >= 3) s -= 3;
+  if (R.westLon != null) s -= Math.min(15, W.traffic[i].upPeak * 0.5);
+  const via = VIA_ROUTE[key], rh = via ? routeHourly(W.model, d.date, via, 5, 11) : null;
+  if (rh && rh.peak >= 3) { s -= Math.min(10, rh.peak * 0.5); chips.push(`+${rh.peak} min ${ROUTE_LABEL[via]}`); }
+  const planned = (W.upcoming || []).filter(e => e.class === "roadClosures" && onRoute(R, e.route, e.mp_start, e.mp_end)).filter(e => {
+    const t = new Date(e.began), p = denverParts(t); const hr = +t.toLocaleString("en-US", { timeZone: "America/Denver", hour: "numeric", hour12: false });
+    return p.day === d.date && hr >= 5 && hr < 18; });
+  if (planned.length) { s -= 40; chips.push("Planned closure"); }
+  if (R.pass !== "ikon") s -= 8;
+  return { key, score: Math.max(0, Math.min(100, Math.round(s))), snow: before + during, fresh, agree, chips, n: d.n };
+}
+
+// ---- Passes and alternate routes ------------------------------------------
+// Each stretch is matched by mileposts (alerts, conditions) and by a map box (speed sensors).
+// Alternates are compared with the I-70 stretch they replace. Speeds show only where CDOT reports them.
+// The canyon is a few minutes longer than I-70 from west Denver even with no traffic.
+const CANYON_EXTRA_MIN = 5;
+const ALTERNATES = [
+  { key: "canyon", name: "Clear Creek Canyon", short: "canyon", road: "US6", what: "From Coors Field by 6th Ave through Golden and up US 6 to I-70 exit 244, instead of I-70 over Floyd Hill",
+    mp: [257.1, 271.5], box: [-105.45, -105.19, 39.68, 39.80], i70Lon: [-105.44, EAST_LON] },
+  { key: "pass", name: "Loveland Pass", short: "pass", road: "US6", what: "US 6 over the pass, instead of I-70 through the Eisenhower Tunnel. Also the way to A-Basin",
+    mp: [219.9, 229.9], box: [-105.96, -105.86, 39.60, 39.70], i70Lon: [-106.07, -105.88] },
+  { key: "berthoud", name: "Berthoud Pass", short: "US 40", road: "US40", what: "US 40 from I-70 exit 232 over the pass to Winter Park and Granby",
+    mp: [231.5, 258.5], box: [-105.95, -105.60, 39.74, 40.10] },
+  { key: "dillon", name: "US 6 through Dillon", short: "US 6", road: "US6", what: "US 6 from I-70 exit 205 at Silverthorne through Dillon to Keystone",
+    mp: [208.7, 216], box: [-106.08, -105.93, 39.59, 39.64] },
+  // Eldora, timed from Coors Field in the ski direction only. COtrip closures match by place (zones), not mileposts.
+  { key: "eldora_boulder", name: "Eldora by Boulder Canyon", short: "CO 119", road: "CO119", what: "Coors Field to Eldora by US 36, Boulder Canyon and Nederland",
+    zones: [{ road: "CO119", box: [-105.53, -105.27, 39.95, 40.04] }] },
+  { key: "eldora_coal", name: "Eldora by Coal Creek", short: "CO 72", road: "CO72", what: "Coors Field to Eldora by I-70, US 6 to Golden, CO 93 and Coal Creek Canyon",
+    zones: [{ road: "CO72", box: [-105.53, -105.15, 39.80, 39.99] }, { road: "CO93", box: [-105.26, -105.19, 39.74, 39.92] }] },
+  { key: "eldora_119", name: "Eldora by Black Hawk", short: "CO 119", road: "CO119", what: "Coors Field to Eldora by Clear Creek Canyon, Black Hawk and Peak to Peak",
+    zones: [{ road: "CO119", box: [-105.53, -105.39, 39.74, 39.95] }, { road: "US6", box: [-105.40, -105.19, 39.70, 39.80] }] },
+];
+function travelMin(row, segs, pick, dir) {
+  const xs = segs.filter(s => pick(s) && s.dir === dir);
+  let t = 0, got = 0;
+  for (const s of xs) { const sp = num(row[s.id]); if (sp == null) continue; got++; t += s.len / Math.max(sp, 3) * 60; }
+  return xs.length && got / xs.length >= 0.7 ? Math.round(t * xs.length / got) : null;
+}
+function altStatus(ctx, A) {
+  const inZone = (route, lat, lon) => lat != null && lon != null && A.zones.some(z => normRoute(route) === z.road &&
+    +lon >= z.box[0] && +lon <= z.box[1] && +lat >= z.box[2] && +lat <= z.box[3]);
+  const on = (route, a, b, lat, lon) => A.zones ? inZone(route, lat, lon) : normRoute(route) === A.road && overlaps(a, b, A.mp[0], A.mp[1]);
+  const evs = ctx.events.filter(e => on(e.route, e.mp_start, e.mp_end, e.lat, e.lon));
+  const closed = evs.filter(e => e.class === "roadClosures" || /road closed/i.test(e.title));
+  const traction = evs.filter(e => e.class === "chainLaws" && !/commercial/i.test(e.title));
+  const uniq = xs => [...new Set(xs)];
+  const cond = uniq(ctx.conds.filter(c => on(c.route, c.start_mp, c.end_mp)).map(c => cleanCond(c.condition))).join("; ");
+  const out = { closed: closed.length > 0, traction: traction.length > 0, cond, alerts: uniq(closed.concat(traction).map(e => e.title)) };
+  const live = ((ctx.routes || {}).routes || {})[A.key];
+  // CDOT (COtrip) decides closed. TomTom finding no way along the road is a warning to check.
+  if (live) { out.live = live; out.tomtomBlocked = !!(live.closed || (live.W && live.W.detour) || (live.E && live.E.detour)); }
+  if (ctx.speedRow && ctx.segs && A.i70Lon) out.i70Delay = { W: delayMin(ctx.speedRow, ctx.segs, ctx.refs || {}, "W", A.i70Lon[0]), E: null };
+  if (ctx.speedRow && ctx.segs && A.box) {
+    const [x0, x1, y0, y1] = A.box, inBox = s => !s.i70 && normRoute(s.route).startsWith(A.road) && s.mid >= x0 && s.mid <= x1 && s.midLat >= y0 && s.midLat <= y1;
+    for (const [dir, k] of [["W", "up"], ["E", "home"]]) {
+      out[k] = { alt: travelMin(ctx.speedRow, ctx.segs, inBox, dir),
+                 i70: A.i70Lon ? travelMin(ctx.speedRow, ctx.segs, s => s.i70 && s.mid >= A.i70Lon[0] && s.mid <= A.i70Lon[1], dir) : null };
+    }
+  }
+  return out;
+}
+function headline(ranked) {
+  const top = ranked[0], anySnow = ranked.some(r => r.new24 + r.fc24 >= 1);
+  if (!anySnow && top.score - ranked[ranked.length - 1].score <= 2)
+    return { title: "Toss-up", kicker: "No fresh snow anywhere", why: "Nothing new on the ground, under an inch forecast in the next 24 hours, and no road trouble on any route. Any of the open mountains works." };
+  if (!anySnow)
+    return { title: top.name, kicker: "No fresh snow anywhere", why: `Nothing new on the ground and under an inch forecast in the next 24 hours, so this comes down to the drive. ${top.name} has the least hassle right now (${top.via}).` };
+  const bits = [];
+  if (top.new24 >= 1) bits.push(`${top.new24}" in the last 24 hours`);
+  if (top.fc24 >= 1) bits.push(`${top.fc24}" forecast in the next 24`);
+  let why = bits.length ? `${top.name} has the best mix of snow and drive: ${bits.join(" and ")}.`
+    : `${top.name} wins on the drive. The snowier mountains have wind, delays or road trouble right now.`;
+  if (top.delay >= 5) why += ` I-70 westbound is running about ${top.delay} minutes slow.`;
+  if (top.closed) why += " There is a closure on the route, so check before leaving.";
+  return { title: top.name, kicker: "Best bet for the next 24 hours", why };
+}
+// ---- The verdict: one blunt line at the top of the page --------------------
+// hour is the Denver hour now. Uses live closures and delays first, then snow, then the calendar.
+function verdict(ctx, ranked, model, hour) {
+  const iso = ctx.today, dow = pyDow(iso), weekend = dow >= 5 || (dow === 4 && hour >= 12);
+  const shut = ctx.events.filter(e => e.class === "roadClosures" || /road closed/i.test(e.title));
+  const i70 = word => shut.filter(e => normRoute(e.route) === "I70" && overlaps(e.mp_start, e.mp_end, 205, 262) && new RegExp(word + "|both", "i").test(e.title));
+  const upShut = i70("westbound"), homeShut = i70("eastbound");
+  const canyon = altStatus(ctx, ALTERNATES.find(a => a.key === "canyon")).closed;
+  // US 6 rejoins I-70 at exit 244, so a westbound closure west of there blocks the canyon route too.
+  const westOf244 = upShut.some(e => Math.min(num(e.mp_start), num(e.mp_end) == null ? 999 : num(e.mp_end)) < 243.5);
+  const row = ctx.speedRow, up = row ? delayMin(row, ctx.segs, ctx.refs, "W", RESORTS.copper.westLon) || 0 : 0;
+  const home = row ? delayMin(row, ctx.segs, ctx.refs, "E", RESORTS.copper.westLon) || 0 : 0;
+  const top = ranked[0], day = dayInfo(model, iso), prof = trafficDay(model, iso);
+  const easeAfter = (byHour, from, limit) => Object.keys(byHour).map(Number).filter(h => h > from && byHour[h] < limit)[0];
+  const morning = hour < 12, texas = day.tags.some(t => /Texas/.test(t));
+  if (!top) return null;
+  if (morning && upShut.length && (canyon || westOf244))
+    return { level: "crit", line: "Keep your ass at home.", why: `I-70 westbound is closed${canyon ? " and so is Clear Creek Canyon" : " past where the canyon comes in"}. There's no way up right now.` };
+  if (morning && upShut.length)
+    return { level: "crit", line: "Canyon or couch.", why: "I-70 westbound is closed near Floyd Hill. Clear Creek Canyon is open, so it's US 6 or nothing." };
+  if (!morning && weekend && homeShut.length)
+    return { level: "crit", line: "Order another round.", why: "I-70 eastbound is closed. Nobody's getting back to Denver for a while, so get comfortable." };
+  if (morning && up >= 40) {
+    const h = Math.max(hour + 2, easeAfter(prof.up.byHour, hour, 10) || 12);
+    return { level: "crit", line: `Keep your ass at home until traffic breaks around ${clock(h)}.`, why: `I-70 westbound is already ${up} minutes slow to Copper.` };
+  }
+  if (!morning && weekend && home >= 30) {
+    const h = easeAfter(prof.homeHours.byHour, hour, 15) || 19;
+    return { level: "warn", line: `Après until ${clock(h)} or sit in it.`, why: `I-70 eastbound is ${home} minutes slow and it usually loosens up around then.` };
+  }
+  if (morning && up >= 20)
+    return { level: "warn", line: "Go now or go after lunch.", why: `I-70 westbound is ${up} minutes slow and it's still building.` };
+  const deep = top.new24 >= 6, snowyRoads = top.chips.some(c => /Snowy|Traction/.test(c.t));
+  if (deep && snowyRoads)
+    return { level: "good", line: "Powder day. Drive like your skis depend on it.", why: `${top.new24}" new at ${top.name}, but the roads are snowy. Real tires, early start, easy on the brakes.` };
+  if (deep)
+    return { level: "good", line: "Clear roads, deep snow. Full send.", why: `${top.new24}" new at ${top.name} and I-70 is moving.` };
+  if (top.fc24 >= 6)
+    return { level: "warn", line: "It's about to dump. Plan to leave early.", why: `${top.fc24}" forecast at ${top.name} in the next 24 hours. The roads will get ugly before they get good.` };
+  if (morning && weekend && (day.type === "holiday" || day.type === "break"))
+    return { level: "warn", line: texas ? "Half of Texas is on I-70. Leave before 6 or keep your ass at home." : "Everybody's off this week. Leave before 6 or keep your ass at home.", why: day.tags.join(". ") + "." };
+  if (!weekend && top.new24 >= 3)
+    return { level: "good", line: "Fresh snow on a weekday. Call in sick.", why: `${top.new24}" new at ${top.name} and nobody else is up there.` };
+  if (!weekend)
+    return { level: "good", line: "Empty roads, empty lifts.", why: "Weekday. Nothing to fight through." };
+  return { level: "good", line: top.new24 >= 1 ? "Roads are fine. Go get it." : "Clear roads, old snow. Groomer day.", why: `${top.name} is the pick. ${prof.leave === "No rush going up" ? "No rush heading up." : prof.leave + " to beat the usual rush."}` };
+}
+if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift, parseCSV, denverParts, prevMonth, segments, refSpeeds, delayMin, delaySeries, snowSummary, latestForecast, latestConds, onRoute, cleanCond, condLevel, rank, headline, nearLandmark, RESORTS, trafficDay, dayScore, tierOf, openOn, hourly, altStatus, ALTERNATES, routeHourly, scoreResort };
+</script>
+
+<script>
+(() => {
+  const host = location.hostname, owner = host.endsWith(".github.io") ? host.split(".")[0] : "i70skibum";
+  const repo = (host.endsWith(".github.io") && location.pathname.split("/")[1]) || "ski-logger";
+  const BASE = `https://raw.githubusercontent.com/${owner}/${repo}/main/data/`;
+  document.getElementById("repolink").href = `https://github.com/${owner}/${repo}`;
+  const $ = id => document.getElementById(id);
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  const svgEl = (tag, attrs) => { const e = document.createElementNS("http://www.w3.org/2000/svg", tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; };
+  const tip = $("tip");
+  const showTip = (ev, text) => { tip.textContent = text; tip.style.display = "block"; const w = tip.offsetWidth;
+    tip.style.left = Math.max(6, Math.min(innerWidth - w - 6, ev.clientX - w / 2)) + "px"; tip.style.top = Math.max(6, ev.clientY - 36) + "px"; };
+  const hideTip = () => { tip.style.display = "none"; };
+  const fmtTime = d => d.toLocaleTimeString("en-US", { timeZone: "America/Denver", hour: "numeric", minute: "2-digit" });
+  const speedColor = v => v == null ? "var(--none)" : v >= 50 ? "var(--good)" : v >= 30 ? "var(--warn)" : "var(--crit)";
+  const speedWord = v => v == null ? "no reading" : v >= 50 ? "moving" : v >= 30 ? "slow" : "crawling";
+  let D = null;
+
+  async function get(path, json) {
+    const r = await fetch(BASE + path + "?t=" + Math.floor(Date.now() / 240000), { cache: "no-store" });
+    if (!r.ok) return json ? {} : "";
+    return json ? r.json() : r.text();
+  }
+  async function csv2(dir, month, withPrev) {
+    const [a, b] = await Promise.all([withPrev ? get(`${dir}/${prevMonth(month)}.csv`) : "", get(`${dir}/${month}.csv`)]);
+    return parseCSV(a).concat(parseCSV(b));
+  }
+  async function load() {
+    const now = new Date(), { day, month } = denverParts(now);
+    const [state, segRows, speedRows, snow, fc, rc, rs] = await Promise.all([
+      get("state.json", true), get("speed/segments.csv").then(parseCSV), csv2("speed", month, false),
+      csv2("snotel", month, true), csv2("forecast", month, true), csv2("road_conditions", month, true), get("resort_status.json", true)]);
+    const [outlook, model, routes, segGeo] = await Promise.all([get("outlook.json", true), get("traffic_model.json", true), get("routes_now.json", true),
+      get("speed/segments_geo.json", true).catch(() => null)]);
+    if (!state.last_run) throw new Error("Could not load the logger data.");
+    const segs = segments(segRows), refs = refSpeeds(speedRows, segs), speedRow = speedRows[speedRows.length - 1] || null;
+    const allEv = Object.values(state.events || {}), nowMs = Date.now(), started = e => !e.began || Date.parse(e.began) <= nowMs;
+    const ctx = { segs, refs, speedRow, events: allEv.filter(started), upcoming: allEv.filter(e => !started(e)), now: nowMs, conds: latestConds(rc), forecast: latestForecast(fc), snow: {}, status: rs.resorts || {}, statusDate: rs.checked || "", statusAuto: !!rs.auto, today: day, routes };
+    for (const k in RESORTS) ctx.snow[k] = snowSummary(snow, k);
+    D = { now, day, state, ctx, outlook, model, segRows, segGeo: segGeo || {}, speedRows, series: delaySeries(speedRows, segs, refs, day), ranked: rank(ctx) };
+    render();
+  }
+
+  // ---- 7-day tab ----------------------------------------------------------
+  const TIER_CLASS = { Estimate: "t-est", Rough: "t-rough", Decent: "t-ok", Solid: "t-solid" };
+  const badge = t => el("span", "tier " + TIER_CLASS[t], t);
+  const dayName = iso => new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", weekday: "short", month: "short", day: "numeric" });
+  function renderWeek() {
+    const { outlook, model, ctx } = D, grid = $("weekgrid"), picks = $("weekpicks");
+    grid.replaceChildren(); picks.replaceChildren();
+    if (!outlook || !outlook.days || !outlook.days.length) { $("weekdesc").textContent = "The 7-day outlook fills in after the logger's next forecast run, within 3 hours."; renderModel(); return; }
+    const afterNoon = +new Date().toLocaleString("en-US", { timeZone: "America/Denver", hour: "numeric", hour12: false }) >= 12;
+    const idx = outlook.days.map((d, i) => i).filter(i => outlook.days[i] > D.day || (outlook.days[i] === D.day && !afterNoon));
+    const W = { outlook, model, status: ctx.status, upcoming: ctx.upcoming, traffic: outlook.days.map(d => trafficDay(model, d)),
+      new24: Object.fromEntries(Object.keys(RESORTS).map(k => [k, ctx.snow[k] && ctx.snow[k].new24 ? ctx.snow[k].new24.inches : 0])) };
+    const keys = Object.keys(RESORTS).filter(shown);
+    $("weekdesc").textContent = `Snow is the middle of ${Object.keys(outlook.sources || {}).length} forecasts, with a range when they disagree. Snow that falls the day or night before counts most. Updated ${fmtTime(new Date(outlook.updated))}.`;
+    // One card per day: best pick, leave-by time and confidence.
+    idx.forEach(i => {
+      const iso = outlook.days[i], t = W.traffic[i];
+      const sc = keys.map(k => dayScore(k, i, W)).filter(x => x && !x.closed).sort((a, b) => b.score - a.score);
+      const c = el("div", "daycard"), top = sc[0];
+      c.append(el("div", "dname", dayName(iso)));
+      c.append(el("div", "dpick", top ? RESORTS[top.key].name : "Nothing open"));
+      if (top) c.append(el("div", "dsub", top.snow >= 1 ? `${Math.round(top.snow)}" forecast${top.agree ? "" : ", models split"}` : "No new snow forecast"));
+      const lv = el("div", "dleave"); lv.append(el("span", "", t.leave), badge(t.tier)); c.append(lv);
+      if (t.homePeak >= 15) c.append(el("div", "dsub", t.home));
+      if (t.holiday) c.append(el("div", "dsub warnline", `${t.holiday}: expect heavier traffic`));
+      const extra = dayInfo(model, iso).tags.filter(x => x !== t.holiday && !(t.holiday && x.startsWith(t.holiday)));
+      if (extra.length) c.append(el("div", "daytags", extra.join(". ")));
+      picks.append(c);
+    });
+    // Grid: resorts by day.
+    const tbl = el("table", "wk"), hr = el("tr"); hr.append(el("th", "", ""));
+    idx.forEach(i => hr.append(el("th", "", dayName(outlook.days[i]).replace(/,.*/, "") + " " + outlook.days[i].slice(8).replace(/^0/, ""))));
+    tbl.append(hr);
+    keys.forEach(k => {
+      const tr = el("tr"); tr.append(el("th", "rn", RESORTS[k].name));
+      idx.forEach(i => {
+        const r = dayScore(k, i, W), td = el("td");
+        if (!r) td.append(el("span", "muted", "n/a"));
+        else if (r.closed) { td.className = "cl"; td.append(el("span", "muted", "Closed")); }
+        else {
+          td.style.background = `color-mix(in srgb, var(--accent) ${Math.round(4 + r.score * 0.4)}%, transparent)`;
+          td.append(el("b", "", String(r.score)));
+          if (r.chips.length) td.append(el("small", "", r.chips.join(", ")));
+          td.title = `${RESORTS[k].name}: ${r.score} out of 100. ${r.n} forecasts.`;
+        }
+        tr.append(td);
+      });
+      tbl.append(tr);
+    });
+    grid.append(tbl);
+    $("weeknote").textContent = "Scores use the same weights as today's pick: snow adds; wind, a snowy drive, typical I-70 traffic, planned closures and a non-Ikon ticket subtract. Snow forecasts past about 3 days often change, so treat the right side of the table as a heads-up.";
+    renderModel();
+  }
+  function renderModel() {
+    const m = D.model, box = $("modelpanel"); box.replaceChildren();
+    if (!m || !m.key_windows) { box.append(el("p", "note", "The traffic model builds after the logger's next run.")); $("modelline").textContent = ""; return; }
+    const names = { fri_pm_W: "Fri 2 to 8 PM, heading up", sat_am_W: "Sat 5 to 10 AM, heading up", sun_am_W: "Sun 5 to 10 AM, heading up",
+      sat_pm_E: "Sat 1 to 7 PM, heading home", sun_pm_E: "Sun 1 to 7 PM, heading home" };
+    const kw = m.key_windows, target = m.target || 6, total = Object.values(kw).reduce((a, w) => a + Math.min(w.n, target), 0);
+    const worst = Math.min(...Object.values(kw).map(w => w.n));
+    const head = el("div", "mhead");
+    head.append(el("div", "", worst >= target ? "Solid: enough weekends logged" : worst >= 3 ? "Decent, still learning" : "Learning, still mostly estimates"),
+      el("span", "tier " + TIER_CLASS[tierOf(worst)], `${worst} of ${target} weekends`));
+    box.append(head);
+    box.append(el("p", "note", `Logged since ${dayName(m.first_day)}. A window counts for a weekend once most of its hours are logged. Six weekends is the target, because weekend traffic swings a lot from one week to the next.`));
+    const rows = el("div", "mrows");
+    for (const k in names) {
+      const w = kw[k] || { n: 0 }, bar = el("div", "blocks");
+      for (let j = 0; j < target; j++) bar.append(el("span", j < w.n ? "on" : ""));
+      rows.append(el("span", "", names[k]), bar, badge(tierOf(w.n)));
+    }
+    box.append(rows);
+    // When each window should reach Solid, skipping holiday weekends.
+    const need = target - worst;
+    if (need > 0) {
+      let d = new Date(D.day + "T12:00:00Z"), got = 0;
+      while (got < need) { d = new Date(d.getTime() + 864e5); if (d.getUTCDay() === 6 && dayInfo(m, d.toISOString().slice(0, 10)).type === "typical") got++; }
+      box.append(el("p", "note", `If logging keeps running, every window reaches Solid around ${dayName(d.toISOString().slice(0, 10))}, assuming no storms close the roads. Holiday and school-break weekends don't count toward this.`));
+    }
+    if (m.routes) {
+      box.append(el("p", "mlabel", "Passes and alternates (TomTom routing times)"));
+      const rr = el("div", "mrows"), wn = { sat_am: "Sat 5 to 10 AM, up", sun_am: "Sun 5 to 10 AM, up", sat_pm: "Sat 1 to 7 PM, home", sun_pm: "Sun 1 to 7 PM, home" };
+      for (const rk of ["berthoud", "pass", "canyon", "dillon", "eldora_boulder", "eldora_coal", "eldora_119"]) {
+        const r = m.routes[rk]; if (!r) continue;
+        for (const w of ["sat_am", "sun_pm"]) {
+          const n = ((r.coverage || {})[w] || {}).n || 0, bar = el("div", "blocks");
+          for (let j = 0; j < target; j++) bar.append(el("span", j < n ? "on" : ""));
+          rr.append(el("span", "", `${ROUTE_LABEL[rk]}, ${wn[w]}`), bar, badge(tierOf(n)));
+        }
+      }
+      box.append(rr);
+    }
+    const cards = el("div", "mcards"), g = m.graded || [];
+    const acc = el("div", "mcard"); acc.append(el("div", "mlabel", "Last weekend's predictions"));
+    if (g.length) {
+      const last = g[g.length - 1];
+      acc.append(el("div", "mbig", last.mean_error_min == null ? "Not enough data" : `Off by ${last.mean_error_min} min`),
+        el("div", "mlabel", `Weekend of ${dayName(last.weekend)}, average across the windows${last.source.includes("estimate") ? ", from estimates" : ""}`));
+      const re = Object.entries(last.error_min || {}).filter(([k]) => k.includes(":"));
+      if (re.length) acc.append(el("div", "mlabel", "Passes: " + ["berthoud", "pass", "canyon", "dillon", "eldora_boulder", "eldora_coal", "eldora_119"].map(rk => { const xs = re.filter(([k]) => k.startsWith(rk + ":")).map(([, v]) => v); return xs.length ? `${ROUTE_LABEL[rk]} ${Math.round(xs.reduce((a, b) => a + b, 0) / xs.length * 10) / 10} min` : null; }).filter(Boolean).join(", ")));
+      if (g.length > 1) acc.append(el("div", "mlabel", "Earlier: " + g.slice(0, -1).slice(-4).map(x => x.mean_error_min == null ? "n/a" : x.mean_error_min + " min").join(", ")));
+    } else acc.append(el("div", "mbig", "Not graded yet"), el("div", "mlabel", "The first check runs the Monday after a full weekend"));
+    const cond = el("div", "mcard"); cond.append(el("div", "mlabel", "Kinds of weekends seen"));
+    const cs = m.conditions_seen || {};
+    [["dry", "Dry weekend"], ["powder", "Powder weekend"], ["holiday", "Holiday weekend"], ["break", "School-break weekend"], ["disrupted", "Disrupted weekend"]].forEach(([k, label]) => {
+      const n = (cs[k] || []).length; cond.append(el("div", n ? "" : "muted", `${n ? "\u2713" : "\u25CB"} ${label}${n > 1 ? ` (${n})` : ""}`));
+    });
+    cond.append(el("div", "mlabel", "Only typical weekends build the normal profile. Holidays, school breaks and disrupted days are logged and measured separately, and days like ones it hasn't seen stay estimates."));
+    const lifts = Object.entries(m.day_types || {}).filter(([, t]) => t.lift).map(([k, t]) => `${{ holiday: "Holidays", "break": "School breaks", disrupted: "Disrupted days" }[k]} run ${t.lift}x typical`);
+    if (lifts.length) cond.append(el("div", "mlabel", lifts.join(". ") + "."));
+    const odd = Object.entries(m.days || {}).filter(([d, x]) => x.type === "disrupted" && d <= D.day).slice(-3);
+    odd.forEach(([d, x]) => cond.append(el("div", "mlabel", `${dayName(d)}: ${x.note} Left out of typical.`)));
+    cards.append(acc, cond); box.append(cards);
+    $("modelline").textContent = `Traffic model: ${worst} of ${target} weekends logged (${tierOf(worst)}). See the 7-day tab for details.`;
+  }
+  function render() {
+    if (!D) return;
+    try { renderWeek(); } catch (e) { console.error(e); }
+    const { ctx, ranked, state } = D;
+    const last = new Date(state.last_run), ageMin = Math.round((Date.now() - last) / 60000);
+    const asof = $("asof"); asof.textContent = `Data as of ${fmtTime(last)}`;
+    if (ageMin > 50) { asof.textContent += `, ${ageMin} minutes old`; asof.className = "stale"; } else asof.className = "";
+
+    // Pick
+    const pick = $("pick"); pick.replaceChildren();
+    const anyShown = Object.keys(RESORTS).some(shown);
+    const h = ranked.length ? headline(ranked) : anyShown ? { title: "Nothing open", kicker: "", why: "None of the mountains you picked are open yet." } : { title: "No resorts picked", kicker: "", why: "Turn on at least one group of resorts below." };
+    let v = null;
+    try { v = ranked.length ? verdict(ctx, ranked, D.model, +new Date().toLocaleString("en-US", { timeZone: "America/Denver", hour: "numeric", hour12: false })) : null; } catch (e) { console.error(e); }
+    if (v) { const vb = el("div", "verdict " + v.level); vb.append(el("div", "vline", v.line), el("div", "vwhy", v.why)); pick.append(vb); }
+    pick.append(el("div", "kicker", h.kicker), el("div", "pickname", h.title), el("p", "why", h.why));
+    const list = el("div", "rank");
+    ranked.forEach((r, i) => {
+      const row = el("div", "rrow"), mid = el("div");
+      mid.append(el("div", "rname", r.name), el("div", "rsub", r.via));
+      const chips = el("div", "chips"), st = ctx.status[r.key]; if (st && st.lifts) chips.append(el("span", "chip", `${st.lifts} lifts, ${st.trails} trails open`)); r.chips.forEach(c => chips.append(el("span", "chip " + c.k, c.t))); mid.append(chips);
+      const sc = el("div", "score", r.score + " / 100"); sc.title = "Score out of 100: snow adds; wind, delays, closures and needing a non-Ikon ticket subtract";
+      row.append(el("div", "rnum", String(i + 1)), mid, sc); list.append(row);
+    });
+    const shut = Object.keys(RESORTS).filter(k => shown(k) && !isOpen(ctx, k));
+    let box = list;
+    if (shut.length > 3) { box = el("details", "shut"); box.append(el("summary", "", `${shut.length} more mountains not open yet`)); list.append(box); }
+    shut.forEach(k => {
+      const row = el("div", "rrow closed"), mid = el("div");
+      mid.append(el("div", "rname", RESORTS[k].name), el("div", "rsub", ctx.status[k].note || "Not open yet"));
+      row.append(el("div", "rnum", ""), mid, el("div", "tag", "Closed")); box.append(row);
+    });
+    const groupNames = f => Object.keys(RESORTS).filter(f).map(k => RESORTS[k].name).join(", ");
+    const togs = el("div", "toggles");
+    [["ikon", "Ikon resorts", groupNames(k => RESORTS[k].pass === "ikon" && !RESORTS[k].overnight)],
+     ["epic", "Epic resorts", groupNames(k => RESORTS[k].pass === "epic" && !RESORTS[k].overnight)],
+     ["indy", "Independent resorts", groupNames(k => RESORTS[k].pass === "indy" && !RESORTS[k].overnight)],
+     ["overnight", "Overnight trips", groupNames(k => RESORTS[k].overnight && SHOW[RESORTS[k].pass]) || "Turn on a resort group to see its overnight options"]].forEach(([g, label, list]) => {
+      const tog = el("label", "toggle"), cb = el("input"), txt = el("span");
+      cb.type = "checkbox"; cb.checked = SHOW[g];
+      cb.onchange = () => { SHOW[g] = cb.checked; try { localStorage.setItem(SHOW_KEYS[g], cb.checked ? "1" : "0"); } catch (e) {} D.ranked = rank(D.ctx); fitMap = true; render(); };
+      txt.append(el("b", "", label), el("span", "tlist", list)); tog.append(cb, txt); togs.append(tog);
+    });
+    pick.append(togs, list);
+    if (ctx.statusDate) pick.append(el("p", "note", ctx.statusAuto ? `Lifts, trails and opening dates for the Ikon resorts are read from each resort's own report at 6 AM and noon. Last check: ${ctx.statusDate}.` + (SHOW.epic || SHOW.indy ? " Epic and independent resorts go by their announced opening dates for now, so check their sites before you drive." : "") : `Open or closed, and lift counts, were checked by hand on ${ctx.statusDate} from each resort's own report.`));
+
+    // I-70 stats
+    const stats = $("i70stats"); stats.replaceChildren();
+    const row = ctx.speedRow;
+    const addStat = (label, v, sub) => { const s = el("div", "stat"); s.append(el("div", "l", label), el("div", "v", v), el("div", "s", sub)); stats.append(s); };
+    if (row) {
+      const wb = delayMin(row, ctx.segs, ctx.refs, "W", RESORTS.copper.westLon), eb = delayMin(row, ctx.segs, ctx.refs, "E", RESORTS.copper.westLon);
+      const word = d => d == null ? "No data" : d < 3 ? "No delay" : `+${d} min`;
+      addStat("Westbound, Coors Field to Copper", word(wb), "versus normal speeds");
+      addStat("Eastbound, Copper to Coors Field", word(eb), "versus normal speeds");
+      const live = ctx.segs.map(s => ({ s, v: num(row[s.id]) })).filter(x => x.v != null).sort((a, b) => a.v - b.v)[0];
+      if (live) addStat("Slowest stretch", `${live.v} mph`, `${live.s.dir === "W" ? "Westbound" : "Eastbound"} near ${nearLandmark(live.s.mid)}`);
+    } else stats.append(el("p", "note", "No speed readings yet."));
+
+    // Map
+    drawMap();
+    const lg = $("striplegend"); lg.replaceChildren();
+    [["var(--good)", "50+ mph, moving"], ["var(--warn)", "30 to 49, slow"], ["var(--crit)", "Under 30, crawling"], ["var(--none)", "No reading"]].forEach(([c, t]) => {
+      const s = el("span"), sw = el("span", "sw"); sw.style.background = c; s.append(sw, t); lg.append(s); });
+    { const s = el("span"); s.append(el("span", "closeicon"), " Closed (COtrip)"); lg.append(s); }
+    lg.append(el("span", "", "On I-70 the upper line is westbound and the lower is eastbound (CDOT sensors). US 6 and US 40 are one line each from TomTom, colored against that road's normal speed; dashed means TomTom thinks it's blocked but COtrip doesn't. Tap a stretch for its speed."));
+
+    drawDelay();
+
+    // Mountains table
+    const mtn = $("mtn"); mtn.replaceChildren();
+    const tb = el("table"), hr = el("tr");
+    ["", "Base depth", "New 24h", "New 72h", "Temp now", "Snow next 24h", "24 to 48h", "48 to 72h", "Low / high", "Max gust"].forEach(t => hr.append(el("th", "", t)));
+    tb.append(hr); let partial = false;
+    for (const k in RESORTS) {
+      if (!shown(k)) continue;
+      const sn = ctx.snow[k], w = (ctx.forecast[k] || { w: {} }).w, f = n => w[n] || {}, tr = el("tr");
+      const inch = v => v == null || v === "" ? "n/a" : `${+v}"`;
+      const newCell = o => { if (!o) return "n/a"; if (!o.full) partial = true; return `${o.inches}"${o.full ? "" : "*"}`; };
+      const a = f("0-24h");
+      [RESORTS[k].name, sn ? inch(sn.depth) : "n/a", sn ? newCell(sn.new24) : "n/a", sn ? newCell(sn.new72) : "n/a", sn && sn.temp != null ? `${Math.round(sn.temp)}°F` : "n/a",
+        inch(a.snow_in), inch(f("24-48h").snow_in), inch(f("48-72h").snow_in),
+        a.temp_min_f ? `${Math.round(a.temp_min_f)}° / ${Math.round(a.temp_max_f)}°` : "n/a", a.gust_max_mph ? `${Math.round(a.gust_max_mph)} mph` : "n/a"].forEach(t => tr.append(el("td", "", t)));
+      tb.append(tr);
+    }
+    mtn.append(tb);
+    $("mtnnote").textContent = "Depth, new snow and temperature come from the snow station nearest each mountain, not the resort's own report." +
+      (partial ? " * The logger has less history than this window so far, so the number covers only what it has." : "");
+
+    // Alerts
+    const alts = $("alts"); alts.replaceChildren();
+    ALTERNATES.forEach(A => {
+      const st = altStatus(ctx, A), d = el("div", "alert");
+      const tag = st.closed ? el("span", "tag crit", "Closed") : st.tomtomBlocked ? el("span", "tag warn", "Check") : st.traction ? el("span", "tag warn", "Traction law") : el("span", "tag", "Open");
+      const body = el("div"); body.append(el("b", "", A.name + ". "), document.createTextNode(A.what + "."));
+      const lines = [];
+      for (const [k, label] of [["up", "Heading up"], ["home", "Heading home"]]) {
+        const t = st[k];
+        if (t && t.alt != null && t.i70 != null) {
+          const diff = t.i70 - t.alt;
+          lines.push(`${label}: ${A.short} ${t.alt} min, I-70 ${t.i70} min` + (!st.closed && diff >= 5 ? `, so US 6 is ${diff} min faster` : ""));
+        } else if (t && t.alt != null) lines.push(`${label}: ${t.alt} min over the pass`);
+      }
+      const lv = st.live || {};
+      if (!lines.length && (lv.W || lv.E)) {
+        for (const [dk, label] of [["W", "Heading up"], ["E", "Heading home"]]) {
+          const x = lv[dk]; if (!x) continue;
+          if (x.detour) { lines.push(`${label}: TomTom can't route along it${st.closed ? "" : ", but CDOT doesn't list a closure, so check before you go"}`); continue; }
+          if (x.minutes == null) continue;
+          lines.push(`${label}: ${Math.round(x.minutes)} min` + (x.delay_min >= 3 ? `, ${Math.round(x.delay_min)} slower than an empty road` : ", normal"));
+        }
+        if (A.key === "canyon" && lv.W && lv.W.delay_min != null && st.i70Delay && st.i70Delay.W != null) {
+          const gain = st.i70Delay.W - lv.W.delay_min - CANYON_EXTRA_MIN;
+          lines.push(gain >= 5 && !st.closed ? `Heading up, probably faster than I-70 over Floyd Hill right now, by about ${Math.round(gain)} min` : "Heading up, I-70 over Floyd Hill is the quicker way right now");
+        }
+        const slowPts = (lv.points || []).filter(p => p.mph < 0.7 * p.normal_mph).length;
+        if (slowPts) lines.push(`${slowPts} of ${(lv.points || []).length} spots on the road are well below normal speed`);
+        lines.push(`TomTom, as of ${fmtTime(new Date(ctx.routes.updated))}`);
+      }
+      if (!lines.length) lines.push("No speed readings here yet, so only alerts and conditions show.");
+      if (st.cond) lines.push("Conditions: " + st.cond);
+      st.alerts.forEach(a => lines.push(a));
+      d.append(tag, body, el("small", "", lines.join(" \u00b7 "))); alts.append(d);
+    });
+    const al = $("alerts"); al.replaceChildren();
+    const vis = Object.keys(RESORTS).filter(shown).map(k => RESORTS[k]);
+    const mine = e => vis.some(R => onRoute(R, e.route, e.mp_start, e.mp_end));
+    const order = { roadClosures: 0, chainLaws: 1, roadReports: 2 }, names = { roadClosures: ["Closure", "crit"], chainLaws: ["Traction law", "warn"], roadReports: ["Incident", ""] };
+    const seen = new Set(), once = e => !seen.has(e.id) && seen.add(e.id);  // CDOT lists some closures under two categories
+    const evs = ctx.events.filter(e => e.class in order && mine(e)).sort((a, b) => order[a.class] - order[b.class]).filter(once);
+    if (!evs.length) al.append(el("p", "note", "No closures, traction laws or incidents on your routes right now."));
+    evs.forEach(e => {
+      const d = el("div", "alert"), [n, c] = names[e.class];
+      const who = vis.filter(R => onRoute(R, e.route, e.mp_start, e.mp_end)).map(R => R.name).join(", ");
+      d.append(el("span", "tag " + c, n), el("div", "", e.title), el("small", "", `Affects ${who}${e.began ? ", since " + fmtTime(new Date(e.began)) : ""}`));
+      al.append(d);
+    });
+    const fmtDay = d => d.toLocaleString("en-US", { timeZone: "America/Denver", weekday: "short", hour: "numeric", minute: "2-digit" });
+    const planned = (ctx.upcoming || []).filter(e => (e.class === "roadClosures" || /road closed/i.test(e.title)) && mine(e) && Date.parse(e.began) - ctx.now < 7 * 864e5)
+      .sort((a, b) => Date.parse(a.began) - Date.parse(b.began)).filter(once);
+    if (planned.length) {
+      al.append(el("h3", "sub", "Planned closures, not in effect yet"));
+      planned.forEach(e => {
+        const d = el("div", "alert"), who = vis.filter(R => onRoute(R, e.route, e.mp_start, e.mp_end)).map(R => R.name).join(", ");
+        d.append(el("span", "tag", "Planned"), el("div", "", `${e.title} Near mile ${Math.round(e.mp_start)}.`), el("small", "", `Starts ${fmtDay(new Date(e.began))}. Affects ${who}`));
+        al.append(d);
+      });
+    }
+    const work = ctx.events.filter(e => e.class === "roadWork" && mine(e)).length;
+    if (work) al.append(el("p", "note", `${work} road work ${work === 1 ? "zone" : "zones"} listed on these routes, including scheduled night work.`));
+    const cd = $("conds"); cd.replaceChildren();
+    const rel = ctx.conds.filter(c => vis.some(R => onRoute(R, c.route, c.start_mp, c.end_mp))).sort((a, b) => normRoute(a.route).localeCompare(normRoute(b.route)) || b.start_mp - a.start_mp);
+    if (!rel.length) cd.append(el("p", "note", "No condition reports yet."));
+    rel.forEach(c => { const d = el("div", "cond"); d.append(el("span", "", `${c.route}: ${c.area}`), el("span", "", cleanCond(c.condition))); cd.append(d); });
+  }
+
+  let map = null, layer = null, fitMap = true;
+  function drawMap() {
+    if (typeof L === "undefined") { $("map").textContent = "The map could not load."; return; }
+    const { ctx, ranked } = D, row = ctx.speedRow || {};
+    if (!map) {
+      map = L.map("map", { scrollWheelZoom: false });
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 13, attribution: "&copy; OpenStreetMap contributors" }).addTo(map);
+      layer = L.layerGroup().addTo(map);
+    }
+    if (fitMap) {
+      const pts = Object.keys(RESORTS).filter(shown).map(k => PINS[k]).concat([[39.74, -104.99]]);
+      map.fitBounds(L.latLngBounds(pts).pad(0.08)); fitMap = false;
+    }
+    map.invalidateSize(); layer.clearLayers();
+    const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+    const col = v => v == null ? "#8a8a84" : v >= 50 ? css("--good") : v >= 30 ? css("--warn") : css("--crit");
+    D.segRows.forEach(s => {
+      // Along the road where the logger saved the segment's shape, else a straight line between its ends.
+      const v = num(row[s.segment_id]), west = /W$/.test(s.route), off = west ? 0.004 : -0.004, g = D.segGeo[s.segment_id];
+      const pts = g && g.length > 1 ? g.map(([a, b]) => [a + off, b]) : [[+s.start_lat + off, +s.start_lon], [+s.end_lat + off, +s.end_lon]];
+      L.polyline(pts, { color: col(v), weight: 5, opacity: 0.95 })
+        .bindTooltip(`${west ? "Westbound" : "Eastbound"} near ${nearLandmark((+s.start_lon + +s.end_lon) / 2)}: ${v == null ? "no reading" : v + " mph, " + speedWord(v)}`, { sticky: true }).addTo(layer);
+    });
+    // US 6 and US 40 from TomTom. First the whole road from the routing call, colored by its overall delay
+    // (the slower direction); then the flow readings on top, each covering a long stretch at its own speed.
+    const tt = (ctx.routes || {}).routes || {}, drawn = new Set();
+    // TomTom route ends sit a little way up each road from the interchange, so join an end to the
+    // nearest point on I-70 when it is within 2 km (US 40 ends in Empire, 1.7 km up from exit 232).
+    const i70pts = Object.entries(D.segGeo).filter(([id]) => /^I70/.test(id)).flatMap(([, g]) => g);
+    const kmApart = (a, b) => Math.hypot((a[0] - b[0]) * 111, (a[1] - b[1]) * 85);
+    const toI70 = line => {
+      const out = line.slice();
+      for (const last of [false, true]) {
+        const p = last ? out[out.length - 1] : out[0];
+        let best = null, d = 2;
+        for (const q of i70pts) { const k = kmApart(p, q); if (k < d) { d = k; best = q; } }
+        if (best && d > 0.05) last ? out.push(best) : out.unshift(best);
+      }
+      return out;
+    };
+    ALTERNATES.forEach(A => {
+      const r = tt[A.key]; if (!r) return;
+      const cdotClosed = altStatus(ctx, A).closed;
+      const dirs = ["W", "E"].map(k => r[k]).filter(x => x && x.line && x.line.length > 1);
+      if (dirs.length) {
+        const ratio = Math.max(...dirs.map(x => x.minutes && x.free_min ? x.minutes / x.free_min : 1));
+        const worst = Math.max(...dirs.map(x => x.delay_min || 0));
+        const c = cdotClosed ? css("--crit") : ratio <= 1.15 ? css("--good") : ratio <= 1.5 ? css("--warn") : css("--crit");
+        L.polyline(toI70(dirs[0].line), { color: c, weight: 5, opacity: 0.9 })
+          .bindTooltip(`${A.name}: ${cdotClosed ? "closed (COtrip)" : worst >= 1 ? `about ${Math.round(worst)} min slower than an empty road` : "normal"}`, { sticky: true }).addTo(layer);
+      }
+      (r.points || []).forEach(p => {
+        if (!p.line || p.line.length < 2) return;
+        const key = JSON.stringify(p.line[0]) + JSON.stringify(p.line[p.line.length - 1]);
+        if (drawn.has(key)) return; drawn.add(key);
+        const ratio = p.mph / Math.max(1, p.normal_mph);
+        const c = cdotClosed ? css("--crit") : p.closed ? css("--warn") : ratio >= 0.8 ? css("--good") : ratio >= 0.5 ? css("--warn") : css("--crit");
+        const words = cdotClosed ? "closed (COtrip)" : p.closed ? "TomTom shows it blocked; COtrip doesn't list a closure, so check" : `${p.mph} mph, normal ${p.normal_mph}`;
+        L.polyline(toI70(p.line), { color: c, weight: 5, opacity: 0.9, dashArray: p.closed && !cdotClosed ? "6 6" : null })
+          .bindTooltip(`${A.name}: ${words}`, { sticky: true }).addTo(layer);
+      });
+    });
+    // Closures from COtrip, like its own map: the closed stretch in dark red dashes and a closure sign where it starts.
+    const shownC = new Set();
+    ctx.events.filter(e => (e.class === "roadClosures" || /road closed/i.test(e.title)) && e.lat != null && e.lon != null)
+      .filter(e => !shownC.has(e.id) && shownC.add(e.id)).forEach(e => {
+        const tip = `${e.title}${e.began ? ` Since ${fmtTime(new Date(e.began))}.` : ""}`;
+        if (e.line && e.line.length > 1)
+          L.polyline(e.line, { color: "#6e0b0b", weight: 7, opacity: 0.9, dashArray: "1 9", lineCap: "round" }).bindTooltip(tip, { sticky: true }).addTo(layer);
+        L.marker([e.lat, e.lon], { zIndexOffset: 1000, icon: L.divIcon({ className: "", html: '<div class="closeicon"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }) })
+          .bindTooltip(tip).addTo(layer);
+      });
+    const pin = (ll, text, cls) => L.marker(ll, { interactive: false, icon: L.divIcon({ className: "pinwrap", html: el("div", "pin " + cls, text), iconSize: [0, 0] }) }).addTo(layer);
+    Object.keys(RESORTS).filter(shown).forEach(k => {
+      const i = ranked.findIndex(r => r.key === k);
+      pin(PINS[k], i < 0 ? `${RESORTS[k].name}: closed` : `${i + 1}. ${RESORTS[k].name}`, i < 0 ? "off" : i === 0 ? "top" : "");
+    });
+    pin([39.74, -104.99], "Denver", "city");
+  }
+
+  function drawDelay() {
+    const box = $("delaychart"); box.replaceChildren();
+    const pts = D.series.filter(p => p.wb != null || p.eb != null);
+    if (pts.length < 2) { box.append(el("p", "note", "This chart fills in through the day as the logger adds a reading every 15 minutes.")); return; }
+    const W = Math.max(280, box.clientWidth), H = 170, m = { l: 30, r: 78, t: 8, b: 22 };
+    const t0 = +pts[0].t, t1 = Math.max(+pts[pts.length - 1].t, t0 + 3600e3), ymax = Math.max(10, ...pts.map(p => Math.max(p.wb || 0, p.eb || 0))) * 1.1;
+    const x = t => m.l + (t - t0) / (t1 - t0) * (W - m.l - m.r), y = v => m.t + (1 - v / ymax) * (H - m.t - m.b);
+    const svg = svgEl("svg", { height: H, role: "img", "aria-label": "Minutes of delay on I-70 today, westbound and eastbound" });
+    const step = ymax > 60 ? 30 : ymax > 25 ? 10 : 5;
+    for (let v = 0; v <= ymax; v += step) {
+      svg.append(svgEl("line", { x1: m.l, x2: W - m.r, y1: y(v), y2: y(v), stroke: v ? "var(--line)" : "var(--axis)" }));
+      const t = svgEl("text", { x: m.l - 6, y: y(v) + 3, "text-anchor": "end" }); t.textContent = v; svg.append(t);
+    }
+    const hrs = Math.max(1, Math.ceil((t1 - t0) / 3600e3 / (W < 520 ? 4 : 8)));
+    const d0 = new Date(t0); d0.setMinutes(0, 0, 0);
+    for (let t = +d0 + 3600e3; t <= t1; t += hrs * 3600e3) {
+      const tx = svgEl("text", { x: x(t), y: H - 6, "text-anchor": "middle" });
+      tx.textContent = new Date(t).toLocaleTimeString("en-US", { timeZone: "America/Denver", hour: "numeric" }); svg.append(tx);
+    }
+    const series = [["wb", "Westbound", "var(--wb)"], ["eb", "Eastbound", "var(--eb)"]];
+    const ends = series.map(([k]) => { const p = [...pts].reverse().find(p => p[k] != null); return p ? y(p[k]) : null; });
+    if (ends[0] != null && ends[1] != null && Math.abs(ends[0] - ends[1]) < 12) { const mid = (ends[0] + ends[1]) / 2, up = ends[0] <= ends[1] ? 0 : 1; ends[up] = mid - 6; ends[1 - up] = mid + 6; }
+    series.forEach(([k, name, color], i) => {
+      const ps = pts.filter(p => p[k] != null); if (!ps.length) return;
+      svg.append(svgEl("path", { d: ps.map((p, j) => (j ? "L" : "M") + x(+p.t).toFixed(1) + " " + y(p[k]).toFixed(1)).join(""), fill: "none", stroke: color, "stroke-width": 2, "stroke-linejoin": "round" }));
+      const lp = ps[ps.length - 1];
+      svg.append(svgEl("circle", { cx: x(+lp.t), cy: y(lp[k]), r: 4, fill: color, stroke: "var(--card)", "stroke-width": 2 }));
+      const t = svgEl("text", { x: x(+lp.t) + 8, y: ends[i] + 3 }); t.textContent = `${name} ${lp[k]}m`; svg.append(t);
+    });
+    const cross = svgEl("line", { y1: m.t, y2: H - m.b, stroke: "var(--axis)", visibility: "hidden" }); svg.append(cross);
+    const hit = svgEl("rect", { x: m.l, y: 0, width: W - m.l - m.r, height: H, fill: "transparent" });
+    const move = ev => {
+      const bx = svg.getBoundingClientRect(), tt = t0 + (ev.clientX - bx.left - m.l) / (W - m.l - m.r) * (t1 - t0);
+      const p = pts.reduce((a, b) => Math.abs(b.t - tt) < Math.abs(a.t - tt) ? b : a);
+      cross.setAttribute("x1", x(+p.t)); cross.setAttribute("x2", x(+p.t)); cross.setAttribute("visibility", "visible");
+      showTip(ev, `${fmtTime(p.t)}: westbound +${p.wb ?? "?"} min, eastbound +${p.eb ?? "?"} min`);
+    };
+    hit.addEventListener("pointermove", move); hit.addEventListener("pointerdown", move);
+    hit.addEventListener("pointerleave", () => { cross.setAttribute("visibility", "hidden"); hideTip(); });
+    svg.append(hit); box.append(svg);
+    const lg = el("div", "legend");
+    series.forEach(([, name, color]) => { const s = el("span"), sw = el("span", "lsw"); sw.style.background = color; s.append(sw, name + ", minutes behind normal"); lg.append(s); });
+    box.append(lg);
+  }
+
+  const fail = e => { $("asof").textContent = "Could not load data: " + e.message; $("asof").className = "stale"; };
+  load().catch(fail);
+  setInterval(() => load().catch(fail), 300000);
+  let rz; addEventListener("resize", () => { clearTimeout(rz); rz = setTimeout(render, 150); });
+  document.addEventListener("pointerdown", ev => { if (!ev.target.closest("svg")) hideTip(); });
+})();
+</script>
+<script>
+(() => {
+  const host = location.hostname, owner = host.endsWith(".github.io") ? host.split(".")[0] : "i70skibum";
+  const repo = (host.endsWith(".github.io") && location.pathname.split("/")[1]) || "ski-logger";
+  const API = `https://api.github.com/repos/${owner}/${repo}/contents/data`;
+  const RAW = `https://raw.githubusercontent.com/${owner}/${repo}/main/data/`;
+  const $ = id => document.getElementById(id);
+  const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+  $("zipall").href = `https://github.com/${owner}/${repo}/archive/refs/heads/main.zip`;
+  const SETS = [
+    ["speed", "I-70 speeds", "Speed in mph for each road segment, every 15 minutes. One column per segment; the segments file says where each one is."],
+    ["road_conditions", "Road conditions", "CDOT's official condition reports (dry, wet, snow packed, icy), logged each time one changes."],
+    ["events", "Road alerts", "Closures, traction laws, incidents and road work, logged when each starts and ends."],
+    ["snotel", "Snow stations", "Hourly snow depth, snow water content and temperature near each mountain. Times are Mountain Standard Time."],
+    ["forecast", "Forecasts", "National Weather Service summaries for each mountain, every 3 hours."],
+    ["travel", "Travel times", "CDOT segment travel times, kept only when CDOT reports a nonzero value."],
+    ["resort_status", "Lifts and trails open", "Each resort's open lifts and trails, read from its own report twice a day."],
+    ["errors", "Errors", "Any source that failed on a given run."],
+  ];
+  const kb = n => n > 1e6 ? (n / 1e6).toFixed(1) + " MB" : Math.max(1, Math.round(n / 1e3)) + " KB";
+  async function text(url) { const r = await fetch(url + "?t=" + Date.now(), { cache: "no-store" }); if (!r.ok) throw new Error(r.status); return r.text(); }
+  async function download(path, name) {
+    const blob = new Blob([await text(RAW + path)], { type: "text/csv" }), a = el("a");
+    a.href = URL.createObjectURL(blob); a.download = name; document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  }
+  function parse(t) {
+    const rows = [], q = /("([^"]|"")*"|[^,]*)(,|$)/g;
+    for (const line of t.split(/\r?\n/)) { if (!line) continue; const r = []; let m; q.lastIndex = 0;
+      while ((m = q.exec(line)) && m[0] !== "") { r.push(m[1].replace(/^"|"$/g, "").replace(/""/g, '"')); if (!m[3]) break; } rows.push(r); }
+    return rows;
+  }
+  async function preview(box, path) {
+    if (box.firstChild) { box.replaceChildren(); box.hidden = true; return; }
+    box.hidden = false; box.textContent = "Loading";
+    try {
+      const rows = parse(await text(RAW + path)), head = rows[0] || [], body = rows.slice(1).slice(-25).reverse();
+      const tb = el("table"), hr = el("tr"); head.forEach(h => hr.append(el("th", "", h))); tb.append(hr);
+      body.forEach(r => { const tr = el("tr"); head.forEach((_, i) => tr.append(el("td", "", r[i] ?? ""))); tb.append(tr); });
+      box.replaceChildren(el("p", "note", `${rows.length - 1} rows in this file. Newest ${body.length} shown first.`), tb);
+    } catch (e) { box.textContent = "Could not load this file."; }
+  }
+  function fileRow(label, sub, path, name, canPreview) {
+    const row = el("div", "dsrow"), left = el("div"), btns = el("div", "btns"), box = el("div", "preview"); box.hidden = true;
+    left.append(el("div", "", label), el("div", "rsub", sub));
+    if (canPreview) { const b = el("button", "btn", "Preview"); b.onclick = () => preview(box, path); btns.append(b); }
+    const d = el("button", "btn", "Download"); d.onclick = () => download(path, name).catch(() => alertless(d)); btns.append(d);
+    row.append(left, btns, box); return row;
+  }
+  const alertless = b => { b.textContent = "Failed, try again"; };
+  let built = false;
+  async function build() {
+    if (built) return; built = true;
+    const box = $("datasets");
+    try {
+      const top = await (await fetch(API, { cache: "no-store" })).json();
+      if (!Array.isArray(top)) throw new Error("list");
+      const dirs = new Set(top.filter(f => f.type === "dir").map(f => f.name));
+      box.replaceChildren();
+      for (const [dir, title, desc] of SETS) {
+        if (!dirs.has(dir)) continue;
+        const files = (await (await fetch(`${API}/${dir}`, { cache: "no-store" })).json()).filter(f => /^\d{4}-\d{2}\.csv$/.test(f.name)).sort((a, b) => b.name.localeCompare(a.name));
+        const sec = el("div"); sec.append(el("h3", "", title), el("p", "dsdesc", desc));
+        files.forEach(f => sec.append(fileRow(new Date(f.name.slice(0, 7) + "-15").toLocaleDateString("en-US", { month: "long", year: "numeric" }), kb(f.size), `${dir}/${f.name}`, `ski-${dir}-${f.name}`, true)));
+        if (dir === "speed") sec.append(fileRow("Segment locations", "Where each speed column is on I-70", "speed/segments.csv", "ski-speed-segments.csv", true));
+        box.append(sec);
+      }
+      if (dirs.has("afd")) {
+        const sec = el("div"); sec.append(el("h3", "", "Forecast discussions"), el("p", "dsdesc", "The Boulder weather office's written reasoning, one text file per issue."));
+        const months = (await (await fetch(`${API}/afd`, { cache: "no-store" })).json()).filter(f => f.type === "dir").map(f => f.name).sort().reverse();
+        if (months[0]) {
+          const files = (await (await fetch(`${API}/afd/${months[0]}`, { cache: "no-store" })).json()).sort((a, b) => b.name.localeCompare(a.name)).slice(0, 10);
+          files.forEach(f => { const row = el("div", "dsrow"), a = el("a", "", f.name.replace(/^BOU_|\.txt$/g, "").replace(/(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})/, "$1-$2-$3 $4:$5")); a.href = RAW + `afd/${months[0]}/${f.name}`; a.style.color = "var(--accent)"; row.append(a, el("span", "rsub", kb(f.size))); sec.append(row); });
+          sec.append(el("p", "note", "The 10 newest are shown. The zip download has all of them."));
+        }
+        box.append(sec);
+      }
+    } catch (e) { built = false; box.textContent = "Could not load the file list. GitHub limits how often this page can ask, so try again in a few minutes."; }
+  }
+
+  function route() {
+    const data = location.hash === "#data", week = location.hash === "#week";
+    const own = { dataview: data, weekview: week, modelview: week };
+    document.querySelectorAll("main > section").forEach(s => { s.hidden = s.id in own ? !own[s.id] : data || week; });
+    $("tab-data").classList.toggle("on", data); $("tab-week").classList.toggle("on", week); $("tab-dash").classList.toggle("on", !data && !week);
+    if (data) build(); else window.dispatchEvent(new Event("resize"));
+  }
+  addEventListener("hashchange", route); route();
+})();
+</script>
+</body>
+</html>
