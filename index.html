@@ -1090,9 +1090,16 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const { ctx, ranked } = D, row = ctx.speedRow || {};
     if (!map) {
       map = L.map("map", { scrollWheelZoom: false });
-      // OpenStreetMap's own tiles (free, no key), darkened in CSS to match the page.
-      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 13, className: "darktiles",
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
+      // Stadia Maps' Alidade Smooth Dark (free non-commercial plan, authorized by this site's domain, so no key in the page).
+      // If Stadia refuses the tiles (domain not registered yet, or over the monthly limit), fall back to
+      // OpenStreetMap's own tiles darkened in CSS.
+      const osm = () => L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 13, className: "darktiles",
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' });
+      const stadia = L.tileLayer("https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png", { maxZoom: 13,
+        attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' });
+      let fails = 0, swapped = false;
+      stadia.on("tileerror", () => { if (++fails >= 2 && !swapped) { swapped = true; map.removeLayer(stadia); osm().addTo(map).bringToBack(); } });
+      stadia.addTo(map);
       layer = L.layerGroup().addTo(map);
     }
     map.invalidateSize();
