@@ -351,20 +351,6 @@
    "title": "I-70 westbound: Road closed.",
    "type": "critical"
   },
-  "roadClosures:CDOT-36505313341SB": {
-   "began": "2026-11-21T10:58:01-07:00",
-   "class": "roadClosures",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36505313341SB",
-   "lat": 39.38054,
-   "lon": -106.06111,
-   "mp_end": "",
-   "mp_start": 77.50573742405686,
-   "pos_bearing": "N",
-   "route": "CO 9",
-   "title": "CO 9 southbound: Road closed.",
-   "type": "critical"
-  },
   "roadClosures:CDOT-36506495296SB": {
    "began": "2026-11-21T12:26:09-07:00",
    "class": "roadClosures",
@@ -407,34 +393,6 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36501365682BOTH": {
-   "began": "2026-11-21T06:08:54-07:00",
-   "class": "roadReports",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36501365682BOTH",
-   "lat": 37.42212,
-   "lon": -106.8933,
-   "mp_end": 175.99930640647588,
-   "mp_start": 157.00011377554452,
-   "pos_bearing": "E",
-   "route": "US 160",
-   "title": "US 160 in both directions: Roadway reopened to traffic.",
-   "type": "urgent"
-  },
-  "roadReports:CDOT-36505185401WB": {
-   "began": "2026-11-21T10:48:44-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36505185401WB",
-   "lat": 37.47307,
-   "lon": -106.87122,
-   "mp_end": "",
-   "mp_start": 162.5064719668944,
-   "pos_bearing": "E",
-   "route": "US 160",
-   "title": "US 160 westbound: Left lane closed.",
-   "type": "routine"
-  },
   "roadReports:CDOT-36505313341SB": {
    "began": "2026-11-21T10:58:01-07:00",
    "class": "roadReports",
@@ -447,20 +405,6 @@
    "pos_bearing": "N",
    "route": "CO 9",
    "title": "CO 9 southbound: Right shoulder closed.",
-   "type": "routine"
-  },
-  "roadReports:CDOT-36506461605EB": {
-   "began": "2026-11-21T12:23:29-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36506461605EB",
-   "lat": 39.72571,
-   "lon": -105.42065,
-   "mp_end": "",
-   "mp_start": 245.99989798135664,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Left lane closed.",
    "type": "routine"
   },
   "roadReports:CDOT-36506495296SB": {
@@ -2061,7 +2005,7 @@
   }
  },
  "forecast_last": "2026-11-21T19:15:50+00:00",
- "last_run": "2026-11-21T13:00:48-07:00",
+ "last_run": "2026-11-21T13:15:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-21": {
@@ -2797,7 +2741,7 @@
   "72": "6-8-10 snow, icy, snow packed"
  },
  "snotel_last": {
-  "abasin": "2026-11-21 11:00",
+  "abasin": "2026-11-21 12:00",
   "aspen": "2026-11-21 11:00",
   "beavercreek": "2026-11-21 11:00",
   "breck": "2026-11-21 11:00",
@@ -2807,7 +2751,7 @@
   "echo": "2026-11-21 11:00",
   "eldora": "2026-11-21 11:00",
   "granby": "2026-11-21 11:00",
-  "keystone": "2026-11-21 11:00",
+  "keystone": "2026-11-21 12:00",
   "loveland": "2026-11-21 11:00",
   "monarch": "2026-11-21 11:00",
   "powderhorn": "2026-11-21 11:00",
@@ -3029,14 +2973,14 @@
   "I70W075",
   "I70W076"
  ],
- "tomtom_flow_last": "2026-11-21T20:00:48+00:00",
- "tomtom_routing_last": "2026-11-21T20:00:48+00:00",
+ "tomtom_flow_last": "2026-11-21T20:15:46+00:00",
+ "tomtom_routing_last": "2026-11-21T20:15:46+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 210
+   "2026-11": 220
   },
   "routing": {
-   "2026-11": 158
+   "2026-11": 166
   }
  },
  "traffic_model_last": "2026-11-21T19:15:50+00:00"
