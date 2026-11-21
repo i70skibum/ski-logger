@@ -1,10 +1,10 @@
 {
-  "checked": "Nov 20, 12:03 PM",
+  "checked": "Nov 21, 6:02 AM",
   "resorts": {
     "copper": {
       "open": true,
-      "lifts": "1 of 23",
-      "trails": "3 of 157"
+      "lifts": "2 of 23",
+      "trails": "4 of 157"
     },
     "abasin": {
       "open": true,
@@ -30,8 +30,8 @@
     "aspen": {
       "open": false,
       "note": "Aspen Mountain and Snowmass scheduled to open Nov 26.",
-      "lifts": "0 of 31",
-      "trails": "0 of 246"
+      "lifts": "0 of 36",
+      "trails": "0 of 363"
     },
     "beavercreek": {
       "open": false,
