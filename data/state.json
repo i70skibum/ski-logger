@@ -97,6 +97,18 @@
    "title": "US 550 northbound: Commercial motor vehicle chain law.",
    "type": "standard"
   },
+  "chainLaws:CDOT-36492243229NB": {
+   "began": "2026-11-20T19:02:42-07:00",
+   "class": "chainLaws",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36492243229NB",
+   "mp_end": 63.985403419143076,
+   "mp_start": 48.629146549379065,
+   "pos_bearing": "N",
+   "route": "US 550",
+   "title": "US 550 northbound: Passenger vehicle traction law.",
+   "type": "standard"
+  },
   "roadClosures:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadClosures",
@@ -180,6 +192,18 @@
    "route": "US 160",
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
+  },
+  "roadReports:CDOT-36492388059WB": {
+   "began": "2026-11-20T19:12:56-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36492388059WB",
+   "mp_end": "",
+   "mp_start": 365.0188828182879,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50 westbound: Right lane closed.",
+   "type": "routine"
   },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
@@ -1045,78 +1069,6 @@
    "title": "CO 119 southbound: Right lane closed.",
    "type": "routine"
   },
-  "winterDriving:COSEG-522872": {
-   "began": "2026-11-20T12:33:43.476000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-522872",
-   "mp_end": 63.73199933044102,
-   "mp_start": 47.58199999773933,
-   "pos_bearing": "N",
-   "route": "CO 9",
-   "title": "CO 9: High wind.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-522887": {
-   "began": "2026-11-19T22:46:22.683000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-522887",
-   "mp_end": 305.37999994492566,
-   "mp_start": 259.047,
-   "pos_bearing": "E",
-   "route": "US 160",
-   "title": "US 160: High wind.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-522888": {
-   "began": "2026-11-19T22:46:22.683000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-522888",
-   "mp_end": 306.34999858874426,
-   "mp_start": 305.5260000108392,
-   "pos_bearing": "E",
-   "route": "US 160",
-   "title": "US 160: High wind.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-522889": {
-   "began": "2026-11-20T07:58:46.391000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-522889",
-   "mp_end": 497.22299720921126,
-   "mp_start": 344.57199994799157,
-   "pos_bearing": "E",
-   "route": "US 160",
-   "title": "US 160: High wind.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-522892": {
-   "began": "2026-11-20T07:58:22.598000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-522892",
-   "mp_end": 380.4639997698357,
-   "mp_start": 303.8447337676417,
-   "pos_bearing": "E",
-   "route": "US 24",
-   "title": "US 24: High wind.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-522893": {
-   "began": "2026-11-20T01:03:41.022000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-522893",
-   "mp_end": 34.10199994056893,
-   "mp_start": 0,
-   "pos_bearing": "N",
-   "route": "US 285",
-   "title": "US 285: High wind.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-522919": {
    "began": "2026-11-19T14:26:59.140000-07:00",
    "class": "winterDriving",
@@ -1213,30 +1165,6 @@
    "title": "US 6: Poor visibility.",
    "type": "standard"
   },
-  "winterDriving:COSEG-587017": {
-   "began": "2026-11-20T07:58:46.391000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-587017",
-   "mp_end": 259.0465268721944,
-   "mp_start": 186.12914980107246,
-   "pos_bearing": "E",
-   "route": "US 160",
-   "title": "US 160: High wind.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-587073": {
-   "began": "2026-11-19T19:52:22.685000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-587073",
-   "mp_end": 186.12914980107246,
-   "mp_start": 145.81651330012022,
-   "pos_bearing": "E",
-   "route": "US 160",
-   "title": "US 160: Snow.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-587590": {
    "began": "2026-11-20T11:38:24.769000-07:00",
    "class": "winterDriving",
@@ -1259,18 +1187,6 @@
    "pos_bearing": "N",
    "route": "US 550",
    "title": "US 550: Snow with ice and snow packed.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-587817": {
-   "began": "2026-11-20T07:58:46.391000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-587817",
-   "mp_end": 113.9040305590037,
-   "mp_start": 51.15900015208005,
-   "pos_bearing": "N",
-   "route": "US 285",
-   "title": "US 285: High wind.",
    "type": "standard"
   },
   "winterDriving:COSEG-587826": {
@@ -1309,18 +1225,6 @@
    "title": "CO 145: Icy spots.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588225": {
-   "began": "2026-11-20T07:58:46.391000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588225",
-   "mp_end": 467.582997686033,
-   "mp_start": 435.7321144062969,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50: High wind.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588235": {
    "began": "2026-11-20T10:40:43.043000-07:00",
    "class": "winterDriving",
@@ -1331,18 +1235,6 @@
    "pos_bearing": "E",
    "route": "I-70",
    "title": "I-70: Rain.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588244": {
-   "began": "2026-11-20T11:04:09.253000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588244",
-   "mp_end": 314.59800003071723,
-   "mp_start": 279.65274341819594,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50: High wind.",
    "type": "standard"
   },
   "winterDriving:COSEG-588298": {
@@ -1405,42 +1297,6 @@
    "title": "I-70: Wet and rain.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588413": {
-   "began": "2026-11-20T12:33:53.338000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588413",
-   "mp_end": 198.9953926446148,
-   "mp_start": 161.78900021183932,
-   "pos_bearing": "N",
-   "route": "US 285",
-   "title": "US 285: High wind.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588533": {
-   "began": "2026-11-20T11:04:09.253000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588533",
-   "mp_end": 285.039998010669,
-   "mp_start": 210.7626940782348,
-   "pos_bearing": "E",
-   "route": "US 24",
-   "title": "US 24: High wind.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588534": {
-   "began": "2026-11-20T07:58:22.598000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588534",
-   "mp_end": 303.8400000124082,
-   "mp_start": 285.039998010669,
-   "pos_bearing": "E",
-   "route": "US 24",
-   "title": "US 24: High wind.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588572": {
    "began": "2026-11-20T12:21:03.416000-07:00",
    "class": "winterDriving",
@@ -1500,34 +1356,10 @@
    "route": "US 550",
    "title": "US 550: Slushy with icy and snow packed spots.",
    "type": "standard"
-  },
-  "winterDriving:COSEG-588610": {
-   "began": "2026-11-20T17:17:48.892000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588610",
-   "mp_end": 228.95438196973706,
-   "mp_start": 198.9953926446148,
-   "pos_bearing": "N",
-   "route": "US 285",
-   "title": "US 285: High wind.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588612": {
-   "began": "2026-11-20T17:17:48.892000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588612",
-   "mp_end": 435.7321144062969,
-   "mp_start": 315.7090000555909,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50: High wind.",
-   "type": "standard"
   }
  },
  "forecast_last": "2026-11-21T00:44:33+00:00",
- "last_run": "2026-11-20T19:00:46-07:00",
+ "last_run": "2026-11-20T19:15:53-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-20": {
@@ -2201,11 +2033,11 @@
   "202": "3 - dry",
   "214": "3 - dry",
   "215": "3 - dry",
-  "226": "1-6-25 - high wind, snow, adverse conditions",
-  "227": "1 - high wind; 3 - dry",
-  "228": "1 - high wind; 3 - dry",
-  "229": "1 - high wind; 3 - dry",
-  "230": "1 - high wind; 3 - dry",
+  "226": "3 - dry",
+  "227": "3 - dry",
+  "228": "3 - dry",
+  "229": "3 - dry",
+  "230": "3 - dry",
   "243": "4s - wet in areas",
   "245": "7-9-11 - slushy, icy spots, snow packed spots",
   "246": "7-9-11 - slushy, icy spots, snow packed spots",
@@ -2223,16 +2055,16 @@
   "335": "3 - dry",
   "336": "3 - dry",
   "390": "3 - dry",
-  "393": "1 - high wind; 3 - dry",
-  "394": "1 - high wind; 3 - dry",
-  "395": "1 - high wind; 3 - dry",
-  "396": "1 - high wind; 3 - dry",
-  "406": "1 - high wind; 3 - dry",
+  "393": "3 - dry",
+  "394": "3 - dry",
+  "395": "3 - dry",
+  "396": "3 - dry",
+  "406": "3 - dry",
   "407": "3 - dry",
   "408": "3 - dry",
-  "410": "1 - high wind",
-  "411": "1 - high wind",
-  "412": "1 - high wind",
+  "410": "3 - dry",
+  "411": "3 - dry",
+  "412": "3 - dry",
   "413": "3 - dry",
   "414": "3 - dry",
   "429": "3 - dry",
@@ -2246,7 +2078,7 @@
   "457": "6 - snow; 9-11 icy spots, snow packed spots",
   "458": "6 - snow; 9-11 icy spots, snow packed spots",
   "459": "4s - wet in areas",
-  "47": "1 - high wind",
+  "47": "3 - dry",
   "483": "4s - wet in areas; 5 - rain",
   "484": "6 - snow; 9-11 icy spots, snow packed spots",
   "485": "4-5 wet, rain",
@@ -2256,14 +2088,14 @@
   "490": "9 - icy spots",
   "491": "4s - wet in areas",
   "492": "3 - dry",
-  "501": "1 - high wind; 3 - dry",
+  "501": "3 - dry",
   "516": "3 - dry",
   "517": "3 - dry",
   "70": "8 - icy",
   "72": "11 - snow packed spots; 14 - drifting snow; 9 - icy spots"
  },
  "snotel_last": {
-  "abasin": "2026-11-20 17:00",
+  "abasin": "2026-11-20 18:00",
   "aspen": "2026-11-20 17:00",
   "beavercreek": "2026-11-20 17:00",
   "breck": "2026-11-20 17:00",
@@ -2273,7 +2105,7 @@
   "echo": "2026-11-20 17:00",
   "eldora": "2026-11-20 17:00",
   "granby": "2026-11-20 17:00",
-  "keystone": "2026-11-20 17:00",
+  "keystone": "2026-11-20 18:00",
   "loveland": "2026-11-20 17:00",
   "monarch": "2026-11-20 17:00",
   "powderhorn": "2026-11-20 17:00",
