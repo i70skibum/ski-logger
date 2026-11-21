@@ -762,9 +762,16 @@ ROUTE_POINTS = {
     # Routing only (no flow points): the map draws it from the route shape. Heading up is from I-70 toward Keystone.
     # Heading up starts on US 6 at the exit 205 ramp (a point on I-70 itself sends the router east to
     # Loveland to turn around); heading home ends at the eastbound on-ramp, which routes cleanly.
-    "dillon":   {"name": "US 6 through Dillon (I-70 exit 205 at Silverthorne to Keystone)", "max_km": 18,
+    # Every 30 minutes since Nov 21, to make room in the TomTom allowance for 6th Ave below.
+    "dillon":   {"name": "US 6 through Dillon (I-70 exit 205 at Silverthorne to Keystone)", "max_km": 18, "every": 30,
                  "route": [(39.62844, -106.05265), (39.63236, -106.04066), (39.6050, -105.9440)],
                  "route_e": [(39.6050, -105.9440), (39.63236, -106.04066), (39.6297, -106.0640)],
+                 "points": []},
+    # 6th Ave (US 6) from Coors Field past I-70 to the mouth of Clear Creek Canyon in Golden, in the ski direction
+    # only (west before noon, east after). Over max_km means TomTom left 6th Ave or looped, so those rows are dropped.
+    "sixth":    {"name": "6th Ave (US 6) from Coors Field to Golden", "max_km": 32, "min_km": 18, "ski_direction_only": True,
+                 "route": [(39.7562, -104.9942), (39.7254, -105.0800), (39.74245, -105.25436)],
+                 "route_e": [(39.74245, -105.25436), (39.7254, -105.0800), (39.7562, -104.9942)],
                  "points": []},
     # Eldora, timed door to door from Coors Field. To stay inside the free allowance these run only in the
     # ski direction (heading up before noon, home after) and two of them every 30 minutes.
@@ -1192,6 +1199,7 @@ GENERIC_ROUTES = {"canyon": {5: {7: 2, 8: 3, 9: 2}, 6: {13: 3, 14: 6, 15: 8, 16:
                   "pass": {5: {8: 2, 9: 3, 10: 2}, 6: {13: 2, 14: 3, 15: 3}},
                   "berthoud": {5: {7: 3, 8: 5, 9: 5, 10: 3}, 6: {13: 4, 14: 6, 15: 7, 16: 6, 17: 3}},
                   "dillon": {5: {8: 2, 9: 3, 10: 2}, 6: {14: 2, 15: 3, 16: 3}},
+                  "sixth": {5: {7: 2, 8: 3, 9: 2}, 6: {14: 2, 15: 4, 16: 4, 17: 2}},
                   "eldora_boulder": {5: {7: 3, 8: 5, 9: 5, 10: 3}, 6: {14: 4, 15: 7, 16: 7, 17: 4}},
                   "eldora_coal": {5: {7: 2, 8: 3, 9: 3, 10: 2}, 6: {14: 2, 15: 4, 16: 4, 17: 2}},
                   "eldora_119": {5: {7: 2, 8: 3, 9: 3, 10: 2}, 6: {14: 3, 15: 4, 16: 4, 17: 3}}}
