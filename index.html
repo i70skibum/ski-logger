@@ -117,6 +117,16 @@ th:first-child, td:first-child { text-align: left; font-weight: 600; }
 .lm-card span { font-size: 12px; color: var(--ink3); }
 .lm-sign { width: 20px; height: 20px; box-sizing: border-box; border-radius: 50%; background: var(--bad); border: 2px solid #fff; box-shadow: 0 1px 3px rgba(0,0,0,.5); }
 .lm-sign::after { content: ""; position: absolute; left: 3px; right: 3px; top: 6px; height: 4px; background: #fff; border-radius: 1px; }
+.dirwrap { position: relative; display: flex; }
+.dmenu { display: none; position: absolute; top: calc(100% + 8px); right: 0; min-width: 210px; z-index: 30; background: var(--card2); border: 1px solid var(--line); border-radius: 14px; padding: 6px; box-shadow: 0 10px 28px rgba(0,0,0,.45); }
+.dmenu::before { content: ""; position: absolute; left: 0; right: 0; top: -12px; height: 12px; }
+.dirwrap:hover .dmenu, .dirwrap.open .dmenu { display: block; }
+@media (hover: none) { .dirwrap:hover .dmenu { display: none; } .dirwrap.open .dmenu { display: block; } }
+.dmhead { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink2); padding: 6px 10px 4px; }
+.dmenu button { display: flex; width: 100%; min-height: 38px; align-items: center; padding: 8px 10px; border: 0; border-radius: 9px; background: transparent; color: var(--ink); font: 500 14px Inter, sans-serif; text-align: left; cursor: pointer; }
+.dmenu button:hover { background: var(--line); }
+.dmenu button.on { font-weight: 600; color: var(--accent); background: transparent; }
+.dmenu button.on::after { content: "\2713"; margin-left: auto; }
 .lm-arrow { display: flex; flex-direction: column; align-items: center; gap: 4px; pointer-events: none; }
 .lm-arrow i { display: block; width: 100%; height: 12px; position: relative; background: linear-gradient(var(--ink2), var(--ink2)) center / calc(100% - 18px) 4px no-repeat; }
 .lm-arrow i::before { content: ""; position: absolute; top: -4px; border: 10px solid transparent; }
@@ -252,7 +262,7 @@ footer { color: var(--ink2); font-size: 12px; }
     </section>
 
     <section class="drive">
-      <div class="sechead"><h2>The drive</h2><div class="pills"><div class="seg" id="dirseg" role="group" aria-label="Direction on the line map"><button id="d-w" aria-label="Westbound, heading up">&larr; Westbound</button><button id="d-e" aria-label="Eastbound, heading home">Eastbound &rarr;</button></div><div class="seg" role="group" aria-label="Map style"><button id="b-line" class="on">Line map</button><button id="b-real">Real map</button></div></div></div>
+      <div class="sechead"><h2>The drive</h2><div class="pills"><div class="seg" id="dirseg" role="group" aria-label="Direction on the line map"><button id="d-w" aria-label="Westbound, heading up">&larr; Westbound</button><div class="dirwrap" id="d-ewrap"><button id="d-e" aria-haspopup="menu" aria-label="Eastbound, heading home">Eastbound &rarr;</button><div class="dmenu" id="d-menu" role="menu" aria-label="Heading home from"></div></div></div><div class="seg" role="group" aria-label="Map style"><button id="b-line" class="on">Line map</button><button id="b-real">Real map</button></div></div></div>
       <div class="panel">
         <div id="linebox">
           <div id="linewrap"><div id="lineinner" role="img"></div></div>
@@ -961,6 +971,102 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   const MAP_RESORTS = [["eldora", 580, 118], ["winterpark", 488, 266], ["abasin", 236, 272], ["copper", 20, 346], ["keystone", 290, 498]];
   const RESORT_DOT = { copper: [60, Y], winterpark: [650, 290], abasin: [330, 340], keystone: [260, 520], eldora: [740, 140] };
 
+  // ---- Drive times to each stop on the line map -------------------------------------------
+  // Stops on the line map, with where they are: lat/lon to find them along TomTom's route lines, and
+  // i70 (longitude) for stops on I-70, timed from CDOT's segment speeds.
+  const DOTS = [
+    { id: "coors", name: "Coors Field", x: CX, y: Y, lat: 39.7562, lon: -104.9942, i70: -104.99 },
+    { id: "x261", name: "US 6 at I-70 (exit 261)", x: 1000, y: Y, i70: -105.17 },
+    { id: "golden", name: "Golden", x: 1000, y: 340, lat: 39.7555, lon: -105.2211 },
+    { id: "coal", name: "Coal Creek Canyon turnoff", x: 1000, y: 250, lat: 39.8660, lon: -105.2330, eld: 1 },
+    { id: "blackhawk", name: "Black Hawk", x: 900, y: 300, lat: 39.7969, lon: -105.4939, eld: 1 },
+    { id: "floyd", name: "Floyd Hill", x: 860, y: Y, lat: 39.7425, lon: -105.4313, i70: -105.43 },
+    { id: "idaho", name: "Idaho Springs", x: 760, y: Y, lat: 39.7408, lon: -105.5131, i70: -105.51 },
+    { id: "empire", name: "Empire (US 40)", x: 650, y: Y, lat: 39.7611, lon: -105.6831, i70: -105.66 },
+    { id: "georgetown", name: "Georgetown", x: 560, y: Y, lat: 39.7108, lon: -105.6974, i70: -105.71 },
+    { id: "x216", name: "Exit 216", x: 420, y: Y, lat: 39.6801, lon: -105.8946, i70: -105.88 },
+    { id: "silverthorne", name: "Silverthorne", x: 180, y: Y, lat: 39.6284, lon: -106.0653, i70: -106.07 },
+    { id: "boulder", name: "Boulder", x: CX, y: 140, lat: 40.0150, lon: -105.2705, eld: 1 },
+    { id: "nederland", name: "Nederland", x: 800, y: 140, lat: 39.9614, lon: -105.5108, eld: 1 },
+    { id: "copper", name: "Copper", x: 60, y: Y, lat: 39.5017, lon: -106.1517, i70: -106.155, resort: 1 },
+    { id: "winterpark", name: "Winter Park", x: 650, y: 290, lat: 39.8863, lon: -105.7618, resort: 1 },
+    { id: "abasin", name: "A-Basin", x: 330, y: 340, lat: 39.6420, lon: -105.8710, resort: 1 },
+    { id: "keystone", name: "Keystone", x: 260, y: 520, lat: 39.6046, lon: -105.9440, resort: 1 },
+    { id: "eldora", name: "Eldora", x: 740, y: 140, lat: 39.9375, lon: -105.5830, resort: 1, eld: 1 }];
+  const DOT = Object.fromEntries(DOTS.map(d => [d.id, d]));
+  // Ways up from Coors Field, as legs: a stretch of I-70 between two longitudes, or a TomTom route.
+  const C0 = -104.99, FLOYD = -105.43;
+  const UP = [
+    ["I-70", [{ i70: [C0, -106.155] }]],
+    ["Clear Creek Canyon", [{ r: "canyon" }, { i70: [FLOYD, -106.155] }]],
+    ["Loveland Pass", [{ i70: [C0, -105.88] }, { r: "pass" }]],
+    ["Dillon", [{ i70: [C0, -106.07] }, { r: "dillon" }]],
+    ["Berthoud Pass", [{ i70: [C0, -105.66] }, { r: "berthoud" }]],
+    ["Boulder Canyon", [{ r: "eldora_boulder" }]], ["Coal Creek", [{ r: "eldora_coal" }]], ["Black Hawk", [{ r: "eldora_119" }]]];
+  // Ways home from each origin: get onto I-70, then either I-70 all the way or the canyon from Floyd Hill.
+  const home = (first, lon) => [[`I-70`, first.concat([{ i70: [lon, C0] }])], [`Clear Creek Canyon`, first.concat([{ i70: [lon, FLOYD] }, { r: "canyon" }])]];
+  const ORIGINS = [
+    { key: "copper", name: "Copper", dot: "copper", paths: home([], -106.155) },
+    { key: "keystone", name: "Keystone", dot: "keystone", paths: home([{ r: "dillon" }], -106.07).map(([l, p]) => ["Dillon, then " + l, p]).concat(home([{ r: "pass" }], -105.88).map(([l, p]) => ["Loveland Pass, then " + l, p])) },
+    { key: "abasin", name: "A-Basin", dot: "abasin", paths: home([{ r: "pass" }], -105.88).map(([l, p]) => ["Loveland Pass, then " + l, p]) },
+    { key: "loveland", name: "Loveland", dot: "x216", paths: home([], -105.88) },
+    { key: "winterpark", name: "Winter Park", dot: "winterpark", paths: home([{ r: "berthoud" }], -105.66).map(([l, p]) => ["Berthoud, then " + l, p]) },
+    { key: "eldora", name: "Eldora", dot: "eldora", paths: [["Boulder Canyon", [{ r: "eldora_boulder" }]], ["Coal Creek", [{ r: "eldora_coal" }]], ["Black Hawk", [{ r: "eldora_119" }]]] }];
+  let origin = null; try { origin = localStorage.getItem("ski-origin"); } catch (e) {}
+  // Minutes on I-70 between two longitudes in one direction, from CDOT's speeds (scaled up for a few missing readings).
+  function i70Min(dir, a, b) {
+    const row = D.ctx.speedRow; if (!row) return null;
+    const lo = Math.min(a, b), hi = Math.max(a, b), xs = D.ctx.segs.filter(s => s.i70 && s.dir === dir && s.mid >= lo && s.mid <= hi);
+    if (!xs.length) return 0;
+    let t = 0, len = 0, got = 0;
+    for (const s of xs) { len += s.len; const v = num(row[s.id]); if (v == null) continue; got += s.len; t += s.len / Math.max(v, 3) * 60; }
+    return got / len >= 0.6 ? t * len / got : null;
+  }
+  // One leg: its total minutes, and minutes from its start to a stop on it (null when the stop isn't on it).
+  function legOf(leg, dir) {
+    if (leg.i70) {
+      const [a, b] = leg.i70, lo = Math.min(a, b), hi = Math.max(a, b);
+      return { total: i70Min(dir, a, b), at: d => d.i70 != null && d.i70 >= lo - 0.005 && d.i70 <= hi + 0.005 ? i70Min(dir, a, d.i70) : null };
+    }
+    const lv = ((((D.ctx.routes || {}).routes || {})[leg.r]) || {})[dir];
+    if (!lv || lv.minutes == null || lv.detour || !lv.line || lv.line.length < 2) return { total: null, at: () => null };
+    const km = (p, q) => Math.hypot((p[0] - q[0]) * 111, (p[1] - q[1]) * 85), cum = [0];
+    for (let i = 1; i < lv.line.length; i++) cum.push(cum[i - 1] + km(lv.line[i - 1], lv.line[i]));
+    const L = cum[cum.length - 1] || 1;
+    return { total: lv.minutes, at: d => {
+      if (d.lat == null) return null;
+      let best = -1, bd = 2;
+      lv.line.forEach((p, i) => { const k = km(p, [d.lat, d.lon]); if (k < bd) { bd = k; best = i; } });
+      return best < 0 ? null : lv.minutes * cum[best] / L;
+    } };
+  }
+  // Minutes from the start of a path to a stop, or null if the stop isn't on it or a leg before it has no reading.
+  function along(legs, dir, d) {
+    let acc = 0;
+    for (const leg of legs) {
+      const L = legOf(leg, dir), t = L.at(d);
+      if (t != null && acc != null) return acc + t;
+      if (L.total == null) return null;
+      acc += L.total;
+    }
+    return null;
+  }
+  const mins = m => "about " + hm(Math.max(1, m));
+  function dotTip(d, dir, org) {
+    const out = [], seen = new Set();
+    if (dir === "W") {
+      if (d.id === "coors") return "Coors Field: every route starts here";
+      UP.forEach(([label, legs]) => { const t = along(legs, "W", d); if (t == null) return; const k = Math.round(t); if (seen.has(k)) return; seen.add(k); out.push(`${mins(t)} via ${label}`); });
+      return out.length ? `${d.name} from Coors Field: ${out.join(" \u00b7 ")}` : `${d.name}: no current time from Coors Field`;
+    }
+    if (d.id === org.dot) return `${d.name}: starting point heading home`;
+    org.paths.forEach(([label, legs]) => {
+      const t0 = along(legs, "E", DOT[org.dot]), t1 = along(legs, "E", d);
+      if (t0 == null || t1 == null || t1 < t0 - 0.5) return;
+      const k = Math.round(t1 - t0); if (seen.has(k)) return; seen.add(k); out.push(`${mins(t1 - t0)} via ${label}`);
+    });
+    return out.length ? `${org.name} to ${d.name}: ${out.join(" \u00b7 ")}` : `${d.name}: not on the way home from ${org.name}, or no current time`;
+  }
   let mapDir = null;   // "W" or "E"; null until set, then it follows the time of day until someone taps the toggle
   let view = "line"; try { view = localStorage.getItem("ski-mapview") === "real" ? "real" : "line"; } catch (e) {}
   const mz = { w: 0, base: 1, z: 1, px: 0, py: 0, h: 0 };
@@ -976,6 +1082,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const { ctx, ranked } = D, box = $("lineinner"); box.replaceChildren();
     const dir = mapDir || (denverHour() < 12 ? "W" : "E"), dname = dir === "W" ? "westbound" : "eastbound";
     $("d-w").classList.toggle("on", dir === "W"); $("d-e").classList.toggle("on", dir === "E");
+    drawOriginMenu(dir);
     const states = {}, desc = [];
     for (const k in ROUTE_GEO) states[k] = routeState(k, dir);
     // Routes first, so I-70 sits on top where they meet.
@@ -999,9 +1106,16 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       if (s.kind !== "open") desc.push(`I-70 ${b.name} ${KIND[s.kind][1].toLowerCase()}`);
     });
     // Junction dots, resort stops and Coors Field.
-    [[1000, 340], [1000, 250], [900, 300], [860, Y], [760, Y], [650, Y], [560, Y], [420, Y], [180, Y], [1000, Y], [CX, 140], [800, 140]].forEach(([x, y]) => at(box, "lm-dot", x, y, 16, 16));
-    MAP_RESORTS.forEach(([k]) => { if (k !== "eldora" || shown("eldora")) at(box, "lm-dot big", ...RESORT_DOT[k], 26, 26); });
-    const coors = at(box, "lm-dot", CX, Y, 34, 34); Object.assign(coors.style, { background: COL.ink, borderWidth: "6px", borderColor: "var(--bg)", boxShadow: "0 0 0 3px " + COL.ink });
+    // Stops: hover or tap one for the drive time to it (from Coors Field heading up, from the chosen origin heading home).
+    if (!origin || !ORIGINS.some(o => o.key === origin)) { const top = (D.ranked || []).find(r => ORIGINS.some(o => o.key === r.key)); origin = top ? top.key : "copper"; }
+    const org = ORIGINS.find(o => o.key === origin) || ORIGINS[0];
+    DOTS.forEach(d => {
+      if (d.eld && !shown("eldora")) return;
+      const big = d.id === "coors" ? 34 : d.resort ? 26 : 16, e = at(box, "lm-dot" + (d.resort ? " big" : ""), d.x, d.y, big, big);
+      if (d.id === "coors") Object.assign(e.style, { background: COL.ink, borderWidth: "6px", borderColor: "var(--bg)", boxShadow: "0 0 0 3px " + COL.ink });
+      if (dir === "E" && d.id === org.dot) e.style.boxShadow = "0 0 0 4px var(--accent)";
+      e.dataset.tip = dotTip(d, dir, org);
+    });
     // Closure signs where COtrip lists a closure.
     const signed = new Set();
     ctx.events.filter(e => isClosure(e) && normRoute(e.route) === "I70" && overlaps(e.mp_start, e.mp_end, 195, 276) && forDir(e, dir)).forEach(e => {
@@ -1025,7 +1139,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       Object.assign(c.style, { left: x + "px", top: y + "px" }); box.append(c);
     });
     // Which way the map is showing: a big arrow under Georgetown to Floyd Hill.
-    const ar = el("div", "lm-arrow " + dir); ar.append(el("i"), el("span", "", dir === "W" ? "Westbound \u00b7 heading up" : "Eastbound \u00b7 heading home"));
+    const ar = el("div", "lm-arrow " + dir); ar.append(el("i"), el("span", "", dir === "W" ? "Westbound \u00b7 heading up" : `Eastbound \u00b7 heading home from ${org.name}`));
     Object.assign(ar.style, { left: "560px", top: "511px", width: "300px" }); box.append(ar);
     box.setAttribute("aria-label", `Line map, ${dname}, of every way up from Coors Field on the right. ` + (desc.length ? desc.join(". ") + "." : "Everything is moving."));
     layoutLine(false);
@@ -1079,7 +1193,20 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       : "On I-70 the upper line is westbound and the lower is eastbound (CDOT sensors). Other roads are TomTom, colored against that road's normal speed; dashed means TomTom thinks it's blocked but COtrip doesn't. Tap a stretch for its speed.";
   }
   $("d-w").onclick = () => { mapDir = "W"; drawLine(); };
-  $("d-e").onclick = () => { mapDir = "E"; drawLine(); };
+  // Eastbound: hover (or tap) for the origin menu; picking one switches to eastbound.
+  $("d-e").onclick = () => { mapDir = "E"; $("d-ewrap").classList.toggle("open"); drawLine(); };
+  document.addEventListener("pointerdown", ev => { if (!ev.target.closest("#d-ewrap")) $("d-ewrap").classList.remove("open"); });
+  $("d-ewrap").addEventListener("mouseleave", () => $("d-ewrap").classList.remove("open"));
+  function drawOriginMenu(dir) {
+    const org = ORIGINS.find(o => o.key === origin) || ORIGINS[0], m = $("d-menu");
+    $("d-e").textContent = dir === "E" ? `Eastbound from ${org.name} \u2192` : "Eastbound \u2192";
+    m.replaceChildren(el("div", "dmhead", "Heading home from"));
+    ORIGINS.filter(o => o.key !== "eldora" || shown("eldora")).forEach(o => {
+      const b = el("button", o.key === org.key ? "on" : "", o.name); b.setAttribute("role", "menuitemradio"); b.setAttribute("aria-checked", o.key === org.key);
+      b.onclick = ev => { ev.stopPropagation(); origin = o.key; try { localStorage.setItem("ski-origin", o.key); } catch (e) {} mapDir = "E"; $("d-ewrap").classList.remove("open"); drawLine(); };
+      m.append(b);
+    });
+  }
   $("b-line").onclick = () => { view = "line"; try { localStorage.setItem("ski-mapview", "line"); } catch (e) {} renderDrive(); requestAnimationFrame(() => layoutLine(true)); };
   $("b-real").onclick = () => { view = "real"; try { localStorage.setItem("ski-mapview", "real"); } catch (e) {} fitMap = true; renderDrive(); };
 
