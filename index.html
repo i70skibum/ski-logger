@@ -976,7 +976,9 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   // i70 (longitude) for stops on I-70, timed from CDOT's segment speeds.
   const DOTS = [
     { id: "coors", name: "Coors Field", x: CX, y: Y, lat: 39.7562, lon: -104.9942, i70: -104.99 },
-    { id: "x261", name: "Golden freeway at I-70", x: 1000, y: Y, i70: -105.17 },
+    // Where the Golden roads meet I-70. Matches either interchange, because TomTom often comes down from Golden
+    // on CO 58 instead of the Golden freeway. Only TomTom's homeward lines use it; heading up it is an I-70 stop.
+    { id: "x261", name: "Golden freeway at I-70", x: 1000, y: Y, i70: -105.17, pts: [[39.7245, -105.1895], [39.7800, -105.1400]], homeOnly: 1 },
     { id: "golden", name: "Golden", x: 1000, y: 340, lat: 39.7555, lon: -105.2211 },
     { id: "coal", name: "Coal Creek Canyon turnoff", x: 1000, y: 250, lat: 39.8660, lon: -105.2330, eld: 1 },
     { id: "blackhawk", name: "Black Hawk", x: 900, y: 300, lat: 39.7969, lon: -105.4939, eld: 1 },
@@ -1034,9 +1036,10 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     for (let i = 1; i < lv.line.length; i++) cum.push(cum[i - 1] + km(lv.line[i - 1], lv.line[i]));
     const L = cum[cum.length - 1] || 1;
     return { total: lv.minutes, at: d => {
-      if (d.lat == null) return null;
+      const pts = d.pts || (d.lat != null ? [[d.lat, d.lon]] : []);
+      if (!pts.length || (d.homeOnly && dir === "W")) return null;
       let best = -1, bd = 2;
-      lv.line.forEach((p, i) => { const k = km(p, [d.lat, d.lon]); if (k < bd) { bd = k; best = i; } });
+      lv.line.forEach((p, i) => pts.forEach(q => { const k = km(p, q); if (k < bd) { bd = k; best = i; } }));
       return best < 0 ? null : lv.minutes * cum[best] / L;
     } };
   }
