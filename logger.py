@@ -374,7 +374,15 @@ def parse_cars_feature(feat, classification):
     mp1 = (loc.get("primaryPoint") or {}).get("linearReference")
     mp2 = (loc.get("secondaryPoint") or {}).get("linearReference")
     begin = (rep.get("beginTime") or p.get("startTime") or {}).get("time")
-    return {
+    pp = loc.get("primaryPoint") or {}
+    geom = feat.get("geometry") or {}
+    # Where it is, for the dashboard map (not in the CSV): the primary point, and for closures the closed stretch.
+    where = {"lat": round(pp["lat"], 5) if isinstance(pp.get("lat"), (int, float)) else None,
+             "lon": round(pp["lon"], 5) if isinstance(pp.get("lon"), (int, float)) else None}
+    if classification == "roadClosures" and geom.get("type") == "LineString" and len(geom.get("coordinates") or []) > 1:
+        c = geom["coordinates"]
+        where["line"] = [[round(y, 5), round(x, 5)] for x, y in c[::max(1, -(-len(c) // 40))]] + [[round(c[-1][1], 5), round(c[-1][0], 5)]]
+    return dict(where, **{
         "id": str(p.get("id") or rep.get("id") or ""),
         "class": classification,
         "type": p.get("eventType", ""),
@@ -385,7 +393,7 @@ def parse_cars_feature(feat, classification):
         "mp_end": mp2 if mp2 is not None else "",
         "title": (p.get("title") or desc.get("descriptionHeader") or "")[:200],
         "began": epoch_to_local(begin),
-    }
+    })
 
 
 def relevant_event(ev):
@@ -423,6 +431,10 @@ def log_events(state):
         if k not in active:
             rows.append([NOW_ISO, "start", ev["id"]] + [ev[f] for f in EVENT_FIELDS])
             active[k] = ev
+        else:
+            for f in ("lat", "lon", "line"):     # location can be refined while an event runs
+                if ev.get(f) is not None:
+                    active[k][f] = ev[f]
     for k in list(active):
         ev = active[k]
         if ev["class"] in fetched_classes and k not in current:
@@ -735,8 +747,11 @@ ROUTE_POINTS = {
                  "route": [(39.76107, -105.68312), (39.79586, -105.78069), (39.88623, -105.76259)],
                  "points": [(39.76389, -105.74095), (39.78414, -105.78464), (39.82553, -105.76544), (39.88738, -105.76063)]},
     # Routing only (no flow points): the map draws it from the route shape. Heading up is from I-70 toward Keystone.
-    "dillon":   {"name": "US 6 through Dillon (I-70 exit 205 at Silverthorne to Keystone)", "max_km": 16,
-                 "route": [(39.6297, -106.0640), (39.6312, -106.0420), (39.6050, -105.9440)],
+    # Heading up starts on US 6 at the exit 205 ramp (a point on I-70 itself sends the router east to
+    # Loveland to turn around); heading home ends at the eastbound on-ramp, which routes cleanly.
+    "dillon":   {"name": "US 6 through Dillon (I-70 exit 205 at Silverthorne to Keystone)", "max_km": 18,
+                 "route": [(39.62844, -106.05265), (39.63236, -106.04066), (39.6050, -105.9440)],
+                 "route_e": [(39.6050, -105.9440), (39.63236, -106.04066), (39.6297, -106.0640)],
                  "points": []},
 }
 TOMTOM_HOURS = {"routing": (5, 22), "flow": (5, 20)}
@@ -811,7 +826,7 @@ def log_routes(state):
         rows = []
         for rk, R in ROUTE_POINTS.items():
             out = now["routes"].setdefault(rk, {"name": R["name"]})
-            for d, pts in (("W", R["route"]), ("E", list(reversed(R["route"])))):
+            for d, pts in (("W", R["route"]), ("E", R.get("route_e") or list(reversed(R["route"])))):
                 locs = ":".join(f"{lat},{lon}" for lat, lon in pts)
                 j = tomtom_get(TOMTOM_ROUTE.format(locs) + f"?key={key}&traffic=true&computeTravelTimeFor=all"
                                "&routeType=fastest&travelMode=car", key, f"routes:{rk}:{d}")
