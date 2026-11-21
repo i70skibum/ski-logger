@@ -508,7 +508,7 @@ function verdict(ctx, ranked, model, hour) {
   const morning = hour < 12, texas = day.tags.some(t => /Texas/.test(t));
   if (!top) return null;
   if (morning && upShut.length && (canyon || westOf244))
-    return { level: "crit", line: "Keep your ass at home.", why: `I-70 westbound is closed${canyon ? " and so is Clear Creek Canyon" : " past where the canyon comes in"}. There's no way up right now. This updates every 15 minutes.` };
+    return { level: "crit", line: "Keep your ass at home.", why: `I-70 westbound is closed${canyon ? " and so is Clear Creek Canyon" : " past where the canyon comes in"}. There's no way up right now.` };
   if (morning && upShut.length)
     return { level: "crit", line: "Canyon or couch.", why: "I-70 westbound is closed near Floyd Hill. Clear Creek Canyon is open, so it's US 6 or nothing." };
   if (!morning && weekend && homeShut.length)
