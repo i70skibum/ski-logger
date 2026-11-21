@@ -1201,6 +1201,18 @@
    "title": "US 550: Icy spots.",
    "type": "standard"
   },
+  "winterDriving:COSEG-587849": {
+   "began": "2026-11-20T19:25:27.785000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-587849",
+   "mp_end": 208.2914585504575,
+   "mp_start": 190.283999779025,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50: Snow.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-587882": {
    "began": "2026-11-20T12:52:39.669000-07:00",
    "class": "winterDriving",
@@ -1359,7 +1371,7 @@
   }
  },
  "forecast_last": "2026-11-21T00:44:33+00:00",
- "last_run": "2026-11-20T19:15:53-07:00",
+ "last_run": "2026-11-20T19:30:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-20": {
@@ -2068,7 +2080,7 @@
   "413": "3 - dry",
   "414": "3 - dry",
   "429": "3 - dry",
-  "430": "3 - dry",
+  "430": "4s - wet in areas; 6 - snow",
   "440": "3 - dry",
   "441": "3 - dry",
   "442": "3 - dry",
@@ -2097,25 +2109,25 @@
  "snotel_last": {
   "abasin": "2026-11-20 18:00",
   "aspen": "2026-11-20 17:00",
-  "beavercreek": "2026-11-20 17:00",
-  "breck": "2026-11-20 17:00",
-  "cooper": "2026-11-20 17:00",
-  "copper": "2026-11-20 17:00",
-  "crestedbutte": "2026-11-20 17:00",
-  "echo": "2026-11-20 17:00",
-  "eldora": "2026-11-20 17:00",
+  "beavercreek": "2026-11-20 18:00",
+  "breck": "2026-11-20 18:00",
+  "cooper": "2026-11-20 18:00",
+  "copper": "2026-11-20 18:00",
+  "crestedbutte": "2026-11-20 18:00",
+  "echo": "2026-11-20 18:00",
+  "eldora": "2026-11-20 18:00",
   "granby": "2026-11-20 17:00",
   "keystone": "2026-11-20 18:00",
-  "loveland": "2026-11-20 17:00",
+  "loveland": "2026-11-20 18:00",
   "monarch": "2026-11-20 17:00",
-  "powderhorn": "2026-11-20 17:00",
-  "purgatory": "2026-11-20 17:00",
+  "powderhorn": "2026-11-20 18:00",
+  "purgatory": "2026-11-20 18:00",
   "steamboat": "2026-11-20 18:00",
   "sunlight": "2026-11-20 17:00",
   "telluride": "2026-11-20 17:00",
-  "vail": "2026-11-20 17:00",
-  "winterpark": "2026-11-20 17:00",
-  "wolfcreek": "2026-11-20 17:00"
+  "vail": "2026-11-20 18:00",
+  "winterpark": "2026-11-20 18:00",
+  "wolfcreek": "2026-11-20 18:00"
  },
  "speed_segments": [
   "I70E024",

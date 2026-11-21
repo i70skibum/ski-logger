@@ -356,3 +356,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-20T19:15:53-07:00,394,US 50,Pueblo-LaJunta,315.7,379.8,3 - dry,"US 50, between I-25 (Pueblo) and Smithland Avenue (La Junta)"
 2026-11-20T19:15:53-07:00,227,US 160,Del Norte-Alamosa,186.1,259.0,3 - dry,"US 160, between CO 149 (South Fork) and Trinchera Ranch Road (1 mile east of Fort Garland)"
 2026-11-20T19:15:53-07:00,47,CO 9,US 24 to Fairplay,47.6,63.7,3 - dry,"CO 9, between US 24 and US 285 (Fairplay)"
+2026-11-20T19:30:46-07:00,430,US 50,Monarch Pass,190.3,208.3,4s - wet in areas; 6 - snow,"US 50, between MP 190 (1 mile west of the Monarch Pass area) and MP 209 (near Monarch Pass)"
