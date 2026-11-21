@@ -573,13 +573,14 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const [state, segRows, speedRows, snow, fc, rc, rs] = await Promise.all([
       get("state.json", true), get("speed/segments.csv").then(parseCSV), csv2("speed", month, false),
       csv2("snotel", month, true), csv2("forecast", month, true), csv2("road_conditions", month, true), get("resort_status.json", true)]);
-    const [outlook, model, routes] = await Promise.all([get("outlook.json", true), get("traffic_model.json", true), get("routes_now.json", true)]);
+    const [outlook, model, routes, segGeo] = await Promise.all([get("outlook.json", true), get("traffic_model.json", true), get("routes_now.json", true),
+      get("speed/segments_geo.json", true).catch(() => null)]);
     if (!state.last_run) throw new Error("Could not load the logger data.");
     const segs = segments(segRows), refs = refSpeeds(speedRows, segs), speedRow = speedRows[speedRows.length - 1] || null;
     const allEv = Object.values(state.events || {}), nowMs = Date.now(), started = e => !e.began || Date.parse(e.began) <= nowMs;
     const ctx = { segs, refs, speedRow, events: allEv.filter(started), upcoming: allEv.filter(e => !started(e)), now: nowMs, conds: latestConds(rc), forecast: latestForecast(fc), snow: {}, status: rs.resorts || {}, statusDate: rs.checked || "", statusAuto: !!rs.auto, today: day, routes };
     for (const k in RESORTS) ctx.snow[k] = snowSummary(snow, k);
-    D = { now, day, state, ctx, outlook, model, segRows, speedRows, series: delaySeries(speedRows, segs, refs, day), ranked: rank(ctx) };
+    D = { now, day, state, ctx, outlook, model, segRows, segGeo: segGeo || {}, speedRows, series: delaySeries(speedRows, segs, refs, day), ranked: rank(ctx) };
     render();
   }
 
@@ -871,8 +872,10 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
     const col = v => v == null ? "#8a8a84" : v >= 50 ? css("--good") : v >= 30 ? css("--warn") : css("--crit");
     D.segRows.forEach(s => {
-      const v = num(row[s.segment_id]), west = /W$/.test(s.route), off = west ? 0.007 : -0.007;
-      L.polyline([[+s.start_lat + off, +s.start_lon], [+s.end_lat + off, +s.end_lon]], { color: col(v), weight: 5, opacity: 0.95 })
+      // Along the road where the logger saved the segment's shape, else a straight line between its ends.
+      const v = num(row[s.segment_id]), west = /W$/.test(s.route), off = west ? 0.004 : -0.004, g = D.segGeo[s.segment_id];
+      const pts = g && g.length > 1 ? g.map(([a, b]) => [a + off, b]) : [[+s.start_lat + off, +s.start_lon], [+s.end_lat + off, +s.end_lon]];
+      L.polyline(pts, { color: col(v), weight: 5, opacity: 0.95 })
         .bindTooltip(`${west ? "Westbound" : "Eastbound"} near ${nearLandmark((+s.start_lon + +s.end_lon) / 2)}: ${v == null ? "no reading" : v + " mph, " + speedWord(v)}`, { sticky: true }).addTo(layer);
     });
     // US 6 and US 40 from TomTom. First the whole road from the routing call, colored by its overall delay
