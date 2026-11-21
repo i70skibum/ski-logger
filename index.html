@@ -139,7 +139,7 @@ details.shut > summary { cursor: pointer; font-size: 13px; color: var(--ink2); p
     <p class="note" id="modelline"></p>
   </section>
   <section><h2>Mountains</h2><div class="tablewrap" id="mtn"></div><p class="note" id="mtnnote"></p></section>
-  <section><h2>Road alerts and conditions</h2><div id="alerts"></div><h3>Reported conditions</h3><div id="conds"></div></section>
+  <section><h2>Road alerts and conditions</h2><div id="alerts"></div><h3>Passes and alternate routes</h3><div id="alts"></div><h3>Reported conditions</h3><div id="conds"></div></section>
   <footer>
     Sources: CDOT COtrip (speeds, alerts, conditions), USDA SNOTEL (snow), National Weather Service (forecast).
     Logged every 15 minutes by <a id="repolink" href="#">ski-logger</a>. The pick does not know lift or terrain status yet, so check the resort is open.
@@ -217,7 +217,7 @@ function miles(lon0, lat0, lon1, lat1) {
 function segments(segRows) {
   return segRows.map(s => {
     const lon0 = +s.start_lon, lon1 = +s.end_lon;
-    return { id: s.segment_id, dir: /W$/.test(s.route) ? "W" : "E", lonA: Math.min(lon0, lon1), lonB: Math.max(lon0, lon1),
+    return { id: s.segment_id, route: s.route, i70: /^I70/.test(s.route), midLat: (+s.start_lat + +s.end_lat) / 2, dir: /W$/.test(s.route) ? "W" : "E", lonA: Math.min(lon0, lon1), lonB: Math.max(lon0, lon1),
       mid: (lon0 + lon1) / 2, len: miles(lon0, +s.start_lat, lon1, +s.end_lat) };
   });
 }
@@ -235,7 +235,7 @@ function refSpeeds(speedRows, segs) {
 function delayMin(row, segs, refs, dir, westLon) {
   let d = 0, n = 0;
   for (const s of segs) {
-    if (s.dir !== dir || s.mid < westLon || s.mid > EAST_LON) continue;
+    if (!s.i70 || s.dir !== dir || s.mid < westLon || s.mid > EAST_LON) continue;
     const sp = num(row[s.id]); if (sp == null) continue;
     n++; d += Math.max(0, s.len / Math.max(sp, 3) - s.len / refs[s.id]) * 60;
   }
@@ -382,6 +382,41 @@ function dayScore(key, i, W) {
   if (R.pass !== "ikon") s -= 8;
   return { key, score: Math.max(0, Math.min(100, Math.round(s))), snow: before + during, fresh, agree, chips, n: d.n };
 }
+
+// ---- Passes and alternate routes ------------------------------------------
+// Each stretch is matched by mileposts (alerts, conditions) and by a map box (speed sensors).
+// Alternates are compared with the I-70 stretch they replace. Speeds show only where CDOT reports them.
+const ALTERNATES = [
+  { key: "canyon", name: "Clear Creek Canyon", short: "canyon", road: "US6", what: "US 6 from Golden to I-70 exit 244, instead of I-70 over Floyd Hill",
+    mp: [257.1, 271.5], box: [-105.45, -105.19, 39.68, 39.80], i70Lon: [-105.44, EAST_LON] },
+  { key: "pass", name: "Loveland Pass", short: "pass", road: "US6", what: "US 6 over the pass, instead of I-70 through the Eisenhower Tunnel. Also the way to A-Basin",
+    mp: [219.9, 229.9], box: [-105.96, -105.86, 39.60, 39.70], i70Lon: [-106.07, -105.88] },
+  { key: "berthoud", name: "Berthoud Pass", short: "US 40", road: "US40", what: "US 40 from I-70 exit 232 over the pass to Winter Park and Granby",
+    mp: [231.5, 258.5], box: [-105.95, -105.60, 39.74, 40.10] },
+];
+function travelMin(row, segs, pick, dir) {
+  const xs = segs.filter(s => pick(s) && s.dir === dir);
+  let t = 0, got = 0;
+  for (const s of xs) { const sp = num(row[s.id]); if (sp == null) continue; got++; t += s.len / Math.max(sp, 3) * 60; }
+  return xs.length && got / xs.length >= 0.7 ? Math.round(t * xs.length / got) : null;
+}
+function altStatus(ctx, A) {
+  const on = (route, a, b) => normRoute(route) === A.road && overlaps(a, b, A.mp[0], A.mp[1]);
+  const evs = ctx.events.filter(e => on(e.route, e.mp_start, e.mp_end));
+  const closed = evs.filter(e => e.class === "roadClosures" || /road closed/i.test(e.title));
+  const traction = evs.filter(e => e.class === "chainLaws" && !/commercial/i.test(e.title));
+  const uniq = xs => [...new Set(xs)];
+  const cond = uniq(ctx.conds.filter(c => on(c.route, c.start_mp, c.end_mp)).map(c => cleanCond(c.condition))).join("; ");
+  const out = { closed: closed.length > 0, traction: traction.length > 0, cond, alerts: uniq(closed.concat(traction).map(e => e.title)) };
+  if (ctx.speedRow && ctx.segs) {
+    const [x0, x1, y0, y1] = A.box, inBox = s => !s.i70 && normRoute(s.route).startsWith(A.road) && s.mid >= x0 && s.mid <= x1 && s.midLat >= y0 && s.midLat <= y1;
+    for (const [dir, k] of [["W", "up"], ["E", "home"]]) {
+      out[k] = { alt: travelMin(ctx.speedRow, ctx.segs, inBox, dir),
+                 i70: A.i70Lon ? travelMin(ctx.speedRow, ctx.segs, s => s.i70 && s.mid >= A.i70Lon[0] && s.mid <= A.i70Lon[1], dir) : null };
+    }
+  }
+  return out;
+}
 function headline(ranked) {
   const top = ranked[0], anySnow = ranked.some(r => r.new24 + r.fc24 >= 1);
   if (!anySnow && top.score - ranked[ranked.length - 1].score <= 2)
@@ -397,7 +432,7 @@ function headline(ranked) {
   if (top.closed) why += " There is a closure on the route, so check before leaving.";
   return { title: top.name, kicker: "Best bet for the next 24 hours", why };
 }
-if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, prevMonth, segments, refSpeeds, delayMin, delaySeries, snowSummary, latestForecast, latestConds, onRoute, cleanCond, condLevel, rank, headline, nearLandmark, RESORTS, trafficDay, dayScore, tierOf, openOn, hourly };
+if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, prevMonth, segments, refSpeeds, delayMin, delaySeries, snowSummary, latestForecast, latestConds, onRoute, cleanCond, condLevel, rank, headline, nearLandmark, RESORTS, trafficDay, dayScore, tierOf, openOn, hourly, altStatus, ALTERNATES };
 </script>
 
 <script>
@@ -622,6 +657,24 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
       (partial ? " * The logger has less history than this window so far, so the number covers only what it has." : "");
 
     // Alerts
+    const alts = $("alts"); alts.replaceChildren();
+    ALTERNATES.forEach(A => {
+      const st = altStatus(ctx, A), d = el("div", "alert");
+      const tag = st.closed ? el("span", "tag crit", "Closed") : st.traction ? el("span", "tag warn", "Traction law") : el("span", "tag", "Open");
+      const body = el("div"); body.append(el("b", "", A.name + ". "), document.createTextNode(A.what + "."));
+      const lines = [];
+      for (const [k, label] of [["up", "Heading up"], ["home", "Heading home"]]) {
+        const t = st[k];
+        if (t && t.alt != null && t.i70 != null) {
+          const diff = t.i70 - t.alt;
+          lines.push(`${label}: ${A.short} ${t.alt} min, I-70 ${t.i70} min` + (!st.closed && diff >= 5 ? `, so US 6 is ${diff} min faster` : ""));
+        } else if (t && t.alt != null) lines.push(`${label}: ${t.alt} min over the pass`);
+      }
+      if (!lines.length) lines.push("No speed readings here yet, so only alerts and conditions show.");
+      if (st.cond) lines.push("Conditions: " + st.cond);
+      st.alerts.forEach(a => lines.push(a));
+      d.append(tag, body, el("small", "", lines.join(" \u00b7 "))); alts.append(d);
+    });
     const al = $("alerts"); al.replaceChildren();
     const vis = Object.keys(RESORTS).filter(shown).map(k => RESORTS[k]);
     const mine = e => vis.some(R => onRoute(R, e.route, e.mp_start, e.mp_end));
