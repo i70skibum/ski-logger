@@ -397,3 +397,6 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-21T03:45:46-07:00,102,CO 82,Independence Pass,41.9,67.4,seasonal closure,"CO 82, between Benedict Drive (Aspen) and Carlton Tunnel Road (Independence Pass)"
 2026-11-21T03:45:46-07:00,101,CO 82,Aspen-Basalt,11.5,41.9,22 - blowing snow; 4 - wet,"CO 82, between Satank Road (near Carbondale) and Riverside Drive (Aspen)"
 2026-11-21T03:45:46-07:00,70,CO 62,Dallas Divide,0.0,23.4,2 - poor visibility; 6 - snow,"CO 62, between CO 145 (4 miles west of the Dallas Divide area) and US 550; Hunter Parkway (Ridgway)"
+2026-11-21T04:00:45-07:00,270,I-70,Eisenhower/Johnson tunnels-Georgetown,212.5,226.9,"6-9-11 snow, icy spots, snow packed spots","I-70, between Exit 205: CO 9; US 6; Silverthorne (near Eisenhower Tunnel) and Exit 228: Georgetown (near Georgetown)"
+2026-11-21T04:00:45-07:00,486,US 6,Loveland Pass,219.9,229.9,"6-8-10 snow, icy, snow packed","US 6, between Montezuma Road and I-70 (Loveland Pass)"
+2026-11-21T04:00:45-07:00,491,US 40,I-70 to Winter Park (Berthoud Pass),231.5,258.3,"6-8-10 snow, icy, snow packed","US 40, between Moffat Road (Winter Park) and I-70 (near Empire)"
