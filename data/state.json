@@ -421,6 +421,20 @@
    "title": "CO 103 southbound: Crash.",
    "type": "routine"
   },
+  "roadReports:CDOT-36507927921WB": {
+   "began": "2026-11-21T14:11:33-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36507927921WB",
+   "lat": 39.78236,
+   "lon": -105.78823,
+   "mp_end": "",
+   "mp_start": 247.01492780236165,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40 westbound: Crash.",
+   "type": "routine"
+  },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
    "class": "roadWork",
@@ -2047,7 +2061,7 @@
   }
  },
  "forecast_last": "2026-11-21T19:15:50+00:00",
- "last_run": "2026-11-21T14:00:46-07:00",
+ "last_run": "2026-11-21T14:15:51-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-21": {
@@ -2787,7 +2801,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-21 12:00",
+  "abasin": "2026-11-21 13:00",
   "aspen": "2026-11-21 12:00",
   "beavercreek": "2026-11-21 12:00",
   "breck": "2026-11-21 12:00",
@@ -2797,7 +2811,7 @@
   "echo": "2026-11-21 12:00",
   "eldora": "2026-11-21 12:00",
   "granby": "2026-11-21 12:00",
-  "keystone": "2026-11-21 12:00",
+  "keystone": "2026-11-21 13:00",
   "loveland": "2026-11-21 12:00",
   "monarch": "2026-11-21 12:00",
   "powderhorn": "2026-11-21 12:00",
@@ -3063,14 +3077,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-21T21:00:46+00:00",
- "tomtom_routing_last": "2026-11-21T21:00:46+00:00",
+ "tomtom_flow_last": "2026-11-21T21:15:51+00:00",
+ "tomtom_routing_last": "2026-11-21T21:15:51+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 250
+   "2026-11": 260
   },
   "routing": {
-   "2026-11": 194
+   "2026-11": 203
   }
  },
  "traffic_model_last": "2026-11-21T19:15:50+00:00"
