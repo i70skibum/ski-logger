@@ -182,8 +182,9 @@ const RESORTS = {
   purgatory:  { name: "Purgatory",   pass: "indy", hrs: 6.0, westLon: null,     roads: [["US285", 51.2, 250], ["US160", 79.9, 205], ["US550", 16.6, 50]], via: "US 285 and US 160 to Durango, then US 550", overnight: true },
 };
 // Passes on the way, from TomTom: added to the I-70 delay for these resorts.
-const VIA_ROUTE = { winterpark: "berthoud", granby: "berthoud", abasin: "pass", keystone: "dillon" };
-const ROUTE_LABEL = { berthoud: "Berthoud", pass: "Loveland Pass", canyon: "Clear Creek Canyon", dillon: "US 6 through Dillon" };
+const VIA_ROUTE = { winterpark: "berthoud", granby: "berthoud", abasin: "pass", keystone: "dillon", eldora: "eldora_boulder" };
+const ROUTE_LABEL = { berthoud: "Berthoud", pass: "Loveland Pass", canyon: "Clear Creek Canyon", dillon: "US 6 through Dillon",
+  eldora_boulder: "Boulder Canyon", eldora_coal: "Coal Creek", eldora_119: "CO 119 via Black Hawk" };
 const SHOW = { ikon: true, epic: false, indy: false, overnight: false };
 const SHOW_KEYS = { ikon: "ski-ikon", epic: "ski-epic", indy: "ski-indy", overnight: "ski-overnight" };
 try { for (const g in SHOW) { const v = localStorage.getItem(SHOW_KEYS[g]); if (v != null) SHOW[g] = v === "1"; } } catch (e) {}
@@ -448,6 +449,13 @@ const ALTERNATES = [
     mp: [231.5, 258.5], box: [-105.95, -105.60, 39.74, 40.10] },
   { key: "dillon", name: "US 6 through Dillon", short: "US 6", road: "US6", what: "US 6 from I-70 exit 205 at Silverthorne through Dillon to Keystone",
     mp: [208.7, 216], box: [-106.08, -105.93, 39.59, 39.64] },
+  // Eldora, timed from Coors Field in the ski direction only. COtrip closures match by place (zones), not mileposts.
+  { key: "eldora_boulder", name: "Eldora by Boulder Canyon", short: "CO 119", road: "CO119", what: "Coors Field to Eldora by US 36, Boulder Canyon and Nederland",
+    zones: [{ road: "CO119", box: [-105.53, -105.27, 39.95, 40.04] }] },
+  { key: "eldora_coal", name: "Eldora by Coal Creek", short: "CO 72", road: "CO72", what: "Coors Field to Eldora by Coal Creek Canyon and Peak to Peak",
+    zones: [{ road: "CO72", box: [-105.53, -105.15, 39.80, 39.99] }] },
+  { key: "eldora_119", name: "Eldora by Black Hawk", short: "CO 119", road: "CO119", what: "Coors Field to Eldora by Clear Creek Canyon, Black Hawk and Peak to Peak",
+    zones: [{ road: "CO119", box: [-105.53, -105.39, 39.74, 39.95] }, { road: "US6", box: [-105.40, -105.19, 39.70, 39.80] }] },
 ];
 function travelMin(row, segs, pick, dir) {
   const xs = segs.filter(s => pick(s) && s.dir === dir);
@@ -456,8 +464,10 @@ function travelMin(row, segs, pick, dir) {
   return xs.length && got / xs.length >= 0.7 ? Math.round(t * xs.length / got) : null;
 }
 function altStatus(ctx, A) {
-  const on = (route, a, b) => normRoute(route) === A.road && overlaps(a, b, A.mp[0], A.mp[1]);
-  const evs = ctx.events.filter(e => on(e.route, e.mp_start, e.mp_end));
+  const inZone = (route, lat, lon) => lat != null && lon != null && A.zones.some(z => normRoute(route) === z.road &&
+    +lon >= z.box[0] && +lon <= z.box[1] && +lat >= z.box[2] && +lat <= z.box[3]);
+  const on = (route, a, b, lat, lon) => A.zones ? inZone(route, lat, lon) : normRoute(route) === A.road && overlaps(a, b, A.mp[0], A.mp[1]);
+  const evs = ctx.events.filter(e => on(e.route, e.mp_start, e.mp_end, e.lat, e.lon));
   const closed = evs.filter(e => e.class === "roadClosures" || /road closed/i.test(e.title));
   const traction = evs.filter(e => e.class === "chainLaws" && !/commercial/i.test(e.title));
   const uniq = xs => [...new Set(xs)];
@@ -467,7 +477,7 @@ function altStatus(ctx, A) {
   // CDOT (COtrip) decides closed. TomTom finding no way along the road is a warning to check.
   if (live) { out.live = live; out.tomtomBlocked = !!(live.closed || (live.W && live.W.detour) || (live.E && live.E.detour)); }
   if (ctx.speedRow && ctx.segs && A.i70Lon) out.i70Delay = { W: delayMin(ctx.speedRow, ctx.segs, ctx.refs || {}, "W", A.i70Lon[0]), E: null };
-  if (ctx.speedRow && ctx.segs) {
+  if (ctx.speedRow && ctx.segs && A.box) {
     const [x0, x1, y0, y1] = A.box, inBox = s => !s.i70 && normRoute(s.route).startsWith(A.road) && s.mid >= x0 && s.mid <= x1 && s.midLat >= y0 && s.midLat <= y1;
     for (const [dir, k] of [["W", "up"], ["E", "home"]]) {
       out[k] = { alt: travelMin(ctx.speedRow, ctx.segs, inBox, dir),
@@ -666,7 +676,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     if (m.routes) {
       box.append(el("p", "mlabel", "Passes and alternates (TomTom routing times)"));
       const rr = el("div", "mrows"), wn = { sat_am: "Sat 5 to 10 AM, up", sun_am: "Sun 5 to 10 AM, up", sat_pm: "Sat 1 to 7 PM, home", sun_pm: "Sun 1 to 7 PM, home" };
-      for (const rk of ["berthoud", "pass", "canyon", "dillon"]) {
+      for (const rk of ["berthoud", "pass", "canyon", "dillon", "eldora_boulder", "eldora_coal", "eldora_119"]) {
         const r = m.routes[rk]; if (!r) continue;
         for (const w of ["sat_am", "sun_pm"]) {
           const n = ((r.coverage || {})[w] || {}).n || 0, bar = el("div", "blocks");
@@ -683,7 +693,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       acc.append(el("div", "mbig", last.mean_error_min == null ? "Not enough data" : `Off by ${last.mean_error_min} min`),
         el("div", "mlabel", `Weekend of ${dayName(last.weekend)}, average across the windows${last.source.includes("estimate") ? ", from estimates" : ""}`));
       const re = Object.entries(last.error_min || {}).filter(([k]) => k.includes(":"));
-      if (re.length) acc.append(el("div", "mlabel", "Passes: " + ["berthoud", "pass", "canyon", "dillon"].map(rk => { const xs = re.filter(([k]) => k.startsWith(rk + ":")).map(([, v]) => v); return xs.length ? `${ROUTE_LABEL[rk]} ${Math.round(xs.reduce((a, b) => a + b, 0) / xs.length * 10) / 10} min` : null; }).filter(Boolean).join(", ")));
+      if (re.length) acc.append(el("div", "mlabel", "Passes: " + ["berthoud", "pass", "canyon", "dillon", "eldora_boulder", "eldora_coal", "eldora_119"].map(rk => { const xs = re.filter(([k]) => k.startsWith(rk + ":")).map(([, v]) => v); return xs.length ? `${ROUTE_LABEL[rk]} ${Math.round(xs.reduce((a, b) => a + b, 0) / xs.length * 10) / 10} min` : null; }).filter(Boolean).join(", ")));
       if (g.length > 1) acc.append(el("div", "mlabel", "Earlier: " + g.slice(0, -1).slice(-4).map(x => x.mean_error_min == null ? "n/a" : x.mean_error_min + " min").join(", ")));
     } else acc.append(el("div", "mbig", "Not graded yet"), el("div", "mlabel", "The first check runs the Monday after a full weekend"));
     const cond = el("div", "mcard"); cond.append(el("div", "mlabel", "Kinds of weekends seen"));
