@@ -855,7 +855,12 @@ def log_routes(state):
                     continue   # landed on some other road
                 closed = closed or bool(d.get("roadClosure"))
                 if d.get("currentSpeed") and d.get("freeFlowSpeed"):
-                    slow.append({"point": i, "mph": d["currentSpeed"], "normal_mph": d["freeFlowSpeed"]})
+                    # The road stretch this reading covers, thinned to 80 points, for the dashboard map.
+                    line = [[round(p["latitude"], 5), round(p["longitude"], 5)] for p in pts[::max(1, -(-len(pts) // 80))]]
+                    if pts and line[-1] != [round(pts[-1]["latitude"], 5), round(pts[-1]["longitude"], 5)]:
+                        line.append([round(pts[-1]["latitude"], 5), round(pts[-1]["longitude"], 5)])
+                    slow.append({"point": i, "mph": d["currentSpeed"], "normal_mph": d["freeFlowSpeed"],
+                                 "closed": bool(d.get("roadClosure")), "line": line})
             out["closed"] = closed
             out["points"] = slow
             out["points_at"] = NOW_ISO
@@ -881,10 +886,150 @@ def log_routes(state):
 # and how far off its predictions were. Predictions are saved on Friday and graded on Monday.
 
 CORRIDOR_WEST_LON, CORRIDOR_EAST_LON = -106.145, -105.185   # Copper to C-470
-# Holiday periods are left out of the normal profile and always shown as estimates.
-HOLIDAYS = [("2026-11-25", "2026-11-29", "Thanksgiving"), ("2026-12-19", "2027-01-03", "Christmas and New Year"),
-            ("2027-01-15", "2027-01-18", "MLK weekend"), ("2027-02-12", "2027-02-15", "Presidents Day weekend"),
-            ("2027-03-13", "2027-03-28", "Spring break weeks")]
+# Day types. Only "typical" days build the normal profile. Holidays, school-break weeks and
+# disrupted days (a closure or a flagged storm during ski hours) are kept and labeled, and
+# each type gets its own measure of how far it runs above typical once there is data.
+# Holidays that move each year are worked out by rule; data/calendar.json holds pass
+# blackouts, school breaks and hand-flagged days, and is updated each season.
+
+
+def nth_weekday(y, m, wd, n):
+    """The nth weekday (Mon=0) of a month; n=-1 for the last."""
+    from datetime import date
+    if n > 0:
+        d = date(y, m, 1)
+        return d + timedelta(days=(wd - d.weekday()) % 7 + 7 * (n - 1))
+    d = date(y + (m == 12), m % 12 + 1, 1) - timedelta(days=1)
+    return d - timedelta(days=(d.weekday() - wd) % 7)
+
+
+def easter(y):
+    from datetime import date
+    a, b, c = y % 19, y // 100, y % 100
+    d, e = b // 4, b % 4
+    g = (8 * b + 13) // 25
+    h = (19 * a + b - d - g + 15) % 30
+    i, k = c // 4, c % 4
+    l = (32 + 2 * e + 2 * i - h - k) % 7
+    m = (a + 11 * h + 22 * l) // 451
+    return date(y, (h + l - 7 * m + 114) // 31, (h + l - 7 * m + 114) % 31 + 1)
+
+
+def holiday_periods(y):
+    """Holiday periods for the ski season starting in the fall of year y: (first day, last day, name)."""
+    from datetime import date
+    tg = nth_weekday(y, 11, 3, 4)
+    xmas0 = date(y, 12, 21) - timedelta(days=(date(y, 12, 21).weekday() - 5) % 7)    # Saturday on or before Dec 21
+    xmas1 = date(y + 1, 1, 1) + timedelta(days=(6 - date(y + 1, 1, 1).weekday()) % 7)  # Sunday on or after Jan 1
+    mlk, pres, eas, mem = nth_weekday(y + 1, 1, 0, 3), nth_weekday(y + 1, 2, 0, 3), easter(y + 1), nth_weekday(y + 1, 5, 0, -1)
+    return [(tg - timedelta(days=5), tg - timedelta(days=4), "Weekend before Thanksgiving"),
+            (tg - timedelta(days=1), tg + timedelta(days=3), "Thanksgiving"),
+            (xmas0, xmas1, "Christmas and New Year"),
+            (mlk - timedelta(days=2), mlk, "MLK weekend"), (pres - timedelta(days=2), pres, "Presidents Day weekend"),
+            (eas - timedelta(days=2), eas, "Easter weekend"), (mem - timedelta(days=2), mem, "Memorial Day weekend")]
+
+
+def holiday_of(d):
+    for a, b, name in holiday_periods(d.year if d.month >= 7 else d.year - 1):
+        if a <= d <= b:
+            return name
+    return None
+
+
+_CAL = None
+
+
+def calendar():
+    global _CAL
+    if _CAL is None:
+        try:
+            with open(os.path.join(DATA, "calendar.json")) as f:
+                _CAL = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            _CAL = {}
+    return _CAL
+
+
+def in_ranges(iso, ranges, weekends=False):
+    """Is the date in any [first, last] range? With weekends, a range also covers the weekend on each side."""
+    for a, b in ranges:
+        if weekends:
+            a = (datetime.fromisoformat(a) - timedelta(days=2)).date().isoformat()
+            b = (datetime.fromisoformat(b) + timedelta(days=2)).date().isoformat()
+        if a <= iso <= b:
+            return True
+    return False
+
+
+# A full closure in the ski direction counts as a disruption: heading up (westbound) 5 to 11 AM,
+# or heading home (eastbound) noon to 7 PM. Roads: I-70 from Silverthorne to C-470, US 6 in the canyon.
+# Weekday-morning eastbound work closures at Floyd Hill don't count: that's the commute direction.
+DISRUPT_ROADS = (("I-70", 205, 262), ("US 6", 257, 272))
+DISRUPT_MIN = 45     # minutes of closure inside the window
+
+
+def disruptions():
+    """Dates with a long full closure during ski hours, from the logged CDOT events: date -> description."""
+    import glob
+    spans = {}
+    for path in sorted(glob.glob(os.path.join(DATA, "events", "20*.csv"))):
+        with open(path) as f:
+            for r in csv.DictReader(f):
+                if r.get("class") != "roadClosures" or r.get("type") != "critical":
+                    continue
+                try:
+                    mp = float(r["mp_start"])
+                except (TypeError, ValueError):
+                    continue
+                if not any(r["route"] == rd and lo <= mp <= hi for rd, lo, hi in DISRUPT_ROADS):
+                    continue
+                s = spans.setdefault(r["id"], {"route": r["route"], "title": r["title"], "start": None, "end": None})
+                t = datetime.fromisoformat(r["observed_at"])
+                if r["change"] == "start":
+                    began = datetime.fromisoformat(r["began"]) if r.get("began") else t
+                    s["start"] = max(began, t - timedelta(minutes=20))   # not before it was first seen, give or take a run
+                elif r["change"] == "end":
+                    s["end"] = t
+    out = {}
+    for s in spans.values():
+        if not s["start"]:
+            continue
+        a, b = s["start"].astimezone(DENVER), (s["end"] or NOW).astimezone(DENVER)
+        title = s["title"].lower()
+        hours = [h for word, h in (("westbound", (5, 11)), ("eastbound", (12, 19))) if word in title or "both" in title]
+        day = a.date()
+        while day <= b.date():
+            for h0, h1 in hours:
+                lo = datetime(day.year, day.month, day.day, h0, tzinfo=DENVER)
+                hi = datetime(day.year, day.month, day.day, h1, tzinfo=DENVER)
+                if (min(b, hi) - max(a, lo)).total_seconds() / 60 >= DISRUPT_MIN:
+                    out.setdefault(day.isoformat(), set()).add(s["title"].split(":")[0])
+            day += timedelta(days=1)
+    return {k: "Closed in the ski direction: " + ", ".join(sorted(v)) for k, v in out.items()}
+
+
+def day_info(d, dis):
+    """Type and labels for one date. Types: disrupted, holiday, break or typical."""
+    iso, cal = d.isoformat(), calendar()
+    tags = []
+    hol = holiday_of(d)
+    if hol:
+        tags.append(hol)
+    for b in cal.get("pass_blackouts", []):
+        if in_ranges(iso, b["dates"]):
+            tags.append(f"{b['pass']} blackout")
+    areas = {}
+    for s in cal.get("school_breaks", []):
+        if in_ranges(iso, s["dates"], weekends=True):
+            areas.setdefault(s["area"], []).append(s["who"])
+    if areas:
+        tags.append("School break: " + "; ".join(f"{a} ({', '.join(w)})" for a, w in areas.items()))
+    note = (cal.get("flags") or {}).get(iso) or dis.get(iso)
+    kind = "disrupted" if note else "holiday" if hol else "break" if areas else "typical"
+    out = {"type": kind, "tags": tags}
+    if note:
+        out["note"] = note
+    return out
 # The windows that matter for ski days: (weekday 0=Mon, start hour, end hour, direction).
 KEY_WINDOWS = {"fri_pm_W": (4, 14, 20, "W"), "sat_am_W": (5, 5, 10, "W"), "sun_am_W": (6, 5, 10, "W"),
                "sat_pm_E": (5, 13, 19, "E"), "sun_pm_E": (6, 13, 19, "E")}
@@ -896,14 +1041,6 @@ GENERIC = {"W": {4: {14: 5, 15: 10, 16: 15, 17: 15, 18: 10, 19: 5},
            "E": {5: {12: 3, 13: 8, 14: 15, 15: 20, 16: 20, 17: 15, 18: 8, 19: 3},
                  6: {12: 5, 13: 15, 14: 30, 15: 40, 16: 40, 17: 30, 18: 15, 19: 5}}}
 POWDER_STATIONS = ("copper", "abasin", "winterpark", "loveland", "keystone", "vail")
-
-
-def holiday_of(d):
-    s = d.isoformat()
-    for a, b, name in HOLIDAYS:
-        if a <= s <= b:
-            return name
-    return None
 
 
 def miles(lon0, lat0, lon1, lat1):
@@ -1002,7 +1139,7 @@ def route_delays():
                        max(0.0, float(r["travel_s"]) - float(r["no_traffic_s"])) / 60)
 
 
-def route_model(today):
+def route_model(today, typical):
     """Profiles, coverage and actuals for the passes and alternates, same rules as I-70."""
     from collections import defaultdict
     per_slot = defaultdict(lambda: defaultdict(list))
@@ -1012,7 +1149,7 @@ def route_model(today):
         day = t.date()
         snaps[(rk, d, day, t.hour)] += 1
         actual[(rk, d, day.isoformat())][t.hour].append(v)
-        if not holiday_of(day):
+        if typical(day):
             per_slot[f"{rk}-{d}-{t.weekday()}-{t.hour:02d}{'00' if t.minute < 30 else '30'}"][day].append(v)
     slots = {}
     for k, by_day in per_slot.items():
@@ -1023,7 +1160,7 @@ def route_model(today):
         days = sorted({x for (r, _, x, h) in snaps if r == rk})
         cov = {}
         for w, (dow, h0, h1, dr) in ROUTE_WINDOWS.items():
-            got = [d.isoformat() for d in days if d.weekday() == dow and not holiday_of(d)
+            got = [d.isoformat() for d in days if d.weekday() == dow and typical(d)
                    and sum(1 for h in range(h0, h1) if snaps.get((rk, dr, d, h), 0) >= 3) >= 0.8 * (h1 - h0)]
             cov[w] = {"n": len(got), "last": got[-1] if got else None}
         out[rk] = {"name": R["name"], "first_day": days[0].isoformat() if days else None,
@@ -1046,6 +1183,15 @@ def log_traffic_model(state):
     if last and NOW_UTC - datetime.fromisoformat(last) < FORECAST_EVERY:
         return 0
     from collections import defaultdict
+    dis, infos = disruptions(), {}
+
+    def info(day):
+        if day not in infos:
+            infos[day] = day_info(day, dis)
+        return infos[day]
+
+    def typical(day):
+        return info(day)["type"] == "typical"
     per_slot = defaultdict(lambda: defaultdict(list))     # slot -> date -> delays
     snaps = defaultdict(int)                               # (date, hour, dir) -> snapshots
     actual = defaultdict(lambda: defaultdict(list))         # date -> (dir, hour) -> delays
@@ -1056,7 +1202,7 @@ def log_traffic_model(state):
                 continue
             snaps[(day, t.hour, d)] += 1
             actual[day.isoformat()][(d, t.hour)].append(v)
-            if holiday_of(day):
+            if not typical(day):
                 continue
             per_slot[f"{t.weekday()}-{t.hour:02d}{'00' if t.minute < 30 else '30'}-{d}"][day].append(v)
     slots = {}
@@ -1073,23 +1219,25 @@ def log_traffic_model(state):
     coverage = {}
     for dow in range(7):
         for name, (h0, h1, d) in (("amW", (5, 10, "W")), ("pmE", (13, 19, "E")), ("pmW", (14, 20, "W"))):
-            got = [x.isoformat() for x in dates if x.weekday() == dow and not holiday_of(x) and covered(x, h0, h1, d)]
+            got = [x.isoformat() for x in dates if x.weekday() == dow and typical(x) and covered(x, h0, h1, d)]
             coverage[f"{dow}-{name}"] = {"n": len(got), "dates": got[-8:]}
     key_cov = {}
     for k, (dow, h0, h1, d) in KEY_WINDOWS.items():
-        got = [x.isoformat() for x in dates if x.weekday() == dow and not holiday_of(x) and covered(x, h0, h1, d)]
+        got = [x.isoformat() for x in dates if x.weekday() == dow and typical(x) and covered(x, h0, h1, d)]
         key_cov[k] = {"n": len(got), "target": WINDOW_TARGET, "last": got[-1] if got else None}
 
-    # Conditions seen: each weekend with at least one key window logged, sorted into dry, powder or holiday.
+    # Conditions seen: each weekend with at least one key window logged, sorted into dry, powder,
+    # holiday, school break or disrupted (either day).
     powder = snow_weekends()
-    seen = {"dry": [], "powder": [], "holiday": []}
+    seen = {"dry": [], "powder": [], "holiday": [], "break": [], "disrupted": []}
     for x in dates:
         if x.weekday() != 5:
             continue
         sun = x + timedelta(days=1)
         if not (covered(x, 5, 10, "W") or covered(x, 13, 19, "E") or covered(sun, 13, 19, "E")):
             continue
-        kind = "holiday" if holiday_of(x) else "powder" if x.isoformat() in powder else "dry"
+        types = {info(x)["type"], info(sun)["type"]}
+        kind = next((k for k in ("disrupted", "holiday", "break") if k in types), None) or ("powder" if x.isoformat() in powder else "dry")
         seen[kind].append(x.isoformat())
 
     # Save a prediction for the coming weekend on Friday, the profile's best guess for each key window.
@@ -1100,7 +1248,7 @@ def log_traffic_model(state):
     except (FileNotFoundError, json.JSONDecodeError):
         preds = {}
     today = NOW.date()
-    rinfo, rslots, ractual = route_model(today)
+    rinfo, rslots, ractual = route_model(today, typical)
     if today.weekday() == 4:
         sat = (today + timedelta(days=1)).isoformat()
         if sat not in preds:
@@ -1116,7 +1264,8 @@ def log_traffic_model(state):
                     gen = GENERIC_ROUTES.get(rk, {}).get(dow, {})
                     win[f"{rk}:{w}"] = {"source": "profile" if prof else "estimate",
                                         "by_hour": {str(h): prof.get(h, gen.get(h, 0)) for h in range(h0, h1)}}
-            preds[sat] = {"made": NOW_ISO, "holiday": holiday_of(today + timedelta(days=1)), "windows": win}
+            preds[sat] = {"made": NOW_ISO, "holiday": holiday_of(today + timedelta(days=1)),
+                          "day": {k: info(today + timedelta(days=k)) for k in (0, 1, 2)}, "windows": win}
     # Grade any weekend that has finished: compare with what the speeds showed, hour by hour.
     for sat, pr in preds.items():
         if "graded" in pr:
@@ -1146,18 +1295,45 @@ def log_traffic_model(state):
                 errs[k] = round(sum(diffs) / len(diffs), 1)
         pr["graded"] = NOW_ISO
         pr["error_min"] = errs
+        pr["day_types"] = sorted({info(sat_d + timedelta(days=k))["type"] for k in (-1, 0, 1)})
         i70 = [v for k, v in errs.items() if ":" not in k]
         pr["mean_error_min"] = round(sum(i70) / len(i70), 1) if i70 else None
     with open(path, "w") as f:
         json.dump(preds, f, indent=1)
         f.write("\n")
 
+    # How far each kind of day ran above typical: actual window delay against the typical profile,
+    # as a multiplier (with 2 minutes added to both so near-empty roads don't blow it up).
+    ratios = defaultdict(list)
+    for x in dates:
+        kind = info(x)["type"]
+        if kind == "typical":
+            continue
+        for k, (dow, h0, h1, d) in KEY_WINDOWS.items():
+            if x.weekday() != dow or not covered(x, h0, h1, d):
+                continue
+            prof = window_mean(slots, dow, h0, h1, d)
+            act = [sum(v) / len(v) for h in range(h0, h1) for v in [actual.get(x.isoformat(), {}).get((d, h), [])] if v]
+            if len(prof) >= 0.8 * (h1 - h0) and act:
+                ratios[kind].append((sum(act) / len(act) + 2) / (sum(prof.values()) / len(prof) + 2))
+    day_types = {}
+    for kind in ("holiday", "break", "disrupted"):
+        xs = sorted(ratios[kind])
+        day_types[kind] = {"days": [x.isoformat() for x in dates if info(x)["type"] == kind],
+                           "lift": round(xs[len(xs) // 2], 2) if len(xs) >= 2 else None, "windows": len(xs)}
+    # Labels for every logged day and the next two weeks, for the dashboard.
+    span = [dates[0] + timedelta(days=i) for i in range((today - dates[0]).days + 15)] if dates else []
+    days = {x.isoformat(): info(x) for x in span if info(x)["type"] != "typical" or info(x)["tags"]}
+    season = today.year if today.month >= 7 else today.year - 1
+    hols = [[a.isoformat(), b.isoformat(), n] for a, b, n in holiday_periods(season) + holiday_periods(season + 1)]
+
     graded = [{"weekend": k, "mean_error_min": v.get("mean_error_min"), "error_min": v.get("error_min"),
-               "source": sorted({w["source"] for w in v["windows"].values()})}
+               "day_types": v.get("day_types"), "source": sorted({w["source"] for w in v["windows"].values()})}
               for k, v in sorted(preds.items()) if "graded" in v]
     model = {"updated": NOW_ISO, "first_day": dates[0].isoformat() if dates else None, "days_logged": len(dates),
              "slots": slots, "coverage": coverage, "key_windows": key_cov, "target": WINDOW_TARGET,
-             "conditions_seen": seen, "holidays": HOLIDAYS, "generic": GENERIC, "graded": graded,
+             "conditions_seen": seen, "holidays": hols, "days": days, "day_types": day_types,
+             "pass_blackouts": calendar().get("pass_blackouts", []), "generic": GENERIC, "graded": graded,
              "routes": rinfo, "route_slots": rslots, "route_windows": ROUTE_WINDOWS}
     with open(os.path.join(DATA, "traffic_model.json"), "w") as f:
         json.dump(model, f, separators=(",", ":"))
