@@ -723,22 +723,24 @@ TOMTOM_CAPS = {"routing": 19000, "flow": 19000}
 ROUTE_POINTS = {
     # Routing goes start, via, end (heading up; reversed for heading home). The via point keeps
     # it on the road: without it the router would take I-70 through the tunnel instead of
-    # Loveland Pass. Flow points are spread along the road.
+    # Loveland Pass. Flow points are spread along the road. All coordinates are vertices of
+    # TomTom's own geometry for these roads (from the calibration output), so they sit on the road.
     "canyon":   {"name": "Clear Creek Canyon (US 6, Golden to I-70 exit 244)", "max_km": 30,
-                 "route": [(39.7530, -105.2280), (39.7428, -105.3297), (39.7421, -105.4247)],
-                 "points": [(39.7468, -105.2655), (39.7428, -105.3297), (39.7421, -105.4247)]},
+                 "route": [(39.75454, -105.23687), (39.74168, -105.33004), (39.74238, -105.43138)],
+                 "points": [(39.74204, -105.26940), (39.74168, -105.33004), (39.72766, -105.42222)]},
     "pass":     {"name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)", "max_km": 27,
                  "route": [(39.6800, -105.8950), (39.6636, -105.8794), (39.6050, -105.9440)],
-                 "points": [(39.6662, -105.8832), (39.6501, -105.8741), (39.6302, -105.8899)]},
+                 "points": [(39.67160, -105.87765), (39.64683, -105.87023), (39.62030, -105.92400)]},
     "berthoud": {"name": "Berthoud Pass (US 40, Empire to Winter Park)", "max_km": 45,
-                 "route": [(39.7600, -105.6830), (39.7983, -105.7776), (39.8862, -105.7631)],
-                 "points": [(39.7602, -105.6860), (39.7771, -105.7329), (39.7983, -105.7776), (39.8862, -105.7631)]},
+                 "route": [(39.76107, -105.68312), (39.79586, -105.78069), (39.88623, -105.76259)],
+                 "points": [(39.76389, -105.74095), (39.78414, -105.78464), (39.82553, -105.76544), (39.88738, -105.76063)]},
 }
 TOMTOM_HOURS = {"routing": (5, 22), "flow": (5, 20)}
 
 
 def tomtom_get(url, key, where):
-    """One TomTom request, paced under its per-second limit, with one retry if it says too many."""
+    """One TomTom request, paced under its per-second limit, with one retry if it says too many.
+    A routing 400 means TomTom found no way along the road, which is how it reports a closure."""
     import time
     for attempt in (1, 2):
         time.sleep(0.35)
@@ -748,6 +750,8 @@ def tomtom_get(url, key, where):
             if attempt == 1 and "429" in str(e):
                 time.sleep(2)
                 continue
+            if "calculateRoute" in url and "400" in str(e):
+                return {"no_route": True}
             log_error(where, str(e).replace(key, "KEY"))
             return None
 
@@ -807,6 +811,10 @@ def log_routes(state):
                 locs = ":".join(f"{lat},{lon}" for lat, lon in pts)
                 j = tomtom_get(TOMTOM_ROUTE.format(locs) + f"?key={key}&traffic=true&computeTravelTimeFor=all"
                                "&routeType=fastest&travelMode=car", key, f"routes:{rk}:{d}")
+                if j and j.get("no_route"):
+                    rows.append([NOW_ISO, rk, d, "", "", "", "", "", True])
+                    out[d] = {"delay_min": None, "minutes": None, "free_min": None, "detour": True, "no_route": True, "at": NOW_ISO}
+                    continue
                 if not j or not j.get("routes"):
                     out[d] = None
                     continue
