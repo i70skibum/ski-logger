@@ -2005,7 +2005,7 @@
   }
  },
  "forecast_last": "2026-11-21T22:30:47+00:00",
- "last_run": "2026-11-21T16:00:47-07:00",
+ "last_run": "2026-11-21T16:15:45-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-21": {
@@ -2669,10 +2669,10 @@
   "118": "3 - dry",
   "131": "4s - wet in areas",
   "132": "3 - dry",
-  "141": "4 - wet; 9 - icy spots",
-  "150": "4 - wet; 9-11 icy spots, snow packed spots",
+  "141": "3 - dry; 9 - icy spots",
+  "150": "4s - wet in areas; 9 - icy spots",
   "151": "3 - dry; 4s - wet in areas",
-  "152": "4 - wet; 9-11 icy spots, snow packed spots",
+  "152": "4s - wet in areas; 9 - icy spots",
   "198": "4s - wet in areas",
   "199": "4s - wet in areas",
   "200": "4s - wet in areas",
@@ -2745,7 +2745,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-21 14:00",
+  "abasin": "2026-11-21 15:00",
   "aspen": "2026-11-21 14:00",
   "beavercreek": "2026-11-21 14:00",
   "breck": "2026-11-21 14:00",
@@ -2755,7 +2755,7 @@
   "echo": "2026-11-21 14:00",
   "eldora": "2026-11-21 14:00",
   "granby": "2026-11-21 14:00",
-  "keystone": "2026-11-21 14:00",
+  "keystone": "2026-11-21 15:00",
   "loveland": "2026-11-21 14:00",
   "monarch": "2026-11-21 14:00",
   "powderhorn": "2026-11-21 14:00",
@@ -3021,14 +3021,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-21T23:00:47+00:00",
- "tomtom_routing_last": "2026-11-21T23:00:47+00:00",
+ "tomtom_flow_last": "2026-11-21T23:15:45+00:00",
+ "tomtom_routing_last": "2026-11-21T23:15:45+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 330
+   "2026-11": 340
   },
   "routing": {
-   "2026-11": 275
+   "2026-11": 283
   }
  },
  "traffic_model_last": "2026-11-21T22:30:47+00:00"

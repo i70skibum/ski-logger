@@ -543,3 +543,6 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-21T16:00:47-07:00,70,CO 62,Dallas Divide,0.0,23.4,4s - wet in areas; 9 - icy spots,"CO 62, between CO 145 (4 miles west of the Dallas Divide area) and US 550; Hunter Parkway (Ridgway)"
 2026-11-21T16:00:47-07:00,458,I-70,Copper Mtn-Silverthorne,194.3,203.7,3 - dry; 4s - wet in areas,"I-70, between Exit 190: Vail Pass Summit (Vail Pass) and Exit 205: CO 9; US 6; Silverthorne (near Frisco)"
 2026-11-21T16:00:47-07:00,485,US 6,Silverthorne to Arapahoe Basin,208.7,219.9,4 - wet,"US 6, between I-70; CO 9 (Silverthorne) and I-70 (near Loveland Pass)"
+2026-11-21T16:15:45-07:00,150,CO 145,Cortez-Rico,0.0,46.4,4s - wet in areas; 9 - icy spots,"CO 145, between US 160 (Cortez) and Street 1 (Lizard Head Pass)"
+2026-11-21T16:15:45-07:00,152,CO 145,"Telluride/Keystone, Lawson, Norwood hills",71.6,116.9,4s - wet in areas; 9 - icy spots,"CO 145, between Colorado Avenue (near Telluride) and US 141 (13 miles north of the Norwood area)"
+2026-11-21T16:15:45-07:00,141,CO 135,Crested Butte,0.0,27.5,3 - dry; 9 - icy spots,"CO 135, between US 50; Main Street (Gunnison) and the end of CO 135 (Crested Butte)"
