@@ -746,9 +746,12 @@ ROUTE_POINTS = {
     # it on the road: without it the router would take I-70 through the tunnel instead of
     # Loveland Pass. Flow points are spread along the road. All coordinates are vertices of
     # TomTom's own geometry for these roads (from the calibration output), so they sit on the road.
-    # From Coors Field by 6th Ave (US 6) through Golden; before Nov 21 it started at Golden (min_km drops those rows).
-    "canyon":   {"name": "Clear Creek Canyon (Coors Field by 6th Ave and US 6 to I-70 exit 244)", "max_km": 60, "min_km": 35,
-                 "route": [(39.7562, -104.9942), (39.7254, -105.0800), (39.75454, -105.23687), (39.74168, -105.33004), (39.74238, -105.43138)],
+    # From Coors Field to Golden by whatever TomTom finds fastest (I-70 and US 6, usually), then the canyon.
+    # Before Nov 21 it started at Golden (min_km drops those rows).
+    "canyon":   {"name": "Clear Creek Canyon (Coors Field to Golden by US 6, then the canyon to I-70 exit 244)", "max_km": 60, "min_km": 35,
+                 "route": [(39.7562, -104.9942), (39.75454, -105.23687), (39.74168, -105.33004), (39.74238, -105.43138)],
+                 # Heading home, the Golden waypoint snaps to the westbound side and TomTom loops back up the canyon to turn around.
+                 "route_e": [(39.74238, -105.43138), (39.74168, -105.33004), (39.7562, -104.9942)],
                  "points": [(39.74204, -105.26940), (39.74168, -105.33004), (39.72766, -105.42222)]},
     "pass":     {"name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)", "max_km": 27,
                  "route": [(39.6800, -105.8950), (39.6636, -105.8794), (39.6050, -105.9440)],
