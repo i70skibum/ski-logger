@@ -121,6 +121,18 @@
    "title": "I-70 eastbound: Commercial motor vehicle chain law.",
    "type": "standard"
   },
+  "chainLaws:CDOT-36494015662EB": {
+   "began": "2026-11-20T21:12:28-07:00",
+   "class": "chainLaws",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36494015662EB",
+   "mp_end": 190.00647076056157,
+   "mp_start": 178.00084672700905,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Commercial motor vehicle chain law.",
+   "type": "standard"
+  },
   "roadClosures:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadClosures",
@@ -1165,6 +1177,18 @@
    "title": "US 6: Poor visibility.",
    "type": "standard"
   },
+  "winterDriving:COSEG-587073": {
+   "began": "2026-11-20T21:02:11.556000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-587073",
+   "mp_end": 186.12914980107246,
+   "mp_start": 145.81651330012022,
+   "pos_bearing": "E",
+   "route": "US 160",
+   "title": "US 160: Snow with icy and snow packed spots.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-587590": {
    "began": "2026-11-20T11:38:24.769000-07:00",
    "class": "winterDriving",
@@ -1371,7 +1395,7 @@
   }
  },
  "forecast_last": "2026-11-21T03:45:52+00:00",
- "last_run": "2026-11-20T21:00:46-07:00",
+ "last_run": "2026-11-20T21:15:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-20": {
@@ -2045,7 +2069,7 @@
   "202": "3 - dry",
   "214": "3 - dry",
   "215": "3 - dry",
-  "226": "3 - dry",
+  "226": "6-9-11 snow, icy spots, snow packed spots",
   "227": "3 - dry",
   "228": "3 - dry",
   "229": "3 - dry",
@@ -2080,7 +2104,7 @@
   "413": "3 - dry",
   "414": "3 - dry",
   "429": "3 - dry",
-  "430": "4s - wet in areas; 6 - snow",
+  "430": "6-9-11 snow, icy spots, snow packed spots",
   "440": "3 - dry",
   "441": "3 - dry",
   "442": "3 - dry",
@@ -2107,7 +2131,7 @@
   "72": "11 - snow packed spots; 14 - drifting snow; 9 - icy spots"
  },
  "snotel_last": {
-  "abasin": "2026-11-20 19:00",
+  "abasin": "2026-11-20 20:00",
   "aspen": "2026-11-20 19:00",
   "beavercreek": "2026-11-20 19:00",
   "breck": "2026-11-20 19:00",
@@ -2117,7 +2141,7 @@
   "echo": "2026-11-20 19:00",
   "eldora": "2026-11-20 19:00",
   "granby": "2026-11-20 19:00",
-  "keystone": "2026-11-20 19:00",
+  "keystone": "2026-11-20 20:00",
   "loveland": "2026-11-20 19:00",
   "monarch": "2026-11-20 19:00",
   "powderhorn": "2026-11-20 19:00",
