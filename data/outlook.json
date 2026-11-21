@@ -1,0 +1,2562 @@
+{
+ "updated": "2026-11-20T17:44:33-07:00",
+ "days": [
+  "2026-11-20",
+  "2026-11-21",
+  "2026-11-22",
+  "2026-11-23",
+  "2026-11-24",
+  "2026-11-25",
+  "2026-11-26"
+ ],
+ "sources": {
+  "gfs_seamless": "American",
+  "ecmwf_ifs025": "European",
+  "gem_seamless": "Canadian",
+  "icon_seamless": "German",
+  "nws": "National Weather Service"
+ },
+ "resorts": {
+  "copper": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 0.4,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.3,
+     "ecmwf_ifs025": 0.4,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.1,
+     "nws": 0.2
+    },
+    "gust": 48,
+    "tmax": 30,
+    "tmin": 17
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.7,
+    "lo": 0.4,
+    "hi": 1.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.8,
+     "ecmwf_ifs025": 1.2,
+     "gem_seamless": 0.4,
+     "icon_seamless": 0.7,
+     "nws": 0.5
+    },
+    "gust": 23,
+    "tmax": 20,
+    "tmin": 6
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 22,
+    "tmax": 30,
+    "tmin": 7
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.6,
+    "lo": 0.4,
+    "hi": 1.7,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 1.7,
+     "ecmwf_ifs025": 0.6,
+     "gem_seamless": 0.6,
+     "icon_seamless": 0.4,
+     "nws": 0.7
+    },
+    "gust": 19,
+    "tmax": 30,
+    "tmin": 11
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 0.7,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.7,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.1,
+     "icon_seamless": 0.0,
+     "nws": 0.2
+    },
+    "gust": 17,
+    "tmax": 26,
+    "tmin": 8
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.2,
+     "nws": 0.0
+    },
+    "gust": 16,
+    "tmax": 37,
+    "tmin": 9
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.8,
+    "lo": 0.1,
+    "hi": 3.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.2,
+     "ecmwf_ifs025": 0.8,
+     "gem_seamless": 2.5,
+     "icon_seamless": 3.0,
+     "nws": 0.1
+    },
+    "gust": 25,
+    "tmax": 29,
+    "tmin": 16
+   }
+  ],
+  "abasin": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.1,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 52,
+    "tmax": 29,
+    "tmin": 17
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.4,
+    "lo": 0.1,
+    "hi": 0.6,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.6,
+     "ecmwf_ifs025": 0.4,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.1,
+     "nws": 0.4
+    },
+    "gust": 28,
+    "tmax": 20,
+    "tmin": 7
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 24,
+    "tmax": 29,
+    "tmin": 7
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 1.1,
+    "lo": 0.8,
+    "hi": 1.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 1.1,
+     "ecmwf_ifs025": 1.0,
+     "gem_seamless": 1.1,
+     "icon_seamless": 1.1,
+     "nws": 0.8
+    },
+    "gust": 21,
+    "tmax": 28,
+    "tmin": 13
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.1,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.1,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.1,
+     "nws": 0.2
+    },
+    "gust": 21,
+    "tmax": 23,
+    "tmin": 9
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.1,
+    "lo": 0.0,
+    "hi": 0.4,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.1,
+     "gem_seamless": 0.4,
+     "icon_seamless": 0.1,
+     "nws": 0.0
+    },
+    "gust": 25,
+    "tmax": 34,
+    "tmin": 15
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 2.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 1.7,
+     "icon_seamless": 2.2,
+     "nws": 0.1
+    },
+    "gust": 32,
+    "tmax": 26,
+    "tmin": 17
+   }
+  ],
+  "winterpark": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.2,
+     "ecmwf_ifs025": 0.1,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 49,
+    "tmax": 32,
+    "tmin": 19
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.3,
+    "lo": 0.0,
+    "hi": 0.5,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.4,
+     "gem_seamless": 0.5,
+     "icon_seamless": 0.2,
+     "nws": 0.3
+    },
+    "gust": 24,
+    "tmax": 21,
+    "tmin": 10
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 24,
+    "tmax": 31,
+    "tmin": 10
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.8,
+    "lo": 0.5,
+    "hi": 1.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.5,
+     "ecmwf_ifs025": 1.0,
+     "gem_seamless": 0.8,
+     "icon_seamless": 1.2,
+     "nws": 0.7
+    },
+    "gust": 15,
+    "tmax": 31,
+    "tmin": 15
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 0.3,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.1,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.3,
+     "icon_seamless": 0.0,
+     "nws": 0.3
+    },
+    "gust": 24,
+    "tmax": 26,
+    "tmin": 15
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.1,
+    "lo": 0.0,
+    "hi": 1.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.1,
+     "gem_seamless": 1.0,
+     "icon_seamless": 0.2,
+     "nws": 0.0
+    },
+    "gust": 27,
+    "tmax": 36,
+    "tmin": 18
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 1.8,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 1.2,
+     "icon_seamless": 1.8,
+     "nws": 0.1
+    },
+    "gust": 45,
+    "tmax": 30,
+    "tmin": 20
+   }
+  ],
+  "eldora": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.1,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 48,
+    "tmax": 40,
+    "tmin": 24
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 0.6,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.6,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.0,
+     "nws": 0.2
+    },
+    "gust": 32,
+    "tmax": 28,
+    "tmin": 18
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 20,
+    "tmax": 39,
+    "tmin": 18
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.4,
+    "lo": 0.2,
+    "hi": 0.4,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.2,
+     "ecmwf_ifs025": 0.4,
+     "gem_seamless": 0.3,
+     "icon_seamless": 0.4,
+     "nws": 0.4
+    },
+    "gust": 13,
+    "tmax": 35,
+    "tmin": 21
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.3,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.1,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.3
+    },
+    "gust": 22,
+    "tmax": 32,
+    "tmin": 19
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 21,
+    "tmax": 45,
+    "tmin": 23
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.7,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.1,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.7,
+     "nws": 0.0
+    },
+    "gust": 44,
+    "tmax": 39,
+    "tmin": 26
+   }
+  ],
+  "steamboat": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.5,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.1,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.5,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 34,
+    "tmax": 40,
+    "tmin": 26
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 18,
+    "tmax": 31,
+    "tmin": 22
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 12,
+    "tmax": 38,
+    "tmin": 21
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.3,
+    "lo": 0.2,
+    "hi": 0.8,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.4,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.8,
+     "icon_seamless": 0.3,
+     "nws": 0.2
+    },
+    "gust": 12,
+    "tmax": 38,
+    "tmin": 26
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 0.9,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.3,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.9,
+     "icon_seamless": 0.0,
+     "nws": 0.2
+    },
+    "gust": 10,
+    "tmax": 35,
+    "tmin": 24
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 2.4,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 2.4,
+     "icon_seamless": 0.8,
+     "nws": 0.0
+    },
+    "gust": 12,
+    "tmax": 40,
+    "tmin": 26
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.7,
+    "lo": 0.0,
+    "hi": 3.4,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 1.7,
+     "gem_seamless": 3.4,
+     "icon_seamless": 0.7,
+     "nws": 0.0
+    },
+    "gust": 16,
+    "tmax": 35,
+    "tmin": 27
+   }
+  ],
+  "aspen": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.2,
+    "lo": 0.2,
+    "hi": 2.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.2,
+     "ecmwf_ifs025": 2.1,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.2,
+     "nws": 0.3
+    },
+    "gust": 40,
+    "tmax": 36,
+    "tmin": 24
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.9,
+    "lo": 0.2,
+    "hi": 1.8,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.4,
+     "ecmwf_ifs025": 1.4,
+     "gem_seamless": 1.8,
+     "icon_seamless": 0.9,
+     "nws": 0.2
+    },
+    "gust": 16,
+    "tmax": 27,
+    "tmin": 16
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 16,
+    "tmax": 36,
+    "tmin": 16
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.7,
+    "lo": 0.4,
+    "hi": 1.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.7,
+     "ecmwf_ifs025": 0.8,
+     "gem_seamless": 0.4,
+     "icon_seamless": 1.0,
+     "nws": 0.5
+    },
+    "gust": 16,
+    "tmax": 35,
+    "tmin": 17
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.3,
+    "lo": 0.0,
+    "hi": 0.7,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.5,
+     "ecmwf_ifs025": 0.3,
+     "gem_seamless": 0.7,
+     "icon_seamless": 0.0,
+     "nws": 0.2
+    },
+    "gust": 8,
+    "tmax": 33,
+    "tmin": 19
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.8,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.8,
+     "icon_seamless": 0.3,
+     "nws": 0.0
+    },
+    "gust": 12,
+    "tmax": 42,
+    "tmin": 16
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.4,
+    "lo": 0.0,
+    "hi": 1.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.1,
+     "ecmwf_ifs025": 1.0,
+     "gem_seamless": 0.4,
+     "icon_seamless": 0.5,
+     "nws": 0.0
+    },
+    "gust": 16,
+    "tmax": 35,
+    "tmin": 24
+   }
+  ],
+  "breck": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.1,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.1,
+     "nws": 0.1
+    },
+    "gust": 51,
+    "tmax": 33,
+    "tmin": 18
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.4,
+    "lo": 0.0,
+    "hi": 0.9,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.9,
+     "gem_seamless": 0.4,
+     "icon_seamless": 0.7,
+     "nws": 0.4
+    },
+    "gust": 26,
+    "tmax": 22,
+    "tmin": 11
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 21,
+    "tmax": 32,
+    "tmin": 8
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.7,
+    "lo": 0.4,
+    "hi": 1.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 1.0,
+     "ecmwf_ifs025": 0.9,
+     "gem_seamless": 0.7,
+     "icon_seamless": 0.4,
+     "nws": 0.6
+    },
+    "gust": 20,
+    "tmax": 31,
+    "tmin": 12
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.2,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.1,
+     "icon_seamless": 0.0,
+     "nws": 0.2
+    },
+    "gust": 20,
+    "tmax": 27,
+    "tmin": 11
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.2,
+     "nws": 0.0
+    },
+    "gust": 20,
+    "tmax": 38,
+    "tmin": 12
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.4,
+    "lo": 0.0,
+    "hi": 3.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.4,
+     "gem_seamless": 1.2,
+     "icon_seamless": 3.0,
+     "nws": 0.1
+    },
+    "gust": 27,
+    "tmax": 30,
+    "tmin": 17
+   }
+  ],
+  "keystone": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 46,
+    "tmax": 34,
+    "tmin": 20
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.4,
+    "lo": 0.1,
+    "hi": 0.9,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.6,
+     "ecmwf_ifs025": 0.9,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.1,
+     "nws": 0.4
+    },
+    "gust": 24,
+    "tmax": 23,
+    "tmin": 9
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 21,
+    "tmax": 33,
+    "tmin": 7
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.9,
+    "lo": 0.3,
+    "hi": 1.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.9,
+     "ecmwf_ifs025": 0.9,
+     "gem_seamless": 1.1,
+     "icon_seamless": 0.3,
+     "nws": 0.6
+    },
+    "gust": 18,
+    "tmax": 32,
+    "tmin": 14
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.2
+    },
+    "gust": 17,
+    "tmax": 28,
+    "tmin": 12
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.4,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.4,
+     "icon_seamless": 0.1,
+     "nws": 0.0
+    },
+    "gust": 20,
+    "tmax": 39,
+    "tmin": 14
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.4,
+    "lo": 0.0,
+    "hi": 2.4,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.4,
+     "gem_seamless": 1.7,
+     "icon_seamless": 2.4,
+     "nws": 0.1
+    },
+    "gust": 32,
+    "tmax": 30,
+    "tmin": 18
+   }
+  ],
+  "vail": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.3,
+    "lo": 0.1,
+    "hi": 0.7,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.7,
+     "ecmwf_ifs025": 0.3,
+     "gem_seamless": 0.1,
+     "icon_seamless": 0.1,
+     "nws": 0.4
+    },
+    "gust": 42,
+    "tmax": 33,
+    "tmin": 20
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.6,
+    "lo": 0.1,
+    "hi": 1.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.8,
+     "ecmwf_ifs025": 1.2,
+     "gem_seamless": 0.6,
+     "icon_seamless": 0.2,
+     "nws": 0.1
+    },
+    "gust": 19,
+    "tmax": 24,
+    "tmin": 10
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 17,
+    "tmax": 32,
+    "tmin": 8
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.6,
+    "lo": 0.5,
+    "hi": 0.9,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.5,
+     "ecmwf_ifs025": 0.6,
+     "gem_seamless": 0.9,
+     "icon_seamless": 0.7,
+     "nws": 0.6
+    },
+    "gust": 15,
+    "tmax": 33,
+    "tmin": 10
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 1.9,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 1.9,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.4,
+     "icon_seamless": 0.0,
+     "nws": 0.2
+    },
+    "gust": 13,
+    "tmax": 28,
+    "tmin": 11
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 1.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 1.1,
+     "icon_seamless": 0.2,
+     "nws": 0.0
+    },
+    "gust": 16,
+    "tmax": 38,
+    "tmin": 12
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.8,
+    "lo": 0.1,
+    "hi": 4.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.2,
+     "ecmwf_ifs025": 0.8,
+     "gem_seamless": 4.1,
+     "icon_seamless": 2.1,
+     "nws": 0.1
+    },
+    "gust": 25,
+    "tmax": 29,
+    "tmin": 17
+   }
+  ],
+  "beavercreek": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.2,
+    "lo": 0.1,
+    "hi": 0.6,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.6,
+     "ecmwf_ifs025": 0.3,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.1,
+     "nws": 0.2
+    },
+    "gust": 41,
+    "tmax": 37,
+    "tmin": 25
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.2,
+    "lo": 0.1,
+    "hi": 1.9,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.2,
+     "ecmwf_ifs025": 1.2,
+     "gem_seamless": 1.9,
+     "icon_seamless": 0.2,
+     "nws": 0.1
+    },
+    "gust": 21,
+    "tmax": 30,
+    "tmin": 16
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 18,
+    "tmax": 37,
+    "tmin": 14
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.6,
+    "lo": 0.4,
+    "hi": 0.8,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.8,
+     "ecmwf_ifs025": 0.5,
+     "gem_seamless": 0.7,
+     "icon_seamless": 0.6,
+     "nws": 0.4
+    },
+    "gust": 18,
+    "tmax": 37,
+    "tmin": 17
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 2.6,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 2.6,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.0,
+     "nws": 0.2
+    },
+    "gust": 12,
+    "tmax": 34,
+    "tmin": 18
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.7,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.7,
+     "icon_seamless": 0.2,
+     "nws": 0.0
+    },
+    "gust": 18,
+    "tmax": 39,
+    "tmin": 19
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 1.1,
+    "lo": 0.1,
+    "hi": 4.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.1,
+     "ecmwf_ifs025": 1.1,
+     "gem_seamless": 4.0,
+     "icon_seamless": 2.1,
+     "nws": 0.1
+    },
+    "gust": 25,
+    "tmax": 35,
+    "tmin": 22
+   }
+  ],
+  "crestedbutte": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.4,
+    "lo": 0.2,
+    "hi": 2.5,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.4,
+     "ecmwf_ifs025": 2.5,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.2,
+     "nws": 0.4
+    },
+    "gust": 42,
+    "tmax": 32,
+    "tmin": 20
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.8,
+    "lo": 0.3,
+    "hi": 1.4,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.3,
+     "ecmwf_ifs025": 1.4,
+     "gem_seamless": 0.9,
+     "icon_seamless": 0.8,
+     "nws": 0.5
+    },
+    "gust": 17,
+    "tmax": 23,
+    "tmin": 11
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 15,
+    "tmax": 32,
+    "tmin": 10
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.6,
+    "lo": 0.0,
+    "hi": 0.6,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.6,
+     "ecmwf_ifs025": 0.6,
+     "gem_seamless": 0.6,
+     "icon_seamless": 0.0,
+     "nws": 0.4
+    },
+    "gust": 13,
+    "tmax": 30,
+    "tmin": 10
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.1,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.1,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.0,
+     "nws": 0.2
+    },
+    "gust": 9,
+    "tmax": 30,
+    "tmin": 13
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.1,
+    "lo": 0.0,
+    "hi": 0.3,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.1,
+     "gem_seamless": 0.3,
+     "icon_seamless": 0.1,
+     "nws": 0.0
+    },
+    "gust": 17,
+    "tmax": 36,
+    "tmin": 16
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 2.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 1.4,
+     "gem_seamless": 0.2,
+     "icon_seamless": 2.2,
+     "nws": 0.0
+    },
+    "gust": 22,
+    "tmax": 32,
+    "tmin": 20
+   }
+  ],
+  "telluride": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.4,
+    "lo": 0.1,
+    "hi": 0.9,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.1,
+     "ecmwf_ifs025": 0.9,
+     "gem_seamless": 0.4,
+     "icon_seamless": 0.5,
+     "nws": 0.2
+    },
+    "gust": 52,
+    "tmax": 30,
+    "tmin": 21
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 1.8,
+    "lo": 0.3,
+    "hi": 3.5,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 2.2,
+     "ecmwf_ifs025": 3.5,
+     "gem_seamless": 1.2,
+     "icon_seamless": 0.3,
+     "nws": 1.8
+    },
+    "gust": 22,
+    "tmax": 21,
+    "tmin": 11
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 23,
+    "tmax": 31,
+    "tmin": 13
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.6,
+    "lo": 0.2,
+    "hi": 1.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 1.2,
+     "ecmwf_ifs025": 1.1,
+     "gem_seamless": 0.5,
+     "icon_seamless": 0.2,
+     "nws": 0.6
+    },
+    "gust": 28,
+    "tmax": 26,
+    "tmin": 11
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.1,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.1,
+     "ecmwf_ifs025": 0.1,
+     "gem_seamless": 0.1,
+     "icon_seamless": 0.0,
+     "nws": 0.2
+    },
+    "gust": 9,
+    "tmax": 31,
+    "tmin": 9
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.1,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 17,
+    "tmax": 37,
+    "tmin": 13
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.5,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.5,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 13,
+    "tmax": 31,
+    "tmin": 15
+   }
+  ],
+  "loveland": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 53,
+    "tmax": 29,
+    "tmin": 17
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.4,
+    "lo": 0.1,
+    "hi": 0.7,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.4,
+     "ecmwf_ifs025": 0.7,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.1,
+     "nws": 0.5
+    },
+    "gust": 25,
+    "tmax": 19,
+    "tmin": 7
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 23,
+    "tmax": 29,
+    "tmin": 8
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 1.1,
+    "lo": 0.7,
+    "hi": 1.4,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 1.3,
+     "ecmwf_ifs025": 0.7,
+     "gem_seamless": 1.4,
+     "icon_seamless": 1.1,
+     "nws": 0.9
+    },
+    "gust": 14,
+    "tmax": 27,
+    "tmin": 12
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.2,
+    "lo": 0.1,
+    "hi": 0.5,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.1,
+     "ecmwf_ifs025": 0.5,
+     "gem_seamless": 0.3,
+     "icon_seamless": 0.1,
+     "nws": 0.2
+    },
+    "gust": 24,
+    "tmax": 23,
+    "tmin": 8
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.8,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.8,
+     "icon_seamless": 0.1,
+     "nws": 0.0
+    },
+    "gust": 20,
+    "tmax": 34,
+    "tmin": 11
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.4,
+    "lo": 0.0,
+    "hi": 2.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.4,
+     "gem_seamless": 2.2,
+     "icon_seamless": 2.2,
+     "nws": 0.1
+    },
+    "gust": 27,
+    "tmax": 26,
+    "tmin": 16
+   }
+  ],
+  "echo": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 57,
+    "tmax": 38,
+    "tmin": 23
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.4,
+    "lo": 0.1,
+    "hi": 1.7,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.4,
+     "ecmwf_ifs025": 1.7,
+     "gem_seamless": 0.3,
+     "icon_seamless": 0.1,
+     "nws": 0.4
+    },
+    "gust": 21,
+    "tmax": 28,
+    "tmin": 15
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 17,
+    "tmax": 36,
+    "tmin": 15
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.3,
+    "lo": 0.2,
+    "hi": 0.9,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.2,
+     "ecmwf_ifs025": 0.9,
+     "gem_seamless": 0.3,
+     "icon_seamless": 0.9,
+     "nws": 0.2
+    },
+    "gust": 13,
+    "tmax": 32,
+    "tmin": 18
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.3,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.1,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.3
+    },
+    "gust": 29,
+    "tmax": 30,
+    "tmin": 16
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 25,
+    "tmax": 42,
+    "tmin": 20
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.5,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.5,
+     "nws": 0.0
+    },
+    "gust": 47,
+    "tmax": 36,
+    "tmin": 21
+   }
+  ],
+  "cooper": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.1,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.1,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.1,
+     "icon_seamless": 0.2,
+     "nws": 0.0
+    },
+    "gust": 44,
+    "tmax": 32,
+    "tmin": 19
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.4,
+    "lo": 0.2,
+    "hi": 1.6,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.3,
+     "ecmwf_ifs025": 1.6,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.8,
+     "nws": 0.4
+    },
+    "gust": 22,
+    "tmax": 23,
+    "tmin": 8
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 20,
+    "tmax": 32,
+    "tmin": 8
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.5,
+    "lo": 0.3,
+    "hi": 0.8,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.8,
+     "ecmwf_ifs025": 0.7,
+     "gem_seamless": 0.4,
+     "icon_seamless": 0.3,
+     "nws": 0.5
+    },
+    "gust": 16,
+    "tmax": 29,
+    "tmin": 11
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.2,
+    "lo": 0.1,
+    "hi": 0.3,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.1,
+     "ecmwf_ifs025": 0.1,
+     "gem_seamless": 0.3,
+     "icon_seamless": 0.2,
+     "nws": 0.2
+    },
+    "gust": 18,
+    "tmax": 28,
+    "tmin": 11
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.6,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.6,
+     "icon_seamless": 0.2,
+     "nws": 0.0
+    },
+    "gust": 9,
+    "tmax": 38,
+    "tmin": 12
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.4,
+    "lo": 0.1,
+    "hi": 2.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.1,
+     "ecmwf_ifs025": 0.4,
+     "gem_seamless": 1.8,
+     "icon_seamless": 2.1,
+     "nws": 0.1
+    },
+    "gust": 31,
+    "tmax": 32,
+    "tmin": 19
+   }
+  ],
+  "granby": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.1,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.2,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.1,
+     "nws": 0.1
+    },
+    "gust": 43,
+    "tmax": 40,
+    "tmin": 25
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 0.4,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.2,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.4,
+     "icon_seamless": 0.2,
+     "nws": 0.0
+    },
+    "gust": 24,
+    "tmax": 32,
+    "tmin": 18
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 13,
+    "tmax": 37,
+    "tmin": 13
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.4,
+    "lo": 0.4,
+    "hi": 0.6,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.5,
+     "ecmwf_ifs025": 0.4,
+     "gem_seamless": 0.4,
+     "icon_seamless": 0.6,
+     "nws": 0.4
+    },
+    "gust": 15,
+    "tmax": 38,
+    "tmin": 18
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.1,
+    "lo": 0.0,
+    "hi": 0.4,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.4,
+     "gem_seamless": 0.1,
+     "icon_seamless": 0.0,
+     "nws": 0.2
+    },
+    "gust": 16,
+    "tmax": 33,
+    "tmin": 17
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.2,
+     "nws": 0.0
+    },
+    "gust": 11,
+    "tmax": 40,
+    "tmin": 15
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.3,
+    "lo": 0.0,
+    "hi": 1.3,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.3,
+     "gem_seamless": 1.2,
+     "icon_seamless": 1.3,
+     "nws": 0.0
+    },
+    "gust": 26,
+    "tmax": 37,
+    "tmin": 23
+   }
+  ],
+  "monarch": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.1,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.2,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.1,
+     "icon_seamless": 0.0,
+     "nws": 0.1
+    },
+    "gust": 50,
+    "tmax": 34,
+    "tmin": 19
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.3,
+    "lo": 0.1,
+    "hi": 0.9,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.2,
+     "ecmwf_ifs025": 0.9,
+     "gem_seamless": 0.1,
+     "icon_seamless": 0.3,
+     "nws": 0.4
+    },
+    "gust": 24,
+    "tmax": 22,
+    "tmin": 11
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 17,
+    "tmax": 31,
+    "tmin": 11
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.6,
+    "lo": 0.2,
+    "hi": 1.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 1.0,
+     "ecmwf_ifs025": 0.6,
+     "gem_seamless": 1.0,
+     "icon_seamless": 0.2,
+     "nws": 0.2
+    },
+    "gust": 17,
+    "tmax": 29,
+    "tmin": 11
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.0,
+     "nws": 0.2
+    },
+    "gust": 14,
+    "tmax": 27,
+    "tmin": 14
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 23,
+    "tmax": 36,
+    "tmin": 14
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 1.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.6,
+     "icon_seamless": 1.1,
+     "nws": 0.0
+    },
+    "gust": 26,
+    "tmax": 30,
+    "tmin": 17
+   }
+  ],
+  "sunlight": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.8,
+    "lo": 0.3,
+    "hi": 3.6,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 1.1,
+     "ecmwf_ifs025": 3.6,
+     "gem_seamless": 0.3,
+     "icon_seamless": 0.8,
+     "nws": 0.5
+    },
+    "gust": 51,
+    "tmax": 36,
+    "tmin": 22
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.1,
+    "lo": 0.0,
+    "hi": 1.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 1.0,
+     "gem_seamless": 0.7,
+     "icon_seamless": 0.0,
+     "nws": 0.1
+    },
+    "gust": 17,
+    "tmax": 28,
+    "tmin": 17
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 14,
+    "tmax": 36,
+    "tmin": 16
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.7,
+    "lo": 0.2,
+    "hi": 3.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 2.1,
+     "ecmwf_ifs025": 0.7,
+     "gem_seamless": 3.2,
+     "icon_seamless": 0.5,
+     "nws": 0.2
+    },
+    "gust": 18,
+    "tmax": 36,
+    "tmin": 20
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 0.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.1,
+     "nws": 0.2
+    },
+    "gust": 8,
+    "tmax": 32,
+    "tmin": 19
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.3,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.3,
+     "nws": 0.0
+    },
+    "gust": 10,
+    "tmax": 38,
+    "tmin": 16
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.6,
+    "lo": 0.0,
+    "hi": 1.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 1.2,
+     "gem_seamless": 0.6,
+     "icon_seamless": 0.9,
+     "nws": 0.0
+    },
+    "gust": 12,
+    "tmax": 34,
+    "tmin": 21
+   }
+  ],
+  "powderhorn": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.5,
+    "lo": 0.2,
+    "hi": 1.2,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.5,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 1.2,
+     "icon_seamless": 0.9,
+     "nws": 0.2
+    },
+    "gust": 56,
+    "tmax": 39,
+    "tmin": 26
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.1,
+    "lo": 0.0,
+    "hi": 0.4,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.1,
+     "ecmwf_ifs025": 0.1,
+     "gem_seamless": 0.4,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 16,
+    "tmax": 29,
+    "tmin": 21
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 13,
+    "tmax": 36,
+    "tmin": 22
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.4,
+    "lo": 0.2,
+    "hi": 2.8,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 2.8,
+     "ecmwf_ifs025": 0.2,
+     "gem_seamless": 1.4,
+     "icon_seamless": 0.4,
+     "nws": 0.4
+    },
+    "gust": 17,
+    "tmax": 33,
+    "tmin": 23
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 5,
+    "tmax": 34,
+    "tmin": 20
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.1,
+     "nws": 0.0
+    },
+    "gust": 12,
+    "tmax": 37,
+    "tmin": 26
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.1,
+    "lo": 0.0,
+    "hi": 0.6,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.6,
+     "gem_seamless": 0.1,
+     "icon_seamless": 0.2,
+     "nws": 0.0
+    },
+    "gust": 8,
+    "tmax": 36,
+    "tmin": 25
+   }
+  ],
+  "wolfcreek": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 1.8,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.9,
+     "gem_seamless": 1.8,
+     "icon_seamless": 0.1,
+     "nws": 0.2
+    },
+    "gust": 46,
+    "tmax": 29,
+    "tmin": 23
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 1.2,
+    "lo": 0.4,
+    "hi": 1.6,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.6,
+     "ecmwf_ifs025": 1.6,
+     "gem_seamless": 1.2,
+     "icon_seamless": 0.4,
+     "nws": 1.4
+    },
+    "gust": 38,
+    "tmax": 24,
+    "tmin": 14
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 23,
+    "tmax": 28,
+    "tmin": 4
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.6,
+    "lo": 0.3,
+    "hi": 1.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 1.1,
+     "ecmwf_ifs025": 0.7,
+     "gem_seamless": 0.6,
+     "icon_seamless": 0.5,
+     "nws": 0.3
+    },
+    "gust": 26,
+    "tmax": 26,
+    "tmin": 8
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 17,
+    "tmax": 34,
+    "tmin": 8
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 14,
+    "tmax": 34,
+    "tmin": 12
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.1,
+     "nws": 0.0
+    },
+    "gust": 21,
+    "tmax": 34,
+    "tmin": 15
+   }
+  ],
+  "purgatory": [
+   {
+    "date": "2026-11-20",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 0.5,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.5,
+     "gem_seamless": 0.5,
+     "icon_seamless": 0.2,
+     "nws": 0.1
+    },
+    "gust": 30,
+    "tmax": 34,
+    "tmin": 27
+   },
+   {
+    "date": "2026-11-21",
+    "snow": 0.2,
+    "lo": 0.0,
+    "hi": 1.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 1.1,
+     "gem_seamless": 0.2,
+     "icon_seamless": 0.2,
+     "nws": 0.4
+    },
+    "gust": 25,
+    "tmax": 31,
+    "tmin": 13
+   },
+   {
+    "date": "2026-11-22",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 14,
+    "tmax": 35,
+    "tmin": 12
+   },
+   {
+    "date": "2026-11-23",
+    "snow": 0.4,
+    "lo": 0.1,
+    "hi": 0.7,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.7,
+     "ecmwf_ifs025": 0.6,
+     "gem_seamless": 0.1,
+     "icon_seamless": 0.4,
+     "nws": 0.3
+    },
+    "gust": 15,
+    "tmax": 30,
+    "tmin": 14
+   },
+   {
+    "date": "2026-11-24",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.1,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 13,
+    "tmax": 38,
+    "tmin": 14
+   },
+   {
+    "date": "2026-11-25",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.0,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.0,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 17,
+    "tmax": 41,
+    "tmin": 18
+   },
+   {
+    "date": "2026-11-26",
+    "snow": 0.0,
+    "lo": 0.0,
+    "hi": 0.1,
+    "n": 5,
+    "models": {
+     "gfs_seamless": 0.0,
+     "ecmwf_ifs025": 0.0,
+     "gem_seamless": 0.1,
+     "icon_seamless": 0.0,
+     "nws": 0.0
+    },
+    "gust": 21,
+    "tmax": 40,
+    "tmin": 20
+   }
+  ]
+ }
+}
