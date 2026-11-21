@@ -145,18 +145,6 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36486455511BOTH": {
-   "began": "2026-11-20T11:59:27-07:00",
-   "class": "roadReports",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36486455511BOTH",
-   "mp_end": "",
-   "mp_start": 190.09500001152628,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 in both directions: Road closed.",
-   "type": "critical"
-  },
   "roadReports:CDOT-36490297830EB": {
    "began": "2026-11-20T16:40:15-07:00",
    "class": "roadReports",
@@ -1539,7 +1527,7 @@
   }
  },
  "forecast_last": "2026-11-21T00:44:33+00:00",
- "last_run": "2026-11-20T18:15:46-07:00",
+ "last_run": "2026-11-20T18:30:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-20": {
@@ -2277,25 +2265,25 @@
  "snotel_last": {
   "abasin": "2026-11-20 17:00",
   "aspen": "2026-11-20 16:00",
-  "beavercreek": "2026-11-20 16:00",
-  "breck": "2026-11-20 16:00",
-  "cooper": "2026-11-20 16:00",
-  "copper": "2026-11-20 16:00",
-  "crestedbutte": "2026-11-20 16:00",
-  "echo": "2026-11-20 16:00",
-  "eldora": "2026-11-20 16:00",
+  "beavercreek": "2026-11-20 17:00",
+  "breck": "2026-11-20 17:00",
+  "cooper": "2026-11-20 17:00",
+  "copper": "2026-11-20 17:00",
+  "crestedbutte": "2026-11-20 17:00",
+  "echo": "2026-11-20 17:00",
+  "eldora": "2026-11-20 17:00",
   "granby": "2026-11-20 16:00",
   "keystone": "2026-11-20 17:00",
-  "loveland": "2026-11-20 16:00",
+  "loveland": "2026-11-20 17:00",
   "monarch": "2026-11-20 16:00",
-  "powderhorn": "2026-11-20 16:00",
-  "purgatory": "2026-11-20 16:00",
+  "powderhorn": "2026-11-20 17:00",
+  "purgatory": "2026-11-20 17:00",
   "steamboat": "2026-11-20 17:00",
   "sunlight": "2026-11-20 16:00",
   "telluride": "2026-11-20 16:00",
-  "vail": "2026-11-20 16:00",
-  "winterpark": "2026-11-20 16:00",
-  "wolfcreek": "2026-11-20 16:00"
+  "vail": "2026-11-20 17:00",
+  "winterpark": "2026-11-20 17:00",
+  "wolfcreek": "2026-11-20 17:00"
  },
  "speed_segments": [
   "I70E024",
