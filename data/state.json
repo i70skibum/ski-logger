@@ -1645,6 +1645,18 @@
    "title": "I-70: Snow.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588689": {
+   "began": "2026-11-21T04:46:45.799000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588689",
+   "mp_end": 25.07837844427398,
+   "mp_start": 0,
+   "pos_bearing": "N",
+   "route": "CO 119",
+   "title": "CO 119: Snow with icy and snow packed spots.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588693": {
    "began": "2026-11-21T03:17:17.442000-07:00",
    "class": "winterDriving",
@@ -1707,7 +1719,7 @@
   }
  },
  "forecast_last": "2026-11-21T10:00:47+00:00",
- "last_run": "2026-11-21T04:45:49-07:00",
+ "last_run": "2026-11-21T05:00:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-21": {
@@ -2368,7 +2380,7 @@
   "100": "22 - blowing snow; 4 - wet",
   "101": "22 - blowing snow; 4 - wet",
   "102": "seasonal closure",
-  "131": "3 - dry",
+  "131": "21 - scattered showers; 6-9-11 snow, icy spots, snow packed spots",
   "132": "3 - dry",
   "141": "9-11 icy spots, snow packed spots",
   "150": "6-8-10 snow, icy, snow packed",
@@ -2394,7 +2406,7 @@
   "249": "7-9-11 - slushy, icy spots, snow packed spots",
   "261": "9 - icy spots",
   "262": "9 - icy spots",
-  "270": "6-9-11 snow, icy spots, snow packed spots",
+  "270": "21 - scattered showers; 6-9-11 snow, icy spots, snow packed spots",
   "271": "21 - scattered showers; 4 - wet; 6 - snow; 9 - icy spots",
   "272": "21 - scattered showers; 4 - wet; 6 - snow",
   "273": "3 - dry",
@@ -2425,7 +2437,7 @@
   "456": "9-11 icy spots, snow packed spots",
   "457": "9-11 icy spots, snow packed spots",
   "458": "9-11 icy spots, snow packed spots",
-  "459": "6-8-10 snow, icy, snow packed",
+  "459": "21 - scattered showers; 6-8-10 snow, icy, snow packed",
   "47": "3 - dry",
   "483": "9 - icy spots",
   "484": "9-11 icy spots, snow packed spots",
@@ -2440,7 +2452,7 @@
   "516": "3 - dry",
   "517": "3 - dry",
   "70": "2 - poor visibility; 6 - snow",
-  "72": "14 - drifting snow; 9-11 icy spots, snow packed spots"
+  "72": "6-8-10 snow, icy, snow packed"
  },
  "snotel_last": {
   "abasin": "2026-11-21 03:00",
@@ -2458,9 +2470,9 @@
   "monarch": "2026-11-21 03:00",
   "powderhorn": "2026-11-21 03:00",
   "purgatory": "2026-11-21 03:00",
-  "steamboat": "2026-11-21 03:00",
+  "steamboat": "2026-11-21 04:00",
   "sunlight": "2026-11-21 03:00",
-  "telluride": "2026-11-21 02:00",
+  "telluride": "2026-11-21 03:00",
   "vail": "2026-11-21 03:00",
   "winterpark": "2026-11-21 03:00",
   "wolfcreek": "2026-11-21 03:00"
