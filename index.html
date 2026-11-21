@@ -26,6 +26,31 @@ h3 { font-size: 13px; margin: 18px 0 6px; color: var(--ink2); font-weight: 600; 
 header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; margin-bottom: 12px; }
 #asof { margin: 0; color: var(--ink2); font-size: 13px; }
 .stale { color: var(--crit); font-weight: 600; }
+.weekpicks { display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr)); gap: 8px; margin: 10px 0 14px; }
+.daycard { border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+.dname { font-size: 12px; color: var(--ink2); }
+.dpick { font-weight: 600; margin: 2px 0; }
+.dsub { font-size: 12px; color: var(--ink2); }
+.dleave { font-size: 13px; margin-top: 6px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+.warnline { color: var(--crit); }
+.tier { font-size: 11px; font-weight: 600; border-radius: 4px; padding: 1px 6px; border: 1px solid var(--axis); white-space: nowrap; }
+.tier.t-est { border-color: var(--warn); }
+.tier.t-rough { border-color: var(--axis); }
+.tier.t-ok, .tier.t-solid { border-color: var(--good); color: var(--goodtext); }
+table.wk { border-collapse: separate; border-spacing: 2px; width: 100%; font-size: 13px; table-layout: fixed; min-width: 640px; }
+table.wk th.rn, table.wk tr:first-child th:first-child { width: 112px; }
+table.wk th { font-size: 12px; color: var(--ink2); font-weight: 600; text-align: center; padding: 4px; }
+table.wk th.rn { text-align: left; white-space: nowrap; color: var(--ink); }
+table.wk td { text-align: center; padding: 6px 4px; border-radius: 4px; min-width: 64px; vertical-align: top; }
+table.wk td, table.wk td small { white-space: normal; }
+table.wk td small { display: block; font-size: 11px; line-height: 1.25; color: var(--ink2); }
+table.wk td.cl, .muted { color: var(--ink2); }
+.mhead { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 17px; font-weight: 600; }
+.mrows { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 2fr) 72px; gap: 8px 12px; align-items: center; font-size: 13px; margin: 10px 0; }
+.blocks { display: flex; gap: 3px; } .blocks span { flex: 1; height: 8px; border-radius: 2px; background: var(--line); } .blocks span.on { background: var(--accent); }
+.mcards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 10px; }
+.mcard { background: var(--bg); border-radius: 8px; padding: 10px 12px; font-size: 13px; }
+.mlabel { font-size: 12px; color: var(--ink2); } .mbig { font-size: 17px; font-weight: 600; margin: 2px 0; }
 section { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-bottom: 12px; }
 .pickname { font-size: 26px; font-weight: 700; margin: 2px 0 4px; }
 .kicker { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink2); }
@@ -99,8 +124,10 @@ details.shut > summary { cursor: pointer; font-size: 13px; color: var(--ink2); p
 </head>
 <body>
 <main>
-  <header><h1>Ski day pick</h1><nav class="tabs"><a href="#" id="tab-dash" class="on">Dashboard</a><a href="#data" id="tab-data">Raw data</a></nav><p id="asof">Loading data</p></header>
+  <header><h1>Ski day pick</h1><nav class="tabs"><a href="#" id="tab-dash" class="on">Dashboard</a><a href="#week" id="tab-week">7-day</a><a href="#data" id="tab-data">Raw data</a></nav><p id="asof">Loading data</p></header>
   <section id="dataview" hidden><h2>Raw data</h2><p class="dsdesc">Everything the logger has saved, by month. Preview shows the newest rows. Downloads are CSV files that open in Excel, Numbers or Google Sheets. <a id="zipall" href="#">Download everything as a zip</a>.</p><div id="datasets">Loading file list</div></section>
+  <section id="weekview" hidden><h2>Next 7 days</h2><p class="dsdesc" id="weekdesc"></p><div id="weekpicks" class="weekpicks"></div><div class="tablewrap" id="weekgrid"></div><p class="note" id="weeknote"></p></section>
+  <section id="modelview" hidden><h2>How much to trust the traffic times</h2><div id="modelpanel"></div></section>
   <section id="pick" aria-live="polite"></section>
   <section>
     <h2>Map and I-70 right now</h2>
@@ -109,6 +136,7 @@ details.shut > summary { cursor: pointer; font-size: 13px; color: var(--ink2); p
     <div class="legend" id="striplegend"></div>
     <h3>Delay today, Copper to C-470</h3>
     <div id="delaychart"></div>
+    <p class="note" id="modelline"></p>
   </section>
   <section><h2>Mountains</h2><div class="tablewrap" id="mtn"></div><p class="note" id="mtnnote"></p></section>
   <section><h2>Road alerts and conditions</h2><div id="alerts"></div><h3>Reported conditions</h3><div id="conds"></div></section>
@@ -288,6 +316,62 @@ function scoreResort(key, ctx) {
 // A resort marked closed counts as open once its scheduled opening date has arrived.
 function isOpen(ctx, k) { const s = (ctx.status || {})[k]; return !s || s.open !== false || (!!s.opens && !!ctx.today && ctx.today >= s.opens); }
 function rank(ctx) { return Object.keys(RESORTS).filter(k => shown(k) && isOpen(ctx, k)).map(k => scoreResort(k, ctx)).sort((a, b) => b.score - a.score || (a.hrs + (a.delay || 0) / 60) - (b.hrs + (b.delay || 0) / 60)); }
+
+// ---- 7-day outlook ------------------------------------------------------
+// Traffic model days use Python's weekday numbers (Mon=0); JS Date uses Sun=0.
+const pyDow = iso => (new Date(iso + "T12:00:00Z").getUTCDay() + 6) % 7;
+function tierOf(n) { return n >= 6 ? "Solid" : n >= 3 ? "Decent" : n >= 1 ? "Rough" : "Estimate"; }
+function holidayOn(model, iso) { const h = ((model || {}).holidays || []).find(([a, b]) => iso >= a && iso <= b); return h ? h[2] : null; }
+// Typical delay by hour for one day and direction: the logged profile where that window has data, else the known pattern.
+function hourly(model, iso, dir, h0, h1, win) {
+  const dow = pyDow(iso), cov = (((model || {}).coverage || {})[`${dow}-${win}`] || {}).n || 0, hol = holidayOn(model, iso);
+  const gen = (((model || {}).generic || {})[dir] || {})[dow] || {}, slots = (model || {}).slots || {}, out = {};
+  for (let h = h0; h < h1; h++) {
+    let v = null;
+    if (cov && !hol) {
+      const xs = ["00", "30"].map(m => (slots[`${dow}-${String(h).padStart(2, "0")}${m}-${dir}`] || {}).median).filter(x => x != null);
+      if (xs.length) v = xs.reduce((a, b) => a + b, 0) / xs.length;
+    }
+    if (v == null) v = (gen[h] || 0) * (hol ? 1.5 : 1);
+    out[h] = Math.round(v);
+  }
+  return { byHour: out, weekends: cov, tier: hol ? "Estimate" : tierOf(cov), holiday: hol };
+}
+const clock = h => `${h % 12 || 12} ${h < 12 ? "AM" : "PM"}`;
+function trafficDay(model, iso) {
+  const up = hourly(model, iso, "W", 5, 11, "amW"), home = hourly(model, iso, "E", 12, 20, "pmE");
+  const upBad = Object.keys(up.byHour).map(Number).filter(h => up.byHour[h] >= 10);
+  const homeBad = Object.keys(home.byHour).map(Number).filter(h => home.byHour[h] >= 15);
+  return {
+    leave: upBad.length ? `Leave before ${clock(upBad[0])}` : "No rush going up",
+    home: homeBad.length ? `Home before ${clock(homeBad[0])} or after ${clock(homeBad[homeBad.length - 1] + 1)}` : "No rush coming home",
+    upPeak: Math.max(0, ...Object.values(up.byHour)), homePeak: Math.max(0, ...Object.values(home.byHour)),
+    tier: up.tier, homeTier: home.tier, holiday: up.holiday, up, homeHours: home,
+  };
+}
+function openOn(status, key, iso) { const s = (status || {})[key]; return !s || s.open !== false || (!!s.opens && iso >= s.opens); }
+// Score one resort on one day, with the same weights as today's pick where they apply.
+function dayScore(key, i, W) {
+  const R = RESORTS[key], days = (W.outlook.resorts || {})[key] || [], d = days[i], prev = days[i - 1];
+  if (!d) return null;
+  if (!openOn(W.status, key, d.date)) return { key, closed: true };
+  const chips = [];
+  let s = 50;
+  const before = prev ? prev.snow || 0 : (W.new24 || {})[key] || 0, during = d.snow || 0;
+  const fresh = before + 0.5 * during;
+  s += Math.min(40, fresh >= 1 ? 6 * fresh : 0);
+  const agree = d.n >= 3 && d.hi - d.lo <= Math.max(2, 0.6 * (d.snow || 0));
+  if (before + during >= 1) chips.push(`${Math.round(before + during)}"${agree ? "" : ", models split"}`);
+  if (d.gust != null && d.gust > 35) { s -= Math.min(20, d.gust - 35); chips.push(`Gusts ${d.gust}`); }
+  if (before + during >= 6) { s -= 6; chips.push("Snowy drive"); } else if (before + during >= 3) s -= 3;
+  if (R.westLon != null) s -= Math.min(15, W.traffic[i].upPeak * 0.5);
+  const planned = (W.upcoming || []).filter(e => e.class === "roadClosures" && onRoute(R, e.route, e.mp_start, e.mp_end)).filter(e => {
+    const t = new Date(e.began), p = denverParts(t); const hr = +t.toLocaleString("en-US", { timeZone: "America/Denver", hour: "numeric", hour12: false });
+    return p.day === d.date && hr >= 5 && hr < 18; });
+  if (planned.length) { s -= 40; chips.push("Planned closure"); }
+  if (R.pass !== "ikon") s -= 8;
+  return { key, score: Math.max(0, Math.min(100, Math.round(s))), snow: before + during, fresh, agree, chips, n: d.n };
+}
 function headline(ranked) {
   const top = ranked[0], anySnow = ranked.some(r => r.new24 + r.fc24 >= 1);
   if (!anySnow && top.score - ranked[ranked.length - 1].score <= 2)
@@ -303,7 +387,7 @@ function headline(ranked) {
   if (top.closed) why += " There is a closure on the route, so check before leaving.";
   return { title: top.name, kicker: "Best bet for the next 24 hours", why };
 }
-if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, prevMonth, segments, refSpeeds, delayMin, delaySeries, snowSummary, latestForecast, latestConds, onRoute, cleanCond, condLevel, rank, headline, nearLandmark, RESORTS };
+if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, prevMonth, segments, refSpeeds, delayMin, delaySeries, snowSummary, latestForecast, latestConds, onRoute, cleanCond, condLevel, rank, headline, nearLandmark, RESORTS, trafficDay, dayScore, tierOf, openOn, hourly };
 </script>
 
 <script>
@@ -338,17 +422,113 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
     const [state, segRows, speedRows, snow, fc, rc, rs] = await Promise.all([
       get("state.json", true), get("speed/segments.csv").then(parseCSV), csv2("speed", month, false),
       csv2("snotel", month, true), csv2("forecast", month, true), csv2("road_conditions", month, true), get("resort_status.json", true)]);
+    const [outlook, model] = await Promise.all([get("outlook.json", true), get("traffic_model.json", true)]);
     if (!state.last_run) throw new Error("Could not load the logger data.");
     const segs = segments(segRows), refs = refSpeeds(speedRows, segs), speedRow = speedRows[speedRows.length - 1] || null;
     const allEv = Object.values(state.events || {}), nowMs = Date.now(), started = e => !e.began || Date.parse(e.began) <= nowMs;
     const ctx = { segs, refs, speedRow, events: allEv.filter(started), upcoming: allEv.filter(e => !started(e)), now: nowMs, conds: latestConds(rc), forecast: latestForecast(fc), snow: {}, status: rs.resorts || {}, statusDate: rs.checked || "", statusAuto: !!rs.auto, today: day };
     for (const k in RESORTS) ctx.snow[k] = snowSummary(snow, k);
-    D = { now, day, state, ctx, segRows, speedRows, series: delaySeries(speedRows, segs, refs, day), ranked: rank(ctx) };
+    D = { now, day, state, ctx, outlook, model, segRows, speedRows, series: delaySeries(speedRows, segs, refs, day), ranked: rank(ctx) };
     render();
   }
 
+  // ---- 7-day tab ----------------------------------------------------------
+  const TIER_CLASS = { Estimate: "t-est", Rough: "t-rough", Decent: "t-ok", Solid: "t-solid" };
+  const badge = t => el("span", "tier " + TIER_CLASS[t], t);
+  const dayName = iso => new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", weekday: "short", month: "short", day: "numeric" });
+  function renderWeek() {
+    const { outlook, model, ctx } = D, grid = $("weekgrid"), picks = $("weekpicks");
+    grid.replaceChildren(); picks.replaceChildren();
+    if (!outlook || !outlook.days || !outlook.days.length) { $("weekdesc").textContent = "The 7-day outlook fills in after the logger's next forecast run, within 3 hours."; renderModel(); return; }
+    const afterNoon = +new Date().toLocaleString("en-US", { timeZone: "America/Denver", hour: "numeric", hour12: false }) >= 12;
+    const idx = outlook.days.map((d, i) => i).filter(i => outlook.days[i] > D.day || (outlook.days[i] === D.day && !afterNoon));
+    const W = { outlook, status: ctx.status, upcoming: ctx.upcoming, traffic: outlook.days.map(d => trafficDay(model, d)),
+      new24: Object.fromEntries(Object.keys(RESORTS).map(k => [k, ctx.snow[k] && ctx.snow[k].new24 ? ctx.snow[k].new24.inches : 0])) };
+    const keys = Object.keys(RESORTS).filter(shown);
+    $("weekdesc").textContent = `Snow is the middle of ${Object.keys(outlook.sources || {}).length} forecasts, with a range when they disagree. Snow that falls the day or night before counts most. Updated ${fmtTime(new Date(outlook.updated))}.`;
+    // One card per day: best pick, leave-by time and confidence.
+    idx.forEach(i => {
+      const iso = outlook.days[i], t = W.traffic[i];
+      const sc = keys.map(k => dayScore(k, i, W)).filter(x => x && !x.closed).sort((a, b) => b.score - a.score);
+      const c = el("div", "daycard"), top = sc[0];
+      c.append(el("div", "dname", dayName(iso)));
+      c.append(el("div", "dpick", top ? RESORTS[top.key].name : "Nothing open"));
+      if (top) c.append(el("div", "dsub", top.snow >= 1 ? `${Math.round(top.snow)}" forecast${top.agree ? "" : ", models split"}` : "No new snow forecast"));
+      const lv = el("div", "dleave"); lv.append(el("span", "", t.leave), badge(t.tier)); c.append(lv);
+      if (t.homePeak >= 15) c.append(el("div", "dsub", t.home));
+      if (t.holiday) c.append(el("div", "dsub warnline", `${t.holiday}: expect heavier traffic`));
+      picks.append(c);
+    });
+    // Grid: resorts by day.
+    const tbl = el("table", "wk"), hr = el("tr"); hr.append(el("th", "", ""));
+    idx.forEach(i => hr.append(el("th", "", dayName(outlook.days[i]).replace(/,.*/, "") + " " + outlook.days[i].slice(8).replace(/^0/, ""))));
+    tbl.append(hr);
+    keys.forEach(k => {
+      const tr = el("tr"); tr.append(el("th", "rn", RESORTS[k].name));
+      idx.forEach(i => {
+        const r = dayScore(k, i, W), td = el("td");
+        if (!r) td.append(el("span", "muted", "n/a"));
+        else if (r.closed) { td.className = "cl"; td.append(el("span", "muted", "Closed")); }
+        else {
+          td.style.background = `color-mix(in srgb, var(--accent) ${Math.round(4 + r.score * 0.4)}%, transparent)`;
+          td.append(el("b", "", String(r.score)));
+          if (r.chips.length) td.append(el("small", "", r.chips.join(", ")));
+          td.title = `${RESORTS[k].name}: ${r.score} out of 100. ${r.n} forecasts.`;
+        }
+        tr.append(td);
+      });
+      tbl.append(tr);
+    });
+    grid.append(tbl);
+    $("weeknote").textContent = "Scores use the same weights as today's pick: snow adds; wind, a snowy drive, typical I-70 traffic, planned closures and a non-Ikon ticket subtract. Snow forecasts past about 3 days often change, so treat the right side of the table as a heads-up.";
+    renderModel();
+  }
+  function renderModel() {
+    const m = D.model, box = $("modelpanel"); box.replaceChildren();
+    if (!m || !m.key_windows) { box.append(el("p", "note", "The traffic model builds after the logger's next run.")); $("modelline").textContent = ""; return; }
+    const names = { fri_pm_W: "Fri 2 to 8 PM, heading up", sat_am_W: "Sat 5 to 10 AM, heading up", sun_am_W: "Sun 5 to 10 AM, heading up",
+      sat_pm_E: "Sat 1 to 7 PM, heading home", sun_pm_E: "Sun 1 to 7 PM, heading home" };
+    const kw = m.key_windows, target = m.target || 6, total = Object.values(kw).reduce((a, w) => a + Math.min(w.n, target), 0);
+    const worst = Math.min(...Object.values(kw).map(w => w.n));
+    const head = el("div", "mhead");
+    head.append(el("div", "", worst >= target ? "Solid: enough weekends logged" : worst >= 3 ? "Decent, still learning" : "Learning, still mostly estimates"),
+      el("span", "tier " + TIER_CLASS[tierOf(worst)], `${worst} of ${target} weekends`));
+    box.append(head);
+    box.append(el("p", "note", `Logged since ${dayName(m.first_day)}. A window counts for a weekend once most of its hours are logged. Six weekends is the target, because weekend traffic swings a lot from one week to the next.`));
+    const rows = el("div", "mrows");
+    for (const k in names) {
+      const w = kw[k] || { n: 0 }, bar = el("div", "blocks");
+      for (let j = 0; j < target; j++) bar.append(el("span", j < w.n ? "on" : ""));
+      rows.append(el("span", "", names[k]), bar, badge(tierOf(w.n)));
+    }
+    box.append(rows);
+    // When each window should reach Solid, skipping holiday weekends.
+    const need = target - worst;
+    if (need > 0) {
+      let d = new Date(D.day + "T12:00:00Z"), got = 0;
+      while (got < need) { d = new Date(d.getTime() + 864e5); if (d.getUTCDay() === 6 && !holidayOn(m, d.toISOString().slice(0, 10))) got++; }
+      box.append(el("p", "note", `If logging keeps running, every window reaches Solid around ${dayName(d.toISOString().slice(0, 10))}. Holiday weekends don't count toward this.`));
+    }
+    const cards = el("div", "mcards"), g = m.graded || [];
+    const acc = el("div", "mcard"); acc.append(el("div", "mlabel", "Last weekend's predictions"));
+    if (g.length) {
+      const last = g[g.length - 1];
+      acc.append(el("div", "mbig", last.mean_error_min == null ? "Not enough data" : `Off by ${last.mean_error_min} min`),
+        el("div", "mlabel", `Weekend of ${dayName(last.weekend)}, average across the windows${last.source.includes("estimate") ? ", from estimates" : ""}`));
+      if (g.length > 1) acc.append(el("div", "mlabel", "Earlier: " + g.slice(0, -1).slice(-4).map(x => x.mean_error_min == null ? "n/a" : x.mean_error_min + " min").join(", ")));
+    } else acc.append(el("div", "mbig", "Not graded yet"), el("div", "mlabel", "The first check runs the Monday after a full weekend"));
+    const cond = el("div", "mcard"); cond.append(el("div", "mlabel", "Kinds of weekends seen"));
+    const cs = m.conditions_seen || {};
+    [["dry", "Dry weekend"], ["powder", "Powder weekend"], ["holiday", "Holiday weekend"]].forEach(([k, label]) => {
+      const n = (cs[k] || []).length; cond.append(el("div", n ? "" : "muted", `${n ? "\u2713" : "\u25CB"} ${label}${n > 1 ? ` (${n})` : ""}`));
+    });
+    cond.append(el("div", "mlabel", "Days like ones it hasn't seen stay estimates."));
+    cards.append(acc, cond); box.append(cards);
+    $("modelline").textContent = `Traffic model: ${worst} of ${target} weekends logged (${tierOf(worst)}). See the 7-day tab for details.`;
+  }
   function render() {
     if (!D) return;
+    try { renderWeek(); } catch (e) { console.error(e); }
     const { ctx, ranked, state } = D;
     const last = new Date(state.last_run), ageMin = Math.round((Date.now() - last) / 60000);
     const asof = $("asof"); asof.textContent = `Data as of ${fmtTime(last)}`;
@@ -624,10 +804,12 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
       }
     } catch (e) { built = false; box.textContent = "Could not load the file list. GitHub limits how often this page can ask, so try again in a few minutes."; }
   }
+
   function route() {
-    const data = location.hash === "#data";
-    document.querySelectorAll("main > section").forEach(s => { s.hidden = data ? s.id !== "dataview" : s.id === "dataview"; });
-    $("tab-data").classList.toggle("on", data); $("tab-dash").classList.toggle("on", !data);
+    const data = location.hash === "#data", week = location.hash === "#week";
+    const own = { dataview: data, weekview: week, modelview: week };
+    document.querySelectorAll("main > section").forEach(s => { s.hidden = s.id in own ? !own[s.id] : data || week; });
+    $("tab-data").classList.toggle("on", data); $("tab-week").classList.toggle("on", week); $("tab-dash").classList.toggle("on", !data && !week);
     if (data) build(); else window.dispatchEvent(new Event("resize"));
   }
   addEventListener("hashchange", route); route();
