@@ -71,7 +71,7 @@ RESORTS = {
 # Fremont and Tennessee Passes (CO 91, US 24), Squaw Pass (CO 103), Grand Mesa (CO 65),
 # and the southern routes: US 285, US 50 over Monarch Pass, CO 135 to Crested Butte,
 # US 160 over Wolf Creek Pass, US 550 to Purgatory, CO 62 and CO 145 to Telluride.
-ROUTES = {"I70", "US40", "US6", "CO119", "CO72", "CO46", "CO9", "CO82", "CO91", "US24", "CO103", "CO65",
+ROUTES = {"I70", "US40", "US6", "CO119", "CO72", "CO93", "CO46", "CO9", "CO82", "CO91", "US24", "CO103", "CO65",
           "US285", "US50", "CO135", "US160", "US550", "CO62", "CO145"}
 # Only keep I-70 events in the mountain corridor (Palisade, for Powderhorn, to C-470).
 I70_MP_RANGE = (40.0, 276.0)
