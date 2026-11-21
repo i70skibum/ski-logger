@@ -506,3 +506,5 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-21T13:00:48-07:00,413,US 285,Pine Jct-Conifer-Turkey Creek Cyn,229.0,250.1,"21 - scattered showers; 4s-9 - wet in areas, icy spots","US 285 (Hampden Ave), between Pine Valley Road (Pine Junction) and C-470 (Lakewood)"
 2026-11-21T13:00:48-07:00,459,I-70,Silverthorne-Eisenhower/Johnson tunnels,203.7,212.5,"4s-9 - wet in areas, icy spots; 6 - snow","I-70, between Exit 203: CO 9; East Frisco (near Frisco) and Exit 216: US 6; Loveland Pass (near Eisenhower Tunnel)"
 2026-11-21T13:00:48-07:00,272,I-70,Idaho Springs-Genesee,238.7,252.4,4s - wet in areas; 9 - icy spots,"I-70, between Exit 238: Fall River Road (near Idaho Springs) and Exit 254: US 40; Genesee (3 miles west of Mount Vernon Canyon)"
+2026-11-21T13:30:46-07:00,47,CO 9,US 24 to Fairplay,47.6,63.7,4 - wet; 6 - snow,"CO 9, between US 24 and US 285 (Fairplay)"
+2026-11-21T13:30:46-07:00,45,CO 9,US 50 to US 24,0.0,47.0,"6-9-11 snow, icy spots, snow packed spots","CO 9, between US 50 and US 24"
