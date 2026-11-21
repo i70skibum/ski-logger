@@ -421,20 +421,6 @@
    "title": "US 6 westbound: Road closed.",
    "type": "critical"
   },
-  "roadClosures:CDOT-36503509201WB": {
-   "began": "2026-11-21T08:46:48-07:00",
-   "class": "roadClosures",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36503509201WB",
-   "lat": 39.73611,
-   "lon": -105.42886,
-   "mp_end": "",
-   "mp_start": 270.0012481069761,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40 westbound: Road closed.",
-   "type": "critical"
-  },
   "roadClosures:CDOT-36503767898BOTH": {
    "began": "2026-11-21T09:05:42-07:00",
    "class": "roadClosures",
@@ -489,48 +475,6 @@
    "pos_bearing": "E",
    "route": "US 160",
    "title": "US 160 in both directions: Road closed.",
-   "type": "critical"
-  },
-  "roadReports:CDOT-36500997519WB": {
-   "began": "2026-11-21T05:42:53-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36500997519WB",
-   "lat": 39.7376,
-   "lon": -105.43113,
-   "mp_end": "",
-   "mp_start": 245.00746518406154,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 westbound: Road closed.",
-   "type": "critical"
-  },
-  "roadReports:CDOT-36501042448BOTH": {
-   "began": "2026-11-21T05:46:15-07:00",
-   "class": "roadReports",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36501042448BOTH",
-   "lat": 39.70221,
-   "lon": -105.20174,
-   "mp_end": 240.9986864869466,
-   "mp_start": 259.02699996241427,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 in both directions: Roadway reopened to traffic.",
-   "type": "urgent"
-  },
-  "roadReports:CDOT-36501558620WB": {
-   "began": "2026-11-21T06:24:06-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36501558620WB",
-   "lat": 39.70221,
-   "lon": -105.20174,
-   "mp_end": "",
-   "mp_start": 251.0008635359113,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 westbound: Road closed.",
    "type": "critical"
   },
   "roadReports:CDOT-36501853300WB": {
@@ -615,6 +559,20 @@
    "pos_bearing": "N",
    "route": "CO 9",
    "title": "CO 9 southbound: Right shoulder closed.",
+   "type": "routine"
+  },
+  "roadReports:CDOT-36505794011SB": {
+   "began": "2026-11-21T11:34:13-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36505794011SB",
+   "lat": 39.49854,
+   "lon": -105.33337,
+   "mp_end": "",
+   "mp_start": 233.43800007374375,
+   "pos_bearing": "N",
+   "route": "US 285",
+   "title": "US 285 southbound: Crash.",
    "type": "routine"
   },
   "roadWork:CDOT-35509265054EB": {
@@ -2201,7 +2159,7 @@
   }
  },
  "forecast_last": "2026-11-21T16:15:47+00:00",
- "last_run": "2026-11-21T11:30:46-07:00",
+ "last_run": "2026-11-21T11:45:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-21": {
@@ -2938,7 +2896,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-21 10:00",
-  "aspen": "2026-11-21 09:00",
+  "aspen": "2026-11-21 10:00",
   "beavercreek": "2026-11-21 10:00",
   "breck": "2026-11-21 10:00",
   "cooper": "2026-11-21 10:00",
@@ -2946,14 +2904,14 @@
   "crestedbutte": "2026-11-21 10:00",
   "echo": "2026-11-21 10:00",
   "eldora": "2026-11-21 10:00",
-  "granby": "2026-11-21 09:00",
+  "granby": "2026-11-21 10:00",
   "keystone": "2026-11-21 10:00",
   "loveland": "2026-11-21 10:00",
-  "monarch": "2026-11-21 09:00",
+  "monarch": "2026-11-21 10:00",
   "powderhorn": "2026-11-21 10:00",
   "purgatory": "2026-11-21 10:00",
   "steamboat": "2026-11-21 10:00",
-  "sunlight": "2026-11-21 09:00",
+  "sunlight": "2026-11-21 10:00",
   "telluride": "2026-11-21 09:00",
   "vail": "2026-11-21 10:00",
   "winterpark": "2026-11-21 10:00",
@@ -3169,14 +3127,14 @@
   "I70W075",
   "I70W076"
  ],
- "tomtom_flow_last": "2026-11-21T18:30:46+00:00",
- "tomtom_routing_last": "2026-11-21T18:30:46+00:00",
+ "tomtom_flow_last": "2026-11-21T18:45:47+00:00",
+ "tomtom_routing_last": "2026-11-21T18:45:47+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 150
+   "2026-11": 160
   },
   "routing": {
-   "2026-11": 110
+   "2026-11": 118
   }
  },
  "traffic_model_last": "2026-11-21T16:15:47+00:00"
