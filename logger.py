@@ -476,6 +476,14 @@ def append_wide(subdir, fixed_cols, values_by_col):
         csv.writer(f).writerow([values_by_col.get(c, "") for c in header])
 
 
+# Speeds beyond I-70: US 6 over Loveland Pass and through Clear Creek Canyon (Golden to exit 244),
+# and US 40 from Empire over Berthoud Pass to Winter Park and Granby.
+US6_ROUTE = re.compile(r"US0*6(?!\d)")
+US6_WEST_LON = -106.08
+US40_ROUTE = re.compile(r"US0*40(?!\d)")
+US40_BOX = (-105.95, -105.60, 39.74, 40.10)   # lon min, lon max, lat min, lat max
+
+
 def log_speeds(state, key):
     segs, values, feed_ts = [], {}, []
     for f in cdot_get("speed", key):
@@ -484,11 +492,17 @@ def log_speeds(state, key):
         coords = (f.get("geometry") or {}).get("coordinates") or []
         while coords and isinstance(coords[0], list) and coords[0] and isinstance(coords[0][0], list):
             coords = [pt for line in coords for pt in line]  # flatten MultiLineString
-        if not route.startswith("I70") or not coords:
+        us6, us40 = US6_ROUTE.match(route), US40_ROUTE.match(route)
+        if not (route.startswith("I70") or us6 or us40) or not coords:
             continue
         (lon0, lat0), (lon1, lat1) = coords[0][:2], coords[-1][:2]
-        if not (in_box(lon0, lat0) or in_box(lon1, lat1)):
+        if us40:
+            if not all(US40_BOX[0] <= x <= US40_BOX[1] and US40_BOX[2] <= y <= US40_BOX[3] for x, y in ((lon0, lat0), (lon1, lat1))):
+                continue  # US 40 only from I-70 at Empire over Berthoud Pass to Granby
+        elif not (in_box(lon0, lat0) or in_box(lon1, lat1)):
             continue
+        if us6 and min(lon0, lon1) < US6_WEST_LON:
+            continue  # US 6 only from Silverthorne east: Keystone, Loveland Pass, Clear Creek Canyon
         sid = p.get("segment_id")
         segs.append([sid, route, round(lon0, 4), round(lat0, 4), round(lon1, 4), round(lat1, 4)])
         conf, speed = p.get("confidence_level") or 0, p.get("speed")
@@ -496,7 +510,7 @@ def log_speeds(state, key):
         if p.get("timestamp"):
             feed_ts.append(p["timestamp"])
     if not values:
-        raise RuntimeError("no I-70 mountain speed segments found")
+        raise RuntimeError("no mountain speed segments found")
     meta = os.path.join(DATA, "speed", "segments.csv")
     os.makedirs(os.path.dirname(meta), exist_ok=True)
     if not os.path.exists(meta) or state.get("speed_segments") != sorted(values):
@@ -739,7 +753,7 @@ def corridor_delays():
         for r in csv.DictReader(f):
             lon0, lon1 = float(r["start_lon"]), float(r["end_lon"])
             mid = (lon0 + lon1) / 2
-            if CORRIDOR_WEST_LON <= mid <= CORRIDOR_EAST_LON:
+            if r["route"].startswith("I70") and CORRIDOR_WEST_LON <= mid <= CORRIDOR_EAST_LON:
                 segs.append((r["segment_id"], "W" if r["route"].endswith("W") else "E",
                              miles(lon0, float(r["start_lat"]), lon1, float(r["end_lat"]))))
     rows = []
