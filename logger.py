@@ -724,17 +724,46 @@ ROUTE_POINTS = {
     # Routing goes start, via, end (heading up; reversed for heading home). The via point keeps
     # it on the road: without it the router would take I-70 through the tunnel instead of
     # Loveland Pass. Flow points are spread along the road.
-    "canyon":   {"name": "Clear Creek Canyon (US 6, Golden to I-70 exit 244)",
+    "canyon":   {"name": "Clear Creek Canyon (US 6, Golden to I-70 exit 244)", "max_km": 30,
                  "route": [(39.7530, -105.2280), (39.7428, -105.3297), (39.7421, -105.4247)],
                  "points": [(39.7468, -105.2655), (39.7428, -105.3297), (39.7421, -105.4247)]},
-    "pass":     {"name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)",
+    "pass":     {"name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)", "max_km": 27,
                  "route": [(39.6800, -105.8950), (39.6636, -105.8794), (39.6050, -105.9440)],
                  "points": [(39.6662, -105.8832), (39.6501, -105.8741), (39.6302, -105.8899)]},
-    "berthoud": {"name": "Berthoud Pass (US 40, Empire to Winter Park)",
+    "berthoud": {"name": "Berthoud Pass (US 40, Empire to Winter Park)", "max_km": 45,
                  "route": [(39.7600, -105.6830), (39.7983, -105.7776), (39.8862, -105.7631)],
                  "points": [(39.7602, -105.6860), (39.7771, -105.7329), (39.7983, -105.7776), (39.8862, -105.7631)]},
 }
 TOMTOM_HOURS = {"routing": (5, 22), "flow": (5, 20)}
+
+
+def tomtom_get(url, key, where):
+    """One TomTom request, paced under its per-second limit, with one retry if it says too many."""
+    import time
+    for attempt in (1, 2):
+        time.sleep(0.35)
+        try:
+            return fetch_json(url)
+        except Exception as e:
+            if attempt == 1 and "429" in str(e):
+                time.sleep(2)
+                continue
+            log_error(where, str(e).replace(key, "KEY"))
+            return None
+
+
+def line_dist_m(lat, lon, pts):
+    """Distance in meters from a point to a polyline of TomTom coordinates."""
+    import math
+    kx, ky = 111320 * math.cos(math.radians(lat)), 110540
+    best = None
+    xy = [((p["longitude"] - lon) * kx, (p["latitude"] - lat) * ky) for p in pts]
+    for (x0, y0), (x1, y1) in zip(xy, xy[1:] or xy):
+        dx, dy = x1 - x0, y1 - y0
+        t = 0 if dx == dy == 0 else max(0, min(1, -(x0 * dx + y0 * dy) / (dx * dx + dy * dy)))
+        d = math.hypot(x0 + t * dx, y0 + t * dy)
+        best = d if best is None else min(best, d)
+    return None if best is None else round(best)
 
 
 def tomtom_budget(state, kind, need):
@@ -767,7 +796,8 @@ def log_routes(state):
     except (FileNotFoundError, json.JSONDecodeError):
         now = {"routes": {}}
     did = []
-    base = state.setdefault("route_shortest_m", {})
+    state.pop("route_shortest_m", None)
+    calib = now.setdefault("calibration", {})
 
     if tomtom_budget(state, "routing", 2 * len(ROUTE_POINTS)):
         rows = []
@@ -775,19 +805,18 @@ def log_routes(state):
             out = now["routes"].setdefault(rk, {"name": R["name"]})
             for d, pts in (("W", R["route"]), ("E", list(reversed(R["route"])))):
                 locs = ":".join(f"{lat},{lon}" for lat, lon in pts)
-                try:
-                    r = fetch_json(TOMTOM_ROUTE.format(locs) + f"?key={key}&traffic=true&computeTravelTimeFor=all"
-                                   "&routeType=fastest&travelMode=car")["routes"][0]["summary"]
-                except Exception as e:
-                    log_error(f"routes:{rk}:{d}", str(e).replace(key, "KEY"))
+                j = tomtom_get(TOMTOM_ROUTE.format(locs) + f"?key={key}&traffic=true&computeTravelTimeFor=all"
+                               "&routeType=fastest&travelMode=car", key, f"routes:{rk}:{d}")
+                if not j or not j.get("routes"):
                     out[d] = None
                     continue
+                r = j["routes"][0]["summary"]
+                geo = [p for leg in j["routes"][0].get("legs", []) for p in leg.get("points", [])]
+                calib[f"{rk}-{d}"] = {"km": round((r.get("lengthInMeters") or 0) / 1000, 1),
+                                      "path": [[round(p["latitude"], 5), round(p["longitude"], 5)] for p in geo[::max(1, len(geo) // 12)]]}
                 length, live, none = r.get("lengthInMeters"), r.get("travelTimeInSeconds"), r.get("noTrafficTravelTimeInSeconds")
-                bk = f"{rk}-{d}"
-                if length and (bk not in base or length < base[bk]):
-                    base[bk] = length
-                # A route much longer than usual means the router went around: the road is closed or blocked.
-                detour = bool(length and length > 1.25 * base[bk])
+                # Longer than the road itself means the router went another way: closed, blocked or a bad waypoint.
+                detour = bool(length and length > R["max_km"] * 1000)
                 rows.append([NOW_ISO, rk, d, length, live, none, r.get("historicTrafficTravelTimeInSeconds"),
                              r.get("trafficDelayInSeconds"), detour])
                 out[d] = {"delay_min": None if detour or not (live and none) else round(max(0, live - none) / 60, 1),
@@ -803,14 +832,14 @@ def log_routes(state):
             out = now["routes"].setdefault(rk, {"name": R["name"]})
             closed, slow = False, []
             for i, (lat, lon) in enumerate(R["points"]):
-                try:
-                    d = fetch_json(f"{TOMTOM_FLOW}?point={lat},{lon}&unit=MPH&key={key}")["flowSegmentData"]
-                except Exception as e:
-                    log_error(f"routes:{rk}:point{i}", str(e).replace(key, "KEY"))
+                j = tomtom_get(f"{TOMTOM_FLOW}?point={lat},{lon}&unit=MPH&key={key}", key, f"routes:{rk}:point{i}")
+                if not j or "flowSegmentData" not in j:
                     continue
+                d = j["flowSegmentData"]
                 pts = (d.get("coordinates") or {}).get("coordinate") or []
-                snap = min((miles(lon, lat, p["longitude"], p["latitude"]) / 1.12 for p in pts), default=None)
-                snap_m = None if snap is None else round(snap * 1609)
+                snap_m = line_dist_m(lat, lon, pts)
+                calib[f"{rk}-p{i}"] = {"snap_m": snap_m, "frc": d.get("frc"),
+                                       "segment": [[round(p["latitude"], 5), round(p["longitude"], 5)] for p in pts[::max(1, len(pts) // 6)]]}
                 rows.append([NOW_ISO, rk, i, d.get("frc"), d.get("currentSpeed"), d.get("freeFlowSpeed"),
                              d.get("currentTravelTime"), d.get("freeFlowTravelTime"), d.get("confidence"),
                              bool(d.get("roadClosure")), snap_m])
@@ -959,6 +988,8 @@ def route_delays():
             for r in csv.DictReader(f):
                 if r.get("route") not in ROUTE_POINTS or r.get("detour") == "True" or not r.get("travel_s") or not r.get("no_traffic_s"):
                     continue
+                if not r.get("length_m") or float(r["length_m"]) > ROUTE_POINTS[r["route"]]["max_km"] * 1000:
+                    continue   # went the long way: a detour or a bad waypoint
                 yield (datetime.fromisoformat(r["snapshot_time"]).astimezone(DENVER), r["route"], r["dir"],
                        max(0.0, float(r["travel_s"]) - float(r["no_traffic_s"])) / 60)
 
