@@ -882,14 +882,14 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     // (the slower direction); then the flow readings on top, each covering a long stretch at its own speed.
     const tt = (ctx.routes || {}).routes || {}, drawn = new Set();
     // TomTom route ends sit a little way up each road from the interchange, so join an end to the
-    // nearest point on I-70 when it is within 1.5 km.
+    // nearest point on I-70 when it is within 2 km (US 40 ends in Empire, 1.7 km up from exit 232).
     const i70pts = Object.entries(D.segGeo).filter(([id]) => /^I70/.test(id)).flatMap(([, g]) => g);
     const kmApart = (a, b) => Math.hypot((a[0] - b[0]) * 111, (a[1] - b[1]) * 85);
     const toI70 = line => {
       const out = line.slice();
       for (const last of [false, true]) {
         const p = last ? out[out.length - 1] : out[0];
-        let best = null, d = 1.5;
+        let best = null, d = 2;
         for (const q of i70pts) { const k = kmApart(p, q); if (k < d) { d = k; best = q; } }
         if (best && d > 0.05) last ? out.push(best) : out.unshift(best);
       }
