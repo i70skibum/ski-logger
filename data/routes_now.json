@@ -4,10 +4,10 @@
    "name": "Clear Creek Canyon (US 6, Golden to I-70 exit 244)",
    "W": {
     "delay_min": null,
-    "minutes": 141.7,
+    "minutes": 141.6,
     "free_min": 135.1,
     "detour": true,
-    "at": "2026-11-21T10:45:47-07:00"
+    "at": "2026-11-21T11:00:51-07:00"
    },
    "E": {
     "delay_min": null,
@@ -15,14 +15,14 @@
     "free_min": null,
     "detour": true,
     "no_route": true,
-    "at": "2026-11-21T10:45:47-07:00"
+    "at": "2026-11-21T11:00:51-07:00"
    },
    "closed": true,
    "points": [
     {
      "point": 1,
-     "mph": 28,
-     "normal_mph": 34,
+     "mph": 29,
+     "normal_mph": 32,
      "closed": true,
      "line": [
       [
@@ -344,7 +344,7 @@
      ]
     }
    ],
-   "points_at": "2026-11-21T10:45:47-07:00"
+   "points_at": "2026-11-21T11:00:51-07:00"
   },
   "pass": {
    "name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)",
@@ -353,7 +353,7 @@
     "minutes": 22.4,
     "free_min": 21.1,
     "detour": false,
-    "at": "2026-11-21T10:45:47-07:00",
+    "at": "2026-11-21T11:00:51-07:00",
     "line": [
      [
       39.68008,
@@ -946,11 +946,11 @@
     ]
    },
    "E": {
-    "delay_min": 2.6,
-    "minutes": 23.3,
+    "delay_min": 3.1,
+    "minutes": 23.8,
     "free_min": 20.7,
     "detour": false,
-    "at": "2026-11-21T10:45:47-07:00",
+    "at": "2026-11-21T11:00:51-07:00",
     "line": [
      [
       39.6046,
@@ -1546,7 +1546,7 @@
    "points": [
     {
      "point": 0,
-     "mph": 35,
+     "mph": 33,
      "normal_mph": 42,
      "closed": false,
      "line": [
@@ -1878,7 +1878,7 @@
     },
     {
      "point": 1,
-     "mph": 35,
+     "mph": 33,
      "normal_mph": 42,
      "closed": false,
      "line": [
@@ -2533,7 +2533,7 @@
      ]
     }
    ],
-   "points_at": "2026-11-21T10:45:47-07:00"
+   "points_at": "2026-11-21T11:00:51-07:00"
   },
   "berthoud": {
    "name": "Berthoud Pass (US 40, Empire to Winter Park)",
@@ -2542,7 +2542,7 @@
     "minutes": 33.6,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-21T10:45:47-07:00",
+    "at": "2026-11-21T11:00:51-07:00",
     "line": [
      [
       39.76107,
@@ -3087,7 +3087,7 @@
     "minutes": 33.5,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-21T10:45:47-07:00",
+    "at": "2026-11-21T11:00:51-07:00",
     "line": [
      [
       39.88623,
@@ -4283,7 +4283,7 @@
     },
     {
      "point": 2,
-     "mph": 48,
+     "mph": 38,
      "normal_mph": 48,
      "closed": false,
      "line": [
@@ -4603,8 +4603,8 @@
     },
     {
      "point": 3,
-     "mph": 40,
-     "normal_mph": 50,
+     "mph": 51,
+     "normal_mph": 51,
      "closed": false,
      "line": [
       [
@@ -4778,7 +4778,7 @@
      ]
     }
    ],
-   "points_at": "2026-11-21T10:45:47-07:00"
+   "points_at": "2026-11-21T11:00:51-07:00"
   },
   "dillon": {
    "name": "US 6 through Dillon (I-70 exit 205 at Silverthorne to Keystone)",
@@ -4787,7 +4787,7 @@
     "minutes": 16.7,
     "free_min": 15.3,
     "detour": false,
-    "at": "2026-11-21T10:45:47-07:00",
+    "at": "2026-11-21T11:00:51-07:00",
     "line": [
      [
       39.62844,
@@ -5320,11 +5320,11 @@
     ]
    },
    "E": {
-    "delay_min": 1.9,
+    "delay_min": 2.0,
     "minutes": 17.8,
     "free_min": 15.8,
     "detour": false,
-    "at": "2026-11-21T10:45:47-07:00",
+    "at": "2026-11-21T11:00:51-07:00",
     "line": [
      [
       39.6046,
@@ -5906,13 +5906,13 @@
    },
    "closed": false,
    "points": [],
-   "points_at": "2026-11-21T10:45:47-07:00"
+   "points_at": "2026-11-21T11:00:51-07:00"
   }
  },
- "updated": "2026-11-21T10:45:47-07:00",
+ "updated": "2026-11-21T11:00:51-07:00",
  "tomtom_use": {
-  "flow": 120,
-  "routing": 86
+  "flow": 130,
+  "routing": 94
  },
  "tomtom_caps": {
   "routing": 19000,
