@@ -379,20 +379,6 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36506495296SB": {
-   "began": "2026-11-21T12:26:09-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36506495296SB",
-   "lat": 39.86535,
-   "lon": -105.46595,
-   "mp_end": "",
-   "mp_start": 14.950000022858148,
-   "pos_bearing": "N",
-   "route": "CO 119",
-   "title": "CO 119 southbound: Road closed.",
-   "type": "critical"
-  },
   "roadReports:CDOT-36506661891BOTH": {
    "began": "2026-11-21T12:37:27-07:00",
    "class": "roadReports",
@@ -419,6 +405,20 @@
    "pos_bearing": "E",
    "route": "US 50",
    "title": "US 50 westbound: Left lane closed.",
+   "type": "routine"
+  },
+  "roadReports:CDOT-36507743577SB": {
+   "began": "2026-11-21T13:58:12-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36507743577SB",
+   "lat": 39.69075,
+   "lon": -105.61447,
+   "mp_end": "",
+   "mp_start": 7.50838463748564,
+   "pos_bearing": "N",
+   "route": "CO 103",
+   "title": "CO 103 southbound: Crash.",
    "type": "routine"
   },
   "roadWork:CDOT-35509265054EB": {
@@ -2047,7 +2047,7 @@
   }
  },
  "forecast_last": "2026-11-21T19:15:50+00:00",
- "last_run": "2026-11-21T13:45:52-07:00",
+ "last_run": "2026-11-21T14:00:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-21": {
@@ -2802,9 +2802,9 @@
   "monarch": "2026-11-21 12:00",
   "powderhorn": "2026-11-21 12:00",
   "purgatory": "2026-11-21 12:00",
-  "steamboat": "2026-11-21 12:00",
+  "steamboat": "2026-11-21 13:00",
   "sunlight": "2026-11-21 12:00",
-  "telluride": "2026-11-21 11:00",
+  "telluride": "2026-11-21 12:00",
   "vail": "2026-11-21 12:00",
   "winterpark": "2026-11-21 12:00",
   "wolfcreek": "2026-11-21 12:00"
@@ -3063,14 +3063,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-21T20:45:52+00:00",
- "tomtom_routing_last": "2026-11-21T20:45:52+00:00",
+ "tomtom_flow_last": "2026-11-21T21:00:46+00:00",
+ "tomtom_routing_last": "2026-11-21T21:00:46+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 240
+   "2026-11": 250
   },
   "routing": {
-   "2026-11": 183
+   "2026-11": 194
   }
  },
  "traffic_model_last": "2026-11-21T19:15:50+00:00"
