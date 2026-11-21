@@ -423,3 +423,5 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-21T06:02:20-07:00,245,US 550,Durango-Ski Area,26.9,55.8,"8-10 icy, snow packed","US 550, between Animas View Drive (near Durango) and Lime Creek Road (near Coal Bank Pass)"
 2026-11-21T06:02:20-07:00,101,CO 82,Aspen-Basalt,11.5,41.9,4 - wet; 6 - snow,"CO 82, between Satank Road (near Carbondale) and Riverside Drive (Aspen)"
 2026-11-21T06:02:20-07:00,243,US 550,Bondad Hill-Durango,0.0,16.6,3 - dry,"US 550, between the New Mexico Border (13 miles south of the Durango area) and US 160 (near Durango)"
+2026-11-21T06:45:46-07:00,273,I-70,Genesee-C470,252.4,259.8,"4s-9 - wet in areas, icy spots; 6 - snow","I-70, between Exit 253: Chief Hosa and Exit 260: C-470; C-470; Morrison (Mount Vernon Canyon)"
+2026-11-21T06:45:46-07:00,335,US 6,Clear Creek Canyon,257.1,271.5,6 - snow,"US 6 (6th Ave), between I-70; US 6 (Clear Creek Canyon) and CO 58; CO 93 (Golden)"
