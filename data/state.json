@@ -481,6 +481,18 @@
    "title": "US 40 westbound: Road closed.",
    "type": "critical"
   },
+  "roadClosures:CDOT-36502269265WB": {
+   "began": "2026-11-21T07:16:28-07:00",
+   "class": "roadClosures",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36502269265WB",
+   "mp_end": "",
+   "mp_start": 260.2699999668548,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6 westbound: Road closed.",
+   "type": "critical"
+  },
   "roadClosures:COSEG-588228": {
    "began": "2026-11-21T03:32:15.148000-07:00",
    "class": "roadClosures",
@@ -515,18 +527,6 @@
    "pos_bearing": "E",
    "route": "US 160",
    "title": "US 160 in both directions: Road closed.",
-   "type": "critical"
-  },
-  "roadReports:CDOT-36403740312BOTH": {
-   "began": "2026-11-16T06:42:59-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36403740312BOTH",
-   "mp_end": 184.00309387336893,
-   "mp_start": 151.00547065163937,
-   "pos_bearing": "E",
-   "route": "US 160",
-   "title": "US 160 westbound: Roadway reopened to traffic.",
    "type": "critical"
   },
   "roadReports:CDOT-36496177322WB": {
@@ -600,6 +600,18 @@
    "route": "I-70",
    "title": "I-70 eastbound: Left lane closed.",
    "type": "routine"
+  },
+  "roadReports:CDOT-36502269265WB": {
+   "began": "2026-11-21T07:16:28-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36502269265WB",
+   "mp_end": "",
+   "mp_start": 260.2699999668548,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6 westbound: Road closed.",
+   "type": "critical"
   },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
@@ -1935,7 +1947,7 @@
   }
  },
  "forecast_last": "2026-11-21T13:02:20+00:00",
- "last_run": "2026-11-21T07:15:46-07:00",
+ "last_run": "2026-11-21T07:22:31-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-21": {
@@ -2673,25 +2685,25 @@
  "snotel_last": {
   "abasin": "2026-11-21 06:00",
   "aspen": "2026-11-21 05:00",
-  "beavercreek": "2026-11-21 05:00",
-  "breck": "2026-11-21 05:00",
-  "cooper": "2026-11-21 05:00",
-  "copper": "2026-11-21 05:00",
-  "crestedbutte": "2026-11-21 05:00",
+  "beavercreek": "2026-11-21 06:00",
+  "breck": "2026-11-21 06:00",
+  "cooper": "2026-11-21 06:00",
+  "copper": "2026-11-21 06:00",
+  "crestedbutte": "2026-11-21 06:00",
   "echo": "2026-11-21 05:00",
-  "eldora": "2026-11-21 05:00",
+  "eldora": "2026-11-21 06:00",
   "granby": "2026-11-21 05:00",
   "keystone": "2026-11-21 06:00",
-  "loveland": "2026-11-21 05:00",
+  "loveland": "2026-11-21 06:00",
   "monarch": "2026-11-21 05:00",
-  "powderhorn": "2026-11-21 05:00",
-  "purgatory": "2026-11-21 05:00",
+  "powderhorn": "2026-11-21 06:00",
+  "purgatory": "2026-11-21 06:00",
   "steamboat": "2026-11-21 06:00",
   "sunlight": "2026-11-21 05:00",
   "telluride": "2026-11-21 05:00",
-  "vail": "2026-11-21 05:00",
-  "winterpark": "2026-11-21 05:00",
-  "wolfcreek": "2026-11-21 05:00"
+  "vail": "2026-11-21 06:00",
+  "winterpark": "2026-11-21 06:00",
+  "wolfcreek": "2026-11-21 06:00"
  },
  "speed_segments": [
   "I70E024",
