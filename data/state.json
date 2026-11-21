@@ -193,6 +193,18 @@
    "title": "US 40 in both directions: Passenger vehicle traction law.",
    "type": "standard"
   },
+  "chainLaws:CDOT-36497293814WB": {
+   "began": "2026-11-21T01:12:14-07:00",
+   "class": "chainLaws",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36497293814WB",
+   "mp_end": 178.0005558068096,
+   "mp_start": 190.00648817541213,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Commercial motor vehicle chain law.",
+   "type": "standard"
+  },
   "roadClosures:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadClosures",
@@ -300,18 +312,6 @@
    "route": "I-70",
    "title": "I-70 westbound: Road closed.",
    "type": "critical"
-  },
-  "roadReports:CDOT-36496574633BOTH": {
-   "began": "2026-11-21T00:19:05-07:00",
-   "class": "roadReports",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36496574633BOTH",
-   "mp_end": "",
-   "mp_start": 221.00010996863267,
-   "pos_bearing": "E",
-   "route": "US 24",
-   "title": "US 24 in both directions: Rocks on the road.",
-   "type": "routine"
   },
   "roadReports:CDOT-36496973006WB": {
    "began": "2026-11-21T00:48:35-07:00",
@@ -1489,13 +1489,25 @@
    "title": "US 550: Slushy with icy and snow packed spots.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588658": {
+  "winterDriving:COSEG-588666": {
    "began": "2026-11-20T15:13:08.364000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588658",
-   "mp_end": 116.20486386191877,
+   "id": "COSEG-588666",
+   "mp_end": 90.2072229740423,
    "mp_start": 30.482471345651067,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Rain.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588667": {
+   "began": "2026-11-20T15:13:08.364000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588667",
+   "mp_end": 116.20486386191877,
+   "mp_start": 90.2072229740423,
    "pos_bearing": "E",
    "route": "I-70",
    "title": "I-70: Rain.",
@@ -1503,7 +1515,7 @@
   }
  },
  "forecast_last": "2026-11-21T07:00:47+00:00",
- "last_run": "2026-11-21T01:00:46-07:00",
+ "last_run": "2026-11-21T01:15:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-21": {
@@ -2239,7 +2251,7 @@
   "72": "11 - snow packed spots; 14 - drifting snow; 9 - icy spots"
  },
  "snotel_last": {
-  "abasin": "2026-11-20 23:00",
+  "abasin": "2026-11-21 00:00",
   "aspen": "2026-11-20 23:00",
   "beavercreek": "2026-11-20 23:00",
   "breck": "2026-11-20 23:00",
@@ -2249,7 +2261,7 @@
   "echo": "2026-11-20 23:00",
   "eldora": "2026-11-20 23:00",
   "granby": "2026-11-20 23:00",
-  "keystone": "2026-11-20 23:00",
+  "keystone": "2026-11-21 00:00",
   "loveland": "2026-11-20 23:00",
   "monarch": "2026-11-20 23:00",
   "powderhorn": "2026-11-20 23:00",
