@@ -859,3 +859,5 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-21T06:02:20-07:00,start,CDOT-36501042448BOTH,chainLaws,standard,I-70,BOTH_DIRECTIONS,E,249.99960996673826,240.9986864869466,I-70 in both directions: Commercial motor vehicle chain law.,2026-11-21T05:46:15-07:00
 2026-11-21T06:02:20-07:00,start,CDOT-36500997519WB,roadReports,critical,I-70,NEGATIVE_DIRECTION,E,245.00746518406154,,I-70 westbound: Road closed.,2026-11-21T05:42:53-07:00
 2026-11-21T06:02:20-07:00,end,COSEG-522967,winterDriving,standard,US 550,NOT_DIRECTIONAL,N,1.5510674771853932e-07,16.560998660277097,US 550: Snow with ice and snow packed.,2026-11-20T07:49:34.929000-07:00
+2026-11-21T06:15:51-07:00,start,CDOT-36501291388BOTH,chainLaws,standard,US 160,BOTH_DIRECTIONS,E,157.00011377554452,175.99930640647588,US 160 in both directions: Passenger vehicle traction law.,2026-11-21T06:03:38-07:00
+2026-11-21T06:15:51-07:00,start,CDOT-36501365682BOTH,chainLaws,standard,US 160,BOTH_DIRECTIONS,E,157.00011377554452,175.99930640647588,US 160 in both directions: Commercial motor vehicle chain law.,2026-11-21T06:08:54-07:00
