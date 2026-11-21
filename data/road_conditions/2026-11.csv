@@ -519,3 +519,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-21T14:45:47-07:00,97,CO 72,Coal Creek Canyon,11.0,29.4,"4s-9 - wet in areas, icy spots","CO 72 (Ward Rd), between CO 93 and CO 119 (Coal Creek Canyon)"
 2026-11-21T14:45:47-07:00,459,I-70,Silverthorne-Eisenhower/Johnson tunnels,203.7,212.5,"4s-9 - wet in areas, icy spots","I-70, between Exit 203: CO 9; East Frisco (near Frisco) and Exit 216: US 6; Loveland Pass (near Eisenhower Tunnel)"
 2026-11-21T14:45:47-07:00,45,CO 9,US 50 to US 24,0.0,47.0,4s - wet in areas; 6 - snow,"CO 9, between US 50 and US 24"
+2026-11-21T15:00:45-07:00,429,US 50,Salida-Canon City,208.3,279.7,4s - wet in areas,"US 50, between County Road 225 (near Monarch Pass) and Orchard Avenue (Canon City)"
