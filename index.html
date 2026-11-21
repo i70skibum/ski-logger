@@ -120,6 +120,11 @@ details.shut > summary { cursor: pointer; font-size: 13px; color: var(--ink2); p
 .toggles .toggle { margin-top: 0; align-items: flex-start; }
 .toggle b { font-weight: 600; color: var(--ink); }
 .toggle .tlist { display: block; font-size: 12px; color: var(--ink3, var(--ink2)); }
+.verdict { border-left: 6px solid var(--none); padding: 6px 0 6px 14px; margin: 0 0 18px; }
+.verdict.crit { border-color: var(--crit); } .verdict.warn { border-color: var(--warn); } .verdict.good { border-color: var(--good); }
+.verdict .vline { font-size: 24px; font-weight: 800; line-height: 1.2; }
+.verdict .vwhy { font-size: 14px; color: var(--ink2); margin-top: 4px; }
+.daytags { font-size: 12px; color: var(--ink2); margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -332,7 +337,25 @@ function rank(ctx) { return Object.keys(RESORTS).filter(k => shown(k) && isOpen(
 // Traffic model days use Python's weekday numbers (Mon=0); JS Date uses Sun=0.
 const pyDow = iso => (new Date(iso + "T12:00:00Z").getUTCDay() + 6) % 7;
 function tierOf(n) { return n >= 6 ? "Solid" : n >= 3 ? "Decent" : n >= 1 ? "Rough" : "Estimate"; }
-function holidayOn(model, iso) { const h = ((model || {}).holidays || []).find(([a, b]) => iso >= a && iso <= b); return h ? h[2] : null; }
+// Day type from the logger's calendar: holiday, school break, disrupted or typical. Older model files only list holidays.
+function dayInfo(model, iso) {
+  const d = ((model || {}).days || {})[iso]; if (d) return d;
+  const h = ((model || {}).holidays || []).find(([a, b]) => iso >= a && iso <= b);
+  return h ? { type: "holiday", tags: [h[2]] } : { type: "typical", tags: [] };
+}
+// Label for a busy day (holiday or school break), or null. Typical profiles leave these days out.
+function holidayOn(model, iso) {
+  const d = dayInfo(model, iso);
+  if (d.type === "holiday") return d.tags[0];
+  if (d.type === "break") return (d.tags.find(t => t.startsWith("School break")) || "School break").replace(/ \(.*$/, "").replace(/;.*$/, "");
+  return null;
+}
+// How much heavier than typical a busy day runs: measured once there are a few such days, else a rough guess.
+function busyLift(model, iso) {
+  const d = dayInfo(model, iso), t = ((model || {}).day_types || {})[d.type];
+  if (d.type !== "holiday" && d.type !== "break") return 1;
+  return (t && t.lift) || (d.type === "holiday" ? 1.5 : 1.25);
+}
 // Typical delay by hour for one day and direction: the logged profile where that window has data, else the known pattern.
 function hourly(model, iso, dir, h0, h1, win) {
   const dow = pyDow(iso), cov = (((model || {}).coverage || {})[`${dow}-${win}`] || {}).n || 0, hol = holidayOn(model, iso);
@@ -343,7 +366,7 @@ function hourly(model, iso, dir, h0, h1, win) {
       const xs = ["00", "30"].map(m => (slots[`${dow}-${String(h).padStart(2, "0")}${m}-${dir}`] || {}).median).filter(x => x != null);
       if (xs.length) v = xs.reduce((a, b) => a + b, 0) / xs.length;
     }
-    if (v == null) v = (gen[h] || 0) * (hol ? 1.5 : 1);
+    if (v == null) v = (gen[h] || 0) * busyLift(model, iso);
     out[h] = Math.round(v);
   }
   return { byHour: out, weekends: cov, tier: hol ? "Estimate" : tierOf(cov), holiday: hol };
@@ -378,7 +401,7 @@ function routeHourly(model, iso, rk, h0, h1) {
   for (let h = h0; h < h1; h++) {
     let v = null;
     if (n && !hol) { const xs = ["00", "30"].map(m => (slots[`${rk}-${dir}-${dow}-${String(h).padStart(2, "0")}${m}`] || {}).median).filter(x => x != null); if (xs.length) v = xs.reduce((a, b) => a + b, 0) / xs.length; }
-    if (v == null) v = (gen[h] || 0) * (hol ? 1.5 : 1);
+    if (v == null) v = (gen[h] || 0) * busyLift(model, iso);
     out[h] = Math.round(v);
   }
   return { byHour: out, peak: Math.max(0, ...Object.values(out)), tier: hol ? "Estimate" : tierOf(n) };
@@ -464,7 +487,54 @@ function headline(ranked) {
   if (top.closed) why += " There is a closure on the route, so check before leaving.";
   return { title: top.name, kicker: "Best bet for the next 24 hours", why };
 }
-if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, prevMonth, segments, refSpeeds, delayMin, delaySeries, snowSummary, latestForecast, latestConds, onRoute, cleanCond, condLevel, rank, headline, nearLandmark, RESORTS, trafficDay, dayScore, tierOf, openOn, hourly, altStatus, ALTERNATES, routeHourly, scoreResort };
+// ---- The verdict: one blunt line at the top of the page --------------------
+// hour is the Denver hour now. Uses live closures and delays first, then snow, then the calendar.
+function verdict(ctx, ranked, model, hour) {
+  const iso = ctx.today, dow = pyDow(iso), weekend = dow >= 5 || (dow === 4 && hour >= 12);
+  const shut = ctx.events.filter(e => e.class === "roadClosures" || /road closed/i.test(e.title));
+  const i70 = word => shut.filter(e => normRoute(e.route) === "I70" && overlaps(e.mp_start, e.mp_end, 205, 262) && new RegExp(word + "|both", "i").test(e.title));
+  const upShut = i70("westbound"), homeShut = i70("eastbound");
+  const canyon = altStatus(ctx, ALTERNATES.find(a => a.key === "canyon")).closed;
+  // US 6 rejoins I-70 at exit 244, so a westbound closure west of there blocks the canyon route too.
+  const westOf244 = upShut.some(e => Math.min(num(e.mp_start), num(e.mp_end) == null ? 999 : num(e.mp_end)) < 243.5);
+  const row = ctx.speedRow, up = row ? delayMin(row, ctx.segs, ctx.refs, "W", RESORTS.copper.westLon) || 0 : 0;
+  const home = row ? delayMin(row, ctx.segs, ctx.refs, "E", RESORTS.copper.westLon) || 0 : 0;
+  const top = ranked[0], day = dayInfo(model, iso), prof = trafficDay(model, iso);
+  const easeAfter = (byHour, from, limit) => Object.keys(byHour).map(Number).filter(h => h > from && byHour[h] < limit)[0];
+  const morning = hour < 12, texas = day.tags.some(t => /Texas/.test(t));
+  if (!top) return null;
+  if (morning && upShut.length && (canyon || westOf244))
+    return { level: "crit", line: "Keep your ass at home.", why: `I-70 westbound is closed${canyon ? " and so is Clear Creek Canyon" : " past where the canyon comes in"}. There's no way up right now. This updates every 15 minutes.` };
+  if (morning && upShut.length)
+    return { level: "crit", line: "Canyon or couch.", why: "I-70 westbound is closed near Floyd Hill. Clear Creek Canyon is open, so it's US 6 or nothing." };
+  if (!morning && weekend && homeShut.length)
+    return { level: "crit", line: "Order another round.", why: "I-70 eastbound is closed. Nobody's getting back to Denver for a while, so get comfortable." };
+  if (morning && up >= 40) {
+    const h = Math.max(hour + 2, easeAfter(prof.up.byHour, hour, 10) || 12);
+    return { level: "crit", line: `Keep your ass at home until traffic breaks around ${clock(h)}.`, why: `I-70 westbound is already ${up} minutes slow to Copper.` };
+  }
+  if (!morning && weekend && home >= 30) {
+    const h = easeAfter(prof.homeHours.byHour, hour, 15) || 19;
+    return { level: "warn", line: `Après until ${clock(h)} or sit in it.`, why: `I-70 eastbound is ${home} minutes slow and it usually loosens up around then.` };
+  }
+  if (morning && up >= 20)
+    return { level: "warn", line: "Go now or go after lunch.", why: `I-70 westbound is ${up} minutes slow and it's still building.` };
+  const deep = top.new24 >= 6, snowyRoads = top.chips.some(c => /Snowy|Traction/.test(c.t));
+  if (deep && snowyRoads)
+    return { level: "good", line: "Powder day. Drive like your skis depend on it.", why: `${top.new24}" new at ${top.name}, but the roads are snowy. Real tires, early start, easy on the brakes.` };
+  if (deep)
+    return { level: "good", line: "Clear roads, deep snow. Full send.", why: `${top.new24}" new at ${top.name} and I-70 is moving.` };
+  if (top.fc24 >= 6)
+    return { level: "warn", line: "It's about to dump. Plan to leave early.", why: `${top.fc24}" forecast at ${top.name} in the next 24 hours. The roads will get ugly before they get good.` };
+  if (morning && weekend && (day.type === "holiday" || day.type === "break"))
+    return { level: "warn", line: texas ? "Half of Texas is on I-70. Leave before 6 or keep your ass at home." : "Everybody's off this week. Leave before 6 or keep your ass at home.", why: day.tags.join(". ") + "." };
+  if (!weekend && top.new24 >= 3)
+    return { level: "good", line: "Fresh snow on a weekday. Call in sick.", why: `${top.new24}" new at ${top.name} and nobody else is up there.` };
+  if (!weekend)
+    return { level: "good", line: "Empty roads, empty lifts.", why: "Weekday. Nothing to fight through." };
+  return { level: "good", line: top.new24 >= 1 ? "Roads are fine. Go get it." : "Clear roads, old snow. Groomer day.", why: `${top.name} is the pick. ${prof.leave === "No rush going up" ? "No rush heading up." : prof.leave + " to beat the usual rush."}` };
+}
+if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift, parseCSV, denverParts, prevMonth, segments, refSpeeds, delayMin, delaySeries, snowSummary, latestForecast, latestConds, onRoute, cleanCond, condLevel, rank, headline, nearLandmark, RESORTS, trafficDay, dayScore, tierOf, openOn, hourly, altStatus, ALTERNATES, routeHourly, scoreResort };
 </script>
 
 <script>
@@ -534,6 +604,8 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
       const lv = el("div", "dleave"); lv.append(el("span", "", t.leave), badge(t.tier)); c.append(lv);
       if (t.homePeak >= 15) c.append(el("div", "dsub", t.home));
       if (t.holiday) c.append(el("div", "dsub warnline", `${t.holiday}: expect heavier traffic`));
+      const extra = dayInfo(model, iso).tags.filter(x => x !== t.holiday && !(t.holiday && x.startsWith(t.holiday)));
+      if (extra.length) c.append(el("div", "daytags", extra.join(". ")));
       picks.append(c);
     });
     // Grid: resorts by day.
@@ -583,8 +655,8 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
     const need = target - worst;
     if (need > 0) {
       let d = new Date(D.day + "T12:00:00Z"), got = 0;
-      while (got < need) { d = new Date(d.getTime() + 864e5); if (d.getUTCDay() === 6 && !holidayOn(m, d.toISOString().slice(0, 10))) got++; }
-      box.append(el("p", "note", `If logging keeps running, every window reaches Solid around ${dayName(d.toISOString().slice(0, 10))}. Holiday weekends don't count toward this.`));
+      while (got < need) { d = new Date(d.getTime() + 864e5); if (d.getUTCDay() === 6 && dayInfo(m, d.toISOString().slice(0, 10)).type === "typical") got++; }
+      box.append(el("p", "note", `If logging keeps running, every window reaches Solid around ${dayName(d.toISOString().slice(0, 10))}, assuming no storms close the roads. Holiday and school-break weekends don't count toward this.`));
     }
     if (m.routes) {
       box.append(el("p", "mlabel", "Passes and alternates (TomTom routing times)"));
@@ -611,10 +683,14 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
     } else acc.append(el("div", "mbig", "Not graded yet"), el("div", "mlabel", "The first check runs the Monday after a full weekend"));
     const cond = el("div", "mcard"); cond.append(el("div", "mlabel", "Kinds of weekends seen"));
     const cs = m.conditions_seen || {};
-    [["dry", "Dry weekend"], ["powder", "Powder weekend"], ["holiday", "Holiday weekend"]].forEach(([k, label]) => {
+    [["dry", "Dry weekend"], ["powder", "Powder weekend"], ["holiday", "Holiday weekend"], ["break", "School-break weekend"], ["disrupted", "Disrupted weekend"]].forEach(([k, label]) => {
       const n = (cs[k] || []).length; cond.append(el("div", n ? "" : "muted", `${n ? "\u2713" : "\u25CB"} ${label}${n > 1 ? ` (${n})` : ""}`));
     });
-    cond.append(el("div", "mlabel", "Days like ones it hasn't seen stay estimates."));
+    cond.append(el("div", "mlabel", "Only typical weekends build the normal profile. Holidays, school breaks and disrupted days are logged and measured separately, and days like ones it hasn't seen stay estimates."));
+    const lifts = Object.entries(m.day_types || {}).filter(([, t]) => t.lift).map(([k, t]) => `${{ holiday: "Holidays", "break": "School breaks", disrupted: "Disrupted days" }[k]} run ${t.lift}x typical`);
+    if (lifts.length) cond.append(el("div", "mlabel", lifts.join(". ") + "."));
+    const odd = Object.entries(m.days || {}).filter(([d, x]) => x.type === "disrupted" && d <= D.day).slice(-3);
+    odd.forEach(([d, x]) => cond.append(el("div", "mlabel", `${dayName(d)}: ${x.note} Left out of typical.`)));
     cards.append(acc, cond); box.append(cards);
     $("modelline").textContent = `Traffic model: ${worst} of ${target} weekends logged (${tierOf(worst)}). See the 7-day tab for details.`;
   }
@@ -630,6 +706,9 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
     const pick = $("pick"); pick.replaceChildren();
     const anyShown = Object.keys(RESORTS).some(shown);
     const h = ranked.length ? headline(ranked) : anyShown ? { title: "Nothing open", kicker: "", why: "None of the mountains you picked are open yet." } : { title: "No resorts picked", kicker: "", why: "Turn on at least one group of resorts below." };
+    let v = null;
+    try { v = ranked.length ? verdict(ctx, ranked, D.model, +new Date().toLocaleString("en-US", { timeZone: "America/Denver", hour: "numeric", hour12: false })) : null; } catch (e) { console.error(e); }
+    if (v) { const vb = el("div", "verdict " + v.level); vb.append(el("div", "vline", v.line), el("div", "vwhy", v.why)); pick.append(vb); }
     pick.append(el("div", "kicker", h.kicker), el("div", "pickname", h.title), el("p", "why", h.why));
     const list = el("div", "rank");
     ranked.forEach((r, i) => {
@@ -679,7 +758,7 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
     const lg = $("striplegend"); lg.replaceChildren();
     [["var(--good)", "50+ mph, moving"], ["var(--warn)", "30 to 49, slow"], ["var(--crit)", "Under 30, crawling"], ["var(--none)", "No reading"]].forEach(([c, t]) => {
       const s = el("span"), sw = el("span", "sw"); sw.style.background = c; s.append(sw, t); lg.append(s); });
-    lg.append(el("span", "", "Upper line is westbound, lower line is eastbound. Tap a stretch for its speed."));
+    lg.append(el("span", "", "On I-70 the upper line is westbound and the lower is eastbound (CDOT sensors). US 6 and US 40 are one line each from TomTom, colored against that road's normal speed; dashed means TomTom thinks it's blocked but COtrip doesn't. Tap a stretch for its speed."));
 
     drawDelay();
 
@@ -790,6 +869,22 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
       const v = num(row[s.segment_id]), west = /W$/.test(s.route), off = west ? 0.007 : -0.007;
       L.polyline([[+s.start_lat + off, +s.start_lon], [+s.end_lat + off, +s.end_lon]], { color: col(v), weight: 5, opacity: 0.95 })
         .bindTooltip(`${west ? "Westbound" : "Eastbound"} near ${nearLandmark((+s.start_lon + +s.end_lon) / 2)}: ${v == null ? "no reading" : v + " mph, " + speedWord(v)}`, { sticky: true }).addTo(layer);
+    });
+    // US 6 and US 40 from TomTom: each reading covers a long stretch, colored against that road's normal speed.
+    const tt = (ctx.routes || {}).routes || {}, drawn = new Set();
+    ALTERNATES.forEach(A => {
+      const r = tt[A.key]; if (!r || !r.points) return;
+      const cdotClosed = altStatus(ctx, A).closed;
+      r.points.forEach(p => {
+        if (!p.line || p.line.length < 2) return;
+        const key = JSON.stringify(p.line[0]) + JSON.stringify(p.line[p.line.length - 1]);
+        if (drawn.has(key)) return; drawn.add(key);
+        const ratio = p.mph / Math.max(1, p.normal_mph);
+        const c = cdotClosed ? css("--crit") : p.closed ? css("--warn") : ratio >= 0.8 ? css("--good") : ratio >= 0.5 ? css("--warn") : css("--crit");
+        const words = cdotClosed ? "closed (COtrip)" : p.closed ? "TomTom shows it blocked; COtrip doesn't list a closure, so check" : `${p.mph} mph, normal ${p.normal_mph}`;
+        L.polyline(p.line, { color: c, weight: 5, opacity: 0.9, dashArray: p.closed && !cdotClosed ? "6 6" : null })
+          .bindTooltip(`${A.name}: ${words}`, { sticky: true }).addTo(layer);
+      });
     });
     const pin = (ll, text, cls) => L.marker(ll, { interactive: false, icon: L.divIcon({ className: "pinwrap", html: el("div", "pin " + cls, text), iconSize: [0, 0] }) }).addTo(layer);
     Object.keys(RESORTS).filter(shown).forEach(k => {
