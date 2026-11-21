@@ -1,0 +1,25 @@
+{
+ "season": "2026-27",
+ "about": "Day types for the traffic model. Holidays that move each year (Thanksgiving, MLK, Presidents Day, Easter, Memorial Day) are worked out by rule in logger.py, so they need no list here. This file holds what changes each season: pass blackout dates, school breaks in Colorado and the states that drive here to ski, and days flagged by hand. School breaks list the weekdays off; the weekends on each side count too. Update it each fall.",
+ "pass_blackouts": [
+  {"pass": "Ikon Base and Session", "where": "Steamboat, Snowmass and some resorts out of state. Copper, Winter Park, A-Basin and Eldora have no blackouts.",
+   "dates": [["2026-12-26", "2026-12-30"], ["2027-01-16", "2027-01-17"], ["2027-02-13", "2027-02-14"]],
+   "source": "ikonpass.com, via aspensnowmass.com and zrankings.com"},
+  {"pass": "Epic Local", "where": "Vail and Beaver Creek. Breckenridge, Keystone and Crested Butte stay open.",
+   "dates": [["2026-11-27", "2026-11-28"], ["2026-12-26", "2026-12-31"], ["2027-01-16", "2027-01-16"], ["2027-02-13", "2027-02-14"]],
+   "source": "epicpass.com/info/peak-restricted-dates"}
+ ],
+ "school_breaks": [
+  {"who": "Denver Public Schools", "area": "Colorado", "dates": [["2026-11-23", "2026-11-27"], ["2026-12-21", "2027-01-01"], ["2027-03-22", "2027-03-26"]]},
+  {"who": "Jeffco", "area": "Colorado", "dates": [["2026-11-23", "2026-11-27"], ["2026-12-21", "2027-01-05"], ["2027-03-22", "2027-03-26"]]},
+  {"who": "Douglas County", "area": "Colorado", "dates": [["2026-12-21", "2026-12-31"], ["2027-03-15", "2027-03-19"]]},
+  {"who": "CU Boulder and Boulder Valley", "area": "Colorado", "dates": [["2026-11-23", "2026-11-27"], ["2027-03-15", "2027-03-19"]]},
+  {"who": "Houston, Katy, Frisco, McKinney and Denton", "area": "Texas", "dates": [["2027-03-08", "2027-03-12"]]},
+  {"who": "Dallas, Fort Worth and Austin", "area": "Texas", "dates": [["2027-03-15", "2027-03-19"]]},
+  {"who": "Oklahoma City and Tulsa", "area": "Oklahoma", "dates": [["2027-03-15", "2027-03-19"]]},
+  {"who": "Blue Valley (Kansas City)", "area": "Kansas", "dates": [["2027-03-15", "2027-03-19"]]}
+ ],
+ "flags": {
+  "2026-11-21": "First real storm of the season hit during the Saturday morning rush, on the weekend before Thanksgiving. I-70 westbound and US 6 through Clear Creek Canyon were both closed."
+ }
+}
