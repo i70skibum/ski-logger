@@ -174,6 +174,9 @@ const RESORTS = {
   wolfcreek:  { name: "Wolf Creek",  pass: "indy", hrs: 4.5, westLon: null,     roads: [["US285", 51.2, 250], ["US160", 145.8, 205]], via: "US 285 to Monte Vista, then US 160", overnight: true },
   purgatory:  { name: "Purgatory",   pass: "indy", hrs: 6.0, westLon: null,     roads: [["US285", 51.2, 250], ["US160", 79.9, 205], ["US550", 16.6, 50]], via: "US 285 and US 160 to Durango, then US 550", overnight: true },
 };
+// Passes on the way, from TomTom: added to the I-70 delay for these resorts.
+const VIA_ROUTE = { winterpark: "berthoud", granby: "berthoud", abasin: "pass" };
+const ROUTE_LABEL = { berthoud: "Berthoud", pass: "Loveland Pass", canyon: "Clear Creek Canyon" };
 const SHOW = { ikon: true, epic: false, indy: false, overnight: false };
 const SHOW_KEYS = { ikon: "ski-ikon", epic: "ski-epic", indy: "ski-indy", overnight: "ski-overnight" };
 try { for (const g in SHOW) { const v = localStorage.getItem(SHOW_KEYS[g]); if (v != null) SHOW[g] = v === "1"; } } catch (e) {}
@@ -292,6 +295,13 @@ function scoreResort(key, ctx) {
     delay = delayMin(ctx.speedRow, ctx.segs, ctx.refs, "W", R.westLon);
     if (delay != null) { s -= Math.min(20, delay * 0.5); if (delay >= 5) chips.push({ t: `+${delay} min on I-70`, k: "bad" }); }
   }
+  const via = VIA_ROUTE[key], rt = via && ((ctx.routes || {}).routes || {})[via];
+  if (rt && (rt.closed || (rt.W && rt.W.detour))) { s -= 15; chips.push({ t: `TomTom shows ${ROUTE_LABEL[via]} blocked, check COtrip`, k: "bad" }); }
+  else if (rt && rt.W && rt.W.delay_min != null) {
+    const d = Math.max(0, Math.round(rt.W.delay_min));
+    s -= Math.min(15, d * 0.5);
+    if (d >= 3) chips.push({ t: `+${d} min on ${ROUTE_LABEL[via]}`, k: "bad" });
+  }
   const evs = ctx.events.filter(e => onRoute(R, e.route, e.mp_start, e.mp_end));
   const closed = evs.filter(e => e.class === "roadClosures"), chain = evs.filter(e => e.class === "chainLaws");
   if (closed.length) { s -= 40; chips.push({ t: "Closure on route", k: "bad" }); }
@@ -359,6 +369,20 @@ function opensOf(s) {
   const y = now.getFullYear() + (mo < now.getMonth() - 1 ? 1 : 0);
   return `${y}-${String(mo).padStart(2, "0")}-${m[2].padStart(2, "0")}`;
 }
+// Typical delay on a pass or alternate for one day, by hour: logged profile where the window has data, else a rough guess.
+function routeHourly(model, iso, rk, h0, h1) {
+  const r = ((model || {}).routes || {})[rk]; if (!r) return null;
+  const dow = pyDow(iso), hol = holidayOn(model, iso), slots = model.route_slots || {}, gen = (r.generic || {})[dow] || {};
+  const win = Object.entries(model.route_windows || {}).find(([w, [d, a]]) => d === dow && a === h0);
+  const n = win ? ((r.coverage || {})[win[0]] || {}).n || 0 : 0, dir = win ? win[1][3] : (h0 < 12 ? "W" : "E"), out = {};
+  for (let h = h0; h < h1; h++) {
+    let v = null;
+    if (n && !hol) { const xs = ["00", "30"].map(m => (slots[`${rk}-${dir}-${dow}-${String(h).padStart(2, "0")}${m}`] || {}).median).filter(x => x != null); if (xs.length) v = xs.reduce((a, b) => a + b, 0) / xs.length; }
+    if (v == null) v = (gen[h] || 0) * (hol ? 1.5 : 1);
+    out[h] = Math.round(v);
+  }
+  return { byHour: out, peak: Math.max(0, ...Object.values(out)), tier: hol ? "Estimate" : tierOf(n) };
+}
 function openOn(status, key, iso) { const s = (status || {})[key]; if (!s || s.open !== false) return true; const o = opensOf(s); return !!o && iso >= o; }
 // Score one resort on one day, with the same weights as today's pick where they apply.
 function dayScore(key, i, W) {
@@ -375,6 +399,8 @@ function dayScore(key, i, W) {
   if (d.gust != null && d.gust > 35) { s -= Math.min(20, d.gust - 35); chips.push(`Gusts ${d.gust}`); }
   if (before + during >= 6) { s -= 6; chips.push("Snowy drive"); } else if (before + during >= 3) s -= 3;
   if (R.westLon != null) s -= Math.min(15, W.traffic[i].upPeak * 0.5);
+  const via = VIA_ROUTE[key], rh = via ? routeHourly(W.model, d.date, via, 5, 11) : null;
+  if (rh && rh.peak >= 3) { s -= Math.min(10, rh.peak * 0.5); chips.push(`+${rh.peak} min ${ROUTE_LABEL[via]}`); }
   const planned = (W.upcoming || []).filter(e => e.class === "roadClosures" && onRoute(R, e.route, e.mp_start, e.mp_end)).filter(e => {
     const t = new Date(e.began), p = denverParts(t); const hr = +t.toLocaleString("en-US", { timeZone: "America/Denver", hour: "numeric", hour12: false });
     return p.day === d.date && hr >= 5 && hr < 18; });
@@ -386,6 +412,8 @@ function dayScore(key, i, W) {
 // ---- Passes and alternate routes ------------------------------------------
 // Each stretch is matched by mileposts (alerts, conditions) and by a map box (speed sensors).
 // Alternates are compared with the I-70 stretch they replace. Speeds show only where CDOT reports them.
+// The canyon is a few minutes longer than I-70 from west Denver even with no traffic.
+const CANYON_EXTRA_MIN = 5;
 const ALTERNATES = [
   { key: "canyon", name: "Clear Creek Canyon", short: "canyon", road: "US6", what: "US 6 from Golden to I-70 exit 244, instead of I-70 over Floyd Hill",
     mp: [257.1, 271.5], box: [-105.45, -105.19, 39.68, 39.80], i70Lon: [-105.44, EAST_LON] },
@@ -408,6 +436,10 @@ function altStatus(ctx, A) {
   const uniq = xs => [...new Set(xs)];
   const cond = uniq(ctx.conds.filter(c => on(c.route, c.start_mp, c.end_mp)).map(c => cleanCond(c.condition))).join("; ");
   const out = { closed: closed.length > 0, traction: traction.length > 0, cond, alerts: uniq(closed.concat(traction).map(e => e.title)) };
+  const live = ((ctx.routes || {}).routes || {})[A.key];
+  // CDOT (COtrip) decides closed. TomTom finding no way along the road is a warning to check.
+  if (live) { out.live = live; out.tomtomBlocked = !!(live.closed || (live.W && live.W.detour) || (live.E && live.E.detour)); }
+  if (ctx.speedRow && ctx.segs && A.i70Lon) out.i70Delay = { W: delayMin(ctx.speedRow, ctx.segs, ctx.refs || {}, "W", A.i70Lon[0]), E: null };
   if (ctx.speedRow && ctx.segs) {
     const [x0, x1, y0, y1] = A.box, inBox = s => !s.i70 && normRoute(s.route).startsWith(A.road) && s.mid >= x0 && s.mid <= x1 && s.midLat >= y0 && s.midLat <= y1;
     for (const [dir, k] of [["W", "up"], ["E", "home"]]) {
@@ -432,7 +464,7 @@ function headline(ranked) {
   if (top.closed) why += " There is a closure on the route, so check before leaving.";
   return { title: top.name, kicker: "Best bet for the next 24 hours", why };
 }
-if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, prevMonth, segments, refSpeeds, delayMin, delaySeries, snowSummary, latestForecast, latestConds, onRoute, cleanCond, condLevel, rank, headline, nearLandmark, RESORTS, trafficDay, dayScore, tierOf, openOn, hourly, altStatus, ALTERNATES };
+if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, prevMonth, segments, refSpeeds, delayMin, delaySeries, snowSummary, latestForecast, latestConds, onRoute, cleanCond, condLevel, rank, headline, nearLandmark, RESORTS, trafficDay, dayScore, tierOf, openOn, hourly, altStatus, ALTERNATES, routeHourly, scoreResort };
 </script>
 
 <script>
@@ -467,11 +499,11 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
     const [state, segRows, speedRows, snow, fc, rc, rs] = await Promise.all([
       get("state.json", true), get("speed/segments.csv").then(parseCSV), csv2("speed", month, false),
       csv2("snotel", month, true), csv2("forecast", month, true), csv2("road_conditions", month, true), get("resort_status.json", true)]);
-    const [outlook, model] = await Promise.all([get("outlook.json", true), get("traffic_model.json", true)]);
+    const [outlook, model, routes] = await Promise.all([get("outlook.json", true), get("traffic_model.json", true), get("routes_now.json", true)]);
     if (!state.last_run) throw new Error("Could not load the logger data.");
     const segs = segments(segRows), refs = refSpeeds(speedRows, segs), speedRow = speedRows[speedRows.length - 1] || null;
     const allEv = Object.values(state.events || {}), nowMs = Date.now(), started = e => !e.began || Date.parse(e.began) <= nowMs;
-    const ctx = { segs, refs, speedRow, events: allEv.filter(started), upcoming: allEv.filter(e => !started(e)), now: nowMs, conds: latestConds(rc), forecast: latestForecast(fc), snow: {}, status: rs.resorts || {}, statusDate: rs.checked || "", statusAuto: !!rs.auto, today: day };
+    const ctx = { segs, refs, speedRow, events: allEv.filter(started), upcoming: allEv.filter(e => !started(e)), now: nowMs, conds: latestConds(rc), forecast: latestForecast(fc), snow: {}, status: rs.resorts || {}, statusDate: rs.checked || "", statusAuto: !!rs.auto, today: day, routes };
     for (const k in RESORTS) ctx.snow[k] = snowSummary(snow, k);
     D = { now, day, state, ctx, outlook, model, segRows, speedRows, series: delaySeries(speedRows, segs, refs, day), ranked: rank(ctx) };
     render();
@@ -487,7 +519,7 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
     if (!outlook || !outlook.days || !outlook.days.length) { $("weekdesc").textContent = "The 7-day outlook fills in after the logger's next forecast run, within 3 hours."; renderModel(); return; }
     const afterNoon = +new Date().toLocaleString("en-US", { timeZone: "America/Denver", hour: "numeric", hour12: false }) >= 12;
     const idx = outlook.days.map((d, i) => i).filter(i => outlook.days[i] > D.day || (outlook.days[i] === D.day && !afterNoon));
-    const W = { outlook, status: ctx.status, upcoming: ctx.upcoming, traffic: outlook.days.map(d => trafficDay(model, d)),
+    const W = { outlook, model, status: ctx.status, upcoming: ctx.upcoming, traffic: outlook.days.map(d => trafficDay(model, d)),
       new24: Object.fromEntries(Object.keys(RESORTS).map(k => [k, ctx.snow[k] && ctx.snow[k].new24 ? ctx.snow[k].new24.inches : 0])) };
     const keys = Object.keys(RESORTS).filter(shown);
     $("weekdesc").textContent = `Snow is the middle of ${Object.keys(outlook.sources || {}).length} forecasts, with a range when they disagree. Snow that falls the day or night before counts most. Updated ${fmtTime(new Date(outlook.updated))}.`;
@@ -554,12 +586,27 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
       while (got < need) { d = new Date(d.getTime() + 864e5); if (d.getUTCDay() === 6 && !holidayOn(m, d.toISOString().slice(0, 10))) got++; }
       box.append(el("p", "note", `If logging keeps running, every window reaches Solid around ${dayName(d.toISOString().slice(0, 10))}. Holiday weekends don't count toward this.`));
     }
+    if (m.routes) {
+      box.append(el("p", "mlabel", "Passes and alternates (TomTom routing times)"));
+      const rr = el("div", "mrows"), wn = { sat_am: "Sat 5 to 10 AM, up", sun_am: "Sun 5 to 10 AM, up", sat_pm: "Sat 1 to 7 PM, home", sun_pm: "Sun 1 to 7 PM, home" };
+      for (const rk of ["berthoud", "pass", "canyon"]) {
+        const r = m.routes[rk]; if (!r) continue;
+        for (const w of ["sat_am", "sun_pm"]) {
+          const n = ((r.coverage || {})[w] || {}).n || 0, bar = el("div", "blocks");
+          for (let j = 0; j < target; j++) bar.append(el("span", j < n ? "on" : ""));
+          rr.append(el("span", "", `${ROUTE_LABEL[rk]}, ${wn[w]}`), bar, badge(tierOf(n)));
+        }
+      }
+      box.append(rr);
+    }
     const cards = el("div", "mcards"), g = m.graded || [];
     const acc = el("div", "mcard"); acc.append(el("div", "mlabel", "Last weekend's predictions"));
     if (g.length) {
       const last = g[g.length - 1];
       acc.append(el("div", "mbig", last.mean_error_min == null ? "Not enough data" : `Off by ${last.mean_error_min} min`),
         el("div", "mlabel", `Weekend of ${dayName(last.weekend)}, average across the windows${last.source.includes("estimate") ? ", from estimates" : ""}`));
+      const re = Object.entries(last.error_min || {}).filter(([k]) => k.includes(":"));
+      if (re.length) acc.append(el("div", "mlabel", "Passes: " + ["berthoud", "pass", "canyon"].map(rk => { const xs = re.filter(([k]) => k.startsWith(rk + ":")).map(([, v]) => v); return xs.length ? `${ROUTE_LABEL[rk]} ${Math.round(xs.reduce((a, b) => a + b, 0) / xs.length * 10) / 10} min` : null; }).filter(Boolean).join(", ")));
       if (g.length > 1) acc.append(el("div", "mlabel", "Earlier: " + g.slice(0, -1).slice(-4).map(x => x.mean_error_min == null ? "n/a" : x.mean_error_min + " min").join(", ")));
     } else acc.append(el("div", "mbig", "Not graded yet"), el("div", "mlabel", "The first check runs the Monday after a full weekend"));
     const cond = el("div", "mcard"); cond.append(el("div", "mlabel", "Kinds of weekends seen"));
@@ -660,7 +707,7 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
     const alts = $("alts"); alts.replaceChildren();
     ALTERNATES.forEach(A => {
       const st = altStatus(ctx, A), d = el("div", "alert");
-      const tag = st.closed ? el("span", "tag crit", "Closed") : st.traction ? el("span", "tag warn", "Traction law") : el("span", "tag", "Open");
+      const tag = st.closed ? el("span", "tag crit", "Closed") : st.tomtomBlocked ? el("span", "tag warn", "Check") : st.traction ? el("span", "tag warn", "Traction law") : el("span", "tag", "Open");
       const body = el("div"); body.append(el("b", "", A.name + ". "), document.createTextNode(A.what + "."));
       const lines = [];
       for (const [k, label] of [["up", "Heading up"], ["home", "Heading home"]]) {
@@ -669,6 +716,22 @@ if (typeof module !== "undefined") module.exports = { parseCSV, denverParts, pre
           const diff = t.i70 - t.alt;
           lines.push(`${label}: ${A.short} ${t.alt} min, I-70 ${t.i70} min` + (!st.closed && diff >= 5 ? `, so US 6 is ${diff} min faster` : ""));
         } else if (t && t.alt != null) lines.push(`${label}: ${t.alt} min over the pass`);
+      }
+      const lv = st.live || {};
+      if (!lines.length && (lv.W || lv.E)) {
+        for (const [dk, label] of [["W", "Heading up"], ["E", "Heading home"]]) {
+          const x = lv[dk]; if (!x) continue;
+          if (x.detour) { lines.push(`${label}: TomTom can't route along it${st.closed ? "" : ", but CDOT doesn't list a closure, so check before you go"}`); continue; }
+          if (x.minutes == null) continue;
+          lines.push(`${label}: ${Math.round(x.minutes)} min` + (x.delay_min >= 3 ? `, ${Math.round(x.delay_min)} slower than an empty road` : ", normal"));
+        }
+        if (A.key === "canyon" && lv.W && lv.W.delay_min != null && st.i70Delay && st.i70Delay.W != null) {
+          const gain = st.i70Delay.W - lv.W.delay_min - CANYON_EXTRA_MIN;
+          lines.push(gain >= 5 && !st.closed ? `Heading up, probably faster than I-70 over Floyd Hill right now, by about ${Math.round(gain)} min` : "Heading up, I-70 over Floyd Hill is the quicker way right now");
+        }
+        const slowPts = (lv.points || []).filter(p => p.mph < 0.7 * p.normal_mph).length;
+        if (slowPts) lines.push(`${slowPts} of ${(lv.points || []).length} spots on the road are well below normal speed`);
+        lines.push(`TomTom, as of ${fmtTime(new Date(ctx.routes.updated))}`);
       }
       if (!lines.length) lines.push("No speed readings here yet, so only alerts and conditions show.");
       if (st.cond) lines.push("Conditions: " + st.cond);
