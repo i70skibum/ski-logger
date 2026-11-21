@@ -469,3 +469,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-21T11:00:51-07:00,484,I-70,Eagle-Vail,145.8,176.2,4 - wet; 7 - slushy; 9 - icy spots,"I-70, between Exit 140: US 6; Gypsum (near Eagle) and Exit 180: East Vail (Vail)"
 2026-11-21T11:00:51-07:00,458,I-70,Copper Mtn-Silverthorne,194.3,203.7,4 - wet; 7 - slushy; 9 - icy spots,"I-70, between Exit 190: Vail Pass Summit (Vail Pass) and Exit 205: CO 9; US 6; Silverthorne (near Frisco)"
 2026-11-21T11:30:46-07:00,410,US 285,Antero Jct-Fairplay-Jefferson (South Park),161.8,199.0,4 - wet; 6 - snow,"US 285 (Hampden Ave), between US 24 (Antero Junction) and MP 199 (near Kenosha Pass)"
+2026-11-21T12:02:18-07:00,336,US 6,Denver-Golden,271.5,284.5,3 - dry,"US 6 (6th Ave), between CO 119 (Golden) and I-25 (Denver)"

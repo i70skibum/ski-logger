@@ -1,5 +1,5 @@
 {
-  "checked": "Nov 21, 6:02 AM",
+  "checked": "Nov 21, 12:02 PM",
   "resorts": {
     "copper": {
       "open": true,
@@ -14,7 +14,7 @@
     "winterpark": {
       "open": true,
       "lifts": "4 of 24",
-      "trails": "4 of 171"
+      "trails": "5 of 171"
     },
     "eldora": {
       "open": false,
