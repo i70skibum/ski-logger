@@ -71,7 +71,7 @@ RESORTS = {
 # Fremont and Tennessee Passes (CO 91, US 24), Squaw Pass (CO 103), Grand Mesa (CO 65),
 # and the southern routes: US 285, US 50 over Monarch Pass, CO 135 to Crested Butte,
 # US 160 over Wolf Creek Pass, US 550 to Purgatory, CO 62 and CO 145 to Telluride.
-ROUTES = {"I70", "US40", "US6", "CO119", "CO9", "CO82", "CO91", "US24", "CO103", "CO65",
+ROUTES = {"I70", "US40", "US6", "CO119", "CO72", "CO46", "CO9", "CO82", "CO91", "US24", "CO103", "CO65",
           "US285", "US50", "CO135", "US160", "US550", "CO62", "CO145"}
 # Only keep I-70 events in the mountain corridor (Palisade, for Powderhorn, to C-470).
 I70_MP_RANGE = (40.0, 262.0)
@@ -762,8 +762,37 @@ ROUTE_POINTS = {
                  "route": [(39.62844, -106.05265), (39.63236, -106.04066), (39.6050, -105.9440)],
                  "route_e": [(39.6050, -105.9440), (39.63236, -106.04066), (39.6297, -106.0640)],
                  "points": []},
+    # Eldora, timed door to door from Coors Field. To stay inside the free allowance these run only in the
+    # ski direction (heading up before noon, home after) and two of them every 30 minutes.
+    "eldora_boulder": {"name": "Coors Field to Eldora by Boulder Canyon (US 36, CO 119)", "max_km": 100,
+                       "every": 15, "ski_direction_only": True,
+                       "route": [(39.7562, -104.9942), (40.0006, -105.3990), (39.96189, -105.51019), (39.9375, -105.5830)],
+                       "points": []},
+    "eldora_coal":    {"name": "Coors Field to Eldora by Coal Creek Canyon (CO 72, Peak to Peak)", "max_km": 100,
+                       "every": 30, "ski_direction_only": True,
+                       "route": [(39.7562, -104.9942), (39.8984, -105.3505), (39.96189, -105.51019), (39.9375, -105.5830)],
+                       "points": []},
+    "eldora_119":     {"name": "Coors Field to Eldora by CO 119 through Black Hawk", "max_km": 110,
+                       "every": 30, "ski_direction_only": True,
+                       "route": [(39.7562, -104.9942), (39.7958, -105.4929), (39.96189, -105.51019), (39.9375, -105.5830)],
+                       "points": []},
 }
-TOMTOM_HOURS = {"routing": (5, 22), "flow": (5, 20)}
+# Route times stop at 8 PM: evenings carry no ski traffic, and it leaves room for the Eldora routes.
+# Monthly: 8 calls x 60 runs + Eldora 120 a day = 600 a day, about 18,600 in a 31-day month.
+TOMTOM_HOURS = {"routing": (5, 20), "flow": (5, 20)}
+
+
+def route_jobs():
+    """(route, direction, points) to time this run, honoring each route's cadence and direction."""
+    jobs, slot = [], NOW.minute // 15
+    for rk, R in ROUTE_POINTS.items():
+        if R.get("every") == 30 and slot % 2:
+            continue
+        for d, pts in (("W", R["route"]), ("E", R.get("route_e") or list(reversed(R["route"])))):
+            if R.get("ski_direction_only") and d != ("W" if NOW.hour < 12 else "E"):
+                continue
+            jobs.append((rk, d, pts))
+    return jobs
 
 
 def tomtom_get(url, key, where):
@@ -831,11 +860,12 @@ def log_routes(state):
     state.pop("route_shortest_m", None)
     calib = now.setdefault("calibration", {})
 
-    if tomtom_budget(state, "routing", 2 * len(ROUTE_POINTS)):
+    jobs = route_jobs()
+    if jobs and tomtom_budget(state, "routing", len(jobs)):
         rows = []
         for rk, R in ROUTE_POINTS.items():
             out = now["routes"].setdefault(rk, {"name": R["name"]})
-            for d, pts in (("W", R["route"]), ("E", R.get("route_e") or list(reversed(R["route"])))):
+            for d, pts in [(jd, jp) for jk, jd, jp in jobs if jk == rk]:
                 locs = ":".join(f"{lat},{lon}" for lat, lon in pts)
                 j = tomtom_get(TOMTOM_ROUTE.format(locs) + f"?key={key}&traffic=true&computeTravelTimeFor=all"
                                "&routeType=fastest&travelMode=car", key, f"routes:{rk}:{d}")
@@ -1156,7 +1186,10 @@ ROUTE_WINDOWS = {"sat_am": (5, 5, 10, "W"), "sun_am": (6, 5, 10, "W"), "sat_pm":
 GENERIC_ROUTES = {"canyon": {5: {7: 2, 8: 3, 9: 2}, 6: {13: 3, 14: 6, 15: 8, 16: 8, 17: 5}},
                   "pass": {5: {8: 2, 9: 3, 10: 2}, 6: {13: 2, 14: 3, 15: 3}},
                   "berthoud": {5: {7: 3, 8: 5, 9: 5, 10: 3}, 6: {13: 4, 14: 6, 15: 7, 16: 6, 17: 3}},
-                  "dillon": {5: {8: 2, 9: 3, 10: 2}, 6: {14: 2, 15: 3, 16: 3}}}
+                  "dillon": {5: {8: 2, 9: 3, 10: 2}, 6: {14: 2, 15: 3, 16: 3}},
+                  "eldora_boulder": {5: {7: 3, 8: 5, 9: 5, 10: 3}, 6: {14: 4, 15: 7, 16: 7, 17: 4}},
+                  "eldora_coal": {5: {7: 2, 8: 3, 9: 3, 10: 2}, 6: {14: 2, 15: 4, 16: 4, 17: 2}},
+                  "eldora_119": {5: {7: 2, 8: 3, 9: 3, 10: 2}, 6: {14: 3, 15: 4, 16: 4, 17: 3}}}
 
 
 def route_delays():
@@ -1195,7 +1228,7 @@ def route_model(today, typical):
         cov = {}
         for w, (dow, h0, h1, dr) in ROUTE_WINDOWS.items():
             got = [d.isoformat() for d in days if d.weekday() == dow and typical(d)
-                   and sum(1 for h in range(h0, h1) if snaps.get((rk, dr, d, h), 0) >= 3) >= 0.8 * (h1 - h0)]
+                   and sum(1 for h in range(h0, h1) if snaps.get((rk, dr, d, h), 0) >= (2 if ROUTE_POINTS[rk].get("every") == 30 else 3)) >= 0.8 * (h1 - h0)]
             cov[w] = {"n": len(got), "last": got[-1] if got else None}
         out[rk] = {"name": R["name"], "first_day": days[0].isoformat() if days else None,
                    "coverage": cov, "generic": GENERIC_ROUTES.get(rk, {})}
