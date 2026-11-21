@@ -1,0 +1,119 @@
+
+000
+FXUS65 KBOU 210523
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1023 PM MST Fri Nov 20 2026
+
+.KEY MESSAGES... 
+
+- Chances for light mountain snow continues through Saturday.
+  Flurries possible from the urban corridor to the Palmer Divide 
+  on Saturday morning.
+
+- Gusty winds and elevated to near-critical fire weather 
+  conditions this afternoon across most of the Front Range 
+  foothills and plains.
+
+- Cooler pattern starting Saturday and lasting into next week.
+  Another system brings the chance for more high country snow as 
+  early as Monday. 
+
+&&
+
+.DISCUSSION /Through Friday/...
+Issued at 1246 PM MST Fri Nov 20 2026
+
+A strong southwest jet aloft has brought gusty winds to the high 
+country and the majority of the plains today. Gusty winds are likely 
+to continue for the next few hours. The high country could see wind 
+gusts of 50-60 mph with slightly higher gusts possible at the 
+highest elevations. We expect 30-40 mph wind gusts to continue 
+across the plains. These winds are expected to slack off in the next 
+few hours as the upper-level flow starts to weaken gradually, but 
+some gusty winds could be possible through late tonight at the 
+highest elevations. Additionally, relative humidity remains at or 
+below 20% for most of the plains south of I-76. Thus, we have had 
+some extreme to near-critical fire weather conditions today and this 
+threat will continue for a few more hours. Today is forecast to be 
+the warmest day of the upcoming week with highs mainly in the 60s 
+for the plains. Cooler air is starting to filter into the northern 
+plains and northern metro at this hour.
+
+Current radar shows some snow showers ongoing across the central and 
+northern high country with visibilities briefly dropping. There 
+is the chance for some light snow accumulations this afternoon 
+for the high country with the Park Range being the most favored 
+location. Only about an additional inch or two of snow seems 
+plausible as the shortwave departs. 
+
+A cold front is progged to move through the area late this afternoon 
+from north to south. This will usher in cooler temperatures for the 
+week ahead. Saturday morning, we expect an increase in QG ascent as 
+the trough moves through and moisture has slightly increased in the 
+latest modeling. We have increased cloud cover for tomorrow, which 
+could keep temperatures across the urban corridor right at or just 
+above freezing. On Saturday morning into the early afternoon, snow 
+levels drop as cold air advection continues, 700 mb temperatures 
+cool, and weak upslope flow is expected. There is a low chance 
+(~20%) for some light snow on the plains with about a 30% chance for 
+the southern foothills. For the urban corridor, in particular, there 
+is only about a 10% chance for very light accumulations given the 
+marginal temperatures. Odds increase very slightly for the Palmer 
+Divide. The central and southern high country have a higher chance 
+of seeing some accumulations tomorrow morning, but only around 
+one inch. If the ingredients can come together, some locations in 
+the southern foothills and southern high country could get a bit 
+more accumulation.
+
+Saturday will be much cooler than today with temperatures struggling 
+to reach the mid 40s for the plains. Ridging quickly moves in 
+Saturday night into Sunday, but highs are forecast to only 
+moderate a few degrees on Sunday afternoon. Models and ensemble 
+guidance continue to show the potential for two different systems 
+affecting our area next week- one at the beginning of the week and
+one towards the end of the week. Run-to-run and model-to-model 
+variability remains high, so there is very low confidence in any 
+precipitation timing/impacts. More westerly/northwesterly flow 
+aloft means our central and southern high country are most 
+favored, in general. Monday into early Tuesday brings the next 
+chance for snow for the high country. The NBM does a good job of 
+depicting that only light accumulations are expected. Some light 
+rain and/or snow could spread onto the plains on Monday night into
+Tuesday morning.
+
+We are confident that the plains will see highs in the 40s to near 
+50 and lows in the low/mid 20s which will continue through most of 
+next week. These temperatures will be 5 to even 10 degrees below 
+average- the coolest weather of the season. This forecast will be 
+something to keep tabs on with the busy travel week ahead.
+
+&&
+
+.AVIATION /06Z TAFS through 06Z Sunday/...
+Issued at 1020 PM MST Fri Nov 20 2026
+
+Cloud cover will increase tonight with BKN layers developing near
+030-050 and overcast conditions above. Clouds are likely to lift 
+higher as the day continues Saturday. Light snow shower potential
+remains near 20-30% for the terminals after sunrise Sat, 
+primarily from 14-18Z. A gradual lifting of bases and CIGS is
+expected through the afternoon. 
+
+In terms of winds, prevailing direction appears rather uncertain
+and likely will fluctuate. Nonetheless, generally favoring light
+SE to S flow throughout the day, largely < 10 kts.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...MV
+AVIATION...BRQ
