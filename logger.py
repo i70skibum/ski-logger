@@ -282,6 +282,33 @@ def summarize_grid(props, now_utc):
     return out
 
 
+def nws_daily(props, days=7):
+    """Snow total and max gust per local calendar day, for the 7-day outlook. Empty days are left out."""
+    out = {}
+    today = NOW.date()
+    for i in range(days):
+        d = today + timedelta(days=i)
+        w0 = datetime(d.year, d.month, d.day, tzinfo=DENVER).astimezone(timezone.utc)
+        w1 = w0 + timedelta(days=1)
+        snow, gusts, seen = 0.0, [], False
+        for element in ("snowfallAmount", "windGust"):
+            el = props.get(element) or {}
+            for v in el.get("values", []):
+                st, en = parse_valid_time(v["validTime"])
+                ov = (min(en, w1) - max(st, w0)).total_seconds()
+                if ov <= 0 or v.get("value") is None:
+                    continue
+                val = to_unit(v["value"], el.get("uom", ""))
+                if element == "snowfallAmount":
+                    snow += val * ov / (en - st).total_seconds()
+                    seen = True
+                else:
+                    gusts.append(val)
+        if seen:
+            out[d.isoformat()] = {"snow": round(snow, 1), "gust": r1(max(gusts)) if gusts else None}
+    return out
+
+
 def log_forecast(state):
     last = state.get("forecast_last")
     if last and NOW_UTC - datetime.fromisoformat(last) < FORECAST_EVERY:
@@ -294,6 +321,7 @@ def log_forecast(state):
                 p = fetch_json(f"{NWS_BASE}/points/{r['lat']},{r['lon']}", NWS_HEADERS)
                 points[key] = p["properties"]["forecastGridData"]
             props = fetch_json(points[key], NWS_HEADERS)["properties"]
+            state.setdefault("nws_daily", {})[key] = nws_daily(props)
             for w in summarize_grid(props, NOW_UTC):
                 rows.append([
                     NOW_ISO, key, props.get("updateTime", ""), w["window"], w["start"],
@@ -589,12 +617,298 @@ def log_resort_status(state):
     return len(rows)
 
 
+
+# ---------------------------------------------------------------------------
+# 7-day outlook: NWS plus several global models through Open-Meteo (free, no key).
+# Model agreement is what tells the dashboard how far to trust a day.
+
+OPEN_METEO = "https://api.open-meteo.com/v1/forecast"
+OUTLOOK_MODELS = {"gfs_seamless": "American", "ecmwf_ifs025": "European",
+                  "gem_seamless": "Canadian", "icon_seamless": "German"}
+
+
+def log_outlook(state):
+    last = state.get("outlook_last")
+    if last and NOW_UTC - datetime.fromisoformat(last) < FORECAST_EVERY:
+        return 0
+    keys = list(RESORTS)
+    q = {
+        "latitude": ",".join(str(RESORTS[k]["lat"]) for k in keys),
+        "longitude": ",".join(str(RESORTS[k]["lon"]) for k in keys),
+        "daily": "snowfall_sum,wind_gusts_10m_max,temperature_2m_max,temperature_2m_min",
+        "models": ",".join(OUTLOOK_MODELS),
+        "timezone": "America/Denver", "forecast_days": 7,
+        "precipitation_unit": "inch", "wind_speed_unit": "mph", "temperature_unit": "fahrenheit",
+    }
+    url = OPEN_METEO + "?" + "&".join(f"{k}={v}" for k, v in q.items())
+    data = fetch_json(url)
+    if isinstance(data, dict):
+        data = [data]
+    if len(data) != len(keys):
+        raise ValueError(f"Open-Meteo returned {len(data)} locations for {len(keys)} resorts")
+    nws = state.get("nws_daily", {})
+    resorts, rows = {}, []
+    days = []
+    for key, loc in zip(keys, data):
+        daily, units = loc.get("daily", {}), loc.get("daily_units", {})
+        days = daily.get("time", [])
+        out = []
+        for i, d in enumerate(days):
+            models = {}
+            for m in OUTLOOK_MODELS:
+                v = (daily.get(f"snowfall_sum_{m}") or [None] * len(days))[i]
+                if v is None:
+                    continue
+                if units.get(f"snowfall_sum_{m}", "") == "cm":
+                    v = v / 2.54
+                models[m] = round(v, 1)
+            n = nws.get(key, {}).get(d)
+            if n:
+                models["nws"] = n["snow"]
+            vals = sorted(models.values())
+            gusts = [x for x in ((daily.get(f"wind_gusts_10m_max_{m}") or [None] * len(days))[i] for m in OUTLOOK_MODELS) if x is not None]
+            if n and n.get("gust") is not None:
+                gusts.append(n["gust"])
+            tmax = [x for x in ((daily.get(f"temperature_2m_max_{m}") or [None] * len(days))[i] for m in OUTLOOK_MODELS) if x is not None]
+            tmin = [x for x in ((daily.get(f"temperature_2m_min_{m}") or [None] * len(days))[i] for m in OUTLOOK_MODELS) if x is not None]
+            mid = vals[len(vals) // 2] if len(vals) % 2 else (sum(vals[len(vals) // 2 - 1:len(vals) // 2 + 1]) / 2 if vals else None)
+            out.append({
+                "date": d, "snow": None if mid is None else round(mid, 1),
+                "lo": vals[0] if vals else None, "hi": vals[-1] if vals else None, "n": len(vals),
+                "models": models,
+                "gust": round(sorted(gusts)[len(gusts) // 2]) if gusts else None,
+                "tmax": round(sorted(tmax)[len(tmax) // 2]) if tmax else None,
+                "tmin": round(sorted(tmin)[len(tmin) // 2]) if tmin else None,
+            })
+            for m, v in models.items():
+                rows.append([NOW_ISO, key, d, m, v])
+        resorts[key] = out
+    with open(os.path.join(DATA, "outlook.json"), "w") as f:
+        json.dump({"updated": NOW_ISO, "days": days, "sources": {**OUTLOOK_MODELS, "nws": "National Weather Service"},
+                   "resorts": resorts}, f, indent=1)
+        f.write("\n")
+    append_rows("outlook", ["snapshot_time", "resort", "date", "source", "snow_in"], rows)
+    state["outlook_last"] = NOW_UTC.isoformat()
+    return len(rows)
+
+
+# ---------------------------------------------------------------------------
+# Traffic model: the typical I-70 delay, C-470 to Copper, by weekday and half hour, in each
+# direction. Built from the logged speeds with the same math as the dashboard. It also tracks
+# how much data it has (weekends logged per window), which kinds of weekends it has seen,
+# and how far off its predictions were. Predictions are saved on Friday and graded on Monday.
+
+CORRIDOR_WEST_LON, CORRIDOR_EAST_LON = -106.145, -105.185   # Copper to C-470
+# Holiday periods are left out of the normal profile and always shown as estimates.
+HOLIDAYS = [("2026-11-25", "2026-11-29", "Thanksgiving"), ("2026-12-19", "2027-01-03", "Christmas and New Year"),
+            ("2027-01-15", "2027-01-18", "MLK weekend"), ("2027-02-12", "2027-02-15", "Presidents Day weekend"),
+            ("2027-03-13", "2027-03-28", "Spring break weeks")]
+# The windows that matter for ski days: (weekday 0=Mon, start hour, end hour, direction).
+KEY_WINDOWS = {"fri_pm_W": (4, 14, 20, "W"), "sat_am_W": (5, 5, 10, "W"), "sun_am_W": (6, 5, 10, "W"),
+               "sat_pm_E": (5, 13, 19, "E"), "sun_pm_E": (6, 13, 19, "E")}
+WINDOW_TARGET = 6      # weekends per window for "Solid"
+# The well-known I-70 pattern, minutes of delay by hour, used until a window has real data.
+GENERIC = {"W": {4: {14: 5, 15: 10, 16: 15, 17: 15, 18: 10, 19: 5},
+                 5: {5: 2, 6: 6, 7: 15, 8: 20, 9: 15, 10: 8, 11: 4},
+                 6: {6: 3, 7: 10, 8: 12, 9: 10, 10: 5}},
+           "E": {5: {12: 3, 13: 8, 14: 15, 15: 20, 16: 20, 17: 15, 18: 8, 19: 3},
+                 6: {12: 5, 13: 15, 14: 30, 15: 40, 16: 40, 17: 30, 18: 15, 19: 5}}}
+POWDER_STATIONS = ("copper", "abasin", "winterpark", "loveland", "keystone", "vail")
+
+
+def holiday_of(d):
+    s = d.isoformat()
+    for a, b, name in HOLIDAYS:
+        if a <= s <= b:
+            return name
+    return None
+
+
+def miles(lon0, lat0, lon1, lat1):
+    import math
+    r = math.pi / 180
+    a = math.sin((lat1 - lat0) * r / 2) ** 2 + math.cos(lat0 * r) * math.cos(lat1 * r) * math.sin((lon1 - lon0) * r / 2) ** 2
+    return 2 * 3958.8 * math.asin(math.sqrt(a)) * 1.12
+
+
+def corridor_delays():
+    """Yield (local time, westbound delay, eastbound delay) for every logged speed snapshot."""
+    import glob
+    segs = []
+    with open(os.path.join(DATA, "speed", "segments.csv")) as f:
+        for r in csv.DictReader(f):
+            lon0, lon1 = float(r["start_lon"]), float(r["end_lon"])
+            mid = (lon0 + lon1) / 2
+            if CORRIDOR_WEST_LON <= mid <= CORRIDOR_EAST_LON:
+                segs.append((r["segment_id"], "W" if r["route"].endswith("W") else "E",
+                             miles(lon0, float(r["start_lat"]), lon1, float(r["end_lat"]))))
+    rows = []
+    for path in sorted(glob.glob(os.path.join(DATA, "speed", "20*.csv"))):
+        with open(path) as f:
+            rows.extend(csv.DictReader(f))
+    refs = {}
+    for sid, _, _ in segs:
+        v = sorted(float(r[sid]) for r in rows if r.get(sid))
+        ref = v[int(len(v) * 0.85)] if len(v) >= 48 else 58
+        refs[sid] = max(45, min(65, ref))
+    for r in rows:
+        out = {}
+        for d in "WE":
+            tot, n = 0.0, 0
+            for sid, sd, ln in segs:
+                if sd != d or not r.get(sid):
+                    continue
+                n += 1
+                tot += max(0, ln / max(float(r[sid]), 3) - ln / refs[sid]) * 60
+            out[d] = tot if n else None
+        yield datetime.fromisoformat(r["snapshot_time"]).astimezone(DENVER), out["W"], out["E"]
+
+
+def snow_weekends():
+    """Saturdays whose weekend had 4 inches or more of new snow at an I-70 station (Friday noon to Sunday noon)."""
+    import glob
+    depth = {}
+    for path in glob.glob(os.path.join(DATA, "snotel", "20*.csv")):
+        with open(path) as f:
+            for r in csv.DictReader(f):
+                if r["resort"] in POWDER_STATIONS and r["depth_in"]:
+                    t = datetime.strptime(r["obs_time_mst"], "%Y-%m-%d %H:%M").replace(tzinfo=timezone(timedelta(hours=-7)))
+                    depth.setdefault(r["resort"], []).append((t, float(r["depth_in"])))
+    out = set()
+    for pts in depth.values():
+        pts.sort()
+        for t, _ in pts:
+            if t.weekday() != 4 or t.hour != 12:
+                continue
+            start = [dp for tt, dp in pts if tt == t][0]
+            peak = max((dp for tt, dp in pts if t <= tt <= t + timedelta(hours=48)), default=start)
+            if peak - start >= 4:
+                out.add((t + timedelta(days=1)).date().isoformat())
+    return out
+
+
+def window_mean(slots, dow, h0, h1, d):
+    """Average delay by hour for a weekday window, from the profile's half-hour slots."""
+    out = {}
+    for h in range(h0, h1):
+        v = [slots.get(f"{dow}-{h:02d}{m}-{d}", {}).get("median") for m in ("00", "30")]
+        v = [x for x in v if x is not None]
+        if v:
+            out[h] = round(sum(v) / len(v), 1)
+    return out
+
+
+def log_traffic_model(state):
+    last = state.get("traffic_model_last")
+    if last and NOW_UTC - datetime.fromisoformat(last) < FORECAST_EVERY:
+        return 0
+    from collections import defaultdict
+    per_slot = defaultdict(lambda: defaultdict(list))     # slot -> date -> delays
+    snaps = defaultdict(int)                               # (date, hour, dir) -> snapshots
+    actual = defaultdict(lambda: defaultdict(list))         # date -> (dir, hour) -> delays
+    for t, w, e in corridor_delays():
+        day = t.date()
+        for d, v in (("W", w), ("E", e)):
+            if v is None:
+                continue
+            snaps[(day, t.hour, d)] += 1
+            actual[day.isoformat()][(d, t.hour)].append(v)
+            if holiday_of(day):
+                continue
+            per_slot[f"{t.weekday()}-{t.hour:02d}{'00' if t.minute < 30 else '30'}-{d}"][day].append(v)
+    slots = {}
+    for k, by_day in per_slot.items():
+        means = sorted(sum(v) / len(v) for v in by_day.values())
+        slots[k] = {"median": round(means[len(means) // 2], 1), "n": len(means),
+                    "p75": round(means[min(len(means) - 1, int(len(means) * 0.75))], 1)}
+
+    # Coverage: a window counts for a date when at least 80% of its hours have 3 or more snapshots.
+    def covered(day, h0, h1, d):
+        full = sum(1 for h in range(h0, h1) if snaps.get((day, h, d), 0) >= 3)
+        return full >= 0.8 * (h1 - h0)
+    dates = sorted({k[0] for k in snaps})
+    coverage = {}
+    for dow in range(7):
+        for name, (h0, h1, d) in (("amW", (5, 10, "W")), ("pmE", (13, 19, "E")), ("pmW", (14, 20, "W"))):
+            got = [x.isoformat() for x in dates if x.weekday() == dow and not holiday_of(x) and covered(x, h0, h1, d)]
+            coverage[f"{dow}-{name}"] = {"n": len(got), "dates": got[-8:]}
+    key_cov = {}
+    for k, (dow, h0, h1, d) in KEY_WINDOWS.items():
+        got = [x.isoformat() for x in dates if x.weekday() == dow and not holiday_of(x) and covered(x, h0, h1, d)]
+        key_cov[k] = {"n": len(got), "target": WINDOW_TARGET, "last": got[-1] if got else None}
+
+    # Conditions seen: each weekend with at least one key window logged, sorted into dry, powder or holiday.
+    powder = snow_weekends()
+    seen = {"dry": [], "powder": [], "holiday": []}
+    for x in dates:
+        if x.weekday() != 5:
+            continue
+        sun = x + timedelta(days=1)
+        if not (covered(x, 5, 10, "W") or covered(x, 13, 19, "E") or covered(sun, 13, 19, "E")):
+            continue
+        kind = "holiday" if holiday_of(x) else "powder" if x.isoformat() in powder else "dry"
+        seen[kind].append(x.isoformat())
+
+    # Save a prediction for the coming weekend on Friday, the profile's best guess for each key window.
+    path = os.path.join(DATA, "traffic_predictions.json")
+    try:
+        with open(path) as f:
+            preds = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        preds = {}
+    today = NOW.date()
+    if today.weekday() == 4:
+        sat = (today + timedelta(days=1)).isoformat()
+        if sat not in preds:
+            win = {}
+            for k, (dow, h0, h1, d) in KEY_WINDOWS.items():
+                prof = window_mean(slots, dow, h0, h1, d) if key_cov[k]["n"] else {}
+                gen = GENERIC.get(d, {}).get(dow, {})
+                win[k] = {"source": "profile" if prof else "estimate",
+                          "by_hour": {str(h): prof.get(h, gen.get(h, 0)) for h in range(h0, h1)}}
+            preds[sat] = {"made": NOW_ISO, "holiday": holiday_of(today + timedelta(days=1)), "windows": win}
+    # Grade any weekend that has finished: compare with what the speeds showed, hour by hour.
+    for sat, pr in preds.items():
+        if "graded" in pr:
+            continue
+        sat_d = datetime.fromisoformat(sat).date()
+        if today <= sat_d + timedelta(days=1):
+            continue
+        errs = {}
+        for k, (dow, h0, h1, d) in KEY_WINDOWS.items():
+            day = (sat_d + timedelta(days=dow - 5)).isoformat()
+            diffs = []
+            for h in range(h0, h1):
+                vals = actual.get(day, {}).get((d, h), [])
+                if len(vals) >= 3:
+                    diffs.append(abs(sum(vals) / len(vals) - pr["windows"][k]["by_hour"][str(h)]))
+            if len(diffs) >= 0.8 * (h1 - h0):
+                errs[k] = round(sum(diffs) / len(diffs), 1)
+        pr["graded"] = NOW_ISO
+        pr["error_min"] = errs
+        pr["mean_error_min"] = round(sum(errs.values()) / len(errs), 1) if errs else None
+    with open(path, "w") as f:
+        json.dump(preds, f, indent=1)
+        f.write("\n")
+
+    graded = [{"weekend": k, "mean_error_min": v.get("mean_error_min"), "error_min": v.get("error_min"),
+               "source": sorted({w["source"] for w in v["windows"].values()})}
+              for k, v in sorted(preds.items()) if "graded" in v]
+    model = {"updated": NOW_ISO, "first_day": dates[0].isoformat() if dates else None, "days_logged": len(dates),
+             "slots": slots, "coverage": coverage, "key_windows": key_cov, "target": WINDOW_TARGET,
+             "conditions_seen": seen, "holidays": HOLIDAYS, "generic": GENERIC, "graded": graded}
+    with open(os.path.join(DATA, "traffic_model.json"), "w") as f:
+        json.dump(model, f, separators=(",", ":"))
+    state["traffic_model_last"] = NOW_UTC.isoformat()
+    return f"{len(dates)} days, {len(slots)} slots"
+
 # ---------------------------------------------------------------------------
 
 def main():
     state = load_state()
     jobs = [("snotel", log_snotel), ("forecast", log_forecast), ("afd", log_afd),
-            ("events", log_events), ("cdot", log_cdot), ("resort_status", log_resort_status)]
+            ("events", log_events), ("cdot", log_cdot), ("resort_status", log_resort_status),
+            ("outlook", log_outlook), ("traffic_model", log_traffic_model)]
     for name, fn in jobs:
         try:
             print(f"{name}: {fn(state)}")
