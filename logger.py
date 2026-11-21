@@ -769,9 +769,10 @@ ROUTE_POINTS = {
                        "every": 15, "ski_direction_only": True,
                        "route": [(39.7562, -104.9942), (40.0006, -105.3990), (39.96189, -105.51019), (39.9375, -105.5830)],
                        "points": []},
-    "eldora_coal":    {"name": "Coors Field to Eldora by Coal Creek Canyon (CO 72, Peak to Peak)", "max_km": 100,
+    # Coal Creek the way Ian drives it: I-70 west, US 6 to Golden, CO 93 north, then up CO 72.
+    "eldora_coal":    {"name": "Coors Field to Eldora by Coal Creek Canyon (I-70, US 6, CO 93, CO 72)", "max_km": 100,
                        "every": 30, "ski_direction_only": True,
-                       "route": [(39.7562, -104.9942), (39.8984, -105.3505), (39.96189, -105.51019), (39.9375, -105.5830)],
+                       "route": [(39.7562, -104.9942), (39.8130, -105.2268), (39.8984, -105.3505), (39.96189, -105.51019), (39.9375, -105.5830)],
                        "points": []},
     "eldora_119":     {"name": "Coors Field to Eldora by CO 119 through Black Hawk", "max_km": 110,
                        "every": 30, "ski_direction_only": True,
