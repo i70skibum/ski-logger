@@ -707,6 +707,137 @@ def log_outlook(state):
 
 
 # ---------------------------------------------------------------------------
+# Passes and alternates: CDOT has no speed sensors off the interstates, so these come from
+# TomTom (free key in the TOMTOM_API_KEY secret), two ways, each on its own free allowance
+# of 20,000 requests a month:
+#   Routing: times each road end to end, in each direction, with live traffic and with none.
+#     The difference is the delay. 3 roads x 2 directions = 6 requests, every 15 minutes
+#     from 5 AM to 10 PM: about 12,600 a month. This is what the model and scores use.
+#   Flow: the speed at 10 points along the roads, which shows where a slowdown is and flags
+#     closures. Every 15 minutes from 5 AM to 8 PM: about 18,600 a month.
+# Each has a monthly cap below 20,000, and runs closer than 12 minutes apart are skipped.
+
+TOMTOM_ROUTE = "https://api.tomtom.com/routing/1/calculateRoute/{}/json"
+TOMTOM_FLOW = "https://api.tomtom.com/traffic/services/4/flowSegmentData/absolute/12/json"
+TOMTOM_CAPS = {"routing": 19000, "flow": 19000}
+ROUTE_POINTS = {
+    # Routing goes start, via, end (heading up; reversed for heading home). The via point keeps
+    # it on the road: without it the router would take I-70 through the tunnel instead of
+    # Loveland Pass. Flow points are spread along the road.
+    "canyon":   {"name": "Clear Creek Canyon (US 6, Golden to I-70 exit 244)",
+                 "route": [(39.7530, -105.2280), (39.7428, -105.3297), (39.7421, -105.4247)],
+                 "points": [(39.7468, -105.2655), (39.7428, -105.3297), (39.7421, -105.4247)]},
+    "pass":     {"name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)",
+                 "route": [(39.6800, -105.8950), (39.6636, -105.8794), (39.6050, -105.9440)],
+                 "points": [(39.6662, -105.8832), (39.6501, -105.8741), (39.6302, -105.8899)]},
+    "berthoud": {"name": "Berthoud Pass (US 40, Empire to Winter Park)",
+                 "route": [(39.7600, -105.6830), (39.7983, -105.7776), (39.8862, -105.7631)],
+                 "points": [(39.7602, -105.6860), (39.7771, -105.7329), (39.7983, -105.7776), (39.8862, -105.7631)]},
+}
+TOMTOM_HOURS = {"routing": (5, 22), "flow": (5, 20)}
+
+
+def tomtom_budget(state, kind, need):
+    """True if this run may spend `need` requests of `kind`; counts them per calendar month."""
+    h0, h1 = TOMTOM_HOURS[kind]
+    if not h0 <= NOW.hour < h1:
+        return False
+    last = state.get(f"tomtom_{kind}_last")
+    if last and NOW_UTC - datetime.fromisoformat(last) < timedelta(minutes=12):
+        return False
+    use = state.setdefault("tomtom_use", {}).setdefault(kind, {})
+    month = NOW.strftime("%Y-%m")
+    for m in [m for m in use if m < month]:
+        del use[m]
+    if use.get(month, 0) + need > TOMTOM_CAPS[kind]:
+        return False
+    use[month] = use.get(month, 0) + need
+    state[f"tomtom_{kind}_last"] = NOW_UTC.isoformat()
+    return True
+
+
+def log_routes(state):
+    key = os.environ.get("TOMTOM_API_KEY", "").strip()
+    if not key:
+        return "no TomTom key yet"
+    path = os.path.join(DATA, "routes_now.json")
+    try:
+        with open(path) as f:
+            now = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        now = {"routes": {}}
+    did = []
+    base = state.setdefault("route_shortest_m", {})
+
+    if tomtom_budget(state, "routing", 2 * len(ROUTE_POINTS)):
+        rows = []
+        for rk, R in ROUTE_POINTS.items():
+            out = now["routes"].setdefault(rk, {"name": R["name"]})
+            for d, pts in (("W", R["route"]), ("E", list(reversed(R["route"])))):
+                locs = ":".join(f"{lat},{lon}" for lat, lon in pts)
+                try:
+                    r = fetch_json(TOMTOM_ROUTE.format(locs) + f"?key={key}&traffic=true&computeTravelTimeFor=all"
+                                   "&routeType=fastest&travelMode=car")["routes"][0]["summary"]
+                except Exception as e:
+                    log_error(f"routes:{rk}:{d}", str(e).replace(key, "KEY"))
+                    out[d] = None
+                    continue
+                length, live, none = r.get("lengthInMeters"), r.get("travelTimeInSeconds"), r.get("noTrafficTravelTimeInSeconds")
+                bk = f"{rk}-{d}"
+                if length and (bk not in base or length < base[bk]):
+                    base[bk] = length
+                # A route much longer than usual means the router went around: the road is closed or blocked.
+                detour = bool(length and length > 1.25 * base[bk])
+                rows.append([NOW_ISO, rk, d, length, live, none, r.get("historicTrafficTravelTimeInSeconds"),
+                             r.get("trafficDelayInSeconds"), detour])
+                out[d] = {"delay_min": None if detour or not (live and none) else round(max(0, live - none) / 60, 1),
+                          "minutes": round(live / 60, 1) if live else None, "free_min": round(none / 60, 1) if none else None,
+                          "detour": detour, "at": NOW_ISO}
+        append_rows("routes", ["snapshot_time", "route", "dir", "length_m", "travel_s", "no_traffic_s",
+                               "historic_s", "delay_s", "detour"], rows)
+        did.append("routing")
+
+    if tomtom_budget(state, "flow", sum(len(R["points"]) for R in ROUTE_POINTS.values())):
+        rows = []
+        for rk, R in ROUTE_POINTS.items():
+            out = now["routes"].setdefault(rk, {"name": R["name"]})
+            closed, slow = False, []
+            for i, (lat, lon) in enumerate(R["points"]):
+                try:
+                    d = fetch_json(f"{TOMTOM_FLOW}?point={lat},{lon}&unit=MPH&key={key}")["flowSegmentData"]
+                except Exception as e:
+                    log_error(f"routes:{rk}:point{i}", str(e).replace(key, "KEY"))
+                    continue
+                pts = (d.get("coordinates") or {}).get("coordinate") or []
+                snap = min((miles(lon, lat, p["longitude"], p["latitude"]) / 1.12 for p in pts), default=None)
+                snap_m = None if snap is None else round(snap * 1609)
+                rows.append([NOW_ISO, rk, i, d.get("frc"), d.get("currentSpeed"), d.get("freeFlowSpeed"),
+                             d.get("currentTravelTime"), d.get("freeFlowTravelTime"), d.get("confidence"),
+                             bool(d.get("roadClosure")), snap_m])
+                if snap_m is not None and snap_m > 400:
+                    continue   # landed on some other road
+                closed = closed or bool(d.get("roadClosure"))
+                if d.get("currentSpeed") and d.get("freeFlowSpeed"):
+                    slow.append({"point": i, "mph": d["currentSpeed"], "normal_mph": d["freeFlowSpeed"]})
+            out["closed"] = closed
+            out["points"] = slow
+            out["points_at"] = NOW_ISO
+        append_rows("route_points", ["snapshot_time", "route", "point", "frc", "current_mph", "freeflow_mph",
+                                     "current_tt_s", "freeflow_tt_s", "confidence", "closed", "snap_m"], rows)
+        did.append("flow")
+
+    if not did:
+        return "not due"
+    now["updated"] = NOW_ISO
+    now["tomtom_use"] = {k: v.get(NOW.strftime("%Y-%m"), 0) for k, v in state.get("tomtom_use", {}).items()}
+    now["tomtom_caps"] = TOMTOM_CAPS
+    with open(path, "w") as f:
+        json.dump(now, f, indent=1)
+        f.write("\n")
+    return {rk: {d: (v.get(d) or {}).get("delay_min") for d in "WE"} for rk, v in now["routes"].items()}
+
+
+# ---------------------------------------------------------------------------
 # Traffic model: the typical I-70 delay, C-470 to Copper, by weekday and half hour, in each
 # direction. Built from the logged speeds with the same math as the dashboard. It also tracks
 # how much data it has (weekends logged per window), which kinds of weekends it has seen,
@@ -812,6 +943,65 @@ def window_mean(slots, dow, h0, h1, d):
     return out
 
 
+# Route windows for the passes and alternates: (weekday, start hour, end hour, direction).
+ROUTE_WINDOWS = {"sat_am": (5, 5, 10, "W"), "sun_am": (6, 5, 10, "W"), "sat_pm": (5, 13, 19, "E"), "sun_pm": (6, 13, 19, "E")}
+# Rough guesses, minutes of delay by hour, used until a window has real data.
+GENERIC_ROUTES = {"canyon": {5: {7: 2, 8: 3, 9: 2}, 6: {13: 3, 14: 6, 15: 8, 16: 8, 17: 5}},
+                  "pass": {5: {8: 2, 9: 3, 10: 2}, 6: {13: 2, 14: 3, 15: 3}},
+                  "berthoud": {5: {7: 3, 8: 5, 9: 5, 10: 3}, 6: {13: 4, 14: 6, 15: 7, 16: 6, 17: 3}}}
+
+
+def route_delays():
+    """Yield (local time, route key, direction, delay minutes) from the logged TomTom routing times."""
+    import glob
+    for path in sorted(glob.glob(os.path.join(DATA, "routes", "20*.csv"))):
+        with open(path) as f:
+            for r in csv.DictReader(f):
+                if r.get("route") not in ROUTE_POINTS or r.get("detour") == "True" or not r.get("travel_s") or not r.get("no_traffic_s"):
+                    continue
+                yield (datetime.fromisoformat(r["snapshot_time"]).astimezone(DENVER), r["route"], r["dir"],
+                       max(0.0, float(r["travel_s"]) - float(r["no_traffic_s"])) / 60)
+
+
+def route_model(today):
+    """Profiles, coverage and actuals for the passes and alternates, same rules as I-70."""
+    from collections import defaultdict
+    per_slot = defaultdict(lambda: defaultdict(list))
+    snaps = defaultdict(int)
+    actual = defaultdict(lambda: defaultdict(list))
+    for t, rk, d, v in route_delays():
+        day = t.date()
+        snaps[(rk, d, day, t.hour)] += 1
+        actual[(rk, d, day.isoformat())][t.hour].append(v)
+        if not holiday_of(day):
+            per_slot[f"{rk}-{d}-{t.weekday()}-{t.hour:02d}{'00' if t.minute < 30 else '30'}"][day].append(v)
+    slots = {}
+    for k, by_day in per_slot.items():
+        means = sorted(sum(v) / len(v) for v in by_day.values())
+        slots[k] = {"median": round(means[len(means) // 2], 1), "n": len(means)}
+    out = {}
+    for rk, R in ROUTE_POINTS.items():
+        days = sorted({x for (r, _, x, h) in snaps if r == rk})
+        cov = {}
+        for w, (dow, h0, h1, dr) in ROUTE_WINDOWS.items():
+            got = [d.isoformat() for d in days if d.weekday() == dow and not holiday_of(d)
+                   and sum(1 for h in range(h0, h1) if snaps.get((rk, dr, d, h), 0) >= 3) >= 0.8 * (h1 - h0)]
+            cov[w] = {"n": len(got), "last": got[-1] if got else None}
+        out[rk] = {"name": R["name"], "first_day": days[0].isoformat() if days else None,
+                   "coverage": cov, "generic": GENERIC_ROUTES.get(rk, {})}
+    return out, slots, actual
+
+
+def route_window(slots, rk, dow, h0, h1, d):
+    out = {}
+    for h in range(h0, h1):
+        v = [slots.get(f"{rk}-{d}-{dow}-{h:02d}{m}", {}).get("median") for m in ("00", "30")]
+        v = [x for x in v if x is not None]
+        if v:
+            out[h] = round(sum(v) / len(v), 1)
+    return out
+
+
 def log_traffic_model(state):
     last = state.get("traffic_model_last")
     if last and NOW_UTC - datetime.fromisoformat(last) < FORECAST_EVERY:
@@ -871,6 +1061,7 @@ def log_traffic_model(state):
     except (FileNotFoundError, json.JSONDecodeError):
         preds = {}
     today = NOW.date()
+    rinfo, rslots, ractual = route_model(today)
     if today.weekday() == 4:
         sat = (today + timedelta(days=1)).isoformat()
         if sat not in preds:
@@ -880,6 +1071,12 @@ def log_traffic_model(state):
                 gen = GENERIC.get(d, {}).get(dow, {})
                 win[k] = {"source": "profile" if prof else "estimate",
                           "by_hour": {str(h): prof.get(h, gen.get(h, 0)) for h in range(h0, h1)}}
+            for rk in ROUTE_POINTS:
+                for w, (dow, h0, h1, dr) in ROUTE_WINDOWS.items():
+                    prof = route_window(rslots, rk, dow, h0, h1, dr) if rinfo[rk]["coverage"][w]["n"] else {}
+                    gen = GENERIC_ROUTES.get(rk, {}).get(dow, {})
+                    win[f"{rk}:{w}"] = {"source": "profile" if prof else "estimate",
+                                        "by_hour": {str(h): prof.get(h, gen.get(h, 0)) for h in range(h0, h1)}}
             preds[sat] = {"made": NOW_ISO, "holiday": holiday_of(today + timedelta(days=1)), "windows": win}
     # Grade any weekend that has finished: compare with what the speeds showed, hour by hour.
     for sat, pr in preds.items():
@@ -898,9 +1095,20 @@ def log_traffic_model(state):
                     diffs.append(abs(sum(vals) / len(vals) - pr["windows"][k]["by_hour"][str(h)]))
             if len(diffs) >= 0.8 * (h1 - h0):
                 errs[k] = round(sum(diffs) / len(diffs), 1)
+        for k, wpred in pr["windows"].items():
+            if ":" not in k:
+                continue
+            rk, w = k.split(":")
+            dow, h0, h1, dr = ROUTE_WINDOWS[w]
+            day = (sat_d + timedelta(days=dow - 5)).isoformat()
+            diffs = [abs(sum(v) / len(v) - wpred["by_hour"][str(h)]) for h in range(h0, h1)
+                     for v in [ractual.get((rk, dr, day), {}).get(h, [])] if len(v) >= 3]
+            if len(diffs) >= 0.8 * (h1 - h0):
+                errs[k] = round(sum(diffs) / len(diffs), 1)
         pr["graded"] = NOW_ISO
         pr["error_min"] = errs
-        pr["mean_error_min"] = round(sum(errs.values()) / len(errs), 1) if errs else None
+        i70 = [v for k, v in errs.items() if ":" not in k]
+        pr["mean_error_min"] = round(sum(i70) / len(i70), 1) if i70 else None
     with open(path, "w") as f:
         json.dump(preds, f, indent=1)
         f.write("\n")
@@ -910,7 +1118,8 @@ def log_traffic_model(state):
               for k, v in sorted(preds.items()) if "graded" in v]
     model = {"updated": NOW_ISO, "first_day": dates[0].isoformat() if dates else None, "days_logged": len(dates),
              "slots": slots, "coverage": coverage, "key_windows": key_cov, "target": WINDOW_TARGET,
-             "conditions_seen": seen, "holidays": HOLIDAYS, "generic": GENERIC, "graded": graded}
+             "conditions_seen": seen, "holidays": HOLIDAYS, "generic": GENERIC, "graded": graded,
+             "routes": rinfo, "route_slots": rslots, "route_windows": ROUTE_WINDOWS}
     with open(os.path.join(DATA, "traffic_model.json"), "w") as f:
         json.dump(model, f, separators=(",", ":"))
     state["traffic_model_last"] = NOW_UTC.isoformat()
@@ -922,7 +1131,7 @@ def main():
     state = load_state()
     jobs = [("snotel", log_snotel), ("forecast", log_forecast), ("afd", log_afd),
             ("events", log_events), ("cdot", log_cdot), ("resort_status", log_resort_status),
-            ("outlook", log_outlook), ("traffic_model", log_traffic_model)]
+            ("routes", log_routes), ("outlook", log_outlook), ("traffic_model", log_traffic_model)]
     for name, fn in jobs:
         try:
             print(f"{name}: {fn(state)}")
