@@ -1,5 +1,5 @@
 {
- "afd_last": "70b26f60-0f95-4a25-9422-1263bd218479",
+ "afd_last": "d7d3ad51-8361-49d0-acee-4b2636452fe9",
  "events": {
   "chainLaws:CDOT-36486551000EB": {
    "began": "2026-11-20T12:06:36-07:00",
@@ -1129,6 +1129,18 @@
    "title": "CO 119 southbound: Right lane closed.",
    "type": "routine"
   },
+  "winterDriving:COSEG-522873": {
+   "began": "2026-11-21T00:02:18.259000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-522873",
+   "mp_end": 97.23000005133508,
+   "mp_start": 66.57713676843773,
+   "pos_bearing": "N",
+   "route": "CO 9",
+   "title": "CO 9: Snow with icy and snow packed spots.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-522919": {
    "began": "2026-11-19T14:26:59.140000-07:00",
    "class": "winterDriving",
@@ -1431,7 +1443,7 @@
   }
  },
  "forecast_last": "2026-11-21T07:00:47+00:00",
- "last_run": "2026-11-21T00:00:47-07:00",
+ "last_run": "2026-11-21T00:15:51-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-21": {
@@ -2156,7 +2168,7 @@
   "485": "4-5 wet, rain",
   "486": "4s - wet in areas",
   "489": "3 - dry",
-  "49": "3 - dry",
+  "49": "6-9-11 snow, icy spots, snow packed spots",
   "490": "9 - icy spots",
   "491": "4s - wet in areas",
   "492": "3 - dry",
@@ -2167,7 +2179,7 @@
   "72": "11 - snow packed spots; 14 - drifting snow; 9 - icy spots"
  },
  "snotel_last": {
-  "abasin": "2026-11-20 22:00",
+  "abasin": "2026-11-20 23:00",
   "aspen": "2026-11-20 22:00",
   "beavercreek": "2026-11-20 22:00",
   "breck": "2026-11-20 22:00",
@@ -2177,7 +2189,7 @@
   "echo": "2026-11-20 22:00",
   "eldora": "2026-11-20 22:00",
   "granby": "2026-11-20 22:00",
-  "keystone": "2026-11-20 22:00",
+  "keystone": "2026-11-20 23:00",
   "loveland": "2026-11-20 22:00",
   "monarch": "2026-11-20 22:00",
   "powderhorn": "2026-11-20 22:00",
