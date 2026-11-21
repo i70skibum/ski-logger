@@ -229,6 +229,18 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadReports:CDOT-36495571300WB": {
+   "began": "2026-11-20T23:06:06-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36495571300WB",
+   "mp_end": "",
+   "mp_start": 149.0242429282703,
+   "pos_bearing": "E",
+   "route": "US 24",
+   "title": "US 24 westbound: Road closed.",
+   "type": "critical"
+  },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
    "class": "roadWork",
@@ -1407,7 +1419,7 @@
   }
  },
  "forecast_last": "2026-11-21T03:45:52+00:00",
- "last_run": "2026-11-20T23:00:45-07:00",
+ "last_run": "2026-11-20T23:15:51-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-20": {
@@ -2143,7 +2155,7 @@
   "72": "11 - snow packed spots; 14 - drifting snow; 9 - icy spots"
  },
  "snotel_last": {
-  "abasin": "2026-11-20 21:00",
+  "abasin": "2026-11-20 22:00",
   "aspen": "2026-11-20 21:00",
   "beavercreek": "2026-11-20 21:00",
   "breck": "2026-11-20 21:00",
@@ -2153,7 +2165,7 @@
   "echo": "2026-11-20 21:00",
   "eldora": "2026-11-20 21:00",
   "granby": "2026-11-20 21:00",
-  "keystone": "2026-11-20 21:00",
+  "keystone": "2026-11-20 22:00",
   "loveland": "2026-11-20 21:00",
   "monarch": "2026-11-20 21:00",
   "powderhorn": "2026-11-20 21:00",
