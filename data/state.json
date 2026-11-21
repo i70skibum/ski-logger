@@ -29,20 +29,6 @@
    "title": "US 550 northbound: Passenger vehicle traction law.",
    "type": "standard"
   },
-  "chainLaws:CDOT-36494838140BOTH": {
-   "began": "2026-11-20T22:12:29-07:00",
-   "class": "chainLaws",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36494838140BOTH",
-   "lat": 39.55805,
-   "lon": -106.40106,
-   "mp_end": 153.99239322653926,
-   "mp_start": 148.02879946520554,
-   "pos_bearing": "E",
-   "route": "US 24",
-   "title": "US 24 in both directions: Passenger vehicle traction law.",
-   "type": "standard"
-  },
   "chainLaws:CDOT-36496697524BOTH": {
    "began": "2026-11-21T00:27:56-07:00",
    "class": "chainLaws",
@@ -125,20 +111,6 @@
    "pos_bearing": "E",
    "route": "US 40",
    "title": "US 40 westbound: Commercial motor vehicle chain law.",
-   "type": "standard"
-  },
-  "chainLaws:CDOT-36500563711WB": {
-   "began": "2026-11-21T05:11:19-07:00",
-   "class": "chainLaws",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36500563711WB",
-   "lat": 39.7167,
-   "lon": -105.69633,
-   "mp_end": 216.02081483523398,
-   "mp_start": 228.0002707342741,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 westbound: Commercial motor vehicle chain law.",
    "type": "standard"
   },
   "chainLaws:CDOT-36500790666BOTH": {
@@ -237,48 +209,6 @@
    "pos_bearing": "N",
    "route": "US 285",
    "title": "US 285 in both directions: Commercial motor vehicle chain law.",
-   "type": "standard"
-  },
-  "chainLaws:CDOT-36503379600BOTH": {
-   "began": "2026-11-21T08:37:18-07:00",
-   "class": "chainLaws",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36503379600BOTH",
-   "lat": 39.42207,
-   "lon": -106.32059,
-   "mp_end": 169.0216103257752,
-   "mp_start": 161.03735423900764,
-   "pos_bearing": "E",
-   "route": "US 24",
-   "title": "US 24 in both directions: Commercial motor vehicle chain law.",
-   "type": "standard"
-  },
-  "chainLaws:CDOT-36503393646BOTH": {
-   "began": "2026-11-21T08:38:30-07:00",
-   "class": "chainLaws",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36503393646BOTH",
-   "lat": 39.42207,
-   "lon": -106.32059,
-   "mp_end": 169.0216103257752,
-   "mp_start": 161.03735423900764,
-   "pos_bearing": "E",
-   "route": "US 24",
-   "title": "US 24 in both directions: Passenger vehicle traction law.",
-   "type": "standard"
-  },
-  "chainLaws:CDOT-36504501740EB": {
-   "began": "2026-11-21T09:59:23-07:00",
-   "class": "chainLaws",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36504501740EB",
-   "lat": 39.62509,
-   "lon": -106.07195,
-   "mp_end": 213.03048826018272,
-   "mp_start": 205.0228791353092,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Commercial motor vehicle chain law.",
    "type": "standard"
   },
   "roadClosures:CDOT-20653903231BOTH": {
@@ -687,15 +617,29 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36497293814WB": {
-   "began": "2026-11-21T01:12:14-07:00",
+  "roadReports:CDOT-36494817555BOTH": {
+   "began": "2026-11-20T22:11:08-07:00",
+   "class": "roadReports",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36494817555BOTH",
+   "lat": 39.55805,
+   "lon": -106.40106,
+   "mp_end": 153.99239322653926,
+   "mp_start": 148.02879946520554,
+   "pos_bearing": "E",
+   "route": "US 24",
+   "title": "US 24 in both directions: Roadway reopened to traffic.",
+   "type": "urgent"
+  },
+  "roadReports:CDOT-36500563711WB": {
+   "began": "2026-11-21T05:11:19-07:00",
    "class": "roadReports",
    "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36497293814WB",
-   "lat": 39.53106,
-   "lon": -106.21617,
-   "mp_end": 178.0005558068096,
-   "mp_start": 190.00648817541213,
+   "id": "CDOT-36500563711WB",
+   "lat": 39.7167,
+   "lon": -105.69633,
+   "mp_end": 216.02081483523398,
+   "mp_start": 228.0002707342741,
    "pos_bearing": "E",
    "route": "I-70",
    "title": "I-70 westbound: Roadway reopened to traffic.",
@@ -757,19 +701,19 @@
    "title": "US 6 westbound: Road closed.",
    "type": "critical"
   },
-  "roadReports:CDOT-36503366375SB": {
-   "began": "2026-11-21T08:35:38-07:00",
+  "roadReports:CDOT-36503379600BOTH": {
+   "began": "2026-11-21T08:37:18-07:00",
    "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36503366375SB",
-   "lat": 39.42926,
-   "lon": -105.46521,
-   "mp_end": "",
-   "mp_start": 224.00023319624958,
-   "pos_bearing": "N",
-   "route": "US 285",
-   "title": "US 285 southbound: Stalled vehicle.",
-   "type": "routine"
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36503379600BOTH",
+   "lat": 39.42207,
+   "lon": -106.32059,
+   "mp_end": 169.0216103257752,
+   "mp_start": 161.03735423900764,
+   "pos_bearing": "E",
+   "route": "US 24",
+   "title": "US 24 in both directions: Roadway reopened to traffic.",
+   "type": "urgent"
   },
   "roadReports:CDOT-36503509201WB": {
    "began": "2026-11-21T08:46:48-07:00",
@@ -799,6 +743,20 @@
    "title": "CO 119 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadReports:CDOT-36504501740EB": {
+   "began": "2026-11-21T09:59:23-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36504501740EB",
+   "lat": 39.62509,
+   "lon": -106.07195,
+   "mp_end": 213.03048826018272,
+   "mp_start": 205.0228791353092,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Roadway reopened to traffic.",
+   "type": "urgent"
+  },
   "roadReports:CDOT-36505185401WB": {
    "began": "2026-11-21T10:48:44-07:00",
    "class": "roadReports",
@@ -811,6 +769,20 @@
    "pos_bearing": "E",
    "route": "US 160",
    "title": "US 160 westbound: Left lane closed.",
+   "type": "routine"
+  },
+  "roadReports:CDOT-36505313341SB": {
+   "began": "2026-11-21T10:58:01-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36505313341SB",
+   "lat": 39.3698,
+   "lon": -106.06076,
+   "mp_end": "",
+   "mp_start": 77.50573742405686,
+   "pos_bearing": "N",
+   "route": "CO 9",
+   "title": "CO 9 southbound: Right shoulder closed.",
    "type": "routine"
   },
   "roadWork:CDOT-35509265054EB": {
@@ -2397,7 +2369,7 @@
   }
  },
  "forecast_last": "2026-11-21T16:15:47+00:00",
- "last_run": "2026-11-21T11:00:51-07:00",
+ "last_run": "2026-11-21T11:15:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-21": {
@@ -3133,7 +3105,7 @@
   "72": "6-8-10 snow, icy, snow packed"
  },
  "snotel_last": {
-  "abasin": "2026-11-21 09:00",
+  "abasin": "2026-11-21 10:00",
   "aspen": "2026-11-21 09:00",
   "beavercreek": "2026-11-21 09:00",
   "breck": "2026-11-21 09:00",
@@ -3143,7 +3115,7 @@
   "echo": "2026-11-21 09:00",
   "eldora": "2026-11-21 09:00",
   "granby": "2026-11-21 09:00",
-  "keystone": "2026-11-21 09:00",
+  "keystone": "2026-11-21 10:00",
   "loveland": "2026-11-21 09:00",
   "monarch": "2026-11-21 09:00",
   "powderhorn": "2026-11-21 09:00",
@@ -3365,14 +3337,14 @@
   "I70W075",
   "I70W076"
  ],
- "tomtom_flow_last": "2026-11-21T18:00:51+00:00",
- "tomtom_routing_last": "2026-11-21T18:00:51+00:00",
+ "tomtom_flow_last": "2026-11-21T18:15:46+00:00",
+ "tomtom_routing_last": "2026-11-21T18:15:46+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 130
+   "2026-11": 140
   },
   "routing": {
-   "2026-11": 94
+   "2026-11": 102
   }
  },
  "traffic_model_last": "2026-11-21T16:15:47+00:00"
