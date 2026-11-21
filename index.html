@@ -133,6 +133,7 @@ th:first-child, td:first-child { text-align: left; font-weight: 600; }
 .lsw { width: 26px; height: 8px; border-radius: 4px; display: inline-block; }
 #map { height: 540px; border-radius: 14px; background: var(--card2); z-index: 0; }
 .leaflet-pane svg { width: auto; display: inline; }
+.darktiles { filter: invert(1) hue-rotate(180deg) brightness(.85) contrast(.9) saturate(.6); }
 .leaflet-container { font-family: Inter, sans-serif; }
 .leaflet-tooltip { background: var(--ink); color: var(--bg); border: 0; }
 .pinwrap { overflow: visible; }
@@ -1089,8 +1090,9 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const { ctx, ranked } = D, row = ctx.speedRow || {};
     if (!map) {
       map = L.map("map", { scrollWheelZoom: false });
-      L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", { maxZoom: 13, subdomains: "abcd",
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>' }).addTo(map);
+      // OpenStreetMap's own tiles (free, no key), darkened in CSS to match the page.
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 13, className: "darktiles",
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' }).addTo(map);
       layer = L.layerGroup().addTo(map);
     }
     map.invalidateSize();
