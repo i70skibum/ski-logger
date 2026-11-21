@@ -734,6 +734,10 @@ ROUTE_POINTS = {
     "berthoud": {"name": "Berthoud Pass (US 40, Empire to Winter Park)", "max_km": 45,
                  "route": [(39.76107, -105.68312), (39.79586, -105.78069), (39.88623, -105.76259)],
                  "points": [(39.76389, -105.74095), (39.78414, -105.78464), (39.82553, -105.76544), (39.88738, -105.76063)]},
+    # Routing only (no flow points): the map draws it from the route shape. Heading up is from I-70 toward Keystone.
+    "dillon":   {"name": "US 6 through Dillon (I-70 exit 205 at Silverthorne to Keystone)", "max_km": 16,
+                 "route": [(39.6297, -106.0640), (39.6312, -106.0420), (39.6050, -105.9440)],
+                 "points": []},
 }
 TOMTOM_HOURS = {"routing": (5, 22), "flow": (5, 20)}
 
@@ -830,6 +834,11 @@ def log_routes(state):
                 out[d] = {"delay_min": None if detour or not (live and none) else round(max(0, live - none) / 60, 1),
                           "minutes": round(live / 60, 1) if live else None, "free_min": round(none / 60, 1) if none else None,
                           "detour": detour, "at": NOW_ISO}
+                if not detour and geo:
+                    # The whole road, end to end, for the dashboard map (thinned to about 150 points).
+                    out[d]["line"] = [[round(p["latitude"], 5), round(p["longitude"], 5)] for p in geo[::max(1, -(-len(geo) // 150))]]
+                    if out[d]["line"][-1] != [round(geo[-1]["latitude"], 5), round(geo[-1]["longitude"], 5)]:
+                        out[d]["line"].append([round(geo[-1]["latitude"], 5), round(geo[-1]["longitude"], 5)])
         append_rows("routes", ["snapshot_time", "route", "dir", "length_m", "travel_s", "no_traffic_s",
                                "historic_s", "delay_s", "detour"], rows)
         did.append("routing")
@@ -1122,7 +1131,8 @@ ROUTE_WINDOWS = {"sat_am": (5, 5, 10, "W"), "sun_am": (6, 5, 10, "W"), "sat_pm":
 # Rough guesses, minutes of delay by hour, used until a window has real data.
 GENERIC_ROUTES = {"canyon": {5: {7: 2, 8: 3, 9: 2}, 6: {13: 3, 14: 6, 15: 8, 16: 8, 17: 5}},
                   "pass": {5: {8: 2, 9: 3, 10: 2}, 6: {13: 2, 14: 3, 15: 3}},
-                  "berthoud": {5: {7: 3, 8: 5, 9: 5, 10: 3}, 6: {13: 4, 14: 6, 15: 7, 16: 6, 17: 3}}}
+                  "berthoud": {5: {7: 3, 8: 5, 9: 5, 10: 3}, 6: {13: 4, 14: 6, 15: 7, 16: 6, 17: 3}},
+                  "dillon": {5: {8: 2, 9: 3, 10: 2}, 6: {14: 2, 15: 3, 16: 3}}}
 
 
 def route_delays():
