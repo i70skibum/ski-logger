@@ -180,8 +180,8 @@ const RESORTS = {
   purgatory:  { name: "Purgatory",   pass: "indy", hrs: 6.0, westLon: null,     roads: [["US285", 51.2, 250], ["US160", 79.9, 205], ["US550", 16.6, 50]], via: "US 285 and US 160 to Durango, then US 550", overnight: true },
 };
 // Passes on the way, from TomTom: added to the I-70 delay for these resorts.
-const VIA_ROUTE = { winterpark: "berthoud", granby: "berthoud", abasin: "pass" };
-const ROUTE_LABEL = { berthoud: "Berthoud", pass: "Loveland Pass", canyon: "Clear Creek Canyon" };
+const VIA_ROUTE = { winterpark: "berthoud", granby: "berthoud", abasin: "pass", keystone: "dillon" };
+const ROUTE_LABEL = { berthoud: "Berthoud", pass: "Loveland Pass", canyon: "Clear Creek Canyon", dillon: "US 6 through Dillon" };
 const SHOW = { ikon: true, epic: false, indy: false, overnight: false };
 const SHOW_KEYS = { ikon: "ski-ikon", epic: "ski-epic", indy: "ski-indy", overnight: "ski-overnight" };
 try { for (const g in SHOW) { const v = localStorage.getItem(SHOW_KEYS[g]); if (v != null) SHOW[g] = v === "1"; } } catch (e) {}
@@ -444,6 +444,8 @@ const ALTERNATES = [
     mp: [219.9, 229.9], box: [-105.96, -105.86, 39.60, 39.70], i70Lon: [-106.07, -105.88] },
   { key: "berthoud", name: "Berthoud Pass", short: "US 40", road: "US40", what: "US 40 from I-70 exit 232 over the pass to Winter Park and Granby",
     mp: [231.5, 258.5], box: [-105.95, -105.60, 39.74, 40.10] },
+  { key: "dillon", name: "US 6 through Dillon", short: "US 6", road: "US6", what: "US 6 from I-70 exit 205 at Silverthorne through Dillon to Keystone",
+    mp: [208.7, 216], box: [-106.08, -105.93, 39.59, 39.64] },
 ];
 function travelMin(row, segs, pick, dir) {
   const xs = segs.filter(s => pick(s) && s.dir === dir);
@@ -661,7 +663,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     if (m.routes) {
       box.append(el("p", "mlabel", "Passes and alternates (TomTom routing times)"));
       const rr = el("div", "mrows"), wn = { sat_am: "Sat 5 to 10 AM, up", sun_am: "Sun 5 to 10 AM, up", sat_pm: "Sat 1 to 7 PM, home", sun_pm: "Sun 1 to 7 PM, home" };
-      for (const rk of ["berthoud", "pass", "canyon"]) {
+      for (const rk of ["berthoud", "pass", "canyon", "dillon"]) {
         const r = m.routes[rk]; if (!r) continue;
         for (const w of ["sat_am", "sun_pm"]) {
           const n = ((r.coverage || {})[w] || {}).n || 0, bar = el("div", "blocks");
@@ -678,7 +680,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       acc.append(el("div", "mbig", last.mean_error_min == null ? "Not enough data" : `Off by ${last.mean_error_min} min`),
         el("div", "mlabel", `Weekend of ${dayName(last.weekend)}, average across the windows${last.source.includes("estimate") ? ", from estimates" : ""}`));
       const re = Object.entries(last.error_min || {}).filter(([k]) => k.includes(":"));
-      if (re.length) acc.append(el("div", "mlabel", "Passes: " + ["berthoud", "pass", "canyon"].map(rk => { const xs = re.filter(([k]) => k.startsWith(rk + ":")).map(([, v]) => v); return xs.length ? `${ROUTE_LABEL[rk]} ${Math.round(xs.reduce((a, b) => a + b, 0) / xs.length * 10) / 10} min` : null; }).filter(Boolean).join(", ")));
+      if (re.length) acc.append(el("div", "mlabel", "Passes: " + ["berthoud", "pass", "canyon", "dillon"].map(rk => { const xs = re.filter(([k]) => k.startsWith(rk + ":")).map(([, v]) => v); return xs.length ? `${ROUTE_LABEL[rk]} ${Math.round(xs.reduce((a, b) => a + b, 0) / xs.length * 10) / 10} min` : null; }).filter(Boolean).join(", ")));
       if (g.length > 1) acc.append(el("div", "mlabel", "Earlier: " + g.slice(0, -1).slice(-4).map(x => x.mean_error_min == null ? "n/a" : x.mean_error_min + " min").join(", ")));
     } else acc.append(el("div", "mbig", "Not graded yet"), el("div", "mlabel", "The first check runs the Monday after a full weekend"));
     const cond = el("div", "mcard"); cond.append(el("div", "mlabel", "Kinds of weekends seen"));
@@ -870,12 +872,21 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       L.polyline([[+s.start_lat + off, +s.start_lon], [+s.end_lat + off, +s.end_lon]], { color: col(v), weight: 5, opacity: 0.95 })
         .bindTooltip(`${west ? "Westbound" : "Eastbound"} near ${nearLandmark((+s.start_lon + +s.end_lon) / 2)}: ${v == null ? "no reading" : v + " mph, " + speedWord(v)}`, { sticky: true }).addTo(layer);
     });
-    // US 6 and US 40 from TomTom: each reading covers a long stretch, colored against that road's normal speed.
+    // US 6 and US 40 from TomTom. First the whole road from the routing call, colored by its overall delay
+    // (the slower direction); then the flow readings on top, each covering a long stretch at its own speed.
     const tt = (ctx.routes || {}).routes || {}, drawn = new Set();
     ALTERNATES.forEach(A => {
-      const r = tt[A.key]; if (!r || !r.points) return;
+      const r = tt[A.key]; if (!r) return;
       const cdotClosed = altStatus(ctx, A).closed;
-      r.points.forEach(p => {
+      const dirs = ["W", "E"].map(k => r[k]).filter(x => x && x.line && x.line.length > 1);
+      if (dirs.length) {
+        const ratio = Math.max(...dirs.map(x => x.minutes && x.free_min ? x.minutes / x.free_min : 1));
+        const worst = Math.max(...dirs.map(x => x.delay_min || 0));
+        const c = cdotClosed ? css("--crit") : ratio <= 1.15 ? css("--good") : ratio <= 1.5 ? css("--warn") : css("--crit");
+        L.polyline(dirs[0].line, { color: c, weight: 5, opacity: 0.9 })
+          .bindTooltip(`${A.name}: ${cdotClosed ? "closed (COtrip)" : worst >= 1 ? `about ${Math.round(worst)} min slower than an empty road` : "normal"}`, { sticky: true }).addTo(layer);
+      }
+      (r.points || []).forEach(p => {
         if (!p.line || p.line.length < 2) return;
         const key = JSON.stringify(p.line[0]) + JSON.stringify(p.line[p.line.length - 1]);
         if (drawn.has(key)) return; drawn.add(key);
