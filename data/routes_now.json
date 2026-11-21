@@ -4,10 +4,10 @@
    "name": "Clear Creek Canyon (US 6, Golden to I-70 exit 244)",
    "W": {
     "delay_min": null,
-    "minutes": 80.8,
+    "minutes": 80.1,
     "free_min": 76.4,
     "detour": true,
-    "at": "2026-11-21T08:45:46-07:00"
+    "at": "2026-11-21T09:00:47-07:00"
    },
    "E": {
     "delay_min": null,
@@ -15,14 +15,14 @@
     "free_min": null,
     "detour": true,
     "no_route": true,
-    "at": "2026-11-21T08:45:46-07:00"
+    "at": "2026-11-21T09:00:47-07:00"
    },
    "closed": true,
    "points": [
     {
      "point": 1,
-     "mph": 23,
-     "normal_mph": 36,
+     "mph": 25,
+     "normal_mph": 34,
      "closed": true,
      "line": [
       [
@@ -345,9 +345,9 @@
     },
     {
      "point": 2,
-     "mph": 37,
-     "normal_mph": 42,
-     "closed": false,
+     "mph": 28,
+     "normal_mph": 28,
+     "closed": true,
      "line": [
       [
        39.72203,
@@ -576,7 +576,7 @@
      ]
     }
    ],
-   "points_at": "2026-11-21T08:45:46-07:00"
+   "points_at": "2026-11-21T09:00:47-07:00"
   },
   "pass": {
    "name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)",
@@ -585,14 +585,14 @@
     "minutes": 22.6,
     "free_min": 21.1,
     "detour": false,
-    "at": "2026-11-21T08:45:46-07:00"
+    "at": "2026-11-21T09:00:47-07:00"
    },
    "E": {
     "delay_min": 1.6,
     "minutes": 22.3,
     "free_min": 20.7,
     "detour": false,
-    "at": "2026-11-21T08:45:46-07:00"
+    "at": "2026-11-21T09:00:47-07:00"
    },
    "closed": false,
    "points": [
@@ -1262,7 +1262,7 @@
     },
     {
      "point": 2,
-     "mph": 31,
+     "mph": 39,
      "normal_mph": 39,
      "closed": false,
      "line": [
@@ -1585,23 +1585,23 @@
      ]
     }
    ],
-   "points_at": "2026-11-21T08:45:46-07:00"
+   "points_at": "2026-11-21T09:00:47-07:00"
   },
   "berthoud": {
    "name": "Berthoud Pass (US 40, Empire to Winter Park)",
    "W": {
     "delay_min": null,
-    "minutes": 575.6,
+    "minutes": 581.9,
     "free_min": 525.9,
     "detour": true,
-    "at": "2026-11-21T08:45:46-07:00"
+    "at": "2026-11-21T09:00:47-07:00"
    },
    "E": {
     "delay_min": 1.3,
     "minutes": 33.0,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-21T08:45:46-07:00"
+    "at": "2026-11-21T09:00:47-07:00"
    },
    "closed": true,
    "points": [
@@ -2579,8 +2579,8 @@
     },
     {
      "point": 3,
-     "mph": 38,
-     "normal_mph": 51,
+     "mph": 35,
+     "normal_mph": 50,
      "closed": false,
      "line": [
       [
@@ -2754,13 +2754,13 @@
      ]
     }
    ],
-   "points_at": "2026-11-21T08:45:46-07:00"
+   "points_at": "2026-11-21T09:00:47-07:00"
   }
  },
- "updated": "2026-11-21T08:45:46-07:00",
+ "updated": "2026-11-21T09:00:47-07:00",
  "tomtom_use": {
-  "flow": 40,
-  "routing": 24
+  "flow": 50,
+  "routing": 30
  },
  "tomtom_caps": {
   "routing": 19000,
