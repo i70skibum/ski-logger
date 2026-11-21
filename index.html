@@ -591,7 +591,7 @@ function dayScore(key, i, W) {
 // The canyon is a few minutes longer than I-70 from west Denver even with no traffic.
 const CANYON_EXTRA_MIN = 5;
 const ALTERNATES = [
-  { key: "canyon", name: "Clear Creek Canyon", short: "canyon", road: "US6", what: "From Coors Field by I-70 and US 6 to Golden, then up the canyon to I-70 exit 244, instead of I-70 over Floyd Hill",
+  { key: "canyon", name: "Clear Creek Canyon", short: "canyon", road: "US6", what: "From Coors Field by I-70 and the Golden freeway to Golden, then up US 6 through the canyon to I-70 exit 244, instead of I-70 over Floyd Hill",
     mp: [257.1, 271.5], box: [-105.45, -105.19, 39.68, 39.80], i70Lon: [-105.44, EAST_LON] },
   { key: "pass", name: "Loveland Pass", short: "pass", road: "US6", what: "US 6 over the pass, instead of I-70 through the Eisenhower Tunnel. Also the way to A-Basin",
     mp: [219.9, 229.9], box: [-105.96, -105.86, 39.60, 39.70], i70Lon: [-106.07, -105.88] },
@@ -831,7 +831,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       : `Coors Field to Copper · up ${plus(I.up)}, home ${plus(I.home)}`;
     box.append(wayRow("I-70", i70note, plus(I.morning ? I.up : I.home), I.kind));
     const cy = routeState("canyon");
-    box.append(wayRow("Clear Creek Canyon", "I-70 to US 6, Golden, then the canyon to Floyd Hill" + (cy.traction ? " · traction law" : ""), cy.delay != null ? plus(cy.delay) : "", cy.kind));
+    box.append(wayRow("Clear Creek Canyon", "I-70 and the Golden freeway to Golden, then US 6 up the canyon to Floyd Hill" + (cy.traction ? " · traction law" : ""), cy.delay != null ? plus(cy.delay) : "", cy.kind));
     const be = routeState("berthoud");
     box.append(wayRow("Berthoud Pass", "US 40 to Winter Park" + (be.traction ? " · traction law" : ""), be.delay != null ? plus(be.delay) : "", be.kind));
     const pa = routeState("pass"), di = routeState("dillon");
@@ -939,8 +939,8 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   const MW = 1160, MH = 480, TOP = 96, Y = 420, CX = 1080, LW = 10;   // canvas runs from y = TOP to TOP + MH
   // I-70 stretches: x on the line map, mileposts (closures) and longitudes (speed sensors).
   const I70_BANDS = [
-    { x: [1000, CX], mp: [261, 276], lon: [-105.17, -104.98], name: "Coors Field to US 6 (exit 261)" },
-    { x: [860, 1000], mp: [244, 261], lon: [-105.43, -105.17], name: "US 6 (exit 261) to Floyd Hill" },
+    { x: [1000, CX], mp: [261, 276], lon: [-105.17, -104.98], name: "Coors Field to the Golden freeway" },
+    { x: [860, 1000], mp: [244, 261], lon: [-105.43, -105.17], name: "Golden freeway to Floyd Hill" },
     { x: [760, 860], mp: [240, 244], lon: [-105.51, -105.43], name: "Floyd Hill to Idaho Springs" },
     { x: [650, 760], mp: [232, 240], lon: [-105.66, -105.51], name: "Idaho Springs to Empire" },
     { x: [560, 650], mp: [228, 232], lon: [-105.71, -105.66], name: "Empire to Georgetown" },
@@ -957,10 +957,10 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     eldora_boulder: { pieces: [[CX, 140, CX, Y], [740, 140, CX, 140]], sign: [900, 140] },
     eldora_coal: { pieces: [[1000, 250, 1000, 340], [800, 250, 1000, 250]], sign: [900, 250] },
     eldora_119: { pieces: [[900, 300, 900, 340], [800, 300, 900, 300], [800, 140, 800, 300]], sign: [860, 300] } };
-  const ROUTE_NAME = { canyon: "US 6 to Golden and Clear Creek Canyon", berthoud: "Berthoud Pass (US 40)", pass: "Loveland Pass (US 6)", dillon: "US 6 through Dillon",
+  const ROUTE_NAME = { canyon: "Golden freeway to Golden, then US 6 up Clear Creek Canyon", berthoud: "Berthoud Pass (US 40)", pass: "Loveland Pass (US 6)", dillon: "US 6 through Dillon",
     eldora_boulder: "US 36 and Boulder Canyon (CO 119)", eldora_coal: "CO 93 and Coal Creek Canyon (CO 72)", eldora_119: "CO 119 through Black Hawk and Peak to Peak" };
   const LABELS = [
-    [1146, 444, "Coors Field", "r"], [1012, 372, "US 6", "l", 1], [1092, 236, "US 36", "l", 1], [1092, 132, "Boulder", "l"],
+    [1146, 444, "Coors Field", "r"], [1012, 366, "Golden\nfreeway", "l", 1], [852, 372, "US 6", "r", 1], [1092, 236, "US 36", "l", 1], [1092, 132, "Boulder", "l"],
     [1012, 318, "Golden", "l", 1], [866, 352, "Clear Creek Canyon", "l", 1],
     [1010, 288, "CO 93", "l", 1], [912, 280, "Black Hawk", "l", 1], [900, 226, "Coal Creek · CO 72", "c", 1],
     [940, 114, "Boulder Canyon · CO 119", "c", 1], [812, 150, "Nederland", "l", 1], [812, 194, "Peak to Peak", "l", 1],
@@ -976,7 +976,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   // i70 (longitude) for stops on I-70, timed from CDOT's segment speeds.
   const DOTS = [
     { id: "coors", name: "Coors Field", x: CX, y: Y, lat: 39.7562, lon: -104.9942, i70: -104.99 },
-    { id: "x261", name: "US 6 at I-70 (exit 261)", x: 1000, y: Y, i70: -105.17 },
+    { id: "x261", name: "Golden freeway at I-70", x: 1000, y: Y, i70: -105.17 },
     { id: "golden", name: "Golden", x: 1000, y: 340, lat: 39.7555, lon: -105.2211 },
     { id: "coal", name: "Coal Creek Canyon turnoff", x: 1000, y: 250, lat: 39.8660, lon: -105.2330, eld: 1 },
     { id: "blackhawk", name: "Black Hawk", x: 900, y: 300, lat: 39.7969, lon: -105.4939, eld: 1 },
@@ -1126,7 +1126,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     for (const k in ROUTE_GEO) if (states[k].kind === "closed" && (!/^eldora/.test(k) || shown("eldora"))) at(box, "lm-sign", ...ROUTE_GEO[k].sign, 20, 20).dataset.tip = states[k].st.alerts.join(" ") || `${ROUTE_NAME[k]} closed`;
     LABELS.forEach(([x, y, t, anchor, small]) => {
       if (/Boulder|Coal|Nederland|Peak|Black Hawk|CO 93|US 36/.test(t) && !shown("eldora")) return;
-      const d = el("div", "lm-lab" + (small ? " s" : ""), t);
+      const d = el("div", "lm-lab" + (small ? " s" : ""), t); if (t.includes("\n")) d.style.whiteSpace = "pre";
       Object.assign(d.style, { left: (anchor === "l" ? x : anchor === "r" ? x - 220 : x - 110) + "px", top: y + "px", textAlign: anchor === "l" ? "left" : anchor === "r" ? "right" : "center" }); box.append(d);
     });
     MAP_RESORTS.forEach(([k, x, y]) => {
