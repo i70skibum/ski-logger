@@ -23,6 +23,7 @@ jobs:
     timeout-minutes: 8
     env:
       CDOT_API_KEY: ${{ secrets.CDOT_API_KEY }}
+      TOMTOM_API_KEY: ${{ secrets.TOMTOM_API_KEY }}
       RESORT_STATUS: ${{ inputs.status }}
     steps:
       - uses: actions/checkout@v5
