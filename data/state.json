@@ -1,5 +1,5 @@
 {
- "afd_last": "7ede50ca-bec2-4b09-ad14-75cd5744565d",
+ "afd_last": "bd60b99a-0fe3-45f0-9bef-2aadf6dee303",
  "events": {
   "chainLaws:CDOT-36486551000EB": {
    "began": "2026-11-20T12:06:36-07:00",
@@ -1117,6 +1117,18 @@
    "title": "CO 119 southbound: Right lane closed.",
    "type": "routine"
   },
+  "roadWork:CDOT-36490666495EB": {
+   "began": "2026-11-20T17:07:36-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36490666495EB",
+   "mp_end": "",
+   "mp_start": 217.99933284110753,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Right lane closed.",
+   "type": "routine"
+  },
   "winterDriving:COSEG-522872": {
    "began": "2026-11-20T12:33:43.476000-07:00",
    "class": "winterDriving",
@@ -1513,18 +1525,6 @@
    "title": "US 24: High wind.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588545": {
-   "began": "2026-11-20T11:29:14.646000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588545",
-   "mp_end": 274.07541539571974,
-   "mp_start": 259.7767666351,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: High wind.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588558": {
    "began": "2026-11-20T10:59:58.568000-07:00",
    "class": "winterDriving",
@@ -1573,18 +1573,6 @@
    "title": "I-70: Icy spots.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588575": {
-   "began": "2026-11-20T12:21:03.416000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588575",
-   "mp_end": 203.7258464806865,
-   "mp_start": 188.34154771955997,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Icy spots.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588579": {
    "began": "2026-11-20T12:32:11.330000-07:00",
    "class": "winterDriving",
@@ -1609,25 +1597,37 @@
    "title": "US 285: High wind.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588591": {
-   "began": "2026-11-20T11:39:43.771000-07:00",
+  "winterDriving:COSEG-588597": {
+   "began": "2026-11-20T15:09:08.322000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588591",
-   "mp_end": 65.88309991558688,
-   "mp_start": 55.7869149410012,
-   "pos_bearing": "N",
-   "route": "US 550",
-   "title": "US 550: Slushy with icy and snow packed spots.",
+   "id": "COSEG-588597",
+   "mp_end": 194.34189728928501,
+   "mp_start": 188.34154771955997,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Icy and snow packed spots.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588592": {
-   "began": "2026-11-20T11:39:43.771000-07:00",
+  "winterDriving:COSEG-588598": {
+   "began": "2026-11-20T15:09:08.322000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588592",
+   "id": "COSEG-588598",
+   "mp_end": 203.7258464806865,
+   "mp_start": 194.34189728928501,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Icy and snow packed spots.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588603": {
+   "began": "2026-11-20T15:18:05.182000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588603",
    "mp_end": 74.88257952888567,
-   "mp_start": 65.88309991558688,
+   "mp_start": 55.7869149410012,
    "pos_bearing": "N",
    "route": "US 550",
    "title": "US 550: Slushy with icy and snow packed spots.",
@@ -1635,7 +1635,7 @@
   }
  },
  "forecast_last": "2026-11-20T21:30:50+00:00",
- "last_run": "2026-11-20T17:00:47-07:00",
+ "last_run": "2026-11-20T17:15:46-07:00",
  "nws_points": {
   "abasin": "https://api.weather.gov/gridpoints/BOU/32,59",
   "aspen": "https://api.weather.gov/gridpoints/GJT/152,103",
@@ -1693,7 +1693,7 @@
   "271": "3 - dry",
   "272": "3 - dry",
   "273": "3 - dry",
-  "274": "1 - high wind; 3 - dry; high wind caution",
+  "274": "3 - dry",
   "322": "3 - dry",
   "335": "3 - dry",
   "336": "3 - dry",
@@ -1738,7 +1738,7 @@
   "72": "11 - snow packed spots; 14 - drifting snow; 9 - icy spots"
  },
  "snotel_last": {
-  "abasin": "2026-11-20 15:00",
+  "abasin": "2026-11-20 16:00",
   "aspen": "2026-11-20 15:00",
   "beavercreek": "2026-11-20 15:00",
   "breck": "2026-11-20 15:00",
@@ -1748,7 +1748,7 @@
   "echo": "2026-11-20 15:00",
   "eldora": "2026-11-20 15:00",
   "granby": "2026-11-20 15:00",
-  "keystone": "2026-11-20 15:00",
+  "keystone": "2026-11-20 16:00",
   "loveland": "2026-11-20 15:00",
   "monarch": "2026-11-20 15:00",
   "powderhorn": "2026-11-20 15:00",

@@ -340,3 +340,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-20T15:15:46-07:00,458,I-70,Copper Mtn-Silverthorne,194.3,203.7,"6 - snow; 9-11 icy spots, snow packed spots","I-70, between Exit 190: Vail Pass Summit (Vail Pass) and Exit 205: CO 9; US 6; Silverthorne (near Frisco)"
 2026-11-20T15:15:46-07:00,262,I-70,Rifle -Glenwood Springs,90.2,116.2,4s - wet in areas; 5 - rain,"I-70, between Exit 87: US 6; Rifle (Rifle) and Exit 116: CO 82; Glenwood Springs (Glenwood Canyon)"
 2026-11-20T15:15:46-07:00,485,US 6,Silverthorne to Arapahoe Basin,208.7,219.9,"4-5 wet, rain","US 6, between I-70; CO 9 (Silverthorne) and I-70 (near Loveland Pass)"
+2026-11-20T17:15:46-07:00,274,I-70,Denver C470 to I-25,259.8,274.1,3 - dry,"I-70, between Exit 260: C-470; C-470; Morrison (Mount Vernon Canyon) and Exit 274: I-25 (Denver)"
