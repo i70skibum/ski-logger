@@ -2687,7 +2687,7 @@
      ]
     }
    ],
-   "points_at": "2026-11-22T10:45:47-07:00"
+   "points_at": "2026-11-22T11:16:07-07:00"
   },
   "pass": {
    "name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)",
@@ -4453,7 +4453,7 @@
     },
     {
      "point": 2,
-     "mph": 39,
+     "mph": 29,
      "normal_mph": 39,
      "closed": false,
      "line": [
@@ -4776,16 +4776,16 @@
      ]
     }
    ],
-   "points_at": "2026-11-22T10:45:47-07:00"
+   "points_at": "2026-11-22T11:16:07-07:00"
   },
   "berthoud": {
    "name": "Berthoud Pass (US 40, Empire to Winter Park)",
    "W": {
-    "delay_min": 0.2,
-    "minutes": 31.8,
+    "delay_min": 0.0,
+    "minutes": 31.5,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-22T11:00:46-07:00",
+    "at": "2026-11-22T11:16:07-07:00",
     "line": [
      [
       39.76107,
@@ -5534,11 +5534,11 @@
     ]
    },
    "E": {
-    "delay_min": 1.3,
-    "minutes": 33.0,
+    "delay_min": 1.1,
+    "minutes": 32.8,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-22T11:00:46-07:00",
+    "at": "2026-11-22T11:16:07-07:00",
     "line": [
      [
       39.88623,
@@ -7258,8 +7258,8 @@
     },
     {
      "point": 3,
-     "mph": 43,
-     "normal_mph": 50,
+     "mph": 51,
+     "normal_mph": 51,
      "closed": false,
      "line": [
       [
@@ -7433,7 +7433,7 @@
      ]
     }
    ],
-   "points_at": "2026-11-22T10:45:47-07:00"
+   "points_at": "2026-11-22T11:16:07-07:00"
   },
   "dillon": {
    "name": "US 6 through Dillon (I-70 exit 205 at Silverthorne to Keystone)",
@@ -8225,7 +8225,7 @@
    },
    "closed": false,
    "points": [],
-   "points_at": "2026-11-22T10:45:47-07:00"
+   "points_at": "2026-11-22T11:16:07-07:00"
   },
   "eldora_boulder": {
    "name": "Coors Field to Eldora by Boulder Canyon (US 36, CO 119)",
@@ -8844,13 +8844,13 @@
    },
    "closed": false,
    "points": [],
-   "points_at": "2026-11-22T10:45:47-07:00",
+   "points_at": "2026-11-22T11:16:07-07:00",
    "W": {
-    "delay_min": 4.0,
-    "minutes": 70.9,
+    "delay_min": 4.2,
+    "minutes": 71.2,
     "free_min": 66.9,
     "detour": false,
-    "at": "2026-11-22T11:00:46-07:00",
+    "at": "2026-11-22T11:16:07-07:00",
     "line": [
      [
       39.75702,
@@ -10135,7 +10135,7 @@
    "name": "Coors Field to Eldora by Coal Creek Canyon (I-70, US 6, CO 93, CO 72)",
    "closed": false,
    "points": [],
-   "points_at": "2026-11-22T10:45:47-07:00",
+   "points_at": "2026-11-22T11:16:07-07:00",
    "E": {
     "delay_min": 3.1,
     "minutes": 85.8,
@@ -12039,7 +12039,7 @@
    "name": "Coors Field to Eldora by CO 119 through Black Hawk",
    "closed": false,
    "points": [],
-   "points_at": "2026-11-22T10:45:47-07:00",
+   "points_at": "2026-11-22T11:16:07-07:00",
    "E": {
     "delay_min": 5.3,
     "minutes": 105.8,
@@ -14110,11 +14110,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 2.2,
-    "minutes": 27.6,
+    "delay_min": 2.1,
+    "minutes": 27.4,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-22T11:00:46-07:00",
+    "at": "2026-11-22T11:16:07-07:00",
     "line": [
      [
       39.74245,
@@ -14408,13 +14408,13 @@
    },
    "closed": false,
    "points": [],
-   "points_at": "2026-11-22T10:45:47-07:00",
+   "points_at": "2026-11-22T11:16:07-07:00",
    "W": {
     "delay_min": 1.9,
-    "minutes": 30.8,
+    "minutes": 30.9,
     "free_min": 29.0,
     "detour": false,
-    "at": "2026-11-22T11:00:46-07:00",
+    "at": "2026-11-22T11:16:07-07:00",
     "line": [
      [
       39.75702,
@@ -14790,7 +14790,7 @@
     "minutes": 35.5,
     "free_min": 35.1,
     "detour": false,
-    "at": "2026-11-22T11:00:46-07:00",
+    "at": "2026-11-22T11:16:07-07:00",
     "line": [
      [
       39.75702,
@@ -15428,7 +15428,7 @@
    },
    "closed": false,
    "points": [],
-   "points_at": "2026-11-22T10:45:47-07:00"
+   "points_at": "2026-11-22T11:16:07-07:00"
   },
   "corridor": {
    "name": "Front Range approaches (I-25 north, US 36 to Boulder, CO 58 Golden freeway)",
@@ -16783,13 +16783,13 @@
      ]
     }
    ],
-   "points_at": "2026-11-22T10:45:47-07:00"
+   "points_at": "2026-11-22T11:16:07-07:00"
   }
  },
- "updated": "2026-11-22T11:00:46-07:00",
+ "updated": "2026-11-22T11:16:07-07:00",
  "tomtom_use": {
-  "flow": 692,
-  "routing": 666
+  "flow": 708,
+  "routing": 672
  },
  "tomtom_caps": {
   "routing": 19000,
