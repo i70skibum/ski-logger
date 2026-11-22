@@ -351,20 +351,6 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
-  "roadReports:CDOT-36509608108EB": {
-   "began": "2026-11-21T16:16:07-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36509608108EB",
-   "lat": 39.61176,
-   "lon": -106.07545,
-   "mp_end": "",
-   "mp_start": 204.0350381610595,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Road closed.",
-   "type": "critical"
-  },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
    "class": "roadWork",
@@ -1963,7 +1949,7 @@
   }
  },
  "forecast_last": "2026-11-21T22:30:47+00:00",
- "last_run": "2026-11-21T17:30:50-07:00",
+ "last_run": "2026-11-21T17:45:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-21": {
@@ -2704,7 +2690,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-21 16:00",
-  "aspen": "2026-11-21 15:00",
+  "aspen": "2026-11-21 16:00",
   "beavercreek": "2026-11-21 16:00",
   "breck": "2026-11-21 16:00",
   "cooper": "2026-11-21 16:00",
@@ -2712,14 +2698,14 @@
   "crestedbutte": "2026-11-21 16:00",
   "echo": "2026-11-21 16:00",
   "eldora": "2026-11-21 16:00",
-  "granby": "2026-11-21 15:00",
+  "granby": "2026-11-21 16:00",
   "keystone": "2026-11-21 16:00",
   "loveland": "2026-11-21 16:00",
-  "monarch": "2026-11-21 15:00",
+  "monarch": "2026-11-21 16:00",
   "powderhorn": "2026-11-21 16:00",
   "purgatory": "2026-11-21 16:00",
   "steamboat": "2026-11-21 16:00",
-  "sunlight": "2026-11-21 15:00",
+  "sunlight": "2026-11-21 16:00",
   "telluride": "2026-11-21 15:00",
   "vail": "2026-11-21 16:00",
   "winterpark": "2026-11-21 16:00",
@@ -2979,14 +2965,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-22T00:30:50+00:00",
- "tomtom_routing_last": "2026-11-22T00:30:50+00:00",
+ "tomtom_flow_last": "2026-11-22T00:45:46+00:00",
+ "tomtom_routing_last": "2026-11-22T00:45:46+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 390
+   "2026-11": 400
   },
   "routing": {
-   "2026-11": 335
+   "2026-11": 343
   }
  },
  "traffic_model_last": "2026-11-21T22:30:47+00:00"
