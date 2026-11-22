@@ -3,11 +3,11 @@
   "canyon": {
    "name": "Clear Creek Canyon (US 6, Golden to I-70 exit 244)",
    "W": {
-    "delay_min": 1.8,
-    "minutes": 41.8,
+    "delay_min": 1.6,
+    "minutes": 41.7,
     "free_min": 40.0,
     "detour": false,
-    "at": "2026-11-21T19:15:47-07:00",
+    "at": "2026-11-21T19:30:46-07:00",
     "line": [
      [
       39.75702,
@@ -584,11 +584,11 @@
     ]
    },
    "E": {
-    "delay_min": 1.7,
-    "minutes": 42.5,
+    "delay_min": 1.6,
+    "minutes": 42.3,
     "free_min": 40.8,
     "detour": false,
-    "at": "2026-11-21T19:15:47-07:00",
+    "at": "2026-11-21T19:30:46-07:00",
     "line": [
      [
       39.74237,
@@ -1800,7 +1800,7 @@
     },
     {
      "point": 2,
-     "mph": 32,
+     "mph": 42,
      "normal_mph": 42,
      "closed": false,
      "line": [
@@ -2031,7 +2031,7 @@
      ]
     }
    ],
-   "points_at": "2026-11-21T19:15:47-07:00"
+   "points_at": "2026-11-21T19:30:46-07:00"
   },
   "pass": {
    "name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)",
@@ -2040,7 +2040,7 @@
     "minutes": 22.6,
     "free_min": 21.1,
     "detour": false,
-    "at": "2026-11-21T19:15:47-07:00",
+    "at": "2026-11-21T19:30:46-07:00",
     "line": [
      [
       39.68008,
@@ -2633,11 +2633,11 @@
     ]
    },
    "E": {
-    "delay_min": 1.5,
-    "minutes": 22.2,
+    "delay_min": 1.4,
+    "minutes": 22.1,
     "free_min": 20.7,
     "detour": false,
-    "at": "2026-11-21T19:15:47-07:00",
+    "at": "2026-11-21T19:30:46-07:00",
     "line": [
      [
       39.6046,
@@ -4220,16 +4220,16 @@
      ]
     }
    ],
-   "points_at": "2026-11-21T19:15:47-07:00"
+   "points_at": "2026-11-21T19:30:46-07:00"
   },
   "berthoud": {
    "name": "Berthoud Pass (US 40, Empire to Winter Park)",
    "W": {
-    "delay_min": 2.6,
+    "delay_min": 2.5,
     "minutes": 34.1,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-21T19:15:47-07:00",
+    "at": "2026-11-21T19:30:46-07:00",
     "line": [
      [
       39.76107,
@@ -4774,7 +4774,7 @@
     "minutes": 34.3,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-21T19:15:47-07:00",
+    "at": "2026-11-21T19:30:46-07:00",
     "line": [
      [
       39.88623,
@@ -5970,7 +5970,7 @@
     },
     {
      "point": 2,
-     "mph": 35,
+     "mph": 34,
      "normal_mph": 48,
      "closed": false,
      "line": [
@@ -6290,8 +6290,8 @@
     },
     {
      "point": 3,
-     "mph": 51,
-     "normal_mph": 51,
+     "mph": 40,
+     "normal_mph": 50,
      "closed": false,
      "line": [
       [
@@ -6465,16 +6465,16 @@
      ]
     }
    ],
-   "points_at": "2026-11-21T19:15:47-07:00"
+   "points_at": "2026-11-21T19:30:46-07:00"
   },
   "dillon": {
    "name": "US 6 through Dillon (I-70 exit 205 at Silverthorne to Keystone)",
    "W": {
-    "delay_min": 2.0,
-    "minutes": 17.3,
+    "delay_min": 1.2,
+    "minutes": 16.4,
     "free_min": 15.3,
     "detour": false,
-    "at": "2026-11-21T19:00:47-07:00",
+    "at": "2026-11-21T19:30:46-07:00",
     "line": [
      [
       39.62844,
@@ -7007,11 +7007,11 @@
     ]
    },
    "E": {
-    "delay_min": 2.6,
-    "minutes": 18.5,
+    "delay_min": 1.6,
+    "minutes": 17.4,
     "free_min": 15.8,
     "detour": false,
-    "at": "2026-11-21T19:00:47-07:00",
+    "at": "2026-11-21T19:30:46-07:00",
     "line": [
      [
       39.6046,
@@ -7593,16 +7593,16 @@
    },
    "closed": false,
    "points": [],
-   "points_at": "2026-11-21T19:15:47-07:00"
+   "points_at": "2026-11-21T19:30:46-07:00"
   },
   "eldora_boulder": {
    "name": "Coors Field to Eldora by Boulder Canyon (US 36, CO 119)",
    "E": {
-    "delay_min": 3.1,
-    "minutes": 70.7,
+    "delay_min": 2.9,
+    "minutes": 70.5,
     "free_min": 67.7,
     "detour": false,
-    "at": "2026-11-21T19:15:47-07:00",
+    "at": "2026-11-21T19:30:46-07:00",
     "line": [
      [
       39.93746,
@@ -8212,19 +8212,19 @@
    },
    "closed": false,
    "points": [],
-   "points_at": "2026-11-21T19:15:47-07:00"
+   "points_at": "2026-11-21T19:30:46-07:00"
   },
   "eldora_coal": {
    "name": "Coors Field to Eldora by Coal Creek Canyon (I-70, US 6, CO 93, CO 72)",
    "closed": false,
    "points": [],
-   "points_at": "2026-11-21T19:15:47-07:00",
+   "points_at": "2026-11-21T19:30:46-07:00",
    "E": {
-    "delay_min": 3.8,
-    "minutes": 86.5,
+    "delay_min": 3.1,
+    "minutes": 85.8,
     "free_min": 82.7,
     "detour": false,
-    "at": "2026-11-21T19:00:47-07:00",
+    "at": "2026-11-21T19:30:46-07:00",
     "line": [
      [
       39.93746,
@@ -8817,13 +8817,13 @@
    "name": "Coors Field to Eldora by CO 119 through Black Hawk",
    "closed": false,
    "points": [],
-   "points_at": "2026-11-21T19:15:47-07:00",
+   "points_at": "2026-11-21T19:30:46-07:00",
    "E": {
-    "delay_min": 6.6,
-    "minutes": 107.2,
-    "free_min": 100.6,
+    "delay_min": 5.3,
+    "minutes": 105.8,
+    "free_min": 100.5,
     "detour": false,
-    "at": "2026-11-21T19:00:47-07:00",
+    "at": "2026-11-21T19:30:46-07:00",
     "line": [
      [
       39.93746,
@@ -9435,11 +9435,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 2.2,
-    "minutes": 27.5,
+    "delay_min": 2.6,
+    "minutes": 27.9,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-21T19:15:47-07:00",
+    "at": "2026-11-21T19:30:46-07:00",
     "line": [
      [
       39.74245,
@@ -9981,13 +9981,13 @@
    },
    "closed": false,
    "points": [],
-   "points_at": "2026-11-21T19:15:47-07:00"
+   "points_at": "2026-11-21T19:30:46-07:00"
   }
  },
- "updated": "2026-11-21T19:15:47-07:00",
+ "updated": "2026-11-21T19:30:46-07:00",
  "tomtom_use": {
-  "flow": 460,
-  "routing": 403
+  "flow": 470,
+  "routing": 415
  },
  "tomtom_caps": {
   "routing": 19000,
