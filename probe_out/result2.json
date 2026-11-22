@@ -1,0 +1,136 @@
+{
+ "config_status": 200,
+ "config_urls": [
+  "https://api-511x-co.carsprogram.org",
+  "https://api-511x-co.carsprogram.org/avl",
+  "https://api-511x-co.carsprogram.org/cameras",
+  "https://api-511x-co.carsprogram.org/custom",
+  "https://api-511x-co.carsprogram.org/events",
+  "https://api-511x-co.carsprogram.org/images/icon-radar-bar-legend.svg",
+  "https://api-511x-co.carsprogram.org/locations/popular-areas",
+  "https://api-511x-co.carsprogram.org/locations/popular-routes",
+  "https://api-511x-co.carsprogram.org/locations/route-shape",
+  "https://api-511x-co.carsprogram.org/mm",
+  "https://api-511x-co.carsprogram.org/otp",
+  "https://api-511x-co.carsprogram.org/proxy",
+  "https://api-511x-co.carsprogram.org/rest-areas",
+  "https://api-511x-co.carsprogram.org/rwis",
+  "https://api-511x-co.carsprogram.org/signs",
+  "https://api-511x-co.carsprogram.org/vsl-signs",
+  "https://apps.apple.com/us/app/cotrip-planner/id1582530559",
+  "https://cotg.carsprogram.org/cms_v1/api/cms",
+  "https://cotg.carsprogram.org/otp",
+  "https://cotrip.org/help/950",
+  "https://data.colorado.gov/Government/Transparency-Online-Project-TOPS-State-Government-/rifs-n6ib",
+  "https://freight.colorado.gov",
+  "https://freight.colorado.gov/mountain-rules/chain-up-tips",
+  "https://freight.colorado.gov/mountain-rules/hot-brakes",
+  "https://freight.colorado.gov/mountain-rules/mountain-rules",
+  "https://freight.colorado.gov/permitting-information",
+  "https://freight.colorado.gov/route-planning/hazardous-materials-routing",
+  "https://freight.colorado.gov/safety/chain-up-tips",
+  "https://gwc.carsprogram.org/service/wms",
+  "https://nlp.carsprogram.org/api/v1/nlp",
+  "https://nmroads.com/",
+  "https://osrm-co.carsprogram.org",
+  "https://play.google.com/store/apps/details?id=crc.oneapp.co",
+  "https://play.google.com/store/apps/details?id=crc.oneapp.co&pcampaignid=web_share",
+  "https://ridebustang.com/",
+  "https://subscription.cotrip.org/alerts/news",
+  "https://www.511.nebraska.gov/",
+  "https://www.codot.gov/",
+  "https://www.codot.gov/contact",
+  "https://www.codot.gov/programs/expresslanes",
+  "https://www.codot.gov/projects",
+  "https://www.codot.gov/topcontent/accessibility",
+  "https://www.codot.gov/topcontent/contact-cdot",
+  "https://www.codot.gov/travel/commercialvehicles/wolfcreekpass",
+  "https://www.colorado.gov/",
+  "https://www.colorado.gov/privacy-statement",
+  "https://www.colorado.gov/security-statement",
+  "https://www.cotrip.org/help/117",
+  "https://www.kandrive.gov/",
+  "https://www.oktraffic.org/",
+  "https://www.udottraffic.utah.gov/",
+  "https://www.wyoroad.info/"
+ ],
+ "config_camera_keys": [
+  "cameras"
+ ],
+ "config_keys": [
+  "app",
+  "layers",
+  "search",
+  "my511",
+  "cameras",
+  "feedback",
+  "helpToolTips",
+  "quickButtons",
+  "apis",
+  "branding",
+  "map",
+  "mainMenuLinks",
+  "footerLinks",
+  "commercialVehicles",
+  "featureFlags",
+  "winterRoad",
+  "roadConditions",
+  "routeSearch",
+  "floodgateModal",
+  "welcomeOnboarding"
+ ],
+ "terms_text": " COtrip Traveler Information ",
+ "ep_cctv": [
+  404,
+  "{\"code\":404,\"message\":\"The current request is not defined by this API.\"}"
+ ],
+ "ep_trafficCameras": [
+  404,
+  "{\"code\":404,\"message\":\"The current request is not defined by this API.\"}"
+ ],
+ "ep_cameraViews": [
+  404,
+  "{\"code\":404,\"message\":\"The current request is not defined by this API.\"}"
+ ],
+ "ep_roadCameras": [
+  404,
+  "{\"code\":404,\"message\":\"The current request is not defined by this API.\"}"
+ ],
+ "ep_cameraImages": [
+  404,
+  "{\"code\":404,\"message\":\"The current request is not defined by this API.\"}"
+ ],
+ "ep_camerasList": [
+  404,
+  "{\"code\":404,\"message\":\"The current request is not defined by this API.\"}"
+ ],
+ "ep_cameraSites": [
+  404,
+  "{\"code\":404,\"message\":\"The current request is not defined by this API.\"}"
+ ],
+ "https://api-511x-co.carsprogram.org/cameras_v1/api/cameras?limit=1": [
+  200,
+  "application/json; charset=utf-8",
+  "{\"healthy\":true}"
+ ],
+ "https://api-511x-co.carsprogram.org/cameras_v1/api/v1/cameras": [
+  200,
+  "application/json; charset=utf-8",
+  "{\"healthy\":true}"
+ ],
+ "https://api-511x-co.carsprogram.org/cameras/map-features": [
+  200,
+  "application/json; charset=utf-8",
+  "{\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-106.7848,37.47636]},\"properties\":{\"type\":\"cameras\",\"id\":21301,\"name\":\"US 160 MP 168.20 EB : 0.5 miles E of Wolf Creek Ski Area\",\"tooltip\":\"US 160 MP 168.20 EB : 0.5 miles E of Wolf Creek Ski Area\",\"public\":true,\"route\":\"US 160\",\"lastUpdated\":1795357252259,\"location\":{\"fips\":8,\"routeId\":\"US 160\",\"linearReference\":168.2,\"local"
+ ],
+ "https://api-511x-co.carsprogram.org/camerasv1/api/cameras": [
+  200,
+  "application/json; charset=utf-8",
+  "{\"healthy\":true}"
+ ],
+ "https://api-511x-co.carsprogram.org/api/v1/cameras": [
+  200,
+  "text/html; charset=utf-8",
+  "\n<!-- HTML for static distribution bundle build -->\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  \n  <title>Swagger UI</title>\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"./swagger-ui.css\" >\n  <link rel=\"icon\" type=\"image/png\" href=\"./favicon-32x32.png\" sizes=\"32x32\" /><link rel=\"icon\" type=\"image/png\" href=\"./favicon-16x16.png\" sizes=\"16x16\" />\n  <style>\n    html\n    {\n   "
+ ]
+}
