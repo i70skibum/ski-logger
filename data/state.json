@@ -351,18 +351,18 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
-  "roadReports:CDOT-36516322659EB": {
-   "began": "2026-11-22T00:35:03-07:00",
+  "roadReports:CDOT-36517704394NB": {
+   "began": "2026-11-22T02:16:45-07:00",
    "class": "roadReports",
    "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36516322659EB",
-   "lat": 39.68158,
-   "lon": -105.89693,
+   "id": "CDOT-36517704394NB",
+   "lat": 38.64079,
+   "lon": -106.08285,
    "mp_end": "",
-   "mp_start": 215.7093962048849,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Left lane closed.",
+   "mp_start": 135.46499998497893,
+   "pos_bearing": "N",
+   "route": "US 285",
+   "title": "US 285 northbound: Right lane closed.",
    "type": "routine"
   },
   "roadWork:CDOT-35509265054EB": {
@@ -1851,7 +1851,7 @@
   }
  },
  "forecast_last": "2026-11-22T07:45:53+00:00",
- "last_run": "2026-11-22T02:15:46-07:00",
+ "last_run": "2026-11-22T02:30:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-22": {
@@ -2593,25 +2593,25 @@
  "snotel_last": {
   "abasin": "2026-11-22 01:00",
   "aspen": "2026-11-22 00:00",
-  "beavercreek": "2026-11-22 00:00",
-  "breck": "2026-11-22 00:00",
-  "cooper": "2026-11-22 00:00",
-  "copper": "2026-11-22 00:00",
-  "crestedbutte": "2026-11-22 00:00",
-  "echo": "2026-11-22 00:00",
-  "eldora": "2026-11-22 00:00",
+  "beavercreek": "2026-11-22 01:00",
+  "breck": "2026-11-22 01:00",
+  "cooper": "2026-11-22 01:00",
+  "copper": "2026-11-22 01:00",
+  "crestedbutte": "2026-11-22 01:00",
+  "echo": "2026-11-22 01:00",
+  "eldora": "2026-11-22 01:00",
   "granby": "2026-11-22 00:00",
   "keystone": "2026-11-22 01:00",
-  "loveland": "2026-11-22 00:00",
+  "loveland": "2026-11-22 01:00",
   "monarch": "2026-11-22 00:00",
-  "powderhorn": "2026-11-22 00:00",
-  "purgatory": "2026-11-22 00:00",
+  "powderhorn": "2026-11-22 01:00",
+  "purgatory": "2026-11-22 01:00",
   "steamboat": "2026-11-22 01:00",
   "sunlight": "2026-11-22 00:00",
   "telluride": "2026-11-22 00:00",
-  "vail": "2026-11-22 00:00",
-  "winterpark": "2026-11-22 00:00",
-  "wolfcreek": "2026-11-22 00:00"
+  "vail": "2026-11-22 01:00",
+  "winterpark": "2026-11-22 01:00",
+  "wolfcreek": "2026-11-22 01:00"
  },
  "speed_geo": [
   "I70E024",
