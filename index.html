@@ -969,7 +969,8 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const seg = el("div", "seg"); seg.setAttribute("role", "tablist");
     viewDays().forEach((iso, i) => {
       const b = el("button", i === vday ? "on" : ""); b.setAttribute("role", "tab"); b.setAttribute("aria-selected", i === vday);
-      b.append(el("span", "", dayLabel(i)), el("small", "", new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", month: "short", day: "numeric" })));
+      let cf = ""; try { cf = " \u00b7 " + Math.round(tripAt(dpOriginKey(), "W", iso, 7).conf * 100) + "%"; } catch (e) {}
+      b.append(el("span", "", dayLabel(i)), el("small", "", new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", month: "short", day: "numeric" }) + cf));
       b.onclick = () => setDay(i); seg.append(b);
     });
     box.append(prev, seg, next);
@@ -1181,6 +1182,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const startOf = e => { if (!e.began) return 0; const t = new Date(e.began); if (t <= D.now || denverParts(t).day !== iso) return 0; return +t.toLocaleString("en-US", { timeZone: "America/Denver", hour: "numeric", hour12: false }) % 24; };
     return { from: Math.min(...hit.map(startOf)), titles: hit.map(e => e.title.replace(/\.$/, "")) };
   }
+  const dpOriginKey = () => { try { dpOrigin(); } catch (e) {} return origin && RESORTS[origin] ? origin : "copper"; };
   const dpOrigin = () => {
     const rk = k => { const i = (D.ranked || []).findIndex(r => r.key === k); return i < 0 ? 99 : i; };
     const list = ORIGINS.filter(o => !RESORTS[o.key] || shown(o.key)).sort((a, b) => rk(a.key) - rk(b.key));
@@ -1635,7 +1637,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     for (const k in ROUTE_GEO) {
       if (/^eldora/.test(k) && !shown("eldora")) continue;
       const s = states[k]; let words = s.kind === "closed" ? "closed (COtrip)" : s.kind === "check" ? "TomTom can't route along it but COtrip lists no closure, so check" :
-        s.kind === "none" ? (/^eldora/.test(k) ? `no ${dname} reading (Eldora is timed in the ski direction only)` : `no ${dname} reading yet`) : `${s.delay < 1 ? "normal" : "about " + Math.round(s.delay) + " min slower than an empty road"}` + (s.minutes != null && /^eldora/.test(k) ? `, ${Math.round(s.minutes)} min from Coors Field` : "");
+        s.kind === "none" ? (/^eldora/.test(k) ? `no ${dname} reading (Eldora is timed in the ski direction only)` : k === "dillon" ? `no ${dname} reading right now (Dillon is timed westbound before noon and eastbound after)` : `no ${dname} reading yet`) : `${s.delay < 1 ? "normal" : "about " + Math.round(s.delay) + " min slower than an empty road"}` + (s.minutes != null && /^eldora/.test(k) ? `, ${Math.round(s.minutes)} min from Coors Field` : "");
       if (E) words = s.kind === "closed" ? `closure planned: ${s.st.alerts.join(" ")}` : s.delay == null ? "no estimate" : s.delay >= 1 ? `expected about +${s.delay} min at ${clock(s.at)} (${s.tier})` : "no usual rush at " + clock(H);
       const pieces = ROUTE_GEO[k].pieces; words = `${E ? FD + ", " : ""}${dname}, ` + words;
       // Peak to Peak is shared by Coal Creek and Black Hawk: color it by the better of the two.
