@@ -244,6 +244,49 @@ footer { color: var(--ink2); font-size: 12px; }
   .zoom button + button { border-top: 0; border-left: 1px solid var(--ink3); }
   .zoom button.fit { height: 40px; width: 52px; }
 }
+
+/* Going to picker, hour stepper, 24-hour charts */
+.dp-goto { display: grid; grid-template-columns: minmax(220px, 300px) minmax(0, 1fr); gap: 20px 28px; align-items: center; }
+.dp-trip .kick { font-size: 12px; font-weight: 700; letter-spacing: .14em; color: var(--ink2); }
+.dp-trip { display: flex; flex-direction: column; gap: 4px; } .dp-trip h2 { font-size: 34px; font-weight: 700; letter-spacing: -.01em; }
+.dp-rpills { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 10px; }
+.dp-rpill { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 1px; padding: 18px 14px 11px; min-height: 66px; border-radius: 14px; border: 1px solid var(--line); background: transparent; color: var(--ink3, #C9D6E0); font: 500 13px Inter, sans-serif; text-align: left; cursor: pointer; }
+.dp-rpill b { font: 600 15px "Space Grotesk", Inter, sans-serif; color: var(--ink); } .dp-rpill small { font-size: 12px; color: var(--ink2); }
+.dp-rpill.dim { border-style: dashed; } .dp-rpill.on { background: var(--card2, #1B2B39); border: 2px solid var(--accent); padding: 17px 13px 10px; } .dp-rpill.on small { color: #C9D6E0; }
+.dp-rpill .bp { position: absolute; top: 6px; left: 14px; font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.dp-conf { font-size: 13px; font-weight: 600; color: var(--accent); background: rgba(127,209,255,.12); border-radius: 999px; padding: 7px 14px; }
+.dp-ctrls { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; }
+.dp-ctrls .pills { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; }
+.dp-step { display: flex; align-items: center; gap: 8px; background: var(--card); padding: 6px 10px; border-radius: 999px; }
+.dp-step button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: var(--card2, #1B2B39); color: var(--ink); font: 500 24px Inter, sans-serif; line-height: 1; cursor: pointer; }
+.dp-stbox { display: flex; flex-direction: column; gap: 2px; min-width: 250px; padding: 0 6px; } .dp-stbox label { font-size: 13px; font-weight: 600; }
+.dp-stbox input { width: 100%; accent-color: var(--accent); margin: 2px 0 0; } .dp-ticks { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--ink2); }
+#stripbox.dp-on, #stripbox { gap: 14px; }
+.dp-chead h2 { font-size: 22px; } .dp-grp { display: flex; flex-direction: column; gap: 6px; margin-top: 6px; }
+.dp-ghead { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; } .dp-ghead b { font-size: 15px; font-weight: 600; } .dp-ghead .muted { font-size: 12.5px; }
+.dp-row { display: grid; grid-template-columns: minmax(0, 1fr) 92px; column-gap: 16px; align-items: center; }
+.dp-tiles { display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); gap: 3px; }
+.dp-ax span { font-size: 12px; color: var(--ink2); text-align: center; white-space: nowrap; overflow: visible; } .dp-ax span.sel { color: var(--accent); font-weight: 700; }
+.dp-tile { position: relative; aspect-ratio: 1 / 1; border-radius: 6px; cursor: pointer; }
+.dp-tile.g { background: #3DD68C; } .dp-tile.a { background: #F5B841; } .dp-tile.r { background: #E8584A; }
+.dp-tile.x { background: repeating-linear-gradient(135deg, #E8584A 0 4px, #70302F 4px 8px); }
+.dp-tile.lite { opacity: .55; } .dp-tile.past { filter: saturate(.5); opacity: .6; }
+.dp-tile.sel { box-shadow: 0 0 0 2px var(--ink); z-index: 2; opacity: 1; }
+.dp-pop { display: none; position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); z-index: 20; background: #EAF1F6; color: #0E1A24; border-radius: 9px; padding: 8px 12px; white-space: nowrap; flex-direction: column; align-items: flex-start; gap: 1px; box-shadow: 0 6px 18px rgba(0,0,0,.45); text-align: left; }
+.dp-pop::after { content: ""; position: absolute; top: 100%; left: 50%; margin-left: -6px; border: 6px solid transparent; border-top-color: #EAF1F6; }
+.dp-tile.edgeL .dp-pop { left: 0; transform: none; } .dp-tile.edgeL .dp-pop::after { left: 14px; margin-left: 0; }
+.dp-tile.edgeR .dp-pop { left: auto; right: 0; transform: none; } .dp-tile.edgeR .dp-pop::after { left: auto; right: 14px; margin-left: 0; }
+.dp-tile:hover .dp-pop { display: flex; } .dp-tile:hover { z-index: 30; }
+.dp-pop .p1 { font-size: 12px; font-weight: 600; color: #4B6073; } .dp-pop .p2 { font-size: 20px; font-weight: 700; font-family: "Space Grotesk", sans-serif; line-height: 1.1; } .dp-pop .p3 { font-size: 12.5px; font-weight: 500; }
+.dp-rt { display: flex; flex-direction: column; gap: 3px; align-items: flex-start; } .dp-rt .pct { font: 700 22px "Space Grotesk", sans-serif; line-height: 1; }
+.dp-rt .bar { display: block; width: 100%; height: 5px; background: var(--line); border-radius: 3px; overflow: hidden; } .dp-rt .bar i { display: block; height: 100%; background: var(--accent); } .dp-rt .muted { font-size: 12px; }
+.dp-foot { margin-top: 6px; }
+@media (max-width: 760px) { .dp-goto { grid-template-columns: 1fr; } .dp-axr { display: none; } .dp-row { grid-template-columns: minmax(0, 1fr); row-gap: 8px; }
+  .dp-tiles { grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 4px; } .dp-tile { border-radius: 6px; } .dp-tile::after { content: attr(data-h); position: absolute; inset: 0; display: grid; place-items: center; font-size: 10.5px; font-weight: 700; color: rgba(10,26,18,.75); }
+  .dp-tile.x::after { color: #fff; } .dp-tile.sel::after { color: #0E1A24; }
+  .dp-tile.edgeL .dp-pop, .dp-tile.edgeR .dp-pop { left: 50%; right: auto; transform: translateX(-50%); } .dp-tile.edgeL .dp-pop::after, .dp-tile.edgeR .dp-pop::after { left: 50%; right: auto; margin-left: -6px; }
+  .dp-tile.eL .dp-pop { left: 0; transform: none; } .dp-tile.eL .dp-pop::after { left: 14px; margin-left: 0; } .dp-tile.eR .dp-pop { left: auto; right: 0; transform: none; } .dp-tile.eR .dp-pop::after { left: auto; right: 14px; margin-left: 0; }
+  .dp-rt { flex-direction: row; align-items: center; gap: 10px; } .dp-rt .bar { width: 90px; } .dp-rt .pct { font-size: 17px; } .dp-stbox { min-width: 170px; } }
 </style>
 </head>
 <body>
@@ -274,8 +317,11 @@ footer { color: var(--ink2); font-size: 12px; }
       <details class="more"><summary>Snow and forecast by mountain</summary><div class="tablewrap" id="mtn"></div><p class="note" id="mtnnote"></p></details>
     </section>
 
+    <section class="panel dp-goto" id="gotosec"></section>
+
     <section class="drive">
-      <div class="sechead"><h2>The drive</h2><div class="pills"><div class="seg" id="dirseg" role="group" aria-label="Direction on the line map"><button id="d-w" aria-label="Westbound, heading up">&larr; Westbound</button><div class="dirwrap" id="d-ewrap"><button id="d-e" aria-haspopup="menu" aria-label="Eastbound, heading home">Eastbound &rarr;</button><div class="dmenu" id="d-menu" role="menu" aria-label="Heading home from"></div></div></div><div class="seg" role="group" aria-label="Map style"><button id="b-line" class="on">Line map</button><button id="b-real">Real map</button></div></div></div>
+      <div class="sechead"><h2>The drive</h2><span class="dp-conf" id="dp-conf" hidden></span></div>
+      <div class="dp-ctrls"><div class="pills"><div class="seg" id="dirseg" role="group" aria-label="Direction on the line map"><button id="d-w" aria-label="Westbound, heading up">&larr; Westbound</button><div class="dirwrap" id="d-ewrap"><button id="d-e" aria-haspopup="menu" aria-label="Eastbound, heading home">Eastbound &rarr;</button><div class="dmenu" id="d-menu" role="menu" aria-label="Heading home from"></div></div></div><div class="seg" role="group" aria-label="Map style"><button id="b-line" class="on">Line map</button><button id="b-real">Real map</button></div></div><div class="dp-step" id="dp-step"></div></div>
       <div class="panel">
         <div id="linebox">
           <div id="linewrap"><div id="lineinner" role="img"></div></div>
@@ -818,7 +864,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     $("today").textContent = "Denver · " + new Date().toLocaleDateString("en-US", { timeZone: "America/Denver", weekday: "long", month: "short", day: "numeric" });
     const asof = $("asof"); asof.textContent = `Live · updated ${fmtTime(last)}`;
     if (ageMin > 50) { asof.textContent = `Updated ${fmtTime(last)}, ${ageMin} minutes old`; asof.className = "stale"; } else asof.className = "";
-    for (const f of [renderDayNav, renderVerdict, renderWays, renderCautions, renderResorts, renderDrive, renderStrips, renderWeek])
+    for (const f of [renderDayNav, renderVerdict, renderWays, renderCautions, renderResorts, renderGoto, renderDrive, renderStepper, renderCharts, renderWeek])
       try { f(); } catch (e) { console.error(e); }
   }
 
@@ -965,6 +1011,144 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const lg = el("div", "legend");
     [["under 5 min", 0], ["5 to 15", 5], ["15 to 30", 15], ["30 to 60", 30], ["60+", 60]].forEach(([x, v]) => { const sp = el("span"), sw = el("span", "sw"); sw.style.background = tone(v); sp.append(sw, x); lg.append(sp); });
     box.append(lg);
+  }
+
+
+  // ---- Going to, and the 24-hour drive-time charts ----------------------------------------------
+  // One model for every chart: free-flow minutes for the resort, plus the usual delay on I-70 and on its pass, by hour.
+  // Confidence is typical weekends logged (out of 6) for each stretch, weighted by drive time. Days like holidays we
+  // haven't seen yet are held at 25%.
+  const DP_UNSEEN = 0.25, DP_GENERIC = 0.12;
+  let selHour = null;
+  const dpIso = () => viewDays()[vday];
+  const dpDir = () => mapDir || (vday === 0 ? (denverHour() < 12 ? "W" : "E") : "W");
+  const dpHour = dir => selHour != null ? selHour : vday === 0 ? Math.min(23, Math.max(0, denverHour())) : dir === "W" ? 7 : 16;
+  const clock12 = h => `${h % 12 || 12} ${h < 12 ? "AM" : "PM"}`;
+  const clockS = h => `${h % 12 || 12}${h < 12 ? "a" : "p"}`;
+  const hmm = m => { m = Math.max(1, Math.round(m)); return `${Math.floor(m / 60)}:${String(m % 60).padStart(2, "0")}`; };
+  // Usual extra minutes on one stretch at one hour: the logged slots when that weekday has them, else the known pattern.
+  function dpDelay(kind, rk, dir, iso, h) {
+    const m = D.model || {}, dow = pyDow(iso), hol = holidayOn(m, iso), lift = busyLift(m, iso), hh = String(h).padStart(2, "0");
+    const slots = (kind === "i70" ? m.slots : m.route_slots) || {};
+    const keys = ["00", "30"].map(x => kind === "i70" ? `${dow}-${hh}${x}-${dir}` : `${rk}-${dir}-${dow}-${hh}${x}`);
+    const got = keys.map(k => slots[k]).filter(x => x && x.median != null);
+    if (got.length && !hol) {
+      const n = got.reduce((a, x) => a + (x.n || 0), 0) / got.length;
+      return { v: got.reduce((a, x) => a + x.median, 0) / got.length, conf: Math.min(1, n / 6), n };
+    }
+    const gen = kind === "i70" ? (((m.generic || {})[dir] || {})[dow] || {}) : (((m.routes || {})[rk] || {}).generic || {})[dow] || {};
+    return { v: (gen[h] || 0) * lift, conf: hol ? DP_UNSEEN : DP_GENERIC, n: 0 };
+  }
+  function tripAt(key, dir, iso, h) {
+    const R = RESORTS[key], via = VIA_ROUTE[key], free = Math.max(20, R.hrs * 60);
+    const parts = [];
+    if (R.westLon != null) parts.push({ w: via ? free * 0.75 : free, d: dpDelay("i70", null, dir, iso, h) });
+    if (via) parts.push({ w: R.westLon != null ? free * 0.25 : free, d: dpDelay("route", via, dir, iso, h) });
+    if (!parts.length) parts.push({ w: free, d: { v: 0, conf: DP_GENERIC, n: 0 } });
+    const extra = parts.reduce((a, x) => a + x.d.v, 0), W = parts.reduce((a, x) => a + x.w, 0);
+    const conf = parts.reduce((a, x) => a + x.w * x.d.conf, 0) / W, n = parts.reduce((a, x) => a + x.w * x.d.n, 0) / W;
+    return { free, extra, minutes: free + extra, pct: extra / free, conf: Math.max(0.1, conf), n };
+  }
+  const dpTone = p => p < 0.12 ? "g" : p <= 0.30 ? "a" : "r";
+  // Is the resort's road closed in this direction (a closure COtrip lists now, or one planned for that day)?
+  function dpClosed(key, dir, iso) {
+    const R = RESORTS[key], evs = vday === 0 ? D.ctx.events : plannedOn(iso, true);
+    const hit = evs.filter(e => isClosure(e) && forDir(e, dir) && onRoute(R, e.route, e.mp_start, e.mp_end));
+    if (!hit.length) return null;
+    const start = Math.min(...hit.map(e => { if (vday === 0 || !e.began) return 0; return +new Date(e.began).toLocaleString("en-US", { timeZone: "America/Denver", hour: "numeric", hour12: false }) % 24; }));
+    return { from: start, titles: hit.map(e => e.title.replace(/\.$/, "")) };
+  }
+  const dpOrigin = () => {
+    const rk = k => { const i = (D.ranked || []).findIndex(r => r.key === k); return i < 0 ? 99 : i; };
+    const list = ORIGINS.filter(o => !RESORTS[o.key] || shown(o.key)).sort((a, b) => rk(a.key) - rk(b.key));
+    if (!origin || !list.some(o => o.key === origin)) { const top = (D.ranked || []).find(r => list.some(o => o.key === r.key)); origin = top ? top.key : (list[0] || ORIGINS[0]).key; }
+    return list;
+  };
+  function dpBest() {
+    const F = fut();
+    if (!F) { const t = (D.ranked || [])[0]; return t ? t.key : null; }
+    const W = weekInputs(), i = W ? W.outlook.days.indexOf(F) : -1; if (i < 0) return null;
+    const open = Object.keys(RESORTS).filter(shown).map(k => dayScore(k, i, W)).filter(x => x && !x.closed).sort((a, b) => b.score - a.score);
+    return open[0] ? open[0].key : null;
+  }
+  function renderGoto() {
+    const box = $("gotosec"); box.replaceChildren();
+    const list = dpOrigin(), dir = dpDir(), best = dpBest(), F = fut();
+    const R = RESORTS[origin] || { name: (ORIGINS.find(o => o.key === origin) || {}).name };
+    const left = el("div", "dp-trip"); left.append(el("div", "kick", dir === "W" ? "GOING TO" : "COMING HOME FROM"), el("h2", "", R.name || origin),
+      el("p", "note", dir === "W" ? "Every ski day starts and ends at Coors Field. This choice drives the map, the drive times and the charts below." : "Every ski day starts and ends at Coors Field. This choice drives the map and charts, and where the trip home starts."));
+    const pills = el("div", "dp-rpills");
+    list.forEach(o => {
+      const k = o.key, r = (D.ranked || []).find(x => x.key === k), open = !RESORTS[k] || isOpen(D.ctx, k);
+      let sub;
+      if (F) { const W = weekInputs(), i = W ? W.outlook.days.indexOf(F) : -1, sc = i >= 0 && RESORTS[k] ? dayScore(k, i, W) : null; sub = !sc ? "No forecast" : sc.closed ? "Not open" : `${Math.round(sc.snow)}″ forecast`; }
+      else if (!open) { const st = D.ctx.status[k] || {}, op = st.open === false ? opensOf(st) : null; sub = op ? `Opens ${+op.slice(5, 7)}/${+op.slice(8)}` : "Not open yet"; }
+      else { const st = D.ctx.status[k] || {}; sub = `${r ? r.new24 : 0}″ new` + (st.lifts ? ` · ${st.lifts.replace(" of ", "/")} lifts` : ""); }
+      const b = el("button", "dp-rpill" + (k === origin ? " on" : "") + (open ? "" : " dim"));
+      if (k === best) b.append(el("span", "bp", "Best pick"));
+      b.append(el("b", "", o.name), el("small", "", sub)); b.setAttribute("aria-pressed", k === origin);
+      b.onclick = () => { origin = k; try { localStorage.setItem("ski-origin", k); } catch (e) {} render(); };
+      pills.append(b);
+    });
+    box.append(left, pills);
+  }
+  // The hour stepper in the drive header.
+  function renderStepper() {
+    const box = $("dp-step"); box.replaceChildren();
+    const dir = dpDir(), h = dpHour(dir), org = ORIGINS.find(o => o.key === origin) || ORIGINS[0];
+    const lab = el("label", "", `${dir === "W" ? "Leaving Coors" : "Leaving " + org.name} at ${clock12(h)}`); lab.htmlFor = "dp-range";
+    const rng = el("input"); rng.type = "range"; rng.min = 0; rng.max = 23; rng.step = 1; rng.value = h; rng.id = "dp-range"; rng.setAttribute("aria-label", "Departure hour");
+    rng.oninput = () => { selHour = +rng.value; renderStepper(); renderCharts(); };
+    const tk = el("div", "dp-ticks"); ["12a", "6a", "12p", "6p", "11p"].forEach(x => tk.append(el("span", "", x)));
+    const mid = el("div", "dp-stbox"); mid.append(lab, rng, tk);
+    const step = d => () => { selHour = Math.max(0, Math.min(23, dpHour(dir) + d)); renderStepper(); renderCharts(); };
+    const pb = el("button", "", "‹"), nb = el("button", "", "›"); pb.setAttribute("aria-label", "Earlier hour"); nb.setAttribute("aria-label", "Later hour"); pb.onclick = step(-1); nb.onclick = step(1);
+    box.append(pb, mid, nb);
+  }
+  function chartKeys() {
+    const out = []; [origin, "copper", "eldora"].forEach(k => { if (k && !out.includes(k) && (RESORTS[k] ? shown(k) : false)) out.push(k); });
+    if (origin && !out.includes(origin) && !RESORTS[origin]) out.unshift(origin);
+    return out;
+  }
+  function renderCharts() {
+    const box = $("stripbox"); box.replaceChildren();
+    const dir = dpDir(), iso = dpIso(), h = dpHour(dir), keys = chartKeys(), F = fut();
+    const dname = dir === "W" ? "westbound" : "eastbound";
+    const hd = el("div", "dp-chead"); hd.append(el("h2", "", `Expected drive time at ${clock12(h)} ${dname}`));
+    box.append(hd, el("p", "note", `${dayLabel(vday)}${F ? ", " : ", "}${new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", month: "short", day: "numeric" })}. Each box is one departure hour. Hover or tap a box for its drive time. Pick an hour with the slider above or by clicking a box.`));
+    const lg = el("div", "legend"); [["#3DD68C", "Under 12% over empty road"], ["#F5B841", "12 to 30%"], ["#E8584A", "Over 30%"]].forEach(([c, t]) => { const sp = el("span"), sw = el("span", "lsw"); sw.style.background = c; sp.append(sw, t); lg.append(sp); });
+    box.append(lg);
+    const nowH = vday === 0 ? denverHour() : -1;
+    let headConf = null;
+    keys.forEach((k, ci) => {
+      const R = RESORTS[k] || { name: k }, open = !RESORTS[k] || isOpen(D.ctx, k), grp = el("div", "dp-grp");
+      const trips = []; for (let x = 0; x < 24; x++) trips.push(tripAt(k, dir, iso, x));
+      const org = ORIGINS.find(o => o.key === k), name = (org || R).name || R.name;
+      const cl = dpClosed(k, dir, iso), cur = trips[h];
+      if (ci === 0) headConf = cur;
+      const tierW = tierOf(Math.round(cur.n));
+      const gh = el("div", "dp-ghead"); gh.append(el("b", "", dir === "W" ? `Coors Field to ${name}` : `${name} to Coors Field`),
+        el("span", "muted", (R.via ? "via " + R.via : "") + (open ? "" : " · not open yet") + ` · ${tierW === "Estimate" ? "Estimate" : tierW}`));
+      const row = el("div", "dp-row"), tiles = el("div", "dp-tiles dp-ax");
+      for (let x = 0; x < 24; x++) { const show = x === h || (x % 3 === 0 && Math.abs(x - h) > 1); const sp = el("span", x === h ? "sel" : "", show ? clockS(x) : ""); tiles.append(sp); }
+      const ax = el("div", "dp-row dp-axrow"); ax.append(tiles);
+      const tl = el("div", "dp-tiles");
+      trips.forEach((t, x) => {
+        const closed = cl && x >= cl.from, c = el("div", "dp-tile " + (closed ? "x" : dpTone(t.pct)) + (x === h ? " sel" : "") + (x < 5 || x >= 20 ? " lite" : "") + (x < nowH ? " past" : "") + (x < 4 ? " edgeL" : x > 19 ? " edgeR" : "") + (x % 12 < 2 ? " eL" : x % 12 > 9 ? " eR" : ""));
+        c.dataset.h = clockS(x);
+        const pop = el("div", "dp-pop");
+        pop.append(el("span", "p1", clock12(x) + (x === nowH ? " · now" : x < nowH ? " · passed" : "")), el("span", "p2", closed ? "Closed" : hmm(t.minutes)),
+          el("span", "p3", closed ? cl.titles[0] : t.extra < 1 ? "about the same as an empty road" : `+${Math.round(t.extra)} min vs empty road`));
+        c.append(pop); c.onclick = () => { selHour = x; renderStepper(); renderCharts(); };
+        tl.append(c);
+      });
+      const rt = el("div", "dp-rt"), bar = el("span", "bar"), fill = el("i"); fill.style.width = Math.round(cur.conf * 100) + "%"; bar.append(fill);
+      rt.append(el("span", "pct", Math.round(cur.conf * 100) + "%"), bar, el("span", "muted", "confidence"));
+      row.append(tl, rt); const axr = el("div", "dp-row dp-axr"); axr.append(tiles, el("span"));
+      grp.append(gh, axr, row); box.append(grp);
+    });
+    box.append(el("p", "note dp-foot", "Lighter boxes before 5 AM and after 8 PM lean on I-70 sensors and the known pattern; TomTom isn't logged then. Confidence is how many typical weekends we have logged for each stretch, out of 6. Closed boxes follow COtrip's closure for that direction."));
+    const pill = $("dp-conf"); if (headConf) { pill.hidden = false; pill.textContent = `${F ? "Forecast confidence" : "Confidence"} ${Math.round(headConf.conf * 100)}%`; }
   }
 
   function renderVerdict() {
