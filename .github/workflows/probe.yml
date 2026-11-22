@@ -1,0 +1,22 @@
+name: probe
+on:
+  push:
+    branches: [probe]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    env:
+      CDOT_API_KEY: ${{ secrets.CDOT_API_KEY }}
+      TOMTOM_API_KEY: ${{ secrets.TOMTOM_API_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+      - run: python3 probe.py
+      - run: |
+          git config user.name probe; git config user.email probe
+          git add -f probe_out
+          git commit -q -m "probe result [skip ci]" || exit 0
+          git pull -q --rebase origin probe || true
+          git push origin HEAD:probe
