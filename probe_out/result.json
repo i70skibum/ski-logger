@@ -1,0 +1,1133 @@
+{
+ "routes": {
+  "plain": {
+   "status": 200,
+   "km": 47.0,
+   "live_min": 33.9,
+   "free_min": 33.6,
+   "path": [
+    [
+     39.757,
+     -104.995
+    ],
+    [
+     39.7557,
+     -104.996
+    ],
+    [
+     39.7606,
+     -105.0036
+    ],
+    [
+     39.7537,
+     -105.015
+    ],
+    [
+     39.7437,
+     -105.0166
+    ],
+    [
+     39.7366,
+     -105.0144
+    ],
+    [
+     39.7259,
+     -105.0146
+    ],
+    [
+     39.7257,
+     -105.0295
+    ],
+    [
+     39.7257,
+     -105.0598
+    ],
+    [
+     39.7255,
+     -105.1096
+    ],
+    [
+     39.7254,
+     -105.159
+    ],
+    [
+     39.7255,
+     -105.1829
+    ],
+    [
+     39.7134,
+     -105.1936
+    ],
+    [
+     39.6962,
+     -105.208
+    ],
+    [
+     39.6984,
+     -105.2277
+    ],
+    [
+     39.7034,
+     -105.2476
+    ],
+    [
+     39.706,
+     -105.2754
+    ],
+    [
+     39.7144,
+     -105.3115
+    ],
+    [
+     39.7027,
+     -105.3291
+    ],
+    [
+     39.7107,
+     -105.3506
+    ],
+    [
+     39.7159,
+     -105.374
+    ],
+    [
+     39.7162,
+     -105.3915
+    ],
+    [
+     39.7179,
+     -105.399
+    ],
+    [
+     39.722,
+     -105.4109
+    ],
+    [
+     39.7302,
+     -105.4251
+    ],
+    [
+     39.7398,
+     -105.4302
+    ]
+   ]
+  },
+  "via_i70_golden": {
+   "status": 200,
+   "km": 51.7,
+   "live_min": 41.0,
+   "free_min": 40.5,
+   "path": [
+    [
+     39.757,
+     -104.995
+    ],
+    [
+     39.7587,
+     -104.9927
+    ],
+    [
+     39.7671,
+     -104.9945
+    ],
+    [
+     39.7785,
+     -104.9889
+    ],
+    [
+     39.7824,
+     -104.9972
+    ],
+    [
+     39.784,
+     -105.0219
+    ],
+    [
+     39.7851,
+     -105.0497
+    ],
+    [
+     39.7863,
+     -105.0727
+    ],
+    [
+     39.7838,
+     -105.0986
+    ],
+    [
+     39.7813,
+     -105.134
+    ],
+    [
+     39.7811,
+     -105.1392
+    ],
+    [
+     39.7782,
+     -105.1417
+    ],
+    [
+     39.7608,
+     -105.1434
+    ],
+    [
+     39.7315,
+     -105.17
+    ],
+    [
+     39.7186,
+     -105.1893
+    ],
+    [
+     39.6964,
+     -105.2077
+    ],
+    [
+     39.6986,
+     -105.2353
+    ],
+    [
+     39.7046,
+     -105.2557
+    ],
+    [
+     39.71,
+     -105.2936
+    ],
+    [
+     39.7062,
+     -105.3238
+    ],
+    [
+     39.7107,
+     -105.3506
+    ],
+    [
+     39.7149,
+     -105.3788
+    ],
+    [
+     39.7163,
+     -105.3919
+    ],
+    [
+     39.7213,
+     -105.408
+    ],
+    [
+     39.7286,
+     -105.423
+    ],
+    [
+     39.74,
+     -105.4301
+    ]
+   ]
+  },
+  "via_genesee": {
+   "status": 200,
+   "km": 51.5,
+   "live_min": 43.8,
+   "free_min": 43.5,
+   "path": [
+    [
+     39.757,
+     -104.995
+    ],
+    [
+     39.7564,
+     -104.9969
+    ],
+    [
+     39.7608,
+     -105.0059
+    ],
+    [
+     39.7471,
+     -105.0184
+    ],
+    [
+     39.7399,
+     -105.0141
+    ],
+    [
+     39.7262,
+     -105.0145
+    ],
+    [
+     39.7257,
+     -105.0305
+    ],
+    [
+     39.7256,
+     -105.079
+    ],
+    [
+     39.7254,
+     -105.1252
+    ],
+    [
+     39.7254,
+     -105.179
+    ],
+    [
+     39.7186,
+     -105.1893
+    ],
+    [
+     39.6968,
+     -105.2073
+    ],
+    [
+     39.6985,
+     -105.2333
+    ],
+    [
+     39.7046,
+     -105.2546
+    ],
+    [
+     39.71,
+     -105.2925
+    ],
+    [
+     39.7059,
+     -105.281
+    ],
+    [
+     39.7013,
+     -105.2825
+    ],
+    [
+     39.7082,
+     -105.2849
+    ],
+    [
+     39.713,
+     -105.3051
+    ],
+    [
+     39.7023,
+     -105.3299
+    ],
+    [
+     39.7123,
+     -105.3557
+    ],
+    [
+     39.715,
+     -105.3812
+    ],
+    [
+     39.7159,
+     -105.3932
+    ],
+    [
+     39.7221,
+     -105.4092
+    ],
+    [
+     39.7294,
+     -105.4242
+    ],
+    [
+     39.7402,
+     -105.4302
+    ]
+   ]
+  },
+  "via_i25_i70": {
+   "status": 200,
+   "km": 50.7,
+   "live_min": 35.6,
+   "free_min": 35.2,
+   "path": [
+    [
+     39.757,
+     -104.995
+    ],
+    [
+     39.7584,
+     -104.9923
+    ],
+    [
+     39.767,
+     -104.9947
+    ],
+    [
+     39.777,
+     -104.9891
+    ],
+    [
+     39.7814,
+     -104.9935
+    ],
+    [
+     39.7837,
+     -105.0159
+    ],
+    [
+     39.7836,
+     -105.044
+    ],
+    [
+     39.7836,
+     -105.067
+    ],
+    [
+     39.7856,
+     -105.0834
+    ],
+    [
+     39.7843,
+     -105.1164
+    ],
+    [
+     39.7782,
+     -105.1417
+    ],
+    [
+     39.7618,
+     -105.1433
+    ],
+    [
+     39.7341,
+     -105.1668
+    ],
+    [
+     39.7207,
+     -105.1867
+    ],
+    [
+     39.6995,
+     -105.2046
+    ],
+    [
+     39.6983,
+     -105.2264
+    ],
+    [
+     39.7035,
+     -105.2484
+    ],
+    [
+     39.7087,
+     -105.2824
+    ],
+    [
+     39.7133,
+     -105.3146
+    ],
+    [
+     39.7038,
+     -105.3412
+    ],
+    [
+     39.7134,
+     -105.3674
+    ],
+    [
+     39.7159,
+     -105.3891
+    ],
+    [
+     39.7172,
+     -105.3979
+    ],
+    [
+     39.7221,
+     -105.4117
+    ],
+    [
+     39.7323,
+     -105.4265
+    ],
+    [
+     39.7415,
+     -105.432
+    ]
+   ]
+  }
+ },
+ "flow": {
+  "i25_a": {
+   "status": 200,
+   "pt": [
+    39.8038,
+    -104.9834
+   ],
+   "frc": "FRC0",
+   "cur": 68,
+   "free": 68,
+   "conf": 1,
+   "snap_m": 2,
+   "n": 60,
+   "seg": [
+    [
+     39.7878,
+     -104.9891
+    ],
+    [
+     39.7921,
+     -104.9882
+    ],
+    [
+     39.7963,
+     -104.9871
+    ],
+    [
+     39.8017,
+     -104.9845
+    ]
+   ]
+  },
+  "i25_b": {
+   "status": 200,
+   "pt": [
+    39.8277,
+    -104.9912
+   ],
+   "frc": "FRC2",
+   "cur": 65,
+   "free": 65,
+   "conf": 1,
+   "snap_m": 1,
+   "n": 41,
+   "seg": [
+    [
+     39.8277,
+     -104.9907
+    ],
+    [
+     39.8277,
+     -104.9937
+    ],
+    [
+     39.8281,
+     -104.9966
+    ],
+    [
+     39.83,
+     -105.003
+    ],
+    [
+     39.8323,
+     -105.0111
+    ]
+   ]
+  },
+  "us36_a": {
+   "status": 200,
+   "pt": [
+    39.854,
+    -105.0513
+   ],
+   "frc": "FRC2",
+   "cur": 73,
+   "free": 73,
+   "conf": 1,
+   "snap_m": 4,
+   "n": 45,
+   "seg": [
+    [
+     39.8493,
+     -105.0467
+    ],
+    [
+     39.8533,
+     -105.0506
+    ],
+    [
+     39.8587,
+     -105.0542
+    ],
+    [
+     39.8683,
+     -105.0587
+    ],
+    [
+     39.872,
+     -105.0606
+    ]
+   ]
+  },
+  "us36_b": {
+   "status": 200,
+   "pt": [
+    39.9134,
+    -105.0902
+   ],
+   "frc": "FRC2",
+   "cur": 75,
+   "free": 75,
+   "conf": 1,
+   "snap_m": 5,
+   "n": 74,
+   "seg": [
+    [
+     39.903,
+     -105.0824
+    ],
+    [
+     39.9081,
+     -105.0862
+    ],
+    [
+     39.9131,
+     -105.0898
+    ],
+    [
+     39.9166,
+     -105.0945
+    ],
+    [
+     39.9197,
+     -105.1012
+    ]
+   ]
+  },
+  "us36_c": {
+   "status": 200,
+   "pt": [
+    39.9469,
+    -105.1486
+   ],
+   "frc": "FRC2",
+   "cur": 68,
+   "free": 68,
+   "conf": 1,
+   "snap_m": 2,
+   "n": 121,
+   "seg": [
+    [
+     39.943,
+     -105.1426
+    ],
+    [
+     39.9495,
+     -105.1525
+    ],
+    [
+     39.9522,
+     -105.156
+    ],
+    [
+     39.9554,
+     -105.1603
+    ],
+    [
+     39.9594,
+     -105.1693
+    ]
+   ]
+  },
+  "us36_d": {
+   "status": 200,
+   "pt": [
+    39.9801,
+    -105.2206
+   ],
+   "frc": "FRC2",
+   "cur": 69,
+   "free": 69,
+   "conf": 1,
+   "snap_m": 5,
+   "n": 217,
+   "seg": [
+    [
+     39.9594,
+     -105.1693
+    ],
+    [
+     39.9644,
+     -105.1823
+    ],
+    [
+     39.9705,
+     -105.1978
+    ],
+    [
+     39.9801,
+     -105.2206
+    ],
+    [
+     39.9879,
+     -105.2371
+    ]
+   ]
+  },
+  "i70_a": {
+   "status": 200,
+   "pt": [
+    39.7835,
+    -105.0662
+   ],
+   "frc": "FRC0",
+   "cur": 65,
+   "free": 65,
+   "conf": 1,
+   "snap_m": 5,
+   "n": 130,
+   "seg": [
+    [
+     39.7841,
+     -105.0283
+    ],
+    [
+     39.7836,
+     -105.0429
+    ],
+    [
+     39.7851,
+     -105.0484
+    ],
+    [
+     39.7838,
+     -105.0529
+    ],
+    [
+     39.7835,
+     -105.0658
+    ]
+   ]
+  },
+  "i70_b": {
+   "status": 200,
+   "pt": [
+    39.7794,
+    -105.1392
+   ],
+   "frc": "FRC0",
+   "cur": 68,
+   "free": 68,
+   "conf": 1,
+   "snap_m": 3,
+   "n": 44,
+   "seg": [
+    [
+     39.7801,
+     -105.1373
+    ],
+    [
+     39.7786,
+     -105.1411
+    ],
+    [
+     39.777,
+     -105.1428
+    ],
+    [
+     39.7754,
+     -105.1434
+    ]
+   ]
+  },
+  "co58_a": {
+   "status": 200,
+   "pt": [
+    39.7733,
+    -105.1729
+   ],
+   "frc": "FRC2",
+   "cur": 68,
+   "free": 68,
+   "conf": 1,
+   "snap_m": 4,
+   "n": 88,
+   "seg": [
+    [
+     39.7752,
+     -105.154
+    ],
+    [
+     39.7749,
+     -105.1599
+    ],
+    [
+     39.7744,
+     -105.1645
+    ],
+    [
+     39.7736,
+     -105.17
+    ]
+   ]
+  },
+  "co58_b": {
+   "status": 200,
+   "pt": [
+    39.7664,
+    -105.2104
+   ],
+   "frc": "FRC2",
+   "cur": 55,
+   "free": 55,
+   "conf": 1,
+   "snap_m": 3,
+   "n": 161,
+   "seg": [
+    [
+     39.7723,
+     -105.1805
+    ],
+    [
+     39.7693,
+     -105.1996
+    ],
+    [
+     39.7644,
+     -105.2144
+    ],
+    [
+     39.761,
+     -105.2244
+    ],
+    [
+     39.7547,
+     -105.2363
+    ]
+   ]
+  }
+ },
+ "cdot": {
+  "cameras": {
+   "status": 404,
+   "ct": "",
+   "raw": "{\"code\":404,\"message\":\"The current request is not defined by this API.\"}"
+  },
+  "camera": {
+   "status": 404,
+   "ct": "",
+   "raw": "{\"code\":404,\"message\":\"The current request is not defined by this API.\"}"
+  },
+  "plows": {
+   "status": 404,
+   "ct": "",
+   "raw": "{\"code\":404,\"message\":\"The current request is not defined by this API.\"}"
+  },
+  "snowPlows": {
+   "status": 200,
+   "ct": "application/json",
+   "count": 3,
+   "first": {
+    "avl_location": {
+     "vehicle": {
+      "id": "b783",
+      "id2": "G9FZ3DBP7WAY",
+      "fleet": "Heavy",
+      "type": "Snow Plow",
+      "sub_type": "SNOW PLOW"
+     },
+     "position": {
+      "latitude": 39.7350769,
+      "longitude": -104.329948,
+      "bearing": 323,
+      "speed": 0.0,
+      "odometer": null
+     },
+     "confidence": null,
+     "current_status": {
+      "state": "Active",
+      "info": "Parked"
+     },
+     "additional_info": [
+      {
+       "name": "name",
+       "value": "70000963 - SNOW PLOW"
+      },
+      {
+       "name": "displayName",
+       "value": null
+      }
+     ],
+     "source": {
+      "name": "Geotab",
+      "collection_timestamp": 1795212864.0
+     }
+    },
+    "rtdh_message_id": "2be0f239-a8d9-4a97-b73b-c1a6ab7f9695",
+    "rtdh_timestamp": 1795219388.1076844
+   }
+  },
+  "snowplows": {
+   "status": 404,
+   "ct": "",
+   "raw": "{\"code\":404,\"message\":\"The current request is not defined by this API.\"}"
+  },
+  "plowTrucks": {
+   "status": 404,
+   "ct": "",
+   "raw": "{\"code\":404,\"message\":\"The current request is not defined by this API.\"}"
+  },
+  "avl": {
+   "status": 404,
+   "ct": "",
+   "raw": "{\"code\":404,\"message\":\"The current request is not defined by this API.\"}"
+  },
+  "maintenanceVehicles": {
+   "status": 404,
+   "ct": "",
+   "raw": "{\"code\":404,\"message\":\"The current request is not defined by this API.\"}"
+  },
+  "weatherStations": {
+   "status": 200,
+   "ct": "application/json",
+   "count": 3,
+   "first": {
+    "type": "Feature",
+    "geometry": {
+     "coordinates": [
+      -106.985183,
+      39.330905
+     ],
+     "type": "Point",
+     "srid": 4326
+    },
+    "properties": {
+     "name": "082E02670RWS1SWC @ Snowmass Creek Rd/CR-11 CAM",
+     "sensors": [
+      {
+       "name": "Sensor-519563",
+       "id": "Sensor-519563",
+       "type": "road surface sensor error",
+       "currentReading": "other"
+      },
+      {
+       "name": "Sensor-519582",
+       "id": "Sensor-519582",
+       "type": "road subsurface sensor error",
+       "currentReading": "other"
+      },
+      {
+       "name": "Sensor-519566",
+       "id": "Sensor-519566",
+       "type": "road surface type",
+       "currentReading": "concrete"
+      },
+      {
+       "name": "Sensor-519574",
+       "id": "Sensor-519574",
+       "type": "road surface sensor error",
+       "currentReading": "other"
+      },
+      {
+       "name": "Sensor-519575",
+       "id": "Sensor-519575",
+       "type": "road surface sensor type",
+       "currentReading": "other"
+      },
+      {
+       "name": "Sensor-519576",
+       "id": "Sensor-519576",
+       "type": "road surface status",
+       "currentReading": "1"
+      },
+      {
+       "name": "Sensor-519577",
+       "id": "Sensor-519577",
+       "type": "road surface type",
+       "currentReading": "asphalt"
+      },
+      {
+       "name": "Sensor-519564",
+       "id": "Sensor-519564",
+       "type": "road surface sensor type",
+       "currentReading": "other"
+      },
+      {
+       "name": "Sensor-519543",
+       "id": "Sensor-519543",
+       "type": "precipitation situation",
+       "currentReading": "no precipitation"
+      },
+      {
+       "name": "Sensor-519549",
+       "id": "Sensor-519549",
+       "type": "precipitation present",
+       "currentReading": "false"
+      },
+      {
+       "name": "Sensor-519536",
+       "id": "Sensor-519536",
+       "type": "spot wind speed",
+       "currentReading": "2.60"
+      },
+      {
+       "name": "Sensor-519529",
+       "id": "Sensor-519529",
+       "type": "dew point",
+       "currentReading": "-13.90"
+      },
+      {
+       "name": "Sensor-519524",
+       "id": "Sensor-519524",
+       "type": "temperature",
+       "currentReading": "-12.10"
+      },
+      {
+       "name": "Sensor-519533",
+       "id": "Sensor-519533",
+       "type": "average wind direction",
+       "currentReading": "N"
+      },
+      {
+       "name": "Sensor-519532",
+       "id": "Sensor-519532",
+       "type": "average wind speed",
+       "currentReading": "1.80"
+      },
+      {
+       "name": "Sensor-519534",
+       "id": "Sensor-519534",
+       "type": "gust wind speed",
+       "currentReading": "2.90"
+      },
+      {
+       "name": "Sensor-519550",
+       "id": "Sensor-519550",
+       "type": "wet bulb temperature",
+       "currentReading": "-12.40"
+      },
+      {
+       "name": "Sensor-519537",
+       "id": "Sensor-519537",
+       "type": "spot wind direction",
+       "currentReading": "N"
+      },
+      {
+       "name": "Sensor-519535",
+       "id": "Sensor-519535",
+       "type": "gust wind direction",
+       "currentReading": "N"
+      },
+      {
+       "name": "Sensor-519547",
+       "id": "Sensor-519547",
+       "type": "precipitation accumulation 12hr",
+       "currentReading": "0.00"
+      },
+      {
+       "name": "Sensor-519548",
+       "id": "Sensor-519548",
+       "type": "precipitation accumulation 24hr",
+       "currentReading": "0.00"
+      },
+      {
+       "name": "Sensor-519541",
+       "id": "Sensor-519541",
+       "type": "precipitation end time",
+       "currentReading": "2026-11-22T03:19:06.000Z"
+      },
+      {
+       "name": "Sensor-519540",
+       "id": "Sensor-519540",
+       "type": "precipitation start time",
+       "currentReading": "2026-11-22T03:18:05.000Z"
+      },
+      {
+       "name": "Sensor-519565",
+       "id": "Sensor-519565",
+       "type": "road surface status",
+       "currentReading": "1"
+      },
+      {
+       "name": "Sensor-519545",
+       "id": "Sensor-519545",
+       "type": "precipitation accumulation 3hr",
+       "currentReading": "0.00"
+      },
+      {
+       "name": "Sensor-519525",
+       "id": "Sensor-519525",
+       "type": "max temperature",
+       "currentReading": "2.90"
+      },
+      {
+       "name": "Sensor-519526",
+       "id": "Sensor-519526",
+       "type": "min temperature",
+       "currentReading": "-13.50"
+      },
+      {
+       "name": "Sensor-519528",
+       "id": "Sensor-519528",
+       "type": "humidity",
+       "currentReading": "86"
+      },
+      {
+       "name": "Sensor-519542",
+       "id": "Sensor-519542",
+       "type": "precipitation rate",
+       "currentReading": "0.00"
+      },
+      {
+       "name": "Sensor-519544",
+       "id": "Sensor-519544",
+       "type": "precipitation accumulation 1hr",
+       "currentReading": "0.00"
+      },
+      {
+       "name": "Sensor-519546",
+       "id": "Sensor-519546",
+       "type": "precipitation accumulation 6hr",
+       "currentReading": "0.00"
+      },
+      {
+       "name": "Sensor-519530",
+       "id": "Sensor-519530",
+       "type": "visibility",
+       "currentReading": "3379.60"
+      }
+     ],
+     "marker": "26.7",
+     "lastUpdated": "2026-11-22T14:15:18.011Z",
+     "nativeId": "50001587",
+     "direction": "e",
+     "publicName": "CO-82 026.70 Eastbound at Snowmass Creek Road/CR-11",
+     "routeName": "CO-82E",
+     "id": "OpenTMS-Weather519520",
+     "communicationStatus": "operational"
+    },
+    "attributes": {}
+   }
+  }
+ },
+ "web": {
+  "cars_cameras": {
+   "status": 200,
+   "ct": "application/json; charset=utf-8",
+   "len": 16,
+   "head": "{\"healthy\":true}"
+  },
+  "cars_plows": {
+   "status": 200,
+   "ct": "application/json; charset=utf-8",
+   "len": 15,
+   "head": "{\"features\":[]}"
+  },
+  "cars_root": {
+   "status": 200,
+   "ct": "application/json; charset=utf-8",
+   "len": 16,
+   "head": "{\"healthy\":true}"
+  },
+  "cotrip_terms": {
+   "status": 200,
+   "ct": "text/html",
+   "len": 9619,
+   "head": "<!doctype html>\n<html lang=\"en\">\n    <head>\n        <script>\n            ;(async () => {\n                try {\n                    const configData = await fetch(\"https://511.cotrip.org/configs/main.json?v=1.10.1\", {\n                        cache: \"no-store\",\n                    })\n                    window.cr_config = await configData.json()\n                    // Resolve the initial UI language (query param wins over\n                    // stored preference) so Google Maps renders its own chrome\n                    // (attribution, Terms, keyboard shortcuts, POI labels) in\n                    // the user's language. Mirrors src/utils/i18n/languageStorage.\n                    var crLang = "
+  },
+  "data_root": {
+   "status": 404,
+   "ct": "",
+   "len": 89,
+   "head": "\u001f\ufffd\b\u0000\u0000\u0000\u0000\u0000\u0002\ufffd\ufffdVJ\ufffdOIU\ufffd210\ufffdQ\ufffdM-.NL\u0007\ufffdB2R\u0015\ufffdK\ufffd\ufffdR\ufffdJ\u0014\ufffdR\u000bKS\ufffdK\u00142\ufffd\u0015\ufffd\ufffdK\u0014RR\ufffd2\ufffdRS\u0014\ufffd*\u0015J2\ufffdb\ufffd\u0001\ufffdzJ\ufffd\u0000\u001d\ufffdhLH\u0000\u0000\u0000"
+  },
+  "data_terms": {
+   "status": 404,
+   "ct": "",
+   "len": 72,
+   "head": "{\"code\":404,\"message\":\"The current request is not defined by this API.\"}"
+  }
+ }
+}
