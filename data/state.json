@@ -351,20 +351,6 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
-  "roadReports:CDOT-36515338919EB": {
-   "began": "2026-11-21T23:22:07-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36515338919EB",
-   "lat": 39.72546,
-   "lon": -105.08153,
-   "mp_end": "",
-   "mp_start": 280.8349999964121,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6 eastbound: Road closed.",
-   "type": "critical"
-  },
   "roadReports:CDOT-36516322659EB": {
    "began": "2026-11-22T00:35:03-07:00",
    "class": "roadReports",
@@ -1879,7 +1865,7 @@
   }
  },
  "forecast_last": "2026-11-22T07:45:53+00:00",
- "last_run": "2026-11-22T00:45:53-07:00",
+ "last_run": "2026-11-22T01:00:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-22": {
@@ -2535,7 +2521,7 @@
   "winterpark": "https://api.weather.gov/gridpoints/BOU/36,70",
   "wolfcreek": "https://api.weather.gov/gridpoints/PUB/15,36"
  },
- "outlook_last": "2026-11-22T05:00:47+00:00",
+ "outlook_last": "2026-11-22T08:00:47+00:00",
  "road_conditions": {
   "100": "3 - dry; 4s - wet in areas; 9 - icy spots",
   "101": "3 - dry; 4s - wet in areas; 9 - icy spots",
@@ -2634,9 +2620,9 @@
   "monarch": "2026-11-21 23:00",
   "powderhorn": "2026-11-21 23:00",
   "purgatory": "2026-11-21 23:00",
-  "steamboat": "2026-11-21 23:00",
+  "steamboat": "2026-11-22 00:00",
   "sunlight": "2026-11-21 23:00",
-  "telluride": "2026-11-21 22:00",
+  "telluride": "2026-11-21 23:00",
   "vail": "2026-11-21 23:00",
   "winterpark": "2026-11-21 23:00",
   "wolfcreek": "2026-11-21 23:00"

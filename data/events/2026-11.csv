@@ -1163,3 +1163,4 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-22T00:45:53-07:00,start,CDOT-36516322659EB,roadReports,routine,I-70,POSITIVE_DIRECTION,E,215.7093962048849,,I-70 eastbound: Left lane closed.,2026-11-22T00:35:03-07:00
 2026-11-22T00:45:53-07:00,end,CDOT-36515338919EB,roadClosures,critical,US 6,POSITIVE_DIRECTION,E,280.8349999964121,,US 6 eastbound: Road closed.,2026-11-21T23:22:07-07:00
 2026-11-22T00:45:53-07:00,end,CDOT-36515534699WB,roadReports,routine,I-70,NEGATIVE_DIRECTION,E,111.99829898985806,,I-70 westbound: Left lane closed.,2026-11-21T23:36:30-07:00
+2026-11-22T01:00:47-07:00,end,CDOT-36515338919EB,roadReports,critical,US 6,POSITIVE_DIRECTION,E,280.8349999964121,,US 6 eastbound: Road closed.,2026-11-21T23:22:07-07:00
