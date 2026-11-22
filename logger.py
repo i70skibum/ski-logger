@@ -1582,7 +1582,7 @@ def log_plows(state):
 def log_cameras(state):
     """data/cameras.json: the COtrip still cameras in the ski corridor, with their image links, for the dashboard."""
     last = state.get("cameras_last")
-    if last and NOW_UTC - datetime.fromisoformat(last) < CAMERAS_EVERY:
+    if last and state.get("cameras_v") == 2 and NOW_UTC - datetime.fromisoformat(last) < CAMERAS_EVERY:
         return "not due"
     data = fetch_json(CAMERAS_URL, {"Accept": "application/json"})
     cams = []
@@ -1593,8 +1593,14 @@ def log_cameras(state):
             continue
         if not (CAM_BOX["lat"][0] <= lat <= CAM_BOX["lat"][1] and CAM_BOX["lon"][0] <= lon <= CAM_BOX["lon"][1]):
             continue
-        views = [[v.get("name", ""), v["url"]] for v in p.get("views") or []
-                 if v.get("type") == "STILL_IMAGE" and v.get("url") and not v.get("broken")]
+        if not re.match(r"(I-|C-?470|US[ -]|CO[ -])", str(p.get("route") or "")):
+            continue    # city streets and county roads
+        views = []
+        for v in p.get("views") or []:
+            # Still cameras carry the picture itself; CDOT's video cameras carry a still preview of the stream.
+            img = v.get("url") if v.get("type") == "STILL_IMAGE" else v.get("videoPreviewUrl")
+            if img and not v.get("broken"):
+                views.append([v.get("name", ""), img])
         if views:
             cams.append({"id": p.get("id"), "name": p.get("name"), "route": p.get("route"),
                          "lat": round(lat, 5), "lon": round(lon, 5), "views": views})
@@ -1602,6 +1608,7 @@ def log_cameras(state):
     with open(os.path.join(DATA, "cameras.json"), "w") as f:
         json.dump({"updated": NOW_ISO, "source": "CDOT COtrip (cotrip.org)", "cameras": cams}, f, separators=(",", ":"))
     state["cameras_last"] = NOW_UTC.isoformat()
+    state["cameras_v"] = 2
     return f"{len(cams)} cameras"
 
 
