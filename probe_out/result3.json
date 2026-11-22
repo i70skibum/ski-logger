@@ -1,0 +1,252 @@
+{
+ "count": 1003,
+ "headers": {
+  "Content-Length": "829615"
+ },
+ "sample_full": {
+  "type": "Feature",
+  "geometry": {
+   "type": "Point",
+   "coordinates": [
+    -106.7848,
+    37.47636
+   ]
+  },
+  "properties": {
+   "type": "cameras",
+   "id": 21301,
+   "name": "US 160 MP 168.20 EB : 0.5 miles E of Wolf Creek Ski Area",
+   "tooltip": "US 160 MP 168.20 EB : 0.5 miles E of Wolf Creek Ski Area",
+   "public": true,
+   "route": "US 160",
+   "lastUpdated": 1795357252259,
+   "location": {
+    "fips": 8,
+    "routeId": "US 160",
+    "linearReference": 168.2,
+    "localRoad": false,
+    "cityReference": "15 miles west of the South Fork area"
+   },
+   "icon": "icon-camera-fill-solid",
+   "iconColor": "#707070",
+   "cameraOwner": "CDOT Cellular",
+   "views": [
+    {
+     "name": "Looking East",
+     "type": "STILL_IMAGE",
+     "url": "https://cocam.carsprogram.org/Cellular/160E16820CAM1RHS.jpg",
+     "imageTimestamp": 1795357205000,
+     "broken": false
+    }
+   ]
+  }
+ },
+ "near_count": 504,
+ "near_sample": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.75273,
+     39.856617
+    ]
+   },
+   "properties": {
+    "type": "cameras",
+    "id": 21310,
+    "name": "US 40 MP 234.60 EB : 0.1 miles E of Mary Jane Rd in Winter Park",
+    "tooltip": "US 40 MP 234.60 EB : 0.1 miles E of Mary Jane Rd in Winter Park",
+    "public": true,
+    "route": "US 40",
+    "lastUpdated": 1795126241575,
+    "location": {
+     "fips": 8,
+     "routeId": "US 40",
+     "linearReference": 234.6,
+     "localRoad": false,
+     "cityReference": "in Winter Park"
+    },
+    "icon": "icon-camera-fill-solid",
+    "iconColor": "#707070",
+    "cameraOwner": "CDOT Cellular",
+    "views": [
+     {
+      "name": "Looking East",
+      "type": "STILL_IMAGE",
+      "url": "https://cocam.carsprogram.org/Cellular/040E23460CAM1GP1-E.jpg",
+      "imageTimestamp": 1795021024000,
+      "broken": false
+     },
+     {
+      "name": "Looking West",
+      "type": "STILL_IMAGE",
+      "url": "https://cocam.carsprogram.org/Cellular/040E23460CAM1GP1-W.jpg",
+      "imageTimestamp": 1795021024000,
+      "broken": false
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -105.91787,
+     40.00566
+    ]
+   },
+   "properties": {
+    "type": "cameras",
+    "id": 21311,
+    "name": "US 40 MP 219.05 EB at Red Dirt Hill CR 53",
+    "tooltip": "US 40 MP 219.05 EB at Red Dirt Hill CR 53",
+    "public": true,
+    "route": "US 40",
+    "lastUpdated": 1795126241652,
+    "location": {
+     "fips": 8,
+     "routeId": "US 40",
+     "linearReference": 219.05,
+     "localRoad": false,
+     "cityReference": "near Granby"
+    },
+    "icon": "icon-camera-fill-solid",
+    "iconColor": "#707070",
+    "cameraOwner": "CDOT Cellular",
+    "views": [
+     {
+      "name": "Looking East",
+      "type": "STILL_IMAGE",
+      "url": "https://cocam.carsprogram.org/Cellular/040E21905CAM1RHS-E.jpg",
+      "imageTimestamp": 1795021023000,
+      "broken": false
+     },
+     {
+      "name": "Looking at Road Surface",
+      "type": "STILL_IMAGE",
+      "url": "https://cocam.carsprogram.org/Cellular/040E21905CAM1RHS-RoadSurface.jpg",
+      "imageTimestamp": 1795021023000,
+      "broken": false
+     },
+     {
+      "name": "Looking West",
+      "type": "STILL_IMAGE",
+      "url": "https://cocam.carsprogram.org/Cellular/040E21905CAM1RHS-W.jpg",
+      "imageTimestamp": 1795021024000,
+      "broken": false
+     }
+    ]
+   }
+  }
+ ],
+ "routes": [
+  "70",
+  "Broadway Blvd",
+  "C-470",
+  "C470",
+  "CO 112",
+  "CO 114",
+  "CO 115",
+  "CO 119",
+  "CO 121",
+  "CO 121/Wadsworth Boulevard",
+  "CO 128/120th Avenue",
+  "CO 13",
+  "CO 133",
+  "CO 135",
+  "CO 139",
+  "CO 14",
+  "CO 145",
+  "CO 149",
+  "CO 16/Mesa Ridge Parkway",
+  "CO 17",
+  "CO 172",
+  "CO 177/University Boulevard",
+  "CO 21/Powers Boulevard",
+  "CO 224/70th Avenue",
+  "CO 24",
+  "CO 391",
+  "CO 62",
+  "CO 65",
+  "CO 7",
+  "CO 71",
+  "CO 72",
+  "CO 74",
+  "CO 8/Morrison Road",
+  "CO 82",
+  "CO 83",
+  "CO 86",
+  "CO 88",
+  "CO 9",
+  "CO 91",
+  "CO 93",
+  "CO 94",
+  "CO-121",
+  "CO-24",
+  "County Line Rd",
+  "Highlands Ranch Pkwy",
+  "I-225",
+  "I-25",
+  "I-270",
+  "I-70",
+  "I-76",
+  "Lincoln Ave",
+  "Lucent Blvd",
+  "Monarch Blvd",
+  "NB",
+  "Quebec St",
+  "SH-03",
+  "US 160",
+  "US 24",
+  "US 285",
+  "US 287"
+ ],
+ "views": [
+  {
+   "name": "Looking East",
+   "type": "STILL_IMAGE",
+   "url": "https://cocam.carsprogram.org/Cellular/040E23460CAM1GP1-E.jpg",
+   "imageTimestamp": 1795021024000,
+   "broken": false
+  },
+  {
+   "name": "Looking West",
+   "type": "STILL_IMAGE",
+   "url": "https://cocam.carsprogram.org/Cellular/040E23460CAM1GP1-W.jpg",
+   "imageTimestamp": 1795021024000,
+   "broken": false
+  }
+ ],
+ "img_status": 200,
+ "img_type": "image/jpeg",
+ "img_len": 19251,
+ "img_cors": "",
+ "cfg_cameras": {
+  "showWithinDistance": 0.5,
+  "hideBrokenCameras": {
+   "hideBrokenImages": true,
+   "brokenCameraImageColor": "#716565"
+  },
+  "reportCameraIssue": true,
+  "cameraFavoriteIconType": "badge",
+  "staleImageMs": 1800000,
+  "showTimestamps": true
+ },
+ "cfg_apis": {
+  "popularAreasURL": "https://api-511x-co.carsprogram.org/locations/popular-areas",
+  "popularRoutesPathURL": "https://api-511x-co.carsprogram.org/locations/route-shape",
+  "cms": "https://cotg.carsprogram.org/cms_v1/api/cms",
+  "otp": "https://cotg.carsprogram.org/otp",
+  "popularRoutesURL": "https://api-511x-co.carsprogram.org/locations/popular-routes",
+  "nlp": "https://nlp.carsprogram.org/api/v1/nlp",
+  "weatherRadar": "https://gwc.carsprogram.org/service/wms",
+  "tg": "https://api-511x-co.carsprogram.org/proxy",
+  "clientName": "co",
+  "otpCache": "https://api-511x-co.carsprogram.org/otp",
+  "googleRecapKey": "6LcEceEZAAAAACpiMQbqRJlOpgUL2XQxEzFFLZkC",
+  "geoJsonServer": "https://api-511x-co.carsprogram.org",
+  "osrm": "https://osrm-co.carsprogram.org"
+ }
+}
