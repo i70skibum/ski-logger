@@ -552,3 +552,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-21T17:15:53-07:00,101,CO 82,Aspen-Basalt,11.5,41.9,3 - dry; 4s - wet in areas; 9 - icy spots,"CO 82, between Satank Road (near Carbondale) and Riverside Drive (Aspen)"
 2026-11-21T17:15:53-07:00,458,I-70,Copper Mtn-Silverthorne,194.3,203.7,4 - wet; 7 - slushy; 8 - icy; 9 - icy spots,"I-70, between Exit 190: Vail Pass Summit (Vail Pass) and Exit 205: CO 9; US 6; Silverthorne (near Frisco)"
 2026-11-21T17:15:53-07:00,485,US 6,Silverthorne to Arapahoe Basin,208.7,219.9,4 - wet; 9 - icy spots,"US 6, between I-70; CO 9 (Silverthorne) and I-70 (near Loveland Pass)"
+2026-11-21T17:30:50-07:00,45,CO 9,US 50 to US 24,0.0,47.0,4s - wet in areas,"CO 9, between US 50 and US 24"
