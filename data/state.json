@@ -1709,34 +1709,6 @@
    "title": "US 285: Snow with icy and snow packed spots.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588764": {
-   "began": "2026-11-21T17:06:40.997000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588764",
-   "lat": 37.6873,
-   "lon": -107.77926,
-   "mp_end": 65.88309991558688,
-   "mp_start": 55.7869149410012,
-   "pos_bearing": "N",
-   "route": "US 550",
-   "title": "US 550: Wet in areas.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588765": {
-   "began": "2026-11-21T17:06:40.997000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588765",
-   "lat": 37.75647,
-   "lon": -107.68076,
-   "mp_end": 74.88257952888567,
-   "mp_start": 65.88309991558688,
-   "pos_bearing": "N",
-   "route": "US 550",
-   "title": "US 550: Wet in areas.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588774": {
    "began": "2026-11-21T17:57:26.771000-07:00",
    "class": "winterDriving",
@@ -1904,10 +1876,24 @@
    "route": "I-70",
    "title": "I-70: Icy spots.",
    "type": "standard"
+  },
+  "winterDriving:COSEG-588901": {
+   "began": "2026-11-21T18:14:45.406000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588901",
+   "lat": 37.6873,
+   "lon": -107.77926,
+   "mp_end": 74.88257952888567,
+   "mp_start": 55.7869149410012,
+   "pos_bearing": "N",
+   "route": "US 550",
+   "title": "US 550: Wet in areas.",
+   "type": "standard"
   }
  },
  "forecast_last": "2026-11-22T11:00:46+00:00",
- "last_run": "2026-11-22T05:00:46-07:00",
+ "last_run": "2026-11-22T05:15:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-22": {
@@ -2647,7 +2633,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-22 03:00",
+  "abasin": "2026-11-22 04:00",
   "aspen": "2026-11-22 03:00",
   "beavercreek": "2026-11-22 03:00",
   "breck": "2026-11-22 03:00",
@@ -2657,7 +2643,7 @@
   "echo": "2026-11-22 03:00",
   "eldora": "2026-11-22 03:00",
   "granby": "2026-11-22 03:00",
-  "keystone": "2026-11-22 03:00",
+  "keystone": "2026-11-22 04:00",
   "loveland": "2026-11-22 03:00",
   "monarch": "2026-11-22 03:00",
   "powderhorn": "2026-11-22 03:00",
@@ -2923,14 +2909,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-22T12:00:46+00:00",
- "tomtom_routing_last": "2026-11-22T12:00:46+00:00",
+ "tomtom_flow_last": "2026-11-22T12:15:46+00:00",
+ "tomtom_routing_last": "2026-11-22T12:15:46+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 490
+   "2026-11": 500
   },
   "routing": {
-   "2026-11": 435
+   "2026-11": 443
   }
  },
  "traffic_model_last": "2026-11-22T11:00:46+00:00"
