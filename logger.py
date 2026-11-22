@@ -937,6 +937,43 @@ def tomtom_budget(state, kind, need, gap_min=12):
     return True
 
 
+def simplify_line(pts, max_pts=380):
+    """Douglas-Peucker: keep the vertices where the road bends, drop the ones on straight stretches. Starts at
+    10 m and loosens until the line fits in max_pts. (Every-nth thinning cut corners: Boulder Canyon showed as
+    long straight chords.) Returns [[lat, lon], ...] rounded to 5 places."""
+    import math
+    if len(pts) <= 2:
+        return [[round(a, 5), round(b, 5)] for a, b in pts]
+    lat0 = pts[0][0]
+    kx, ky = 111320 * math.cos(math.radians(lat0)), 110540
+    xy = [(p[1] * kx, p[0] * ky) for p in pts]
+
+    def dp(tol):
+        keep, stack = {0, len(pts) - 1}, [(0, len(pts) - 1)]
+        while stack:
+            i, j = stack.pop()
+            (x0, y0), (x1, y1) = xy[i], xy[j]
+            dx, dy = x1 - x0, y1 - y0
+            den = math.hypot(dx, dy)
+            best, at = -1.0, None
+            for k in range(i + 1, j):
+                x, y = xy[k]
+                d = math.hypot(x - x0, y - y0) if den == 0 else abs(dy * (x - x0) - dx * (y - y0)) / den
+                if d > best:
+                    best, at = d, k
+            if at is not None and best > tol:
+                keep.add(at)
+                stack += [(i, at), (at, j)]
+        return sorted(keep)
+    tol, keep = 10.0, None
+    while True:
+        keep = dp(tol)
+        if len(keep) <= max_pts or tol > 400:
+            break
+        tol *= 1.5
+    return [[round(pts[k][0], 5), round(pts[k][1], 5)] for k in keep]
+
+
 def log_routes(state):
     key = os.environ.get("TOMTOM_API_KEY", "").strip()
     if not key:
@@ -981,9 +1018,7 @@ def log_routes(state):
                           "detour": detour, "at": NOW_ISO}
                 if not detour and geo:
                     # The whole road, end to end, for the dashboard map (thinned to about 150 points).
-                    out[d]["line"] = [[round(p["latitude"], 5), round(p["longitude"], 5)] for p in geo[::max(1, -(-len(geo) // 150))]]
-                    if out[d]["line"][-1] != [round(geo[-1]["latitude"], 5), round(geo[-1]["longitude"], 5)]:
-                        out[d]["line"].append([round(geo[-1]["latitude"], 5), round(geo[-1]["longitude"], 5)])
+                    out[d]["line"] = simplify_line([(p["latitude"], p["longitude"]) for p in geo])
         append_rows("routes", ["snapshot_time", "route", "dir", "length_m", "travel_s", "no_traffic_s",
                                "historic_s", "delay_s", "detour"], rows)
         did.append("routing")
