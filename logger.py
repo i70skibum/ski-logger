@@ -805,12 +805,12 @@ ROUTE_POINTS = {
     # TomTom's own geometry for these roads (from the calibration output), so they sit on the road.
     # From Coors Field to Golden by whatever TomTom finds fastest (I-70 and US 6, usually), then the canyon.
     # Before Nov 21 it started at Golden (min_km drops those rows).
-    "canyon":   {"name": "Clear Creek Canyon (Coors Field to Golden by US 6, then the canyon to I-70 exit 244)", "max_km": 60, "min_km": 35,
+    "canyon":   {"name": "Clear Creek Canyon (Coors Field to Golden by US 6, then the canyon to I-70 exit 244)", "max_km": 60, "min_km": 35, "every": 30,
                  "route": [(39.7562, -104.9942), (39.75454, -105.23687), (39.74168, -105.33004), (39.74238, -105.43138)],
                  # Heading home, the Golden waypoint snaps to the westbound side and TomTom loops back up the canyon to turn around.
                  "route_e": [(39.74238, -105.43138), (39.74168, -105.33004), (39.7562, -104.9942)],
                  "points": [(39.74204, -105.26940), (39.74168, -105.33004), (39.72766, -105.42222)]},
-    "pass":     {"name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)", "max_km": 27,
+    "pass":     {"name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)", "max_km": 27, "every": 30,
                  "route": [(39.6800, -105.8950), (39.6636, -105.8794), (39.6050, -105.9440)],
                  "points": [(39.67160, -105.87765), (39.64683, -105.87023), (39.62030, -105.92400)]},
     "berthoud": {"name": "Berthoud Pass (US 40, Empire to Winter Park)", "max_km": 45,
@@ -819,14 +819,16 @@ ROUTE_POINTS = {
     # Routing only (no flow points): the map draws it from the route shape. Heading up is from I-70 toward Keystone.
     # Heading up starts on US 6 at the exit 205 ramp (a point on I-70 itself sends the router east to
     # Loveland to turn around); heading home ends at the eastbound on-ramp, which routes cleanly.
-    # Every 30 minutes since Nov 21, to make room in the TomTom allowance for 6th Ave below.
-    "dillon":   {"name": "US 6 through Dillon (I-70 exit 205 at Silverthorne to Keystone)", "max_km": 18, "every": 30,
+    # Every 30 minutes since Nov 21, to make room in the TomTom allowance for 6th Ave below. The ski direction
+    # only since Nov 22.
+    "dillon":   {"name": "US 6 through Dillon (I-70 exit 205 at Silverthorne to Keystone)", "max_km": 18, "every": 30, "ski_direction_only": True,
                  "route": [(39.62844, -106.05265), (39.63236, -106.04066), (39.6050, -105.9440)],
                  "route_e": [(39.6050, -105.9440), (39.63236, -106.04066), (39.6297, -106.0640)],
                  "points": []},
-    # 6th Ave (US 6) from Coors Field past I-70 to the mouth of Clear Creek Canyon in Golden, in the ski direction
-    # only (west before noon, east after). Over max_km means TomTom left 6th Ave or looped, so those rows are dropped.
-    "sixth":    {"name": "6th Ave (US 6) from Coors Field to Golden", "max_km": 32, "min_km": 18, "ski_direction_only": True,
+    # 6th Ave (US 6) from Coors Field past I-70 to the mouth of Clear Creek Canyon in Golden, in both directions
+    # all day (since Nov 22; before that, the ski direction only). Over max_km means TomTom left 6th Ave or looped,
+    # so those rows are dropped.
+    "sixth":    {"name": "6th Ave (US 6) from Coors Field to Golden", "max_km": 32, "min_km": 18,
                  "route": [(39.7562, -104.9942), (39.7254, -105.0800), (39.74245, -105.25436)],
                  "route_e": [(39.74245, -105.25436), (39.7254, -105.0800), (39.7562, -104.9942)],
                  "points": []},
@@ -847,7 +849,9 @@ ROUTE_POINTS = {
                        "points": []},
 }
 # Route times stop at 8 PM: evenings carry no ski traffic, and it leaves room for the Eldora routes.
-# Monthly: 8 calls x 60 runs + Eldora 120 a day = 600 a day, about 18,600 in a 31-day month.
+# Routing a day, in requests: Berthoud 120, 6th Ave 120 (both ways), Clear Creek Canyon 60 and Loveland Pass 60
+# (every 30 minutes), Dillon 30 (ski direction), Eldora 120 = 510, about 15,800 in a 31-day month. The flow
+# allowance is unchanged: 10 points every 15 minutes, 600 a day.
 TOMTOM_HOURS = {"routing": (5, 20), "flow": (5, 20)}
 
 
