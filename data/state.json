@@ -1625,6 +1625,20 @@
    "title": "US 24: Snow.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588534": {
+   "began": "2026-11-22T02:40:01.502000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588534",
+   "lat": 38.99395,
+   "lon": -105.05746,
+   "mp_end": 303.8400000124082,
+   "mp_start": 285.039998010669,
+   "pos_bearing": "E",
+   "route": "US 24",
+   "title": "US 24: Icy spots.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588572": {
    "began": "2026-11-20T12:21:03.416000-07:00",
    "class": "winterDriving",
@@ -1851,7 +1865,7 @@
   }
  },
  "forecast_last": "2026-11-22T07:45:53+00:00",
- "last_run": "2026-11-22T02:30:46-07:00",
+ "last_run": "2026-11-22T02:45:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-22": {
@@ -2592,7 +2606,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-22 01:00",
-  "aspen": "2026-11-22 00:00",
+  "aspen": "2026-11-22 01:00",
   "beavercreek": "2026-11-22 01:00",
   "breck": "2026-11-22 01:00",
   "cooper": "2026-11-22 01:00",
@@ -2600,14 +2614,14 @@
   "crestedbutte": "2026-11-22 01:00",
   "echo": "2026-11-22 01:00",
   "eldora": "2026-11-22 01:00",
-  "granby": "2026-11-22 00:00",
+  "granby": "2026-11-22 01:00",
   "keystone": "2026-11-22 01:00",
   "loveland": "2026-11-22 01:00",
-  "monarch": "2026-11-22 00:00",
+  "monarch": "2026-11-22 01:00",
   "powderhorn": "2026-11-22 01:00",
   "purgatory": "2026-11-22 01:00",
   "steamboat": "2026-11-22 01:00",
-  "sunlight": "2026-11-22 00:00",
+  "sunlight": "2026-11-22 01:00",
   "telluride": "2026-11-22 00:00",
   "vail": "2026-11-22 01:00",
   "winterpark": "2026-11-22 01:00",
