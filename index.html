@@ -318,6 +318,21 @@ footer { color: var(--ink2); font-size: 12px; }
 @media (max-width: 760px) { .wh { padding: 16px 14px 14px; } .wh-q h2 { font-size: 22px; } .wh-stats { gap: 16px; width: 100%; justify-content: space-between; } .wh-stat b { font-size: 20px; } .wh-stat span { font-size: 11px; max-width: 110px; }
   .wh-pre { display: flex; overflow-x: auto; gap: 6px; } .pbtn { flex: none; grid-column: auto !important; min-width: 108px; } .wh-bars { height: 80px; gap: 2px; } .wh-ax { gap: 2px; } .wh-ax span { font-size: 10px; } }
 .dmenu { display: none !important; }
+
+.trustbox { display: flex; flex-direction: column; gap: 16px; } .trust h2 { font-size: 22px; margin-bottom: 4px; } .trust .sechead { margin-bottom: 8px; }
+.tbig { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; } .tnum { display: flex; flex-direction: column; min-width: 120px; } .tnum b { font: 700 54px/1 "Space Grotesk", sans-serif; } .tnum span { font-size: 13px; color: var(--ink2); max-width: 140px; }
+.tbig p { max-width: 640px; margin: 0 0 10px; } .tiers { display: flex; flex-wrap: wrap; gap: 8px; } .tiers .tier { font-size: 12.5px; padding: 4px 11px; } .tiers .tier b { font-weight: 700; }
+.tgridwrap { overflow-x: auto; } .tgrid { display: grid; grid-template-columns: minmax(190px, 1.3fr) repeat(5, minmax(96px, 1fr)); gap: 8px; align-items: center; min-width: 720px; }
+.thc { display: flex; flex-direction: column; font-size: 13px; } .thc small, .trl small { color: var(--ink2); font-size: 12px; } .trl { display: flex; flex-direction: column; } .trl b { font-size: 14px; }
+.tgrp { grid-column: 1 / -1; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; color: var(--ink2); margin-top: 10px; }
+.tc { border-radius: 10px; border: 1px solid var(--line); padding: 8px 10px; display: flex; flex-direction: column; gap: 6px; min-height: 54px; justify-content: center; } .tc b { font-size: 15px; }
+.tc.t-ok b, .tc.t-solid b { color: var(--goodtext, #5BE3A1); } .tc.t-rough b { color: var(--slowtext, #F5C566); } .tc.t-est b { color: var(--ink2); }
+.tc .blocks { display: flex; gap: 2px; } .tc .blocks span { flex: 1; height: 4px; border-radius: 2px; background: var(--line); } .tc .blocks span.on { background: var(--accent); }
+.tc.na { color: var(--ink2); font-size: 13px; border-style: dashed; background: repeating-linear-gradient(135deg, transparent 0 6px, rgba(255,255,255,.03) 6px 12px); }
+.krow { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 0; border-top: 1px solid var(--line); } .krow > div:first-child { display: flex; flex-direction: column; } .krow small { color: var(--ink2); font-size: 12px; }
+.kr { display: flex; align-items: center; gap: 10px; } .kr b { font-size: 14px; }
+.incident { border-left: 3px solid var(--bad); background: var(--card2); border-radius: 8px; padding: 10px 14px; margin: 8px 0; display: flex; flex-direction: column; gap: 4px; } .incident p { margin: 0; font-size: 13px; }
+.mbig { font: 700 30px "Space Grotesk", sans-serif; margin: 4px 0; }
 </style>
 </head>
 <body>
@@ -378,12 +393,12 @@ footer { color: var(--ink2); font-size: 12px; }
       <div class="panel" id="leavebox"></div>
       <div class="panel" id="whybox"></div>
     </section>
-    <section class="panel"><h2 style="font-size:20px;margin-bottom:8px">How much to trust the traffic times</h2><div id="modelpanel"></div></section>
   </div>
 
   <div class="view" id="v-data" hidden>
     <section style="display:flex;flex-direction:column;gap:14px">
-      <h2>Raw data</h2>
+      <div><h2>Raw data</h2><p class="note">The traffic model's confidence first, then every file the logger has saved.</p></div>
+      <div id="trustbox" class="trustbox"></div>
       <div class="panel"><p class="dsdesc">Everything the logger has saved, by month. Preview shows the newest rows. Downloads are CSV files that open in Excel, Numbers or Google Sheets. <a id="zipall" href="#">Download everything as a zip</a>.</p><div id="datasets">Loading file list</div></div>
     </section>
   </div>
@@ -896,7 +911,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     $("today").textContent = "Denver · " + new Date().toLocaleDateString("en-US", { timeZone: "America/Denver", weekday: "long", month: "short", day: "numeric" });
     const asof = $("asof"); asof.textContent = `Live · updated ${fmtTime(last)}`;
     if (ageMin > 50) { asof.textContent = `Updated ${fmtTime(last)}, ${ageMin} minutes old`; asof.className = "stale"; } else asof.className = "";
-    for (const f of [renderDayNav, renderVerdict, renderWays, renderCautions, renderResorts, renderGoto, renderDrive, renderWhen, renderCharts, renderWeek])
+    for (const f of [renderDayNav, renderVerdict, renderWays, renderCautions, renderResorts, renderGoto, renderDrive, renderWhen, renderCharts, renderWeek, renderTrust])
       try { f(); } catch (e) { console.error(e); }
   }
 
@@ -1855,7 +1870,6 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     $("weeknote").textContent = "Snow is the middle of the forecasts for the night before plus half the day itself. Forecasts past about 3 days often change, so treat the right side as a heads-up.";
     renderLeave(idx, W, best);
     renderWhy(idx, W, best, S);
-    renderModel();
   }
   let whyKey = null;
   function renderLeave(idx, W, best) {
@@ -1909,6 +1923,82 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const p = el("p", "note", `Score ${r.score} out of 100` + (runner ? `, next best ${RESORTS[runner.key].name} at ${runner.score}` : "") + `. Lifts are today's count. ${r.chips.length ? "Flags: " + r.chips.join(", ") + "." : ""}`);
     p.style.marginTop = "10px"; box.append(p);
   }
+
+  // ---- Raw data tab: how far to trust the traffic times --------------------------------------------
+  const pct6 = n => Math.min(1, (n || 0) / 6);
+  const tierOfP = p => p >= 0.99 ? "Solid" : p >= 0.5 ? "Decent" : p > 0 ? "Rough" : "Estimate";
+  const KEYCOLS = [["fri_pm_W", "Fri 2 to 8 PM", "heading up", null], ["sat_am_W", "Sat 5 to 10 AM", "heading up", "sat_am"], ["sun_am_W", "Sun 5 to 10 AM", "heading up", "sun_am"],
+    ["sat_pm_E", "Sat 1 to 7 PM", "heading home", "sat_pm"], ["sun_pm_E", "Sun 1 to 7 PM", "heading home", "sun_pm"]];
+  const TRUST_ROUTES = [["berthoud", "Berthoud Pass", "US 40, Empire to Winter Park"], ["pass", "Loveland Pass", "US 6, exit 216 to Keystone"], ["canyon", "Clear Creek Canyon", "US 6 from Golden to I-70 exit 244"],
+    ["sixth", "6th Ave", "Coors Field to Golden, both ways all day"], ["dillon", "US 6 through Dillon", "Exit 205 at Silverthorne"], ["eldora_boulder", "Eldora by Boulder Canyon", "US 36 and CO 119"],
+    ["eldora_coal", "Eldora by Coal Creek", "I-70, CO 93 and CO 72"], ["eldora_119", "Eldora by Black Hawk", "CO 119"]];
+  function trustCell(n, tip) {
+    const p = pct6(n), c = el("div", "tc " + TIER_CLASS[tierOfP(p)]); c.append(el("b", "", Math.round(p * 100) + "%"));
+    const bar = el("div", "blocks"); for (let j = 0; j < 6; j++) bar.append(el("span", j < n ? "on" : "")); c.append(bar); c.dataset.tip = tip; return c;
+  }
+  const trustNA = txt => el("div", "tc na", txt);
+  function renderTrust() {
+    const box = $("trustbox"); box.replaceChildren();
+    const m = D.model; if (!m || !m.key_windows) { const pn = el("div", "panel"); pn.append(el("h2", "", "Traffic time confidence"), el("p", "note", "The traffic model builds after the logger's next run.")); box.append(pn); return; }
+    const kw = m.key_windows, ns = KEYCOLS.map(([k]) => (kw[k] || {}).n || 0), avg = ns.reduce((a, n) => a + pct6(n), 0) / ns.length;
+    // 1. Headline
+    const p1 = el("section", "panel trust"), hd = el("div", "sechead"); hd.append(el("h2", "", "Traffic time confidence"));
+    const row = el("div", "tbig"), big = el("div", "tnum"); big.append(el("b", "", Math.round(avg * 100) + "%"), el("span", "", "average across the five key windows"));
+    const txt = el("div"); txt.append(el("p", "", `The model has ${m.days_logged || 0} days of logging, since ${dayName(m.first_day)}. Each typical weekend adds about ${Math.round(100 / 6)} points to a window, and every route time on the dashboard carries the percentage that goes with it.`));
+    const tiers = el("div", "tiers"); [["Estimate", "0 weekends, 0%"], ["Rough", "1 to 2, 17 to 33%"], ["Decent", "3 to 5, 50 to 83%"], ["Solid", "6 or more, 100%"]].forEach(([t, d]) => { const x = el("span", "tier " + TIER_CLASS[t]); x.append(el("b", "", t), " " + d); tiers.append(x); });
+    txt.append(tiers); row.append(big, txt); p1.append(hd, row); box.append(p1);
+    // 2. Coverage by segment and time
+    const p2 = el("section", "panel trust"), h2 = el("div", "sechead"); h2.append(el("h2", "", "Coverage by segment and time"), el("span", "note", "Percent = typical weekends logged out of 6"));
+    const grid = el("div", "tgrid"); grid.append(el("span"));
+    KEYCOLS.forEach(([, a, b]) => { const c = el("div", "thc"); c.append(el("b", "", a), el("small", "", b)); grid.append(c); });
+    const grp = t => { const g = el("div", "tgrp", t); grid.append(g); };
+    const lab = (a, b) => { const c = el("div", "trl"); c.append(el("b", "", a), el("small", "", b)); grid.append(c); };
+    grp("I-70 MOUNTAIN CORRIDOR, CDOT SENSORS");
+    lab("I-70 Copper to Coors Field", "All mountain segments share one history");
+    KEYCOLS.forEach(([k, a, b]) => { const n = (kw[k] || {}).n || 0; grid.append(trustCell(n, `I-70, ${a}, ${b}: ${n} of 6 typical weekends logged. Each one adds about 17 points.`)); });
+    grp("TOMTOM ROUTES");
+    TRUST_ROUTES.forEach(([rk, name, sub]) => {
+      const r = (m.routes || {})[rk]; lab(name, sub);
+      KEYCOLS.forEach(([k, a, b, w]) => {
+        const eld = /^eldora/.test(rk);
+        if (!r || !w || (eld && /_E$/.test(k))) { grid.append(trustNA("Not logged")); return; }
+        const n = ((r.coverage || {})[w] || {}).n || 0; grid.append(trustCell(n, `${name}, ${a}, ${b}: ${n} of 6 typical weekends logged.`));
+      });
+    });
+    grp("NEW CORRIDOR, NOT LOGGED YET");
+    lab("I-25 north, US 36, Golden Freeway", "Starts with the flow change you approved");
+    KEYCOLS.forEach(() => grid.append(trustNA("Not logged")));
+    const gw = el("div", "tgridwrap"); gw.append(grid); gw.addEventListener("pointermove", ev => { const t = ev.target.closest && ev.target.closest("[data-tip]"); if (t) showTip(ev, t.dataset.tip); else hideTip(); }); gw.addEventListener("pointerleave", hideTip);
+    p2.append(h2, gw, el("p", "note", "Holiday, school-break and storm weekends are logged separately and never count toward these.")); box.append(p2);
+    // 3. Kinds of weekends, and what's coming
+    const twin = el("div", "twin"), cs = m.conditions_seen || {};
+    const pk = el("section", "panel trust"); pk.append(el("h2", "", "Kinds of weekends seen"), el("p", "note", "Confidence for each kind is how many were seen, out of 3. A forecast for a kind not seen yet is held back."));
+    [["dry", "Dry weekend"], ["powder", "Powder weekend"], ["holiday", "Holiday weekend"], ["break", "School-break weekend"], ["disrupted", "Disrupted weekend"]].forEach(([k, label]) => {
+      const n = (cs[k] || []).length, r = el("div", "krow"), l = el("div"); l.append(el("span", "", label));
+      if (k === "disrupted" && n) { const d = (cs[k] || [])[n - 1]; l.append(el("small", "", `${dayName(d)}, left out of typical`)); }
+      const rr = el("div", "kr"), pc = Math.min(1, n / 3); rr.append(el("b", "", n ? `${n} seen` : "Not seen yet"), el("span", "tier " + TIER_CLASS[tierOfP(pc)], Math.round(pc * 100) + "%")); r.append(l, rr); pk.append(r);
+    });
+    const pu = el("section", "panel trust"); pu.append(el("h2", "", "Coming up, and what the model knows"));
+    const upc = (m.holidays || []).filter(([a, b]) => b >= D.day).slice(0, 4), seenH = (cs.holiday || []).length;
+    pu.append(el("p", "note", seenH ? `${seenH} holiday weekend${seenH > 1 ? "s" : ""} seen since logging began.` : "None of these has happened since logging began on " + dayName(m.first_day) + "."));
+    const fmtR = (a, b) => { const f = d => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", month: "short", day: "numeric" }); return `${f(a)} to ${f(b)}`; };
+    upc.forEach(([a, b, n]) => { const r = el("div", "krow"), l = el("div"); l.append(el("span", "", n), el("small", "", fmtR(a, b)));
+      const rr = el("div", "kr"); rr.append(el("b", "", seenH ? `${seenH} seen` : "Not seen"), el("span", "tier " + (seenH ? "t-ok" : "t-est"), seenH ? Math.round(Math.min(1, seenH / 3) * 100) + "%" : "Cap 25%")); r.append(l, rr); pu.append(r); });
+    twin.append(pk, pu); box.append(twin);
+    // 4. Incidents set aside, and last weekend's predictions
+    const tw2 = el("div", "twin"), pi = el("section", "panel trust"); pi.append(el("h2", "", "Incidents the model has set aside"));
+    const odd = Object.entries(m.days || {}).filter(([d, x]) => x.type === "disrupted" && d <= D.day).slice(-3);
+    if (odd.length) odd.forEach(([d, x]) => { const c = el("div", "incident"); c.append(el("b", "", `${dayName(d)}, disrupted`), el("p", "", x.note || ""), el("p", "note", "Kept as a disrupted example. Left out of the typical weekend profile.")); pi.append(c); });
+    else pi.append(el("p", "note", "Nothing yet."));
+    pi.append(el("p", "note", "New incidents are added here automatically when CDOT closes a road during a key window."));
+    const pg = el("section", "panel trust"); pg.append(el("h2", "", "Last weekend's predictions"));
+    const g = m.graded || [];
+    if (g.length) { const last = g[g.length - 1]; pg.append(el("div", "mbig", last.mean_error_min == null ? "Not enough data" : `Off by ${last.mean_error_min} min`), el("p", "note", `Weekend of ${dayName(last.weekend)}, average across the windows${last.source.includes("estimate") ? ", from estimates" : ""}.`));
+      if (g.length > 1) pg.append(el("p", "note", "Earlier: " + g.slice(0, -1).slice(-4).map(x => x.mean_error_min == null ? "n/a" : x.mean_error_min + " min").join(", "))); }
+    else pg.append(el("div", "mbig", "Not graded yet"), el("p", "note", "The first check runs the Monday after a full weekend. Once graded, this shows how many minutes off the model was, on average."), (() => { const r = el("div", "krow"); r.append(el("span", "", "Weekends graded"), el("b", "", "0")); return r; })());
+    tw2.append(pi, pg); box.append(tw2);
+  }
+
   function renderModel() {
     const m = D.model, box = $("modelpanel"); box.replaceChildren();
     if (!m || !m.key_windows) { box.append(el("p", "note", "The traffic model builds after the logger's next run.")); return; }
