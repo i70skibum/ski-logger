@@ -351,20 +351,6 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
-  "roadReports:CDOT-36511721116EB": {
-   "began": "2026-11-21T18:51:49-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36511721116EB",
-   "lat": 38.49905,
-   "lon": -106.32757,
-   "mp_end": "",
-   "mp_start": 199.50447176830997,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50 eastbound: Vehicle recovery.",
-   "type": "urgent"
-  },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
    "class": "roadWork",
@@ -1877,20 +1863,6 @@
    "title": "US 40: Wet in areas.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588780": {
-   "began": "2026-11-21T19:00:32.171000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588780",
-   "lat": 39.74493,
-   "lon": -105.5379,
-   "mp_end": 259.7767666351,
-   "mp_start": 238.72646079049417,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Wet in areas.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588783": {
    "began": "2026-11-21T18:14:10.290000-07:00",
    "class": "winterDriving",
@@ -1905,15 +1877,57 @@
    "title": "US 40: Wet in areas.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588784": {
+  "winterDriving:COSEG-588792": {
+   "began": "2026-11-21T19:00:32.171000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588792",
+   "lat": 39.74493,
+   "lon": -105.5379,
+   "mp_end": 252.37015997775518,
+   "mp_start": 238.72646079049417,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Wet in areas.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588793": {
+   "began": "2026-11-21T19:00:32.171000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588793",
+   "lat": 39.71279,
+   "lon": -105.31491,
+   "mp_end": 259.7767666351,
+   "mp_start": 252.37015997775518,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Wet in areas.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588795": {
    "began": "2026-11-21T18:14:18.723000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588784",
+   "id": "COSEG-588795",
    "lat": 40.13198,
    "lon": -106.4306,
-   "mp_end": 231.52362708977432,
+   "mp_end": 211.57416959762907,
    "mp_start": 178.67290150809615,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40: Wet in areas with icy spots.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588796": {
+   "began": "2026-11-21T18:14:18.723000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588796",
+   "lat": 40.0866,
+   "lon": -105.94949,
+   "mp_end": 231.52362708977432,
+   "mp_start": 211.57416959762907,
    "pos_bearing": "E",
    "route": "US 40",
    "title": "US 40: Wet in areas with icy spots.",
@@ -1921,7 +1935,7 @@
   }
  },
  "forecast_last": "2026-11-22T01:45:46+00:00",
- "last_run": "2026-11-21T19:30:46-07:00",
+ "last_run": "2026-11-21T19:45:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-21": {
@@ -2662,7 +2676,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-21 18:00",
-  "aspen": "2026-11-21 17:00",
+  "aspen": "2026-11-21 18:00",
   "beavercreek": "2026-11-21 18:00",
   "breck": "2026-11-21 18:00",
   "cooper": "2026-11-21 18:00",
@@ -2670,14 +2684,14 @@
   "crestedbutte": "2026-11-21 18:00",
   "echo": "2026-11-21 18:00",
   "eldora": "2026-11-21 18:00",
-  "granby": "2026-11-21 17:00",
+  "granby": "2026-11-21 18:00",
   "keystone": "2026-11-21 18:00",
   "loveland": "2026-11-21 18:00",
-  "monarch": "2026-11-21 17:00",
+  "monarch": "2026-11-21 18:00",
   "powderhorn": "2026-11-21 18:00",
   "purgatory": "2026-11-21 18:00",
   "steamboat": "2026-11-21 18:00",
-  "sunlight": "2026-11-21 17:00",
+  "sunlight": "2026-11-21 18:00",
   "telluride": "2026-11-21 17:00",
   "vail": "2026-11-21 18:00",
   "winterpark": "2026-11-21 18:00",
@@ -2937,14 +2951,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-22T02:30:46+00:00",
- "tomtom_routing_last": "2026-11-22T02:30:46+00:00",
+ "tomtom_flow_last": "2026-11-22T02:45:46+00:00",
+ "tomtom_routing_last": "2026-11-22T02:45:46+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 470
+   "2026-11": 480
   },
   "routing": {
-   "2026-11": 415
+   "2026-11": 423
   }
  },
  "traffic_model_last": "2026-11-22T01:45:46+00:00"
