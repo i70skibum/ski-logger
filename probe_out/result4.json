@@ -1,0 +1,197 @@
+{
+ "total": 1003,
+ "public": {
+  "True": 1003
+ },
+ "viewtypes": {
+  "('STILL_IMAGE', False)": 473,
+  "('WMP', False)": 818
+ },
+ "inbox": 590,
+ "i70_total": 246,
+ "i70_samples": [
+  {
+   "type": "cameras",
+   "id": 21315,
+   "name": "I-70 MP 239.65 EB at CO 103/13th Ave in Idaho Springs",
+   "tooltip": "I-70 MP 239.65 EB at CO 103/13th Ave in Idaho Springs",
+   "public": true,
+   "route": "I-70",
+   "lastUpdated": 1795358114572,
+   "location": {
+    "fips": 8,
+    "routeId": "I-70",
+    "linearReference": 239.62405730538254,
+    "localRoad": false,
+    "cityReference": "in Idaho Springs"
+   },
+   "icon": "icon-camera-fill-solid",
+   "iconColor": "#707070",
+   "cameraOwner": "Colorado DOT",
+   "views": [
+    {
+     "name": "I-70 MP 239.65 EB at CO 103/13th Ave in Idaho Springs",
+     "type": "WMP",
+     "url": "https://publicstreamer1.cotrip.org/rtplive/070E23965CAM1RHS/playlist.m3u8",
+     "imageTimestamp": 1795357929000,
+     "videoPreviewUrl": "https://cocam.carsprogram.org/Snapshots/070E23965CAM1RHS.flv.png",
+     "broken": false
+    }
+   ]
+  },
+  {
+   "type": "cameras",
+   "id": 21317,
+   "name": "I-70 MP 270.30 WB : 0.3 miles E of N Harlan St",
+   "tooltip": "I-70 MP 270.30 WB : 0.3 miles E of N Harlan St",
+   "public": true,
+   "route": "I-70",
+   "lastUpdated": 1795358119416,
+   "location": {
+    "fips": 8,
+    "routeId": "I-70",
+    "linearReference": 270.2784951569282,
+    "localRoad": false,
+    "cityReference": "in Lakeside"
+   },
+   "icon": "icon-camera-fill-solid",
+   "iconColor": "#707070",
+   "cameraOwner": "Colorado DOT",
+   "views": [
+    {
+     "name": "I-70 MP 270.30 WB : 0.3 miles E of N Harlan St",
+     "type": "WMP",
+     "url": "https://publicstreamer1.cotrip.org/rtplive/070W27030CAM1RHS/playlist.m3u8",
+     "imageTimestamp": 1795357930000,
+     "videoPreviewUrl": "https://cocam.carsprogram.org/Snapshots/070W27030CAM1RHS.flv.png",
+     "broken": false
+    }
+   ]
+  },
+  {
+   "type": "cameras",
+   "id": 21319,
+   "name": "I-70 MP 260.15 EB : 0.1 miles E of C-470",
+   "tooltip": "I-70 MP 260.15 EB : 0.1 miles E of C-470",
+   "public": true,
+   "route": "I-70",
+   "lastUpdated": 1795357924469,
+   "location": {
+    "fips": 8,
+    "routeId": "I-70",
+    "linearReference": 260.15032956774274,
+    "localRoad": false,
+    "cityReference": "in Golden"
+   },
+   "icon": "icon-camera-fill-solid",
+   "iconColor": "#707070",
+   "cameraOwner": "Colorado DOT",
+   "views": [
+    {
+     "name": "I-70 MP 260.15 EB : 0.1 miles E of C-470",
+     "type": "WMP",
+     "url": "https://publicstreamer1.cotrip.org/rtplive/070E26015CAM1MED/playlist.m3u8",
+     "imageTimestamp": 1795357916000,
+     "videoPreviewUrl": "https://cocam.carsprogram.org/Snapshots/070E26015CAM1MED.flv.png",
+     "broken": false
+    }
+   ]
+  },
+  {
+   "type": "cameras",
+   "id": 21324,
+   "name": "I-70 MP 177.90 EB at West Vail Chain Station",
+   "tooltip": "I-70 MP 177.90 EB at West Vail Chain Station",
+   "public": true,
+   "route": "I-70",
+   "lastUpdated": 1795358113260,
+   "location": {
+    "fips": 8,
+    "routeId": "I-70",
+    "linearReference": 177.93608503091232,
+    "localRoad": false,
+    "cityReference": "in Vail"
+   },
+   "icon": "icon-camera-fill-solid",
+   "iconColor": "#707070",
+   "cameraOwner": "Colorado DOT",
+   "views": [
+    {
+     "name": "I-70 MP 177.90 EB at West Vail Chain Station",
+     "type": "WMP",
+     "url": "https://publicstreamer1.cotrip.org/rtplive/070E17790CAM1RHS/playlist.m3u8",
+     "imageTimestamp": 1795357933000,
+     "videoPreviewUrl": "https://cocam.carsprogram.org/Snapshots/070E17790CAM1RHS.flv.png",
+     "broken": false
+    }
+   ]
+  }
+ ],
+ "owners": {
+  "CDOT Cellular": 127,
+  "Colorado DOT": 843,
+  "Douglas County": 33
+ },
+ "inbox_routes": {
+  "US 40": 9,
+  "US 285": 15,
+  "I-25": 82,
+  "I-70": 176,
+  "C-470": 44,
+  "US 6": 52,
+  "CO 119": 8,
+  "CO 9": 16,
+  "Wildcat Reserve Pkwy": 4,
+  "I-76": 8,
+  "CO 93": 13,
+  "I-225": 10,
+  "CO 74": 7,
+  "CO 8/Morrison Road": 1,
+  "US 85": 9,
+  "CO 177/University Boulevard": 7,
+  "CO-121": 26,
+  "CO 128/120th Avenue": 4,
+  "CO 72": 9,
+  "CO 91": 2,
+  "CO 86": 2,
+  "CO 88": 9,
+  "US 287": 9,
+  "C470": 1,
+  "CO 121": 3,
+  "I-270": 3,
+  "Broadway Blvd": 4,
+  "Highlands Ranch Pkwy": 5,
+  "County Line Rd": 3,
+  "Quebec St": 5,
+  "University Blvd": 3,
+  "Lucent Blvd": 3,
+  "CO 121/Wadsworth Boulevard": 1,
+  "Monarch Blvd": 1,
+  "CO 224/70th Avenue": 3,
+  "US-36": 23,
+  "CO 391": 2,
+  "CO 7": 8
+ },
+ "sixthW": {
+  "orig": {
+   "err": "'noTrafficTravelTimeInSeconds'",
+   "s": 200
+  },
+  "end_e1": {
+   "err": "'noTrafficTravelTimeInSeconds'",
+   "s": 200
+  },
+  "end_e2": {
+   "err": "'noTrafficTravelTimeInSeconds'",
+   "s": 200
+  },
+  "end_e3": {
+   "err": "'noTrafficTravelTimeInSeconds'",
+   "s": 200
+  },
+  "noend_via": {
+   "err": "'noTrafficTravelTimeInSeconds'",
+   "s": 200
+  }
+ }
+}
