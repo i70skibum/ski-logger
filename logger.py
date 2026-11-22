@@ -829,7 +829,9 @@ ROUTE_POINTS = {
     # all day (since Nov 22; before that, the ski direction only). Over max_km means TomTom left 6th Ave or looped,
     # so those rows are dropped.
     "sixth":    {"name": "6th Ave (US 6) from Coors Field to Golden", "max_km": 32, "min_km": 18,
-                 "route": [(39.7562, -104.9942), (39.7254, -105.0800), (39.74245, -105.25436)],
+                 # Westbound ends just short of Golden: with the Golden waypoint the router looped (34.9 km against
+                 # 29.6 eastbound) and every westbound row was dropped as a detour until Nov 22.
+                 "route": [(39.7562, -104.9942), (39.7254, -105.1500), (39.7430, -105.2400)],
                  "route_e": [(39.74245, -105.25436), (39.7254, -105.0800), (39.7562, -104.9942)],
                  "points": []},
     # Eldora, timed door to door from Coors Field. To stay inside the free allowance these run only in the
