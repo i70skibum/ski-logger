@@ -1,0 +1,138 @@
+
+000
+FXUS65 KBOU 221247 CCA
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+546 AM MST Sun Nov 22 2026
+
+.KEY MESSAGES... 
+
+- Patchy fog through mid-morning for portions of the plains today.
+  
+
+- Another system brings the chance for light mountain snow 
+  showers late Monday into Tuesday morning.
+
+- Cooler fall temperatures to continue through mid next week.
+  
+
+- No major travel impacts are expected during the Thanksgiving
+  travel period. 
+ 
+
+&&
+
+.UPDATE...
+Issued at 545 AM MST Sun Nov 22 2026
+
+The Dense Fog Advisory has been canceled. Patchy dense fog remains
+on the table for portions of the plains through mid-morning, but 
+visibilities below 1/4 mile are not expected to be prolonged nor 
+widespread enough to warrant a broader highlight.
+
+UPDATE Issued at 424 AM MST Sun Nov 22 2026
+
+Stratus has been slow to develop this morning over the plains,
+with bases also sufficiently high (for now) to limit visibility
+reductions. Some additional lowering and westward spread is still
+expected, however it seems increasingly unlikely that some of the
+more bullish solutions from yesterday evening will verify with
+regard to fog extent this morning. Have trimmed the Dense Fog
+Advisory to remove Lincoln County, with the remainder of zones
+maintained for the time being. That being said, trends will be
+watched closely over the next few hours and additional
+modifications to the Advisory may be needed.
+
+&&
+
+.DISCUSSION /Through Saturday/...
+Issued at 1203 AM MST Sun Nov 22 2026
+
+Drier conditions are expected for today as a brief period of upper-
+level ridging develops behind Saturday's storm system. Despite the 
+increased subsidence, a combination of morning fog, high clouds, and 
+a Denver Cyclone will aid in keeping cooler temperatures in place 
+across much of the forecast area. Those on the southern side of the 
+cyclone may see temperatures in the mid to upper 40s thanks to 
+downsloping effects off the Palmer Divide, whereas those on its 
+northern extent should expect upper 30s to low 40s where northerly 
+winds will keep cooler air sliding south. Patchy freezing fog is 
+expected to begin developing over the eastern plains late tonight, 
+with areas of dense fog likely setting in just before sunrise. Hi-
+res guidance continues to shift the corridor of thickest fog 
+slightly with each run, but has continued to keep its southern most 
+edge just making it into the airfield at DIA and northward along the 
+I-25 corridor into Larimer County, as well as east along I-70 into 
+Lincoln County. Anyone driving across the plains in the morning 
+should be prepared to encounter patchy fog, with areas of 
+significantly reduced visibilities to a quarter mile or less at 
+times. Additionally, freezing fog can create slick surfaces which 
+could lead to slippery driving conditions on top of lowered 
+visibilities. A Dense Fog Advisory has been issued for Washington 
+County from 1AM to 10AM, and for the northern I-25 Corridor and 
+adjacent plains from Denver northward, areas along Highway 34, and I-
+70 east of Denver from 4AM to 10AM. Conditions should start to 
+improve by late morning. 
+
+Synoptically, things look in decent agreement across ensemble suites 
+and deterministic outputs alike, with regards to the next 
+approaching shortwave expected to move across the Rockies on Monday. 
+For Colorado, it looks like the axis of the upper-level ridge will 
+push east by Monday morning, leaving southwesterly flow aloft in its 
+wake. Afternoon high temps are forecast to remain five to ten 
+degrees below normal across the lower elevations, with our northern 
+mountain valleys staying right around seasonal values. Cross 
+sections show a deepening moisture profile throughout the day, with 
+snow showers likely developing in the mountains by the afternoon. 
+Moisture still looks unimpressive with this next wave, but despite 
+our lower elevations remaining dry, we should at least see some 
+light mountain snowfall accumulations overnight into Tuesday 
+morning (generally two inches or less), with low chances for some 
+very light accumulations for portions of the Palmer Divide. 
+
+Upper-level ridging will rebuild across the Rockies behind Monday's 
+disturbance. Afternoon temperatures will gradually warm each day 
+through the week, with mild and dry conditions looking likely for 
+Thursday's holiday celebrations. There are enough uncertainties with 
+the the evolution of our next potential storm system to not 
+completely rule out light mountain snow showers through the week, 
+but our lower elevations are on track to remain dry through the 
+forecast period. 
+
+&&
+
+.AVIATION /12Z TAFS through 12Z Monday/...
+Issued at 424 AM MST Sun Nov 22 2026
+
+Stratus has been slow to develop this morning over the plains, and
+has so far remainder farther north than initially anticipated.
+Combined with continued forecast SE winds at KDEN, this lowers
+confidence in any direct impacts to the terminal (closer to 20-30%
+chance), though will maintain a mention of VCFG starting 14Z for
+the continued elevated potential for low stratus within 10 mi due
+north of the airfield. Potential is similar for KBJC, and almost
+zero for KAPA. Any FG and/or low bases over or in the vicinity of
+the terminals will be shortlived...lifting by ~16Z.
+
+As far as winds are concerned, a Denver cyclone looks to sustain
+S to SE winds at KDEN throughout the morning, with increased
+uncertainty leading into the afternoon hours as it weakens and
+potentially migrates slightly. Current forecast continues to favor
+a transition to lighter NE flow mid-afternoon, but a more 
+eastward progression of the cyclone could lead to a period of N/NE
+flow instead.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+UPDATE...BRQ
+DISCUSSION...9
+AVIATION...BRQ
