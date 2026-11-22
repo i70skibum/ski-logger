@@ -3,11 +3,11 @@
   "canyon": {
    "name": "Clear Creek Canyon (US 6, Golden to I-70 exit 244)",
    "W": {
-    "delay_min": 1.4,
-    "minutes": 41.4,
+    "delay_min": 1.1,
+    "minutes": 41.1,
     "free_min": 40.0,
     "detour": false,
-    "at": "2026-11-22T15:30:48-07:00",
+    "at": "2026-11-22T16:00:48-07:00",
     "line": [
      [
       39.75702,
@@ -908,11 +908,11 @@
     ]
    },
    "E": {
-    "delay_min": 1.4,
-    "minutes": 42.1,
+    "delay_min": 1.0,
+    "minutes": 41.8,
     "free_min": 40.8,
     "detour": false,
-    "at": "2026-11-22T15:30:48-07:00",
+    "at": "2026-11-22T16:00:48-07:00",
     "line": [
      [
       39.74237,
@@ -2693,10 +2693,10 @@
    "name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)",
    "W": {
     "delay_min": 0.0,
-    "minutes": 20.7,
+    "minutes": 20.6,
     "free_min": 21.1,
     "detour": false,
-    "at": "2026-11-22T15:30:48-07:00",
+    "at": "2026-11-22T16:00:48-07:00",
     "line": [
      [
       39.68008,
@@ -3241,7 +3241,7 @@
     "minutes": 20.2,
     "free_min": 20.7,
     "detour": false,
-    "at": "2026-11-22T15:30:48-07:00",
+    "at": "2026-11-22T16:00:48-07:00",
     "line": [
      [
       39.6046,
@@ -4785,7 +4785,7 @@
     "minutes": 31.4,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-22T15:45:46-07:00",
+    "at": "2026-11-22T16:00:48-07:00",
     "line": [
      [
       39.76107,
@@ -5538,7 +5538,7 @@
     "minutes": 32.4,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-22T15:45:46-07:00",
+    "at": "2026-11-22T16:00:48-07:00",
     "line": [
      [
       39.88623,
@@ -7639,11 +7639,11 @@
     ]
    },
    "E": {
-    "delay_min": 0.6,
+    "delay_min": 0.5,
     "minutes": 16.4,
     "free_min": 15.8,
     "detour": false,
-    "at": "2026-11-22T15:30:48-07:00",
+    "at": "2026-11-22T16:00:48-07:00",
     "line": [
      [
       39.6046,
@@ -7858,11 +7858,11 @@
   "eldora_boulder": {
    "name": "Coors Field to Eldora by Boulder Canyon (US 36, CO 119)",
    "E": {
-    "delay_min": 4.2,
-    "minutes": 71.9,
+    "delay_min": 3.6,
+    "minutes": 71.3,
     "free_min": 67.7,
     "detour": false,
-    "at": "2026-11-22T15:45:46-07:00",
+    "at": "2026-11-22T16:00:48-07:00",
     "line": [
      [
       39.93746,
@@ -10401,11 +10401,11 @@
    "points": [],
    "points_at": "2026-11-22T15:45:46-07:00",
    "E": {
-    "delay_min": 3.1,
-    "minutes": 85.8,
+    "delay_min": 2.4,
+    "minutes": 85.1,
     "free_min": 82.7,
     "detour": false,
-    "at": "2026-11-22T15:30:48-07:00",
+    "at": "2026-11-22T16:00:48-07:00",
     "line": [
      [
       39.93746,
@@ -12981,11 +12981,11 @@
    "points": [],
    "points_at": "2026-11-22T15:45:46-07:00",
    "E": {
-    "delay_min": 2.2,
-    "minutes": 102.8,
+    "delay_min": 2.3,
+    "minutes": 102.9,
     "free_min": 100.6,
     "detour": false,
-    "at": "2026-11-22T15:30:48-07:00",
+    "at": "2026-11-22T16:00:48-07:00",
     "line": [
      [
       39.93746,
@@ -15899,10 +15899,10 @@
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
     "delay_min": 2.0,
-    "minutes": 27.2,
+    "minutes": 27.3,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-22T15:45:46-07:00",
+    "at": "2026-11-22T16:00:48-07:00",
     "line": [
      [
       39.74245,
@@ -16198,11 +16198,11 @@
    "points": [],
    "points_at": "2026-11-22T15:45:46-07:00",
    "W": {
-    "delay_min": 2.2,
-    "minutes": 31.2,
+    "delay_min": 2.4,
+    "minutes": 31.4,
     "free_min": 29.0,
     "detour": false,
-    "at": "2026-11-22T15:45:46-07:00",
+    "at": "2026-11-22T16:00:48-07:00",
     "line": [
      [
       39.75702,
@@ -17222,7 +17222,7 @@
     "minutes": 53.1,
     "free_min": 51.4,
     "detour": true,
-    "at": "2026-11-22T15:45:46-07:00"
+    "at": "2026-11-22T16:00:48-07:00"
    }
   },
   "corridor": {
@@ -18581,10 +18581,10 @@
    "points_at": "2026-11-22T15:45:46-07:00"
   }
  },
- "updated": "2026-11-22T15:45:46-07:00",
+ "updated": "2026-11-22T16:00:48-07:00",
  "tomtom_use": {
   "flow": 852,
-  "routing": 843
+  "routing": 856
  },
  "tomtom_caps": {
   "routing": 19000,
