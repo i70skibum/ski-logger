@@ -3,11 +3,11 @@
   "canyon": {
    "name": "Clear Creek Canyon (US 6, Golden to I-70 exit 244)",
    "W": {
-    "delay_min": 1.1,
-    "minutes": 41.1,
+    "delay_min": 1.2,
+    "minutes": 41.2,
     "free_min": 40.0,
     "detour": false,
-    "at": "2026-11-22T13:00:52-07:00",
+    "at": "2026-11-22T13:30:51-07:00",
     "line": [
      [
       39.75702,
@@ -908,11 +908,11 @@
     ]
    },
    "E": {
-    "delay_min": 2.0,
-    "minutes": 42.8,
+    "delay_min": 1.7,
+    "minutes": 42.5,
     "free_min": 40.8,
     "detour": false,
-    "at": "2026-11-22T13:00:52-07:00",
+    "at": "2026-11-22T13:30:51-07:00",
     "line": [
      [
       39.74237,
@@ -2693,10 +2693,10 @@
    "name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)",
    "W": {
     "delay_min": 0.0,
-    "minutes": 20.6,
+    "minutes": 20.7,
     "free_min": 21.1,
     "detour": false,
-    "at": "2026-11-22T13:00:52-07:00",
+    "at": "2026-11-22T13:30:51-07:00",
     "line": [
      [
       39.68008,
@@ -3241,7 +3241,7 @@
     "minutes": 20.2,
     "free_min": 20.7,
     "detour": false,
-    "at": "2026-11-22T13:00:52-07:00",
+    "at": "2026-11-22T13:30:51-07:00",
     "line": [
      [
       39.6046,
@@ -4785,7 +4785,7 @@
     "minutes": 31.4,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-22T13:15:46-07:00",
+    "at": "2026-11-22T13:30:51-07:00",
     "line": [
      [
       39.76107,
@@ -5538,7 +5538,7 @@
     "minutes": 32.5,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-22T13:15:46-07:00",
+    "at": "2026-11-22T13:30:51-07:00",
     "line": [
      [
       39.88623,
@@ -7639,11 +7639,11 @@
     ]
    },
    "E": {
-    "delay_min": 0.7,
+    "delay_min": 0.6,
     "minutes": 16.5,
     "free_min": 15.8,
     "detour": false,
-    "at": "2026-11-22T13:00:52-07:00",
+    "at": "2026-11-22T13:30:51-07:00",
     "line": [
      [
       39.6046,
@@ -7858,11 +7858,11 @@
   "eldora_boulder": {
    "name": "Coors Field to Eldora by Boulder Canyon (US 36, CO 119)",
    "E": {
-    "delay_min": 4.9,
-    "minutes": 72.6,
+    "delay_min": 4.0,
+    "minutes": 71.7,
     "free_min": 67.7,
     "detour": false,
-    "at": "2026-11-22T13:15:46-07:00",
+    "at": "2026-11-22T13:30:51-07:00",
     "line": [
      [
       39.93746,
@@ -10401,11 +10401,11 @@
    "points": [],
    "points_at": "2026-11-22T13:15:46-07:00",
    "E": {
-    "delay_min": 4.1,
-    "minutes": 86.8,
+    "delay_min": 3.4,
+    "minutes": 86.1,
     "free_min": 82.7,
     "detour": false,
-    "at": "2026-11-22T13:00:52-07:00",
+    "at": "2026-11-22T13:30:51-07:00",
     "line": [
      [
       39.93746,
@@ -12981,11 +12981,11 @@
    "points": [],
    "points_at": "2026-11-22T13:15:46-07:00",
    "E": {
-    "delay_min": 3.3,
-    "minutes": 104.0,
+    "delay_min": 2.7,
+    "minutes": 103.3,
     "free_min": 100.6,
     "detour": false,
-    "at": "2026-11-22T13:00:52-07:00",
+    "at": "2026-11-22T13:30:51-07:00",
     "line": [
      [
       39.93746,
@@ -15898,11 +15898,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 5.0,
-    "minutes": 30.2,
+    "delay_min": 5.1,
+    "minutes": 30.4,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-22T13:15:46-07:00",
+    "at": "2026-11-22T13:30:51-07:00",
     "line": [
      [
       39.74245,
@@ -16198,11 +16198,11 @@
    "points": [],
    "points_at": "2026-11-22T13:15:46-07:00",
    "W": {
-    "delay_min": 2.0,
+    "delay_min": 2.1,
     "minutes": 31.6,
     "free_min": 29.6,
     "detour": false,
-    "at": "2026-11-22T13:15:46-07:00",
+    "at": "2026-11-22T13:30:51-07:00",
     "line": [
      [
       39.75702,
@@ -17203,10 +17203,10 @@
    "points_at": "2026-11-22T13:15:46-07:00",
    "E": {
     "delay_min": null,
-    "minutes": 54.3,
+    "minutes": 53.6,
     "free_min": 51.4,
     "detour": true,
-    "at": "2026-11-22T13:15:46-07:00"
+    "at": "2026-11-22T13:30:51-07:00"
    }
   },
   "corridor": {
@@ -18565,10 +18565,10 @@
    "points_at": "2026-11-22T13:15:46-07:00"
   }
  },
- "updated": "2026-11-22T13:15:46-07:00",
+ "updated": "2026-11-22T13:30:51-07:00",
  "tomtom_use": {
   "flow": 772,
-  "routing": 748
+  "routing": 761
  },
  "tomtom_caps": {
   "routing": 19000,
