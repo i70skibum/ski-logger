@@ -357,3 +357,4 @@ time,source,error
 2026-11-21T23:00:46-07:00,events:roadClosures,api-511x-co.carsprogram.org: HTTP Error 502: Bad Gateway
 2026-11-22T07:45:46-07:00,snotel,"2 stations failed, 0 not tried (copper, purgatory): wcc.sc.egov.usda.gov: HTTP Error 503: Service Unavailable"
 2026-11-22T11:30:46-07:00,snotel,"2 stations failed, 0 not tried (eldora, sunlight): wcc.sc.egov.usda.gov: HTTP Error 503: Service Unavailable"
+2026-11-22T13:00:52-07:00,snotel,"3 stations failed, 0 not tried (breck, telluride, loveland): wcc.sc.egov.usda.gov: HTTP Error 500: Internal Server Error"
