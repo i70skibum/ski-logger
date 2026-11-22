@@ -333,6 +333,9 @@ footer { color: var(--ink2); font-size: 12px; }
 .kr { display: flex; align-items: center; gap: 10px; } .kr b { font-size: 14px; }
 .incident { border-left: 3px solid var(--bad); background: var(--card2); border-radius: 8px; padding: 10px 14px; margin: 8px 0; display: flex; flex-direction: column; gap: 4px; } .incident p { margin: 0; font-size: 13px; }
 .mbig { font: 700 30px "Space Grotesk", sans-serif; margin: 4px 0; }
+.cdetail { display: flex; flex-direction: column; gap: 2px; margin-top: 4px; } .cdetail .cs { font-size: 13px; color: #C9D6E0; display: block; }
+.seg3 { position: relative; display: block; height: 10px; margin: 6px 0 4px; } .seg3 .tr { position: absolute; left: 0; right: 0; top: 3px; height: 4px; border-radius: 2px; background: #2B4358; }
+.seg3 .hl { position: absolute; top: 0; height: 10px; border-radius: 3px; background: #9FB2C1; border: 2px solid var(--bad); box-sizing: border-box; }
 </style>
 </head>
 <body>
@@ -1006,13 +1009,29 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     row("US 6 to A-Basin and Keystone", "Usual peak over Loveland Pass and through Dillon", ["pass", "dillon"]);
     if (shown("eldora")) row("Eldora", "Usual peak heading up by Boulder Canyon", ["eldora_boulder"]);
   }
+  // Where a closure sits on I-70 (mileposts 195 to 276), with a link to COtrip's map and cameras.
+  function closureDetail(e) {
+    const d = el("div", "cdetail"), mp0 = num(e.mp_start), mp1 = num(e.mp_end);
+    const isI70 = normRoute(e.route) === "I70" && mp0 != null && mp1 != null;
+    if (isI70) {
+      const lo = Math.max(195, Math.min(mp0, mp1)), hi = Math.min(276, Math.max(mp0, mp1)), span = 81;
+      const tr = el("span", "seg3"), base = el("span", "tr"), hl = el("span", "hl");
+      hl.style.left = ((lo - 195) / span * 100) + "%"; hl.style.width = Math.max(2.5, (hi - lo) / span * 100) + "%";
+      tr.append(base, hl); tr.title = `MP ${Math.round(Math.min(mp0, mp1))} to ${Math.round(Math.max(mp0, mp1))}`;
+      d.append(tr);
+    }
+    const dirWord = /both directions/i.test(e.title) ? "both directions" : /eastbound/i.test(e.title) ? "eastbound" : /westbound/i.test(e.title) ? "westbound" : null;
+    const p = el("span", "cs"); p.append((isI70 ? `Only this stretch${dirWord ? ", " + dirWord : ""}. Everything else keeps its own color on the line map. ` : "") );
+    const a = el("a", "", "Details and cameras on COtrip"); a.href = "https://maps.cotrip.org/"; a.target = "_blank"; a.rel = "noopener"; p.append(a);
+    d.append(p); return d;
+  }
   function renderCautionsFuture(iso) {
     const box = $("cautions"); box.replaceChildren(); $("conds").replaceChildren(el("p", "note", "Road conditions are reported live, so they show on Today."));
     const vis = Object.keys(RESORTS).filter(shown).map(k => RESORTS[k]);
     const mine = e => vis.some(R => onRoute(R, e.route, e.mp_start, e.mp_end)) || ALTERNATES.some(A => altStatus({ ...D.ctx, events: [e], conds: [] }, A).closed);
     const seen = new Set(), items = plannedOn(iso, true).filter(e => mine(e) && !seen.has(e.title) && seen.add(e.title));
     const card = (cls, t, w) => { const c = el("div", "caution"), x = el("div"); c.append(el("span", "sign " + cls)); x.append(el("span", "t", t), el("span", "w", w)); c.append(x); box.append(c); };
-    items.forEach(e => card("bar planned", e.title, "Planned, starts " + new Date(e.began).toLocaleTimeString("en-US", { timeZone: "America/Denver", hour: "numeric", minute: "2-digit" })));
+    items.forEach(e => { card("bar planned", e.title, "Planned, starts " + new Date(e.began).toLocaleTimeString("en-US", { timeZone: "America/Denver", hour: "numeric", minute: "2-digit" })); box.lastChild.lastChild.append(closureDetail(e)); });
     const W = weekInputs(), i = W ? W.outlook.days.indexOf(iso) : -1, cu = i >= 0 ? ((W.outlook.resorts || {}).copper || [])[i] : null, prev = i > 0 ? ((W.outlook.resorts || {}).copper || [])[i - 1] : null;
     const snowy = (cu ? cu.snow || 0 : 0) + (prev ? prev.snow || 0 : 0);
     if (snowy >= 3) card("law", "Snow forecast along I-70", `About ${Math.round(snowy)}" near Copper overnight and that day. Expect traction laws; CDOT calls them the morning of.`);
@@ -1103,11 +1122,11 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   const dpTone = p => p < 0.12 ? "g" : p <= 0.30 ? "a" : "r";
   // Is the resort's road closed in this direction (a closure COtrip lists now, or one planned for that day)?
   function dpClosed(key, dir, iso) {
-    const R = RESORTS[key], evs = vday === 0 ? D.ctx.events : plannedOn(iso, true);
+    const R = RESORTS[key], evs = vday === 0 ? D.ctx.events.concat(plannedOn(iso, true)) : plannedOn(iso, true);
     const hit = evs.filter(e => isClosure(e) && forDir(e, dir) && onRoute(R, e.route, e.mp_start, e.mp_end));
     if (!hit.length) return null;
-    const start = Math.min(...hit.map(e => { if (vday === 0 || !e.began) return 0; return +new Date(e.began).toLocaleString("en-US", { timeZone: "America/Denver", hour: "numeric", hour12: false }) % 24; }));
-    return { from: start, titles: hit.map(e => e.title.replace(/\.$/, "")) };
+    const startOf = e => { if (!e.began) return 0; const t = new Date(e.began); if (t <= D.now || denverParts(t).day !== iso) return 0; return +t.toLocaleString("en-US", { timeZone: "America/Denver", hour: "numeric", hour12: false }) % 24; };
+    return { from: Math.min(...hit.map(startOf)), titles: hit.map(e => e.title.replace(/\.$/, "")) };
   }
   const dpOrigin = () => {
     const rk = k => { const i = (D.ranked || []).findIndex(r => r.key === k); return i < 0 ? 99 : i; };
@@ -1315,7 +1334,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     }
     items.slice(0, 9).forEach(x => {
       const c = el("div", "caution"); c.append(el("span", "sign bar " + x.kind));
-      const t = el("div"); t.append(el("span", "t", x.e.title), el("span", "w", x.when)); c.append(t); box.append(c);
+      const t = el("div"); t.append(el("span", "t", x.e.title), el("span", "w", x.when)); if (x.kind !== "law") t.append(closureDetail(x.e)); c.append(t); box.append(c);
     });
     if (items.length > 9) box.append(el("p", "note", `${items.length - 9} more in the list below.`));
     // Everything else, folded away.
