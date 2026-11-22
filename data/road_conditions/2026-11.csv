@@ -619,3 +619,7 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-22T09:30:46-07:00,272,I-70,Idaho Springs-Genesee,238.7,252.4,3 - dry,"I-70, between Exit 238: Fall River Road (near Idaho Springs) and Exit 254: US 40; Genesee (3 miles west of Mount Vernon Canyon)"
 2026-11-22T10:00:48-07:00,486,US 6,Loveland Pass,219.9,229.9,3 - dry,"US 6, between Montezuma Road and I-70 (Loveland Pass)"
 2026-11-22T10:00:48-07:00,491,US 40,I-70 to Winter Park (Berthoud Pass),231.5,258.3,"9-11 icy spots, snow packed spots","US 40, between Moffat Road (Winter Park) and I-70 (near Empire)"
+2026-11-22T10:15:47-07:00,412,US 285,Grant-Bailey-Pine Jct,213.1,229.0,4s - wet in areas; 9 - icy spots,"US 285 (Hampden Ave), between MP 213 (near Kenosha Pass) and MP 229 (Pine Junction)"
+2026-11-22T10:15:47-07:00,411,US 285,Kenosha Pass,199.0,213.1,4s - wet in areas; 9 - icy spots,"US 285 (Hampden Ave), between Willard Street and River Street (near Kenosha Pass)"
+2026-11-22T10:15:47-07:00,486,US 6,Loveland Pass,219.9,229.9,"9-11 icy spots, snow packed spots","US 6, between Montezuma Road and I-70 (Loveland Pass)"
+2026-11-22T10:15:47-07:00,410,US 285,Antero Jct-Fairplay-Jefferson (South Park),161.8,199.0,4s - wet in areas; 9 - icy spots,"US 285 (Hampden Ave), between US 24 (Antero Junction) and MP 199 (near Kenosha Pass)"
