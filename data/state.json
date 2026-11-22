@@ -295,6 +295,20 @@
    "title": "I-70 westbound: Road closed.",
    "type": "critical"
   },
+  "roadClosures:CDOT-36521645690EB": {
+   "began": "2026-11-22T07:11:12-07:00",
+   "class": "roadClosures",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36521645690EB",
+   "lat": 39.74348,
+   "lon": -105.44336,
+   "mp_end": "",
+   "mp_start": 244.00539291801527,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
+   "type": "critical"
+  },
   "roadClosures:COSEG-588228": {
    "began": "2026-11-22T06:46:50.395000-07:00",
    "class": "roadClosures",
@@ -350,6 +364,20 @@
    "route": "US 160",
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
+  },
+  "roadReports:CDOT-36521645690EB": {
+   "began": "2026-11-22T07:11:12-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36521645690EB",
+   "lat": 39.74348,
+   "lon": -105.44336,
+   "mp_end": "",
+   "mp_start": 244.00539291801527,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
+   "type": "critical"
   },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
@@ -1501,7 +1529,7 @@
   }
  },
  "forecast_last": "2026-11-22T14:00:46+00:00",
- "last_run": "2026-11-22T07:00:46-07:00",
+ "last_run": "2026-11-22T07:15:45-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-22": {
@@ -2241,7 +2269,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-22 05:00",
+  "abasin": "2026-11-22 06:00",
   "aspen": "2026-11-22 05:00",
   "beavercreek": "2026-11-22 05:00",
   "breck": "2026-11-22 05:00",
@@ -2251,7 +2279,7 @@
   "echo": "2026-11-22 05:00",
   "eldora": "2026-11-22 05:00",
   "granby": "2026-11-22 05:00",
-  "keystone": "2026-11-22 05:00",
+  "keystone": "2026-11-22 06:00",
   "loveland": "2026-11-22 05:00",
   "monarch": "2026-11-22 05:00",
   "powderhorn": "2026-11-22 05:00",
@@ -2517,14 +2545,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-22T14:00:46+00:00",
- "tomtom_routing_last": "2026-11-22T14:00:46+00:00",
+ "tomtom_flow_last": "2026-11-22T14:15:45+00:00",
+ "tomtom_routing_last": "2026-11-22T14:15:45+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 570
+   "2026-11": 580
   },
   "routing": {
-   "2026-11": 515
+   "2026-11": 520
   }
  },
  "traffic_model_last": "2026-11-22T14:00:46+00:00"
