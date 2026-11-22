@@ -1106,7 +1106,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       const f = el("a", "cam"); f.href = v[1]; f.target = "_blank"; f.rel = "noopener";
       const im = el("img"); im.loading = "lazy"; im.alt = c.name || "COtrip camera"; im.src = v[1]; im.onerror = () => { f.remove(); };
       const cap = (c.name || "").split(" : ")[1] || (c.name || "").replace(/^[A-Z]+[- ]?\d+ MP [\d.]+ ?[A-Z]{0,2} ?(: |at )?/, "");
-      f.append(im, el("span", "", `${cap}${v[0] ? " \u00b7 " + v[0].replace(/^Looking /, "looking ") : ""}${mi >= 0.3 ? ` \u00b7 ${mi.toFixed(1)} mi away` : ""}`));
+      f.append(im, el("span", "", `${cap}${/^Looking /.test(v[0]) ? " \u00b7 " + v[0].replace(/^Looking /, "looking ") : ""}${mi >= 0.3 ? ` \u00b7 ${mi.toFixed(1)} mi away` : ""}`));
       g.append(f);
     });
     return g;
