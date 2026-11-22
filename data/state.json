@@ -365,20 +365,6 @@
    "title": "I-70 eastbound: Left lane closed.",
    "type": "routine"
   },
-  "roadReports:CDOT-36516842319SB": {
-   "began": "2026-11-22T01:12:32-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36516842319SB",
-   "lat": 39.44936,
-   "lon": -105.44066,
-   "mp_end": "",
-   "mp_start": 225.95979117362882,
-   "pos_bearing": "N",
-   "route": "US 285",
-   "title": "US 285 southbound: Right lane closed.",
-   "type": "routine"
-  },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
    "class": "roadWork",
@@ -1737,34 +1723,6 @@
    "title": "US 40: Wet in areas.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588792": {
-   "began": "2026-11-21T19:00:32.171000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588792",
-   "lat": 39.74493,
-   "lon": -105.5379,
-   "mp_end": 252.37015997775518,
-   "mp_start": 238.72646079049417,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Wet in areas.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588793": {
-   "began": "2026-11-21T19:00:32.171000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588793",
-   "lat": 39.71279,
-   "lon": -105.31491,
-   "mp_end": 259.7767666351,
-   "mp_start": 252.37015997775518,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Wet in areas.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588803": {
    "began": "2026-11-21T18:14:10.290000-07:00",
    "class": "winterDriving",
@@ -1791,34 +1749,6 @@
    "pos_bearing": "E",
    "route": "US 40",
    "title": "US 40: Wet in areas.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588816": {
-   "began": "2026-11-21T18:13:30.235000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588816",
-   "lat": 39.5534,
-   "lon": -106.22571,
-   "mp_end": 194.34189728928501,
-   "mp_start": 188.34154771955997,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Icy.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588817": {
-   "began": "2026-11-21T18:13:30.235000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588817",
-   "lat": 39.50273,
-   "lon": -106.15905,
-   "mp_end": 203.7258464806865,
-   "mp_start": 194.34189728928501,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Icy.",
    "type": "standard"
   },
   "winterDriving:COSEG-588845": {
@@ -1890,10 +1820,38 @@
    "route": "US 40",
    "title": "US 40: Wet in areas with icy spots.",
    "type": "standard"
+  },
+  "winterDriving:COSEG-588869": {
+   "began": "2026-11-21T18:13:30.235000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588869",
+   "lat": 39.5534,
+   "lon": -106.22571,
+   "mp_end": 203.7258464806865,
+   "mp_start": 188.34154771955997,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Icy.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588870": {
+   "began": "2026-11-22T01:08:03.761000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588870",
+   "lat": 39.74493,
+   "lon": -105.5379,
+   "mp_end": 259.7767666351,
+   "mp_start": 238.72646079049417,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Icy spots.",
+   "type": "standard"
   }
  },
  "forecast_last": "2026-11-22T07:45:53+00:00",
- "last_run": "2026-11-22T02:00:47-07:00",
+ "last_run": "2026-11-22T02:15:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-22": {
@@ -2633,7 +2591,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-22 00:00",
+  "abasin": "2026-11-22 01:00",
   "aspen": "2026-11-22 00:00",
   "beavercreek": "2026-11-22 00:00",
   "breck": "2026-11-22 00:00",
@@ -2643,7 +2601,7 @@
   "echo": "2026-11-22 00:00",
   "eldora": "2026-11-22 00:00",
   "granby": "2026-11-22 00:00",
-  "keystone": "2026-11-22 00:00",
+  "keystone": "2026-11-22 01:00",
   "loveland": "2026-11-22 00:00",
   "monarch": "2026-11-22 00:00",
   "powderhorn": "2026-11-22 00:00",
