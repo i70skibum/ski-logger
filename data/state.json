@@ -1079,7 +1079,7 @@
   }
  },
  "forecast_last": "2026-11-22T20:00:52+00:00",
- "last_run": "2026-11-22T14:00:46-07:00",
+ "last_run": "2026-11-22T14:15:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-22": {
@@ -1784,13 +1784,13 @@
   "406": "3 - dry",
   "407": "3 - dry",
   "408": "3 - dry",
-  "410": "4s - wet in areas; 9 - icy spots",
-  "411": "4s - wet in areas; 9 - icy spots",
-  "412": "4s - wet in areas; 9 - icy spots",
+  "410": "4s-9 - wet in areas, icy spots",
+  "411": "4s-9 - wet in areas, icy spots",
+  "412": "4s-9 - wet in areas, icy spots",
   "413": "3 - dry",
   "414": "3 - dry",
   "429": "3 - dry",
-  "430": "9-11 icy spots, snow packed spots",
+  "430": "4s - wet in areas; 9 - icy spots",
   "440": "3 - dry",
   "441": "3 - dry",
   "442": "3 - dry",
@@ -1806,7 +1806,7 @@
   "485": "3 - dry",
   "486": "3 - dry",
   "489": "3 - dry",
-  "49": "4-5 wet, rain; 9 - icy spots",
+  "49": "4s-9 - wet in areas, icy spots",
   "490": "3 - dry",
   "491": "3 - dry",
   "492": "3 - dry",
@@ -1819,7 +1819,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-22 12:00",
+  "abasin": "2026-11-22 13:00",
   "aspen": "2026-11-22 12:00",
   "beavercreek": "2026-11-22 12:00",
   "breck": "2026-11-22 12:00",
@@ -1829,7 +1829,7 @@
   "echo": "2026-11-22 12:00",
   "eldora": "2026-11-22 12:00",
   "granby": "2026-11-22 12:00",
-  "keystone": "2026-11-22 12:00",
+  "keystone": "2026-11-22 13:00",
   "loveland": "2026-11-22 12:00",
   "monarch": "2026-11-22 12:00",
   "powderhorn": "2026-11-22 12:00",
@@ -2095,14 +2095,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-22T20:45:46+00:00",
- "tomtom_routing_last": "2026-11-22T21:00:46+00:00",
+ "tomtom_flow_last": "2026-11-22T21:15:47+00:00",
+ "tomtom_routing_last": "2026-11-22T21:15:47+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 788
+   "2026-11": 804
   },
   "routing": {
-   "2026-11": 780
+   "2026-11": 786
   }
  },
  "traffic_model_last": "2026-11-22T20:00:52+00:00"
