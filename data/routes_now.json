@@ -7,7 +7,7 @@
     "minutes": 41.1,
     "free_min": 40.0,
     "detour": false,
-    "at": "2026-11-22T11:00:46-07:00",
+    "at": "2026-11-22T11:30:46-07:00",
     "line": [
      [
       39.75702,
@@ -908,11 +908,11 @@
     ]
    },
    "E": {
-    "delay_min": 1.0,
-    "minutes": 41.8,
+    "delay_min": 1.2,
+    "minutes": 42.1,
     "free_min": 40.8,
     "detour": false,
-    "at": "2026-11-22T11:00:46-07:00",
+    "at": "2026-11-22T11:30:46-07:00",
     "line": [
      [
       39.74237,
@@ -2692,11 +2692,11 @@
   "pass": {
    "name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)",
    "W": {
-    "delay_min": 0.0,
-    "minutes": 21.0,
+    "delay_min": 2.7,
+    "minutes": 23.8,
     "free_min": 21.1,
     "detour": false,
-    "at": "2026-11-22T11:00:46-07:00",
+    "at": "2026-11-22T11:30:46-07:00",
     "line": [
      [
       39.68008,
@@ -3238,10 +3238,10 @@
    },
    "E": {
     "delay_min": 0.0,
-    "minutes": 20.6,
+    "minutes": 20.4,
     "free_min": 20.7,
     "detour": false,
-    "at": "2026-11-22T11:00:46-07:00",
+    "at": "2026-11-22T11:30:46-07:00",
     "line": [
      [
       39.6046,
@@ -4785,7 +4785,7 @@
     "minutes": 31.5,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-22T11:16:07-07:00",
+    "at": "2026-11-22T11:30:46-07:00",
     "line": [
      [
       39.76107,
@@ -5538,7 +5538,7 @@
     "minutes": 32.8,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-22T11:16:07-07:00",
+    "at": "2026-11-22T11:30:46-07:00",
     "line": [
      [
       39.88623,
@@ -7439,10 +7439,10 @@
    "name": "US 6 through Dillon (I-70 exit 205 at Silverthorne to Keystone)",
    "W": {
     "delay_min": 0.4,
-    "minutes": 15.7,
+    "minutes": 15.6,
     "free_min": 15.3,
     "detour": false,
-    "at": "2026-11-22T11:00:46-07:00",
+    "at": "2026-11-22T11:30:46-07:00",
     "line": [
      [
       39.62844,
@@ -8850,7 +8850,7 @@
     "minutes": 71.2,
     "free_min": 66.9,
     "detour": false,
-    "at": "2026-11-22T11:16:07-07:00",
+    "at": "2026-11-22T11:30:46-07:00",
     "line": [
      [
       39.75702,
@@ -10730,11 +10730,11 @@
     ]
    },
    "W": {
-    "delay_min": 2.4,
-    "minutes": 85.0,
+    "delay_min": 2.7,
+    "minutes": 85.4,
     "free_min": 82.7,
     "detour": false,
-    "at": "2026-11-22T11:00:46-07:00",
+    "at": "2026-11-22T11:30:46-07:00",
     "line": [
      [
       39.75702,
@@ -12654,11 +12654,11 @@
     ]
    },
    "W": {
-    "delay_min": 3.1,
-    "minutes": 103.1,
+    "delay_min": 3.0,
+    "minutes": 103.0,
     "free_min": 100.0,
     "detour": false,
-    "at": "2026-11-22T11:00:46-07:00",
+    "at": "2026-11-22T11:30:46-07:00",
     "line": [
      [
       39.75702,
@@ -14110,11 +14110,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 2.1,
-    "minutes": 27.4,
+    "delay_min": 2.6,
+    "minutes": 27.9,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-22T11:16:07-07:00",
+    "at": "2026-11-22T11:30:46-07:00",
     "line": [
      [
       39.74245,
@@ -14410,11 +14410,11 @@
    "points": [],
    "points_at": "2026-11-22T11:16:07-07:00",
    "W": {
-    "delay_min": 1.9,
-    "minutes": 30.9,
+    "delay_min": 2.2,
+    "minutes": 31.2,
     "free_min": 29.0,
     "detour": false,
-    "at": "2026-11-22T11:16:07-07:00",
+    "at": "2026-11-22T11:30:46-07:00",
     "line": [
      [
       39.75702,
@@ -14786,11 +14786,11 @@
   "i25direct": {
    "name": "I-25 and I-70 direct (Coors Field to I-70 exit 244)",
    "W": {
-    "delay_min": 0.4,
+    "delay_min": 0.5,
     "minutes": 35.5,
     "free_min": 35.1,
     "detour": false,
-    "at": "2026-11-22T11:16:07-07:00",
+    "at": "2026-11-22T11:30:46-07:00",
     "line": [
      [
       39.75702,
@@ -16786,10 +16786,10 @@
    "points_at": "2026-11-22T11:16:07-07:00"
   }
  },
- "updated": "2026-11-22T11:16:07-07:00",
+ "updated": "2026-11-22T11:30:46-07:00",
  "tomtom_use": {
   "flow": 708,
-  "routing": 672
+  "routing": 685
  },
  "tomtom_caps": {
   "routing": 19000,
