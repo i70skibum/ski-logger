@@ -336,6 +336,33 @@ footer { color: var(--ink2); font-size: 12px; }
 .cdetail { display: flex; flex-direction: column; gap: 2px; margin-top: 4px; } .cdetail .cs { font-size: 13px; color: #C9D6E0; display: block; }
 .seg3 { position: relative; display: block; height: 10px; margin: 6px 0 4px; } .seg3 .tr { position: absolute; left: 0; right: 0; top: 3px; height: 4px; border-radius: 2px; background: #2B4358; }
 .seg3 .hl { position: absolute; top: 0; height: 10px; border-radius: 3px; background: #9FB2C1; border: 2px solid var(--bad); box-sizing: border-box; }
+
+#sheet { position: fixed; inset: 0; z-index: 60; } .sh-back { position: absolute; inset: 0; background: rgba(0,0,0,.55); opacity: 0; transition: opacity .2s; }
+.sh-panel { position: absolute; left: 0; right: 0; bottom: 0; max-height: 82vh; overflow-y: auto; background: var(--card); border-radius: 22px 22px 0 0; padding: 10px 18px 28px; transform: translateY(100%); transition: transform .22s ease-out; box-shadow: 0 -8px 30px rgba(0,0,0,.5); }
+#sheet.up .sh-back { opacity: 1; } #sheet.up .sh-panel { transform: none; }
+.sh-grab { width: 40px; height: 4px; border-radius: 2px; background: var(--ink2); opacity: .5; margin: 4px auto 12px; }
+.sh-head { display: flex; justify-content: space-between; align-items: center; gap: 10px; } .sh-head h3 { margin: 0; font: 600 22px "Space Grotesk", sans-serif; }
+#sh-close { border: 0; background: var(--card2, #1B2B39); color: var(--ink); border-radius: 999px; padding: 8px 14px; font: 600 13px Inter, sans-serif; cursor: pointer; }
+#sh-body { display: flex; flex-direction: column; margin-top: 8px; } .sh-text { font-size: 15px; color: #C9D6E0; margin: 6px 0 14px; line-height: 1.5; }
+.sh-link { display: block; background: var(--card2, #1B2B39); border-radius: 12px; padding: 14px 16px; font-weight: 600; text-decoration: none; }
+.sh-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; text-align: left; border: 0; border-top: 1px solid var(--line); background: transparent; color: var(--ink); padding: 14px 6px; font: 500 15px Inter, sans-serif; cursor: pointer; border-radius: 0; }
+.sh-row > div:first-child { display: flex; flex-direction: column; } .sh-row small { color: var(--ink2); font-size: 12.5px; } .sh-row b { font-weight: 600; } .sh-rt { text-align: right; display: flex; flex-direction: column; }
+.sh-row.on { background: var(--card2, #1B2B39); border-radius: 12px; box-shadow: inset 0 0 0 2px var(--accent); border-top-color: transparent; }
+.sheet-open { overflow: hidden; }
+.dp-change { display: none; }
+#lineinner .lm-lab { background: var(--card); padding: 0 3px; border-radius: 3px; }
+@media (min-width: 761px) { #lineinner .lm-lab { background: none; padding: 0; } }
+.lm-plab { position: absolute; width: max-content; max-width: 160px; display: flex; flex-direction: column; pointer-events: none; } .lm-plab b { font: 600 15px "Space Grotesk", sans-serif; color: var(--ink); } .lm-plab span { font-size: 12px; color: var(--ink3); }
+.lm-plab.best b { color: var(--accent); } .lm-plab.dim b { color: var(--ink2); }
+@media (max-width: 760px) {
+  body { padding-bottom: 84px; }
+  header nav.seg { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; border-radius: 0; margin: 0; padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); background: var(--card); border-top: 1px solid var(--line); justify-content: space-around; gap: 0; }
+  header nav.seg a { flex: 1; text-align: center; padding: 14px 6px 12px; border-radius: 12px; font-size: 13px; font-weight: 600; color: var(--ink2); min-height: 48px; position: relative; }
+  header nav.seg a.on { background: transparent; color: var(--accent); } header nav.seg a.on::before { content: ""; position: absolute; top: 0; left: 30%; right: 30%; height: 3px; border-radius: 2px; background: var(--accent); }
+  .dp-goto { grid-template-columns: 1fr auto; gap: 4px 12px; padding: 14px 16px; align-items: center; } .dp-goto .dp-rpills { display: none; } .dp-trip { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px 12px; } .dp-trip h2 { font-size: 24px; grid-column: 1; } .dp-trip .kick { grid-column: 1; } .dp-trip p { display: none; }
+  .dp-change { display: block; grid-column: 2; grid-row: 1 / span 2; border: 0; background: transparent; color: var(--accent); font: 600 14px Inter, sans-serif; padding: 10px; cursor: pointer; }
+  .zoom { position: static; }
+}
 </style>
 </head>
 <body>
@@ -406,6 +433,7 @@ footer { color: var(--ink2); font-size: 12px; }
     </section>
   </div>
 
+  <div id="sheet" hidden><div class="sh-back" id="sh-back"></div><div class="sh-panel"><div class="sh-grab"></div><div class="sh-head"><h3 id="sh-title"></h3><button id="sh-close">Close</button></div><p class="note" id="sh-sub"></p><div id="sh-body"></div></div></div>
   <footer>
     Sources: CDOT COtrip (speeds, closures, conditions), TomTom (pass, canyon and Eldora times), USDA SNOTEL (snow), National Weather Service and other models (forecast), each resort's own lift report.
     Logged every 15 minutes by <a id="repolink" href="#">ski-logger</a>. <a href="classic.html">Old layout</a>.
@@ -1009,6 +1037,31 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     row("US 6 to A-Basin and Keystone", "Usual peak over Loveland Pass and through Dillon", ["pass", "dillon"]);
     if (shown("eldora")) row("Eldora", "Usual peak heading up by Boulder Canyon", ["eldora_boulder"]);
   }
+  // Bottom sheet (phone): a panel that slides up over the page.
+  function openSheet(title, sub, body) {
+    const sh = $("sheet"); sh.hidden = false; document.body.classList.add("sheet-open");
+    $("sh-title").textContent = title; $("sh-sub").textContent = sub || ""; const b = $("sh-body"); b.replaceChildren(...body);
+    requestAnimationFrame(() => sh.classList.add("up"));
+  }
+  function closeSheet() { const sh = $("sheet"); sh.classList.remove("up"); document.body.classList.remove("sheet-open"); setTimeout(() => { if (!sh.classList.contains("up")) sh.hidden = true; }, 220); }
+  $("sh-close").onclick = closeSheet; $("sh-back").onclick = closeSheet;
+  addEventListener("keydown", ev => { if (ev.key === "Escape" && !$("sheet").hidden) closeSheet(); });
+  function roadSheet(tipText) {
+    const m = /^([^:]+): (.*)$/.exec(tipText) || [null, tipText, ""];
+    const a = el("a", "sh-link", "Cameras and road report on COtrip"); a.href = "https://maps.cotrip.org/"; a.target = "_blank"; a.rel = "noopener";
+    openSheet(m[1], "", [el("p", "sh-text", m[2] || ""), a]);
+  }
+  function resortSheet() {
+    const dir = dpDir(), iso = dpIso(), h = dpHour(dir), list = dpOrigin(), best = dpBest();
+    const rows = list.map(o => {
+      const k = o.key, open = !RESORTS[k] || isOpen(D.ctx, k), cl = open ? dpClosed(k, dir, iso) : null, t = tripAt(k, dir, iso, h), r = (D.ranked || []).find(x => x.key === k), st = D.ctx.status[k] || {};
+      const row = el("button", "sh-row" + (k === origin ? " on" : "")), l = el("div"), rt = el("b", "", !open ? "Closed" : cl && h >= cl.from ? "Closed" : hmm(t.minutes));
+      l.append(el("b", "", o.name + (k === best ? "  ·  best pick" : "")), el("small", "", open ? `${r ? r.new24 : 0}″ new${st.lifts ? " · " + st.lifts.replace(" of ", "/") + " lifts" : ""}` : "Not open yet"));
+      const w = el("div", "sh-rt"); w.append(rt, el("small", "", open ? (dir === "W" ? "from Coors" : "to Coors") : ""));
+      row.append(l, w); row.onclick = () => { origin = k; try { localStorage.setItem("ski-origin", k); } catch (e) {} closeSheet(); render(); }; return row;
+    });
+    openSheet("Going to", `Drive times are for leaving ${dir === "W" ? "Coors" : "the mountain"} at ${clock12(h)}, ${dir === "W" ? "westbound" : "eastbound"}.`, rows);
+  }
   // Where a closure sits on I-70 (mileposts 195 to 276), with a link to COtrip's map and cameras.
   function closureDetail(e) {
     const d = el("div", "cdetail"), mp0 = num(e.mp_start), mp1 = num(e.mp_end);
@@ -1160,6 +1213,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       b.onclick = () => { origin = k; try { localStorage.setItem("ski-origin", k); } catch (e) {} render(); };
       pills.append(b);
     });
+    const ch = el("button", "dp-change", "Change"); ch.onclick = resortSheet; left.append(ch);
     box.append(left, pills);
   }
   // The When panel: windows of the day, a bar for every hour, best and slowest, and a slider.
@@ -1406,7 +1460,11 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
 
   // ---- The drive: line map ---------------------------------------------------
   // Drawn on a 1320 x 580 canvas with Denver on the right, like a real map. Every route starts at Coors Field.
-  const MW = 1320, MH = 480, TOP = 96, Y = 420, CX = 1200, LW = 10;   // canvas runs from y = TOP to TOP + MH
+  const MW = 1320, MH = 480, TOP = 96, Y = 420, CX = 1200, LW = 10;
+  const PHONE = () => matchMedia("(max-width: 760px)").matches;
+  const PX0 = 238, PSC = 0.78, PT = 36;   // phone: Denver at the top, the mountains down the page, branches left (north) and right (south)
+  const tfP = (x, y) => [PX0 + (y - Y) * PSC, PT + (CX - x)];
+  const geo = () => PHONE() ? { w: 420, h: 1250, top: 0 } : { w: MW, h: MH, top: TOP };   // canvas runs from y = TOP to TOP + MH
   // I-70 stretches: x on the line map, mileposts (closures) and longitudes (speed sensors).
   const I70_BANDS = [
     { x: [1080, CX], mp: [266, 276], lon: [-105.14, -104.98], name: "Coors Field to the Golden freeway" },
@@ -1563,6 +1621,9 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   function at(box, cls, x, y, w, h, text) { const d = el("div", cls, text); Object.assign(d.style, { left: (x - w / 2) + "px", top: (y - h / 2) + "px", width: w + "px", height: h + "px" }); box.append(d); return d; }
   function drawLine() {
     const { ctx, ranked } = D, box = $("lineinner"); box.replaceChildren();
+    const PH = PHONE(); $("lineinner").style.width = (PH ? 420 : 1320) + "px"; $("lineinner").style.height = (PH ? 1250 : 580) + "px";
+    const P_ = (x1, y1, x2, y2, k, t) => PH ? piece(box, ...tfP(x1, y1), ...tfP(x2, y2), k, t) : piece(box, x1, y1, x2, y2, k, t);
+    const A_ = (cls, x, y, w, h, text) => PH ? at(box, cls, ...tfP(x, y), w, h, text) : at(box, cls, x, y, w, h, text);
     const dir = mapDir || (denverHour() < 12 ? "W" : "E"), dname = dir === "W" ? "westbound" : "eastbound";
     $("d-w").classList.toggle("on", dir === "W"); $("d-e").classList.toggle("on", dir === "E");
     if (!origin || !ORIGINS.some(o => o.key === origin)) { const top = (D.ranked || []).find(r => ORIGINS.some(o => o.key === r.key)); origin = top ? top.key : "copper"; }
@@ -1581,7 +1642,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       pieces.forEach(([a, b, c, d], j) => {
         let kind = s.kind;
         if (k === "eldora_119" && j === 2) kind = RANK[states.eldora_coal.kind] < RANK[kind] && states.eldora_coal.kind !== "none" ? states.eldora_coal.kind : kind;
-        piece(box, a, b, c, d, kind, `${ROUTE_NAME[k]}: ${words}`);
+        P_(a, b, c, d, kind, `${ROUTE_NAME[k]}: ${words}`);
       });
       desc.push(`${ROUTE_NAME[k]} ${KIND[s.kind][1].toLowerCase()}`);
     }
@@ -1589,12 +1650,12 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     I70_BANDS.forEach(b => {
       if (E) {
         const pl = plannedOn(E).filter(e => normRoute(e.route) === "I70" && forDir(e, dir) && overlaps(e.mp_start, e.mp_end, b.mp[0], b.mp[1]));
-        piece(box, b.x[0], Y, b.x[1], Y, pl.length ? "closed" : peakKind(ip.peak), `I-70 ${dname}, ${FD}: ` + (pl.length ? "closure planned. " + pl.map(e => e.title).join(" ") :
+        P_(b.x[0], Y, b.x[1], Y, pl.length ? "closed" : peakKind(ip.peak), `I-70 ${dname}, ${FD}: ` + (pl.length ? "closure planned. " + pl.map(e => e.title).join(" ") :
           ip.peak >= 1 ? `the whole trip to Copper is expected at about +${ip.peak} min at ${clock(ip.at)} (${ip.tier})` : "no usual rush at " + clock(H)));
         return;
       }
       const s = i70Stretch(b.mp[0], b.mp[1], b.lon[0], b.lon[1], dir), o = s.sp[dir === "W" ? "E" : "W"];
-      piece(box, b.x[0], Y, b.x[1], Y, s.kind, `I-70 ${dname}, ${b.name}: ` + (s.closures.length ? s.closures.map(e => e.title).join(" ") :
+      P_(b.x[0], Y, b.x[1], Y, s.kind, `I-70 ${dname}, ${b.name}: ` + (s.closures.length ? s.closures.map(e => e.title).join(" ") :
         s.sp[dir] ? `${s.sp[dir].mph} mph (${speedWord(s.sp[dir].mph)})` : "no reading") + (o ? `. Other direction ${o.mph} mph.` : ""));
       if (s.kind !== "open") desc.push(`I-70 ${b.name} ${KIND[s.kind][1].toLowerCase()}`);
     });
@@ -1603,7 +1664,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const org = ORIGINS.find(o => o.key === origin) || ORIGINS[0];
     DOTS.forEach(d => {
       if (d.eld && !shown("eldora")) return;
-      const big = d.id === "coors" ? 34 : d.resort ? 26 : 16, e = at(box, "lm-dot" + (d.resort ? " big" : ""), d.x, d.y, big, big);
+      const big = d.id === "coors" ? 34 : d.resort ? 26 : 16, e = A_("lm-dot" + (d.resort ? " big" : ""), d.x, d.y, big, big);
       if (d.id === "coors") Object.assign(e.style, { background: COL.ink, borderWidth: "6px", borderColor: "var(--bg)", boxShadow: "0 0 0 3px " + COL.ink });
       if (dir === "E" && d.id === org.dot) e.style.boxShadow = "0 0 0 4px var(--accent)";
       e.dataset.tip = E ? `${d.name}: drive times by stop are live, so they show when the map is on now` : dotTip(d, dir, org);
@@ -1613,12 +1674,19 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     (E ? (vday === 0 ? ctx.events.concat(plannedOn(E)) : plannedOn(E)) : ctx.events).filter(e => isClosure(e) && normRoute(e.route) === "I70" && overlaps(e.mp_start, e.mp_end, 195, 276) && forDir(e, dir)).forEach(e => {
       const mp = Math.max(195, Math.min(276, num(e.mp_start))), x = Math.round(mpToX(mp) / 8) * 8;
       if (signed.has(x)) return; signed.add(x);
-      at(box, "lm-sign", x, Y, 20, 20).dataset.tip = e.title;
+      A_("lm-sign", x, Y, 20, 20).dataset.tip = e.title;
     });
-    for (const k in ROUTE_GEO) if (states[k].kind === "closed" && (!/^eldora/.test(k) || shown("eldora"))) at(box, "lm-sign", ...ROUTE_GEO[k].sign, 20, 20).dataset.tip = states[k].st.alerts.join(" ") || `${ROUTE_NAME[k]} closed`;
+    for (const k in ROUTE_GEO) if (states[k].kind === "closed" && (!/^eldora/.test(k) || shown("eldora"))) A_("lm-sign", ...ROUTE_GEO[k].sign, 20, 20).dataset.tip = states[k].st.alerts.join(" ") || `${ROUTE_NAME[k]} closed`;
     LABELS.forEach(([x, y, t, anchor, tier]) => {
       if (/Boulder|Coal|Nederland|Peak|Black Hawk|CO 93|US 36/.test(t) && !shown("eldora")) return;
       const d = el("div", "lm-lab t" + tier, t); if (t.includes("\n")) d.style.whiteSpace = "pre";
+      if (PH) {
+        if (/^(US 6|CO 93|Golden freeway|Boulder Canyon|Peak to Peak)/.test(t)) return;
+        if (/Coal Creek/.test(t)) d.textContent = "Coal Creek";
+        const [X, Yp] = tfP(anchor === "l" ? x : anchor === "r" ? x - 10 : x, y + 7), right = anchor === "r" || (anchor === "c" && y < Y - 5);
+        Object.assign(d.style, { width: "auto", maxWidth: "150px", left: right ? "auto" : (X + 9) + "px", right: right ? (420 - X + 9) + "px" : "auto", top: (Yp - (t.includes("\n") ? 15 : 8)) + "px", textAlign: right ? "right" : "left" });
+        box.append(d); return;
+      }
       Object.assign(d.style, { left: (anchor === "l" ? x : anchor === "r" ? x - 220 : x - 110) + "px", top: y + "px", textAlign: anchor === "l" ? "left" : anchor === "r" ? "right" : "center" }); box.append(d);
     });
     MAP_RESORTS.forEach(([k, x, y]) => {
@@ -1628,29 +1696,35 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       let line = !open ? (op ? `Opens ${+op.slice(5, 7)}/${+op.slice(8)}` : "Not open yet") : `${sn && sn.new24 ? sn.new24.inches : 0}" new` + (st.lifts ? ` · ${st.lifts.replace(" of ", "/")} lifts` : "");
       if (F) { const W = weekInputs(), di = W ? W.outlook.days.indexOf(F) : -1, r = di >= 0 ? dayScore(k, di, W) : null;
         line = !r ? "No forecast" : r.closed ? (op ? `Opens ${+op.slice(5, 7)}/${+op.slice(8)}` : "Not open") : `${Math.round(r.snow)}" forecast · score ${r.score}`; }
+      if (PH) {
+        const [X, Yp] = tfP(...RESORT_DOT[k]), side = { winterpark: "l", abasin: "l", copper: "r", keystone: "r", eldora: "r" }[k] || "r", pl = el("div", "lm-plab" + (i === 0 ? " best" : "") + (!open ? " dim" : ""));
+        pl.append(el("b", "", (i >= 0 ? `${i + 1}. ` : "") + RESORTS[k].name), el("span", "", line + (!shown(k) ? ` \u00b7 ${RESORTS[k].pass === "epic" ? "Epic" : "Not Ikon"}` : "")));
+        Object.assign(pl.style, side === "l" ? { right: (420 - X + 18) + "px", textAlign: "right" } : { left: (X + 18) + "px" }, { top: (Yp - 16) + "px" }); box.append(pl); return;
+      }
       const c = el("div", "lm-card" + (i === 0 ? " best" : "") + (!shown(k) || !open ? " dim" : ""));
       c.append(el("b", "", (i >= 0 ? `${i + 1}. ` : "") + RESORTS[k].name), el("span", "", line + (!shown(k) ? ` · ${RESORTS[k].pass === "epic" ? "Epic" : "Not Ikon"}` : "")));
       Object.assign(c.style, { left: x + "px", top: y + "px" }); box.append(c);
     });
     // Which way the map is showing: a big arrow under Georgetown to Floyd Hill.
     const ar = el("div", "lm-arrow " + dir); ar.append(el("i"), el("span", "", (dir === "W" ? "Westbound \u00b7 heading up" : `Eastbound \u00b7 heading home from ${org.name}`) + (E ? ` \u00b7 ${FD}, ${clock(H)}, expected` : "")));
-    Object.assign(ar.style, { left: "560px", top: "511px", width: "300px" }); box.append(ar);
+    if (!PH) { Object.assign(ar.style, { left: "560px", top: "511px", width: "300px" }); box.append(ar); }
     box.setAttribute("aria-label", `Line map, ${dname}, of every way up from Coors Field on the right. ` + (desc.length ? desc.join(". ") + "." : "Everything is moving."));
     layoutLine(false);
   }
   // Fit the width by default (never smaller than half size, so labels stay readable on a phone; then it starts on the Denver end and drags).
   function layoutLine(reset) {
     const wrap = $("linewrap"), w = wrap.clientWidth; if (!w) return;
-    const base = Math.min(1.25, Math.max(0.5, w / MW));
-    if (reset || Math.abs(w - mz.w) > 1 || base !== mz.base) { mz.w = w; mz.base = base; mz.z = 1; mz.h = Math.round(MH * base); mz.px = MW * base > w ? w - MW * base : (w - MW * base) / 2; mz.py = 0; }
+    const G = geo(), base = Math.min(1.25, Math.max(0.5, w / G.w));
+    if (reset || Math.abs(w - mz.w) > 1 || base !== mz.base || mz.ph !== PHONE()) { mz.ph = PHONE(); mz.w = w; mz.base = base; mz.z = 1; mz.h = Math.round(G.h * base); mz.px = G.w * base > w ? w - G.w * base : (w - G.w * base) / 2; mz.py = 0; }
     wrap.style.height = mz.h + "px";
     clampPan();
-    $("lineinner").style.transform = `translate(${mz.px}px, ${mz.py}px) scale(${mz.base * mz.z}) translateY(${-TOP}px)`;
+    $("lineinner").style.transform = `translate(${mz.px}px, ${mz.py}px) scale(${mz.base * mz.z}) translateY(${-geo().top}px)`;
   }
   function clampPan() {
     const sc = mz.base * mz.z;
-    mz.px = MW * sc <= mz.w ? (mz.w - MW * sc) / 2 : Math.min(0, Math.max(mz.w - MW * sc, mz.px));
-    mz.py = Math.min(0, Math.max(mz.h - MH * sc, mz.py));
+    const G = geo();
+    mz.px = G.w * sc <= mz.w ? (mz.w - G.w * sc) / 2 : Math.min(0, Math.max(mz.w - G.w * sc, mz.px));
+    mz.py = Math.min(0, Math.max(mz.h - G.h * sc, mz.py));
   }
   function zoomTo(z) {
     const old = mz.base * mz.z, ns = mz.base * z, cx = mz.w / 2, cy = mz.h / 2;
@@ -1667,7 +1741,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       const t = document.elementsFromPoint(ev.clientX, ev.clientY).find(x => x.dataset && x.dataset.tip);
       if (t) showTip(ev, t.dataset.tip); else hideTip();
     });
-    const end = ev => { if (drag && !moved) { const t = document.elementsFromPoint(ev.clientX, ev.clientY).find(x => x.dataset && x.dataset.tip); if (t) showTip(ev, t.dataset.tip); } drag = null; };
+    const end = ev => { if (drag && !moved) { const t = document.elementsFromPoint(ev.clientX, ev.clientY).find(x => x.dataset && x.dataset.tip); if (t) { if (PHONE()) roadSheet(t.dataset.tip); else showTip(ev, t.dataset.tip); } } drag = null; };
     wrap.addEventListener("pointerup", end); wrap.addEventListener("pointercancel", () => { drag = null; });
     wrap.addEventListener("pointerleave", () => { if (!drag) hideTip(); });
     wrap.style.cursor = "grab";
