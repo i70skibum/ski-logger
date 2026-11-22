@@ -23,20 +23,6 @@
    "title": "CO 9 in both directions: Passenger vehicle traction law.",
    "type": "standard"
   },
-  "chainLaws:CDOT-36496895434BOTH": {
-   "began": "2026-11-21T00:42:55-07:00",
-   "class": "chainLaws",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36496895434BOTH",
-   "lat": 39.86548,
-   "lon": -105.75016,
-   "mp_end": 256.0046343778515,
-   "mp_start": 233.95376005897188,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40 in both directions: Passenger vehicle traction law.",
-   "type": "standard"
-  },
   "chainLaws:CDOT-36498229008BOTH": {
    "began": "2026-11-21T02:20:38-07:00",
    "class": "chainLaws",
@@ -49,20 +35,6 @@
    "pos_bearing": "E",
    "route": "US 40",
    "title": "US 40 in both directions: Passenger vehicle traction law.",
-   "type": "standard"
-  },
-  "chainLaws:CDOT-36499760970WB": {
-   "began": "2026-11-21T04:12:44-07:00",
-   "class": "chainLaws",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36499760970WB",
-   "lat": 39.7615,
-   "lon": -105.68599,
-   "mp_end": 233.95376005897188,
-   "mp_start": 256.0046343778515,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40 westbound: Commercial motor vehicle chain law.",
    "type": "standard"
   },
   "roadClosures:CDOT-20653903231BOTH": {
@@ -302,6 +274,20 @@
    "route": "US 160",
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
+  },
+  "roadReports:CDOT-36499760970WB": {
+   "began": "2026-11-21T04:12:44-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36499760970WB",
+   "lat": 39.7615,
+   "lon": -105.68599,
+   "mp_end": 233.95376005897188,
+   "mp_start": 256.0046343778515,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40 westbound: Roadway reopened to traffic.",
+   "type": "urgent"
   },
   "roadReports:CDOT-36506661891BOTH": {
    "began": "2026-11-21T12:37:27-07:00",
@@ -1340,8 +1326,8 @@
    "type": "standard"
   }
  },
- "forecast_last": "2026-11-22T14:00:46+00:00",
- "last_run": "2026-11-22T09:45:49-07:00",
+ "forecast_last": "2026-11-22T17:00:48+00:00",
+ "last_run": "2026-11-22T10:00:48-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-22": {
@@ -1705,11 +1691,11 @@
   },
   "monarch": {
    "2026-11-22": {
-    "gust": 16.1,
+    "gust": 19.6,
     "snow": 0.0
    },
    "2026-11-23": {
-    "gust": 13.8,
+    "gust": 12.7,
     "snow": 0.2
    },
    "2026-11-24": {
@@ -1945,7 +1931,7 @@
   },
   "wolfcreek": {
    "2026-11-22": {
-    "gust": 23.0,
+    "gust": 18.4,
     "snow": 0.0
    },
    "2026-11-23": {
@@ -2066,11 +2052,11 @@
   "483": "3 - dry",
   "484": "3 - dry",
   "485": "3 - dry",
-  "486": "7-9-11 - slushy, icy spots, snow packed spots",
+  "486": "3 - dry",
   "489": "3 - dry",
   "49": "3 - dry",
   "490": "3 - dry",
-  "491": "7-9-11 - slushy, icy spots, snow packed spots",
+  "491": "9-11 icy spots, snow packed spots",
   "492": "3 - dry",
   "501": "3 - dry",
   "516": "3 - dry",
@@ -2096,9 +2082,9 @@
   "monarch": "2026-11-22 08:00",
   "powderhorn": "2026-11-22 08:00",
   "purgatory": "2026-11-22 08:00",
-  "steamboat": "2026-11-22 08:00",
+  "steamboat": "2026-11-22 09:00",
   "sunlight": "2026-11-22 08:00",
-  "telluride": "2026-11-22 07:00",
+  "telluride": "2026-11-22 08:00",
   "vail": "2026-11-22 08:00",
   "winterpark": "2026-11-22 08:00",
   "wolfcreek": "2026-11-22 08:00"
@@ -2358,14 +2344,14 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-22T16:45:49+00:00",
- "tomtom_routing_last": "2026-11-22T16:45:49+00:00",
+ "tomtom_routing_last": "2026-11-22T17:00:48+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 660
   },
   "routing": {
-   "2026-11": 615
+   "2026-11": 628
   }
  },
- "traffic_model_last": "2026-11-22T14:00:46+00:00"
+ "traffic_model_last": "2026-11-22T17:00:48+00:00"
 }
