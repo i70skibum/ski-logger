@@ -847,11 +847,27 @@ ROUTE_POINTS = {
                        "every": 30, "ski_direction_only": True,
                        "route": [(39.7562, -104.9942), (39.7958, -105.4929), (39.96189, -105.51019), (39.9375, -105.5830)],
                        "points": []},
+    # I-25 and I-70 straight out to Floyd Hill (exit 244), skipping 6th Ave and the canyon. Ski direction only
+    # since Nov 22: 60 requests a day. The waypoints are vertices of TomTom's own geometry on I-70 through
+    # Denver and Wheat Ridge; without them the router takes 6th Ave instead.
+    "i25direct": {"name": "I-25 and I-70 direct (Coors Field to I-70 exit 244)", "max_km": 60, "min_km": 40,
+                  "every": 15, "ski_direction_only": True,
+                  "route": [(39.7562, -104.9942), (39.7835, -105.0662), (39.7794, -105.1392), (39.74238, -105.43138)],
+                  "points": []},
+}
+# Flow only, no routing: the roads Ian drives to get to the mountains from the north and west of town.
+# Points are vertices of TomTom's own geometry (checked Nov 22: all within 5 m of the road, FRC0 or FRC2).
+FLOW_ONLY = {
+    "corridor": {"name": "Front Range approaches (I-25 north, US 36 to Boulder, CO 58 Golden freeway)",
+                 "points": [(39.8038, -104.9834), (39.8277, -104.9912),                      # I-25 north of downtown
+                            (39.854, -105.0513), (39.9469, -105.1486), (39.9801, -105.2206),  # US 36 to Boulder
+                            (39.7733, -105.1729)]},                                          # CO 58 Golden freeway
 }
 # Route times stop at 8 PM: evenings carry no ski traffic, and it leaves room for the Eldora routes.
 # Routing a day, in requests: Berthoud 120, 6th Ave 120 (both ways), Clear Creek Canyon 60 and Loveland Pass 60
-# (every 30 minutes), Dillon 30 (ski direction), Eldora 120 = 510, about 15,800 in a 31-day month. The flow
-# allowance is unchanged: 10 points every 15 minutes, 600 a day.
+# (every 30 minutes), Dillon 30 (ski direction), Eldora 120, I-25 direct 60 = 570, about 17,700 in a 31-day month.
+# Flow, since Nov 22: 16 points every 30 minutes, 480 a day, about 14,900 a month (was 10 points every 15 minutes).
+FLOW_GAP_MIN = 25
 TOMTOM_HOURS = {"routing": (5, 20), "flow": (5, 20)}
 
 
@@ -859,6 +875,8 @@ def route_jobs():
     """(route, direction, points) to time this run, honoring each route's cadence and direction."""
     jobs, slot = [], NOW.minute // 15
     for rk, R in ROUTE_POINTS.items():
+        if not R.get("route"):
+            continue
         if R.get("every") == 30 and slot % 2:
             continue
         for d, pts in (("W", R["route"]), ("E", R.get("route_e") or list(reversed(R["route"])))):
@@ -900,13 +918,13 @@ def line_dist_m(lat, lon, pts):
     return None if best is None else round(best)
 
 
-def tomtom_budget(state, kind, need):
+def tomtom_budget(state, kind, need, gap_min=12):
     """True if this run may spend `need` requests of `kind`; counts them per calendar month."""
     h0, h1 = TOMTOM_HOURS[kind]
     if not h0 <= NOW.hour < h1:
         return False
     last = state.get(f"tomtom_{kind}_last")
-    if last and NOW_UTC - datetime.fromisoformat(last) < timedelta(minutes=12):
+    if last and NOW_UTC - datetime.fromisoformat(last) < timedelta(minutes=gap_min):
         return False
     use = state.setdefault("tomtom_use", {}).setdefault(kind, {})
     month = NOW.strftime("%Y-%m")
@@ -970,9 +988,10 @@ def log_routes(state):
                                "historic_s", "delay_s", "detour"], rows)
         did.append("routing")
 
-    if tomtom_budget(state, "flow", sum(len(R["points"]) for R in ROUTE_POINTS.values())):
+    flow_sets = {**ROUTE_POINTS, **FLOW_ONLY}
+    if tomtom_budget(state, "flow", sum(len(R["points"]) for R in flow_sets.values()), FLOW_GAP_MIN):
         rows = []
-        for rk, R in ROUTE_POINTS.items():
+        for rk, R in flow_sets.items():
             out = now["routes"].setdefault(rk, {"name": R["name"]})
             closed, slow = False, []
             for i, (lat, lon) in enumerate(R["points"]):
@@ -1484,6 +1503,73 @@ def log_traffic_model(state):
 
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# COtrip plows (trial since Nov 22) and cameras (keyless feed, refreshed daily)
+# ---------------------------------------------------------------------------
+
+PLOW_BOX = {"lat": (39.4, 40.1), "lon": (-106.5, -105.0)}     # the ski corridor: Berthoud, Loveland, I-70, Boulder side
+CAM_BOX = {"lat": (39.3, 40.15), "lon": (-106.6, -104.85)}
+CAMERAS_URL = "https://api-511x-co.carsprogram.org/cameras/map-features"
+CAMERAS_EVERY = timedelta(hours=20)
+
+
+def log_plows(state):
+    """One row a run: how many CDOT plows are out, statewide and in the ski corridor. A trial: it stays only
+    if the counts turn out to help the model (check after a few storms)."""
+    key = os.environ.get("CDOT_API_KEY", "").strip()
+    if not key:
+        return "no CDOT key"
+    try:
+        feats = cdot_get("snowPlows", key)
+    except Exception as e:
+        log_error("plows", str(e).replace(key, "KEY"))
+        return "failed"
+    now_s = NOW_UTC.timestamp()
+    tot = mov = box = box_mov = 0
+    for f in feats:
+        a = f.get("avl_location") or {}
+        pos = a.get("position") or {}
+        lat, lon = pos.get("latitude"), pos.get("longitude")
+        ts = (a.get("source") or {}).get("collection_timestamp")
+        if lat is None or lon is None or not ts or now_s - float(ts) > 1800:
+            continue    # no position, or a stale one
+        moving = (pos.get("speed") or 0) > 1
+        tot += 1
+        mov += moving
+        if PLOW_BOX["lat"][0] <= lat <= PLOW_BOX["lat"][1] and PLOW_BOX["lon"][0] <= lon <= PLOW_BOX["lon"][1]:
+            box += 1
+            box_mov += moving
+    append_rows("plows", ["snapshot_time", "statewide", "statewide_moving", "corridor", "corridor_moving"],
+                [[NOW_ISO, tot, mov, box, box_mov]])
+    return f"{tot} plows fresh, {box} in the corridor"
+
+
+def log_cameras(state):
+    """data/cameras.json: the COtrip still cameras in the ski corridor, with their image links, for the dashboard."""
+    last = state.get("cameras_last")
+    if last and NOW_UTC - datetime.fromisoformat(last) < CAMERAS_EVERY:
+        return "not due"
+    data = fetch_json(CAMERAS_URL, {"Accept": "application/json"})
+    cams = []
+    for f in data.get("features", []):
+        p = f.get("properties") or {}
+        lon, lat = (f.get("geometry") or {}).get("coordinates", [None, None])[:2]
+        if lat is None or not p.get("public", True):
+            continue
+        if not (CAM_BOX["lat"][0] <= lat <= CAM_BOX["lat"][1] and CAM_BOX["lon"][0] <= lon <= CAM_BOX["lon"][1]):
+            continue
+        views = [[v.get("name", ""), v["url"]] for v in p.get("views") or []
+                 if v.get("type") == "STILL_IMAGE" and v.get("url") and not v.get("broken")]
+        if views:
+            cams.append({"id": p.get("id"), "name": p.get("name"), "route": p.get("route"),
+                         "lat": round(lat, 5), "lon": round(lon, 5), "views": views})
+    cams.sort(key=lambda c: (c["route"] or "", c["id"] or 0))
+    with open(os.path.join(DATA, "cameras.json"), "w") as f:
+        json.dump({"updated": NOW_ISO, "source": "CDOT COtrip (cotrip.org)", "cameras": cams}, f, separators=(",", ":"))
+    state["cameras_last"] = NOW_UTC.isoformat()
+    return f"{len(cams)} cameras"
+
+
 def main():
     state = load_state()
     STATE_REF.clear()
@@ -1491,7 +1577,7 @@ def main():
     state = STATE_REF
     jobs = [("snotel", log_snotel), ("forecast", log_forecast), ("afd", log_afd),
             ("events", log_events), ("cdot", log_cdot), ("resort_status", log_resort_status),
-            ("routes", log_routes), ("outlook", log_outlook), ("traffic_model", log_traffic_model)]
+            ("routes", log_routes), ("plows", log_plows), ("cameras", log_cameras), ("outlook", log_outlook), ("traffic_model", log_traffic_model)]
     for name, fn in jobs:
         try:
             print(f"{name}: {fn(state)}")
