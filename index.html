@@ -287,6 +287,37 @@ footer { color: var(--ink2); font-size: 12px; }
   .dp-tile.edgeL .dp-pop, .dp-tile.edgeR .dp-pop { left: 50%; right: auto; transform: translateX(-50%); } .dp-tile.edgeL .dp-pop::after, .dp-tile.edgeR .dp-pop::after { left: 50%; right: auto; margin-left: -6px; }
   .dp-tile.eL .dp-pop { left: 0; transform: none; } .dp-tile.eL .dp-pop::after { left: 14px; margin-left: 0; } .dp-tile.eR .dp-pop { left: auto; right: 0; transform: none; } .dp-tile.eR .dp-pop::after { left: auto; right: 14px; margin-left: 0; }
   .dp-rt { flex-direction: row; align-items: center; gap: 10px; } .dp-rt .bar { width: 90px; } .dp-rt .pct { font-size: 17px; } .dp-stbox { min-width: 170px; } }
+
+.wh { display: flex; flex-direction: column; gap: 14px; padding: 20px 24px 18px; }
+.wh-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px 32px; flex-wrap: wrap; }
+.wh-q { display: flex; flex-direction: column; gap: 3px; align-items: flex-start; } .wh-q .kick { font-size: 12px; font-weight: 700; letter-spacing: .14em; color: var(--ink2); }
+.wh-q h2 { font-size: 30px; font-weight: 700; letter-spacing: -.01em; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; } .wh-q h2 .hr { color: var(--accent); }
+.wh-step { display: inline-flex; gap: 6px; } .wh-step button { width: 40px; height: 40px; border-radius: 50%; background: var(--card2, #1B2B39); border: 1px solid var(--line); display: inline-flex; align-items: center; justify-content: center; font: 500 22px Inter, sans-serif; color: var(--ink); cursor: pointer; }
+.wh-live { margin-top: 6px; border: 1px solid var(--line); background: transparent; color: var(--accent); border-radius: 999px; padding: 6px 14px; font: 600 13px Inter, sans-serif; cursor: pointer; }
+.wh-stats { display: flex; gap: 30px; align-items: flex-end; flex-wrap: wrap; } .wh-stat { display: flex; flex-direction: column; gap: 1px; }
+.wh-stat small { font-size: 11.5px; font-weight: 700; letter-spacing: .1em; color: var(--ink2); } .wh-stat b { font: 700 26px/1.1 "Space Grotesk", sans-serif; } .wh-stat span { font-size: 12.5px; color: var(--ink2); max-width: 230px; }
+.wh-stat.g b { color: #5BE3A1; } .wh-stat.a b { color: #F5C566; } .wh-stat.r b { color: #FF8A7F; }
+.wh-pre { display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); gap: 3px; }
+.pbtn { border: 0; border-radius: 12px; background: var(--card2, #1B2B39); color: var(--ink); padding: 8px 12px; display: flex; flex-direction: column; gap: 1px; text-align: left; min-height: 62px; justify-content: center; font: 600 14.5px Inter, sans-serif; box-shadow: inset 0 0 0 1px var(--line); cursor: pointer; min-width: 0; }
+.pbtn small { font-size: 12px; font-weight: 500; color: var(--ink2); } .pbtn em { font-style: normal; font-size: 12.5px; font-weight: 700; display: flex; align-items: center; gap: 6px; }
+.pbtn em i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex: none; } .pbtn em i.g { background: #3DD68C; } .pbtn em i.a { background: #F5B841; } .pbtn em i.r { background: #E8584A; } .pbtn em i.n { background: #3A5266; }
+.pbtn.on { background: #EAF1F6; color: #0E1A24; box-shadow: none; } .pbtn.on small { color: #3A5266; } .pbtn.dis { opacity: .5; } .pbtn.dim { background: var(--card); }
+.wh-bars { display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); gap: 3px; height: 96px; align-items: end; position: relative; } .wh-bars.hasnow { margin-top: 26px; }
+.wb { height: 100%; display: flex; align-items: flex-end; border-radius: 6px; position: relative; cursor: pointer; } .wb.win { background: rgba(127,209,255,.10); }
+.wb i { display: block; width: 100%; border-radius: 5px 5px 2px 2px; min-height: 6px; } .wb i.g { background: #3DD68C; } .wb i.a { background: #F5B841; } .wb i.r { background: #E8584A; }
+.wb.est i { opacity: .42; } .wb.past i { background: #3A5266; opacity: .55; } .wb.sel i { box-shadow: 0 0 0 2px #EAF1F6; opacity: 1; }
+.wb.cl i { height: 100% !important; opacity: 1; background: repeating-linear-gradient(135deg, #E8584A 0 4px, #8A2F27 4px 8px); }
+.wb .nowl { position: absolute; top: -4px; bottom: -4px; left: 50%; width: 2px; background: var(--accent); z-index: 3; }
+.nowtag { position: absolute; top: -26px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #0E1A24; font-size: 12px; font-weight: 700; border-radius: 999px; padding: 2px 10px; white-space: nowrap; z-index: 4; }
+.wh-slide { position: relative; height: 30px; margin-top: -6px; } .wh-slide .trk { position: absolute; left: calc(100% / 48); right: calc(100% / 48); top: 12px; height: 6px; border-radius: 3px; background: var(--line); }
+.wh-slide input { position: absolute; top: 0; left: calc(100% / 48 - 8px); width: calc(100% - 100% / 24 + 16px); height: 30px; margin: 0; background: transparent; accent-color: var(--accent); cursor: pointer; }
+.wh-ax { display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); gap: 3px; margin-top: -4px; } .wh-ax span { font-size: 12px; color: var(--ink2); text-align: center; white-space: nowrap; } .wh-ax span.sel { color: var(--accent); font-weight: 700; }
+.wh-leg { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 12.5px; color: #C9D6E0; } .wh-leg > span { display: inline-flex; align-items: center; gap: 7px; }
+.wh-leg i { width: 14px; height: 14px; border-radius: 4px; display: inline-block; flex: none; } .wh-leg i.g { background: #3DD68C; } .wh-leg i.a { background: #F5B841; } .wh-leg i.r { background: #E8584A; } .wh-leg i.est { background: #3DD68C; opacity: .42; } .wh-leg i.past { background: #3A5266; opacity: .8; }
+.wh-leg i.cl { background: repeating-linear-gradient(135deg, #E8584A 0 3px, #8A2F27 3px 6px); }
+@media (max-width: 760px) { .wh { padding: 16px 14px 14px; } .wh-q h2 { font-size: 22px; } .wh-stats { gap: 16px; width: 100%; justify-content: space-between; } .wh-stat b { font-size: 20px; } .wh-stat span { font-size: 11px; max-width: 110px; }
+  .wh-pre { display: flex; overflow-x: auto; gap: 6px; } .pbtn { flex: none; grid-column: auto !important; min-width: 108px; } .wh-bars { height: 80px; gap: 2px; } .wh-ax { gap: 2px; } .wh-ax span { font-size: 10px; } }
+.dmenu { display: none !important; }
 </style>
 </head>
 <body>
@@ -321,7 +352,8 @@ footer { color: var(--ink2); font-size: 12px; }
 
     <section class="drive">
       <div class="sechead"><h2>The drive</h2><span class="dp-conf" id="dp-conf" hidden></span></div>
-      <div class="dp-ctrls"><div class="pills"><div class="seg" id="dirseg" role="group" aria-label="Direction on the line map"><button id="d-w" aria-label="Westbound, heading up">&larr; Westbound</button><div class="dirwrap" id="d-ewrap"><button id="d-e" aria-haspopup="menu" aria-label="Eastbound, heading home">Eastbound &rarr;</button><div class="dmenu" id="d-menu" role="menu" aria-label="Heading home from"></div></div></div><div class="seg" role="group" aria-label="Map style"><button id="b-line" class="on">Line map</button><button id="b-real">Real map</button></div></div><div class="dp-step" id="dp-step"></div></div>
+      <div class="dp-ctrls"><div class="pills"><div class="seg" id="dirseg" role="group" aria-label="Direction on the line map"><button id="d-w" aria-label="Westbound, heading up">&larr; Westbound</button><div class="dirwrap" id="d-ewrap"><button id="d-e" aria-haspopup="menu" aria-label="Eastbound, heading home">Eastbound &rarr;</button><div class="dmenu" id="d-menu" role="menu" aria-label="Heading home from"></div></div></div><div class="seg" role="group" aria-label="Map style"><button id="b-line" class="on">Line map</button><button id="b-real">Real map</button></div></div></div>
+      <section class="panel wh" id="whenbox"></section>
       <div class="panel">
         <div id="linebox">
           <div id="linewrap"><div id="lineinner" role="img"></div></div>
@@ -864,7 +896,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     $("today").textContent = "Denver · " + new Date().toLocaleDateString("en-US", { timeZone: "America/Denver", weekday: "long", month: "short", day: "numeric" });
     const asof = $("asof"); asof.textContent = `Live · updated ${fmtTime(last)}`;
     if (ageMin > 50) { asof.textContent = `Updated ${fmtTime(last)}, ${ageMin} minutes old`; asof.className = "stale"; } else asof.className = "";
-    for (const f of [renderDayNav, renderVerdict, renderWays, renderCautions, renderResorts, renderGoto, renderDrive, renderStepper, renderCharts, renderWeek])
+    for (const f of [renderDayNav, renderVerdict, renderWays, renderCautions, renderResorts, renderGoto, renderDrive, renderWhen, renderCharts, renderWeek])
       try { f(); } catch (e) { console.error(e); }
   }
 
@@ -915,14 +947,17 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   const peakKind = p => p == null ? "none" : p >= 25 ? "heavy" : p >= 10 ? "slow" : "open";
   const peakHour = byHour => { let h = null, v = -1; for (const k in byHour) if (byHour[k] > v) { v = byHour[k]; h = +k; } return h; };
   // A route on a future day: its usual peak in one direction, or closed when COtrip has a closure planned on it.
-  function predRoute(key, dir, iso) {
+  const peakAt = (kind, rk, dir, iso) => { let bh = dir === "W" ? 5 : 12, bv = -1; for (let x = dir === "W" ? 5 : 12; x < (dir === "W" ? 11 : 20); x++) { const v = dpDelay(kind, rk, dir, iso, x).v; if (v > bv) { bv = v; bh = x; } } return bh; };
+  function predRoute(key, dir, iso, h) {
+    if (h == null) h = peakAt("route", key, dir, iso);
     const A = ALT(key), plan = plannedOn(iso).filter(e => altStatus({ ...D.ctx, events: [e], conds: [] }, A).closed);
-    const rh = routeHourly(D.model, iso, key, dir === "W" ? 5 : 12, dir === "W" ? 11 : 20);
-    return { A, st: { alerts: plan.map(e => e.title) }, kind: plan.length ? "closed" : rh ? peakKind(rh.peak) : "none", delay: rh ? rh.peak : null, at: rh ? peakHour(rh.byHour) : null, tier: rh ? rh.tier : null, minutes: null };
+    const d = dpDelay("route", key, dir, iso, h), v = Math.round(d.v), tier = tierOf(Math.round(d.n));
+    return { A, st: { alerts: plan.map(e => e.title) }, kind: plan.length ? "closed" : peakKind(v), delay: v, at: h, tier, minutes: null };
   }
-  function i70Pred(iso, dir) {
-    const t = trafficDay(D.model, iso), by = dir === "W" ? t.up.byHour : t.homeHours.byHour;
-    return { peak: dir === "W" ? t.upPeak : t.homePeak, at: peakHour(by), tier: dir === "W" ? t.tier : t.homeTier, t };
+  function i70Pred(iso, dir, h) {
+    if (h == null) h = peakAt("i70", null, dir, iso);
+    const d = dpDelay("i70", null, dir, iso, h), t = trafficDay(D.model, iso);
+    return { peak: Math.round(d.v), at: h, tier: tierOf(Math.round(d.n)), t };
   }
   function renderVerdictFuture(iso) {
     const box = $("verdict"); box.replaceChildren();
@@ -1021,6 +1056,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   const DP_UNSEEN = 0.25, DP_GENERIC = 0.12;
   let selHour = null;
   const dpIso = () => viewDays()[vday];
+  const mapIso = () => vday > 0 || selHour != null ? dpIso() : null;
   const dpDir = () => mapDir || (vday === 0 ? (denverHour() < 12 ? "W" : "E") : "W");
   const dpHour = dir => selHour != null ? selHour : vday === 0 ? Math.min(23, Math.max(0, denverHour())) : dir === "W" ? 7 : 16;
   const clock12 = h => `${h % 12 || 12} ${h < 12 ? "AM" : "PM"}`;
@@ -1092,18 +1128,67 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     });
     box.append(left, pills);
   }
-  // The hour stepper in the drive header.
-  function renderStepper() {
-    const box = $("dp-step"); box.replaceChildren();
-    const dir = dpDir(), h = dpHour(dir), org = ORIGINS.find(o => o.key === origin) || ORIGINS[0];
-    const lab = el("label", "", `${dir === "W" ? "Leaving Coors" : "Leaving " + org.name} at ${clock12(h)}`); lab.htmlFor = "dp-range";
-    const rng = el("input"); rng.type = "range"; rng.min = 0; rng.max = 23; rng.step = 1; rng.value = h; rng.id = "dp-range"; rng.setAttribute("aria-label", "Departure hour");
-    rng.oninput = () => { selHour = +rng.value; renderStepper(); renderCharts(); };
-    const tk = el("div", "dp-ticks"); ["12a", "6a", "12p", "6p", "11p"].forEach(x => tk.append(el("span", "", x)));
-    const mid = el("div", "dp-stbox"); mid.append(lab, rng, tk);
-    const step = d => () => { selHour = Math.max(0, Math.min(23, dpHour(dir) + d)); renderStepper(); renderCharts(); };
-    const pb = el("button", "", "‹"), nb = el("button", "", "›"); pb.setAttribute("aria-label", "Earlier hour"); nb.setAttribute("aria-label", "Later hour"); pb.onclick = step(-1); nb.onclick = step(1);
-    box.append(pb, mid, nb);
+  // The When panel: windows of the day, a bar for every hour, best and slowest, and a slider.
+  const PRESETS = [["Overnight", 0, 4, "12 to 5 AM"], ["Early", 5, 7, "5 to 8 AM"], ["Morning", 8, 10, "8 to 11 AM"], ["Midday", 11, 13, "11 AM to 2 PM"],
+    ["Afternoon", 14, 16, "2 to 5 PM"], ["Evening", 17, 19, "5 to 8 PM"], ["Late", 20, 23, "8 PM to 12 AM"]];
+  const BAR_SCALE = { W: 20, E: 65 };
+  const lvlOf = pct => dpTone(pct);
+  const setHour = x => { selHour = Math.max(0, Math.min(23, x)); renderWhen(); renderCharts(); if (view === "line") drawLine(); renderMapNote(); };
+  function renderWhen() {
+    const box = $("whenbox"); box.replaceChildren();
+    const dir = dpDir(), iso = dpIso(), h = dpHour(dir), key = origin, org = ORIGINS.find(o => o.key === key) || ORIGINS[0], rname = org.name;
+    const trips = []; for (let x = 0; x < 24; x++) trips.push(tripAt(key, dir, iso, x));
+    const cl = dpClosed(key, dir, iso), isCl = x => !!cl && x >= cl.from, nowH = vday === 0 ? denverHour() : -1;
+    const day = [...Array(15).keys()].map(i => i + 5);   // 5 AM to 7 PM: the whole day, past hours too
+    const best = day.reduce((a, x) => trips[x].extra < trips[a].extra - 0.5 ? x : a, day[0]), worst = day.reduce((a, x) => trips[x].extra > trips[a].extra ? x : a, day[0]);
+    const sel = PRESETS.findIndex(p => h >= p[1] && h <= p[2]);
+    // Top: the question and three numbers.
+    const top = el("div", "wh-top"), q = el("div", "wh-q"), qh = el("h2");
+    qh.append(dir === "W" ? "Leaving Coors at " : `Leaving ${rname} at `, el("span", "hr", clock12(h)));
+    const st = el("span", "wh-step"), pb = el("button", "", "‹"), nb = el("button", "", "›");
+    pb.setAttribute("aria-label", "Earlier hour"); nb.setAttribute("aria-label", "Later hour"); pb.onclick = () => setHour(h - 1); nb.onclick = () => setHour(h + 1); st.append(pb, nb); qh.append(st);
+    q.append(el("div", "kick", "WHEN"), qh, el("p", "note", `${dayLabel(vday)} · ${dir === "W" ? "westbound to " + rname : "eastbound, home to Coors"}`));
+    const stat = (cls, k, big, sub) => { const d = el("div", "wh-stat " + cls); d.append(el("small", "", k), el("b", "", big), el("span", "", sub)); return d; };
+    const stats = el("div", "wh-stats"), cur = trips[h];
+    stats.append(isCl(h) ? stat("r", "DRIVE TIME", "Closed", cl.titles[0]) : stat(lvlOf(cur.pct), "DRIVE TIME", hmm(cur.minutes), cur.extra < 1 ? "about the same as an empty road" : `+${Math.round(cur.extra)} min over an empty road`),
+      stat("g", "BEST TIME", clock12(best), `+${Math.round(trips[best].extra)} min` + (best < nowH ? " · passed" : "")),
+      stat(lvlOf(trips[worst].pct), "SLOWEST", clock12(worst), `+${Math.round(trips[worst].extra)} min` + (worst < nowH ? " · passed" : "")));
+    top.append(q, stats);
+    // Windows.
+    const pre = el("div", "wh-pre");
+    PRESETS.forEach(([nm, a, b, win], i) => {
+      const outside = a < 5 || a >= 20, dis = nowH >= 0 && b < nowH, peak = Math.max(...trips.slice(a, b + 1).map(t => t.extra)), pk = Math.max(...trips.slice(a, b + 1).map(t => t.pct));
+      const btn = el("button", "pbtn" + (i === sel ? " on" : "") + (dis ? " dis" : "") + (outside && i !== sel ? " dim" : "")); btn.style.gridColumn = `span ${b - a + 1}`;
+      const em = el("em"), dot = el("i", "");
+      const closedIn = [...Array(b - a + 1).keys()].map(k => a + k).find(isCl);
+      if (dis && outside) { dot.className = "n"; em.append(dot, "Past"); }
+      else if (dis) { dot.className = "n"; em.append(dot, `+${Math.round(peak)} min · past`); }
+      else if (closedIn != null) { dot.className = "r"; em.append(dot, `Closed from ${clockS(closedIn)}`); }
+      else if (outside) { dot.className = "n"; em.append(dot, "Partial data"); }
+      else { dot.className = lvlOf(pk); em.append(dot, `+${Math.round(peak)} min peak`); }
+      btn.append(nm, el("small", "", win), em); btn.onclick = () => setHour(Math.min(b, Math.max(a, h >= a && h <= b ? h : a + Math.floor((b - a) / 2))));
+      pre.append(btn);
+    });
+    // Bars, one per hour.
+    const bars = el("div", "wh-bars" + (nowH >= 0 ? " hasnow" : "")), mx = BAR_SCALE[dir], [wa, wb] = sel >= 0 ? [PRESETS[sel][1], PRESETS[sel][2]] : [-1, -1];
+    trips.forEach((t, x) => {
+      const c = el("div", "wb" + (x >= wa && x <= wb ? " win" : "") + (x < 5 || x >= 20 ? " est" : "") + (x < nowH ? " past" : "") + (isCl(x) ? " cl" : "") + (x === h ? " sel" : ""));
+      if (x === nowH) { c.append(el("span", "nowl"), el("span", "nowtag", "Now " + fmtTime(new Date()))); }
+      const i = el("i", lvlOf(t.pct)); i.style.height = Math.max(7, Math.min(100, t.extra / mx * 100)) + "%";
+      c.append(i); c.dataset.tip = `${clock12(x)}: ${isCl(x) ? "closed" : hmm(t.minutes) + " (+" + Math.round(t.extra) + " min)"}`; c.onclick = () => setHour(x);
+      c.addEventListener("pointermove", ev => showTip(ev, c.dataset.tip)); c.addEventListener("pointerleave", hideTip);
+      bars.append(c);
+    });
+    const slide = el("div", "wh-slide"), rng = el("input"); rng.type = "range"; rng.min = 0; rng.max = 23; rng.step = 1; rng.value = h; rng.setAttribute("aria-label", "Departure hour");
+    rng.oninput = () => setHour(+rng.value); slide.append(el("div", "trk"), rng);
+    const ax = el("div", "wh-ax"); for (let x = 0; x < 24; x++) ax.append(el("span", x === h ? "sel" : "", x === h || (x % 3 === 0 && Math.abs(x - h) > 1) ? clockS(x) : ""));
+    const lg = el("div", "wh-leg"), li = (cls, t) => { const sp = el("span"); sp.append(el("i", cls), t); lg.append(sp); };
+    li("g", "Under 12% over empty road"); li("a", "12 to 30%"); li("r", "Over 30%");
+    li("est", "Lighter bars: no TomTom times logged (before 5 AM, after 8 PM). I-70 itself is still logged all night.");
+    lg.append(el("span", "", `Bar height is extra minutes over an empty road, same scale on every day (${mx} min tall).`));
+    if (nowH >= 0) li("past", "Already past"); if (cl) li("cl", vday === 0 ? "Closed (COtrip)" : "Closed (planned, from COtrip)");
+    box.append(top, pre, bars, slide, ax, lg);
+    if (vday === 0 && selHour != null) { const b = el("button", "wh-live", "Back to now"); b.onclick = () => { selHour = null; renderWhen(); renderCharts(); if (view === "line") drawLine(); renderMapNote(); }; q.append(b); }
   }
   function chartKeys() {
     const out = []; [origin, "copper", "eldora"].forEach(k => { if (k && !out.includes(k) && (RESORTS[k] ? shown(k) : false)) out.push(k); });
@@ -1139,7 +1224,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
         const pop = el("div", "dp-pop");
         pop.append(el("span", "p1", clock12(x) + (x === nowH ? " · now" : x < nowH ? " · passed" : "")), el("span", "p2", closed ? "Closed" : hmm(t.minutes)),
           el("span", "p3", closed ? cl.titles[0] : t.extra < 1 ? "about the same as an empty road" : `+${Math.round(t.extra)} min vs empty road`));
-        c.append(pop); c.onclick = () => { selHour = x; renderStepper(); renderCharts(); };
+        c.append(pop); c.onclick = () => setHour(x);
         tl.append(c);
       });
       const rt = el("div", "dp-rt"), bar = el("span", "bar"), fill = el("i"); fill.style.width = Math.round(cur.conf * 100) + "%"; bar.append(fill);
@@ -1449,15 +1534,15 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     if (!origin || !ORIGINS.some(o => o.key === origin)) { const top = (D.ranked || []).find(r => ORIGINS.some(o => o.key === r.key)); origin = top ? top.key : "copper"; }
     drawOriginMenu(dir);
     const states = {}, desc = [];
-    const F = fut(), FD = F ? dayLabel(vday) : null;
-    for (const k in ROUTE_GEO) states[k] = F ? predRoute(k, dir, F) : routeState(k, dir);
+    const F = fut(), E = mapIso(), H = dpHour(dir), FD = E ? dayLabel(vday) : null;
+    for (const k in ROUTE_GEO) states[k] = E ? predRoute(k, dir, E, H) : routeState(k, dir);
     // Routes first, so I-70 sits on top where they meet.
     for (const k in ROUTE_GEO) {
       if (/^eldora/.test(k) && !shown("eldora")) continue;
       const s = states[k]; let words = s.kind === "closed" ? "closed (COtrip)" : s.kind === "check" ? "TomTom can't route along it but COtrip lists no closure, so check" :
         s.kind === "none" ? (/^eldora/.test(k) ? `no ${dname} reading (Eldora is timed in the ski direction only)` : `no ${dname} reading yet`) : `${s.delay < 1 ? "normal" : "about " + Math.round(s.delay) + " min slower than an empty road"}` + (s.minutes != null && /^eldora/.test(k) ? `, ${Math.round(s.minutes)} min from Coors Field` : "");
-      if (F) words = s.kind === "closed" ? `closure planned: ${s.st.alerts.join(" ")}` : s.delay == null ? "no estimate" : s.delay >= 1 ? `usual peak about +${s.delay} min around ${clock(s.at)} (${s.tier})` : "no usual rush";
-      const pieces = ROUTE_GEO[k].pieces; words = `${F ? FD + ", " : ""}${dname}, ` + words;
+      if (E) words = s.kind === "closed" ? `closure planned: ${s.st.alerts.join(" ")}` : s.delay == null ? "no estimate" : s.delay >= 1 ? `expected about +${s.delay} min at ${clock(s.at)} (${s.tier})` : "no usual rush at " + clock(H);
+      const pieces = ROUTE_GEO[k].pieces; words = `${E ? FD + ", " : ""}${dname}, ` + words;
       // Peak to Peak is shared by Coal Creek and Black Hawk: color it by the better of the two.
       pieces.forEach(([a, b, c, d], j) => {
         let kind = s.kind;
@@ -1466,12 +1551,12 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       });
       desc.push(`${ROUTE_NAME[k]} ${KIND[s.kind][1].toLowerCase()}`);
     }
-    const ip = F ? i70Pred(F, dir) : null;
+    const ip = E ? i70Pred(E, dir, H) : null;
     I70_BANDS.forEach(b => {
-      if (F) {
-        const pl = plannedOn(F).filter(e => normRoute(e.route) === "I70" && forDir(e, dir) && overlaps(e.mp_start, e.mp_end, b.mp[0], b.mp[1]));
+      if (E) {
+        const pl = plannedOn(E).filter(e => normRoute(e.route) === "I70" && forDir(e, dir) && overlaps(e.mp_start, e.mp_end, b.mp[0], b.mp[1]));
         piece(box, b.x[0], Y, b.x[1], Y, pl.length ? "closed" : peakKind(ip.peak), `I-70 ${dname}, ${FD}: ` + (pl.length ? "closure planned. " + pl.map(e => e.title).join(" ") :
-          ip.peak >= 1 ? `the whole trip to Copper usually peaks around +${ip.peak} min near ${clock(ip.at)} (${ip.tier})` : "no usual rush"));
+          ip.peak >= 1 ? `the whole trip to Copper is expected at about +${ip.peak} min at ${clock(ip.at)} (${ip.tier})` : "no usual rush at " + clock(H)));
         return;
       }
       const s = i70Stretch(b.mp[0], b.mp[1], b.lon[0], b.lon[1], dir), o = s.sp[dir === "W" ? "E" : "W"];
@@ -1487,11 +1572,11 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       const big = d.id === "coors" ? 34 : d.resort ? 26 : 16, e = at(box, "lm-dot" + (d.resort ? " big" : ""), d.x, d.y, big, big);
       if (d.id === "coors") Object.assign(e.style, { background: COL.ink, borderWidth: "6px", borderColor: "var(--bg)", boxShadow: "0 0 0 3px " + COL.ink });
       if (dir === "E" && d.id === org.dot) e.style.boxShadow = "0 0 0 4px var(--accent)";
-      e.dataset.tip = F ? `${d.name}: drive times by stop are live, so they show on Today` : dotTip(d, dir, org);
+      e.dataset.tip = E ? `${d.name}: drive times by stop are live, so they show when the map is on now` : dotTip(d, dir, org);
     });
     // Closure signs where COtrip lists a closure.
     const signed = new Set();
-    (F ? plannedOn(F) : ctx.events).filter(e => isClosure(e) && normRoute(e.route) === "I70" && overlaps(e.mp_start, e.mp_end, 195, 276) && forDir(e, dir)).forEach(e => {
+    (E ? (vday === 0 ? ctx.events.concat(plannedOn(E)) : plannedOn(E)) : ctx.events).filter(e => isClosure(e) && normRoute(e.route) === "I70" && overlaps(e.mp_start, e.mp_end, 195, 276) && forDir(e, dir)).forEach(e => {
       const mp = Math.max(195, Math.min(276, num(e.mp_start))), x = Math.round(mpToX(mp) / 8) * 8;
       if (signed.has(x)) return; signed.add(x);
       at(box, "lm-sign", x, Y, 20, 20).dataset.tip = e.title;
@@ -1514,7 +1599,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       Object.assign(c.style, { left: x + "px", top: y + "px" }); box.append(c);
     });
     // Which way the map is showing: a big arrow under Georgetown to Floyd Hill.
-    const ar = el("div", "lm-arrow " + dir); ar.append(el("i"), el("span", "", (dir === "W" ? "Westbound \u00b7 heading up" : `Eastbound \u00b7 heading home from ${org.name}`) + (F ? ` \u00b7 ${FD}, expected` : "")));
+    const ar = el("div", "lm-arrow " + dir); ar.append(el("i"), el("span", "", (dir === "W" ? "Westbound \u00b7 heading up" : `Eastbound \u00b7 heading home from ${org.name}`) + (E ? ` \u00b7 ${FD}, ${clock(H)}, expected` : "")));
     Object.assign(ar.style, { left: "560px", top: "511px", width: "300px" }); box.append(ar);
     box.setAttribute("aria-label", `Line map, ${dname}, of every way up from Coors Field on the right. ` + (desc.length ? desc.join(". ") + "." : "Everything is moving."));
     layoutLine(false);
@@ -1554,6 +1639,11 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     wrap.style.cursor = "grab";
   }
 
+  function renderMapNote() {
+    $("mapnote").textContent = (mapIso() ? (view === "line" ? `Expected for ${dayLabel(vday)} at ${clock12(dpHour(dpDir()))}: each road colored by what the traffic model expects at that hour, with closures COtrip has planned. ` : "The real map always shows the roads right now, not the forecast. ") : "") + (view === "line"
+      ? "Not to scale. Shows one direction at a time: westbound until noon, eastbound after, or tap the toggle. I-70 is CDOT's sensors; the passes, the canyon and the Eldora routes are TomTom times against an empty road. Tap or hover a line for details, drag to move, + and − to zoom."
+      : "On I-70 the upper line is westbound and the lower is eastbound (CDOT sensors). Other roads are TomTom, colored against that road's normal speed; dashed means TomTom thinks it's blocked but COtrip doesn't. Tap a stretch for its speed.");
+  }
   function renderDrive() {
     $("b-line").classList.toggle("on", view === "line"); $("b-real").classList.toggle("on", view === "real");
     $("linebox").hidden = view !== "line"; $("realbox").hidden = view !== "real"; $("dirseg").hidden = view !== "line";
@@ -1563,13 +1653,11 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     [[COL.good, "Moving"], [COL.slow, "Slow"], [COL.bad, "Crawling or closed"], [`repeating-linear-gradient(90deg, ${COL.slow} 0 6px, transparent 6px 10px)`, "Check COtrip"], [COL.none, "No reading"]]
       .forEach(([c, t]) => { const s = el("span"); s.append(sw(c), t); lg.append(s); });
     { const s = el("span"); s.append(el("span", "closeicon"), "Closed (COtrip)"); lg.append(s); }
-    $("mapnote").textContent = (fut() ? (view === "line" ? `Expected for ${dayLabel(vday)}: each road colored by its usual peak in the direction you pick, with closures COtrip has planned. ` : "The real map always shows the roads right now, not the forecast. ") : "") + (view === "line"
-      ? "Not to scale. Shows one direction at a time: westbound until noon, eastbound after, or tap the toggle. I-70 is CDOT's sensors; the passes, the canyon and the Eldora routes are TomTom times against an empty road. Tap or hover a line for details, drag to move, + and − to zoom."
-      : "On I-70 the upper line is westbound and the lower is eastbound (CDOT sensors). Other roads are TomTom, colored against that road's normal speed; dashed means TomTom thinks it's blocked but COtrip doesn't. Tap a stretch for its speed.");
+    renderMapNote();
   }
-  $("d-w").onclick = () => { mapDir = "W"; drawLine(); };
+  $("d-w").onclick = () => { mapDir = "W"; selHour = null; render(); };
   // Eastbound: hover (or tap) for the origin menu; picking one switches to eastbound.
-  $("d-e").onclick = () => { mapDir = "E"; $("d-ewrap").classList.toggle("open"); drawLine(); };
+  $("d-e").onclick = () => { mapDir = "E"; selHour = null; render(); };
   document.addEventListener("pointerdown", ev => { if (!ev.target.closest("#d-ewrap")) $("d-ewrap").classList.remove("open"); });
   $("d-ewrap").addEventListener("mouseleave", () => $("d-ewrap").classList.remove("open"));
   function drawOriginMenu(dir) {
