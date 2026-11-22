@@ -22,6 +22,7 @@ import json
 import os
 import re
 import sys
+import time
 import traceback
 import urllib.error
 import urllib.request
@@ -99,21 +100,29 @@ MONTH = NOW.strftime("%Y-%m")
 
 
 def fetch(url, headers=None, timeout=25, retries=2):
+    """GET a URL. Retries only what can clear on its own (HTTP 429 and 5xx, timeouts, dropped
+    connections), waiting a little longer each time. Other 4xx answers fail at once."""
     hdrs = {"User-Agent": USER_AGENT}
     hdrs.update(headers or {})
     last = None
-    for _ in range(retries + 1):
+    for attempt in range(retries + 1):
         try:
             req = urllib.request.Request(url, headers=hdrs)
             with urllib.request.urlopen(req, timeout=timeout) as r:
                 return r.read().decode("utf-8", errors="replace")
+        except urllib.error.HTTPError as e:
+            last = e
+            if not (e.code == 429 or e.code >= 500):
+                break
         except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
             last = e
+        if attempt < retries:
+            time.sleep((2, 5, 10)[min(attempt, 2)])
     raise RuntimeError(f"fetch failed: {redact(url)}: {last}")
 
 
-def fetch_json(url, headers=None):
-    return json.loads(fetch(url, headers))
+def fetch_json(url, headers=None, retries=2):
+    return json.loads(fetch(url, headers, retries=retries))
 
 
 def redact(url):
@@ -147,9 +156,42 @@ def save_state(state):
         json.dump(state, f, indent=1, sort_keys=True)
 
 
+STATE_REF = {}  # set by main(), so repeated errors can be throttled across runs
+ERROR_REPEAT_MINUTES = 60
+
+
+def short_err(err):
+    """Drop the long URL from a fetch error: 'host: HTTP Error 502: Bad Gateway'."""
+    s = str(err)
+    m = re.match(r"fetch failed: https?://([^/\s?]+)\S*: (.*)", s, re.S)
+    return f"{m.group(1)}: {m.group(2)}" if m else s
+
+
+def error_class(source, msg):
+    m = re.search(r"HTTP Error \d+|timed out|refused|reset|unreachable|resolution", msg)
+    return f"{source.split(':')[0]}|{m.group(0) if m else re.sub(r'[0-9]+', 'N', msg)[:40]}"
+
+
 def log_error(source, err):
-    append_rows("errors", ["time", "source", "error"], [[NOW_ISO, source, str(err)[:500]]])
-    print(f"[{source}] ERROR {err}", file=sys.stderr)
+    """Append one error row, short. The same kind of error from the same source group is written
+    at most once an hour, with a count of the repeats it skipped, so an outage at a provider
+    cannot fill the file."""
+    msg = short_err(err)[:400]
+    print(f"[{source}] ERROR {msg}", file=sys.stderr)
+    seen = STATE_REF.setdefault("err_seen", {})
+    key = error_class(source, msg)
+    prev = seen.get(key)
+    if prev:
+        age = NOW_UTC - datetime.fromisoformat(prev["t"])
+        if age < timedelta(minutes=ERROR_REPEAT_MINUTES):
+            prev["n"] = prev.get("n", 0) + 1
+            return
+    if prev and prev.get("n"):
+        msg += f" (+{prev['n']} more of this kind since the last row)"
+    seen[key] = {"t": NOW_UTC.isoformat(), "n": 0}
+    for k in [k for k, v in seen.items() if NOW_UTC - datetime.fromisoformat(v["t"]) > timedelta(days=2)]:
+        del seen[k]
+    append_rows("errors", ["time", "source", "error"], [[NOW_ISO, source, msg]])
 
 
 def norm_route(route):
@@ -210,17 +252,32 @@ def parse_snotel_csv(text):
 
 def log_snotel(state):
     last = state.setdefault("snotel_last", {})
-    rows = []
+    rows, cache, failed, skipped, err = [], {}, [], [], None
+    consecutive = 0
     for key, r in RESORTS.items():
-        try:
-            data = parse_snotel_csv(fetch(SNOTEL_URL.format(triplet=r["snotel"])))
-        except Exception as e:
-            log_error(f"snotel:{key}", e)
+        st = r["snotel"]
+        if st not in cache:  # two resorts can share a station: fetch it once
+            if consecutive >= 3:  # the service is down: stop hammering it this run
+                skipped.append(key)
+                continue
+            try:
+                cache[st] = parse_snotel_csv(fetch(SNOTEL_URL.format(triplet=st)))
+                consecutive = 0
+            except Exception as e:
+                cache[st] = None
+                consecutive += 1
+                err = err or e
+        data = cache[st]
+        if data is None:
+            failed.append(key)
             continue
         for obs_time, swe, depth, prec, temp in data:
             if obs_time > last.get(key, ""):
-                rows.append([key, r["snotel"], obs_time, swe, depth, prec, temp])
+                rows.append([key, st, obs_time, swe, depth, prec, temp])
                 last[key] = obs_time
+    if failed or skipped:
+        log_error("snotel", f"{len(failed)} stations failed, {len(skipped)} not tried "
+                            f"({', '.join(failed + skipped)}): {short_err(err)}")
     append_rows(
         "snotel",
         ["resort", "station", "obs_time_mst", "swe_in", "depth_in", "precip_accum_in", "temp_f"],
@@ -808,20 +865,20 @@ def route_jobs():
 
 
 def tomtom_get(url, key, where):
-    """One TomTom request, paced under its per-second limit, with one retry if it says too many.
-    A routing 400 means TomTom found no way along the road, which is how it reports a closure."""
-    import time
-    for attempt in (1, 2):
+    """One TomTom request, paced under its per-second limit. Retries a 429 or 5xx up to twice, with a
+    pause. A routing 400 means TomTom found no way along the road, which is how it reports a closure."""
+    for attempt in (1, 2, 3):
         time.sleep(0.35)
         try:
-            return fetch_json(url)
+            return fetch_json(url, retries=0)
         except Exception as e:
-            if attempt == 1 and "429" in str(e):
-                time.sleep(2)
+            text = str(e)
+            if attempt < 3 and re.search(r"HTTP Error (429|5\d\d)", text):
+                time.sleep(2 * attempt)
                 continue
-            if "calculateRoute" in url and "400" in str(e):
+            if "calculateRoute" in url and "HTTP Error 400" in text:
                 return {"no_route": True}
-            log_error(where, str(e).replace(key, "KEY"))
+            log_error(where, text.replace(key, "KEY"))
             return None
 
 
@@ -1425,6 +1482,9 @@ def log_traffic_model(state):
 
 def main():
     state = load_state()
+    STATE_REF.clear()
+    STATE_REF.update(state)
+    state = STATE_REF
     jobs = [("snotel", log_snotel), ("forecast", log_forecast), ("afd", log_afd),
             ("events", log_events), ("cdot", log_cdot), ("resort_status", log_resort_status),
             ("routes", log_routes), ("outlook", log_outlook), ("traffic_model", log_traffic_model)]
