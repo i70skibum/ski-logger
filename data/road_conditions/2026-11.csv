@@ -553,3 +553,6 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-21T17:15:53-07:00,458,I-70,Copper Mtn-Silverthorne,194.3,203.7,4 - wet; 7 - slushy; 8 - icy; 9 - icy spots,"I-70, between Exit 190: Vail Pass Summit (Vail Pass) and Exit 205: CO 9; US 6; Silverthorne (near Frisco)"
 2026-11-21T17:15:53-07:00,485,US 6,Silverthorne to Arapahoe Basin,208.7,219.9,4 - wet; 9 - icy spots,"US 6, between I-70; CO 9 (Silverthorne) and I-70 (near Loveland Pass)"
 2026-11-21T17:30:50-07:00,45,CO 9,US 50 to US 24,0.0,47.0,4s - wet in areas,"CO 9, between US 50 and US 24"
+2026-11-21T18:15:46-07:00,201,US 40,Rabbit Ears Pass,137.3,178.7,"4s-9 - wet in areas, icy spots","US 40, between Kemry Lane (near Rabbit Ears Pass) and Utility Road (3 miles west of the Kremmling area)"
+2026-11-21T18:15:46-07:00,202,US 40,Kremmling-Granby,178.7,211.6,"4s-9 - wet in areas, icy spots","US 40, between CO 134 (3 miles west of the Kremmling area) and Mesa Street (near Granby)"
+2026-11-21T18:15:46-07:00,492,US 40,Granby-Winter Park,211.6,231.5,"4s-9 - wet in areas, icy spots","US 40, between US 34 (near Granby) and Lakota Trail (Winter Park)"
