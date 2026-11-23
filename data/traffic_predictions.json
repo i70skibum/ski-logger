@@ -56,6 +56,20 @@
      "18": 15
     }
    }
-  }
+  },
+  "graded": "2026-11-23T01:15:52-07:00",
+  "error_min": {
+   "fri_pm_W": 9.2,
+   "sat_am_W": 28.1,
+   "sun_am_W": 7.3,
+   "sat_pm_E": 10.5,
+   "sun_pm_E": 27.5
+  },
+  "day_types": [
+   "disrupted",
+   "holiday",
+   "typical"
+  ],
+  "mean_error_min": 16.5
  }
 }
