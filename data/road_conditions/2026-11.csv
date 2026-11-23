@@ -668,3 +668,7 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-23T14:15:46-07:00,390,US 50,Montrose-Cerro Summit-Blue Mesa-Gunnison,92.4,190.3,"4s-9 - wet in areas, icy spots","US 50, between Park Avenue (Montrose) and County Road 32YY (1 mile west of the Monarch Pass area)"
 2026-11-23T14:15:46-07:00,442,US 160,Durango-Bayfield-Pagosa Spgs,79.9,145.8,"4s-9 - wet in areas, icy spots","US 160, between Lightner Creek Road (near Durango) and Fawn Gulch Road (near Pagosa Springs)"
 2026-11-23T14:15:46-07:00,441,US 160,Mancos Hill-Hesperus,56.0,79.9,"4s-9 - wet in areas, icy spots","US 160, between Beech Street (Mancos) and County Road 141 (near Durango)"
+2026-11-23T14:30:46-07:00,150,CO 145,Cortez-Rico,0.0,46.4,4 - wet; 9 - icy spots,"CO 145, between US 160 (Cortez) and Street 1 (Lizard Head Pass)"
+2026-11-23T14:30:46-07:00,72,CO 65,Grand Mesa,0.0,51.2,"6-9-11 snow, icy spots, snow packed spots","CO 65, between CO 92 and CO 330 (Grand Mesa)"
+2026-11-23T14:30:46-07:00,141,CO 135,Crested Butte,0.0,27.5,"9-11 icy spots, snow packed spots","CO 135, between US 50; Main Street (Gunnison) and the end of CO 135 (Crested Butte)"
+2026-11-23T14:30:46-07:00,70,CO 62,Dallas Divide,0.0,23.4,4 - wet; 9 - icy spots,"CO 62, between CO 145 (4 miles west of the Dallas Divide area) and US 550; Hunter Parkway (Ridgway)"
