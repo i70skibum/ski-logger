@@ -133,6 +133,20 @@
    "title": "US 285 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadReports:CDOT-36532048175WB": {
+   "began": "2026-11-22T20:08:57-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36532048175WB",
+   "lat": 39.55921,
+   "lon": -107.40257,
+   "mp_end": "",
+   "mp_start": 111.99829898985806,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Right lane closed.",
+   "type": "routine"
+  },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
    "class": "roadWork",
@@ -1101,7 +1115,7 @@
   }
  },
  "forecast_last": "2026-11-23T02:15:46+00:00",
- "last_run": "2026-11-22T20:00:47-07:00",
+ "last_run": "2026-11-22T20:15:51-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-22": {
@@ -1757,7 +1771,7 @@
   "winterpark": "https://api.weather.gov/gridpoints/BOU/36,70",
   "wolfcreek": "https://api.weather.gov/gridpoints/PUB/15,36"
  },
- "outlook_last": "2026-11-23T00:15:46+00:00",
+ "outlook_last": "2026-11-23T03:15:51+00:00",
  "road_conditions": {
   "100": "3 - dry",
   "101": "3 - dry",
@@ -1841,7 +1855,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-22 18:00",
+  "abasin": "2026-11-22 19:00",
   "aspen": "2026-11-22 18:00",
   "beavercreek": "2026-11-22 18:00",
   "breck": "2026-11-22 18:00",
@@ -1851,7 +1865,7 @@
   "echo": "2026-11-22 18:00",
   "eldora": "2026-11-22 18:00",
   "granby": "2026-11-22 18:00",
-  "keystone": "2026-11-22 18:00",
+  "keystone": "2026-11-22 19:00",
   "loveland": "2026-11-22 18:00",
   "monarch": "2026-11-22 18:00",
   "powderhorn": "2026-11-22 18:00",
