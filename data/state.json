@@ -547,20 +547,6 @@
    "title": "US 6 eastbound: Road maintenance operations.",
    "type": "routine"
   },
-  "roadWork:CDOT-36447074848EB": {
-   "began": "2026-11-23T06:30:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36447074848EB",
-   "lat": 40.58569,
-   "lon": -102.26493,
-   "mp_end": "",
-   "mp_start": 455.99674105752536,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6 eastbound: Bridge construction.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36447074863EB": {
    "began": "2026-11-24T06:30:00-07:00",
    "class": "roadWork",
@@ -685,20 +671,6 @@
    "pos_bearing": "E",
    "route": "US 24",
    "title": "US 24 in both directions: Right shoulder closed.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36484268469BOTH": {
-   "began": "2026-11-23T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36484268469BOTH",
-   "lat": 38.11583,
-   "lon": -103.89564,
-   "mp_end": "",
-   "mp_start": 357.9988647379575,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50 in both directions: Right shoulder closed.",
    "type": "routine"
   },
   "roadWork:CDOT-36484269053BOTH": {
@@ -1347,7 +1319,7 @@
   }
  },
  "forecast_last": "2026-11-23T20:45:48+00:00",
- "last_run": "2026-11-23T16:15:48-07:00",
+ "last_run": "2026-11-23T16:30:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-23": {
@@ -2089,25 +2061,25 @@
  "snotel_last": {
   "abasin": "2026-11-23 15:00",
   "aspen": "2026-11-23 14:00",
-  "beavercreek": "2026-11-23 14:00",
-  "breck": "2026-11-23 14:00",
-  "cooper": "2026-11-23 14:00",
-  "copper": "2026-11-23 14:00",
-  "crestedbutte": "2026-11-23 14:00",
-  "echo": "2026-11-23 14:00",
-  "eldora": "2026-11-23 14:00",
+  "beavercreek": "2026-11-23 15:00",
+  "breck": "2026-11-23 15:00",
+  "cooper": "2026-11-23 15:00",
+  "copper": "2026-11-23 15:00",
+  "crestedbutte": "2026-11-23 15:00",
+  "echo": "2026-11-23 15:00",
+  "eldora": "2026-11-23 15:00",
   "granby": "2026-11-23 14:00",
   "keystone": "2026-11-23 15:00",
-  "loveland": "2026-11-23 14:00",
+  "loveland": "2026-11-23 15:00",
   "monarch": "2026-11-23 14:00",
-  "powderhorn": "2026-11-23 14:00",
-  "purgatory": "2026-11-23 14:00",
+  "powderhorn": "2026-11-23 15:00",
+  "purgatory": "2026-11-23 15:00",
   "steamboat": "2026-11-23 15:00",
   "sunlight": "2026-11-23 14:00",
   "telluride": "2026-11-23 14:00",
-  "vail": "2026-11-23 14:00",
-  "winterpark": "2026-11-23 14:00",
-  "wolfcreek": "2026-11-23 14:00"
+  "vail": "2026-11-23 15:00",
+  "winterpark": "2026-11-23 15:00",
+  "wolfcreek": "2026-11-23 15:00"
  },
  "speed_geo": [
   "I70E024",
@@ -2363,14 +2335,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-23T23:00:46+00:00",
- "tomtom_routing_last": "2026-11-23T23:15:48+00:00",
+ "tomtom_flow_last": "2026-11-23T23:30:47+00:00",
+ "tomtom_routing_last": "2026-11-23T23:30:47+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 1348
+   "2026-11": 1364
   },
   "routing": {
-   "2026-11": 1432
+   "2026-11": 1445
   }
  },
  "traffic_model_last": "2026-11-23T20:45:48+00:00"
