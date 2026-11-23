@@ -391,3 +391,4 @@ RuntimeError: fetch fail"
     data = fetch_json(url)
 RuntimeError: fetch failed: https://api.open-meteo."
 2026-11-23T13:45:48-07:00,snotel,"4 stations failed, 16 not tried (abasin, winterpark, eldora, keystone, steamboat, aspen, breck, vail, beavercreek, crestedbutte, telluride, loveland, echo, cooper, granby, monarch, sunlight, powderhorn, wolfcreek, purgatory): wcc.sc.egov.usda.gov: HTTP Error 403: Forbidden"
+2026-11-23T15:15:47-07:00,snotel,"5 stations failed, 0 not tried (steamboat, breck, telluride, cooper, powderhorn): wcc.sc.egov.usda.gov: HTTP Error 403: Forbidden"

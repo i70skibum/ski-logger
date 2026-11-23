@@ -4785,7 +4785,7 @@
     "minutes": 31.1,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-23T15:00:48-07:00",
+    "at": "2026-11-23T15:15:47-07:00",
     "line": [
      [
       39.76107,
@@ -5535,10 +5535,10 @@
    },
    "E": {
     "delay_min": 0.0,
-    "minutes": 31.3,
+    "minutes": 31.4,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-23T15:00:48-07:00",
+    "at": "2026-11-23T15:15:47-07:00",
     "line": [
      [
       39.88623,
@@ -7858,11 +7858,11 @@
   "eldora_boulder": {
    "name": "Coors Field to Eldora by Boulder Canyon (US 36, CO 119)",
    "E": {
-    "delay_min": 5.3,
-    "minutes": 73.2,
+    "delay_min": 5.8,
+    "minutes": 73.5,
     "free_min": 67.8,
     "detour": false,
-    "at": "2026-11-23T15:00:48-07:00",
+    "at": "2026-11-23T15:15:47-07:00",
     "line": [
      [
       39.93746,
@@ -15930,11 +15930,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 3.8,
-    "minutes": 33.0,
+    "delay_min": 4.1,
+    "minutes": 33.3,
     "free_min": 29.2,
     "detour": false,
-    "at": "2026-11-23T15:00:48-07:00",
+    "at": "2026-11-23T15:15:47-07:00",
     "line": [
      [
       39.74245,
@@ -16218,11 +16218,11 @@
    "points": [],
    "points_at": "2026-11-23T15:00:48-07:00",
    "W": {
-    "delay_min": 2.6,
-    "minutes": 32.1,
+    "delay_min": 2.9,
+    "minutes": 32.5,
     "free_min": 29.6,
     "detour": false,
-    "at": "2026-11-23T15:00:48-07:00",
+    "at": "2026-11-23T15:15:47-07:00",
     "line": [
      [
       39.75702,
@@ -17223,10 +17223,10 @@
    "points_at": "2026-11-23T15:00:48-07:00",
    "E": {
     "delay_min": null,
-    "minutes": 56.9,
+    "minutes": 55.7,
     "free_min": 51.2,
     "detour": true,
-    "at": "2026-11-23T15:00:48-07:00"
+    "at": "2026-11-23T15:15:47-07:00"
    }
   },
   "corridor": {
@@ -18585,10 +18585,10 @@
    "points_at": "2026-11-23T15:00:48-07:00"
   }
  },
- "updated": "2026-11-23T15:00:48-07:00",
+ "updated": "2026-11-23T15:15:47-07:00",
  "tomtom_use": {
   "flow": 1316,
-  "routing": 1388
+  "routing": 1394
  },
  "tomtom_caps": {
   "routing": 19000,
