@@ -655,3 +655,5 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-23T10:00:47-07:00,441,US 160,Mancos Hill-Hesperus,56.0,79.9,"6-8-10 snow, icy, snow packed","US 160, between Beech Street (Mancos) and County Road 141 (near Durango)"
 2026-11-23T10:30:54-07:00,72,CO 65,Grand Mesa,0.0,51.2,"6-8-10 snow, icy, snow packed","CO 65, between CO 92 and CO 330 (Grand Mesa)"
 2026-11-23T11:30:55-07:00,390,US 50,Montrose-Cerro Summit-Blue Mesa-Gunnison,92.4,190.3,"6-8-10 snow, icy, snow packed","US 50, between Park Avenue (Montrose) and County Road 32YY (1 mile west of the Monarch Pass area)"
+2026-11-23T11:45:47-07:00,430,US 50,Monarch Pass,190.3,208.3,6 - snow; 9 - icy spots,"US 50, between MP 190 (1 mile west of the Monarch Pass area) and MP 209 (near Monarch Pass)"
+2026-11-23T11:45:47-07:00,226,US 160,Wolf Creek Pass,145.8,186.1,"6-8-10 snow, icy, snow packed","US 160, between Paul Hood Place (near Pagosa Springs) and Park Drive (South Fork)"
