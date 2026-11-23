@@ -1,0 +1,96 @@
+
+000
+FXUS65 KBOU 230521
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1021 PM MST Sun Nov 22 2026
+
+.KEY MESSAGES... 
+
+- Patchy freezing fog possible for lincoln and eastern Elbert
+  counties Monday morning. 
+
+- A system brings a chance for light mountain snow showers late 
+  Monday into Tuesday morning.
+
+- Cooler fall temperatures to continue through mid next week.
+
+- No major travel impacts are expected during the Thanksgiving
+  travel period. 
+ 
+
+&&
+
+.DISCUSSION /Through Sunday/...
+Issued at 101 PM MST Sun Nov 22 2026
+
+Current satellite imagery shows high clouds trekking across the NE
+plains of Colorado. The upper air pattern features slight ridging
+aloft as we wait for the shortwave to move in off the coast of 
+California. Temperatures this afternoon across the South Platte 
+River valley may only reach the lower 40s compared to mid/upper 
+40s in the Denver metro as a result of this mornings fog and low 
+clouds. A Denver cyclone will develop today and coupled with 
+southerly downsloping winds off the Palmer Divide, generate breezy
+conditions for Elbert, Lincoln, and areas east of DIA. Low 
+temperatures for the next few nights will reach the 20s with 
+valleys and naturally colder spots approaching the upper teens.
+Freezing fog is also possible Monday morning for Lincoln and
+eastern Elbert counties. Reduced visiblities down to 0.25-0.50 sm
+are possible. 
+
+Ensemble and deterministic models are in good agreement for a 
+shortwave to move across the Central Rockies tomorrow. This 
+system should bring enough lift and moisture to the mountains to 
+produce our next chance of snow for the higher terrain (40-60%). 
+Snowfall is likely to accumulate in the Mosquito Range, Gore 
+Range, with lighter accumulations across the Continental Divide 
+and Front Range. Snow will start Monday afternoon before tapering
+off early Tuesday morning. The greatest accumulation's appear to 
+be focused on the Gore and Mosquito ranges, where the probability 
+of 24 hr snowfall >1" is 60-70% and >2" is ~40-50%. Portions of 
+the Palmer Divide and Lincoln county still have a ~10-20% chance 
+to see measurable snowfall. Due to the expected cloud cover 
+tomorrow, forecasted high temperatures should remain in the lower 
+40s for most of the area. Tuesday's sky will clear with cool high 
+temperatures once again in the upper 40s. 
+
+Upper-level ridging creeps its way back into Colorado Wednesday as 
+the axis should be centered across our area by the afternoon. 
+Ensemble guidance is in good agreement this will induce gradual 
+warming through the weekend. Thanksgiving day looks to be mild in 
+the 50s and dry with no impactful weather. Ensembles for the weekend 
+depict a large high pressure to develop over the western coast causing
+NW flow aloft for the weekend. This NW direction will lead to
+upslope flow for the northern and central mountains which may
+produce periods of snow showers. Ensembles are in disagreement 
+regarding the location of jets and other factors that could 
+influence snowfall amounts. For now this will be something to 
+just keep an eye on. However, our lower elevations are looking 
+likely to stay dry through this weekend. 
+
+&&
+
+.AVIATION /06Z TAFS through 06Z Tuesday/...
+Issued at 1019 PM MST Sun Nov 22 2026
+
+VFR conditions will prevail for all terminals through the TAF
+period. Light southerly drainage flow will see a clockwise shift
+towards southwest winds within the next 2-4 hrs, which will
+persist through 16-17Z before a transition to NE flow for all
+terminals. Speeds will remain light (< 10 kts) throughout the
+day). 
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...Schnell
+AVIATION...BRQ
