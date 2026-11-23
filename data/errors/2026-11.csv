@@ -379,3 +379,4 @@ RuntimeError: fetch fail"
     data = fetch_json(url)
 RuntimeError: fetch fail"
 2026-11-23T05:45:49-07:00,snotel,"3 stations failed, 0 not tried (abasin, eldora, keystone): wcc.sc.egov.usda.gov: HTTP Error 503: Service Unavailable"
+2026-11-23T07:15:47-07:00,snotel,"2 stations failed, 0 not tried (vail, powderhorn): wcc.sc.egov.usda.gov: HTTP Error 403: Forbidden"
