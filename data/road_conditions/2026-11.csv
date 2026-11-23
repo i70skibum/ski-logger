@@ -674,3 +674,6 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-23T14:30:46-07:00,70,CO 62,Dallas Divide,0.0,23.4,4 - wet; 9 - icy spots,"CO 62, between CO 145 (4 miles west of the Dallas Divide area) and US 550; Hunter Parkway (Ridgway)"
 2026-11-23T16:00:46-07:00,228,US 160,La Veta Pass-Walsenburg,259.0,305.4,4s - wet in areas,"US 160, between CO 159 (1 mile east of Fort Garland) and I-25; CO 10 (near Walsenburg)"
 2026-11-23T16:00:46-07:00,227,US 160,Del Norte-Alamosa,186.1,259.0,"6-8-10 snow, icy, snow packed","US 160, between CO 149 (South Fork) and Trinchera Ranch Road (1 mile east of Fort Garland)"
+2026-11-23T16:45:46-07:00,430,US 50,Monarch Pass,190.3,208.3,11 - snow packed spots; 6 - snow,"US 50, between MP 190 (1 mile west of the Monarch Pass area) and MP 209 (near Monarch Pass)"
+2026-11-23T16:45:46-07:00,270,I-70,Eisenhower/Johnson tunnels-Georgetown,212.5,226.9,21 - scattered showers,"I-70, between Exit 205: CO 9; US 6; Silverthorne (near Eisenhower Tunnel) and Exit 228: Georgetown (near Georgetown)"
+2026-11-23T16:45:46-07:00,459,I-70,Silverthorne-Eisenhower/Johnson tunnels,203.7,212.5,21 - scattered showers,"I-70, between Exit 203: CO 9; East Frisco (near Frisco) and Exit 216: US 6; Loveland Pass (near Eisenhower Tunnel)"

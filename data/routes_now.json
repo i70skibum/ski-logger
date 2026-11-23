@@ -4785,7 +4785,7 @@
     "minutes": 31.1,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-23T16:30:47-07:00",
+    "at": "2026-11-23T16:45:46-07:00",
     "line": [
      [
       39.76107,
@@ -5535,10 +5535,10 @@
    },
    "E": {
     "delay_min": 0.0,
-    "minutes": 31.3,
+    "minutes": 31.2,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-23T16:30:47-07:00",
+    "at": "2026-11-23T16:45:46-07:00",
     "line": [
      [
       39.88623,
@@ -7858,11 +7858,11 @@
   "eldora_boulder": {
    "name": "Coors Field to Eldora by Boulder Canyon (US 36, CO 119)",
    "E": {
-    "delay_min": 6.8,
-    "minutes": 74.7,
+    "delay_min": 6.4,
+    "minutes": 74.3,
     "free_min": 67.9,
     "detour": false,
-    "at": "2026-11-23T16:30:47-07:00",
+    "at": "2026-11-23T16:45:46-07:00",
     "line": [
      [
       39.93746,
@@ -15931,10 +15931,10 @@
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
     "delay_min": 4.6,
-    "minutes": 35.2,
+    "minutes": 35.1,
     "free_min": 30.5,
     "detour": false,
-    "at": "2026-11-23T16:30:47-07:00",
+    "at": "2026-11-23T16:45:46-07:00",
     "line": [
      [
       39.74245,
@@ -16226,11 +16226,11 @@
    "points": [],
    "points_at": "2026-11-23T16:30:47-07:00",
    "W": {
-    "delay_min": 4.7,
-    "minutes": 33.7,
+    "delay_min": 4.3,
+    "minutes": 33.3,
     "free_min": 29.0,
     "detour": false,
-    "at": "2026-11-23T16:30:47-07:00",
+    "at": "2026-11-23T16:45:46-07:00",
     "line": [
      [
       39.75702,
@@ -17250,7 +17250,7 @@
     "minutes": 56.9,
     "free_min": 51.3,
     "detour": true,
-    "at": "2026-11-23T16:30:47-07:00"
+    "at": "2026-11-23T16:45:46-07:00"
    }
   },
   "corridor": {
@@ -18609,10 +18609,10 @@
    "points_at": "2026-11-23T16:30:47-07:00"
   }
  },
- "updated": "2026-11-23T16:30:47-07:00",
+ "updated": "2026-11-23T16:45:46-07:00",
  "tomtom_use": {
   "flow": 1364,
-  "routing": 1445
+  "routing": 1451
  },
  "tomtom_caps": {
   "routing": 19000,
