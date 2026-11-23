@@ -660,3 +660,6 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-23T12:02:32-07:00,407,US 285,Poncha Pass,113.9,126.5,6 - snow; 9 - icy spots,"US 285, between County Road 57 (near Poncha Pass) and US 50 (Poncha Springs)"
 2026-11-23T12:02:32-07:00,406,US 285,Monte Vista-Saguache (San Luis Valley),51.2,113.9,6 - snow; 9 - icy spots,"US 285, between CO 15; US 160 (Monte Vista) and Merkt Creek (near Poncha Pass)"
 2026-11-23T12:30:49-07:00,151,CO 145,Lizard Head Pass,46.4,71.6,6 - snow; 7 - slushy; 9 - icy spots,"CO 145, between Scotch Creek Road (Lizard Head Pass) and Nimbus Drive (near Telluride)"
+2026-11-23T13:15:47-07:00,248,US 550,Silverton-Red Mountain Pass,74.9,98.1,4 - wet; 9 - icy spots,"US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)"
+2026-11-23T13:15:47-07:00,246,US 550,Coal Bank Pass,55.8,65.9,4 - wet; 9 - icy spots,"US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)"
+2026-11-23T13:15:47-07:00,247,US 550,Molas Pass,65.9,74.9,4 - wet; 9 - icy spots,"US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)"
