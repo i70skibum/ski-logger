@@ -161,18 +161,18 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadClosures:CDOT-36542911623EB": {
+  "roadClosures:CDOT-36542911623BOTH": {
    "began": "2026-11-23T09:37:15-07:00",
    "class": "roadClosures",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36542911623EB",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36542911623BOTH",
    "lat": 38.41296,
    "lon": -105.02044,
    "mp_end": "",
    "mp_start": 291.002285569455,
    "pos_bearing": "E",
    "route": "US 50",
-   "title": "US 50 eastbound: Road closed.",
+   "title": "US 50 in both directions: Road closed.",
    "type": "critical"
   },
   "roadClosures:COSEG-589046": {
@@ -231,18 +231,18 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
-  "roadReports:CDOT-36542911623EB": {
+  "roadReports:CDOT-36542911623BOTH": {
    "began": "2026-11-23T09:37:15-07:00",
    "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36542911623EB",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36542911623BOTH",
    "lat": 38.41296,
    "lon": -105.02044,
    "mp_end": "",
    "mp_start": 291.002285569455,
    "pos_bearing": "E",
    "route": "US 50",
-   "title": "US 50 eastbound: Road closed.",
+   "title": "US 50 in both directions: Road closed.",
    "type": "critical"
   },
   "roadWork:CDOT-35509265054EB": {
@@ -1057,6 +1057,34 @@
    "title": "CO 65: Icy and snow packed spots.",
    "type": "standard"
   },
+  "winterDriving:COSEG-522967": {
+   "began": "2026-11-23T09:53:36.593000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-522967",
+   "lat": 36.99999,
+   "lon": -107.86952,
+   "mp_end": 16.560998660277097,
+   "mp_start": 1.5510674771853932e-07,
+   "pos_bearing": "N",
+   "route": "US 550",
+   "title": "US 550: Wet.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-587761": {
+   "began": "2026-11-23T09:53:47.360000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-587761",
+   "lat": 38.08316,
+   "lon": -107.70237,
+   "mp_end": 130.2166222300553,
+   "mp_start": 98.118708545585,
+   "pos_bearing": "N",
+   "route": "US 550",
+   "title": "US 550: Snow.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-587826": {
    "began": "2026-11-23T08:11:43.457000-07:00",
    "class": "winterDriving",
@@ -1083,6 +1111,62 @@
    "pos_bearing": "N",
    "route": "CO 145",
    "title": "CO 145: Snow.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-588872": {
+   "began": "2026-11-23T09:58:01.048000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588872",
+   "lat": 37.27836,
+   "lon": -107.93541,
+   "mp_end": 145.81651330012022,
+   "mp_start": 79.91912214025156,
+   "pos_bearing": "E",
+   "route": "US 160",
+   "title": "US 160: Snow with ice and snow packed.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-589000": {
+   "began": "2026-11-23T09:57:31.327000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-589000",
+   "lat": 36.99942,
+   "lon": -109.03378,
+   "mp_end": 55.960038977225445,
+   "mp_start": 7.445954425382091e-07,
+   "pos_bearing": "E",
+   "route": "US 160",
+   "title": "US 160: Wet.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-589001": {
+   "began": "2026-11-23T09:57:43.012000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-589001",
+   "lat": 37.34737,
+   "lon": -108.291,
+   "mp_end": 79.91912214025156,
+   "mp_start": 55.960038977225445,
+   "pos_bearing": "E",
+   "route": "US 160",
+   "title": "US 160: Snow with ice and snow packed.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-589007": {
+   "began": "2026-11-23T09:53:36.593000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-589007",
+   "lat": 37.34081,
+   "lon": -107.85261,
+   "mp_end": 55.7869149410012,
+   "mp_start": 26.89671720359591,
+   "pos_bearing": "N",
+   "route": "US 550",
+   "title": "US 550: Wet.",
    "type": "standard"
   },
   "winterDriving:COSEG-589046": {
@@ -1129,7 +1213,7 @@
   }
  },
  "forecast_last": "2026-11-23T14:45:47+00:00",
- "last_run": "2026-11-23T09:45:50-07:00",
+ "last_run": "2026-11-23T10:00:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-23": {
@@ -1809,12 +1893,12 @@
   "228": "3 - dry",
   "229": "1 - high wind; 3 - dry",
   "230": "3 - dry",
-  "243": "3 - dry",
-  "245": "3 - dry",
+  "243": "4 - wet",
+  "245": "4 - wet",
   "246": "6-8-10 snow, icy, snow packed",
   "247": "6-8-10 snow, icy, snow packed",
   "248": "6-8-10 snow, icy, snow packed",
-  "249": "3 - dry",
+  "249": "4 - wet; 6 - snow",
   "261": "3 - dry",
   "262": "3 - dry",
   "270": "3 - dry",
@@ -1841,9 +1925,9 @@
   "414": "3 - dry",
   "429": "3 - dry",
   "430": "3 - dry",
-  "440": "3 - dry",
-  "441": "3 - dry",
-  "442": "3 - dry",
+  "440": "4 - wet",
+  "441": "6-8-10 snow, icy, snow packed",
+  "442": "6-8-10 snow, icy, snow packed",
   "447": "3 - dry",
   "45": "3 - dry",
   "456": "3 - dry",
@@ -1884,9 +1968,9 @@
   "monarch": "2026-11-23 08:00",
   "powderhorn": "2026-11-23 08:00",
   "purgatory": "2026-11-23 08:00",
-  "steamboat": "2026-11-23 08:00",
+  "steamboat": "2026-11-23 09:00",
   "sunlight": "2026-11-23 08:00",
-  "telluride": "2026-11-23 07:00",
+  "telluride": "2026-11-23 08:00",
   "vail": "2026-11-23 08:00",
   "winterpark": "2026-11-23 08:00",
   "wolfcreek": "2026-11-23 08:00"
@@ -2145,14 +2229,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-23T16:30:47+00:00",
- "tomtom_routing_last": "2026-11-23T16:45:50+00:00",
+ "tomtom_flow_last": "2026-11-23T17:00:47+00:00",
+ "tomtom_routing_last": "2026-11-23T17:00:47+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 1140
+   "2026-11": 1156
   },
   "routing": {
-   "2026-11": 1185
+   "2026-11": 1198
   }
  },
  "traffic_model_last": "2026-11-23T14:45:47+00:00"
