@@ -1342,3 +1342,6 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-23T07:15:47-07:00,start,CDOT-36540846671NB,chainLaws,standard,US 550,POSITIVE_DIRECTION,N,63.985403419143076,80.00012510369761,US 550 northbound: Passenger vehicle traction law.,2026-11-23T07:04:17-07:00
 2026-11-23T07:15:47-07:00,start,CDOT-36540535074BOTH,roadReports,urgent,US 285,BOTH_DIRECTIONS,N,220.2241219228152,,US 285 in both directions: Incident cleared.,2026-11-23T06:40:26-07:00
 2026-11-23T07:15:47-07:00,end,CDOT-36540535074NB,roadReports,urgent,US 285,POSITIVE_DIRECTION,N,220.2241219228152,,US 285 northbound: Vehicle recovery.,2026-11-23T06:40:26-07:00
+2026-11-23T07:30:50-07:00,start,CDOT-36541035684EB,roadClosures,critical,US 6,POSITIVE_DIRECTION,,282.408,,US 6 eastbound: Entrance ramp closed.,2026-11-23T07:18:22-07:00
+2026-11-23T07:30:50-07:00,start,CDOT-36541035684EB,roadReports,critical,US 6,POSITIVE_DIRECTION,,282.408,,US 6 eastbound: Entrance ramp closed.,2026-11-23T07:18:22-07:00
+2026-11-23T07:30:50-07:00,end,CDOT-36540535074BOTH,roadReports,urgent,US 285,BOTH_DIRECTIONS,N,220.2241219228152,,US 285 in both directions: Incident cleared.,2026-11-23T06:40:26-07:00
