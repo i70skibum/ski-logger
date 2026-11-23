@@ -663,3 +663,8 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-23T13:15:47-07:00,248,US 550,Silverton-Red Mountain Pass,74.9,98.1,4 - wet; 9 - icy spots,"US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)"
 2026-11-23T13:15:47-07:00,246,US 550,Coal Bank Pass,55.8,65.9,4 - wet; 9 - icy spots,"US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)"
 2026-11-23T13:15:47-07:00,247,US 550,Molas Pass,65.9,74.9,4 - wet; 9 - icy spots,"US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)"
+2026-11-23T14:15:46-07:00,248,US 550,Silverton-Red Mountain Pass,74.9,98.1,"6-9-11 snow, icy spots, snow packed spots","US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)"
+2026-11-23T14:15:46-07:00,440,US 160,Four Corners-Cortez,0.0,56.0,3 - dry,"US 160, between the Four Corners (34 miles west of the Cortez area) and CO 184 (Mancos)"
+2026-11-23T14:15:46-07:00,390,US 50,Montrose-Cerro Summit-Blue Mesa-Gunnison,92.4,190.3,"4s-9 - wet in areas, icy spots","US 50, between Park Avenue (Montrose) and County Road 32YY (1 mile west of the Monarch Pass area)"
+2026-11-23T14:15:46-07:00,442,US 160,Durango-Bayfield-Pagosa Spgs,79.9,145.8,"4s-9 - wet in areas, icy spots","US 160, between Lightner Creek Road (near Durango) and Fawn Gulch Road (near Pagosa Springs)"
+2026-11-23T14:15:46-07:00,441,US 160,Mancos Hill-Hesperus,56.0,79.9,"4s-9 - wet in areas, icy spots","US 160, between Beech Street (Mancos) and County Road 141 (near Durango)"
