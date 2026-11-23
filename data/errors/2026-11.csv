@@ -358,3 +358,10 @@ time,source,error
 2026-11-22T07:45:46-07:00,snotel,"2 stations failed, 0 not tried (copper, purgatory): wcc.sc.egov.usda.gov: HTTP Error 503: Service Unavailable"
 2026-11-22T11:30:46-07:00,snotel,"2 stations failed, 0 not tried (eldora, sunlight): wcc.sc.egov.usda.gov: HTTP Error 503: Service Unavailable"
 2026-11-22T13:00:52-07:00,snotel,"3 stations failed, 0 not tried (breck, telluride, loveland): wcc.sc.egov.usda.gov: HTTP Error 500: Internal Server Error"
+2026-11-22T17:00:48-07:00,outlook,"api.open-meteo.com: <urlopen error _ssl.c:1063: The handshake operation timed out> | Traceback (most recent call last):
+  File ""/home/runner/work/ski-logger/ski-logger/logger.py"", line 1627, in main
+    print(f""{name}: {fn(state)}"")
+                     ~~^^^^^^^
+  File ""/home/runner/work/ski-logger/ski-logger/logger.py"", line 736, in log_outlook
+    data = fetch_json(url)
+RuntimeError: fetch fail"
