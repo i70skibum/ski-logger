@@ -217,6 +217,20 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
+  "roadReports:CDOT-36542453115SB": {
+   "began": "2026-11-23T09:03:20-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36542453115SB",
+   "lat": 38.48144,
+   "lon": -106.08687,
+   "mp_end": "",
+   "mp_start": 124.00045853210221,
+   "pos_bearing": "N",
+   "route": "US 285",
+   "title": "US 285 southbound: Debris on roadway.",
+   "type": "routine"
+  },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
    "class": "roadWork",
@@ -1001,20 +1015,6 @@
    "title": "US 50 eastbound: Road maintenance operations.",
    "type": "routine"
   },
-  "winterDriving:COSEG-522887": {
-   "began": "2026-11-23T05:42:19.449000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-522887",
-   "lat": 37.42725,
-   "lon": -105.41703,
-   "mp_end": 305.37999994492566,
-   "mp_start": 259.047,
-   "pos_bearing": "E",
-   "route": "US 160",
-   "title": "US 160: High wind.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-522889": {
    "began": "2026-11-23T05:41:33.521000-07:00",
    "class": "winterDriving",
@@ -1115,7 +1115,7 @@
   }
  },
  "forecast_last": "2026-11-23T14:45:47+00:00",
- "last_run": "2026-11-23T09:00:50-07:00",
+ "last_run": "2026-11-23T09:15:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-23": {
@@ -1771,7 +1771,7 @@
   "winterpark": "https://api.weather.gov/gridpoints/BOU/36,70",
   "wolfcreek": "https://api.weather.gov/gridpoints/PUB/15,36"
  },
- "outlook_last": "2026-11-23T13:02:20+00:00",
+ "outlook_last": "2026-11-23T16:15:47+00:00",
  "road_conditions": {
   "100": "3 - dry",
   "101": "3 - dry",
@@ -1792,7 +1792,7 @@
   "215": "3 - dry",
   "226": "3 - dry",
   "227": "3 - dry",
-  "228": "1 - high wind; 3 - dry",
+  "228": "3 - dry",
   "229": "1 - high wind; 3 - dry",
   "230": "3 - dry",
   "243": "3 - dry",
@@ -1855,7 +1855,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-23 07:00",
+  "abasin": "2026-11-23 08:00",
   "aspen": "2026-11-23 07:00",
   "beavercreek": "2026-11-23 07:00",
   "breck": "2026-11-23 07:00",
@@ -1865,7 +1865,7 @@
   "echo": "2026-11-23 07:00",
   "eldora": "2026-11-23 07:00",
   "granby": "2026-11-23 07:00",
-  "keystone": "2026-11-23 07:00",
+  "keystone": "2026-11-23 08:00",
   "loveland": "2026-11-23 07:00",
   "monarch": "2026-11-23 07:00",
   "powderhorn": "2026-11-23 07:00",
@@ -2132,13 +2132,13 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-23T16:00:50+00:00",
- "tomtom_routing_last": "2026-11-23T16:00:50+00:00",
+ "tomtom_routing_last": "2026-11-23T16:15:47+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 1124
   },
   "routing": {
-   "2026-11": 1160
+   "2026-11": 1166
   }
  },
  "traffic_model_last": "2026-11-23T14:45:47+00:00"
