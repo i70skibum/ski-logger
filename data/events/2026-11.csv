@@ -1301,3 +1301,4 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-22T20:00:47-07:00,start,CDOT-36531752971BOTH,roadClosures,critical,US 285,BOTH_DIRECTIONS,N,142.95199996860174,,US 285 in both directions: Road closed.,2026-11-22T19:46:34-07:00
 2026-11-22T20:00:47-07:00,start,CDOT-36531752971BOTH,roadReports,critical,US 285,BOTH_DIRECTIONS,N,142.95199996860174,,US 285 in both directions: Road closed.,2026-11-22T19:46:34-07:00
 2026-11-22T20:15:51-07:00,start,CDOT-36532048175WB,roadReports,routine,I-70,NEGATIVE_DIRECTION,E,111.99829898985806,,I-70 westbound: Right lane closed.,2026-11-22T20:08:57-07:00
+2026-11-22T20:30:47-07:00,start,CDOT-36532272525EB,roadWork,routine,I-70,POSITIVE_DIRECTION,E,239.00418504580463,,I-70 eastbound: Right lane closed.,2026-11-22T20:25:39-07:00
