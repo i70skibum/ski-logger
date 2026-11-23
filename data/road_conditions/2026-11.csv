@@ -654,3 +654,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-23T10:00:47-07:00,442,US 160,Durango-Bayfield-Pagosa Spgs,79.9,145.8,"6-8-10 snow, icy, snow packed","US 160, between Lightner Creek Road (near Durango) and Fawn Gulch Road (near Pagosa Springs)"
 2026-11-23T10:00:47-07:00,441,US 160,Mancos Hill-Hesperus,56.0,79.9,"6-8-10 snow, icy, snow packed","US 160, between Beech Street (Mancos) and County Road 141 (near Durango)"
 2026-11-23T10:30:54-07:00,72,CO 65,Grand Mesa,0.0,51.2,"6-8-10 snow, icy, snow packed","CO 65, between CO 92 and CO 330 (Grand Mesa)"
+2026-11-23T11:30:55-07:00,390,US 50,Montrose-Cerro Summit-Blue Mesa-Gunnison,92.4,190.3,"6-8-10 snow, icy, snow packed","US 50, between Park Avenue (Montrose) and County Road 32YY (1 mile west of the Monarch Pass area)"
