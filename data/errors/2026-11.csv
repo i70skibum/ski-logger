@@ -365,3 +365,4 @@ time,source,error
   File ""/home/runner/work/ski-logger/ski-logger/logger.py"", line 736, in log_outlook
     data = fetch_json(url)
 RuntimeError: fetch fail"
+2026-11-22T17:15:46-07:00,snotel,"3 stations failed, 0 not tried (winterpark, granby, powderhorn): wcc.sc.egov.usda.gov: HTTP Error 503: Service Unavailable"

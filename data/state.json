@@ -1,5 +1,5 @@
 {
- "afd_last": "42cc563c-6e0a-4aa5-ad9a-bef42fc9eb39",
+ "afd_last": "3306191e-6257-48f6-845b-c9b0ac8bbedd",
  "cameras_last": "2026-11-22T14:45:46+00:00",
  "cameras_v": 2,
  "err_seen": {
@@ -13,7 +13,7 @@
   },
   "snotel|HTTP Error 503": {
    "n": 0,
-   "t": "2026-11-22T18:30:46+00:00"
+   "t": "2026-11-23T00:15:46+00:00"
   }
  },
  "events": {
@@ -99,6 +99,20 @@
    "pos_bearing": "E",
    "route": "US 160",
    "title": "US 160 in both directions: Traffic impacts.",
+   "type": "routine"
+  },
+  "roadReports:CDOT-36529591296EB": {
+   "began": "2026-11-22T17:05:11-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36529591296EB",
+   "lat": 39.7254,
+   "lon": -105.10336,
+   "mp_end": "",
+   "mp_start": 279.66239919433895,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6 eastbound: Lane(s) reopened to traffic.",
    "type": "routine"
   },
   "roadWork:CDOT-35509265054EB": {
@@ -1083,7 +1097,7 @@
   }
  },
  "forecast_last": "2026-11-22T23:15:46+00:00",
- "last_run": "2026-11-22T17:00:48-07:00",
+ "last_run": "2026-11-22T17:15:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-22": {
@@ -1739,7 +1753,7 @@
   "winterpark": "https://api.weather.gov/gridpoints/BOU/36,70",
   "wolfcreek": "https://api.weather.gov/gridpoints/PUB/15,36"
  },
- "outlook_last": "2026-11-22T21:00:46+00:00",
+ "outlook_last": "2026-11-23T00:15:46+00:00",
  "road_conditions": {
   "100": "3 - dry",
   "101": "3 - dry",
@@ -1823,7 +1837,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-22 15:00",
+  "abasin": "2026-11-22 16:00",
   "aspen": "2026-11-22 15:00",
   "beavercreek": "2026-11-22 15:00",
   "breck": "2026-11-22 15:00",
@@ -1833,7 +1847,7 @@
   "echo": "2026-11-22 15:00",
   "eldora": "2026-11-22 15:00",
   "granby": "2026-11-22 15:00",
-  "keystone": "2026-11-22 15:00",
+  "keystone": "2026-11-22 16:00",
   "loveland": "2026-11-22 15:00",
   "monarch": "2026-11-22 15:00",
   "powderhorn": "2026-11-22 15:00",
@@ -2099,14 +2113,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-22T23:45:46+00:00",
- "tomtom_routing_last": "2026-11-23T00:00:48+00:00",
+ "tomtom_flow_last": "2026-11-23T00:15:46+00:00",
+ "tomtom_routing_last": "2026-11-23T00:15:46+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 884
+   "2026-11": 900
   },
   "routing": {
-   "2026-11": 894
+   "2026-11": 900
   }
  },
  "traffic_model_last": "2026-11-22T23:15:46+00:00"
