@@ -3,11 +3,11 @@
   "canyon": {
    "name": "Clear Creek Canyon (US 6, Golden to I-70 exit 244)",
    "W": {
-    "delay_min": 1.2,
-    "minutes": 41.2,
-    "free_min": 40.0,
+    "delay_min": 0.9,
+    "minutes": 41.0,
+    "free_min": 40.1,
     "detour": false,
-    "at": "2026-11-22T19:00:47-07:00",
+    "at": "2026-11-22T19:30:47-07:00",
     "line": [
      [
       39.75702,
@@ -908,11 +908,11 @@
     ]
    },
    "E": {
-    "delay_min": 1.2,
-    "minutes": 42.0,
+    "delay_min": 1.1,
+    "minutes": 41.8,
     "free_min": 40.8,
     "detour": false,
-    "at": "2026-11-22T19:00:47-07:00",
+    "at": "2026-11-22T19:30:47-07:00",
     "line": [
      [
       39.74237,
@@ -2692,11 +2692,11 @@
   "pass": {
    "name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)",
    "W": {
-    "delay_min": 0.1,
-    "minutes": 21.2,
+    "delay_min": 0.0,
+    "minutes": 21.0,
     "free_min": 21.1,
     "detour": false,
-    "at": "2026-11-22T19:00:47-07:00",
+    "at": "2026-11-22T19:30:47-07:00",
     "line": [
      [
       39.68008,
@@ -3237,11 +3237,11 @@
     ]
    },
    "E": {
-    "delay_min": 0.1,
-    "minutes": 20.8,
+    "delay_min": 0.0,
+    "minutes": 20.6,
     "free_min": 20.7,
     "detour": false,
-    "at": "2026-11-22T19:00:47-07:00",
+    "at": "2026-11-22T19:30:47-07:00",
     "line": [
      [
       39.6046,
@@ -4785,7 +4785,7 @@
     "minutes": 31.7,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-22T19:15:46-07:00",
+    "at": "2026-11-22T19:30:47-07:00",
     "line": [
      [
       39.76107,
@@ -5534,11 +5534,11 @@
     ]
    },
    "E": {
-    "delay_min": 0.6,
+    "delay_min": 0.5,
     "minutes": 32.2,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-22T19:15:46-07:00",
+    "at": "2026-11-22T19:30:47-07:00",
     "line": [
      [
       39.88623,
@@ -7639,11 +7639,11 @@
     ]
    },
    "E": {
-    "delay_min": 0.7,
-    "minutes": 16.5,
+    "delay_min": 0.4,
+    "minutes": 16.3,
     "free_min": 15.8,
     "detour": false,
-    "at": "2026-11-22T19:00:47-07:00",
+    "at": "2026-11-22T19:30:47-07:00",
     "line": [
      [
       39.6046,
@@ -7858,11 +7858,11 @@
   "eldora_boulder": {
    "name": "Coors Field to Eldora by Boulder Canyon (US 36, CO 119)",
    "E": {
-    "delay_min": 2.3,
-    "minutes": 69.9,
+    "delay_min": 2.1,
+    "minutes": 69.8,
     "free_min": 67.7,
     "detour": false,
-    "at": "2026-11-22T19:15:46-07:00",
+    "at": "2026-11-22T19:30:47-07:00",
     "line": [
      [
       39.93746,
@@ -10401,11 +10401,11 @@
    "points": [],
    "points_at": "2026-11-22T19:15:46-07:00",
    "E": {
-    "delay_min": 2.2,
-    "minutes": 84.9,
+    "delay_min": 2.1,
+    "minutes": 84.8,
     "free_min": 82.7,
     "detour": false,
-    "at": "2026-11-22T19:00:47-07:00",
+    "at": "2026-11-22T19:30:47-07:00",
     "line": [
      [
       39.93746,
@@ -12981,11 +12981,11 @@
    "points": [],
    "points_at": "2026-11-22T19:15:46-07:00",
    "E": {
-    "delay_min": 2.7,
-    "minutes": 103.2,
+    "delay_min": 2.5,
+    "minutes": 103.0,
     "free_min": 100.6,
     "detour": false,
-    "at": "2026-11-22T19:00:47-07:00",
+    "at": "2026-11-22T19:30:47-07:00",
     "line": [
      [
       39.93746,
@@ -15898,11 +15898,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 2.0,
-    "minutes": 27.3,
+    "delay_min": 1.6,
+    "minutes": 26.8,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-22T19:15:46-07:00",
+    "at": "2026-11-22T19:30:47-07:00",
     "line": [
      [
       39.74245,
@@ -16198,11 +16198,11 @@
    "points": [],
    "points_at": "2026-11-22T19:15:46-07:00",
    "W": {
-    "delay_min": 1.5,
-    "minutes": 30.5,
+    "delay_min": 1.6,
+    "minutes": 30.6,
     "free_min": 29.0,
     "detour": false,
-    "at": "2026-11-22T19:15:46-07:00",
+    "at": "2026-11-22T19:30:47-07:00",
     "line": [
      [
       39.75702,
@@ -17219,10 +17219,10 @@
    "points_at": "2026-11-22T19:15:46-07:00",
    "E": {
     "delay_min": null,
-    "minutes": 52.8,
+    "minutes": 52.7,
     "free_min": 51.4,
     "detour": true,
-    "at": "2026-11-22T19:15:46-07:00"
+    "at": "2026-11-22T19:30:47-07:00"
    }
   },
   "corridor": {
@@ -18581,10 +18581,10 @@
    "points_at": "2026-11-22T19:15:46-07:00"
   }
  },
- "updated": "2026-11-22T19:15:46-07:00",
+ "updated": "2026-11-22T19:30:47-07:00",
  "tomtom_use": {
   "flow": 964,
-  "routing": 976
+  "routing": 989
  },
  "tomtom_caps": {
   "routing": 19000,
