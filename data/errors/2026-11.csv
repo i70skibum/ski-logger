@@ -378,3 +378,4 @@ RuntimeError: fetch fail"
   File ""/home/runner/work/ski-logger/ski-logger/logger.py"", line 736, in log_outlook
     data = fetch_json(url)
 RuntimeError: fetch fail"
+2026-11-23T05:45:49-07:00,snotel,"3 stations failed, 0 not tried (abasin, eldora, keystone): wcc.sc.egov.usda.gov: HTTP Error 503: Service Unavailable"

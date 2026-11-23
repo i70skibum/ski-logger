@@ -638,3 +638,7 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-22T21:00:47-07:00,411,US 285,Kenosha Pass,199.0,213.1,3 - dry,"US 285 (Hampden Ave), between Willard Street and River Street (near Kenosha Pass)"
 2026-11-22T21:00:47-07:00,410,US 285,Antero Jct-Fairplay-Jefferson (South Park),161.8,199.0,3 - dry,"US 285 (Hampden Ave), between US 24 (Antero Junction) and MP 199 (near Kenosha Pass)"
 2026-11-22T21:00:47-07:00,228,US 160,La Veta Pass-Walsenburg,259.0,305.4,3 - dry,"US 160, between CO 159 (1 mile east of Fort Garland) and I-25; CO 10 (near Walsenburg)"
+2026-11-23T05:45:49-07:00,151,CO 145,Lizard Head Pass,46.4,71.6,6 - snow,"CO 145, between Scotch Creek Road (Lizard Head Pass) and Nimbus Drive (near Telluride)"
+2026-11-23T05:45:49-07:00,72,CO 65,Grand Mesa,0.0,51.2,"9-11 icy spots, snow packed spots","CO 65, between CO 92 and CO 330 (Grand Mesa)"
+2026-11-23T05:45:49-07:00,229,US 160,Trinidad to Kansas,344.6,497.2,1 - high wind; 3 - dry,"US 160, between I-25 (Trinidad) and the Kansas Border (12 miles east of the Walsh area)"
+2026-11-23T05:45:49-07:00,228,US 160,La Veta Pass-Walsenburg,259.0,305.4,1 - high wind; 3 - dry,"US 160, between CO 159 (1 mile east of Fort Garland) and I-25; CO 10 (near Walsenburg)"
