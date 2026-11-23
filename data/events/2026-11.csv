@@ -1289,3 +1289,4 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-22T16:30:46-07:00,end,COSEG-589002,winterDriving,standard,US 285,NOT_DIRECTIONAL,N,161.78900021183932,213.08022691196732,US 285: Wet in areas with icy spots.,2026-11-22T14:53:51.920000-07:00
 2026-11-22T17:15:46-07:00,start,CDOT-36529591296EB,roadReports,routine,US 6,POSITIVE_DIRECTION,E,279.66239919433895,,US 6 eastbound: Lane(s) reopened to traffic.,2026-11-22T17:05:11-07:00
 2026-11-22T17:30:47-07:00,end,CDOT-36529591296EB,roadReports,routine,US 6,POSITIVE_DIRECTION,E,279.66239919433895,,US 6 eastbound: Lane(s) reopened to traffic.,2026-11-22T17:05:11-07:00
+2026-11-22T18:00:48-07:00,start,CDOT-36530120399EB,roadReports,routine,I-70,POSITIVE_DIRECTION,E,253.99816432452508,,I-70 eastbound: Right lane closed.,2026-11-22T17:45:09-07:00
