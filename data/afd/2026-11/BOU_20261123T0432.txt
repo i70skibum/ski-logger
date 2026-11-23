@@ -1,0 +1,118 @@
+
+000
+FXUS65 KBOU 231132
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+432 AM MST Mon Nov 23 2026
+
+.KEY MESSAGES... 
+
+- Patchy freezing fog possible for portions of Lincoln, Elbert,
+  and Weld Counties Monday morning.
+  
+- A quick-hitting storm system will bring a round of mountain snow
+  showers today, with a few light accumulations possible across
+  the Palmer Divide and adjacent plains. 
+
+- Cooler fall temperatures will continue through Tuesday, with a
+  gradual warming trend beginning Wednesday.
+
+- No major travel impacts are expected during the Thanksgiving
+  travel period. 
+ 
+
+&&
+
+.DISCUSSION /Through Sunday/...
+Issued at 1120 PM MST Sun Nov 22 2026
+
+While minimal weather impacts are expected across the forecast area 
+this holiday week, a few disturbances will move through the 
+Intermountain West, bringing periodic chances for light snowfall 
+across the mountains. Overall, relatively quiet weather is expected 
+through the forecast period, with a gradual warming trend beginning 
+by mid-week. 
+
+The first disturbance is still on track to move across the region
+later today, potentially creating some travel headaches along the
+high mountain passes and I-70 mountain corridor this afternoon 
+and evening. But before it arrives, portions of Lincoln, Elbert, 
+and Weld Counties will have to contend with some patchy freezing 
+fog this morning, with current observations showing low stratus 
+are already beginning to settle in. While a Dense Fog Advisory
+doesn't seem warranted at this time, conditions will be monitored
+to see how things evolve, but folks should be prepared for some
+patchy fog out there this morning, with the greatest impacts
+expected along I-70 through Elbert and Lincoln Counties. 
+
+With regards to today's storm system, while the greatest QG 
+forcing will remain to our south, a brief period of enhanced QG 
+ascent is expected as the shortwave tracks across the Rockies. 
+Forecast soundings show a deeply saturated profile, with the DGZ 
+situated within the layer of strongest lift. Additionally, lapse 
+rates approaching 9C/km are expected for a few hours leading up to
+sunset, which could support the development of a few convective 
+snow showers. Given the steep lapse rates and favorable DGZ 
+placement, snowfall rates could briefly exceed what the broader- 
+scale forcing might suggest. Thus, while overall snowfall 
+accumulations are expected to remain relatively light, briefly 
+heavier convective snow showers could create locally hazardous 
+travel conditions, especially across mountain passes and the I-70
+mountain corridor.
+
+QPF has been trended upward to account for this potential and better 
+align with recent guidance. Generally, expecting between 1-3 
+inches of snowfall along the I-70 mountain corridor and 
+Continental Divide, although some locally higher amounts cannot be
+ruled out where all the ingredients come together. The remainder 
+of the mountains should see around an inch or less, with a few 
+tenths to a half inch expected for elevations as low as 7,500 
+feet. PoPs and QPF have also been extended to include the Palmer 
+Divide and adjacent plains, where a few tenths to a tenth of an 
+inch of snowfall are now included in the latest forecast package. 
+Temperatures will remain below seasonal averages today and 
+Tuesday. 
+
+Subsidence will develop Tuesday morning behind the departing system 
+as an amplified upper-level ridge shifts eastward across the 
+Rockies, bringing an end to snow showers and a return to warmer and 
+drier conditions across the forecast area. Afternoon high 
+temperatures will gradually climb through the week, with Thursday's 
+holiday weather shaping up to be mild and dry. Highs are expected to 
+reach the mid 50s along the urban corridor and mid 40s across the 
+mountain valleys. 
+
+Looking ahead, ensembles continue to hint at another round of 
+mountain snow potentially arriving by Friday morning, while the 
+plains are expected to remain dry. Temperatures will trend well 
+above seasonal averages heading into the weekend. 
+
+&&
+
+.AVIATION /06Z TAFS through 06Z Tuesday/...
+Issued at 1019 PM MST Sun Nov 22 2026
+
+VFR conditions are favored to prevail for all terminals through
+this afternoon. After 00Z, there will be an increase in mid-level
+cloud cover, which could produce CIGS with bases 025-050 at times,
+being most likely farther south (i.e. KAPA). A light SHSN can't be
+ruled out either in the vicinity of KAPA in the evening.
+
+As far as winds are concerned, expect a diurnally-driven pattern
+today marked by light speeds well below 10 kts through the day.
+Current southerly drainage flow looks to transition fairly quickly
+to NE flow around 16-17Z.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...9
+AVIATION...BRQ
