@@ -370,3 +370,11 @@ RuntimeError: fetch fail"
 2026-11-22T19:30:47-07:00,snotel,"5 stations failed, 14 not tried (abasin, eldora, steamboat, aspen, keystone, breck, vail, beavercreek, crestedbutte, telluride, loveland, echo, cooper, granby, monarch, sunlight, powderhorn, wolfcreek, purgatory): wcc.sc.egov.usda.gov: HTTP Error 503: Service Unavailable"
 2026-11-22T20:45:46-07:00,snotel,"2 stations failed, 0 not tried (sunlight, purgatory): wcc.sc.egov.usda.gov: HTTP Error 503: Service Unavailable"
 2026-11-22T22:00:51-07:00,snotel,"4 stations failed, 0 not tried (crestedbutte, loveland, sunlight, powderhorn): wcc.sc.egov.usda.gov: HTTP Error 503: Service Unavailable"
+2026-11-23T02:30:47-07:00,snotel,"3 stations failed, 13 not tried (steamboat, aspen, breck, vail, beavercreek, crestedbutte, telluride, loveland, echo, cooper, granby, monarch, sunlight, powderhorn, wolfcreek, purgatory): wcc.sc.egov.usda.gov: HTTP Error 503: Service Unavailable"
+2026-11-23T02:30:47-07:00,outlook,"api.open-meteo.com: <urlopen error _ssl.c:1063: The handshake operation timed out> | Traceback (most recent call last):
+  File ""/home/runner/work/ski-logger/ski-logger/logger.py"", line 1627, in main
+    print(f""{name}: {fn(state)}"")
+                     ~~^^^^^^^
+  File ""/home/runner/work/ski-logger/ski-logger/logger.py"", line 736, in log_outlook
+    data = fetch_json(url)
+RuntimeError: fetch fail"

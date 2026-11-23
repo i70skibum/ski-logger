@@ -5,7 +5,7 @@
  "err_seen": {
   "outlook|timed out": {
    "n": 0,
-   "t": "2026-11-23T00:00:48+00:00"
+   "t": "2026-11-23T09:30:47+00:00"
   },
   "snotel|HTTP Error 403": {
    "n": 0,
@@ -17,7 +17,7 @@
   },
   "snotel|HTTP Error 503": {
    "n": 0,
-   "t": "2026-11-23T05:00:51+00:00"
+   "t": "2026-11-23T09:30:47+00:00"
   }
  },
  "events": {
@@ -47,6 +47,20 @@
    "pos_bearing": "E",
    "route": "US 160",
    "title": "US 160 in both directions: Road closed.",
+   "type": "critical"
+  },
+  "roadClosures:CDOT-36537029998EB": {
+   "began": "2026-11-23T02:20:11-07:00",
+   "class": "roadClosures",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36537029998EB",
+   "lat": 39.64082,
+   "lon": -106.04285,
+   "mp_end": "",
+   "mp_start": 207.00020510487585,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
    "type": "critical"
   },
   "roadClosures:COSEG-589046": {
@@ -104,6 +118,20 @@
    "route": "US 160",
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
+  },
+  "roadReports:CDOT-36537029998EB": {
+   "began": "2026-11-23T02:20:11-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36537029998EB",
+   "lat": 39.64082,
+   "lon": -106.04285,
+   "mp_end": "",
+   "mp_start": 207.00020510487585,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
+   "type": "critical"
   },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
@@ -933,7 +961,7 @@
   }
  },
  "forecast_last": "2026-11-23T08:15:52+00:00",
- "last_run": "2026-11-23T02:15:50-07:00",
+ "last_run": "2026-11-23T02:30:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-23": {
@@ -1678,10 +1706,10 @@
   "beavercreek": "2026-11-23 00:00",
   "breck": "2026-11-23 00:00",
   "cooper": "2026-11-23 00:00",
-  "copper": "2026-11-23 00:00",
+  "copper": "2026-11-23 01:00",
   "crestedbutte": "2026-11-23 00:00",
   "echo": "2026-11-23 00:00",
-  "eldora": "2026-11-23 00:00",
+  "eldora": "2026-11-23 01:00",
   "granby": "2026-11-23 00:00",
   "keystone": "2026-11-23 01:00",
   "loveland": "2026-11-23 00:00",
@@ -1692,7 +1720,7 @@
   "sunlight": "2026-11-23 00:00",
   "telluride": "2026-11-23 00:00",
   "vail": "2026-11-23 00:00",
-  "winterpark": "2026-11-23 00:00",
+  "winterpark": "2026-11-23 01:00",
   "wolfcreek": "2026-11-23 00:00"
  },
  "speed_geo": [
