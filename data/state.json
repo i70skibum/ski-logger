@@ -105,48 +105,6 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
-  "roadReports:CDOT-36537029998EB": {
-   "began": "2026-11-23T02:20:11-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36537029998EB",
-   "lat": 39.64082,
-   "lon": -106.04285,
-   "mp_end": "",
-   "mp_start": 207.00020510487585,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Road closed.",
-   "type": "critical"
-  },
-  "roadReports:CDOT-36537243943EB": {
-   "began": "2026-11-23T02:35:46-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36537243943EB",
-   "lat": 39.62509,
-   "lon": -106.07195,
-   "mp_end": 207.00020510487585,
-   "mp_start": 205.0228791353092,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Road closed.",
-   "type": "critical"
-  },
-  "roadReports:CDOT-36537290951EB": {
-   "began": "2026-11-23T02:39:25-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36537290951EB",
-   "lat": 39.62509,
-   "lon": -106.07195,
-   "mp_end": "",
-   "mp_start": 205.0228791353092,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Road closed.",
-   "type": "critical"
-  },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
    "class": "roadWork",
@@ -975,7 +933,7 @@
   }
  },
  "forecast_last": "2026-11-23T08:15:52+00:00",
- "last_run": "2026-11-23T03:45:48-07:00",
+ "last_run": "2026-11-23T04:00:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-23": {
@@ -1730,9 +1688,9 @@
   "monarch": "2026-11-23 02:00",
   "powderhorn": "2026-11-23 02:00",
   "purgatory": "2026-11-23 02:00",
-  "steamboat": "2026-11-23 02:00",
+  "steamboat": "2026-11-23 03:00",
   "sunlight": "2026-11-23 02:00",
-  "telluride": "2026-11-23 01:00",
+  "telluride": "2026-11-23 02:00",
   "vail": "2026-11-23 02:00",
   "winterpark": "2026-11-23 02:00",
   "wolfcreek": "2026-11-23 02:00"
