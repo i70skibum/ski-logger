@@ -383,3 +383,10 @@ RuntimeError: fetch fail"
 2026-11-23T08:00:47-07:00,snotel,"4 stations failed, 0 not tried (aspen, vail, loveland, monarch): wcc.sc.egov.usda.gov: HTTP Error 503: Service Unavailable"
 2026-11-23T11:00:46-07:00,snotel,"3 stations failed, 0 not tried (copper, abasin, keystone): wcc.sc.egov.usda.gov: The read operation timed out"
 2026-11-23T11:30:55-07:00,snotel,"3 stations failed, 0 not tried (steamboat, loveland, sunlight): wcc.sc.egov.usda.gov: HTTP Error 503: Service Unavailable (+1 more of this kind since the last row)"
+2026-11-23T12:15:47-07:00,outlook,"api.open-meteo.com: HTTP Error 503: Service Unavailable | Traceback (most recent call last):
+  File ""/home/runner/work/ski-logger/ski-logger/logger.py"", line 1627, in main
+    print(f""{name}: {fn(state)}"")
+                     ~~^^^^^^^
+  File ""/home/runner/work/ski-logger/ski-logger/logger.py"", line 736, in log_outlook
+    data = fetch_json(url)
+RuntimeError: fetch failed: https://api.open-meteo."
