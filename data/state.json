@@ -295,6 +295,20 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadClosures:CDOT-36560278102EB": {
+   "began": "2026-11-24T07:03:00-07:00",
+   "class": "roadClosures",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36560278102EB",
+   "lat": 39.74348,
+   "lon": -105.44336,
+   "mp_end": "",
+   "mp_start": 244.00539291801527,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
+   "type": "critical"
+  },
   "roadClosures:COSEG-589046": {
    "began": "2026-11-22T18:22:59.216000-07:00",
    "class": "roadClosures",
@@ -378,6 +392,20 @@
    "route": "US 50",
    "title": "US 50 westbound: Stalled vehicle.",
    "type": "routine"
+  },
+  "roadReports:CDOT-36560278102EB": {
+   "began": "2026-11-24T07:03:00-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36560278102EB",
+   "lat": 39.74348,
+   "lon": -105.44336,
+   "mp_end": "",
+   "mp_start": 244.00539291801527,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
+   "type": "critical"
   },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
@@ -981,6 +1009,20 @@
    "title": "US 550 in both directions: Road maintenance operations.",
    "type": "routine"
   },
+  "roadWork:CDOT-36560298117BOTH": {
+   "began": "2026-12-02T07:00:00-07:00",
+   "class": "roadWork",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36560298117BOTH",
+   "lat": 38.11583,
+   "lon": -103.89564,
+   "mp_end": "",
+   "mp_start": 357.9988647379575,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50 in both directions: Right shoulder closed.",
+   "type": "routine"
+  },
   "winterDriving:COSEG-522873": {
    "began": "2026-11-23T19:16:02.258000-07:00",
    "class": "winterDriving",
@@ -1077,6 +1119,20 @@
    "pos_bearing": "N",
    "route": "CO 65",
    "title": "CO 65: Icy and snow packed spots.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-522941": {
+   "began": "2026-11-24T07:08:19.642000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-522941",
+   "lat": 39.62871,
+   "lon": -106.06715,
+   "mp_end": 138.9199999597622,
+   "mp_start": 101.56200180608491,
+   "pos_bearing": "N",
+   "route": "CO 9",
+   "title": "CO 9: Slushy with icy and snow packed spots.",
    "type": "standard"
   },
   "winterDriving:COSEG-522943": {
@@ -1641,7 +1697,7 @@
   }
  },
  "forecast_last": "2026-11-24T12:15:48+00:00",
- "last_run": "2026-11-24T07:00:47-07:00",
+ "last_run": "2026-11-24T07:15:48-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-24": {
@@ -2300,7 +2356,7 @@
  "outlook_last": "2026-11-24T13:45:50+00:00",
  "road_conditions": {
   "100": "4 - wet; 6 - snow",
-  "101": "4 - wet; 6 - snow",
+  "101": "11 - snow packed spots; 4 - wet; 6 - snow; 9 - icy spots",
   "102": "seasonal closure",
   "118": "3 - dry",
   "131": "3 - dry",
@@ -2315,7 +2371,7 @@
   "201": "4 - wet",
   "202": "4 - wet",
   "214": "3 - dry",
-  "215": "6-8-10 snow, icy, snow packed",
+  "215": "4s - wet in areas; 9 - icy spots",
   "226": "8-10 icy, snow packed",
   "227": "3 - dry",
   "228": "9 - icy spots",
@@ -2329,7 +2385,7 @@
   "249": "4s-9 - wet in areas, icy spots",
   "261": "3 - dry",
   "262": "3 - dry",
-  "270": "3 - dry",
+  "270": "9 - icy spots",
   "271": "3 - dry",
   "272": "3 - dry",
   "273": "3 - dry",
@@ -2361,16 +2417,16 @@
   "456": "4 - wet; 7 - slushy; 9 - icy spots",
   "457": "4 - wet; 7 - slushy; 9 - icy spots",
   "458": "4 - wet; 6 - snow; 9 - icy spots",
-  "459": "3 - dry",
+  "459": "9 - icy spots",
   "47": "3 - dry",
   "483": "3 - dry",
   "484": "4 - wet; 6 - snow; 9 - icy spots",
   "485": "4 - wet; 6 - snow; 9 - icy spots",
-  "486": "3 - dry",
-  "489": "3 - dry",
+  "486": "9 - icy spots",
+  "489": "7-9-11 - slushy, icy spots, snow packed spots",
   "49": "8-10 icy, snow packed",
-  "490": "4 - wet; 9 - icy spots",
-  "491": "3 - dry",
+  "490": "7-9-11 - slushy, icy spots, snow packed spots",
+  "491": "9 - icy spots",
   "492": "4 - wet",
   "501": "9 - icy spots",
   "516": "3 - dry",
@@ -2381,7 +2437,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-24 05:00",
+  "abasin": "2026-11-24 06:00",
   "aspen": "2026-11-24 05:00",
   "beavercreek": "2026-11-24 05:00",
   "breck": "2026-11-24 05:00",
@@ -2391,12 +2447,12 @@
   "echo": "2026-11-24 05:00",
   "eldora": "2026-11-24 05:00",
   "granby": "2026-11-24 05:00",
-  "keystone": "2026-11-24 05:00",
+  "keystone": "2026-11-24 06:00",
   "loveland": "2026-11-24 05:00",
   "monarch": "2026-11-24 05:00",
   "powderhorn": "2026-11-24 05:00",
   "purgatory": "2026-11-24 05:00",
-  "steamboat": "2026-11-24 05:00",
+  "steamboat": "2026-11-24 06:00",
   "sunlight": "2026-11-24 05:00",
   "telluride": "2026-11-24 05:00",
   "vail": "2026-11-24 05:00",
@@ -2658,13 +2714,13 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-24T14:00:47+00:00",
- "tomtom_routing_last": "2026-11-24T14:00:47+00:00",
+ "tomtom_routing_last": "2026-11-24T14:15:48+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 1540
   },
   "routing": {
-   "2026-11": 1648
+   "2026-11": 1654
   }
  },
  "traffic_model_last": "2026-11-24T12:15:48+00:00"
