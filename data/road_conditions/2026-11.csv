@@ -686,3 +686,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-23T17:30:47-07:00,243,US 550,Bondad Hill-Durango,0.0,16.6,"4s-9 - wet in areas, icy spots","US 550, between the New Mexico Border (13 miles south of the Durango area) and US 160 (near Durango)"
 2026-11-23T17:30:47-07:00,246,US 550,Coal Bank Pass,55.8,65.9,"6-8-10 snow, icy, snow packed","US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)"
 2026-11-23T17:30:47-07:00,247,US 550,Molas Pass,65.9,74.9,"6-8-10 snow, icy, snow packed","US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)"
+2026-11-23T18:30:47-07:00,70,CO 62,Dallas Divide,0.0,23.4,6 - snow; 9 - icy spots,"CO 62, between CO 145 (4 miles west of the Dallas Divide area) and US 550; Hunter Parkway (Ridgway)"

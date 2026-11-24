@@ -141,34 +141,6 @@
    "title": "US 160 in both directions: Commercial motor vehicle chain law.",
    "type": "standard"
   },
-  "chainLaws:CDOT-36546950867BOTH": {
-   "began": "2026-11-23T14:38:09-07:00",
-   "class": "chainLaws",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36546950867BOTH",
-   "lat": 37.48287,
-   "lon": -107.81541,
-   "mp_end": 49.0001935340815,
-   "mp_start": 38.0003755065577,
-   "pos_bearing": "N",
-   "route": "US 550",
-   "title": "US 550 in both directions: Passenger vehicle traction law.",
-   "type": "standard"
-  },
-  "chainLaws:CDOT-36546969997BOTH": {
-   "began": "2026-11-23T14:39:19-07:00",
-   "class": "chainLaws",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36546969997BOTH",
-   "lat": 37.48287,
-   "lon": -107.81541,
-   "mp_end": 49.0001935340815,
-   "mp_start": 38.0003755065577,
-   "pos_bearing": "N",
-   "route": "US 550",
-   "title": "US 550 in both directions: Commercial motor vehicle chain law.",
-   "type": "standard"
-  },
   "chainLaws:CDOT-36548656223EB": {
    "began": "2026-11-23T16:44:12-07:00",
    "class": "chainLaws",
@@ -253,6 +225,20 @@
    "title": "US 6 in both directions: Passenger vehicle traction law.",
    "type": "standard"
   },
+  "chainLaws:CDOT-36549873913BOTH": {
+   "began": "2026-11-23T18:13:05-07:00",
+   "class": "chainLaws",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36549873913BOTH",
+   "lat": 39.39335,
+   "lon": -106.05279,
+   "mp_end": 72.0002670906958,
+   "mp_start": 80.00021689015102,
+   "pos_bearing": "N",
+   "route": "CO 9",
+   "title": "CO 9 in both directions: Passenger vehicle traction law.",
+   "type": "standard"
+  },
   "roadClosures:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadClosures",
@@ -281,18 +267,18 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
-  "roadClosures:CDOT-36549345467BOTH": {
+  "roadClosures:CDOT-36549345467EB": {
    "began": "2026-11-23T17:34:51-07:00",
    "class": "roadClosures",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36549345467BOTH",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36549345467EB",
    "lat": 38.10554,
    "lon": -107.95125,
    "mp_end": "",
    "mp_start": 9.030595861866487,
    "pos_bearing": "E",
    "route": "CO 62",
-   "title": "CO 62 in both directions: Road closed.",
+   "title": "CO 62 eastbound: Road closed.",
    "type": "critical"
   },
   "roadClosures:COSEG-589046": {
@@ -351,6 +337,20 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
+  "roadReports:CDOT-36546969997BOTH": {
+   "began": "2026-11-23T14:39:19-07:00",
+   "class": "roadReports",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36546969997BOTH",
+   "lat": 37.48287,
+   "lon": -107.81541,
+   "mp_end": 49.0001935340815,
+   "mp_start": 38.0003755065577,
+   "pos_bearing": "N",
+   "route": "US 550",
+   "title": "US 550 in both directions: Roadway reopened to traffic.",
+   "type": "urgent"
+  },
   "roadReports:CDOT-36546992034EB": {
    "began": "2026-11-23T14:41:09-07:00",
    "class": "roadReports",
@@ -365,18 +365,32 @@
    "title": "I-70 eastbound: Stalled vehicle.",
    "type": "routine"
   },
-  "roadReports:CDOT-36549345467BOTH": {
+  "roadReports:CDOT-36549345467EB": {
    "began": "2026-11-23T17:34:51-07:00",
    "class": "roadReports",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36549345467BOTH",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36549345467EB",
    "lat": 38.10554,
    "lon": -107.95125,
    "mp_end": "",
    "mp_start": 9.030595861866487,
    "pos_bearing": "E",
    "route": "CO 62",
-   "title": "CO 62 in both directions: Road closed.",
+   "title": "CO 62 eastbound: Road closed.",
+   "type": "critical"
+  },
+  "roadReports:CDOT-36549345467WB": {
+   "began": "2026-11-23T17:34:51-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36549345467WB",
+   "lat": 38.10554,
+   "lon": -107.95125,
+   "mp_end": "",
+   "mp_start": 9.030595861866487,
+   "pos_bearing": "E",
+   "route": "CO 62",
+   "title": "CO 62 westbound: Roadway reopened to traffic.",
    "type": "critical"
   },
   "roadWork:CDOT-35509265054EB": {
@@ -1065,6 +1079,20 @@
    "title": "US 50 in both directions: Right shoulder closed.",
    "type": "routine"
   },
+  "roadWork:CDOT-36549345467EB": {
+   "began": "2026-11-23T17:34:51-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36549345467EB",
+   "lat": 38.10554,
+   "lon": -107.95125,
+   "mp_end": "",
+   "mp_start": 9.030595861866487,
+   "pos_bearing": "E",
+   "route": "CO 62",
+   "title": "CO 62 eastbound: Road closed.",
+   "type": "critical"
+  },
   "winterDriving:COSEG-522887": {
    "began": "2026-11-23T15:49:22.164000-07:00",
    "class": "winterDriving",
@@ -1191,20 +1219,6 @@
    "title": "US 550: Snow.",
    "type": "standard"
   },
-  "winterDriving:COSEG-587826": {
-   "began": "2026-11-23T08:11:43.457000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-587826",
-   "lat": 37.84283,
-   "lon": -107.72554,
-   "mp_end": 98.118708545585,
-   "mp_start": 74.88257952888567,
-   "pos_bearing": "N",
-   "route": "US 550",
-   "title": "US 550: Snow with ice and snow packed.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-587849": {
    "began": "2026-11-23T11:46:05.696000-07:00",
    "class": "winterDriving",
@@ -1317,20 +1331,6 @@
    "title": "US 160: Snow with ice and snow packed.",
    "type": "standard"
   },
-  "winterDriving:COSEG-589007": {
-   "began": "2026-11-23T09:53:36.593000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-589007",
-   "lat": 37.34081,
-   "lon": -107.85261,
-   "mp_end": 55.7869149410012,
-   "mp_start": 26.89671720359591,
-   "pos_bearing": "N",
-   "route": "US 550",
-   "title": "US 550: Wet.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-589046": {
    "began": "2026-11-22T18:22:59.216000-07:00",
    "class": "winterDriving",
@@ -1373,15 +1373,29 @@
    "title": "I-70: Scattered showers.",
    "type": "standard"
   },
-  "winterDriving:COSEG-589246": {
+  "winterDriving:COSEG-589256": {
+   "began": "2026-11-23T17:28:54.004000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-589256",
+   "lat": 37.34081,
+   "lon": -107.85261,
+   "mp_end": 65.88309991558688,
+   "mp_start": 26.89671720359591,
+   "pos_bearing": "N",
+   "route": "US 550",
+   "title": "US 550: Snow with ice and snow packed.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-589257": {
    "began": "2026-11-23T17:27:46.308000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-589246",
-   "lat": 37.6873,
-   "lon": -107.77926,
-   "mp_end": 74.88257952888567,
-   "mp_start": 55.7869149410012,
+   "id": "COSEG-589257",
+   "lat": 37.75647,
+   "lon": -107.68076,
+   "mp_end": 98.118708545585,
+   "mp_start": 65.88309991558688,
    "pos_bearing": "N",
    "route": "US 550",
    "title": "US 550: Snow with ice and snow packed.",
@@ -1389,7 +1403,7 @@
   }
  },
  "forecast_last": "2026-11-24T00:00:46+00:00",
- "last_run": "2026-11-23T18:00:48-07:00",
+ "last_run": "2026-11-23T18:30:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-23": {
@@ -2123,33 +2137,33 @@
   "501": "3 - dry",
   "516": "3 - dry",
   "517": "3 - dry",
-  "70": "4 - wet; 9 - icy spots",
+  "70": "6 - snow; 9 - icy spots",
   "72": "6-9-11 snow, icy spots, snow packed spots",
   "97": "3 - dry",
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-23 16:00",
+  "abasin": "2026-11-23 17:00",
   "aspen": "2026-11-23 16:00",
-  "beavercreek": "2026-11-23 16:00",
-  "breck": "2026-11-23 16:00",
-  "cooper": "2026-11-23 16:00",
-  "copper": "2026-11-23 16:00",
-  "crestedbutte": "2026-11-23 16:00",
-  "echo": "2026-11-23 16:00",
-  "eldora": "2026-11-23 16:00",
+  "beavercreek": "2026-11-23 17:00",
+  "breck": "2026-11-23 17:00",
+  "cooper": "2026-11-23 17:00",
+  "copper": "2026-11-23 17:00",
+  "crestedbutte": "2026-11-23 17:00",
+  "echo": "2026-11-23 17:00",
+  "eldora": "2026-11-23 17:00",
   "granby": "2026-11-23 16:00",
-  "keystone": "2026-11-23 16:00",
-  "loveland": "2026-11-23 16:00",
+  "keystone": "2026-11-23 17:00",
+  "loveland": "2026-11-23 17:00",
   "monarch": "2026-11-23 16:00",
-  "powderhorn": "2026-11-23 16:00",
-  "purgatory": "2026-11-23 16:00",
-  "steamboat": "2026-11-23 16:00",
+  "powderhorn": "2026-11-23 17:00",
+  "purgatory": "2026-11-23 17:00",
+  "steamboat": "2026-11-23 17:00",
   "sunlight": "2026-11-23 16:00",
   "telluride": "2026-11-23 16:00",
-  "vail": "2026-11-23 16:00",
-  "winterpark": "2026-11-23 16:00",
-  "wolfcreek": "2026-11-23 16:00"
+  "vail": "2026-11-23 17:00",
+  "winterpark": "2026-11-23 17:00",
+  "wolfcreek": "2026-11-23 17:00"
  },
  "speed_geo": [
   "I70E024",
@@ -2405,14 +2419,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-24T01:00:48+00:00",
- "tomtom_routing_last": "2026-11-24T01:00:48+00:00",
+ "tomtom_flow_last": "2026-11-24T01:30:47+00:00",
+ "tomtom_routing_last": "2026-11-24T01:30:47+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 1412
+   "2026-11": 1428
   },
   "routing": {
-   "2026-11": 1502
+   "2026-11": 1515
   }
  },
  "traffic_model_last": "2026-11-24T00:00:46+00:00"
