@@ -351,6 +351,20 @@
    "title": "CO 62 eastbound: Road closed.",
    "type": "critical"
   },
+  "roadReports:CDOT-36551096737EB": {
+   "began": "2026-11-23T19:44:10-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36551096737EB",
+   "lat": 39.7375,
+   "lon": -105.43107,
+   "mp_end": "",
+   "mp_start": 245.01478792534718,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Right lane closed.",
+   "type": "routine"
+  },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
    "class": "roadWork",
@@ -1388,8 +1402,8 @@
    "type": "standard"
   }
  },
- "forecast_last": "2026-11-24T00:00:46+00:00",
- "last_run": "2026-11-23T19:45:47-07:00",
+ "forecast_last": "2026-11-24T03:00:47+00:00",
+ "last_run": "2026-11-23T20:00:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-23": {
@@ -1754,7 +1768,7 @@
   "monarch": {
    "2026-11-23": {
     "gust": 16.1,
-    "snow": 3.2
+    "snow": 2.4
    },
    "2026-11-24": {
     "gust": 17.3,
@@ -1814,7 +1828,7 @@
   "purgatory": {
    "2026-11-23": {
     "gust": 10.4,
-    "snow": 1.6
+    "snow": 1.5
    },
    "2026-11-24": {
     "gust": 11.5,
@@ -1904,7 +1918,7 @@
   "telluride": {
    "2026-11-23": {
     "gust": 12.7,
-    "snow": 4.1
+    "snow": 4.0
    },
    "2026-11-24": {
     "gust": 13.8,
@@ -1994,7 +2008,7 @@
   "wolfcreek": {
    "2026-11-23": {
     "gust": 24.2,
-    "snow": 2.8
+    "snow": 2.2
    },
    "2026-11-24": {
     "gust": 26.5,
@@ -2144,9 +2158,9 @@
   "monarch": "2026-11-23 18:00",
   "powderhorn": "2026-11-23 18:00",
   "purgatory": "2026-11-23 18:00",
-  "steamboat": "2026-11-23 18:00",
+  "steamboat": "2026-11-23 19:00",
   "sunlight": "2026-11-23 18:00",
-  "telluride": "2026-11-23 17:00",
+  "telluride": "2026-11-23 18:00",
   "vail": "2026-11-23 18:00",
   "winterpark": "2026-11-23 18:00",
   "wolfcreek": "2026-11-23 18:00"
@@ -2415,5 +2429,5 @@
    "2026-11": 1559
   }
  },
- "traffic_model_last": "2026-11-24T00:00:46+00:00"
+ "traffic_model_last": "2026-11-24T03:00:47+00:00"
 }
