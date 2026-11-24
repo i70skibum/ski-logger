@@ -700,3 +700,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-23T19:30:48-07:00,228,US 160,La Veta Pass-Walsenburg,259.0,305.4,4 - wet,"US 160, between CO 159 (1 mile east of Fort Garland) and I-25; CO 10 (near Walsenburg)"
 2026-11-23T19:30:48-07:00,227,US 160,Del Norte-Alamosa,186.1,259.0,10 - snow packed; 2 - poor visibility; 20 - fog,"US 160, between CO 149 (South Fork) and Trinchera Ranch Road (1 mile east of Fort Garland)"
 2026-11-23T19:30:48-07:00,47,CO 9,US 24 to Fairplay,47.6,63.7,4s - wet in areas; 6 - snow,"CO 9, between US 24 and US 285 (Fairplay)"
+2026-11-23T20:15:47-07:00,273,I-70,Genesee-C470,252.4,259.8,20 - fog,"I-70, between Exit 253: Chief Hosa and Exit 260: C-470; C-470; Morrison (Mount Vernon Canyon)"
