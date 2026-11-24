@@ -1,6 +1,6 @@
 {
  "afd_last": "db235497-33a1-4f2d-b22f-6af668533233",
- "cameras_last": "2026-11-23T10:45:48+00:00",
+ "cameras_last": "2026-11-24T07:00:47+00:00",
  "cameras_v": 2,
  "err_seen": {
   "outlook|HTTP Error 503": {
@@ -237,6 +237,20 @@
    "pos_bearing": "N",
    "route": "CO 9",
    "title": "CO 9 in both directions: Passenger vehicle traction law.",
+   "type": "standard"
+  },
+  "chainLaws:CDOT-36554546863SB": {
+   "began": "2026-11-23T23:57:58-07:00",
+   "class": "chainLaws",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36554546863SB",
+   "lat": 39.39335,
+   "lon": -106.05279,
+   "mp_end": 72.0002670906958,
+   "mp_start": 80.00021689015102,
+   "pos_bearing": "N",
+   "route": "CO 9",
+   "title": "CO 9 southbound: Commercial motor vehicle chain law.",
    "type": "standard"
   },
   "roadClosures:CDOT-20653903231BOTH": {
@@ -503,20 +517,6 @@
    "pos_bearing": "E",
    "route": "US 6",
    "title": "US 6 eastbound: Bridge construction.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36378509077WB": {
-   "began": "2026-11-23T00:01:00-07:00",
-   "class": "roadWork",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36378509077WB",
-   "lat": 39.74004,
-   "lon": -104.99966,
-   "mp_end": 297.34697028062703,
-   "mp_start": 297.515289189431,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40 (Colfax Ave) westbound: Right lane closed.",
    "type": "routine"
   },
   "roadWork:CDOT-36398251210WB": {
@@ -1065,20 +1065,6 @@
    "title": "US 160: Icy spots.",
    "type": "standard"
   },
-  "winterDriving:COSEG-522896": {
-   "began": "2026-11-23T19:13:29.481000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-522896",
-   "lat": 38.52059,
-   "lon": -106.08038,
-   "mp_end": 148.06499941780436,
-   "mp_start": 126.8530000144383,
-   "pos_bearing": "N",
-   "route": "US 285",
-   "title": "US 285: Icy spots.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-522919": {
    "began": "2026-11-23T14:22:50.512000-07:00",
    "class": "winterDriving",
@@ -1191,20 +1177,6 @@
    "title": "US 6: Icy spots.",
    "type": "standard"
   },
-  "winterDriving:COSEG-587017": {
-   "began": "2026-11-23T15:49:14.702000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-587017",
-   "lat": 37.66912,
-   "lon": -106.64059,
-   "mp_end": 259.0465268721944,
-   "mp_start": 186.12914980107246,
-   "pos_bearing": "E",
-   "route": "US 160",
-   "title": "US 160: Snow with ice and snow packed.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-587073": {
    "began": "2026-11-23T11:34:33.640000-07:00",
    "class": "winterDriving",
@@ -1247,6 +1219,20 @@
    "title": "US 50: Icy spots.",
    "type": "standard"
   },
+  "winterDriving:COSEG-588145": {
+   "began": "2026-11-23T23:59:22.066000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-588145",
+   "lat": 37.95047,
+   "lon": -107.87306,
+   "mp_end": 116.87899764402346,
+   "mp_start": 71.57274062998921,
+   "pos_bearing": "N",
+   "route": "CO 145",
+   "title": "CO 145: Icy spots.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-588363": {
    "began": "2026-11-23T14:25:54.904000-07:00",
    "class": "winterDriving",
@@ -1287,20 +1273,6 @@
    "pos_bearing": "E",
    "route": "US 50",
    "title": "US 50: Snow with ice and snow packed.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588858": {
-   "began": "2026-11-23T11:49:14.070000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588858",
-   "lat": 37.58052,
-   "lon": -106.14952,
-   "mp_end": 113.9040305590037,
-   "mp_start": 51.15900015208005,
-   "pos_bearing": "N",
-   "route": "US 285",
-   "title": "US 285: Icy spots.",
    "type": "standard"
   },
   "winterDriving:COSEG-588859": {
@@ -1527,20 +1499,6 @@
    "title": "US 50: Snow.",
    "type": "standard"
   },
-  "winterDriving:COSEG-589155": {
-   "began": "2026-11-23T20:25:33.842000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-589155",
-   "lat": 38.92214,
-   "lon": -105.96811,
-   "mp_end": 198.9953926446148,
-   "mp_start": 161.78900021183932,
-   "pos_bearing": "N",
-   "route": "US 285",
-   "title": "US 285: Icy spots.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-589181": {
    "began": "2026-11-23T20:14:30.631000-07:00",
    "class": "winterDriving",
@@ -1711,7 +1669,7 @@
   }
  },
  "forecast_last": "2026-11-24T06:00:51+00:00",
- "last_run": "2026-11-23T23:45:47-07:00",
+ "last_run": "2026-11-24T00:00:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-23": {
@@ -2378,7 +2336,7 @@
   "141": "9-11 icy spots, snow packed spots",
   "150": "4 - wet; 9 - icy spots",
   "151": "6-8-10 snow, icy, snow packed",
-  "152": "3 - dry",
+  "152": "9 - icy spots",
   "198": "4 - wet",
   "199": "4 - wet",
   "200": "4 - wet",
@@ -2387,7 +2345,7 @@
   "214": "3 - dry",
   "215": "3 - dry",
   "226": "8-10 icy, snow packed",
-  "227": "9 - icy spots",
+  "227": "3 - dry",
   "228": "9 - icy spots",
   "229": "3 - dry",
   "230": "3 - dry",
@@ -2413,10 +2371,10 @@
   "394": "3 - dry",
   "395": "21 - scattered showers; 4 - wet; 6 - snow",
   "396": "21 - scattered showers; 4 - wet; 6 - snow",
-  "406": "9 - icy spots",
+  "406": "3 - dry",
   "407": "9 - icy spots",
-  "408": "9 - icy spots",
-  "410": "9 - icy spots",
+  "408": "3 - dry",
+  "410": "3 - dry",
   "411": "3 - dry",
   "412": "3 - dry",
   "413": "3 - dry",
@@ -2466,9 +2424,9 @@
   "monarch": "2026-11-23 22:00",
   "powderhorn": "2026-11-23 22:00",
   "purgatory": "2026-11-23 22:00",
-  "steamboat": "2026-11-23 22:00",
+  "steamboat": "2026-11-23 23:00",
   "sunlight": "2026-11-23 22:00",
-  "telluride": "2026-11-23 21:00",
+  "telluride": "2026-11-23 22:00",
   "vail": "2026-11-23 22:00",
   "winterpark": "2026-11-23 22:00",
   "wolfcreek": "2026-11-23 22:00"
