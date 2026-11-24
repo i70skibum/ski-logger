@@ -793,3 +793,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-24T09:00:47-07:00,229,US 160,Trinidad to Kansas,344.6,497.2,3 - dry,"US 160, between I-25 (Trinidad) and the Kansas Border (12 miles east of the Walsh area)"
 2026-11-24T09:00:47-07:00,458,I-70,Copper Mtn-Silverthorne,194.3,203.7,4 - wet; 7 - slushy; 9 - icy spots,"I-70, between Exit 190: Vail Pass Summit (Vail Pass) and Exit 205: CO 9; US 6; Silverthorne (near Frisco)"
 2026-11-24T09:00:47-07:00,485,US 6,Silverthorne to Arapahoe Basin,208.7,219.9,4 - wet; 7 - slushy; 9 - icy spots,"US 6, between I-70; CO 9 (Silverthorne) and I-70 (near Loveland Pass)"
+2026-11-24T09:15:46-07:00,491,US 40,I-70 to Winter Park (Berthoud Pass),231.5,258.3,3 - dry,"US 40, between Moffat Road (Winter Park) and I-70 (near Empire)"
