@@ -253,6 +253,34 @@
    "title": "CO 9 southbound: Commercial motor vehicle chain law.",
    "type": "standard"
   },
+  "chainLaws:CDOT-36554953256EB": {
+   "began": "2026-11-24T00:28:54-07:00",
+   "class": "chainLaws",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36554953256EB",
+   "lat": 39.64413,
+   "lon": -106.34175,
+   "mp_end": 190.00647076056157,
+   "mp_start": 178.00084672700905,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Passenger vehicle traction law.",
+   "type": "standard"
+  },
+  "chainLaws:CDOT-36554984141EB": {
+   "began": "2026-11-24T00:31:12-07:00",
+   "class": "chainLaws",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36554984141EB",
+   "lat": 39.64413,
+   "lon": -106.34175,
+   "mp_end": 190.00647076056157,
+   "mp_start": 178.00084672700905,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Commercial motor vehicle chain law.",
+   "type": "standard"
+  },
   "roadClosures:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadClosures",
@@ -349,20 +377,6 @@
    "pos_bearing": "E",
    "route": "I-70",
    "title": "I-70 eastbound: Stalled vehicle.",
-   "type": "routine"
-  },
-  "roadReports:CDOT-36553034347WB": {
-   "began": "2026-11-23T22:07:07-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36553034347WB",
-   "lat": 38.11631,
-   "lon": -107.8669,
-   "mp_end": "",
-   "mp_start": 15.000345510195732,
-   "pos_bearing": "E",
-   "route": "CO 62",
-   "title": "CO 62 westbound: Left lane closed.",
    "type": "routine"
   },
   "roadReports:CDOT-36553301640EB": {
@@ -1021,6 +1035,20 @@
    "pos_bearing": "E",
    "route": "US 24",
    "title": "US 24 westbound: Both shoulders closed.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36554986134WB": {
+   "began": "2026-11-24T00:31:15-07:00",
+   "class": "roadWork",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36554986134WB",
+   "lat": 39.7802,
+   "lon": -104.95054,
+   "mp_end": 275.22000001689594,
+   "mp_start": 276.04358704785614,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Left lane closed.",
    "type": "routine"
   },
   "winterDriving:COSEG-522873": {
@@ -1683,7 +1711,7 @@
   }
  },
  "forecast_last": "2026-11-24T06:00:51+00:00",
- "last_run": "2026-11-24T00:30:48-07:00",
+ "last_run": "2026-11-24T00:45:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-23": {
@@ -2339,7 +2367,7 @@
   "winterpark": "https://api.weather.gov/gridpoints/BOU/36,70",
   "wolfcreek": "https://api.weather.gov/gridpoints/PUB/15,36"
  },
- "outlook_last": "2026-11-24T04:45:46+00:00",
+ "outlook_last": "2026-11-24T07:45:46+00:00",
  "road_conditions": {
   "100": "4 - wet; 6 - snow",
   "101": "4 - wet; 6 - snow",
@@ -2400,8 +2428,8 @@
   "442": "4s-9 - wet in areas, icy spots",
   "447": "3 - dry",
   "45": "3 - dry",
-  "456": "4 - wet; 6 - snow; 9 - icy spots",
-  "457": "4 - wet; 6 - snow; 9 - icy spots",
+  "456": "6-8-10 snow, icy, snow packed",
+  "457": "6-8-10 snow, icy, snow packed",
   "458": "4 - wet; 6 - snow; 9 - icy spots",
   "459": "21 - scattered showers; 9 - icy spots",
   "47": "3 - dry",
@@ -2424,7 +2452,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-23 23:00",
-  "aspen": "2026-11-23 22:00",
+  "aspen": "2026-11-23 23:00",
   "beavercreek": "2026-11-23 23:00",
   "breck": "2026-11-23 23:00",
   "cooper": "2026-11-23 23:00",
@@ -2432,14 +2460,14 @@
   "crestedbutte": "2026-11-23 23:00",
   "echo": "2026-11-23 23:00",
   "eldora": "2026-11-23 23:00",
-  "granby": "2026-11-23 22:00",
+  "granby": "2026-11-23 23:00",
   "keystone": "2026-11-23 23:00",
   "loveland": "2026-11-23 23:00",
-  "monarch": "2026-11-23 22:00",
+  "monarch": "2026-11-23 23:00",
   "powderhorn": "2026-11-23 23:00",
   "purgatory": "2026-11-23 23:00",
   "steamboat": "2026-11-23 23:00",
-  "sunlight": "2026-11-23 22:00",
+  "sunlight": "2026-11-23 23:00",
   "telluride": "2026-11-23 22:00",
   "vail": "2026-11-23 23:00",
   "winterpark": "2026-11-23 23:00",
