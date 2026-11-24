@@ -795,3 +795,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-24T09:00:47-07:00,485,US 6,Silverthorne to Arapahoe Basin,208.7,219.9,4 - wet; 7 - slushy; 9 - icy spots,"US 6, between I-70; CO 9 (Silverthorne) and I-70 (near Loveland Pass)"
 2026-11-24T09:15:46-07:00,491,US 40,I-70 to Winter Park (Berthoud Pass),231.5,258.3,3 - dry,"US 40, between Moffat Road (Winter Park) and I-70 (near Empire)"
 2026-11-24T09:45:48-07:00,226,US 160,Wolf Creek Pass,145.8,186.1,"9-11 icy spots, snow packed spots","US 160, between Paul Hood Place (near Pagosa Springs) and Park Drive (South Fork)"
+2026-11-24T10:15:46-07:00,430,US 50,Monarch Pass,190.3,208.3,"9-11 icy spots, snow packed spots","US 50, between MP 190 (1 mile west of the Monarch Pass area) and MP 209 (near Monarch Pass)"
