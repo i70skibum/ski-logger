@@ -1,5 +1,5 @@
 {
-  "checked": "Nov 23, 12:02 PM",
+  "checked": "Nov 24, 6:02 AM",
   "resorts": {
     "copper": {
       "open": true,
@@ -17,9 +17,9 @@
       "trails": "5 of 171"
     },
     "eldora": {
-      "open": false,
-      "lifts": "0 of 10",
-      "trails": "0 of 63"
+      "open": true,
+      "lifts": "1 of 10",
+      "trails": "2 of 63"
     },
     "steamboat": {
       "open": false,
