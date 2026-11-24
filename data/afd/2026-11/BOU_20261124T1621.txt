@@ -1,0 +1,103 @@
+
+000
+FXUS65 KBOU 242321
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+421 PM MST Tue Nov 24 2026
+
+.KEY MESSAGES... 
+
+- A gradual warming trend likely through the rest of the week,
+  with quiet weather expected through Thanksgiving.
+
+- Gusty winds expected along the northern Front Range on Friday.
+
+- Next storm system could bring some snow to the region over the 
+  weekend. 
+
+&&
+
+.DISCUSSION /Through Tuesday/...
+Issued at 1131 AM MST Tue Nov 24 2026
+
+With yesterday's shortwave moving off to the east and an upper-level 
+ridge building behind it, conditions over the next couple of days 
+will be fairly quiet weather-wise. Highs will be in the upper 
+40s/low 50s along the I-25 corridor and across the plains today and 
+tomorrow, with the mountain valleys seeing highs in the upper 30s to 
+low 40s. Thursday will see highs in the mid 50s for the urban 
+corridor and plains, along with clear skies and light winds, making 
+for a rather nice, sunny Thanksgiving. Friday should then cap off 
+the week as our warmest day, as highs in the urban corridor/plains 
+are expected to reach into the low 60s. 
+
+The upper-level ridge should also start to weaken on Friday, with 
+the next system building to the north and west of Colorado.
+West/northwest flow aloft will start to strengthen, allowing for 
+stronger winds (20-30mph sustained, 40-50mph gusts) along the 
+northern Front Range. There's currently some uncertainty within the 
+models regarding the exact timing of the strongest winds; the NBM 
+has peak wind gusts occurring early Friday morning, between 5am-8am, 
+while the deterministic GFS leans towards keeping any stronger gusts 
+in the afternoon, between 12pm-6pm. Regardless, the strongest winds 
+will occur at the mountain peaks and higher elevations, and with 
+relative humidities expected to stay above 30% across the Front 
+Range & foothills, fire weather shouldn't be much of a concern.
+
+Things get more uncertain as we head into the weekend. Some model 
+runs, namely the GFS/GEFS, favor a shallower trough, with the jet 
+staying north of Colorado, while the ECMWF favors a deeper trough, 
+with the jet placed over western Colorado. Additionally, the last 
+several runs of the GFS have an initial weak shortwave move across 
+the state Saturday into Sunday, followed by a deeper trough on 
+Monday, while the ECMWF resolves only one system for the Saturday-
+Sunday time frame. A lot of this uncertainty comes from 
+differences in how the models are handling the interactions of the
+upper-level ridge over the western U.S. with both a strong system
+over the eastern U.S. and a developing shortwave off the Pacific 
+northwest. Ultimately, the timing of this system, and our precip 
+chances over the weekend, will depend on what that low system to 
+the east does, as well as how the shortwave to the northwest 
+develops. Should the eastern system slow or stall over the Ohio 
+Valley area, the ridge hanging over us would have nowhere to go, 
+keeping things drier and warmer over the weekend. Similarly, if 
+the shortwave dissipates before reaching us, as the GFS solution 
+would suggest, our precip chances would be low. On the other hand,
+should that shortwave to the northwest strengthen and persist, as
+the ECMWF would suggest, we might be able to get some precip 
+chances and cooler temperatures into the area.
+
+&&
+
+.AVIATION /00Z TAFS through 00Z Thursday/...
+Issued at 420 PM MST Tue Nov 24 2026
+
+VFR conditions are expected through the TAF period. Winds have 
+been light and VRB for most of this afternoon. Speeds are forecast
+to remain below 12 kts through the period with speeds below 10 
+kts for the majority of the period. Winds will generally have an 
+easterly component this evening at KDEN and KAPA with northwest 
+winds at KBJC. We expect drainage winds to kick in later this 
+evening and remain in place through the overnight at KDEN and 
+KAPA. KBJC could hold onto more of a northwest component or remain
+VRB. Regardless, winds will remain light. 
+
+After a brief period of VRB winds on Wednesday morning, 
+easterly/southeasterly winds are forecast for Wednesday afternoon
+at all three sites. Only a few high clouds are expected with some
+increasing mid-level clouds as we get to the end of the forecast 
+period.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...AGS
+AVIATION...MV
