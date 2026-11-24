@@ -4785,7 +4785,7 @@
     "minutes": 31.3,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-24T16:00:47-07:00",
+    "at": "2026-11-24T16:15:47-07:00",
     "line": [
      [
       39.76107,
@@ -5538,7 +5538,7 @@
     "minutes": 31.1,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-24T16:00:47-07:00",
+    "at": "2026-11-24T16:15:47-07:00",
     "line": [
      [
       39.88623,
@@ -7858,11 +7858,11 @@
   "eldora_boulder": {
    "name": "Coors Field to Eldora by Boulder Canyon (US 36, CO 119)",
    "E": {
-    "delay_min": 9.7,
-    "minutes": 77.5,
+    "delay_min": 10.1,
+    "minutes": 77.9,
     "free_min": 67.8,
     "detour": false,
-    "at": "2026-11-24T16:00:47-07:00",
+    "at": "2026-11-24T16:15:47-07:00",
     "line": [
      [
       39.93746,
@@ -15878,11 +15878,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 5.7,
-    "minutes": 36.2,
+    "delay_min": 5.8,
+    "minutes": 36.3,
     "free_min": 30.5,
     "detour": false,
-    "at": "2026-11-24T16:00:47-07:00",
+    "at": "2026-11-24T16:15:47-07:00",
     "line": [
      [
       39.74245,
@@ -16174,11 +16174,11 @@
    "points": [],
    "points_at": "2026-11-24T16:00:47-07:00",
    "W": {
-    "delay_min": 5.4,
-    "minutes": 35.0,
+    "delay_min": 5.7,
+    "minutes": 35.2,
     "free_min": 29.6,
     "detour": false,
-    "at": "2026-11-24T16:00:47-07:00",
+    "at": "2026-11-24T16:15:47-07:00",
     "line": [
      [
       39.75702,
@@ -17179,10 +17179,10 @@
    "points_at": "2026-11-24T16:00:47-07:00",
    "E": {
     "delay_min": null,
-    "minutes": 60.3,
+    "minutes": 65.0,
     "free_min": 51.2,
     "detour": true,
-    "at": "2026-11-24T16:00:47-07:00"
+    "at": "2026-11-24T16:15:47-07:00"
    }
   },
   "corridor": {
@@ -18541,10 +18541,10 @@
    "points_at": "2026-11-24T16:00:47-07:00"
   }
  },
- "updated": "2026-11-24T16:00:47-07:00",
+ "updated": "2026-11-24T16:15:47-07:00",
  "tomtom_use": {
   "flow": 1828,
-  "routing": 1990
+  "routing": 1996
  },
  "tomtom_caps": {
   "routing": 19000,
