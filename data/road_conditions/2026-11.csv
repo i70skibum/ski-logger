@@ -760,3 +760,5 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-24T01:15:55-07:00,491,US 40,I-70 to Winter Park (Berthoud Pass),231.5,258.3,11 - snow packed spots; 9 - icy spots,"US 40, between Moffat Road (Winter Park) and I-70 (near Empire)"
 2026-11-24T01:15:55-07:00,390,US 50,Montrose-Cerro Summit-Blue Mesa-Gunnison,92.4,190.3,"6-8-10 snow, icy, snow packed","US 50, between Park Avenue (Montrose) and County Road 32YY (1 mile west of the Monarch Pass area)"
 2026-11-24T01:15:55-07:00,459,I-70,Silverthorne-Eisenhower/Johnson tunnels,203.7,212.5,11 - snow packed spots; 9 - icy spots,"I-70, between Exit 203: CO 9; East Frisco (near Frisco) and Exit 216: US 6; Loveland Pass (near Eisenhower Tunnel)"
+2026-11-24T03:00:47-07:00,395,US 50,LaJunta-Lamar,379.8,435.7,9 - icy spots,"US 50, between Cimarron Avenue (La Junta) and Mill Street (Lamar)"
+2026-11-24T03:00:47-07:00,396,US 50,Lamar-Kansas Border,435.7,467.6,9 - icy spots,"US 50, between First Street (Lamar) and the Kansas Border (2 miles east of the Holly area)"

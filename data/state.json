@@ -1723,29 +1723,29 @@
    "title": "US 550: Wet in areas with icy spots.",
    "type": "standard"
   },
-  "winterDriving:COSEG-589264": {
-   "began": "2026-11-23T19:13:29.565000-07:00",
+  "winterDriving:COSEG-589312": {
+   "began": "2026-11-23T23:39:44.489000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-589264",
-   "lat": 37.84283,
-   "lon": -107.72554,
-   "mp_end": 98.118708545585,
-   "mp_start": 74.88257952888567,
+   "id": "COSEG-589312",
+   "lat": 37.6873,
+   "lon": -107.77926,
+   "mp_end": 65.88309991558688,
+   "mp_start": 55.7869149410012,
    "pos_bearing": "N",
    "route": "US 550",
    "title": "US 550: Snow with ice and snow packed.",
    "type": "standard"
   },
-  "winterDriving:COSEG-589279": {
-   "began": "2026-11-23T20:11:31.693000-07:00",
+  "winterDriving:COSEG-589313": {
+   "began": "2026-11-23T23:39:44.489000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-589279",
-   "lat": 37.6873,
-   "lon": -107.77926,
-   "mp_end": 74.88257952888567,
-   "mp_start": 55.7869149410012,
+   "id": "COSEG-589313",
+   "lat": 37.75647,
+   "lon": -107.68076,
+   "mp_end": 98.118708545585,
+   "mp_start": 65.88309991558688,
    "pos_bearing": "N",
    "route": "US 550",
    "title": "US 550: Snow with ice and snow packed.",
@@ -1753,7 +1753,7 @@
   }
  },
  "forecast_last": "2026-11-24T09:00:52+00:00",
- "last_run": "2026-11-24T02:45:48-07:00",
+ "last_run": "2026-11-24T03:00:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-24": {
@@ -2453,8 +2453,8 @@
   "390": "6-8-10 snow, icy, snow packed",
   "393": "3 - dry",
   "394": "3 - dry",
-  "395": "6-9-11 snow, icy spots, snow packed spots",
-  "396": "6-9-11 snow, icy spots, snow packed spots",
+  "395": "9 - icy spots",
+  "396": "9 - icy spots",
   "406": "3 - dry",
   "407": "9 - icy spots",
   "408": "3 - dry",
@@ -2508,9 +2508,9 @@
   "monarch": "2026-11-24 01:00",
   "powderhorn": "2026-11-24 01:00",
   "purgatory": "2026-11-24 01:00",
-  "steamboat": "2026-11-24 01:00",
+  "steamboat": "2026-11-24 02:00",
   "sunlight": "2026-11-24 01:00",
-  "telluride": "2026-11-24 00:00",
+  "telluride": "2026-11-24 01:00",
   "vail": "2026-11-24 01:00",
   "winterpark": "2026-11-24 01:00",
   "wolfcreek": "2026-11-24 01:00"
