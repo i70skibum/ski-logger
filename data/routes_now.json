@@ -4774,10 +4774,10 @@
    "name": "Berthoud Pass (US 40, Empire to Winter Park)",
    "W": {
     "delay_min": 0.0,
-    "minutes": 31.6,
+    "minutes": 31.5,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-24T12:02:28-07:00",
+    "at": "2026-11-24T12:15:51-07:00",
     "line": [
      [
       39.76107,
@@ -5530,7 +5530,7 @@
     "minutes": 31.4,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-24T12:02:28-07:00",
+    "at": "2026-11-24T12:15:51-07:00",
     "line": [
      [
       39.88623,
@@ -7850,11 +7850,11 @@
   "eldora_boulder": {
    "name": "Coors Field to Eldora by Boulder Canyon (US 36, CO 119)",
    "E": {
-    "delay_min": 2.5,
-    "minutes": 70.2,
+    "delay_min": 2.9,
+    "minutes": 70.6,
     "free_min": 67.7,
     "detour": false,
-    "at": "2026-11-24T12:02:28-07:00",
+    "at": "2026-11-24T12:15:51-07:00",
     "line": [
      [
       39.93746,
@@ -15922,7 +15922,7 @@
     "minutes": 28.3,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-24T12:02:28-07:00",
+    "at": "2026-11-24T12:15:51-07:00",
     "line": [
      [
       39.74245,
@@ -16218,11 +16218,11 @@
    "points": [],
    "points_at": "2026-11-24T12:02:28-07:00",
    "W": {
-    "delay_min": 2.3,
-    "minutes": 31.2,
+    "delay_min": 2.0,
+    "minutes": 30.9,
     "free_min": 29.0,
     "detour": false,
-    "at": "2026-11-24T12:02:28-07:00",
+    "at": "2026-11-24T12:15:51-07:00",
     "line": [
      [
       39.75702,
@@ -17239,10 +17239,10 @@
    "points_at": "2026-11-24T12:02:28-07:00",
    "E": {
     "delay_min": null,
-    "minutes": 53.9,
+    "minutes": 53.8,
     "free_min": 51.3,
     "detour": true,
-    "at": "2026-11-24T12:02:28-07:00"
+    "at": "2026-11-24T12:15:51-07:00"
    }
   },
   "corridor": {
@@ -18601,10 +18601,10 @@
    "points_at": "2026-11-24T12:02:28-07:00"
   }
  },
- "updated": "2026-11-24T12:02:28-07:00",
+ "updated": "2026-11-24T12:15:51-07:00",
  "tomtom_use": {
   "flow": 1700,
-  "routing": 1838
+  "routing": 1844
  },
  "tomtom_caps": {
   "routing": 19000,
