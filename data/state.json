@@ -281,6 +281,20 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadClosures:CDOT-36562051724EB": {
+   "began": "2026-11-24T09:14:04-07:00",
+   "class": "roadClosures",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36562051724EB",
+   "lat": 38.42323,
+   "lon": -106.40676,
+   "mp_end": "",
+   "mp_start": 190.52199997277057,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50 eastbound: Road closed.",
+   "type": "critical"
+  },
   "roadClosures:COSEG-589046": {
    "began": "2026-11-22T18:22:59.216000-07:00",
    "class": "roadClosures",
@@ -351,33 +365,19 @@
    "title": "I-70 eastbound: Stalled vehicle.",
    "type": "routine"
   },
-  "roadReports:CDOT-36561581265EB": {
-   "began": "2026-11-24T08:38:58-07:00",
+  "roadReports:CDOT-36562051724EB": {
+   "began": "2026-11-24T09:14:04-07:00",
    "class": "roadReports",
    "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36561581265EB",
-   "lat": 38.06003,
-   "lon": -103.2885,
+   "id": "CDOT-36562051724EB",
+   "lat": 38.42323,
+   "lon": -106.40676,
    "mp_end": "",
-   "mp_start": 394.96306169412304,
+   "mp_start": 190.52199997277057,
    "pos_bearing": "E",
    "route": "US 50",
-   "title": "US 50 eastbound: Debris on roadway.",
-   "type": "routine"
-  },
-  "roadReports:CDOT-36561729347WB": {
-   "began": "2026-11-24T08:50:14-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36561729347WB",
-   "lat": 37.48256,
-   "lon": -105.912,
-   "mp_end": "",
-   "mp_start": 230.43799998432223,
-   "pos_bearing": "E",
-   "route": "US 160",
-   "title": "US 160 westbound: Debris on roadway.",
-   "type": "routine"
+   "title": "US 50 eastbound: Road closed.",
+   "type": "critical"
   },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
@@ -1557,7 +1557,7 @@
   }
  },
  "forecast_last": "2026-11-24T15:15:48+00:00",
- "last_run": "2026-11-24T09:15:46-07:00",
+ "last_run": "2026-11-24T09:30:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-24": {
@@ -2573,14 +2573,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-24T16:00:47+00:00",
- "tomtom_routing_last": "2026-11-24T16:15:46+00:00",
+ "tomtom_flow_last": "2026-11-24T16:30:47+00:00",
+ "tomtom_routing_last": "2026-11-24T16:30:47+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 1604
+   "2026-11": 1620
   },
   "routing": {
-   "2026-11": 1730
+   "2026-11": 1743
   }
  },
  "traffic_model_last": "2026-11-24T15:15:48+00:00"
