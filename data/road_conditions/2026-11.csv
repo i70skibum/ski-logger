@@ -718,3 +718,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-23T20:45:47-07:00,100,CO 82,Basalt-Glenwood Springs,0.0,11.5,4s - wet in areas,"CO 82, between I-70 (Glenwood Springs) and CO 133 (near Carbondale)"
 2026-11-23T20:45:47-07:00,101,CO 82,Aspen-Basalt,11.5,41.9,4s - wet in areas,"CO 82, between Satank Road (near Carbondale) and Riverside Drive (Aspen)"
 2026-11-23T20:45:47-07:00,70,CO 62,Dallas Divide,0.0,23.4,8 - icy,"CO 62, between CO 145 (4 miles west of the Dallas Divide area) and US 550; Hunter Parkway (Ridgway)"
+2026-11-23T21:00:46-07:00,490,CO 91,Fremont Pass,0.0,22.6,4 - wet; 9 - icy spots,"CO 91, between US 24 (Leadville) and I-70 (2 miles north of Fremont Pass)"
