@@ -1541,3 +1541,4 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-24T01:15:55-07:00,start,CDOT-36555317186BOTH,roadReports,critical,US 24,BOTH_DIRECTIONS,E,219.99891829632094,,US 24 in both directions: Road closed.,2026-11-24T00:54:51-07:00
 2026-11-24T01:15:55-07:00,end,CDOT-36555317186EB,roadReports,routine,US 24,POSITIVE_DIRECTION,E,219.99891829632094,,US 24 eastbound: Stalled vehicle.,2026-11-24T00:54:51-07:00
 2026-11-24T01:30:47-07:00,end,CDOT-36555317186BOTH,roadClosures,critical,US 24,BOTH_DIRECTIONS,E,219.99891829632094,,US 24 in both directions: Road closed.,2026-11-24T00:54:51-07:00
+2026-11-24T01:45:48-07:00,end,CDOT-36555317186BOTH,roadReports,critical,US 24,BOTH_DIRECTIONS,E,219.99891829632094,,US 24 in both directions: Road closed.,2026-11-24T00:54:51-07:00
