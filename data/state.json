@@ -183,6 +183,20 @@
    "title": "I-70 eastbound: Passenger vehicle traction law.",
    "type": "standard"
   },
+  "chainLaws:CDOT-36548762597BOTH": {
+   "began": "2026-11-23T16:51:17-07:00",
+   "class": "chainLaws",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36548762597BOTH",
+   "lat": 38.45316,
+   "lon": -106.34663,
+   "mp_end": 205.00540882779256,
+   "mp_start": 195.01044142935623,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50 in both directions: Passenger vehicle traction law.",
+   "type": "standard"
+  },
   "roadClosures:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadClosures",
@@ -463,20 +477,6 @@
    "title": "US 40 (Colfax Ave) westbound: Right lane closed.",
    "type": "routine"
   },
-  "roadWork:CDOT-36430754891WB": {
-   "began": "2026-11-23T06:30:00-07:00",
-   "class": "roadWork",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36430754891WB",
-   "lat": 40.6178,
-   "lon": -103.2113,
-   "mp_end": 398.15816387588694,
-   "mp_start": 404.0004668696125,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6 westbound: Road maintenance operations.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36430754925WB": {
    "began": "2026-11-24T06:30:00-07:00",
    "class": "roadWork",
@@ -503,20 +503,6 @@
    "pos_bearing": "E",
    "route": "US 6",
    "title": "US 6 westbound: Road maintenance operations.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36430755018EB": {
-   "began": "2026-11-23T06:30:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36430755018EB",
-   "lat": 40.54569,
-   "lon": -103.26643,
-   "mp_end": 404.0004668696125,
-   "mp_start": 398.15816387588694,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6 eastbound: Road maintenance operations.",
    "type": "routine"
   },
   "roadWork:CDOT-36430755047EB": {
@@ -729,20 +715,6 @@
    "title": "US 160 in both directions: Right lane closed.",
    "type": "routine"
   },
-  "roadWork:CDOT-36484891540BOTH": {
-   "began": "2026-11-23T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36484891540BOTH",
-   "lat": 38.37169,
-   "lon": -104.93958,
-   "mp_end": 307.4199168769159,
-   "mp_start": 296.23345295972376,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50 in both directions: Right lane closed.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36484891720BOTH": {
    "began": "2026-11-24T07:00:00-07:00",
    "class": "roadWork",
@@ -881,20 +853,6 @@
    "pos_bearing": "E",
    "route": "I-70",
    "title": "I-70 eastbound: Road construction.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36485723154EB": {
-   "began": "2026-11-23T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36485723154EB",
-   "lat": 39.74249,
-   "lon": -105.43126,
-   "mp_end": 271.9987926750137,
-   "mp_start": 269.44297993570217,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40 eastbound: Road construction.",
    "type": "routine"
   },
   "roadWork:CDOT-36485723297EB": {
@@ -1360,8 +1318,8 @@
    "type": "standard"
   }
  },
- "forecast_last": "2026-11-23T20:45:48+00:00",
- "last_run": "2026-11-23T16:45:46-07:00",
+ "forecast_last": "2026-11-24T00:00:46+00:00",
+ "last_run": "2026-11-23T17:00:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-23": {
@@ -1395,7 +1353,7 @@
   },
   "aspen": {
    "2026-11-23": {
-    "gust": 12.7,
+    "gust": 10.4,
     "snow": 1.7
    },
    "2026-11-24": {
@@ -1425,7 +1383,7 @@
   },
   "beavercreek": {
    "2026-11-23": {
-    "gust": 13.8,
+    "gust": 12.7,
     "snow": 0.4
    },
    "2026-11-24": {
@@ -1726,11 +1684,11 @@
   "monarch": {
    "2026-11-23": {
     "gust": 16.1,
-    "snow": 3.7
+    "snow": 3.2
    },
    "2026-11-24": {
     "gust": 17.3,
-    "snow": 0.3
+    "snow": 0.2
    },
    "2026-11-25": {
     "gust": 19.6,
@@ -1755,8 +1713,8 @@
   },
   "powderhorn": {
    "2026-11-23": {
-    "gust": 9.2,
-    "snow": 1.0
+    "gust": 3.5,
+    "snow": 0.9
    },
    "2026-11-24": {
     "gust": 5.8,
@@ -1786,7 +1744,7 @@
   "purgatory": {
    "2026-11-23": {
     "gust": 10.4,
-    "snow": 2.1
+    "snow": 1.6
    },
    "2026-11-24": {
     "gust": 11.5,
@@ -1875,8 +1833,8 @@
   },
   "telluride": {
    "2026-11-23": {
-    "gust": 17.3,
-    "snow": 4.4
+    "gust": 12.7,
+    "snow": 4.1
    },
    "2026-11-24": {
     "gust": 13.8,
@@ -1965,8 +1923,8 @@
   },
   "wolfcreek": {
    "2026-11-23": {
-    "gust": 23.0,
-    "snow": 3.0
+    "gust": 24.2,
+    "snow": 2.8
    },
    "2026-11-24": {
     "gust": 26.5,
@@ -2049,7 +2007,7 @@
   "249": "4 - wet; 6 - snow",
   "261": "3 - dry",
   "262": "3 - dry",
-  "270": "21 - scattered showers",
+  "270": "21 - scattered showers; 9 - icy spots",
   "271": "3 - dry",
   "272": "3 - dry",
   "273": "3 - dry",
@@ -2081,7 +2039,7 @@
   "456": "3 - dry",
   "457": "3 - dry",
   "458": "3 - dry",
-  "459": "21 - scattered showers",
+  "459": "21 - scattered showers; 9 - icy spots",
   "47": "3 - dry",
   "483": "3 - dry",
   "484": "3 - dry",
@@ -2118,7 +2076,7 @@
   "purgatory": "2026-11-23 15:00",
   "steamboat": "2026-11-23 15:00",
   "sunlight": "2026-11-23 15:00",
-  "telluride": "2026-11-23 14:00",
+  "telluride": "2026-11-23 15:00",
   "vail": "2026-11-23 15:00",
   "winterpark": "2026-11-23 15:00",
   "wolfcreek": "2026-11-23 15:00"
@@ -2377,15 +2335,15 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-23T23:30:47+00:00",
- "tomtom_routing_last": "2026-11-23T23:45:46+00:00",
+ "tomtom_flow_last": "2026-11-24T00:00:46+00:00",
+ "tomtom_routing_last": "2026-11-24T00:00:46+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 1364
+   "2026-11": 1380
   },
   "routing": {
-   "2026-11": 1451
+   "2026-11": 1464
   }
  },
- "traffic_model_last": "2026-11-23T20:45:48+00:00"
+ "traffic_model_last": "2026-11-24T00:00:46+00:00"
 }
