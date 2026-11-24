@@ -393,20 +393,6 @@
    "title": "I-70 eastbound: Stalled vehicle.",
    "type": "routine"
   },
-  "roadReports:CDOT-36556201541EB": {
-   "began": "2026-11-24T02:00:59-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36556201541EB",
-   "lat": 39.62509,
-   "lon": -106.07195,
-   "mp_end": 213.03048826018272,
-   "mp_start": 205.0228791353092,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Roadway reopened to traffic.",
-   "type": "urgent"
-  },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
    "class": "roadWork",
@@ -1753,7 +1739,7 @@
   }
  },
  "forecast_last": "2026-11-24T09:00:52+00:00",
- "last_run": "2026-11-24T03:45:46-07:00",
+ "last_run": "2026-11-24T04:00:50-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-24": {
@@ -2508,9 +2494,9 @@
   "monarch": "2026-11-24 02:00",
   "powderhorn": "2026-11-24 02:00",
   "purgatory": "2026-11-24 02:00",
-  "steamboat": "2026-11-24 02:00",
+  "steamboat": "2026-11-24 03:00",
   "sunlight": "2026-11-24 02:00",
-  "telluride": "2026-11-24 01:00",
+  "telluride": "2026-11-24 02:00",
   "vail": "2026-11-24 02:00",
   "winterpark": "2026-11-24 02:00",
   "wolfcreek": "2026-11-24 02:00"
