@@ -281,6 +281,20 @@
    "title": "I-70 eastbound: Commercial motor vehicle chain law.",
    "type": "standard"
   },
+  "chainLaws:CDOT-36555496690BOTH": {
+   "began": "2026-11-24T01:08:53-07:00",
+   "class": "chainLaws",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36555496690BOTH",
+   "lat": 39.86548,
+   "lon": -105.75016,
+   "mp_end": 256.0046343778515,
+   "mp_start": 233.95376005897188,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40 in both directions: Passenger vehicle traction law.",
+   "type": "standard"
+  },
   "roadClosures:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadClosures",
@@ -307,6 +321,20 @@
    "pos_bearing": "E",
    "route": "US 160",
    "title": "US 160 in both directions: Road closed.",
+   "type": "critical"
+  },
+  "roadClosures:CDOT-36555317186BOTH": {
+   "began": "2026-11-24T00:54:51-07:00",
+   "class": "roadClosures",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36555317186BOTH",
+   "lat": 38.84149,
+   "lon": -105.99758,
+   "mp_end": "",
+   "mp_start": 219.99891829632094,
+   "pos_bearing": "E",
+   "route": "US 24",
+   "title": "US 24 in both directions: Road closed.",
    "type": "critical"
   },
   "roadClosures:COSEG-589046": {
@@ -393,19 +421,19 @@
    "title": "US 160 eastbound: Right lane closed.",
    "type": "routine"
   },
-  "roadReports:CDOT-36555317186EB": {
+  "roadReports:CDOT-36555317186BOTH": {
    "began": "2026-11-24T00:54:51-07:00",
    "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36555317186EB",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36555317186BOTH",
    "lat": 38.84149,
    "lon": -105.99758,
    "mp_end": "",
    "mp_start": 219.99891829632094,
    "pos_bearing": "E",
    "route": "US 24",
-   "title": "US 24 eastbound: Stalled vehicle.",
-   "type": "routine"
+   "title": "US 24 in both directions: Road closed.",
+   "type": "critical"
   },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
@@ -1247,6 +1275,20 @@
    "title": "US 160: Snow with ice and snow packed.",
    "type": "standard"
   },
+  "winterDriving:COSEG-587590": {
+   "began": "2026-11-24T01:11:14.911000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-587590",
+   "lat": 39.89589,
+   "lon": -105.76612,
+   "mp_end": 258.2579999693553,
+   "mp_start": 231.52362708977432,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40: Icy spots.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-587761": {
    "began": "2026-11-23T09:53:47.360000-07:00",
    "class": "winterDriving",
@@ -1427,6 +1469,20 @@
    "pos_bearing": "E",
    "route": "US 160",
    "title": "US 160: Snow with ice and snow packed.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-589006": {
+   "began": "2026-11-24T01:13:50.025000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-589006",
+   "lat": 38.76274,
+   "lon": -108.12955,
+   "mp_end": 92.43700153238498,
+   "mp_start": 66.62475631073863,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50: Snow with ice and snow packed.",
    "type": "standard"
   },
   "winterDriving:COSEG-589045": {
@@ -1725,7 +1781,7 @@
   }
  },
  "forecast_last": "2026-11-24T06:00:51+00:00",
- "last_run": "2026-11-24T01:00:46-07:00",
+ "last_run": "2026-11-24T01:15:55-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-23": {
@@ -2399,7 +2455,7 @@
   "201": "4 - wet",
   "202": "4 - wet",
   "214": "3 - dry",
-  "215": "3 - dry",
+  "215": "6-8-10 snow, icy, snow packed",
   "226": "8-10 icy, snow packed",
   "227": "3 - dry",
   "228": "9 - icy spots",
@@ -2413,7 +2469,7 @@
   "249": "4s-9 - wet in areas, icy spots",
   "261": "3 - dry",
   "262": "4s - wet in areas; 6 - snow",
-  "270": "21 - scattered showers; 9 - icy spots",
+  "270": "11 - snow packed spots; 9 - icy spots",
   "271": "3 - dry",
   "272": "3 - dry",
   "273": "20 - fog",
@@ -2422,7 +2478,7 @@
   "322": "3 - dry",
   "335": "3 - dry",
   "336": "3 - dry",
-  "390": "4s-9 - wet in areas, icy spots",
+  "390": "6-8-10 snow, icy, snow packed",
   "393": "3 - dry",
   "394": "3 - dry",
   "395": "6-9-11 snow, icy spots, snow packed spots",
@@ -2445,16 +2501,16 @@
   "456": "6-8-10 snow, icy, snow packed",
   "457": "6-8-10 snow, icy, snow packed",
   "458": "4 - wet; 6 - snow; 9 - icy spots",
-  "459": "21 - scattered showers; 9 - icy spots",
+  "459": "11 - snow packed spots; 9 - icy spots",
   "47": "3 - dry",
   "483": "4s - wet in areas; 6 - snow",
   "484": "4 - wet; 6 - snow; 9 - icy spots",
   "485": "4 - wet; 6 - snow; 9 - icy spots",
-  "486": "9 - icy spots",
+  "486": "11 - snow packed spots; 9 - icy spots",
   "489": "3 - dry",
   "49": "8-10 icy, snow packed",
   "490": "4 - wet; 9 - icy spots",
-  "491": "3 - dry",
+  "491": "11 - snow packed spots; 9 - icy spots",
   "492": "4 - wet",
   "501": "9 - icy spots",
   "516": "3 - dry",
@@ -2465,7 +2521,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-23 23:00",
+  "abasin": "2026-11-24 00:00",
   "aspen": "2026-11-23 23:00",
   "beavercreek": "2026-11-23 23:00",
   "breck": "2026-11-23 23:00",
@@ -2475,12 +2531,12 @@
   "echo": "2026-11-23 23:00",
   "eldora": "2026-11-23 23:00",
   "granby": "2026-11-23 23:00",
-  "keystone": "2026-11-23 23:00",
+  "keystone": "2026-11-24 00:00",
   "loveland": "2026-11-23 23:00",
   "monarch": "2026-11-23 23:00",
   "powderhorn": "2026-11-23 23:00",
   "purgatory": "2026-11-23 23:00",
-  "steamboat": "2026-11-23 23:00",
+  "steamboat": "2026-11-24 00:00",
   "sunlight": "2026-11-23 23:00",
   "telluride": "2026-11-23 23:00",
   "vail": "2026-11-23 23:00",
