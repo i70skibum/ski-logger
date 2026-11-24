@@ -113,18 +113,18 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
-  "roadReports:CDOT-36546992034EB": {
-   "began": "2026-11-23T14:41:09-07:00",
+  "roadReports:CDOT-36566748098EB": {
+   "began": "2026-11-24T15:02:48-07:00",
    "class": "roadReports",
    "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36546992034EB",
-   "lat": 39.62929,
-   "lon": -106.49832,
+   "id": "CDOT-36566748098EB",
+   "lat": 38.44348,
+   "lon": -106.35876,
    "mp_end": "",
-   "mp_start": 167.99928587075078,
+   "mp_start": 193.70452467240196,
    "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Stalled vehicle.",
+   "route": "US 50",
+   "title": "US 50 eastbound: Right shoulder closed.",
    "type": "routine"
   },
   "roadWork:CDOT-35509265054EB": {
@@ -1291,7 +1291,7 @@
   }
  },
  "forecast_last": "2026-11-24T21:45:46+00:00",
- "last_run": "2026-11-24T15:00:49-07:00",
+ "last_run": "2026-11-24T15:15:51-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-24": {
@@ -2031,7 +2031,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-24 13:00",
+  "abasin": "2026-11-24 14:00",
   "aspen": "2026-11-24 13:00",
   "beavercreek": "2026-11-24 13:00",
   "breck": "2026-11-24 13:00",
@@ -2041,12 +2041,12 @@
   "echo": "2026-11-24 13:00",
   "eldora": "2026-11-24 13:00",
   "granby": "2026-11-24 13:00",
-  "keystone": "2026-11-24 13:00",
+  "keystone": "2026-11-24 14:00",
   "loveland": "2026-11-24 13:00",
   "monarch": "2026-11-24 13:00",
   "powderhorn": "2026-11-24 13:00",
   "purgatory": "2026-11-24 13:00",
-  "steamboat": "2026-11-24 13:00",
+  "steamboat": "2026-11-24 14:00",
   "sunlight": "2026-11-24 13:00",
   "telluride": "2026-11-24 13:00",
   "vail": "2026-11-24 13:00",
@@ -2308,13 +2308,13 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-24T22:00:49+00:00",
- "tomtom_routing_last": "2026-11-24T22:00:49+00:00",
+ "tomtom_routing_last": "2026-11-24T22:15:51+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 1796
   },
   "routing": {
-   "2026-11": 1952
+   "2026-11": 1958
   }
  },
  "traffic_model_last": "2026-11-24T21:45:46+00:00"
