@@ -365,6 +365,20 @@
    "title": "I-70 eastbound: Stalled vehicle.",
    "type": "routine"
   },
+  "roadReports:CDOT-36559693133WB": {
+   "began": "2026-11-24T06:18:32-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36559693133WB",
+   "lat": 38.46863,
+   "lon": -106.33649,
+   "mp_end": "",
+   "mp_start": 196.50271066551466,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50 westbound: Stalled vehicle.",
+   "type": "routine"
+  },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
    "class": "roadWork",
@@ -1331,20 +1345,6 @@
    "title": "US 40: Wet.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588942": {
-   "began": "2026-11-23T22:35:19.127000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588942",
-   "lat": 39.52284,
-   "lon": -107.78085,
-   "mp_end": 116.20486386191877,
-   "mp_start": 90.2072229740423,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Snow.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588958": {
    "began": "2026-11-23T20:25:33.842000-07:00",
    "class": "winterDriving",
@@ -1555,20 +1555,6 @@
    "title": "US 40: Wet.",
    "type": "standard"
   },
-  "winterDriving:COSEG-589240": {
-   "began": "2026-11-23T22:35:19.127000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-589240",
-   "lat": 39.55119,
-   "lon": -107.33065,
-   "mp_end": 145.78001438944648,
-   "mp_start": 116.20486386191877,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70: Snow.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-589241": {
    "began": "2026-11-23T22:36:27.274000-07:00",
    "class": "winterDriving",
@@ -1669,7 +1655,7 @@
   }
  },
  "forecast_last": "2026-11-24T12:15:48+00:00",
- "last_run": "2026-11-24T06:15:46-07:00",
+ "last_run": "2026-11-24T06:30:55-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-24": {
@@ -2356,7 +2342,7 @@
   "248": "6-8-10 snow, icy, snow packed",
   "249": "4s-9 - wet in areas, icy spots",
   "261": "3 - dry",
-  "262": "4s - wet in areas; 6 - snow",
+  "262": "3 - dry",
   "270": "11 - snow packed spots; 9 - icy spots",
   "271": "3 - dry",
   "272": "3 - dry",
@@ -2391,7 +2377,7 @@
   "458": "4 - wet; 6 - snow; 9 - icy spots",
   "459": "11 - snow packed spots; 9 - icy spots",
   "47": "3 - dry",
-  "483": "4s - wet in areas; 6 - snow",
+  "483": "3 - dry",
   "484": "4 - wet; 6 - snow; 9 - icy spots",
   "485": "4 - wet; 6 - snow; 9 - icy spots",
   "486": "11 - snow packed spots; 9 - icy spots",
@@ -2411,25 +2397,25 @@
  "snotel_last": {
   "abasin": "2026-11-24 05:00",
   "aspen": "2026-11-24 04:00",
-  "beavercreek": "2026-11-24 04:00",
-  "breck": "2026-11-24 04:00",
-  "cooper": "2026-11-24 04:00",
-  "copper": "2026-11-24 04:00",
-  "crestedbutte": "2026-11-24 04:00",
-  "echo": "2026-11-24 04:00",
-  "eldora": "2026-11-24 04:00",
+  "beavercreek": "2026-11-24 05:00",
+  "breck": "2026-11-24 05:00",
+  "cooper": "2026-11-24 05:00",
+  "copper": "2026-11-24 05:00",
+  "crestedbutte": "2026-11-24 05:00",
+  "echo": "2026-11-24 05:00",
+  "eldora": "2026-11-24 05:00",
   "granby": "2026-11-24 04:00",
   "keystone": "2026-11-24 05:00",
-  "loveland": "2026-11-24 04:00",
+  "loveland": "2026-11-24 05:00",
   "monarch": "2026-11-24 04:00",
-  "powderhorn": "2026-11-24 04:00",
-  "purgatory": "2026-11-24 04:00",
+  "powderhorn": "2026-11-24 05:00",
+  "purgatory": "2026-11-24 05:00",
   "steamboat": "2026-11-24 05:00",
   "sunlight": "2026-11-24 04:00",
   "telluride": "2026-11-24 04:00",
-  "vail": "2026-11-24 04:00",
-  "winterpark": "2026-11-24 04:00",
-  "wolfcreek": "2026-11-24 04:00"
+  "vail": "2026-11-24 05:00",
+  "winterpark": "2026-11-24 05:00",
+  "wolfcreek": "2026-11-24 05:00"
  },
  "speed_geo": [
   "I70E024",
@@ -2685,14 +2671,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-24T13:02:20+00:00",
- "tomtom_routing_last": "2026-11-24T13:15:46+00:00",
+ "tomtom_flow_last": "2026-11-24T13:30:55+00:00",
+ "tomtom_routing_last": "2026-11-24T13:30:55+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 1508
+   "2026-11": 1524
   },
   "routing": {
-   "2026-11": 1616
+   "2026-11": 1629
   }
  },
  "traffic_model_last": "2026-11-24T12:15:48+00:00"

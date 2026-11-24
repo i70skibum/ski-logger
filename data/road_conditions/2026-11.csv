@@ -767,3 +767,5 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-24T06:02:20-07:00,456,I-70,Vail-Vail Pass,176.2,188.3,4 - wet; 7 - slushy; 9 - icy spots,"I-70, between Exit 176: Vail (Vail) and Exit 190: Vail Pass Summit (Vail Pass)"
 2026-11-24T06:02:20-07:00,457,I-70,Vail Pass-Copper Mtn,188.3,194.3,4 - wet; 7 - slushy; 9 - icy spots,"I-70, between Exit 180: East Vail and Exit 195: CO 91; Copper Mountain (Vail Pass)"
 2026-11-24T06:02:20-07:00,72,CO 65,Grand Mesa,0.0,51.2,"8-10 icy, snow packed","CO 65, between CO 92 and CO 330 (Grand Mesa)"
+2026-11-24T06:30:55-07:00,483,I-70,Glenwood-Eagle,116.2,145.8,3 - dry,"I-70, between Exit 114: West Glenwood (Glenwood Canyon) and Exit 147: Eagle (near Eagle)"
+2026-11-24T06:30:55-07:00,262,I-70,Rifle -Glenwood Springs,90.2,116.2,3 - dry,"I-70, between Exit 87: US 6; Rifle (Rifle) and Exit 116: CO 82; Glenwood Springs (Glenwood Canyon)"
