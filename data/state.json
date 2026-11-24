@@ -141,62 +141,6 @@
    "title": "US 160 in both directions: Commercial motor vehicle chain law.",
    "type": "standard"
   },
-  "chainLaws:CDOT-36548762597BOTH": {
-   "began": "2026-11-23T16:51:17-07:00",
-   "class": "chainLaws",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36548762597BOTH",
-   "lat": 38.42391,
-   "lon": -106.40609,
-   "mp_end": 205.00540882779256,
-   "mp_start": 195.01044142935623,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50 in both directions: Passenger vehicle traction law.",
-   "type": "standard"
-  },
-  "chainLaws:CDOT-36548884672NB": {
-   "began": "2026-11-23T17:01:04-07:00",
-   "class": "chainLaws",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36548884672NB",
-   "lat": 37.77543,
-   "lon": -107.96546,
-   "mp_end": 75.03063813112819,
-   "mp_start": 54.83697858005782,
-   "pos_bearing": "N",
-   "route": "CO 145",
-   "title": "CO 145 northbound: Passenger vehicle traction law.",
-   "type": "standard"
-  },
-  "chainLaws:CDOT-36548893640BOTH": {
-   "began": "2026-11-23T17:00:46-07:00",
-   "class": "chainLaws",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36548893640BOTH",
-   "lat": 38.42391,
-   "lon": -106.40609,
-   "mp_end": 205.00540882779256,
-   "mp_start": 195.01044142935623,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50 in both directions: Commercial motor vehicle chain law.",
-   "type": "standard"
-  },
-  "chainLaws:CDOT-36548931740NB": {
-   "began": "2026-11-23T17:04:31-07:00",
-   "class": "chainLaws",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36548931740NB",
-   "lat": 37.77543,
-   "lon": -107.96546,
-   "mp_end": 75.03063813112819,
-   "mp_start": 54.83697858005782,
-   "pos_bearing": "N",
-   "route": "CO 145",
-   "title": "CO 145 northbound: Commercial motor vehicle chain law.",
-   "type": "standard"
-  },
   "chainLaws:CDOT-36549237456BOTH": {
    "began": "2026-11-23T17:27:00-07:00",
    "class": "chainLaws",
@@ -336,6 +280,34 @@
    "route": "I-70",
    "title": "I-70 eastbound: Stalled vehicle.",
    "type": "routine"
+  },
+  "roadReports:CDOT-36548893640BOTH": {
+   "began": "2026-11-23T17:00:46-07:00",
+   "class": "roadReports",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36548893640BOTH",
+   "lat": 38.42391,
+   "lon": -106.40609,
+   "mp_end": 209.99932658347802,
+   "mp_start": 190.607000026459,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50 in both directions: Roadway reopened to traffic.",
+   "type": "urgent"
+  },
+  "roadReports:CDOT-36548931740NB": {
+   "began": "2026-11-23T17:04:31-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36548931740NB",
+   "lat": 37.77543,
+   "lon": -107.96546,
+   "mp_end": 75.03063813112819,
+   "mp_start": 54.83697858005782,
+   "pos_bearing": "N",
+   "route": "CO 145",
+   "title": "CO 145 northbound: Roadway reopened to traffic.",
+   "type": "urgent"
   },
   "roadReports:CDOT-36562051724EB": {
    "began": "2026-11-24T09:14:04-07:00",
@@ -1529,7 +1501,7 @@
   }
  },
  "forecast_last": "2026-11-24T15:15:48+00:00",
- "last_run": "2026-11-24T10:15:46-07:00",
+ "last_run": "2026-11-24T10:30:48-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-24": {
@@ -2209,10 +2181,10 @@
   "228": "9 - icy spots",
   "229": "3 - dry",
   "230": "3 - dry",
-  "243": "4s-9 - wet in areas, icy spots",
-  "245": "4s-9 - wet in areas, icy spots",
-  "246": "6-8-10 snow, icy, snow packed",
-  "247": "6-8-10 snow, icy, snow packed",
+  "243": "4 - wet; 8 - icy",
+  "245": "4 - wet; 8 - icy",
+  "246": "4 - wet; 8 - icy",
+  "247": "4 - wet; 8 - icy",
   "248": "6-8-10 snow, icy, snow packed",
   "249": "4s-9 - wet in areas, icy spots",
   "261": "3 - dry",
@@ -2263,7 +2235,7 @@
   "501": "3 - dry",
   "516": "3 - dry",
   "517": "3 - dry",
-  "70": "8 - icy",
+  "70": "4 - wet; 8 - icy",
   "72": "8-10 icy, snow packed",
   "97": "3 - dry",
   "98": "3 - dry"
@@ -2271,25 +2243,25 @@
  "snotel_last": {
   "abasin": "2026-11-24 09:00",
   "aspen": "2026-11-24 08:00",
-  "beavercreek": "2026-11-24 08:00",
-  "breck": "2026-11-24 08:00",
-  "cooper": "2026-11-24 08:00",
-  "copper": "2026-11-24 08:00",
-  "crestedbutte": "2026-11-24 08:00",
-  "echo": "2026-11-24 08:00",
-  "eldora": "2026-11-24 08:00",
+  "beavercreek": "2026-11-24 09:00",
+  "breck": "2026-11-24 09:00",
+  "cooper": "2026-11-24 09:00",
+  "copper": "2026-11-24 09:00",
+  "crestedbutte": "2026-11-24 09:00",
+  "echo": "2026-11-24 09:00",
+  "eldora": "2026-11-24 09:00",
   "granby": "2026-11-24 08:00",
   "keystone": "2026-11-24 09:00",
-  "loveland": "2026-11-24 08:00",
+  "loveland": "2026-11-24 09:00",
   "monarch": "2026-11-24 08:00",
-  "powderhorn": "2026-11-24 08:00",
-  "purgatory": "2026-11-24 08:00",
+  "powderhorn": "2026-11-24 09:00",
+  "purgatory": "2026-11-24 09:00",
   "steamboat": "2026-11-24 09:00",
   "sunlight": "2026-11-24 08:00",
   "telluride": "2026-11-24 08:00",
-  "vail": "2026-11-24 08:00",
-  "winterpark": "2026-11-24 08:00",
-  "wolfcreek": "2026-11-24 08:00"
+  "vail": "2026-11-24 09:00",
+  "winterpark": "2026-11-24 09:00",
+  "wolfcreek": "2026-11-24 09:00"
  },
  "speed_geo": [
   "I70E024",
@@ -2545,14 +2517,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-24T17:00:54+00:00",
- "tomtom_routing_last": "2026-11-24T17:15:46+00:00",
+ "tomtom_flow_last": "2026-11-24T17:30:48+00:00",
+ "tomtom_routing_last": "2026-11-24T17:30:48+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 1636
+   "2026-11": 1652
   },
   "routing": {
-   "2026-11": 1768
+   "2026-11": 1781
   }
  },
  "traffic_model_last": "2026-11-24T15:15:48+00:00"

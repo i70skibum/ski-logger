@@ -796,3 +796,8 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-24T09:15:46-07:00,491,US 40,I-70 to Winter Park (Berthoud Pass),231.5,258.3,3 - dry,"US 40, between Moffat Road (Winter Park) and I-70 (near Empire)"
 2026-11-24T09:45:48-07:00,226,US 160,Wolf Creek Pass,145.8,186.1,"9-11 icy spots, snow packed spots","US 160, between Paul Hood Place (near Pagosa Springs) and Park Drive (South Fork)"
 2026-11-24T10:15:46-07:00,430,US 50,Monarch Pass,190.3,208.3,"9-11 icy spots, snow packed spots","US 50, between MP 190 (1 mile west of the Monarch Pass area) and MP 209 (near Monarch Pass)"
+2026-11-24T10:30:48-07:00,245,US 550,Durango-Ski Area,26.9,55.8,4 - wet; 8 - icy,"US 550, between Animas View Drive (near Durango) and Lime Creek Road (near Coal Bank Pass)"
+2026-11-24T10:30:48-07:00,70,CO 62,Dallas Divide,0.0,23.4,4 - wet; 8 - icy,"CO 62, between CO 145 (4 miles west of the Dallas Divide area) and US 550; Hunter Parkway (Ridgway)"
+2026-11-24T10:30:48-07:00,243,US 550,Bondad Hill-Durango,0.0,16.6,4 - wet; 8 - icy,"US 550, between the New Mexico Border (13 miles south of the Durango area) and US 160 (near Durango)"
+2026-11-24T10:30:48-07:00,246,US 550,Coal Bank Pass,55.8,65.9,4 - wet; 8 - icy,"US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)"
+2026-11-24T10:30:48-07:00,247,US 550,Molas Pass,65.9,74.9,4 - wet; 8 - icy,"US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)"
