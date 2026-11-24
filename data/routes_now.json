@@ -4781,11 +4781,11 @@
   "berthoud": {
    "name": "Berthoud Pass (US 40, Empire to Winter Park)",
    "W": {
-    "delay_min": 0.4,
-    "minutes": 32.0,
+    "delay_min": 0.0,
+    "minutes": 31.4,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-23T19:00:45-07:00",
+    "at": "2026-11-23T19:15:46-07:00",
     "line": [
      [
       39.76107,
@@ -5534,11 +5534,11 @@
     ]
    },
    "E": {
-    "delay_min": 0.5,
-    "minutes": 32.2,
+    "delay_min": 0.0,
+    "minutes": 31.7,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-23T19:00:45-07:00",
+    "at": "2026-11-23T19:15:46-07:00",
     "line": [
      [
       39.88623,
@@ -7858,11 +7858,11 @@
   "eldora_boulder": {
    "name": "Coors Field to Eldora by Boulder Canyon (US 36, CO 119)",
    "E": {
-    "delay_min": 2.3,
-    "minutes": 70.0,
+    "delay_min": 1.6,
+    "minutes": 69.2,
     "free_min": 67.6,
     "detour": false,
-    "at": "2026-11-23T19:00:45-07:00",
+    "at": "2026-11-23T19:15:46-07:00",
     "line": [
      [
       39.93746,
@@ -15894,11 +15894,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 1.5,
-    "minutes": 26.8,
+    "delay_min": 1.1,
+    "minutes": 26.4,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-23T19:00:45-07:00",
+    "at": "2026-11-23T19:15:46-07:00",
     "line": [
      [
       39.74245,
@@ -16194,11 +16194,11 @@
    "points": [],
    "points_at": "2026-11-23T19:00:45-07:00",
    "W": {
-    "delay_min": 1.2,
-    "minutes": 30.2,
+    "delay_min": 0.9,
+    "minutes": 29.9,
     "free_min": 29.0,
     "detour": false,
-    "at": "2026-11-23T19:00:45-07:00",
+    "at": "2026-11-23T19:15:46-07:00",
     "line": [
      [
       39.75702,
@@ -17215,10 +17215,10 @@
    "points_at": "2026-11-23T19:00:45-07:00",
    "E": {
     "delay_min": null,
-    "minutes": 53.2,
+    "minutes": 52.7,
     "free_min": 51.3,
     "detour": true,
-    "at": "2026-11-23T19:00:45-07:00"
+    "at": "2026-11-23T19:15:46-07:00"
    }
   },
   "corridor": {
@@ -18577,10 +18577,10 @@
    "points_at": "2026-11-23T19:00:45-07:00"
   }
  },
- "updated": "2026-11-23T19:00:45-07:00",
+ "updated": "2026-11-23T19:15:46-07:00",
  "tomtom_use": {
   "flow": 1444,
-  "routing": 1534
+  "routing": 1540
  },
  "tomtom_caps": {
   "routing": 19000,

@@ -687,3 +687,8 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-23T17:30:47-07:00,246,US 550,Coal Bank Pass,55.8,65.9,"6-8-10 snow, icy, snow packed","US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)"
 2026-11-23T17:30:47-07:00,247,US 550,Molas Pass,65.9,74.9,"6-8-10 snow, icy, snow packed","US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)"
 2026-11-23T18:30:47-07:00,70,CO 62,Dallas Divide,0.0,23.4,6 - snow; 9 - icy spots,"CO 62, between CO 145 (4 miles west of the Dallas Divide area) and US 550; Hunter Parkway (Ridgway)"
+2026-11-23T19:15:46-07:00,407,US 285,Poncha Pass,113.9,126.5,"6-9-11 snow, icy spots, snow packed spots","US 285, between County Road 57 (near Poncha Pass) and US 50 (Poncha Springs)"
+2026-11-23T19:15:46-07:00,245,US 550,Durango-Ski Area,26.9,55.8,"4s-9 - wet in areas, icy spots","US 550, between Animas View Drive (near Durango) and Lime Creek Road (near Coal Bank Pass)"
+2026-11-23T19:15:46-07:00,486,US 6,Loveland Pass,219.9,229.9,9 - icy spots,"US 6, between Montezuma Road and I-70 (Loveland Pass)"
+2026-11-23T19:15:46-07:00,408,US 285,Poncha Springs - Buena Vista,126.9,148.1,4 - wet; 6 - snow; 9 - icy spots,"US 285, between US 50 (Poncha Springs) and US 24 (Trout Creek Pass)"
+2026-11-23T19:15:46-07:00,229,US 160,Trinidad to Kansas,344.6,497.2,3 - dry,"US 160, between I-25 (Trinidad) and the Kansas Border (12 miles east of the Walsh area)"
