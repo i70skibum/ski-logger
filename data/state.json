@@ -225,20 +225,6 @@
    "title": "CO 9 in both directions: Passenger vehicle traction law.",
    "type": "standard"
   },
-  "chainLaws:CDOT-36554546863SB": {
-   "began": "2026-11-23T23:57:58-07:00",
-   "class": "chainLaws",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36554546863SB",
-   "lat": 39.39335,
-   "lon": -106.05279,
-   "mp_end": 72.0002670906958,
-   "mp_start": 80.00021689015102,
-   "pos_bearing": "N",
-   "route": "CO 9",
-   "title": "CO 9 southbound: Commercial motor vehicle chain law.",
-   "type": "standard"
-  },
   "chainLaws:CDOT-36555496690BOTH": {
    "began": "2026-11-24T01:08:53-07:00",
    "class": "chainLaws",
@@ -364,6 +350,20 @@
    "route": "I-70",
    "title": "I-70 eastbound: Stalled vehicle.",
    "type": "routine"
+  },
+  "roadReports:CDOT-36554546863SB": {
+   "began": "2026-11-23T23:57:58-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36554546863SB",
+   "lat": 39.39335,
+   "lon": -106.05279,
+   "mp_end": 72.0002670906958,
+   "mp_start": 80.00021689015102,
+   "pos_bearing": "N",
+   "route": "CO 9",
+   "title": "CO 9 southbound: Roadway reopened to traffic.",
+   "type": "urgent"
   },
   "roadReports:CDOT-36562051724EB": {
    "began": "2026-11-24T09:14:04-07:00",
@@ -1557,7 +1557,7 @@
   }
  },
  "forecast_last": "2026-11-24T15:15:48+00:00",
- "last_run": "2026-11-24T09:45:48-07:00",
+ "last_run": "2026-11-24T10:00:54-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-24": {
@@ -2213,7 +2213,7 @@
   "winterpark": "https://api.weather.gov/gridpoints/BOU/36,70",
   "wolfcreek": "https://api.weather.gov/gridpoints/PUB/15,36"
  },
- "outlook_last": "2026-11-24T13:45:50+00:00",
+ "outlook_last": "2026-11-24T17:00:54+00:00",
  "road_conditions": {
   "100": "4 - wet; 6 - snow",
   "101": "11 - snow packed spots; 4 - wet; 6 - snow; 9 - icy spots",
@@ -2312,9 +2312,9 @@
   "monarch": "2026-11-24 08:00",
   "powderhorn": "2026-11-24 08:00",
   "purgatory": "2026-11-24 08:00",
-  "steamboat": "2026-11-24 08:00",
+  "steamboat": "2026-11-24 09:00",
   "sunlight": "2026-11-24 08:00",
-  "telluride": "2026-11-24 07:00",
+  "telluride": "2026-11-24 08:00",
   "vail": "2026-11-24 08:00",
   "winterpark": "2026-11-24 08:00",
   "wolfcreek": "2026-11-24 08:00"
@@ -2573,14 +2573,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-24T16:30:47+00:00",
- "tomtom_routing_last": "2026-11-24T16:45:48+00:00",
+ "tomtom_flow_last": "2026-11-24T17:00:54+00:00",
+ "tomtom_routing_last": "2026-11-24T17:00:54+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 1620
+   "2026-11": 1636
   },
   "routing": {
-   "2026-11": 1749
+   "2026-11": 1762
   }
  },
  "traffic_model_last": "2026-11-24T15:15:48+00:00"
