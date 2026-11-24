@@ -295,20 +295,6 @@
    "title": "US 40 in both directions: Passenger vehicle traction law.",
    "type": "standard"
   },
-  "chainLaws:CDOT-36556201541EB": {
-   "began": "2026-11-24T02:00:59-07:00",
-   "class": "chainLaws",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36556201541EB",
-   "lat": 39.62509,
-   "lon": -106.07195,
-   "mp_end": 213.03048826018272,
-   "mp_start": 205.0228791353092,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Commercial motor vehicle chain law.",
-   "type": "standard"
-  },
   "roadClosures:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadClosures",
@@ -406,6 +392,20 @@
    "route": "I-70",
    "title": "I-70 eastbound: Stalled vehicle.",
    "type": "routine"
+  },
+  "roadReports:CDOT-36556201541EB": {
+   "began": "2026-11-24T02:00:59-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36556201541EB",
+   "lat": 39.62509,
+   "lon": -106.07195,
+   "mp_end": 213.03048826018272,
+   "mp_start": 205.0228791353092,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Roadway reopened to traffic.",
+   "type": "urgent"
   },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
@@ -1723,15 +1723,29 @@
    "title": "US 550: Snow with ice and snow packed.",
    "type": "standard"
   },
-  "winterDriving:COSEG-589313": {
-   "began": "2026-11-23T23:39:44.489000-07:00",
+  "winterDriving:COSEG-589323": {
+   "began": "2026-11-24T03:40:54.822000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-589313",
+   "id": "COSEG-589323",
    "lat": 37.75647,
    "lon": -107.68076,
-   "mp_end": 98.118708545585,
+   "mp_end": 74.88257952888567,
    "mp_start": 65.88309991558688,
+   "pos_bearing": "N",
+   "route": "US 550",
+   "title": "US 550: Snow with ice and snow packed.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-589324": {
+   "began": "2026-11-24T03:40:54.822000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-589324",
+   "lat": 37.84283,
+   "lon": -107.72554,
+   "mp_end": 98.118708545585,
+   "mp_start": 74.88257952888567,
    "pos_bearing": "N",
    "route": "US 550",
    "title": "US 550: Snow with ice and snow packed.",
@@ -1739,7 +1753,7 @@
   }
  },
  "forecast_last": "2026-11-24T09:00:52+00:00",
- "last_run": "2026-11-24T03:30:48-07:00",
+ "last_run": "2026-11-24T03:45:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-24": {
@@ -2395,7 +2409,7 @@
   "winterpark": "https://api.weather.gov/gridpoints/BOU/36,70",
   "wolfcreek": "https://api.weather.gov/gridpoints/PUB/15,36"
  },
- "outlook_last": "2026-11-24T07:45:46+00:00",
+ "outlook_last": "2026-11-24T10:45:46+00:00",
  "road_conditions": {
   "100": "4 - wet; 6 - snow",
   "101": "4 - wet; 6 - snow",
@@ -2480,7 +2494,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-24 02:00",
-  "aspen": "2026-11-24 01:00",
+  "aspen": "2026-11-24 02:00",
   "beavercreek": "2026-11-24 02:00",
   "breck": "2026-11-24 02:00",
   "cooper": "2026-11-24 02:00",
@@ -2488,14 +2502,14 @@
   "crestedbutte": "2026-11-24 02:00",
   "echo": "2026-11-24 02:00",
   "eldora": "2026-11-24 02:00",
-  "granby": "2026-11-24 01:00",
+  "granby": "2026-11-24 02:00",
   "keystone": "2026-11-24 02:00",
   "loveland": "2026-11-24 02:00",
-  "monarch": "2026-11-24 01:00",
+  "monarch": "2026-11-24 02:00",
   "powderhorn": "2026-11-24 02:00",
   "purgatory": "2026-11-24 02:00",
   "steamboat": "2026-11-24 02:00",
-  "sunlight": "2026-11-24 01:00",
+  "sunlight": "2026-11-24 02:00",
   "telluride": "2026-11-24 01:00",
   "vail": "2026-11-24 02:00",
   "winterpark": "2026-11-24 02:00",
