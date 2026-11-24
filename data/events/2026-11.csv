@@ -1703,3 +1703,4 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-24T16:30:53-07:00,end,CDOT-36567126600BOTH,roadClosures,critical,US 6,BOTH_DIRECTIONS,E,374.7709999123472,,US 6 in both directions: Road closed.,2026-11-24T15:31:43-07:00
 2026-11-24T16:30:53-07:00,end,CDOT-36447074863EB,roadWork,routine,US 6,POSITIVE_DIRECTION,E,455.99674105752536,,US 6 eastbound: Bridge construction.,2026-11-24T06:30:00-07:00
 2026-11-24T16:30:53-07:00,end,CDOT-36484269053BOTH,roadWork,routine,US 50,BOTH_DIRECTIONS,E,357.9988647379575,,US 50 in both directions: Right shoulder closed.,2026-11-24T07:00:00-07:00
+2026-11-24T16:45:46-07:00,end,CDOT-36567126600BOTH,roadReports,critical,US 6,BOTH_DIRECTIONS,E,374.7709999123472,,US 6 in both directions: Road closed.,2026-11-24T15:31:43-07:00
