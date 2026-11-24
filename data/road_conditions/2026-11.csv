@@ -748,3 +748,7 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-24T00:00:47-07:00,410,US 285,Antero Jct-Fairplay-Jefferson (South Park),161.8,199.0,3 - dry,"US 285 (Hampden Ave), between US 24 (Antero Junction) and MP 199 (near Kenosha Pass)"
 2026-11-24T00:00:47-07:00,408,US 285,Poncha Springs - Buena Vista,126.9,148.1,3 - dry,"US 285, between US 50 (Poncha Springs) and US 24 (Trout Creek Pass)"
 2026-11-24T00:00:47-07:00,227,US 160,Del Norte-Alamosa,186.1,259.0,3 - dry,"US 160, between CO 149 (South Fork) and Trinchera Ranch Road (1 mile east of Fort Garland)"
+2026-11-24T00:15:47-07:00,395,US 50,LaJunta-Lamar,379.8,435.7,"6-9-11 snow, icy spots, snow packed spots","US 50, between Cimarron Avenue (La Junta) and Mill Street (Lamar)"
+2026-11-24T00:15:47-07:00,396,US 50,Lamar-Kansas Border,435.7,467.6,"6-9-11 snow, icy spots, snow packed spots","US 50, between First Street (Lamar) and the Kansas Border (2 miles east of the Holly area)"
+2026-11-24T00:15:47-07:00,429,US 50,Salida-Canon City,208.3,279.7,9 - icy spots,"US 50, between County Road 225 (near Monarch Pass) and Orchard Avenue (Canon City)"
+2026-11-24T00:15:47-07:00,229,US 160,Trinidad to Kansas,344.6,497.2,9 - icy spots,"US 160, between I-25 (Trinidad) and the Kansas Border (12 miles east of the Walsh area)"
