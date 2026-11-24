@@ -1,0 +1,116 @@
+
+000
+FXUS65 KBOU 232359
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+459 PM MST Mon Nov 23 2026
+
+.KEY MESSAGES... 
+
+- A quick-hitting storm system will bring a round of mountain snow
+  showers this afternoon and evening, with travel impacts possible
+  across Park and Summit counties. A few light rain and snow
+  showers are also possible across the Palmer Divide and adjacent
+  plains.
+ 
+- A gradual warming trend likely through the rest of the week,
+  with quiet weather expected through Thanksgiving
+
+- Next storm system could bring some snow to the central and
+  northern mountains Friday into Saturday. 
+
+&&
+
+.DISCUSSION /Through Monday/...
+Issued at 1245 PM MST Mon Nov 23 2026
+
+It isn't often the case that the lowest confidence forecast period
+is the near term (next 12-24 hours). However, this is the case
+today as a weak trough drifts across the state through tonight.
+
+There is considerable uncertainty in how this afternoon/evening's
+mountain snow showers play out. While CAMs were very bullish with
+precipitation potential as recently as the 12z cycle, there has
+been a notable downtrend since then. Regional/global 
+deterministic guidance hasn't not changed significantly, and 
+supports at least light snow across the mountains beginning in a 
+few hours. One may be wondering, "why the Winter Weather 
+Advisory?" Today's forecast and advisory are almost entirely 
+driven by favorable ingredients for heavy snow showers that could 
+have travel impacts despite relatively light snowfall amounts in 
+the grids. Very steep lapse rates (close to 8-9C/km through the 
+lowest 6km) and modest mid- level convergence/lift, combined with 
+efficient snow ratios could lead to brief periods of 1-2"/hr 
+snowfall rates. It's possible that these snow showers stick 
+mainly to the Mosquito Range, but any snow showers that reach the 
+I-70 corridor could lead to brief but difficult travel conditions 
+through this evening. Essentially this an impacts-driven advisory 
+with a low floor but high ceiling in terms of travel impacts 
+through the early overnight hours.
+
+We still look on track to enter a period of mild and dry weather
+for the rest of the week. A weak ridge is expected to develop to
+our west on Tuesday, leading to a drier northwesterly flow aloft.
+The ridge should slowly shift eastward and flatten by mid-week
+while a strong cutoff low develops over the Ohio River valley.
+Temperatures on Tuesday and Wednesday should return to the upper
+40s to low 50s across the plains. Mid to upper 50s are likely for
+Thanksgiving, with additional warming possible to end the week.
+
+Forecast confidence decreases on Friday and Saturday as a broad
+swath of moisture embedded in west-northwesterly flow moves 
+towards the forecast area. This moisture is embedded in an area of
+stronger flow aloft, located between a broad trough in south 
+central Canada and a strong ridge to the west of Baja California. 
+There has been poor consistency (both model to model and 
+d[model]/dt) in this period, with the ECMWF generally further 
+south with the jet and accompanying moisture/lift, while the GFS 
+is on the drier side. This is also reflected across their 
+respective ensemble distributions. Interestingly, the AIGEFS has 
+shifted notably away from the physics-based GFS/GEFS today, though
+it's not clear if this is an actual trend or run-to-run noise. I 
+have a slight preference towards the wetter (snowier) solutions 
+that would likely bring at least some minor travel impacts to the 
+mountains for the start of the weekend.
+
+Forecast confidence remains very low by the end of the forecast
+period. Guidance generally keeps a very active subtropical jet
+near the region, with another chance of mountain snow early next
+week.
+
+&&
+
+.AVIATION /00Z TAFS through 00Z Wednesday/...
+Issued at 441 PM MST Mon Nov 23 2026
+
+MVFR conditions expected to begin shortly for DEN and BJC, and
+likely last through the early morning tomorrow (11Z-13Z). Over 
+the past few hours a low stratus deck has been trekking southward 
+towards the terminals, and with light northerly winds in place
+tonight, the deck should stay situated over the airports. For APA,
+there was still some uncertainty how far south the low clouds
+would travel, so have introduced a SCT010 instead of OVC010. Will
+continue to monitor for changes. 
+
+In addition, there is still a 20-30% chance of fog with 1/4SM
+visibility tonight impacting DEN and BJC given the moist airmass 
+in place. Most likely timeframe for fog to impact the airports is
+still 10Z-15Z. 
+
+VFR conditions will prevail after the stratus deck moves away from
+the terminals Tuesday morning. Expect winds to be light (generally
+less than 10 kts), turning southeast by the early afternoon. 
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+Winter Weather Advisory until 11 PM MST this evening for COZ034.
+
+&&
+
+$$
+
+DISCUSSION...Hiris
+AVIATION...MAI
