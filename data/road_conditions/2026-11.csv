@@ -839,3 +839,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-24T13:00:53-07:00,407,US 285,Poncha Pass,113.9,126.5,3 - dry,"US 285, between County Road 57 (near Poncha Pass) and US 50 (Poncha Springs)"
 2026-11-24T13:15:47-07:00,430,US 50,Monarch Pass,190.3,208.3,"4s-9 - wet in areas, icy spots","US 50, between MP 190 (1 mile west of the Monarch Pass area) and MP 209 (near Monarch Pass)"
 2026-11-24T13:15:47-07:00,49,CO 9,Hoosier Pass - Frisco,66.6,97.2,"4s-9 - wet in areas, icy spots","CO 9, between 3rd Street (1 mile north of Fairplay) and I-70; County Road 1231 (Frisco)"
+2026-11-24T15:00:49-07:00,151,CO 145,Lizard Head Pass,46.4,71.6,3 - dry; 4 - wet,"CO 145, between Scotch Creek Road (Lizard Head Pass) and Nimbus Drive (near Telluride)"
