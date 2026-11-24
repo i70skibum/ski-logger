@@ -715,3 +715,6 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-23T20:30:52-07:00,228,US 160,La Veta Pass-Walsenburg,259.0,305.4,6 - snow; 9 - icy spots,"US 160, between CO 159 (1 mile east of Fort Garland) and I-25; CO 10 (near Walsenburg)"
 2026-11-23T20:30:52-07:00,227,US 160,Del Norte-Alamosa,186.1,259.0,6 - snow; 9 - icy spots,"US 160, between CO 149 (South Fork) and Trinchera Ranch Road (1 mile east of Fort Garland)"
 2026-11-23T20:30:52-07:00,47,CO 9,US 24 to Fairplay,47.6,63.7,3 - dry,"CO 9, between US 24 and US 285 (Fairplay)"
+2026-11-23T20:45:47-07:00,100,CO 82,Basalt-Glenwood Springs,0.0,11.5,4s - wet in areas,"CO 82, between I-70 (Glenwood Springs) and CO 133 (near Carbondale)"
+2026-11-23T20:45:47-07:00,101,CO 82,Aspen-Basalt,11.5,41.9,4s - wet in areas,"CO 82, between Satank Road (near Carbondale) and Riverside Drive (Aspen)"
+2026-11-23T20:45:47-07:00,70,CO 62,Dallas Divide,0.0,23.4,8 - icy,"CO 62, between CO 145 (4 miles west of the Dallas Divide area) and US 550; Hunter Parkway (Ridgway)"
