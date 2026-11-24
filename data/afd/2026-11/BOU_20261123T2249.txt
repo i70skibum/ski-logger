@@ -1,0 +1,89 @@
+
+000
+FXUS65 KBOU 240549
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1049 PM MST Mon Nov 23 2026
+
+.KEY MESSAGES... 
+
+- A gradual warming trend likely through the rest of the week,
+  with quiet weather expected through Thanksgiving
+
+- Next storm system could bring some snow to the central and
+  northern mountains Friday into Saturday. 
+
+&&
+
+.DISCUSSION /Through Monday/...
+Issued at 1033 PM MST Mon Nov 23 2026
+
+Isolated light snow showers will continue overnight for the higher 
+terrain, with precip chances ending by early tomorrow morning as 
+the upper level shortwave and jet continue moving off to the 
+east. We're already seeing some patchy fog develop along the CO/WY
+border late this evening. Patchy fog could spread further south 
+and west overnight, potentially impacting the northern I-25 
+corridor. But fog is expected to stay north of the metro.
+
+Quiet weather is expected for much of this week. The upper level 
+trough, which moved over the area today, will sit to our east for
+the next couple of days. Another trough will develop over the 
+West Coast by early Wednesday. In between these two systems, we'll
+have weak ridging aloft over/just west of the area. Temperatures 
+will gradually warm through the work week, with highs reaching 
+near 60 for much of the plains by Friday. Thanksgiving looks
+rather pleasant weather-wise, with highs in the 50s across the
+plains and partly cloudy skies. Mid and upper level northwest 
+winds will strengthen on Friday, bringing moisture into the area.
+Models vary with the depth of the upper level shortwave and the 
+placement of the upper level jet. Some runs have a broader 
+longwave trough with the jet more to our north, putting us in the 
+right exit region. While other runs, have a more potent shortwave
+and put us in the left exit region of the jet. The latter would 
+be much more favorable for precip and cooler temperatures in our 
+area, with the most likely timing of precip sometime late Friday 
+through early Sunday. Looking at cluster analysis, about 55% of 
+the ensemble members in the LREF bring a deeper shortwave with 
+light rain making it off the higher terrain and into the plains on
+Saturday, with 19% of the ensemble members bringing snow onto the
+plains.
+
+Temperatures and precip chances will remain highly uncertain for the 
+weekend and into Monday. 25th to 75th percentile highs differ by 
+around 10 to 15 degrees across the plains during this time.
+Precipitation chances will depend heavily on what happens with 
+this first system mentioned above and a potential second shortwave
+Monday.
+
+&&
+
+.AVIATION /06Z TAFS through 06Z Wednesday/...
+Issued at 1033 PM MST Mon Nov 23 2026
+
+With low stratus deck in place at all terminals, MVFR conditions 
+will prevail tonight. Current observations have yet to show fog 
+developing over the plains, so confidence is increasing that fog 
+will not impact the airports by the early morning hours. However, 
+there is still a 10-15% chance of fog with 1/4SM visibility, 
+particularly between 09Z-14Z.
+
+VFR conditions are expected to return by 11Z-14Z when winds 
+transition to a more southwesterly component and push the low 
+ceilings out. For today, generally light (<10 kts) winds will 
+prevail with east/southeast winds in the afternoon transitioning to 
+a light drainage overnight.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...AP
+AVIATION...MAI
