@@ -322,6 +322,10 @@ footer { color: var(--ink2); font-size: 12px; }
 .trustbox { display: flex; flex-direction: column; gap: 16px; } .trust h2 { font-size: 22px; margin-bottom: 4px; } .trust .sechead { margin-bottom: 8px; }
 .tbig { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; } .tnum { display: flex; flex-direction: column; min-width: 120px; } .tnum b { font: 700 54px/1 "Space Grotesk", sans-serif; } .tnum span { font-size: 13px; color: var(--ink2); max-width: 140px; }
 .tbig p { max-width: 640px; margin: 0 0 10px; } .tiers { display: flex; flex-wrap: wrap; gap: 8px; } .tiers .tier { font-size: 12.5px; padding: 4px 11px; } .tiers .tier b { font-weight: 700; }
+.dpwrap { overflow-x: auto; margin: 14px 0 6px; } .dayprog { display: flex; align-items: flex-end; gap: 6px; height: 135px; min-width: max-content; padding-top: 6px; border-bottom: 1px solid var(--line); }
+.dp-b { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 2px; width: 30px; height: 100%; } .dp-b i { display: block; width: 100%; border-radius: 4px 4px 0 0; background: var(--accent); } .dp-b small { font-size: 11px; color: var(--ink2); line-height: 1.1; } .dp-b small.pv { color: var(--ink); font-size: 10.5px; font-weight: 600; } .dp-b small.dd { color: var(--ink3); }
+.dp-b.skip i { background: repeating-linear-gradient(135deg, var(--none) 0 4px, transparent 4px 8px); outline: 1px solid var(--none); outline-offset: -1px; }
+.dgrid { display: grid; grid-template-columns: minmax(44px, .4fr) repeat(3, minmax(84px, 1fr)); gap: 6px; align-items: center; min-width: 330px; margin-top: 12px; }
 .tgridwrap { overflow-x: auto; } .tgrid { display: grid; grid-template-columns: minmax(190px, 1.3fr) repeat(5, minmax(96px, 1fr)); gap: 8px; align-items: center; min-width: 720px; }
 .thc { display: flex; flex-direction: column; font-size: 13px; } .thc small, .trl small { color: var(--ink2); font-size: 12px; } .trl { display: flex; flex-direction: column; } .trl b { font-size: 14px; }
 .tgrp { grid-column: 1 / -1; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; color: var(--ink2); margin-top: 10px; }
@@ -361,21 +365,26 @@ footer { color: var(--ink2); font-size: 12px; }
 .lm-plab { position: absolute; width: max-content; max-width: 160px; display: flex; flex-direction: column; pointer-events: none; } .lm-plab b { font: 600 15px "Space Grotesk", sans-serif; color: var(--ink); } .lm-plab span { font-size: 12px; color: var(--ink3); }
 .lm-plab.best b { color: var(--accent); } .lm-plab.dim b { color: var(--ink2); }
 @media (max-width: 760px) {
-  body { padding-bottom: 84px; }
-  header nav.seg { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; border-radius: 0; margin: 0; padding: 6px 8px calc(6px + env(safe-area-inset-bottom)); background: var(--card); border-top: 1px solid var(--line); justify-content: space-around; gap: 0; }
-  header nav.seg a { flex: 1; text-align: center; padding: 14px 6px 12px; border-radius: 12px; font-size: 13px; font-weight: 600; color: var(--ink2); min-height: 48px; position: relative; }
-  header nav.seg a.on { background: transparent; color: var(--accent); } header nav.seg a.on::before { content: ""; position: absolute; top: 0; left: 30%; right: 30%; height: 3px; border-radius: 2px; background: var(--accent); }
+  body { padding-bottom: 96px; }
+  header nav.seg { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; border-radius: 0; margin: 0; padding: 8px 10px calc(8px + env(safe-area-inset-bottom)); background: #0F1A24; border-top: 1px solid var(--ink3); box-shadow: 0 -6px 18px rgba(0,0,0,.45); display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  header nav.seg a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-align: center; padding: 8px 4px 7px; border-radius: 14px; font-size: 12.5px; font-weight: 600; color: var(--ink2); min-height: 56px; position: relative; -webkit-tap-highlight-color: transparent; }
+  header nav.seg a svg { display: block; }
+  header nav.seg a.on { background: rgba(127, 209, 255, .14); color: var(--accent); box-shadow: inset 0 0 0 1.5px var(--accent); }
+  header nav.seg a.on::before { content: none; }
   .dp-goto { grid-template-columns: 1fr auto; gap: 4px 12px; padding: 14px 16px; align-items: center; } .dp-goto .dp-rpills { display: none; } .dp-trip { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px 12px; } .dp-trip h2 { font-size: 24px; grid-column: 1; } .dp-trip .kick { grid-column: 1; } .dp-trip p { display: none; }
   .dp-change { display: block; grid-column: 2; grid-row: 1 / span 2; border: 0; background: transparent; color: var(--accent); font: 600 14px Inter, sans-serif; padding: 10px; cursor: pointer; }
   .zoom { position: static; }
+  #linewrap { touch-action: pan-y; }
 }
+.map-hint { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 800; background: rgba(15,26,36,.92); color: var(--ink); font: 600 13px Inter, sans-serif; padding: 9px 14px; border-radius: 999px; opacity: 0; transition: opacity .2s; pointer-events: none; white-space: nowrap; }
+.map-hint.on { opacity: 1; }
 </style>
 </head>
 <body>
 <main>
   <header>
     <div class="brand"><b>SKI DAY</b><span id="today"></span></div>
-    <nav class="seg" aria-label="Views"><a href="#" id="tab-today" class="on">Today</a><a href="#week" id="tab-week">7 days</a><a href="#data" id="tab-data">Raw data</a></nav>
+    <nav class="seg" aria-label="Views"><a href="#" id="tab-today" class="on"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span>Today</span></a><a href="#week" id="tab-week"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>7 days</span></a><a href="#data" id="tab-data"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span>Raw data</span></a></nav>
     <p id="asof">Loading data</p>
   </header>
 
@@ -1518,8 +1527,8 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   const geo = () => PHONE() ? { w: 420, h: 1250, top: 0 } : { w: MW, h: MH, top: TOP };   // canvas runs from y = TOP to TOP + MH
   // I-70 stretches: x on the line map, mileposts (closures) and longitudes (speed sensors).
   const I70_BANDS = [
-    { x: [1080, CX], mp: [266, 276], lon: [-105.14, -104.98], name: "Coors Field to the Golden freeway" },
-    { x: [980, 1080], mp: [260, 266], lon: [-105.19, -105.14], name: "Golden freeway to US 6" },
+    { x: [1080, CX], p: [[1080, 340], [CX, 340]], stub: [CX, Y, CX, 340], mp: [266, 276], lon: [-105.14, -104.98], name: "Coors Field to the Golden freeway" },
+    { x: [980, 1080], p: [[980, Y], [1080, 340]], mp: [260, 266], lon: [-105.19, -105.14], name: "Golden freeway to US 6" },
     { x: [860, 980], mp: [244, 260], lon: [-105.43, -105.19], name: "US 6 to Floyd Hill" },
     { x: [760, 860], mp: [240, 244], lon: [-105.51, -105.43], name: "Floyd Hill to Idaho Springs" },
     { x: [650, 760], mp: [232, 240], lon: [-105.66, -105.51], name: "Idaho Springs to Empire" },
@@ -1527,16 +1536,18 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     { x: [420, 560], mp: [216, 228], lon: [-105.88, -105.71], name: "Georgetown to exit 216" },
     { x: [180, 420], mp: [205, 216], lon: [-106.07, -105.88], name: "Exit 216 through the tunnel to Silverthorne" },
     { x: [60, 180], mp: [195, 205], lon: [-106.16, -106.07], name: "Silverthorne to Copper" }];
-  const mpToX = mp => { for (const b of I70_BANDS) if (mp >= b.mp[0] && mp <= b.mp[1]) return b.x[0] + (mp - b.mp[0]) / (b.mp[1] - b.mp[0]) * (b.x[1] - b.x[0]); return mp > 276 ? CX : 60; };
+  const bandP = b => b.p || [[b.x[0], Y], [b.x[1], Y]];   // west end, east end on the line map
+  const mpToXY = mp => { for (const b of I70_BANDS) if (mp >= b.mp[0] && mp <= b.mp[1]) { const f = (mp - b.mp[0]) / (b.mp[1] - b.mp[0]), [a, c] = bandP(b); return [a[0] + f * (c[0] - a[0]), a[1] + f * (c[1] - a[1])]; } return mp > 276 ? [CX, 340] : [60, Y]; };
   // Each alternate's pieces on the line map: [x1, y1, x2, y2] straight runs, and where its closure sign goes.
   const ROUTE_GEO = {
     // Golden is one junction at the base of the canyon: canyon west, CO 93 north, Golden freeway (CO 58) east, US 6 south.
-    canyon: { pieces: [[1080, 340, 1080, Y], [980, 340, 1080, 340], [860, 340, 980, 340], [860, 340, 860, Y]], sign: [920, 340] },
+    canyon: { pieces: [[980, 340, 1080, 340], [860, 340, 980, 340], [860, 340, 860, Y]], sign: [920, 340] },
     berthoud: { pieces: [[650, 290, 650, Y]], sign: [650, 350] },
     pass: { pieces: [[420, 340, 420, Y], [260, 340, 420, 340], [260, 340, 260, 412], [260, 428, 260, 520]], sign: [340, 340] },
     dillon: { pieces: [[180, Y, 180, 520], [180, 520, 260, 520]], sign: [180, 470] },
-    // I-25 from Coors Field (20th St) down to 6th Ave, opposite US 36; west on 6th Ave; north into the Golden freeway junction.
-    sixth: { pieces: [[CX, Y, CX, 480], [980, 480, CX, 480], [980, 340, 980, 480]], sign: [1090, 480] },
+    // The trunk out of Coors Field: I-25 to 6th Ave (US 6) straight west to the I-70 junction, then US 6 north into Golden.
+    // I-70 itself runs the upper way (north on I-25, west past the Golden freeway, then the diagonal back down).
+    sixth: { pieces: [[980, Y, CX, Y], [980, 340, 980, Y]], sign: [1090, Y] },
     eldora_boulder: { pieces: [[CX, 140, CX, Y], [740, 140, CX, 140]], sign: [980, 140] },
     eldora_coal: { pieces: [[980, 250, 980, 340], [800, 250, 980, 250]], sign: [890, 250] },
     eldora_119: { pieces: [[900, 300, 900, 340], [800, 300, 900, 300], [800, 140, 800, 300]], sign: [860, 300] } };
@@ -1544,11 +1555,11 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     eldora_boulder: "US 36 and Boulder Canyon (CO 119)", eldora_coal: "CO 93 and Coal Creek Canyon (CO 72)", eldora_119: "CO 119 through Black Hawk and Peak to Peak" };
   // [x, y, text, anchor, tier]: 0 destinations, 1 towns and stops, 2 major roads, 3 minor roads and canyons.
   const LABELS = [
-    [1224, 410, "Coors Field", "l", 0], [1212, 132, "Boulder", "l", 0], [992, 318, "Golden", "l", 0],
-    [1212, 442, "I-25", "l", 2], [1090, 492, "6th Ave \u00b7 US 6", "c", 2], [1212, 270, "US 36", "l", 2],
-    [1030, 398, "I-70", "c", 2], [520, 398, "I-70", "c", 2], [120, 398, "I-70", "c", 2],
-    [992, 372, "US 6", "l", 2], [852, 372, "US 6", "r", 2], [662, 352, "Berthoud \u00b7 US 40", "l", 2],
-    [1092, 362, "Golden freeway\nCO 58", "l", 3], [868, 348, "Clear Creek\nCanyon", "l", 3], [992, 288, "CO 93", "l", 3],
+    [1224, 410, "Coors Field", "l", 0], [1212, 132, "Boulder", "l", 0], [972, 318, "Golden", "r", 0],
+    [1212, 372, "I-25", "l", 2], [1165, 432, "I-25", "c", 2], [1055, 432, "6th Ave", "c", 2], [1212, 270, "US 36", "l", 2],
+    [1140, 312, "I-70", "c", 2], [1030, 384, "I-70", "c", 2, -39], [520, 398, "I-70", "c", 2], [120, 398, "I-70", "c", 2],
+    [968, 372, "US 6", "r", 2], [852, 372, "US 6", "r", 2], [662, 352, "Berthoud \u00b7 US 40", "l", 2],
+    [1030, 298, "Golden freeway\nCO 58", "c", 3], [868, 348, "Clear Creek\nCanyon", "l", 3], [992, 288, "CO 93", "l", 3],
     [890, 228, "Coal Creek \u00b7 CO 72", "c", 3], [980, 116, "Boulder Canyon \u00b7 CO 119", "c", 3], [812, 204, "Peak to Peak", "l", 3],
     [888, 280, "Black Hawk", "r", 1], [812, 150, "Nederland", "l", 1],
     [860, 438, "Floyd Hill", "c", 1], [760, 392, "Idaho Springs", "c", 1], [650, 438, "Empire", "c", 1],
@@ -1564,10 +1575,11 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     { id: "coors", name: "Coors Field", x: CX, y: Y, lat: 39.7562, lon: -104.9942, i70: -104.99 },
     // Where the Golden freeway (CO 58) and US 6 meet I-70. Only TomTom's homeward lines use their locations;
     // heading up they are I-70 stops.
-    { id: "x261", name: "Golden freeway at I-70", x: 1080, y: Y, i70: -105.14, pts: [[39.7800, -105.1400]], homeOnly: 1 },
+    { id: "x261", name: "Golden freeway at I-70", x: 1080, y: 340, i70: -105.14, pts: [[39.7800, -105.1400]], homeOnly: 1 },
     { id: "us6", name: "US 6 at I-70", x: 980, y: Y, i70: -105.19, pts: [[39.7245, -105.1895]], homeOnly: 1 },
     { id: "golden", name: "Golden", x: 980, y: 340, lat: 39.7555, lon: -105.2211 },
-    { id: "i25", name: "I-25 at 6th Ave", x: CX, y: 480, lat: 39.7253, lon: -105.0060 },
+    { id: "i25i70", name: "I-25 at I-70", x: CX, y: 340, lat: 39.7800, lon: -104.9810 },
+    { id: "i25", name: "I-25 at 6th Ave", x: 1130, y: Y, lat: 39.7253, lon: -105.0060 },
     { id: "coal", name: "Coal Creek Canyon turnoff", x: 980, y: 250, lat: 39.8660, lon: -105.2330, eld: 1 },
     { id: "blackhawk", name: "Black Hawk", x: 900, y: 300, lat: 39.7969, lon: -105.4939, eld: 1 },
     { id: "floyd", name: "Floyd Hill", x: 860, y: Y, lat: 39.7425, lon: -105.4313, i70: -105.43 },
@@ -1664,6 +1676,12 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   const mz = { w: 0, base: 1, z: 1, px: 0, py: 0, h: 0 };
   function piece(box, x1, y1, x2, y2, kind, tipText, info) {
     const c = KIND[kind][0], dash = kind === "check", horiz = y1 === y2, d = el("div", "lm-seg");
+    if (x1 !== x2 && y1 !== y2) {   // a diagonal: a bar as long as the run, turned
+      const len = Math.hypot(x2 - x1, y2 - y1) + LW * 0.6, ang = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+      Object.assign(d.style, { left: x1 + "px", top: (y1 - LW / 2) + "px", width: len + "px", height: LW + "px", transformOrigin: "0 50%", transform: `translateX(${-LW * 0.3}px) rotate(${ang}deg)`,
+        background: dash ? `repeating-linear-gradient(90deg, ${c} 0 12px, transparent 12px 19px)` : c });
+      d.dataset.tip = tipText; if (info && info.length) d.dataset.info = JSON.stringify(info); box.append(d); return;
+    }
     const left = horiz ? Math.min(x1, x2) : x1 - LW / 2, top = horiz ? y1 - LW / 2 : Math.min(y1, y2);
     Object.assign(d.style, { left: left + "px", top: top + "px", width: (horiz ? Math.abs(x2 - x1) + 2 : LW) + "px", height: (horiz ? LW : Math.abs(y2 - y1) + 2) + "px",
       background: dash ? `repeating-linear-gradient(${horiz ? 90 : 180}deg, ${c} 0 12px, transparent 12px 19px)` : c });
@@ -1701,16 +1719,17 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       desc.push(`${ROUTE_NAME[k]} ${KIND[s.kind][1].toLowerCase()}`);
     }
     const ip = E ? i70Pred(E, dir, H) : null;
+    const bandDraw = (b, kind, tip, info) => { const [a, c] = bandP(b); P_(a[0], a[1], c[0], c[1], kind, tip, info); if (b.stub) P_(...b.stub, kind, tip, info); };
     I70_BANDS.forEach(b => {
       if (E) {
         const pl = plannedOn(E).filter(e => normRoute(e.route) === "I70" && forDir(e, dir) && overlaps(e.mp_start, e.mp_end, b.mp[0], b.mp[1]));
-        P_(b.x[0], Y, b.x[1], Y, pl.length ? "closed" : peakKind(ip.peak), `I-70 ${dname}, ${FD}: ` + (pl.length ? "closure planned. " + pl.map(e => e.title).join(" ") :
+        bandDraw(b, pl.length ? "closed" : peakKind(ip.peak), `I-70 ${dname}, ${FD}: ` + (pl.length ? "closure planned. " + pl.map(e => e.title).join(" ") :
           ip.peak >= 1 ? `the whole trip to Copper is expected at about +${ip.peak} min at ${clock(ip.at)} (${ip.tier})` : "no usual rush at " + clock(H)),
           pl.length ? [] : roadStats({ extra: ip.peak, extraLabel: "Extra delay, whole trip", conf: ip.conf }));
         return;
       }
       const s = i70Stretch(b.mp[0], b.mp[1], b.lon[0], b.lon[1], dir), o = s.sp[dir === "W" ? "E" : "W"];
-      P_(b.x[0], Y, b.x[1], Y, s.kind, `I-70 ${dname}, ${b.name}: ` + (s.closures.length ? s.closures.map(e => e.title).join(" ") :
+      bandDraw(b, s.kind, `I-70 ${dname}, ${b.name}: ` + (s.closures.length ? s.closures.map(e => e.title).join(" ") :
         s.sp[dir] ? `${s.sp[dir].mph} mph (${speedWord(s.sp[dir].mph)})` : "no reading") + (o ? `. Other direction ${o.mph} mph.` : ""),
         (() => { const x = s.sp[dir]; if (s.closures.length || !x || !x.mph) return []; const mi = Math.abs(b.mp[1] - b.mp[0]), tm = mi / x.mph * 60, fr = tm * x.ratio;
           return roadStats({ time: tm, free: fr, extra: Math.max(0, tm - fr), live: true }); })());
@@ -1729,22 +1748,24 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     // Closure signs where COtrip lists a closure.
     const signed = new Set();
     (E ? (vday === 0 ? ctx.events.concat(plannedOn(E)) : plannedOn(E)) : ctx.events).filter(e => isClosure(e) && normRoute(e.route) === "I70" && overlaps(e.mp_start, e.mp_end, 195, 276) && forDir(e, dir)).forEach(e => {
-      const mp = Math.max(195, Math.min(276, num(e.mp_start))), x = Math.round(mpToX(mp) / 8) * 8;
-      if (signed.has(x)) return; signed.add(x);
-      { const sg = A_("lm-sign", x, Y, 20, 20); sg.dataset.tip = e.title; if (e.id) sg.dataset.ev = e.id; }
+      const mp = Math.max(195, Math.min(276, num(e.mp_start))), [px, py] = mpToXY(mp), x = Math.round(px / 8) * 8, key = x + "," + Math.round(py);
+      if (signed.has(key)) return; signed.add(key);
+      { const sg = A_("lm-sign", x, py, 20, 20); sg.dataset.tip = e.title; if (e.id) sg.dataset.ev = e.id; }
     });
     for (const k in ROUTE_GEO) if (states[k].kind === "closed" && (!/^eldora/.test(k) || shown("eldora"))) A_("lm-sign", ...ROUTE_GEO[k].sign, 20, 20).dataset.tip = states[k].st.alerts.join(" ") || `${ROUTE_NAME[k]} closed`;
-    LABELS.forEach(([x, y, t, anchor, tier]) => {
+    LABELS.forEach(([x, y, t, anchor, tier, rot]) => {
       if (/Boulder|Coal|Nederland|Peak|Black Hawk|CO 93|US 36/.test(t) && !shown("eldora")) return;
       const d = el("div", "lm-lab t" + tier, t); if (t.includes("\n")) d.style.whiteSpace = "pre";
       if (PH) {
-        if (/^(US 6|CO 93|Golden freeway|Boulder Canyon|Peak to Peak)/.test(t)) return;
+        if (rot || (t === "I-25" && y === 372) || /^(US 6|CO 93|Golden freeway|Boulder Canyon|Peak to Peak)/.test(t)) return;
         if (/Coal Creek/.test(t)) d.textContent = "Coal Creek";
         const [X, Yp] = tfP(anchor === "l" ? x : anchor === "r" ? x - 10 : x, y + 7), right = anchor === "r" || (anchor === "c" && y < Y - 5);
         Object.assign(d.style, { width: "auto", maxWidth: "150px", left: right ? "auto" : (X + 9) + "px", right: right ? (420 - X + 9) + "px" : "auto", top: (Yp - (t.includes("\n") ? 15 : 8)) + "px", textAlign: right ? "right" : "left" });
         box.append(d); return;
       }
-      Object.assign(d.style, { left: (anchor === "l" ? x : anchor === "r" ? x - 220 : x - 110) + "px", top: y + "px", textAlign: anchor === "l" ? "left" : anchor === "r" ? "right" : "center" }); box.append(d);
+      Object.assign(d.style, { left: (anchor === "l" ? x : anchor === "r" ? x - 220 : x - 110) + "px", top: y + "px", textAlign: anchor === "l" ? "left" : anchor === "r" ? "right" : "center" });
+      if (rot) d.style.transform = `rotate(${rot}deg)`;
+      box.append(d);
     });
     MAP_RESORTS.forEach(([k, x, y]) => {
       if (k === "eldora" && !shown("eldora")) return;
@@ -1772,7 +1793,8 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   function layoutLine(reset) {
     const wrap = $("linewrap"), w = wrap.clientWidth; if (!w) return;
     const G = geo(), base = Math.min(1.25, Math.max(0.5, w / G.w));
-    if (reset || Math.abs(w - mz.w) > 1 || base !== mz.base || mz.ph !== PHONE()) { mz.ph = PHONE(); mz.w = w; mz.base = base; mz.z = 1; mz.h = Math.round(G.h * base); mz.px = G.w * base > w ? w - G.w * base : (w - G.w * base) / 2; mz.py = 0; }
+    if (reset || Math.abs(w - mz.w) > 1 || base !== mz.base || mz.ph !== PHONE()) { mz.ph = PHONE(); mz.w = w; mz.base = base; mz.z = 1; mz.px = G.w * base > w ? w - G.w * base : (w - G.w * base) / 2; mz.py = 0; }
+    mz.h = Math.round(G.h * base * (mz.ph ? mz.z : 1));   // on a phone the frame grows with the zoom, so the page does the vertical scrolling
     wrap.style.height = mz.h + "px";
     clampPan();
     $("lineinner").style.transform = `translate(${mz.px}px, ${mz.py}px) scale(${mz.base * mz.z}) translateY(${-geo().top}px)`;
@@ -1794,7 +1816,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     wrap.addEventListener("pointerdown", ev => { if (ev.target.closest("button")) return; drag = { x: ev.clientX, y: ev.clientY, px: mz.px, py: mz.py }; moved = false; wrap.setPointerCapture(ev.pointerId); });
     wrap.addEventListener("pointermove", ev => {
       if (drag) { const dx = ev.clientX - drag.x, dy = ev.clientY - drag.y; if (Math.abs(dx) + Math.abs(dy) > 4) moved = true;
-        if (moved) { mz.px = drag.px + dx; mz.py = drag.py + dy; layoutLine(false); hideTip(); return; } }
+        if (moved) { mz.px = drag.px + dx; mz.py = mz.ph ? 0 : drag.py + dy; layoutLine(false); hideTip(); return; } }
       const t = document.elementsFromPoint(ev.clientX, ev.clientY).find(x => x.dataset && x.dataset.tip);
       if (t) showTip(ev, t.dataset.tip); else hideTip();
     });
@@ -1844,7 +1866,12 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     if (typeof L === "undefined") { $("map").textContent = "The map could not load."; return; }
     const { ctx, ranked } = D, row = ctx.speedRow || {};
     if (!map) {
-      map = L.map("map", { scrollWheelZoom: false });
+      const touchy = matchMedia("(pointer: coarse)").matches;
+      map = L.map("map", { scrollWheelZoom: false, dragging: !touchy, tap: false });
+      if (touchy) {   // One finger scrolls the page past the map; two fingers move and zoom it.
+        const cont = map.getContainer(), hint = el("div", "map-hint", "Use two fingers to move the map"); cont.append(hint); let ht = 0;
+        cont.addEventListener("touchstart", ev => { if (ev.touches.length > 1) { hint.classList.remove("on"); map.dragging.enable(); } else { map.dragging.disable(); hint.classList.add("on"); clearTimeout(ht); ht = setTimeout(() => hint.classList.remove("on"), 1300); } }, { passive: true });
+      }
       // Stadia Maps' Alidade Smooth Dark (free non-commercial plan, authorized by this site's domain, so no key in the page).
       // If Stadia refuses the tiles (domain not registered yet, or over the monthly limit), fall back to
       // OpenStreetMap's own tiles darkened in CSS.
@@ -2097,6 +2124,31 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const txt = el("div"); txt.append(el("p", "", `The model has ${m.days_logged || 0} days of logging, since ${dayName(m.first_day)}. Each typical weekend adds about ${Math.round(100 / 6)} points to a window, and every route time on the dashboard carries the percentage that goes with it.`));
     const tiers = el("div", "tiers"); [["Estimate", "0 weekends, 0%"], ["Rough", "1 to 2, 17 to 33%"], ["Decent", "3 to 5, 50 to 83%"], ["Solid", "6 or more, 100%"]].forEach(([t, d]) => { const x = el("span", "tier " + TIER_CLASS[t]); x.append(el("b", "", t), " " + d); tiers.append(x); });
     txt.append(tiers); row.append(big, txt); p1.append(hd, row); box.append(p1);
+    // 1b. Day by day, all seven days: weekdays are logged too, so the model grows a little every day.
+    { const SL = [["amW", "Morning, heading up"], ["pmW", "Afternoon, heading up"], ["pmE", "Afternoon, heading home"]], DN = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], cov = m.coverage || {};
+      const allAvg = Object.values(cov).reduce((a, c) => a + pct6(c.n), 0) / Math.max(1, Object.keys(cov).length);
+      let daily = m.daily;
+      if (!daily) { const ds = new Set(); Object.values(cov).forEach(c => (c.dates || []).forEach(d => ds.add(d))); daily = [...ds].sort().map(d => ({ d, typical: true, win: [1, 1, 1], snaps: null })); }
+      const counts = {}, series = daily.map(x => { const dow = (new Date(x.d + "T12:00:00Z").getUTCDay() + 6) % 7;
+        if (x.typical) x.win.forEach((w, j) => { if (w) { const k = dow + "-" + SL[j][0]; counts[k] = (counts[k] || 0) + 1; } });
+        let sum = 0; for (let d2 = 0; d2 < 7; d2++) SL.forEach(([k]) => { sum += pct6(counts[d2 + "-" + k] || 0); });
+        return { ...x, dow, run: sum / 21 }; });
+      const p1b = el("section", "panel trust"), hb = el("div", "sechead"); hb.append(el("h2", "", "Day by day, all seven days"), el("span", "note", "Confidence across every weekday and weekend window"));
+      const top = el("div", "tbig"), bg = el("div", "tnum"); bg.append(el("b", "", Math.round(allAvg * 100) + "%"), el("span", "", "average across all 21 windows"));
+      const done = series.filter(x => x.typical && x.win.some(Boolean)).length, aside = series.filter(x => !x.typical).length;
+      const tx = el("div"); tx.append(el("p", "", `Weekdays count too. Each typical day with a full window logged adds about 2 points here, and each window needs 6 typical days of its kind to reach 100%. ${done} typical day${done === 1 ? "" : "s"} counted so far` + (aside ? `, ${aside} set aside as holiday, school-break or storm days (hatched bars).` : ".")));
+      top.append(bg, tx);
+      const ymax = Math.max(0.3, Math.max(...series.map(x => x.run)) * 1.15), bars = el("div", "dayprog"); series.slice(-28).forEach(x => {
+        const b = el("div", "dp-b" + (x.typical ? "" : " skip")), tag = ((m.days || {})[x.d] || {}).tags;
+        const bar = el("i"); bar.style.height = Math.max(3, Math.round(x.run / ymax * 100)) + "px";
+        b.append(el("small", "pv", Math.round(x.run * 100) + "%"), bar, el("small", "", DN[x.dow][0]), el("small", "dd", String(+x.d.slice(8))));
+        b.dataset.tip = `${dayName(x.d)}: ${x.typical ? `confidence ${Math.round(x.run * 100)}% after this day` + (x.win.some(Boolean) ? "" : ", not enough logged to count") : "set aside, " + ((tag && tag[0]) || "not a typical day") + "; confidence stays " + Math.round(x.run * 100) + "%"}${x.snaps ? `. ${x.snaps} sensor readings.` : ""}`;
+        bars.append(b); });
+      bars.addEventListener("pointermove", ev => { const t = ev.target.closest && ev.target.closest("[data-tip]"); if (t) showTip(ev, t.dataset.tip); else hideTip(); }); bars.addEventListener("pointerleave", hideTip);
+      const g2 = el("div", "dgrid"); g2.append(el("span")); SL.forEach(([, l]) => g2.append(el("div", "thc", l)));
+      for (let d2 = 0; d2 < 7; d2++) { g2.append(el("div", "trl", DN[d2])); SL.forEach(([k, l]) => { const n = (cov[d2 + "-" + k] || {}).n || 0; g2.append(trustCell(n, `${DN[d2]}, ${l.toLowerCase()}: ${n} of 6 typical days logged.`)); }); }
+      const gw2 = el("div", "tgridwrap"); gw2.append(g2); gw2.addEventListener("pointermove", ev => { const t = ev.target.closest && ev.target.closest("[data-tip]"); if (t) showTip(ev, t.dataset.tip); else hideTip(); }); gw2.addEventListener("pointerleave", hideTip);
+      p1b.append(hb, top, el("div", "dpwrap").appendChild(bars) && bars.parentNode, gw2, el("p", "note", "I-70 CDOT sensors only. Morning is 5 to 10 AM, afternoons are 2 to 8 PM heading up and 1 to 7 PM heading home. The TomTom routes below still build up on weekends.")); box.append(p1b); }
     // 2. Coverage by segment and time
     const p2 = el("section", "panel trust"), h2 = el("div", "sechead"); h2.append(el("h2", "", "Coverage by segment and time"), el("span", "note", "Percent = typical weekends logged out of 6"));
     const grid = el("div", "tgrid"); grid.append(el("span"));
