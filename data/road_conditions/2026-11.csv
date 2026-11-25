@@ -884,3 +884,7 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-25T04:30:49-07:00,151,CO 145,Lizard Head Pass,46.4,71.6,3 - dry; 9 - icy spots,"CO 145, between Scotch Creek Road (Lizard Head Pass) and Nimbus Drive (near Telluride)"
 2026-11-25T04:30:49-07:00,490,CO 91,Fremont Pass,0.0,22.6,3 - dry,"CO 91, between US 24 (Leadville) and I-70 (2 miles north of Fremont Pass)"
 2026-11-25T04:30:49-07:00,72,CO 65,Grand Mesa,0.0,51.2,"9-11 icy spots, snow packed spots","CO 65, between CO 92 and CO 330 (Grand Mesa)"
+2026-11-25T05:45:47-07:00,150,CO 145,Cortez-Rico,0.0,46.4,3 - dry,"CO 145, between US 160 (Cortez) and Street 1 (Lizard Head Pass)"
+2026-11-25T05:45:47-07:00,248,US 550,Silverton-Red Mountain Pass,74.9,98.1,3 - dry; 9 - icy spots,"US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)"
+2026-11-25T05:45:47-07:00,246,US 550,Coal Bank Pass,55.8,65.9,3 - dry; 9 - icy spots,"US 550, between Lime Creek (near Coal Bank Pass) and MP 70 (near Molas Divide)"
+2026-11-25T05:45:47-07:00,247,US 550,Molas Pass,65.9,74.9,3 - dry; 9 - icy spots,"US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)"
