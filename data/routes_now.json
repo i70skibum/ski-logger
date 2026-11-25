@@ -4785,7 +4785,7 @@
     "minutes": 31.2,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-25T07:30:47-07:00",
+    "at": "2026-11-25T07:45:47-07:00",
     "line": [
      [
       39.76107,
@@ -5538,7 +5538,7 @@
     "minutes": 30.9,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-25T07:30:47-07:00",
+    "at": "2026-11-25T07:45:47-07:00",
     "line": [
      [
       39.88623,
@@ -9110,11 +9110,11 @@
    "points": [],
    "points_at": "2026-11-25T07:30:47-07:00",
    "W": {
-    "delay_min": 5.9,
-    "minutes": 72.8,
+    "delay_min": 6.5,
+    "minutes": 73.4,
     "free_min": 66.9,
     "detour": false,
-    "at": "2026-11-25T07:30:47-07:00",
+    "at": "2026-11-25T07:45:47-07:00",
     "line": [
      [
       39.75702,
@@ -15894,11 +15894,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 3.6,
-    "minutes": 28.9,
+    "delay_min": 3.4,
+    "minutes": 28.7,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-25T07:30:47-07:00",
+    "at": "2026-11-25T07:45:47-07:00",
     "line": [
      [
       39.74245,
@@ -16194,11 +16194,11 @@
    "points": [],
    "points_at": "2026-11-25T07:30:47-07:00",
    "W": {
-    "delay_min": 1.6,
-    "minutes": 31.1,
+    "delay_min": 1.8,
+    "minutes": 31.4,
     "free_min": 29.6,
     "detour": false,
-    "at": "2026-11-25T07:30:47-07:00",
+    "at": "2026-11-25T07:45:47-07:00",
     "line": [
      [
       39.75702,
@@ -16554,11 +16554,11 @@
   "i25direct": {
    "name": "I-25 and I-70 direct (Coors Field to I-70 exit 244)",
    "W": {
-    "delay_min": 1.7,
-    "minutes": 36.9,
+    "delay_min": 0.9,
+    "minutes": 36.1,
     "free_min": 35.2,
     "detour": false,
-    "at": "2026-11-25T07:30:47-07:00",
+    "at": "2026-11-25T07:45:47-07:00",
     "line": [
      [
       39.75702,
@@ -18541,10 +18541,10 @@
    "points_at": "2026-11-25T07:30:47-07:00"
   }
  },
- "updated": "2026-11-25T07:30:47-07:00",
+ "updated": "2026-11-25T07:45:47-07:00",
  "tomtom_use": {
   "flow": 2036,
-  "routing": 2237
+  "routing": 2243
  },
  "tomtom_caps": {
   "routing": 19000,
