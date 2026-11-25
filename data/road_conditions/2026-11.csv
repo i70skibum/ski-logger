@@ -871,3 +871,6 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-24T22:15:48-07:00,490,CO 91,Fremont Pass,0.0,22.6,"4s-9 - wet in areas, icy spots","CO 91, between US 24 (Leadville) and I-70 (2 miles north of Fremont Pass)"
 2026-11-24T22:15:48-07:00,72,CO 65,Grand Mesa,0.0,51.2,"4s-9 - wet in areas, icy spots","CO 65, between CO 92 and CO 330 (Grand Mesa)"
 2026-11-24T22:15:48-07:00,70,CO 62,Dallas Divide,0.0,23.4,"4s-9 - wet in areas, icy spots","CO 62, between CO 145 (4 miles west of the Dallas Divide area) and US 550; Hunter Parkway (Ridgway)"
+2026-11-24T22:45:46-07:00,430,US 50,Monarch Pass,190.3,208.3,9 - icy spots,"US 50, between MP 190 (1 mile west of the Monarch Pass area) and MP 209 (near Monarch Pass)"
+2026-11-24T22:45:46-07:00,49,CO 9,Hoosier Pass - Frisco,66.6,97.2,9 - icy spots,"CO 9, between 3rd Street (1 mile north of Fairplay) and I-70; County Road 1231 (Frisco)"
+2026-11-24T22:45:46-07:00,226,US 160,Wolf Creek Pass,145.8,186.1,9 - icy spots,"US 160, between Paul Hood Place (near Pagosa Springs) and Park Drive (South Fork)"
