@@ -4782,10 +4782,10 @@
    "name": "Berthoud Pass (US 40, Empire to Winter Park)",
    "W": {
     "delay_min": 0.0,
-    "minutes": 31.4,
+    "minutes": 30.9,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-25T14:00:47-07:00",
+    "at": "2026-11-25T14:15:46-07:00",
     "line": [
      [
       39.76107,
@@ -5535,10 +5535,10 @@
    },
    "E": {
     "delay_min": 0.0,
-    "minutes": 31.3,
+    "minutes": 30.8,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-25T14:00:47-07:00",
+    "at": "2026-11-25T14:15:46-07:00",
     "line": [
      [
       39.88623,
@@ -7858,11 +7858,11 @@
   "eldora_boulder": {
    "name": "Coors Field to Eldora by Boulder Canyon (US 36, CO 119)",
    "E": {
-    "delay_min": 4.2,
-    "minutes": 71.9,
+    "delay_min": 4.5,
+    "minutes": 72.2,
     "free_min": 67.7,
     "detour": false,
-    "at": "2026-11-25T14:00:47-07:00",
+    "at": "2026-11-25T14:15:46-07:00",
     "line": [
      [
       39.93746,
@@ -15850,11 +15850,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 5.2,
-    "minutes": 31.9,
+    "delay_min": 5.0,
+    "minutes": 31.7,
     "free_min": 26.7,
     "detour": false,
-    "at": "2026-11-25T14:00:47-07:00",
+    "at": "2026-11-25T14:15:46-07:00",
     "line": [
      [
       39.74245,
@@ -16143,10 +16143,10 @@
    "points_at": "2026-11-25T14:00:47-07:00",
    "W": {
     "delay_min": 2.4,
-    "minutes": 32.0,
+    "minutes": 31.9,
     "free_min": 29.6,
     "detour": false,
-    "at": "2026-11-25T14:00:47-07:00",
+    "at": "2026-11-25T14:15:46-07:00",
     "line": [
      [
       39.75702,
@@ -17147,10 +17147,10 @@
    "points_at": "2026-11-25T14:00:47-07:00",
    "E": {
     "delay_min": null,
-    "minutes": 54.7,
+    "minutes": 54.8,
     "free_min": 51.2,
     "detour": true,
-    "at": "2026-11-25T14:00:47-07:00"
+    "at": "2026-11-25T14:15:46-07:00"
    }
   },
   "corridor": {
@@ -18509,10 +18509,10 @@
    "points_at": "2026-11-25T14:00:47-07:00"
   }
  },
- "updated": "2026-11-25T14:00:47-07:00",
+ "updated": "2026-11-25T14:15:46-07:00",
  "tomtom_use": {
   "flow": 2228,
-  "routing": 2465
+  "routing": 2471
  },
  "tomtom_caps": {
   "routing": 19000,
