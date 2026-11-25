@@ -376,6 +376,8 @@ footer { color: var(--ink2); font-size: 12px; }
   .zoom { position: static; }
   #linewrap { touch-action: pan-y; }
 }
+.leave { margin-top: 18px; padding: 14px 16px; border-radius: 14px; background: var(--card); border: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; max-width: 560px; } .leave small { font-size: 12px; font-weight: 700; letter-spacing: .14em; color: var(--ink2); } .leave b { font: 700 28px/1.15 "Space Grotesk", sans-serif; color: var(--ink); } .leave span { color: var(--ink2); font-size: 14.5px; }
+.leavetabs { align-self: flex-start; margin-bottom: 8px; } .leavetabs button { min-height: 34px; padding: 6px 14px; font-size: 13px; } .leavepick { margin-top: 6px; padding-top: 8px; border-top: 1px solid var(--line); color: var(--ink) !important; font-size: 14px !important; }
 .kick-sub { font-size: 13px; color: var(--ink2); margin: -2px 0 8px; font-weight: 500; letter-spacing: .01em; }
 .map-hint { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 800; background: rgba(15,26,36,.92); color: var(--ink); font: 600 13px Inter, sans-serif; padding: 9px 14px; border-radius: 999px; opacity: 0; transition: opacity .2s; pointer-events: none; white-space: nowrap; }
 .map-hint.on { opacity: 1; }
@@ -851,7 +853,7 @@ function verdict(ctx, ranked, model, hour) {
     return { level: "good", line: "Fresh snow on a weekday. Call in sick.", why: `${top.new24}" new at ${top.name} and nobody else is up there.` };
   if (!weekend)
     return { level: "good", line: "Empty roads, empty lifts.", why: "Weekday. Nothing to fight through." };
-  return { level: "good", line: top.new24 >= 1 ? "Roads are fine. Go get it." : "Clear roads, old snow. Groomer day.", why: `${top.name} is the pick. ${prof.leave === "No rush going up" ? "No rush heading up." : prof.leave + " to beat the usual rush."}` };
+  return { level: "good", line: top.new24 >= 1 ? "Roads are fine. Go get it." : "Clear roads, old snow. Groomer day.", why: `${top.name} is the pick.` + (morning ? ` ${prof.leave === "No rush going up" ? "No rush heading up." : prof.leave + " to beat the usual rush."}` : "") };
 }
 if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift, parseCSV, denverParts, prevMonth, segments, refSpeeds, delayMin, delaySeries, snowSummary, latestForecast, latestConds, onRoute, cleanCond, condLevel, rank, headline, nearLandmark, RESORTS, trafficDay, dayScore, tierOf, openOn, hourly, altStatus, ALTERNATES, routeHourly, scoreResort };
 </script>
@@ -941,7 +943,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     return { closures, sp, kind: closures.length ? "closed" : dir ? kindOf(sp[dir]) : worse(kindOf(sp.W), kindOf(sp.E)) };
   }
   function i70Overall() {
-    const { ctx } = D, row = ctx.speedRow, morning = denverHour() < 12;
+    const { ctx } = D, row = ctx.speedRow, morning = denverHour() < 11;
     const closures = ctx.events.filter(e => isClosure(e) && normRoute(e.route) === "I70" && overlaps(e.mp_start, e.mp_end, 195, 276));
     const up = row ? delayMin(row, ctx.segs, ctx.refs, "W", RESORTS.copper.westLon) : null;
     const home = row ? delayMin(row, ctx.segs, ctx.refs, "E", RESORTS.copper.westLon) : null;
@@ -1204,7 +1206,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   let selHour = null;
   const dpIso = () => viewDays()[vday];
   const mapIso = () => vday > 0 || selHour != null ? dpIso() : null;
-  const dpDir = () => mapDir || (vday === 0 ? (denverHour() < 12 ? "W" : "E") : "W");
+  const dpDir = () => mapDir || (vday === 0 ? (denverHour() < 11 ? "W" : "E") : "W");
   const dpHour = dir => selHour != null ? selHour : vday === 0 ? Math.min(23, Math.max(0, denverHour())) : dir === "W" ? 7 : 16;
   const clock12 = h => `${h % 12 || 12} ${h < 12 ? "AM" : "PM"}`;
   const clockS = h => `${h % 12 || 12}${h < 12 ? "a" : "p"}`;
@@ -1396,8 +1398,31 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     try { v = ranked.length ? verdict(ctx, ranked, D.model, denverHour()) : null; } catch (e) { console.error(e); }
     if (!v) v = { level: "", line: anyShown ? "Nothing's open yet." : "Pick a pass below.", why: anyShown ? "None of the mountains you picked are open yet." : "Turn on at least one group of resorts." };
     box.className = "verdict " + v.level;
-    const hr = denverHour(), period = hr < 12 ? "about the drive up, until noon" : hr < 20 ? "about the drive home, this afternoon and evening" : "today's driving is done, tap Tomorrow";
+    const hr = denverHour(), afternoon = hr >= 11 && hr < 20, dir = dpDir(), oname = RESORTS[dpOriginKey()].name;
+    const period = hr < 11 ? "about the drive up, until 11" : !afternoon ? "today's driving is done, tap Tomorrow" : dir === "E" ? `heading home from ${oname}` : `going up to ${oname} this afternoon`;
     box.append(el("div", "kick", "TODAY'S CALL"), el("div", "kick-sub", period), el("h1", "", v.line), el("p", "", v.why));
+    if (afternoon) { try { box.append(leaveCard(hr, dir)); } catch (e) { console.error(e); } }
+  }
+  // After 11 AM the question is usually when to leave the mountain, so that is the default; one tap flips it to going up.
+  // The day's pick stays on the card either way.
+  function leaveCard(hr, dir) {
+    const key = dpOriginKey(), iso = D.day, c = el("div", "leave"), home = dir === "E", top = (D.ranked || [])[0];
+    const tabs = el("div", "seg leavetabs"); [["E", "Heading home"], ["W", "Going up"]].forEach(([d, t]) => { const x = el("button", d === dir ? "on" : "", t); x.onclick = () => { mapDir = d; selHour = null; render(); }; tabs.append(x); });
+    c.append(tabs, el("small", "", home ? "WHEN TO LEAVE" : "WHEN TO GO UP"));
+    if (dpClosed(key, dir, iso)) { c.append(el("b", "", "Don't, yet."), el("span", "", `COtrip has the road ${home ? "home" : "up"} closed. Check COtrip before you go.`)); }
+    else {
+      const rows = []; for (let h = Math.max(hr, 11); h <= 19; h++) rows.push([h, tripAt(key, dir, iso, h)]);
+      const BAD = 15, bad = rows.filter(([, t]) => t.extra >= BAD).map(([h]) => h), now = rows[0][1], conf = Math.round(now.conf * 100), where = home ? "home" : "up";
+      const live = (() => { try { const I = i70Overall(); return home ? I.home : I.up; } catch (e) { return null; } })();
+      let head, sub;
+      if (!bad.length) { head = "No rush."; sub = `Nothing slow expected the rest of today, about ${hmm(now.minutes)} ${where}.`; }
+      else if (bad[0] > hr) { const last = bad[bad.length - 1]; head = home ? `Leave before ${clock12(bad[0])}` : `Go before ${clock12(bad[0])}`; sub = `Slow from about ${clock12(bad[0])}` + (last < 19 ? ` to ${clock12(last + 1)}` : " into the evening") + `: about ${hmm(now.minutes)} ${where} now, ${hmm(Math.max(...rows.map(([, t]) => t.minutes)))} at the worst.`; }
+      else { const last = bad[bad.length - 1]; head = last < 19 ? `Wait until ${clock12(last + 1)}` : "It's slow all evening"; sub = `Expected ${hmm(now.minutes)} ${where} now, ${now.extra >= 1 ? "+" + Math.round(now.extra) + " min" : "normal"} over an empty road` + (last < 19 ? `, easing after ${clock12(last + 1)}.` : "."); }
+      if (live != null && live >= 15 && bad.length && bad[0] !== hr) sub += ` I-70 ${home ? "eastbound" : "westbound"} is ${live} minutes slow right now.`;
+      c.append(el("b", "", head), el("span", "", sub + ` ${conf}% confidence.`));
+    }
+    if (top) c.append(el("span", "leavepick", `Today's pick: ${top.name}${top.new24 >= 1 ? `, ${top.new24}" new` : ""}${top.via ? `, ${top.via}` : ""}.`));
+    return c;
   }
 
   function wayRow(name, note, time, kind, word) {
@@ -1700,7 +1725,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const PH = PHONE(); $("lineinner").style.width = (PH ? 420 : 1320) + "px"; $("lineinner").style.height = (PH ? 1250 : 580) + "px";
     const P_ = (x1, y1, x2, y2, k, t, i) => PH ? piece(box, ...tfP(x1, y1), ...tfP(x2, y2), k, t, i) : piece(box, x1, y1, x2, y2, k, t, i);
     const A_ = (cls, x, y, w, h, text) => PH ? at(box, cls, ...tfP(x, y), w, h, text) : at(box, cls, x, y, w, h, text);
-    const dir = mapDir || (denverHour() < 12 ? "W" : "E"), dname = dir === "W" ? "westbound" : "eastbound";
+    const dir = mapDir || (denverHour() < 11 ? "W" : "E"), dname = dir === "W" ? "westbound" : "eastbound";
     $("d-w").classList.toggle("on", dir === "W"); $("d-e").classList.toggle("on", dir === "E");
     dpOriginKey();
     drawOriginMenu(dir);
