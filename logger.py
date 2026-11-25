@@ -1419,6 +1419,12 @@ def log_traffic_model(state):
         for name, (h0, h1, d) in (("amW", (5, 10, "W")), ("pmE", (13, 19, "E")), ("pmW", (14, 20, "W"))):
             got = [x.isoformat() for x in dates if x.weekday() == dow and typical(x) and covered(x, h0, h1, d)]
             coverage[f"{dow}-{name}"] = {"n": len(got), "dates": got[-8:]}
+    # Day by day (all seven days, not just weekends): what each logged day contributed.
+    daily = []
+    for x in dates:
+        daily.append({"d": x.isoformat(), "snaps": sum(v for k, v in snaps.items() if k[0] == x),
+                      "win": [int(covered(x, h0, h1, d)) for h0, h1, d in ((5, 10, "W"), (14, 20, "W"), (13, 19, "E"))],
+                      "typical": bool(typical(x))})
     key_cov = {}
     for k, (dow, h0, h1, d) in KEY_WINDOWS.items():
         got = [x.isoformat() for x in dates if x.weekday() == dow and typical(x) and covered(x, h0, h1, d)]
@@ -1528,7 +1534,7 @@ def log_traffic_model(state):
     graded = [{"weekend": k, "mean_error_min": v.get("mean_error_min"), "error_min": v.get("error_min"),
                "day_types": v.get("day_types"), "source": sorted({w["source"] for w in v["windows"].values()})}
               for k, v in sorted(preds.items()) if "graded" in v]
-    model = {"updated": NOW_ISO, "first_day": dates[0].isoformat() if dates else None, "days_logged": len(dates),
+    model = {"updated": NOW_ISO, "first_day": dates[0].isoformat() if dates else None, "days_logged": len(dates), "daily": daily,
              "slots": slots, "coverage": coverage, "key_windows": key_cov, "target": WINDOW_TARGET,
              "conditions_seen": seen, "holidays": hols, "days": days, "day_types": day_types,
              "pass_blackouts": calendar().get("pass_blackouts", []), "generic": GENERIC, "graded": graded,
