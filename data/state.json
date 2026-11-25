@@ -113,6 +113,34 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
+  "roadReports:CDOT-36568188699EB": {
+   "began": "2026-11-24T16:50:58-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36568188699EB",
+   "lat": 39.78451,
+   "lon": -105.08705,
+   "mp_end": "",
+   "mp_start": 268.72730306433726,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Two left lanes closed.",
+   "type": "urgent"
+  },
+  "roadReports:CDOT-36568188699WB": {
+   "began": "2026-11-24T16:50:58-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36568188699WB",
+   "lat": 39.78451,
+   "lon": -105.08706,
+   "mp_end": "",
+   "mp_start": 268.72719392730363,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Lane(s) reopened to traffic.",
+   "type": "urgent"
+  },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
    "class": "roadWork",
@@ -1249,7 +1277,7 @@
   }
  },
  "forecast_last": "2026-11-24T21:45:46+00:00",
- "last_run": "2026-11-24T16:45:46-07:00",
+ "last_run": "2026-11-24T17:00:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-24": {
@@ -2004,9 +2032,9 @@
   "monarch": "2026-11-24 15:00",
   "powderhorn": "2026-11-24 15:00",
   "purgatory": "2026-11-24 15:00",
-  "steamboat": "2026-11-24 15:00",
+  "steamboat": "2026-11-24 16:00",
   "sunlight": "2026-11-24 15:00",
-  "telluride": "2026-11-24 14:00",
+  "telluride": "2026-11-24 15:00",
   "vail": "2026-11-24 15:00",
   "winterpark": "2026-11-24 15:00",
   "wolfcreek": "2026-11-24 15:00"
@@ -2265,14 +2293,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-24T23:30:53+00:00",
- "tomtom_routing_last": "2026-11-24T23:45:46+00:00",
+ "tomtom_flow_last": "2026-11-25T00:00:46+00:00",
+ "tomtom_routing_last": "2026-11-25T00:00:46+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 1844
+   "2026-11": 1860
   },
   "routing": {
-   "2026-11": 2015
+   "2026-11": 2028
   }
  },
  "traffic_model_last": "2026-11-24T21:45:46+00:00"
