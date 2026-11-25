@@ -867,3 +867,7 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-24T17:45:47-07:00,247,US 550,Molas Pass,65.9,74.9,3 - dry; 4s - wet in areas,"US 550, between County Road 60B (near Molas Divide) and County Road 8 (near South Red Mountain Pass)"
 2026-11-24T17:45:47-07:00,441,US 160,Mancos Hill-Hesperus,56.0,79.9,3 - dry,"US 160, between Beech Street (Mancos) and County Road 141 (near Durango)"
 2026-11-24T20:00:46-07:00,226,US 160,Wolf Creek Pass,145.8,186.1,"4s-9 - wet in areas, icy spots","US 160, between Paul Hood Place (near Pagosa Springs) and Park Drive (South Fork)"
+2026-11-24T22:15:48-07:00,151,CO 145,Lizard Head Pass,46.4,71.6,"4s-9 - wet in areas, icy spots","CO 145, between Scotch Creek Road (Lizard Head Pass) and Nimbus Drive (near Telluride)"
+2026-11-24T22:15:48-07:00,490,CO 91,Fremont Pass,0.0,22.6,"4s-9 - wet in areas, icy spots","CO 91, between US 24 (Leadville) and I-70 (2 miles north of Fremont Pass)"
+2026-11-24T22:15:48-07:00,72,CO 65,Grand Mesa,0.0,51.2,"4s-9 - wet in areas, icy spots","CO 65, between CO 92 and CO 330 (Grand Mesa)"
+2026-11-24T22:15:48-07:00,70,CO 62,Dallas Divide,0.0,23.4,"4s-9 - wet in areas, icy spots","CO 62, between CO 145 (4 miles west of the Dallas Divide area) and US 550; Hunter Parkway (Ridgway)"
