@@ -376,6 +376,7 @@ footer { color: var(--ink2); font-size: 12px; }
   .zoom { position: static; }
   #linewrap { touch-action: pan-y; }
 }
+.kick-sub { font-size: 13px; color: var(--ink2); margin: -2px 0 8px; font-weight: 500; letter-spacing: .01em; }
 .map-hint { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 800; background: rgba(15,26,36,.92); color: var(--ink); font: 600 13px Inter, sans-serif; padding: 9px 14px; border-radius: 999px; opacity: 0; transition: opacity .2s; pointer-events: none; white-space: nowrap; }
 .map-hint.on { opacity: 1; }
 </style>
@@ -1091,7 +1092,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       const row = el("button", "sh-row" + (k === origin ? " on" : "")), l = el("div"), rt = el("b", "", !open ? "Closed" : cl && h >= cl.from ? "Closed" : hmm(t.minutes));
       l.append(el("b", "", o.name + (k === best ? "  ·  best pick" : "")), el("small", "", open ? `${r ? r.new24 : 0}″ new${st.lifts ? " · " + st.lifts.replace(" of ", "/") + " lifts" : ""}` : "Not open yet"));
       const w = el("div", "sh-rt"); w.append(rt, el("small", "", open ? (dir === "W" ? "from Coors" : "to Coors") : ""));
-      row.append(l, w); row.onclick = () => { origin = k; try { localStorage.setItem("ski-origin", k); } catch (e) {} closeSheet(); render(); }; return row;
+      row.append(l, w); row.onclick = () => { pickOrigin(k); closeSheet(); render(); }; return row;
     });
     openSheet("Going to", `Drive times are for leaving ${dir === "W" ? "Coors" : "the mountain"} at ${clock12(h)}, ${dir === "W" ? "westbound" : "eastbound"}.`, rows);
   }
@@ -1244,7 +1245,10 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   const dpOrigin = () => {
     const rk = k => { const i = (D.ranked || []).findIndex(r => r.key === k); return i < 0 ? 99 : i; };
     const list = ORIGINS.filter(o => !RESORTS[o.key] || shown(o.key)).sort((a, b) => rk(a.key) - rk(b.key));
-    if (!origin || !list.some(o => o.key === origin)) { const top = (D.ranked || []).find(r => list.some(o => o.key === r.key)); origin = top ? top.key : (list[0] || ORIGINS[0]).key; }
+    if (!originPicked || !origin || !list.some(o => o.key === origin)) {
+      originPicked = false; const best = dpBest(), top = (D.ranked || []).find(r => list.some(o => o.key === r.key));
+      origin = best && list.some(o => o.key === best) ? best : top ? top.key : (list[0] || ORIGINS[0]).key;
+    }
     return list;
   };
   function dpBest() {
@@ -1270,7 +1274,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       const b = el("button", "dp-rpill" + (k === origin ? " on" : "") + (open ? "" : " dim"));
       if (k === best) b.append(el("span", "bp", "Best pick"));
       b.append(el("b", "", o.name), el("small", "", sub)); b.setAttribute("aria-pressed", k === origin);
-      b.onclick = () => { origin = k; try { localStorage.setItem("ski-origin", k); } catch (e) {} render(); };
+      b.onclick = () => { pickOrigin(k); render(); };
       pills.append(b);
     });
     const ch = el("button", "dp-change", "Change"); ch.onclick = resortSheet; left.append(ch);
@@ -1392,7 +1396,8 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     try { v = ranked.length ? verdict(ctx, ranked, D.model, denverHour()) : null; } catch (e) { console.error(e); }
     if (!v) v = { level: "", line: anyShown ? "Nothing's open yet." : "Pick a pass below.", why: anyShown ? "None of the mountains you picked are open yet." : "Turn on at least one group of resorts." };
     box.className = "verdict " + v.level;
-    box.append(el("div", "kick", "TODAY'S CALL"), el("h1", "", v.line), el("p", "", v.why));
+    const hr = denverHour(), period = hr < 12 ? "about the drive up, until noon" : hr < 20 ? "about the drive home, this afternoon and evening" : "today's driving is done, tap Tomorrow";
+    box.append(el("div", "kick", "TODAY'S CALL"), el("div", "kick-sub", period), el("h1", "", v.line), el("p", "", v.why));
   }
 
   function wayRow(name, note, time, kind, word) {
@@ -1615,7 +1620,9 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     { key: "loveland", name: "Loveland", dot: "x216", paths: home([], -105.88) },
     { key: "winterpark", name: "Winter Park", dot: "winterpark", paths: home([{ r: "berthoud" }], -105.66).map(([l, p]) => ["Berthoud, then " + l, p]) },
     { key: "eldora", name: "Eldora", dot: "eldora", paths: [["Boulder Canyon", [{ r: "eldora_boulder" }]], ["Coal Creek", [{ r: "eldora_coal" }]], ["Black Hawk", [{ r: "eldora_119" }]]] }];
-  let origin = null; try { origin = localStorage.getItem("ski-origin"); } catch (e) {}
+  // The mountain to time defaults to what the page recommends for the day, every load. Picking another one holds for this visit only.
+  let origin = null, originPicked = false;
+  const pickOrigin = k => { origin = k; originPicked = true; };
   // Minutes on I-70 between two longitudes in one direction, from CDOT's speeds (scaled up for a few missing readings).
   function i70Min(dir, a, b) {
     const row = D.ctx.speedRow; if (!row) return null;
@@ -1695,7 +1702,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const A_ = (cls, x, y, w, h, text) => PH ? at(box, cls, ...tfP(x, y), w, h, text) : at(box, cls, x, y, w, h, text);
     const dir = mapDir || (denverHour() < 12 ? "W" : "E"), dname = dir === "W" ? "westbound" : "eastbound";
     $("d-w").classList.toggle("on", dir === "W"); $("d-e").classList.toggle("on", dir === "E");
-    if (!origin || !ORIGINS.some(o => o.key === origin)) { const top = (D.ranked || []).find(r => ORIGINS.some(o => o.key === r.key)); origin = top ? top.key : "copper"; }
+    dpOriginKey();
     drawOriginMenu(dir);
     const states = {}, desc = [];
     const F = fut(), E = mapIso(), H = dpHour(dir), FD = E ? dayLabel(vday) : null;
@@ -1853,7 +1860,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     m.replaceChildren(el("div", "dmhead", "Heading home from"));
     ORIGINS.filter(o => o.key !== "eldora" || shown("eldora")).forEach(o => {
       const b = el("button", o.key === org.key ? "on" : "", o.name); b.setAttribute("role", "menuitemradio"); b.setAttribute("aria-checked", o.key === org.key);
-      b.onclick = ev => { ev.stopPropagation(); origin = o.key; try { localStorage.setItem("ski-origin", o.key); } catch (e) {} mapDir = "E"; $("d-ewrap").classList.remove("open"); drawLine(); };
+      b.onclick = ev => { ev.stopPropagation(); pickOrigin(o.key); mapDir = "E"; $("d-ewrap").classList.remove("open"); drawLine(); };
       m.append(b);
     });
   }
