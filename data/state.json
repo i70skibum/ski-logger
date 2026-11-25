@@ -883,29 +883,15 @@
    "title": "US 550: Icy spots.",
    "type": "standard"
   },
-  "winterDriving:COSEG-589561": {
-   "began": "2026-11-25T04:17:25.039000-07:00",
+  "winterDriving:COSEG-589601": {
+   "began": "2026-11-25T07:28:26.237000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-589561",
+   "id": "COSEG-589601",
    "lat": 37.68247,
    "lon": -108.0335,
-   "mp_end": 71.57274062998921,
-   "mp_start": 46.43321074882593,
-   "pos_bearing": "N",
-   "route": "CO 145",
-   "title": "CO 145: Icy spots.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-589562": {
-   "began": "2026-11-25T04:17:25.039000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-589562",
-   "lat": 37.95047,
-   "lon": -107.87306,
    "mp_end": 116.87899764402346,
-   "mp_start": 71.57274062998921,
+   "mp_start": 46.43321074882593,
    "pos_bearing": "N",
    "route": "CO 145",
    "title": "CO 145: Icy spots.",
@@ -913,7 +899,7 @@
   }
  },
  "forecast_last": "2026-11-25T13:15:50+00:00",
- "last_run": "2026-11-25T07:45:47-07:00",
+ "last_run": "2026-11-25T08:00:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-25": {
@@ -1670,7 +1656,7 @@
   "purgatory": "2026-11-25 06:00",
   "steamboat": "2026-11-25 06:00",
   "sunlight": "2026-11-25 06:00",
-  "telluride": "2026-11-25 05:00",
+  "telluride": "2026-11-25 06:00",
   "vail": "2026-11-25 06:00",
   "winterpark": "2026-11-25 06:00",
   "wolfcreek": "2026-11-25 06:00"
@@ -1929,14 +1915,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-25T14:30:47+00:00",
- "tomtom_routing_last": "2026-11-25T14:45:47+00:00",
+ "tomtom_flow_last": "2026-11-25T15:00:47+00:00",
+ "tomtom_routing_last": "2026-11-25T15:00:47+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 2036
+   "2026-11": 2052
   },
   "routing": {
-   "2026-11": 2243
+   "2026-11": 2256
   }
  },
  "traffic_model_last": "2026-11-25T13:15:50+00:00"
