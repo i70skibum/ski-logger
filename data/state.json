@@ -57,6 +57,186 @@
    "title": "US 160 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadClosures:CDOT-36582139750EB": {
+   "began": "2026-12-02T21:00:00-07:00",
+   "class": "roadClosures",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36582139750EB",
+   "lat": 39.74348,
+   "line": [
+    [
+     39.74348,
+     -105.44336
+    ],
+    [
+     39.74354,
+     -105.44309
+    ],
+    [
+     39.74377,
+     -105.44248
+    ],
+    [
+     39.74485,
+     -105.4408
+    ],
+    [
+     39.74543,
+     -105.43968
+    ],
+    [
+     39.7456,
+     -105.43896
+    ],
+    [
+     39.74562,
+     -105.43824
+    ],
+    [
+     39.7455,
+     -105.43763
+    ],
+    [
+     39.74406,
+     -105.43429
+    ],
+    [
+     39.74372,
+     -105.43378
+    ],
+    [
+     39.74338,
+     -105.43346
+    ],
+    [
+     39.74278,
+     -105.43321
+    ],
+    [
+     39.74161,
+     -105.43312
+    ],
+    [
+     39.74103,
+     -105.43298
+    ],
+    [
+     39.73804,
+     -105.43143
+    ],
+    [
+     39.73439,
+     -105.42849
+    ],
+    [
+     39.73373,
+     -105.428
+    ],
+    [
+     39.73279,
+     -105.42741
+    ],
+    [
+     39.73112,
+     -105.42664
+    ],
+    [
+     39.73042,
+     -105.42619
+    ],
+    [
+     39.72982,
+     -105.42559
+    ],
+    [
+     39.72884,
+     -105.42415
+    ],
+    [
+     39.72829,
+     -105.42351
+    ],
+    [
+     39.72719,
+     -105.42258
+    ],
+    [
+     39.72651,
+     -105.42189
+    ],
+    [
+     39.72594,
+     -105.42106
+    ],
+    [
+     39.72403,
+     -105.41757
+    ],
+    [
+     39.72369,
+     -105.41682
+    ],
+    [
+     39.72356,
+     -105.41662
+    ],
+    [
+     39.72349,
+     -105.41641
+    ],
+    [
+     39.72304,
+     -105.41548
+    ],
+    [
+     39.72284,
+     -105.41491
+    ],
+    [
+     39.72245,
+     -105.41399
+    ],
+    [
+     39.72239,
+     -105.41376
+    ],
+    [
+     39.722,
+     -105.41269
+    ],
+    [
+     39.72162,
+     -105.41139
+    ],
+    [
+     39.72121,
+     -105.40982
+    ],
+    [
+     39.72106,
+     -105.40931
+    ],
+    [
+     39.71946,
+     -105.40288
+    ],
+    [
+     39.71901,
+     -105.40171
+    ],
+    [
+     39.71898,
+     -105.40165
+    ]
+   ],
+   "lon": -105.44336,
+   "mp_end": 247.02455879246446,
+   "mp_start": 244.00539291801527,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
+   "type": "critical"
+  },
   "roadClosures:COSEG-589046": {
    "began": "2026-11-22T18:22:59.216000-07:00",
    "class": "roadClosures",
@@ -827,6 +1007,118 @@
    "title": "US 24 in both directions: Right shoulder closed.",
    "type": "routine"
   },
+  "roadWork:CDOT-36582138040EB": {
+   "began": "2026-12-01T07:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36582138040EB",
+   "lat": 39.74629,
+   "lon": -105.46053,
+   "mp_end": 245.01478792534718,
+   "mp_start": 242.99921860041002,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Right lane closed.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36582138236EB": {
+   "began": "2026-12-02T07:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36582138236EB",
+   "lat": 39.74629,
+   "lon": -105.46053,
+   "mp_end": 245.01478792534718,
+   "mp_start": 242.99921860041002,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Right lane closed.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36582138630EB": {
+   "began": "2026-12-03T07:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36582138630EB",
+   "lat": 39.74629,
+   "lon": -105.46053,
+   "mp_end": 245.01478792534718,
+   "mp_start": 242.99921860041002,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Right lane closed.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36582139735EB": {
+   "began": "2026-11-30T07:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36582139735EB",
+   "lat": 39.74192,
+   "lon": -105.43185,
+   "mp_end": 270.0012481069761,
+   "mp_start": 269.52399999060435,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40 eastbound: Road construction.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36582139750EB": {
+   "began": "2026-12-02T21:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36582139750EB",
+   "lat": 39.74348,
+   "lon": -105.44336,
+   "mp_end": 247.02455879246446,
+   "mp_start": 244.00539291801527,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Road closed.",
+   "type": "critical"
+  },
+  "roadWork:CDOT-36582139819EB": {
+   "began": "2026-12-02T07:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36582139819EB",
+   "lat": 39.74192,
+   "lon": -105.43185,
+   "mp_end": 270.0012481069761,
+   "mp_start": 269.52399999060435,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40 eastbound: Road construction.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36582139931EB": {
+   "began": "2026-12-03T07:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36582139931EB",
+   "lat": 39.74192,
+   "lon": -105.43185,
+   "mp_end": 270.0012481069761,
+   "mp_start": 269.52399999060435,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40 eastbound: Road construction.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36582139977WB": {
+   "began": "2026-12-01T09:00:00-07:00",
+   "class": "roadWork",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36582139977WB",
+   "lat": 39.74562,
+   "lon": -105.43834,
+   "mp_end": 244.5343739114466,
+   "mp_start": 244.30631625779057,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Road construction.",
+   "type": "routine"
+  },
   "winterDriving:COSEG-522873": {
    "began": "2026-11-23T19:16:02.258000-07:00",
    "class": "winterDriving",
@@ -969,7 +1261,7 @@
   }
  },
  "forecast_last": "2026-11-25T16:30:47+00:00",
- "last_run": "2026-11-25T10:00:46-07:00",
+ "last_run": "2026-11-25T10:15:49-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-25": {
@@ -1709,7 +2001,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-25 08:00",
+  "abasin": "2026-11-25 09:00",
   "aspen": "2026-11-25 08:00",
   "beavercreek": "2026-11-25 08:00",
   "breck": "2026-11-25 08:00",
@@ -1719,7 +2011,7 @@
   "echo": "2026-11-25 08:00",
   "eldora": "2026-11-25 08:00",
   "granby": "2026-11-25 08:00",
-  "keystone": "2026-11-25 08:00",
+  "keystone": "2026-11-25 09:00",
   "loveland": "2026-11-25 08:00",
   "monarch": "2026-11-25 08:00",
   "powderhorn": "2026-11-25 08:00",
@@ -1986,13 +2278,13 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-25T17:00:46+00:00",
- "tomtom_routing_last": "2026-11-25T17:00:46+00:00",
+ "tomtom_routing_last": "2026-11-25T17:15:49+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 2100
   },
   "routing": {
-   "2026-11": 2313
+   "2026-11": 2319
   }
  },
  "traffic_model_last": "2026-11-25T16:30:47+00:00"
