@@ -1,0 +1,85 @@
+
+000
+FXUS65 KBOU 250527
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1027 PM MST Tue Nov 24 2026
+
+.KEY MESSAGES... 
+
+- A gradual warming trend likely through the rest of the workweek,
+  with quiet weather expected through Thanksgiving.
+
+- Gusty winds expected along the northern Front Range on Friday
+  and Saturday.
+
+- Next storm system could bring snow to the mountains this
+  weekend, with lower confidence for precipitation over the 
+  plains.
+  
+
+&&
+
+.DISCUSSION /Through Tuesday/...
+Issued at 1021 PM MST Tue Nov 24 2026
+
+Above-normal temperatures and dry conditions will prevail through 
+much of the work week. Weak upper level ridging will be near the 
+area as a strong upper low sits to our east and a trough moves onto 
+the West Coast Wednesday. For Thanksgiving, temperatures will be in 
+the upper 40s to mid 50s for the plains and the 30s and 40s for the 
+higher terrain. Winds will be on the lighter side for the plains 
+(generally less than 15mph) with mostly sunny skies on Thursday. 
+Temperatures will peak on Friday with highs in the low 60s for much 
+of the plains. 
+
+On Friday, an upper level low is forecast to develop to our 
+north/northeast over Canada and a strong high is forecast to develop 
+to our southwest over the Pacific. This will put us in an area of 
+strong northwest winds aloft. Winds will start to pick up in the 
+higher terrain overnight Thursday into Friday, peaking Saturday 
+morning. Stronger winds could make it onto the plains on Saturday
+as a cold front is dragged through the area. However, there is 
+still a lot of model uncertainty with the system this weekend. The
+ECMWF is still showing a more potent shortwave moving through on 
+Saturday with a strong cold front. While the GFS has a much more 
+subtle shortwave and weaker front. Other models are more on board 
+with the Euro than the GFS. Also, the GFS is trending slightly 
+stronger with the front in latest runs. This has us leaning more 
+towards the stronger front and better precip chances solution fort
+his weekend. Confidence is high in snow falling in our northern 
+mountains, with decreasing confidence as we go further south and 
+further east on the plains. Chances for snow on the plains will 
+depend on the shortwave and timing/strength of the front, with 
+the current NBM at a low to medium chance (10% to 40%) for at 
+least a trace of snow across the plains by Sunday morning. 
+
+Temperatures will drop closer to normal for the weekend, with highs 
+in the 40s and low 50s. Forecast uncertainty continues for early 
+next week as models show very different solutions on the potential 
+progression of another shortwave and front Monday.
+
+&&
+
+.AVIATION /06Z TAFS through 06Z Thursday/...
+Issued at 1025 PM MST Tue Nov 24 2026
+
+VFR conditions will prevail for all terminals through the TAF
+period. Typical diurnal wind patterns are expected today, with
+current southerly drainage flow at KDEN and KAPA transitioning to
+SE flow near 16Z and more easterly flow by the afternoon, also
+impacting KBJC. Winds will return to drainage in the evening.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...AP
+AVIATION...BRQ
