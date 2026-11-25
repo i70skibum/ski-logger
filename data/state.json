@@ -701,20 +701,6 @@
    "title": "CO 119 southbound: Right lane closed.",
    "type": "routine"
   },
-  "roadWork:CDOT-36571956233WB": {
-   "began": "2026-11-24T22:00:00-07:00",
-   "class": "roadWork",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36571956233WB",
-   "lat": 39.73928,
-   "lon": -105.1598,
-   "mp_end": 261.77700005474617,
-   "mp_start": 262.51283503381745,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 westbound: Right lane closed.",
-   "type": "routine"
-  },
   "winterDriving:COSEG-522873": {
    "began": "2026-11-23T19:16:02.258000-07:00",
    "class": "winterDriving",
@@ -955,7 +941,7 @@
   }
  },
  "forecast_last": "2026-11-25T07:15:46+00:00",
- "last_run": "2026-11-25T02:45:47-07:00",
+ "last_run": "2026-11-25T03:00:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-25": {
@@ -1712,7 +1698,7 @@
   "purgatory": "2026-11-25 01:00",
   "steamboat": "2026-11-25 01:00",
   "sunlight": "2026-11-25 01:00",
-  "telluride": "2026-11-25 00:00",
+  "telluride": "2026-11-25 01:00",
   "vail": "2026-11-25 01:00",
   "winterpark": "2026-11-25 01:00",
   "wolfcreek": "2026-11-25 01:00"
