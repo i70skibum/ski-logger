@@ -293,6 +293,20 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
+  "roadReports:CDOT-36583748176EB": {
+   "began": "2026-11-25T12:03:38-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36583748176EB",
+   "lat": 39.78347,
+   "lon": -105.00359,
+   "mp_end": "",
+   "mp_start": 273.1662857824503,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Lane(s) reopened to traffic.",
+   "type": "routine"
+  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -1289,7 +1303,7 @@
   }
  },
  "forecast_last": "2026-11-25T16:30:47+00:00",
- "last_run": "2026-11-25T12:02:35-07:00",
+ "last_run": "2026-11-25T12:15:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-25": {
@@ -2029,7 +2043,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-25 10:00",
+  "abasin": "2026-11-25 11:00",
   "aspen": "2026-11-25 10:00",
   "beavercreek": "2026-11-25 10:00",
   "breck": "2026-11-25 10:00",
@@ -2039,7 +2053,7 @@
   "echo": "2026-11-25 10:00",
   "eldora": "2026-11-25 10:00",
   "granby": "2026-11-25 10:00",
-  "keystone": "2026-11-25 10:00",
+  "keystone": "2026-11-25 11:00",
   "loveland": "2026-11-25 10:00",
   "monarch": "2026-11-25 10:00",
   "powderhorn": "2026-11-25 10:00",
@@ -2306,13 +2320,13 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-25T19:02:35+00:00",
- "tomtom_routing_last": "2026-11-25T19:02:35+00:00",
+ "tomtom_routing_last": "2026-11-25T19:15:46+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 2164
   },
   "routing": {
-   "2026-11": 2389
+   "2026-11": 2395
   }
  },
  "traffic_model_last": "2026-11-25T16:30:47+00:00"

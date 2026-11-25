@@ -1829,3 +1829,4 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-25T12:02:35-07:00,end,CDOT-36430754984WB,roadWork,routine,US 6,NEGATIVE_DIRECTION,E,404.0004668696125,398.15816387588694,US 6 westbound: Road maintenance operations.,2026-11-25T06:30:00-07:00
 2026-11-25T12:02:35-07:00,end,CDOT-36430755067EB,roadWork,routine,US 6,POSITIVE_DIRECTION,E,398.15816387588694,404.0004668696125,US 6 eastbound: Road maintenance operations.,2026-11-25T06:30:00-07:00
 2026-11-25T12:02:35-07:00,end,CDOT-36447074878EB,roadWork,routine,US 6,POSITIVE_DIRECTION,E,455.99674105752536,,US 6 eastbound: Bridge construction.,2026-11-25T06:30:00-07:00
+2026-11-25T12:15:46-07:00,start,CDOT-36583748176EB,roadReports,routine,I-70,POSITIVE_DIRECTION,E,273.1662857824503,,I-70 eastbound: Lane(s) reopened to traffic.,2026-11-25T12:03:38-07:00
