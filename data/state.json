@@ -127,20 +127,6 @@
    "title": "I-70 eastbound: Two left lanes closed.",
    "type": "urgent"
   },
-  "roadReports:CDOT-36568188699WB": {
-   "began": "2026-11-24T16:50:58-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36568188699WB",
-   "lat": 39.78451,
-   "lon": -105.08706,
-   "mp_end": "",
-   "mp_start": 268.72719392730363,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 westbound: Lane(s) reopened to traffic.",
-   "type": "urgent"
-  },
   "roadWork:CDOT-35509265054EB": {
    "began": "2026-11-12T07:01:00-07:00",
    "class": "roadWork",
@@ -309,20 +295,6 @@
    "title": "US 40 (Colfax Ave) westbound: Right lane closed.",
    "type": "routine"
   },
-  "roadWork:CDOT-36430754925WB": {
-   "began": "2026-11-24T06:30:00-07:00",
-   "class": "roadWork",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36430754925WB",
-   "lat": 40.6178,
-   "lon": -103.2113,
-   "mp_end": 398.15816387588694,
-   "mp_start": 404.0004668696125,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6 westbound: Road maintenance operations.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36430754984WB": {
    "began": "2026-11-25T06:30:00-07:00",
    "class": "roadWork",
@@ -335,20 +307,6 @@
    "pos_bearing": "E",
    "route": "US 6",
    "title": "US 6 westbound: Road maintenance operations.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36430755047EB": {
-   "began": "2026-11-24T06:30:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36430755047EB",
-   "lat": 40.54569,
-   "lon": -103.26643,
-   "mp_end": 404.0004668696125,
-   "mp_start": 398.15816387588694,
-   "pos_bearing": "E",
-   "route": "US 6",
-   "title": "US 6 eastbound: Road maintenance operations.",
    "type": "routine"
   },
   "roadWork:CDOT-36430755067EB": {
@@ -449,20 +407,6 @@
    "title": "US 50 in both directions: Right shoulder closed.",
    "type": "routine"
   },
-  "roadWork:CDOT-36484891720BOTH": {
-   "began": "2026-11-24T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36484891720BOTH",
-   "lat": 38.37169,
-   "lon": -104.93958,
-   "mp_end": 307.4199168769159,
-   "mp_start": 296.23345295972376,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50 in both directions: Right lane closed.",
-   "type": "routine"
-  },
   "roadWork:CDOT-36484891987BOTH": {
    "began": "2026-11-25T07:00:00-07:00",
    "class": "roadWork",
@@ -517,20 +461,6 @@
    "pos_bearing": "E",
    "route": "I-70",
    "title": "I-70 westbound: Right shoulder closed.",
-   "type": "routine"
-  },
-  "roadWork:CDOT-36485723117EB": {
-   "began": "2026-11-24T07:00:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36485723117EB",
-   "lat": 39.74249,
-   "lon": -105.43126,
-   "mp_end": 271.9987926750137,
-   "mp_start": 269.44297993570217,
-   "pos_bearing": "E",
-   "route": "US 40",
-   "title": "US 40 eastbound: Road construction.",
    "type": "routine"
   },
   "roadWork:CDOT-36488372048EB": {
@@ -1277,7 +1207,7 @@
   }
  },
  "forecast_last": "2026-11-24T21:45:46+00:00",
- "last_run": "2026-11-24T17:00:46-07:00",
+ "last_run": "2026-11-24T17:15:52-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-24": {
@@ -2017,7 +1947,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-24 15:00",
+  "abasin": "2026-11-24 16:00",
   "aspen": "2026-11-24 15:00",
   "beavercreek": "2026-11-24 15:00",
   "breck": "2026-11-24 15:00",
@@ -2027,7 +1957,7 @@
   "echo": "2026-11-24 15:00",
   "eldora": "2026-11-24 15:00",
   "granby": "2026-11-24 15:00",
-  "keystone": "2026-11-24 15:00",
+  "keystone": "2026-11-24 16:00",
   "loveland": "2026-11-24 15:00",
   "monarch": "2026-11-24 15:00",
   "powderhorn": "2026-11-24 15:00",
@@ -2294,13 +2224,13 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-25T00:00:46+00:00",
- "tomtom_routing_last": "2026-11-25T00:00:46+00:00",
+ "tomtom_routing_last": "2026-11-25T00:15:52+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 1860
   },
   "routing": {
-   "2026-11": 2028
+   "2026-11": 2034
   }
  },
  "traffic_model_last": "2026-11-24T21:45:46+00:00"
