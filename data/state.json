@@ -1,5 +1,5 @@
 {
- "afd_last": "658fb6aa-26ef-47f8-a1c2-07974584e809",
+ "afd_last": "391eeaaa-c879-4bc4-858b-a932bf4ca0f4",
  "cameras_last": "2026-11-25T03:15:54+00:00",
  "cameras_v": 2,
  "err_seen": {
@@ -743,20 +743,6 @@
    "title": "CO 65: Icy and snow packed spots.",
    "type": "standard"
   },
-  "winterDriving:COSEG-522943": {
-   "began": "2026-11-23T20:50:00.211000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-522943",
-   "lat": 39.26522,
-   "lon": -106.29038,
-   "mp_end": 22.60500004826463,
-   "mp_start": 0.0007260913387842705,
-   "pos_bearing": "N",
-   "route": "CO 91",
-   "title": "CO 91: Icy spots.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-587073": {
    "began": "2026-11-23T11:34:33.640000-07:00",
    "class": "winterDriving",
@@ -785,20 +771,6 @@
    "title": "US 50: Icy spots.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588145": {
-   "began": "2026-11-23T23:59:22.066000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588145",
-   "lat": 37.95047,
-   "lon": -107.87306,
-   "mp_end": 116.87899764402346,
-   "mp_start": 71.57274062998921,
-   "pos_bearing": "N",
-   "route": "CO 145",
-   "title": "CO 145: Icy spots.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-588363": {
    "began": "2026-11-23T14:25:54.904000-07:00",
    "class": "winterDriving",
@@ -811,20 +783,6 @@
    "pos_bearing": "N",
    "route": "CO 145",
    "title": "CO 145: Icy spots.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-588364": {
-   "began": "2026-11-23T05:36:54.144000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588364",
-   "lat": 37.68247,
-   "lon": -108.0335,
-   "mp_end": 71.57274062998921,
-   "mp_start": 46.43321074882593,
-   "pos_bearing": "N",
-   "route": "CO 145",
-   "title": "CO 145: Snow.",
    "type": "standard"
   },
   "winterDriving:COSEG-589046": {
@@ -840,10 +798,24 @@
    "route": "CO 82",
    "title": "CO 82: Seasonal Closure.",
    "type": "standard"
+  },
+  "winterDriving:COSEG-589560": {
+   "began": "2026-11-25T04:17:25.039000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-589560",
+   "lat": 37.68247,
+   "lon": -108.0335,
+   "mp_end": 116.87899764402346,
+   "mp_start": 46.43321074882593,
+   "pos_bearing": "N",
+   "route": "CO 145",
+   "title": "CO 145: Icy spots.",
+   "type": "standard"
   }
  },
  "forecast_last": "2026-11-25T10:15:47+00:00",
- "last_run": "2026-11-25T04:15:47-07:00",
+ "last_run": "2026-11-25T04:30:49-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-25": {
@@ -1509,7 +1481,7 @@
   "132": "3 - dry",
   "141": "3 - dry; 9 - icy spots",
   "150": "3 - dry; 9 - icy spots",
-  "151": "4s-9 - wet in areas, icy spots",
+  "151": "3 - dry; 9 - icy spots",
   "152": "3 - dry; 9 - icy spots",
   "198": "3 - dry",
   "199": "3 - dry",
@@ -1571,39 +1543,39 @@
   "486": "3 - dry",
   "489": "3 - dry",
   "49": "9 - icy spots",
-  "490": "4s-9 - wet in areas, icy spots",
+  "490": "3 - dry",
   "491": "3 - dry",
   "492": "3 - dry",
   "501": "3 - dry",
   "516": "3 - dry",
   "517": "3 - dry",
   "70": "3 - dry",
-  "72": "4s-9 - wet in areas, icy spots",
+  "72": "9-11 icy spots, snow packed spots",
   "97": "3 - dry",
   "98": "3 - dry"
  },
  "snotel_last": {
   "abasin": "2026-11-25 03:00",
   "aspen": "2026-11-25 02:00",
-  "beavercreek": "2026-11-25 02:00",
-  "breck": "2026-11-25 02:00",
-  "cooper": "2026-11-25 02:00",
-  "copper": "2026-11-25 02:00",
-  "crestedbutte": "2026-11-25 02:00",
-  "echo": "2026-11-25 02:00",
-  "eldora": "2026-11-25 02:00",
+  "beavercreek": "2026-11-25 03:00",
+  "breck": "2026-11-25 03:00",
+  "cooper": "2026-11-25 03:00",
+  "copper": "2026-11-25 03:00",
+  "crestedbutte": "2026-11-25 03:00",
+  "echo": "2026-11-25 03:00",
+  "eldora": "2026-11-25 03:00",
   "granby": "2026-11-25 02:00",
   "keystone": "2026-11-25 03:00",
-  "loveland": "2026-11-25 02:00",
+  "loveland": "2026-11-25 03:00",
   "monarch": "2026-11-25 02:00",
-  "powderhorn": "2026-11-25 02:00",
-  "purgatory": "2026-11-25 02:00",
+  "powderhorn": "2026-11-25 03:00",
+  "purgatory": "2026-11-25 03:00",
   "steamboat": "2026-11-25 03:00",
   "sunlight": "2026-11-25 02:00",
   "telluride": "2026-11-25 02:00",
-  "vail": "2026-11-25 02:00",
-  "winterpark": "2026-11-25 02:00",
-  "wolfcreek": "2026-11-25 02:00"
+  "vail": "2026-11-25 03:00",
+  "winterpark": "2026-11-25 03:00",
+  "wolfcreek": "2026-11-25 03:00"
  },
  "speed_geo": [
   "I70E024",
