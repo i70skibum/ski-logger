@@ -1,0 +1,119 @@
+
+000
+FXUS65 KBOU 252010
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+110 PM MST Wed Nov 25 2026
+
+.KEY MESSAGES... 
+
+- Gradual warming trend and dry weather through Friday. 
+
+- Gusty winds expected along the northern Front Range and northern
+  border area Friday, spreading to all the plains Saturday.
+
+- Snow and blowing snow in the mountains for Thanksgiving weekend
+  return travel. Banded rain/snow showers possible for the plains
+  and I-25 Corridor Saturday - Saturday night. 
+
+&&
+
+.DISCUSSION /Through Wednesday/...
+Issued at 110 PM MST Wed Nov 25 2026
+
+Flat upper level ridging will keep dry conditions in place through
+Friday, along with a warming trend. For tonight, mid and high
+clouds will pass overhead but some late night clearing and a dry
+airmass should still support near normal low temperatures.
+Sunshine most of Thanksgiving Day and further upper level
+ridging, warming aloft, and weakening inversions will aid high
+temperatures warming several degrees above normal. We think most
+of the plains will be able to reach the 50s, coolest (near 50F)  
+in the far northeast and warmest (approaching 60F) in Denver. 
+Winds will remain light. 
+
+On Friday, the flow aloft will strengthen as an upper level low
+and associated shortwave move across southern Canada and the
+Northern Rockies, while an upper high holds over the east Central
+Pacific. That means increasing winds for our mountains and
+foothills, with gusts to 35-50 mph expected in wind prone areas.
+The northern plains near the Wyoming and Nebraska borders will 
+also see winds increase with gusts to 30-35 mph. Fire weather
+conditions will be elevated due to the winds, but humidity levels
+are still forecast well above critical thresholds. Mid and upper
+level moisture will likely bring more clouds, and perhaps a couple
+light late day snow showers for the northern mountains. Snow
+showers will gradually increase in the mountains Friday night as
+orographics and moisture levels improve, with the heaviest snow 
+and more significant post-Thanksgiving travel impacts expected by
+Saturday. 
+
+That heavier mountain snow (and blowing snow) will be driven by an
+upper level disturbance racing off the Pacific and across the
+Northern/Central Rockies on Saturday. We'll be getting into the
+left exit region of a 120 kt jet, with improving QG forcing,
+stronger orographics, and neutral lapse rates. Therefore, all the
+ingredients will be in place for at least a moderate snowfall
+event. The only ingredient that would be more uncertain at this
+point would be the moisture. Model and ensemble trends have 
+generally been upward with QPF given the GFS and GEFS members 
+were also coming more in line with the stronger/slightly farther 
+south solution. Several inches of snow are now likely for the high
+country, with potential high end of over a foot in the northern 
+Gore and Park Ranges. We'll likely need an Advisory for the 
+mountains Friday night - Saturday night for the mountains, with 
+possible Watch/Warning for the northern Gore/Park Ranges in 
+upcoming forecast packages if the trends remain favorable.
+Saturday will not be the day for your post-Thanksgiving travel if
+heading through the Colorado mountains. Plan on Friday or Sunday
+(only lingering morning slick spots) for a safer journey. 
+
+For the plains and I-25 Urban Corridor, the depth and intensity 
+of the trough offers up additional uncertainty in the forecast.
+Given the favorable ingredients mentioned above, it would not 
+surprise us to see more widespread/numerous showers spread off 
+the higher terrain. The highest odds of this happening would be 
+behind the strong frontal surge on Saturday. If this can link up 
+with the forcing of the upper level disturbance, then higher 
+coverage and potential for banded snow would be possible. While 
+most areas would likely see limited accumulations due to marginal 
+temperatures, it should be noted that localized heavier bands of 
+snow up to 2-4" would be possible (20-30% chance) in this 
+scenario. We'll continue to monitor the forcing mechanisms and 
+timing closely to see if they can link up.
+
+Beyond that, dry weather is expected to redevelop by late Saturday
+night and hold through Sunday night. The next chance of snow 
+would then start in the mountains by Monday or Monday night as a 
+weakening disturbance pushes through the Central Rockies. The 
+relatively active weather pattern (at least for the mountains) 
+will likely remain in place with additional disturbances expected 
+by mid week and another late next week. After a colder weekend, 
+temperatures are expected to warm back a few degrees above normal
+next week. 
+
+&&
+
+.AVIATION /18Z TAFS through 18Z Thursday/...
+Issued at 1036 AM MST Wed Nov 25 2026
+
+VFR will continuethrough the TAF period with varying amounts of 
+high clouds. Winds will remain light for the next 24 hours and 
+follow a typical diurnal pattern. The current variable winds will 
+become easterly 18Z to 20Z. After 00Z, winds will turn southeast 
+and then become southerly by 06Z. A similar wind pattern is 
+expected on Thursday. 
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...20
+AVIATION...BM
