@@ -4782,10 +4782,10 @@
    "name": "Berthoud Pass (US 40, Empire to Winter Park)",
    "W": {
     "delay_min": 0.0,
-    "minutes": 31.2,
+    "minutes": 31.3,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-25T06:30:48-07:00",
+    "at": "2026-11-25T06:45:50-07:00",
     "line": [
      [
       39.76107,
@@ -5538,7 +5538,7 @@
     "minutes": 31.1,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-25T06:30:48-07:00",
+    "at": "2026-11-25T06:45:50-07:00",
     "line": [
      [
       39.88623,
@@ -9110,11 +9110,11 @@
    "points": [],
    "points_at": "2026-11-25T06:30:48-07:00",
    "W": {
-    "delay_min": 1.2,
-    "minutes": 68.0,
+    "delay_min": 2.3,
+    "minutes": 69.0,
     "free_min": 66.7,
     "detour": false,
-    "at": "2026-11-25T06:30:48-07:00",
+    "at": "2026-11-25T06:45:50-07:00",
     "line": [
      [
       39.75702,
@@ -15894,11 +15894,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 0.7,
-    "minutes": 26.0,
+    "delay_min": 1.6,
+    "minutes": 26.9,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-25T06:30:48-07:00",
+    "at": "2026-11-25T06:45:50-07:00",
     "line": [
      [
       39.74245,
@@ -16194,11 +16194,11 @@
    "points": [],
    "points_at": "2026-11-25T06:30:48-07:00",
    "W": {
-    "delay_min": 0.4,
-    "minutes": 30.0,
+    "delay_min": 0.8,
+    "minutes": 30.4,
     "free_min": 29.6,
     "detour": false,
-    "at": "2026-11-25T06:30:48-07:00",
+    "at": "2026-11-25T06:45:50-07:00",
     "line": [
      [
       39.75702,
@@ -16554,11 +16554,11 @@
   "i25direct": {
    "name": "I-25 and I-70 direct (Coors Field to I-70 exit 244)",
    "W": {
-    "delay_min": 0.4,
-    "minutes": 35.6,
+    "delay_min": 0.5,
+    "minutes": 35.7,
     "free_min": 35.2,
     "detour": false,
-    "at": "2026-11-25T06:30:48-07:00",
+    "at": "2026-11-25T06:45:50-07:00",
     "line": [
      [
       39.75702,
@@ -18541,10 +18541,10 @@
    "points_at": "2026-11-25T06:30:48-07:00"
   }
  },
- "updated": "2026-11-25T06:30:48-07:00",
+ "updated": "2026-11-25T06:45:50-07:00",
  "tomtom_use": {
   "flow": 2004,
-  "routing": 2199
+  "routing": 2205
  },
  "tomtom_caps": {
   "routing": 19000,
