@@ -293,20 +293,6 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
-  "roadWork:CDOT-35509265054EB": {
-   "began": "2026-11-12T07:01:00-07:00",
-   "class": "roadWork",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-35509265054EB",
-   "lat": 39.06303,
-   "lon": -108.56452,
-   "mp_end": 31.76462777108827,
-   "mp_start": 31.92310342136263,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50 eastbound: Right lane closed.",
-   "type": "routine"
-  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -1359,7 +1345,7 @@
   }
  },
  "forecast_last": "2026-11-25T16:30:47+00:00",
- "last_run": "2026-11-25T11:00:47-07:00",
+ "last_run": "2026-11-25T11:15:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-25": {
@@ -2099,7 +2085,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-25 09:00",
+  "abasin": "2026-11-25 10:00",
   "aspen": "2026-11-25 09:00",
   "beavercreek": "2026-11-25 09:00",
   "breck": "2026-11-25 09:00",
@@ -2109,12 +2095,12 @@
   "echo": "2026-11-25 09:00",
   "eldora": "2026-11-25 09:00",
   "granby": "2026-11-25 09:00",
-  "keystone": "2026-11-25 09:00",
+  "keystone": "2026-11-25 10:00",
   "loveland": "2026-11-25 09:00",
   "monarch": "2026-11-25 09:00",
   "powderhorn": "2026-11-25 09:00",
   "purgatory": "2026-11-25 09:00",
-  "steamboat": "2026-11-25 09:00",
+  "steamboat": "2026-11-25 10:00",
   "sunlight": "2026-11-25 09:00",
   "telluride": "2026-11-25 09:00",
   "vail": "2026-11-25 09:00",
@@ -2376,13 +2362,13 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-25T18:00:47+00:00",
- "tomtom_routing_last": "2026-11-25T18:00:47+00:00",
+ "tomtom_routing_last": "2026-11-25T18:15:47+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 2132
   },
   "routing": {
-   "2026-11": 2351
+   "2026-11": 2357
   }
  },
  "traffic_model_last": "2026-11-25T16:30:47+00:00"
