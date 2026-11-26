@@ -1,0 +1,108 @@
+
+000
+FXUS65 KBOU 261123
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+423 AM MST Thu Nov 26 2026
+
+.KEY MESSAGES... 
+
+- Warm and dry Thanksgiving expected. 
+
+- Gusty winds expected along the northern Front Range and northern
+  border area Friday, spreading to all the plains Saturday.
+
+- Snow and blowing snow in the mountains for Thanksgiving weekend
+  travel. Banded rain/snow showers possible for the plains and
+  I-25 Corridor Saturday - Saturday night. 
+
+&&
+
+.DISCUSSION /Through Wednesday/...
+Issued at 1024 PM MST Wed Nov 25 2026
+
+A chilly Thanksgiving morning with lows generally in the 20s 
+across the plains will give way to above normal temperatures in 
+the afternoon. Highs for Thanksgiving will be in the 50s to near 
+60 for the plains and 30s to mid 40s for the mountains and 
+valleys. Winds will remain on the lighter side with mostly sunny 
+to partly cloudy skies for the holiday.
+
+For the system this weekend, the GFS has trended closer to what 
+the Euro (and a few other models) has been showing over the past 
+few days. The increased model consensus has allowed our forecast 
+confidence to increase for this weekend. Upper level northwest 
+flow will strengthen on Friday, bringing breezy conditions to the 
+higher terrain starting Friday morning. Wind gusts will be around 
+40 to 65mph on Friday for elevations generally above 9000ft. We 
+could see some stronger winds come off of the Cheyenne ridge and 
+into our northern plains counties Friday afternoon as well, with 
+gusts around 25 to 40mph. Downsloping northwest winds will allow 
+temperatures to warm further, putting highs around 60 degrees for 
+much of the plains on Friday.
+
+An upper level shortwave will approach the area late Friday, moving 
+through by late Saturday. Ahead of the shortwave, we'll see 
+increasing moisture and decent QG lift. An upper level jet is also 
+forecast to develop, with our area in the left exit region for 
+much of Saturday. At the surface, a strong cold front will move 
+through Saturday afternoon, bringing strong winds (gusting around 
+30 to 55mph) and much cooler temperatures. A few models are showing
+SBCAPE above 50J/kg on Saturday, which combined with the strong 
+frontogenesis is causing some concern for banded snowfall and 
+potentially even snow squalls. This and the potential for blowing
+snow from the strong winds could lead to hazardous travel
+conditions Saturday. The other thing we'll need to watch is the 
+potential for anticyclonic turning of the winds as it comes off 
+the Cheyenne Ridge. A slight eastward turning would increase the 
+potential for higher snow amounts in the southern foothills, south
+metro, and Palmer Divide area. 
+
+The highest snow accumulations are forecast to be in the Park
+Range with most likely liquid totals (25th to 75th percentiles) 
+of 0.6 to 1.6 inches. With SLRs between 10 and 15, a Winter
+Weather Advisory is likely once we get closer, with potential for
+a Winter Storm Warning. The rest of our mountain areas are
+currently forecast to see between 2 and 8 inches of snow with 
+this event. For the plains, precipitation will generally be light 
+with rain transitioning to snow behind the front. Snow 
+accumulations are forecast to generally remain below 0.5 inches 
+for the urban corridor and plains, with higher amounts for the 
+Palmer and Foothills. 
+
+This system will move off to the east late Saturday, leaving 
+colder and drier conditions for Sunday. Lows Sunday morning in the
+plains will be in the teens to 20s and highs will be in the 40s. 
+Winds will remain breezy Sunday morning, putting apparent 
+temperatures in the low teens to single digits for the eastern 
+plains. An active pattern will continue through the middle of next
+week. We could see a few more chances for mountain snow next week as
+an upper level shortwave moves through Monday and our next bigger
+system approaches Wednesday. 
+
+&&
+
+.AVIATION /12Z TAFS through 12Z Friday/...
+Issued at 422 AM MST Thu Nov 26 2026
+
+VFR conditions will prevail for all terminals through the TAF 
+period. Light SW drainage flow (< 9 kts) will hold at KDEN/KAPA 
+through mid-morning (~17Z), becoming increasingly light and VRB 
+thereafter. Expect transition to typical diurnal NE flow near 20-
+21Z, returning clockwise towards drainage flow in the evening. At
+KBJC, winds will remain quite light and VRB through this 
+afternoon, before more established W winds develop this evening.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+None.
+
+&&
+
+$$
+
+DISCUSSION...AP
+AVIATION...BRQ
