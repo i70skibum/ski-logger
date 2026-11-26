@@ -46,7 +46,11 @@ header { display: flex; flex-wrap: wrap; align-items: center; justify-content: s
 .top { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; align-items: stretch; }
 .daynav { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: -12px; }
 .daynav .seg button { flex-direction: column; align-items: flex-start; line-height: 1.15; padding: 6px 16px; }
-.daynav .seg button small { font-size: 11px; font-weight: 500; opacity: .75; }
+.daynav .seg button small { font-size: 11px; font-weight: 500; opacity: .75; white-space: nowrap; }
+.daynav .pastwrap { position: relative; display: flex; } .daynav .pastwrap > button { flex: 1; }
+.daynav .seg button .lab { white-space: nowrap; }
+.daynav .caret { font-size: 10px; }
+.daynav .daypick { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; border: 0; padding: 0; margin: 0; cursor: pointer; -webkit-appearance: none; appearance: none; }
 .daynav .note { margin-left: 8px; }
 .dayarrow { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--card); color: var(--ink); font: 500 22px Inter, sans-serif; line-height: 1; cursor: pointer; }
 .dayarrow:disabled { opacity: .3; cursor: default; }
@@ -239,7 +243,10 @@ footer { color: var(--ink2); font-size: 12px; }
   .fac { grid-template-columns: 90px minmax(0, 1fr) 64px; }
   .seg a, .seg button { padding: 8px 14px; }
   .dayarrow { display: none; }
-  .daynav .seg { flex: 1; } .daynav .seg button { flex: 1; min-width: 0; padding: 6px 8px; } .daynav .seg button span { font-size: 13px; }
+  .daynav .seg { flex: 1; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .daynav .seg button { min-width: 0; padding: 7px 2px; align-items: center; text-align: center; }
+  .daynav .seg button .lab { font-size: 14px; } .daynav .seg button small { font-size: 11.5px; }
+  .daynav .seg button .cf { display: none; }
   .daynav .note { margin-left: 0; }
   .zoom { position: static; flex-direction: row; width: max-content; margin-top: 10px; }
   .zoom button + button { border-top: 0; border-left: 1px solid var(--ink3); }
@@ -980,10 +987,12 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   const viewDays = () => { const out = [D.day]; for (let i = 1; i <= 2; i++) { const d = new Date(D.day + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() + i); out.push(d.toISOString().slice(0, 10)); } return out; };
   const fut = () => vday > 0 ? viewDays()[vday] : null;
   const yday = () => { const d = new Date(D.day + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() - 1); return d.toISOString().slice(0, 10); };
-  const dayIso = i => i < 0 ? yday() : viewDays()[i];
+  let pastIso = null;   // a day picked from history; null means yesterday
+  const dayIso = i => i < 0 ? (pastIso || yday()) : viewDays()[i];
+  const shortDate = iso => new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", month: "short", day: "numeric" });
   const past = () => vday < 0;
-  const dayLabel = i => i < 0 ? "Yesterday" : i === 0 ? "Today" : i === 1 ? "Tomorrow" : new Date(viewDays()[i] + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long" });
-  function setDay(i) { vday = Math.max(-1, Math.min(2, i)); selHour = null; render(); }
+  const dayLabel = i => i < 0 ? (pastIso && pastIso !== yday() ? new Date(pastIso + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", weekday: "short", month: "short", day: "numeric" }) : "Yesterday") : i === 0 ? "Today" : i === 1 ? "Tomorrow" : new Date(viewDays()[i] + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long" });
+  function setDay(i) { vday = Math.max(-1, Math.min(2, i)); if (vday >= 0) pastIso = null; selHour = null; render(); }
   // Swipe left or right on the verdict to change the day; arrow keys too, when nothing else has focus.
   { let x0 = null, y0 = null; const top = document.querySelector(".top");
     top.addEventListener("touchstart", ev => { x0 = ev.touches[0].clientX; y0 = ev.touches[0].clientY; }, { passive: true });
@@ -999,14 +1008,24 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     prev.onclick = () => setDay(vday - 1); next.onclick = () => setDay(vday + 1);
     const seg = el("div", "seg"); seg.setAttribute("role", "tablist");
     [-1, 0, 1, 2].forEach(i => {
-      const iso = dayIso(i), b = el("button", i === vday ? "on" : ""); b.setAttribute("role", "tab"); b.setAttribute("aria-selected", i === vday);
-      let cf = ""; if (i >= 0) try { cf = " \u00b7 " + Math.round(tripAt(dpOriginKey(), "W", iso, 7).conf * 100) + "%"; } catch (e) {}
-      b.append(el("span", "", dayLabel(i)), el("small", "", new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", month: "short", day: "numeric" }) + cf));
-      b.onclick = () => setDay(i); seg.append(b);
+      const iso = dayIso(i), b = el("button", (i === vday ? "on" : "") + (i < 0 ? " pastbtn" : "")); b.setAttribute("role", "tab"); b.setAttribute("aria-selected", i === vday);
+      let cf = ""; if (i >= 0) try { cf = Math.round(tripAt(dpOriginKey(), "W", iso, 7).conf * 100) + "%"; } catch (e) {}
+      const lab = i < 0 && pastIso && pastIso !== yday() ? new Date(pastIso + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", weekday: "short" }) : i === 2 ? new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", weekday: "short" }) : dayLabel(i);
+      const sm = el("small", "", shortDate(iso)); if (cf) sm.append(el("span", "cf", " \u00b7 " + cf));
+      if (i < 0) sm.append(el("span", "caret", " \u25be"));
+      b.append(el("span", "lab", lab), sm);
+      if (i < 0) {
+        // Tapping Yesterday selects it; once selected, the button opens a date picker over the logged history.
+        const pick = el("input"); pick.type = "date"; pick.className = "daypick"; pick.setAttribute("aria-label", "Pick a past day");
+        pick.max = yday(); pick.min = (D.model && D.model.first_day) || "2026-11-14"; pick.value = iso;
+        pick.onchange = () => { if (pick.value && pick.value <= pick.max) pickPast(pick.value); };
+        b.onclick = () => { if (vday !== -1) setDay(-1); };
+        const wrap = el("div", "pastwrap"); wrap.append(b); if (i === vday) wrap.append(pick); seg.append(wrap);
+      } else { b.onclick = () => setDay(i); seg.append(b); }
     });
     box.append(prev, seg, next);
     if (vday > 0) box.append(el("span", "note", "Predicted from the traffic model and snow forecasts. Live roads are on Today."));
-    else if (vday < 0) box.append(el("span", "note", "Logged: what the roads actually did. Live roads are on Today."));
+    else if (vday < 0) box.append(el("span", "note", "Logged: what the roads actually did. Tap the date again to pick another day."));
     $("v-today").classList.toggle("past", vday < 0);
   }
   // Inputs for dayScore, the same ones the 7-day tab uses.
@@ -1247,9 +1266,16 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const conf = parts.reduce((a, x) => a + x.w * x.d.conf, 0) / W, n = parts.reduce((a, x) => a + x.w * x.d.n, 0) / W;
     return { free, extra, minutes: free + extra, pct: extra / free, conf: Math.max(0.1, conf), n };
   }
+  // Older days come from history/YYYY-MM.json, loaded when picked.
+  const histDays = {}, histMonths = {};
+  async function pickPast(iso) {
+    const m = iso.slice(0, 7);
+    if (!histMonths[m]) { histMonths[m] = true; try { Object.assign(histDays, ((await get(`history/${m}.json`, true)) || {}).days || {}); } catch (e) { histMonths[m] = false; } }
+    pastIso = iso === yday() ? null : iso; vday = -1; selHour = null; render();
+  }
   // What the roads actually did in an hour, from recent.json (yesterday and today, logged by the logger). null when not logged.
   function loggedAt(key, dir, iso, h) {
-    const day = ((D.recent || {}).days || {})[iso]; if (!day) return null;
+    const day = ((D.recent || {}).days || {})[iso] || histDays[iso]; if (!day) return null;
     const R = RESORTS[key], via = VIA_ROUTE[key], free = Math.max(20, R.hrs * 60);
     let extra = 0;
     if (R.westLon != null) { const x = ((day.i70 || {})[dir] || {})[h]; if (!x) return null; extra += x.mean; }
@@ -1466,11 +1492,11 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   // Yesterday: how the drive up and the drive home actually went, for the picked resort.
   function renderVerdictPast() {
     const box = $("verdict"); box.replaceChildren(); box.className = "verdict";
-    const key = dpOriginKey(), iso = yday(), R = RESORTS[key];
+    const key = dpOriginKey(), iso = dayIso(-1), R = RESORTS[key];
     const worst = (d, a, b) => { let w = null; for (let x = a; x <= b; x++) { const t = loggedAt(key, d, iso, x); if (t && (!w || t.extra > w.t.extra)) w = { x, t }; } return w; };
     const up = worst("W", 5, 11), home = worst("E", 11, 19), all = [up, home].filter(Boolean);
     const when = new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long", month: "short", day: "numeric" });
-    if (!all.length) { box.append(el("div", "kick", "LOOKING BACK"), el("div", "kick-sub", when), el("h1", "", "Nothing logged."), el("p", "", "The logger has no drive times for yesterday.")); return; }
+    if (!all.length) { box.append(el("div", "kick", "LOOKING BACK"), el("div", "kick-sub", when), el("h1", "", "Nothing logged."), el("p", "", "The logger has no drive times for that day.")); return; }
     const top = Math.max(...all.map(w => w.t.pct)), lvl = top < 0.12 ? "good" : top <= 0.30 ? "warn" : "crit";
     box.className = "verdict " + lvl;
     const line = top < 0.12 ? "Easy day on the roads." : top <= 0.30 ? "Some slowdowns." : "A rough traffic day.";
