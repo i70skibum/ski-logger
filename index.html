@@ -1442,7 +1442,17 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const cy = routeState("canyon");
     box.append(wayRow("Clear Creek Canyon", "I-70 and the Golden freeway to Golden, then US 6 up the canyon to Floyd Hill" + (cy.traction ? " · traction law" : ""), cy.delay != null ? plus(cy.delay) : "", cy.kind));
     const sx = routeState("sixth");
-    box.append(wayRow("6th Ave", "US 6 from Coors Field past I-70 to Golden" + (sx.minutes != null ? ` \u00b7 ${Math.round(sx.minutes)} min` : ""), sx.delay != null ? plus(sx.delay) : "", sx.kind));
+    // I-25 and 6th Ave each on their own row, from the logger's split of the route at the I-25 interchange.
+    const segRow = (name, note, keys) => {
+      const got = ["W", "E"].map(dr => keys.map(key => segLive("sixth", dr, key))).filter(a => a.every(Boolean));
+      if (!got.length || /closed|check/.test(sx.kind)) return null;
+      const ski = got[0], delay = Math.max(...got.map(a => a.reduce((t, g) => t + (g.delay_min || 0), 0)));
+      const kind = got.flat().reduce((w, g) => RANK[g.kind] > RANK[w] ? g.kind : w, "open");
+      return () => box.append(wayRow(name, note + ` \u00b7 ${Math.round(ski.reduce((t, g) => t + g.minutes, 0))} min`, plus(delay), kind));
+    };
+    const rI25 = segRow("I-25", "Coors Field to 6th Ave", ["coors>i25"]), r6th = segRow("6th Ave", "US 6 from I-25 past I-70 to Golden", ["i25>us6", "us6>golden"]);
+    if (rI25 && r6th) { rI25(); r6th(); }
+    else box.append(wayRow("6th Ave", "I-25 and US 6 from Coors Field past I-70 to Golden" + (sx.minutes != null ? ` \u00b7 ${Math.round(sx.minutes)} min` : ""), sx.delay != null ? plus(sx.delay) : "", sx.kind));
     const be = routeState("berthoud");
     box.append(wayRow("Berthoud Pass", "US 40 to Winter Park" + (be.traction ? " · traction law" : ""), be.delay != null ? plus(be.delay) : "", be.kind));
     const pa = routeState("pass"), di = routeState("dillon");
@@ -1569,18 +1579,38 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   const bandP = b => b.p || [[b.x[0], Y], [b.x[1], Y]];   // west end, east end on the line map
   const mpToXY = mp => { for (const b of I70_BANDS) if (mp >= b.mp[0] && mp <= b.mp[1]) { const f = (mp - b.mp[0]) / (b.mp[1] - b.mp[0]), [a, c] = bandP(b); return [a[0] + f * (c[0] - a[0]), a[1] + f * (c[1] - a[1])]; } return mp > 276 ? [CX, 340] : [60, Y]; };
   // Each alternate's pieces on the line map: [x1, y1, x2, y2] straight runs, and where its closure sign goes.
+  // Each alternate's pieces on the line map: [x1, y1, x2, y2, stretch] straight runs, and where its closure sign goes.
+  // Every node on the map ends a stretch: the stretch key names the two nodes in the ski direction, matching
+  // the logger's split of each TomTom route, so each piece shows only the traffic on its own stretch.
   const ROUTE_GEO = {
     // Golden is one junction at the base of the canyon: canyon west, CO 93 north, Golden freeway (CO 58) east, US 6 south.
-    canyon: { pieces: [[980, 340, 1080, 340], [860, 340, 980, 340], [860, 340, 860, Y]], sign: [920, 340] },
-    berthoud: { pieces: [[650, 290, 650, Y]], sign: [650, 350] },
-    pass: { pieces: [[420, 340, 420, Y], [260, 340, 420, 340], [260, 340, 260, 412], [260, 428, 260, 520]], sign: [340, 340] },
-    dillon: { pieces: [[180, Y, 180, 520], [180, 520, 260, 520]], sign: [180, 470] },
-    // The trunk out of Coors Field: I-25 to 6th Ave (US 6) straight west to the I-70 junction, then US 6 north into Golden.
+    canyon: { pieces: [[980, 340, 1080, 340, "x261>golden"], [860, 340, 980, 340, "golden>floyd"], [860, 340, 860, Y, "golden>floyd"]], sign: [920, 340] },
+    berthoud: { pieces: [[650, 290, 650, Y, "empire>winterpark"]], sign: [650, 350] },
+    pass: { pieces: [[420, 340, 420, Y, "x216>abasin"], [330, 340, 420, 340, "x216>abasin"], [260, 340, 330, 340, "abasin>keystone"], [260, 340, 260, 412, "abasin>keystone"], [260, 428, 260, 520, "abasin>keystone"]], sign: [340, 340] },
+    dillon: { pieces: [[180, Y, 180, 520, "silverthorne>keystone"], [180, 520, 260, 520, "silverthorne>keystone"]], sign: [180, 470] },
+    // The trunk out of Coors Field: I-25 to 6th Ave (US 6), 6th Ave west to the I-70 junction, then US 6 north into Golden.
     // I-70 itself runs the upper way (north on I-25, west past the Golden freeway, then the diagonal back down).
-    sixth: { pieces: [[980, Y, CX, Y], [980, 340, 980, Y]], sign: [1090, Y] },
-    eldora_boulder: { pieces: [[CX, 140, CX, Y], [740, 140, CX, 140]], sign: [980, 140] },
-    eldora_coal: { pieces: [[980, 250, 980, 340], [800, 250, 980, 250]], sign: [890, 250] },
-    eldora_119: { pieces: [[900, 300, 900, 340], [800, 300, 900, 300], [800, 140, 800, 300]], sign: [860, 300] } };
+    sixth: { pieces: [[1130, Y, CX, Y, "coors>i25"], [980, Y, 1130, Y, "i25>us6"], [980, 340, 980, Y, "us6>golden"]], sign: [1090, Y] },
+    eldora_boulder: { pieces: [[CX, 140, CX, 340, "i25i70>boulder"], [800, 140, CX, 140, "boulder>nederland"], [740, 140, 800, 140, "nederland>eldora"]], sign: [980, 140] },
+    eldora_coal: { pieces: [[980, 250, 980, 340, "golden>coal"], [800, 250, 980, 250, "coal>nederland"]], sign: [890, 250] },
+    eldora_119: { pieces: [[900, 300, 900, 340, "golden>blackhawk"], [800, 300, 900, 300, "blackhawk>nederland"], [800, 140, 800, 300, "blackhawk>nederland"]], sign: [860, 300] } };
+  const SEG_NAME = {
+    "coors>i25": "I-25, Coors Field to 6th Ave", "i25>us6": "6th Ave, I-25 to I-70", "us6>golden": "US 6, I-70 into Golden",
+    "x261>golden": "Golden freeway (CO 58), I-70 to Golden", "golden>floyd": "Clear Creek Canyon (US 6), Golden to Floyd Hill",
+    "empire>winterpark": "Berthoud Pass (US 40), Empire to Winter Park", "x216>abasin": "Loveland Pass (US 6), exit 216 to A-Basin",
+    "abasin>keystone": "US 6, A-Basin to Keystone", "silverthorne>keystone": "US 6 through Dillon, Silverthorne to Keystone",
+    "i25i70>boulder": "I-25 and US 36 to Boulder", "boulder>nederland": "Boulder Canyon (CO 119) to Nederland", "nederland>eldora": "Nederland to Eldora",
+    "golden>coal": "CO 93, Golden to Coal Creek Canyon", "coal>nederland": "Coal Creek Canyon (CO 72) toward Nederland",
+    "golden>blackhawk": "US 6 and CO 119 to Black Hawk", "blackhawk>nederland": "Peak to Peak, Black Hawk to Nederland" };
+  // One stretch of a TomTom route in one direction, from the logger's split: null when there's no reading for it.
+  function segLive(k, dir, key) {
+    const lv = ((((D.ctx.routes || {}).routes || {})[k]) || {})[dir];
+    if (!lv || lv.detour || !Array.isArray(lv.segs)) return null;
+    const g = lv.segs.find(x => x.key === key);
+    if (!g || g.minutes == null || !g.free_min) return null;
+    const ratio = g.minutes / g.free_min;
+    return { ...g, kind: ratio <= 1.15 ? "open" : ratio <= 1.5 ? "slow" : "heavy" };
+  }
   const ROUTE_NAME = { canyon: "Golden freeway to Golden, then US 6 up Clear Creek Canyon", berthoud: "Berthoud Pass (US 40)", sixth: "I-25 and 6th Ave (US 6) from Coors Field to Golden", pass: "Loveland Pass (US 6)", dillon: "US 6 through Dillon",
     eldora_boulder: "US 36 and Boulder Canyon (CO 119)", eldora_coal: "CO 93 and Coal Creek Canyon (CO 72)", eldora_119: "CO 119 through Black Hawk and Peak to Peak" };
   // [x, y, text, anchor, tier]: 0 destinations, 1 towns and stops, 2 major roads, 3 minor roads and canyons.
@@ -1606,10 +1636,10 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     // Where the Golden freeway (CO 58) and US 6 meet I-70. Only TomTom's homeward lines use their locations;
     // heading up they are I-70 stops.
     { id: "x261", name: "Golden freeway at I-70", x: 1080, y: 340, i70: -105.14, pts: [[39.7800, -105.1400]], homeOnly: 1 },
-    { id: "us6", name: "US 6 at I-70", x: 980, y: Y, i70: -105.19, pts: [[39.7245, -105.1895]], homeOnly: 1 },
+    { id: "us6", name: "US 6 at I-70", x: 980, y: Y, i70: -105.19, pts: [[39.7252, -105.1980]], homeOnly: 1 },
     { id: "golden", name: "Golden", x: 980, y: 340, lat: 39.7555, lon: -105.2211 },
     { id: "i25i70", name: "I-25 at I-70", x: CX, y: 340, lat: 39.7800, lon: -104.9810 },
-    { id: "i25", name: "I-25 at 6th Ave", x: 1130, y: Y, lat: 39.7253, lon: -105.0060 },
+    { id: "i25", name: "I-25 at 6th Ave", x: 1130, y: Y, lat: 39.7258, lon: -105.0150 },
     { id: "coal", name: "Coal Creek Canyon turnoff", x: 980, y: 250, lat: 39.8660, lon: -105.2330, eld: 1 },
     { id: "blackhawk", name: "Black Hawk", x: 900, y: 300, lat: 39.7969, lon: -105.4939, eld: 1 },
     { id: "floyd", name: "Floyd Hill", x: 860, y: Y, lat: 39.7425, lon: -105.4313, i70: -105.43 },
@@ -1743,10 +1773,17 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       const rstats = s.kind === "closed" || s.kind === "check" ? [] : E ? (s.delay == null ? [] : roadStats({ free: freeM, extra: s.delay, time: freeM != null ? freeM + s.delay : null, conf: s.conf }))
         : s.kind === "none" ? [] : roadStats({ time: s.minutes, free: s.minutes != null && s.delay != null ? s.minutes - s.delay : null, extra: s.delay, live: true });
       // Peak to Peak is shared by Coal Creek and Black Hawk: color it by the better of the two.
-      pieces.forEach(([a, b, c, d], j) => {
-        let kind = s.kind;
-        if (k === "eldora_119" && j === 2) kind = RANK[states.eldora_coal.kind] < RANK[kind] && states.eldora_coal.kind !== "none" ? states.eldora_coal.kind : kind;
-        P_(a, b, c, d, kind, `${ROUTE_NAME[k]}: ${words}`, rstats);
+      // Live, each piece shows its own stretch (between two nodes) when the logger split the route there.
+      pieces.forEach(([a, b, c, d, sk], j) => {
+        let kind = s.kind, tip = `${ROUTE_NAME[k]}: ${words}`, info = rstats;
+        const g = !E && sk && !/closed|check/.test(s.kind) ? segLive(k, dir, sk) : null;
+        if (g) {
+          kind = g.kind; info = roadStats({ time: g.minutes, free: g.free_min, extra: g.delay_min, live: true });
+          tip = `${SEG_NAME[sk] || ROUTE_NAME[k]}: ${dname}, ${g.delay_min < 1 ? "normal" : "about " + Math.round(g.delay_min) + " min slower than an empty road"}`;
+        }
+        if (k === "eldora_119" && j === 2) { const cg = !E && segLive("eldora_coal", dir, "coal>nederland"), ck = cg ? cg.kind : states.eldora_coal.kind;
+          kind = RANK[ck] < RANK[kind] && ck !== "none" ? ck : kind; }
+        P_(a, b, c, d, kind, tip, info);
       });
       desc.push(`${ROUTE_NAME[k]} ${KIND[s.kind][1].toLowerCase()}`);
     }
@@ -1948,7 +1985,18 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       const r = tt[A.key]; if (!r) return;
       const cdotClosed = altStatus(ctx, A).closed;
       const dirs = ["W", "E"].map(k => r[k]).filter(x => x && x.line && x.line.length > 1);
-      if (dirs.length) {
+      const split = dirs.length && Array.isArray(dirs[0].segs) && dirs[0].segs.length ? dirs[0].segs : null;
+      if (split) {
+        // One line per stretch between line-map nodes, each colored by its own traffic (worse of the two directions).
+        split.forEach(g0 => {
+          const both = dirs.map(x => (x.segs || []).find(y => y.key === g0.key)).filter(y => y && y.minutes != null && y.free_min);
+          if (!g0.line || g0.line.length < 2) return;
+          const ratio = both.length ? Math.max(...both.map(y => y.minutes / y.free_min)) : 1, worst = Math.max(0, ...both.map(y => y.delay_min || 0));
+          const c = cdotClosed ? COL.bad : ratio <= 1.15 ? COL.good : ratio <= 1.5 ? COL.slow : COL.bad;
+          L.polyline(g0.line, { color: c, weight: 5, opacity: 0.9 })
+            .bindTooltip(`${SEG_NAME[g0.key] || A.name}: ${cdotClosed ? "closed (COtrip)" : worst >= 1 ? `about ${Math.round(worst)} min slower than an empty road` : "normal"}`, { sticky: true }).addTo(layer);
+        });
+      } else if (dirs.length) {
         const ratio = Math.max(...dirs.map(x => x.minutes && x.free_min ? x.minutes / x.free_min : 1));
         const worst = Math.max(...dirs.map(x => x.delay_min || 0));
         const c = cdotClosed ? COL.bad : ratio <= 1.15 ? COL.good : ratio <= 1.5 ? COL.slow : COL.bad;
@@ -2317,6 +2365,8 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     ["events", "Road alerts", "Closures, traction laws, incidents and road work, logged when each starts and ends."],
     ["snotel", "Snow stations", "Hourly snow depth, snow water content and temperature near each mountain. Times are Mountain Standard Time."],
     ["forecast", "Forecasts", "National Weather Service summaries for each mountain, every 3 hours."],
+    ["routes", "Route times", "TomTom drive times for each alternate route end to end, with live traffic and on an empty road."],
+    ["route_segments", "Route stretches", "The same TomTom routes split at every node on the line map (I-25, 6th Ave, Golden and so on), so each stretch has its own time and delay. Since Nov 25."],
     ["travel", "Travel times", "CDOT segment travel times, kept only when CDOT reports a nonzero value."],
     ["resort_status", "Lifts and trails open", "Each resort's open lifts and trails, read from its own report twice a day."],
     ["errors", "Errors", "Any source that failed on a given run."],
