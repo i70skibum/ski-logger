@@ -1885,3 +1885,4 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-25T22:45:50-07:00,end,COSEG-589730,winterDriving,standard,CO 145,NOT_DIRECTIONAL,N,46.43321074882593,116.87899764402346,CO 145: Wet in areas.,2026-11-25T16:36:19.605000-07:00
 2026-11-25T23:00:46-07:00,start,CDOT-36592424781WB,roadClosures,critical,I-70,NEGATIVE_DIRECTION,,260.8651,,I-70 westbound: Exit ramp closed.,2026-11-25T22:46:09-07:00
 2026-11-25T23:00:46-07:00,start,CDOT-36592424781WB,roadReports,critical,I-70,NEGATIVE_DIRECTION,,260.8651,,I-70 westbound: Exit ramp closed.,2026-11-25T22:46:09-07:00
+2026-11-25T23:45:51-07:00,end,CDOT-36592424781WB,roadClosures,critical,I-70,NEGATIVE_DIRECTION,,260.8651,,I-70 westbound: Exit ramp closed.,2026-11-25T22:46:09-07:00
