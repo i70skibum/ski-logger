@@ -1050,11 +1050,9 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       const st = keys.map(k => predRoute(k, "W", iso)), worst = st.reduce((a, b) => RANK[b.kind] > RANK[a.kind] ? b : a), d = Math.max(0, ...st.map(x => x.delay || 0));
       box.append(wayRow(name, note + (st.some(x => x.st.alerts.length) ? " \u00b7 closure planned" : ""), d >= 1 ? `+${d} min` : "", worst.kind, worst.kind === "closed" ? "Planned closure" : worst.kind === "none" ? "No estimate" : null));
     };
-    row("Clear Creek Canyon", "Usual peak heading up, Golden freeway and US 6", ["canyon"]);
-    row("6th Ave", "Usual peak, Coors Field to Golden", ["sixth"]);
-    row("Berthoud Pass", "Usual peak heading up, US 40 to Winter Park", ["berthoud"]);
-    row("US 6 to A-Basin and Keystone", "Usual peak over Loveland Pass and through Dillon", ["pass", "dillon"]);
-    if (shown("eldora")) row("Eldora", "Usual peak heading up by Boulder Canyon", ["eldora_boulder"]);
+    row("Berthoud Pass", "Usual peak heading up, Coors Field to Winter Park (US 40 part)", ["berthoud"]);
+    row("Loveland Pass", "Usual peak heading up, Coors Field to A-Basin (US 6 part)", ["pass"]);
+    if (shown("eldora")) row("Boulder Canyon", "Usual peak heading up, Coors Field to Eldora", ["eldora_boulder"]);
   }
   // Bottom sheet (phone): a panel that slides up over the page.
   function openSheet(title, sub, body) {
@@ -1435,38 +1433,30 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   function renderWays() {
     if (fut()) return renderWaysFuture(fut());
     const box = $("ways"); box.replaceChildren();
-    const I = i70Overall();
+    const I = i70Overall(), dir = I.morning ? "W" : "E", way = dir === "W" ? "up" : "home";
     const i70note = I.closures.length ? I.closures[0].title.replace(/\.$/, "") + (I.closures.length > 1 ? ` (+${I.closures.length - 1} more)` : "")
-      : `Coors Field to Copper · up ${plus(I.up)}, home ${plus(I.home)}`;
+      : `Coors Field to Copper \u00b7 up ${plus(I.up)}, home ${plus(I.home)}`;
     box.append(wayRow("I-70", i70note, plus(I.morning ? I.up : I.home), I.kind));
-    const cy = routeState("canyon");
-    box.append(wayRow("Clear Creek Canyon", "I-70 and the Golden freeway to Golden, then US 6 up the canyon to Floyd Hill" + (cy.traction ? " · traction law" : ""), cy.delay != null ? plus(cy.delay) : "", cy.kind));
-    const sx = routeState("sixth");
-    // I-25 and 6th Ave each on their own row, from the logger's split of the route at the I-25 interchange.
-    const segRow = (name, note, keys) => {
-      const got = ["W", "E"].map(dr => keys.map(key => segLive("sixth", dr, key))).filter(a => a.every(Boolean));
-      if (!got.length || /closed|check/.test(sx.kind)) return null;
-      const ski = got[0], delay = Math.max(...got.map(a => a.reduce((t, g) => t + (g.delay_min || 0), 0)));
-      const kind = got.flat().reduce((w, g) => RANK[g.kind] > RANK[w] ? g.kind : w, "open");
-      return () => box.append(wayRow(name, note + ` \u00b7 ${Math.round(ski.reduce((t, g) => t + g.minutes, 0))} min`, plus(delay), kind));
+    // Coors Field to each mountain: I-70 out to the turnoff (CDOT's speeds), then the pass to the base area (TomTom,
+    // just the stretch that ends at the mountain). Shown in the direction of the time of day, like I-70.
+    const trip = (name, to, westLon, mpWest, rk, seg, note) => {
+      const st = routeState(rk, dir), g = seg ? segLive(rk, dir, seg) : null;
+      const rMin = g ? g.minutes : st.minutes, rDel = g ? g.delay_min : st.delay;
+      const iMin = westLon != null ? i70Min(dir, C0, westLon) : 0;
+      const iDel = westLon != null && D.ctx.speedRow ? delayMin(D.ctx.speedRow, D.ctx.segs, D.ctx.refs, dir, westLon) : 0;
+      const shut = westLon != null && D.ctx.events.some(e => isClosure(e) && normRoute(e.route) === "I70" && overlaps(e.mp_start, e.mp_end, mpWest, 276) && forDir(e, dir));
+      const mins = rMin != null && iMin != null ? rMin + iMin : null, del = rDel != null ? rDel + (iDel || 0) : null;
+      const ratio = mins != null && del != null && mins > del ? mins / (mins - del) : null;
+      const kind = shut || st.kind === "closed" ? "closed" : st.kind === "check" ? "check" : ratio == null ? "none" : ratio <= 1.15 ? "open" : ratio <= 1.5 ? "slow" : "heavy";
+      const bits = [`Coors Field to ${to}`];
+      if (mins != null) bits.push(`${Math.round(mins)} min ${way}`);
+      if (st.traction) bits.push("traction law");
+      if (note) bits.push(note);
+      box.append(wayRow(name, bits.join(" \u00b7 "), kind === "closed" ? "" : plus(del), kind));
     };
-    const rI25 = segRow("I-25", "Coors Field to 6th Ave", ["coors>i25"]), r6th = segRow("6th Ave", "US 6 from I-25 past I-70 to Golden", ["i25>us6", "us6>golden"]);
-    if (rI25 && r6th) { rI25(); r6th(); }
-    else box.append(wayRow("6th Ave", "I-25 and US 6 from Coors Field past I-70 to Golden" + (sx.minutes != null ? ` \u00b7 ${Math.round(sx.minutes)} min` : ""), sx.delay != null ? plus(sx.delay) : "", sx.kind));
-    const be = routeState("berthoud");
-    box.append(wayRow("Berthoud Pass", "US 40 to Winter Park" + (be.traction ? " · traction law" : ""), be.delay != null ? plus(be.delay) : "", be.kind));
-    const pa = routeState("pass"), di = routeState("dillon");
-    const bit = (s, label) => `${label} ${s.kind === "closed" ? "closed" : s.delay != null ? plus(s.delay) : "no data"}`;
-    box.append(wayRow("US 6 to A-Basin and Keystone", `${bit(pa, "Over Loveland Pass")} · ${bit(di, "through Dillon")}` + (pa.traction ? " · traction law" : ""),
-      plus(Math.max(pa.delay || 0, di.delay || 0)), worse(pa.kind, di.kind)));
-    if (shown("eldora")) {
-      const ks = ["eldora_boulder", "eldora_coal", "eldora_119"].map(routeState);
-      const ok = ks.filter(s => s.kind !== "closed" && s.minutes != null).sort((a, b) => a.minutes - b.minutes);
-      const nick = { eldora_boulder: "Boulder Canyon", eldora_coal: "Coal Creek", eldora_119: "Black Hawk" };
-      const note = ks.map(s => `${nick[s.A.key]} ${s.kind === "closed" ? "closed" : s.minutes != null ? Math.round(s.minutes) + " min" : "no data yet"}`).join(" · ");
-      const kind = ok.length ? ok[0].kind : ks.every(s => s.kind === "closed") ? "closed" : "none";
-      box.append(wayRow("Eldora", "From Coors Field: " + note, ok.length ? `${Math.round(ok[0].minutes)} min` : "", kind, ok.length ? `Best: ${nick[ok[0].A.key]}` : null));
-    }
+    trip("Berthoud Pass", "Winter Park", -105.66, 232, "berthoud", "empire>winterpark");
+    trip("Loveland Pass", "A-Basin", -105.88, 216, "pass", "x216>abasin");
+    if (shown("eldora")) trip("Boulder Canyon", "Eldora", null, null, "eldora_boulder", null);
   }
 
   function renderCautions() {
@@ -1567,7 +1557,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   const geo = () => PHONE() ? { w: 420, h: 1250, top: 0 } : { w: MW, h: MH, top: TOP };   // canvas runs from y = TOP to TOP + MH
   // I-70 stretches: x on the line map, mileposts (closures) and longitudes (speed sensors).
   const I70_BANDS = [
-    { x: [1080, CX], p: [[1080, 340], [CX, 340]], stub: [CX, Y, CX, 340], mp: [266, 276], lon: [-105.14, -104.98], name: "Coors Field to the Golden freeway" },
+    { x: [1080, CX], p: [[1080, 340], [CX, 340]], stub: [CX, Y, CX, 340], mp: [266, 276], lon: [-105.14, -104.98], name: "I-25 to the Golden freeway" },
     { x: [980, 1080], p: [[980, Y], [1080, 340]], mp: [260, 266], lon: [-105.19, -105.14], name: "Golden freeway to US 6" },
     { x: [860, 980], mp: [244, 260], lon: [-105.43, -105.19], name: "US 6 to Floyd Hill" },
     { x: [760, 860], mp: [240, 244], lon: [-105.51, -105.43], name: "Floyd Hill to Idaho Springs" },
@@ -1788,7 +1778,15 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       desc.push(`${ROUTE_NAME[k]} ${KIND[s.kind][1].toLowerCase()}`);
     }
     const ip = E ? i70Pred(E, dir, H) : null;
-    const bandDraw = (b, kind, tip, info) => { const [a, c] = bandP(b); P_(a[0], a[1], c[0], c[1], kind, tip, info); if (b.stub) P_(...b.stub, kind, tip, info); };
+    // The I-25 stub (Coors Field up to I-70) isn't I-70: CDOT has no sensors on it. Live, it gets its own TomTom
+    // stretch below; only the forecast view still draws it with the I-70 band.
+    const bandDraw = (b, kind, tip, info) => { const [a, c] = bandP(b); P_(a[0], a[1], c[0], c[1], kind, tip, info); if (b.stub && E) P_(...b.stub, kind, tip, info); };
+    if (!E) {
+      const g = ["canyon", "eldora_boulder", "eldora_coal", "eldora_119", "i25direct"].map(rk => segLive(rk, dir, "coors>i25i70")).find(Boolean);
+      const stub = I70_BANDS.find(b => b.stub).stub;
+      P_(...stub, g ? g.kind : "none", `I-25, Coors Field to I-70: ${dname}, ` + (g ? (g.delay_min < 1 ? "normal" : `about ${Math.round(g.delay_min)} min slower than an empty road`) : "no reading right now"),
+        g ? roadStats({ time: g.minutes, free: g.free_min, extra: g.delay_min, live: true }) : []);
+    }
     I70_BANDS.forEach(b => {
       if (E) {
         const pl = plannedOn(E).filter(e => normRoute(e.route) === "I70" && forDir(e, dir) && overlaps(e.mp_start, e.mp_end, b.mp[0], b.mp[1]));
