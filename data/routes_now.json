@@ -7405,7 +7405,7 @@
     "minutes": 31.1,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-25T19:30:48-07:00",
+    "at": "2026-11-25T19:45:46-07:00",
     "line": [
      [
       39.76107,
@@ -8572,7 +8572,7 @@
     "minutes": 31.2,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-25T19:30:48-07:00",
+    "at": "2026-11-25T19:45:46-07:00",
     "line": [
      [
       39.88623,
@@ -11524,11 +11524,11 @@
   "eldora_boulder": {
    "name": "Coors Field to Eldora by Boulder Canyon (US 36, CO 119)",
    "E": {
-    "delay_min": 0.8,
-    "minutes": 68.4,
+    "delay_min": 0.6,
+    "minutes": 68.2,
     "free_min": 67.6,
     "detour": false,
-    "at": "2026-11-25T19:30:48-07:00",
+    "at": "2026-11-25T19:45:46-07:00",
     "line": [
      [
       39.93746,
@@ -13389,8 +13389,8 @@
       "to": "i25i70",
       "key": "i25i70>boulder",
       "km": 39.5,
-      "minutes": 24.0,
-      "free_min": 24.0,
+      "minutes": 23.9,
+      "free_min": 23.9,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -13629,9 +13629,9 @@
       "to": "coors",
       "key": "coors>i25i70",
       "km": 3.6,
-      "minutes": 7.8,
+      "minutes": 7.7,
       "free_min": 7.2,
-      "delay_min": 0.6,
+      "delay_min": 0.5,
       "jam_min": 0.0,
       "line": [
        [
@@ -23118,11 +23118,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 1.4,
-    "minutes": 26.6,
+    "delay_min": 1.2,
+    "minutes": 26.5,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-25T19:30:48-07:00",
+    "at": "2026-11-25T19:45:46-07:00",
     "line": [
      [
       39.74245,
@@ -23627,9 +23627,9 @@
       "to": "coors",
       "key": "coors>i25",
       "km": 6.5,
-      "minutes": 9.1,
+      "minutes": 8.9,
       "free_min": 7.7,
-      "delay_min": 1.4,
+      "delay_min": 1.2,
       "jam_min": 0.0,
       "line": [
        [
@@ -23764,11 +23764,11 @@
    "points": [],
    "points_at": "2026-11-25T19:30:48-07:00",
    "W": {
-    "delay_min": 0.8,
-    "minutes": 29.8,
+    "delay_min": 0.9,
+    "minutes": 29.9,
     "free_min": 29.0,
     "detour": false,
-    "at": "2026-11-25T19:30:48-07:00",
+    "at": "2026-11-25T19:45:46-07:00",
     "line": [
      [
       39.75702,
@@ -24142,8 +24142,8 @@
       "key": "coors>i25",
       "km": 6.3,
       "minutes": 9.1,
-      "free_min": 8.3,
-      "delay_min": 0.8,
+      "free_min": 8.2,
+      "delay_min": 0.9,
       "jam_min": 0.0,
       "line": [
        [
@@ -24249,8 +24249,8 @@
       "to": "us6",
       "key": "i25>us6",
       "km": 15.7,
-      "minutes": 10.2,
-      "free_min": 10.2,
+      "minutes": 10.4,
+      "free_min": 10.4,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -25199,10 +25199,10 @@
    "points_at": "2026-11-25T19:30:48-07:00",
    "E": {
     "delay_min": null,
-    "minutes": 52.6,
+    "minutes": 52.4,
     "free_min": 51.3,
     "detour": true,
-    "at": "2026-11-25T19:30:48-07:00"
+    "at": "2026-11-25T19:45:46-07:00"
    }
   },
   "corridor": {
@@ -26561,10 +26561,10 @@
    "points_at": "2026-11-25T19:30:48-07:00"
   }
  },
- "updated": "2026-11-25T19:30:48-07:00",
+ "updated": "2026-11-25T19:45:46-07:00",
  "tomtom_use": {
   "flow": 2404,
-  "routing": 2674
+  "routing": 2680
  },
  "tomtom_caps": {
   "routing": 19000,
