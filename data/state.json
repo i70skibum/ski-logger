@@ -1915,6 +1915,90 @@
    "title": "US 6 eastbound: Bridge construction.",
    "type": "routine"
   },
+  "roadWork:CDOT-36599124541BOTH": {
+   "began": "2026-12-04T07:00:00-07:00",
+   "class": "roadWork",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36599124541BOTH",
+   "lat": 38.11583,
+   "lon": -103.89564,
+   "mp_end": "",
+   "mp_start": 357.9988647379575,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50 in both directions: Right shoulder closed.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36599130247EB": {
+   "began": "2026-12-04T07:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36599130247EB",
+   "lat": 39.14266,
+   "lon": -108.70811,
+   "mp_end": 22.453945214354153,
+   "mp_start": 22.000388896616457,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6 eastbound: Road construction.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36599130340EB": {
+   "began": "2026-12-04T07:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36599130340EB",
+   "lat": 37.55585,
+   "lon": -106.77528,
+   "mp_end": 175.40148791931998,
+   "mp_start": 174.80467367348035,
+   "pos_bearing": "E",
+   "route": "US 160",
+   "title": "US 160 eastbound: Road construction.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36599130681EB": {
+   "began": "2026-12-04T07:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36599130681EB",
+   "lat": 39.74629,
+   "lon": -105.46053,
+   "mp_end": 245.01478792534718,
+   "mp_start": 242.99921860041002,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Right lane closed.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36599136911EB": {
+   "began": "2026-12-04T07:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36599136911EB",
+   "lat": 39.55805,
+   "lon": -106.40106,
+   "mp_end": "",
+   "mp_start": 148.02879946520554,
+   "pos_bearing": "E",
+   "route": "US 24",
+   "title": "US 24 eastbound: Road construction.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36599136926EB": {
+   "began": "2026-12-04T07:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36599136926EB",
+   "lat": 39.31325,
+   "lon": -106.33334,
+   "mp_end": "",
+   "mp_start": 170.00037019336682,
+   "pos_bearing": "E",
+   "route": "US 24",
+   "title": "US 24 eastbound: Road construction.",
+   "type": "routine"
+  },
   "winterDriving:COSEG-522873": {
    "began": "2026-11-23T19:16:02.258000-07:00",
    "class": "winterDriving",
@@ -2001,7 +2085,7 @@
   }
  },
  "forecast_last": "2026-11-26T11:30:47+00:00",
- "last_run": "2026-11-26T07:00:48-07:00",
+ "last_run": "2026-11-26T07:15:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-26": {
@@ -2741,7 +2825,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-26 05:00",
+  "abasin": "2026-11-26 06:00",
   "aspen": "2026-11-26 05:00",
   "beavercreek": "2026-11-26 05:00",
   "breck": "2026-11-26 05:00",
@@ -2751,7 +2835,7 @@
   "echo": "2026-11-26 05:00",
   "eldora": "2026-11-26 05:00",
   "granby": "2026-11-26 05:00",
-  "keystone": "2026-11-26 05:00",
+  "keystone": "2026-11-26 06:00",
   "loveland": "2026-11-26 05:00",
   "monarch": "2026-11-26 05:00",
   "powderhorn": "2026-11-26 05:00",
@@ -3018,13 +3102,13 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-26T14:00:48+00:00",
- "tomtom_routing_last": "2026-11-26T14:00:48+00:00",
+ "tomtom_routing_last": "2026-11-26T14:15:47+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 2484
   },
   "routing": {
-   "2026-11": 2769
+   "2026-11": 2775
   }
  },
  "traffic_model_last": "2026-11-26T11:30:47+00:00"
