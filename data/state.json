@@ -1,5 +1,5 @@
 {
- "afd_last": "51023e1e-d2c2-4aaf-9a25-5445225d90c4",
+ "afd_last": "1811a131-367d-46a5-a0f6-dc7d872e1289",
  "cameras_last": "2026-11-25T23:30:46+00:00",
  "cameras_v": 2,
  "err_seen": {
@@ -417,6 +417,20 @@
    "title": "I-70 eastbound: Road closed.",
    "type": "critical"
   },
+  "roadClosures:CDOT-36592424781WB": {
+   "began": "2026-11-25T22:46:09-07:00",
+   "class": "roadClosures",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36592424781WB",
+   "lat": 39.72541,
+   "lon": -105.18313,
+   "mp_end": "",
+   "mp_start": 260.8651,
+   "pos_bearing": "",
+   "route": "I-70",
+   "title": "I-70 westbound: Exit ramp closed.",
+   "type": "critical"
+  },
   "roadClosures:COSEG-589046": {
    "began": "2026-11-22T18:22:59.216000-07:00",
    "class": "roadClosures",
@@ -472,6 +486,20 @@
    "route": "US 160",
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
+  },
+  "roadReports:CDOT-36592424781WB": {
+   "began": "2026-11-25T22:46:09-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36592424781WB",
+   "lat": 39.72541,
+   "lon": -105.18313,
+   "mp_end": "",
+   "mp_start": 260.8651,
+   "pos_bearing": "",
+   "route": "I-70",
+   "title": "I-70 westbound: Exit ramp closed.",
+   "type": "critical"
   },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
@@ -1903,7 +1931,7 @@
   }
  },
  "forecast_last": "2026-11-26T05:00:47+00:00",
- "last_run": "2026-11-25T22:45:50-07:00",
+ "last_run": "2026-11-25T23:00:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-25": {
@@ -2660,7 +2688,7 @@
   "purgatory": "2026-11-25 21:00",
   "steamboat": "2026-11-25 21:00",
   "sunlight": "2026-11-25 21:00",
-  "telluride": "2026-11-25 20:00",
+  "telluride": "2026-11-25 21:00",
   "vail": "2026-11-25 21:00",
   "winterpark": "2026-11-25 21:00",
   "wolfcreek": "2026-11-25 21:00"
