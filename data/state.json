@@ -1803,6 +1803,90 @@
    "title": "I-70 eastbound: Road closed.",
    "type": "critical"
   },
+  "roadWork:CDOT-36598720331WB": {
+   "began": "2026-12-04T06:30:00-07:00",
+   "class": "roadWork",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36598720331WB",
+   "lat": 40.6178,
+   "lon": -103.2113,
+   "mp_end": 398.15816387588694,
+   "mp_start": 404.0004668696125,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6 westbound: Road maintenance operations.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36598720351EB": {
+   "began": "2026-12-04T06:30:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36598720351EB",
+   "lat": 40.54569,
+   "lon": -103.26643,
+   "mp_end": 404.0004668696125,
+   "mp_start": 398.15816387588694,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6 eastbound: Road maintenance operations.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36598720371BOTH": {
+   "began": "2026-12-04T06:30:00-07:00",
+   "class": "roadWork",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36598720371BOTH",
+   "lat": 38.95962,
+   "lon": -105.32837,
+   "mp_end": 278.10142323887953,
+   "mp_start": 267.36937021928884,
+   "pos_bearing": "E",
+   "route": "US 24",
+   "title": "US 24 in both directions: Right shoulder closed.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36598720457BOTH": {
+   "began": "2026-12-04T06:30:00-07:00",
+   "class": "roadWork",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36598720457BOTH",
+   "lat": 38.99518,
+   "lon": -105.37032,
+   "mp_end": 267.0834378032756,
+   "mp_start": 263.9996682205602,
+   "pos_bearing": "E",
+   "route": "US 24",
+   "title": "US 24 in both directions: Right shoulder closed.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36598726661EB": {
+   "began": "2026-12-04T06:30:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36598726661EB",
+   "lat": 40.58569,
+   "lon": -102.26493,
+   "mp_end": "",
+   "mp_start": 455.99674105752536,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6 eastbound: Bridge construction.",
+   "type": "routine"
+  },
+  "roadWork:CDOT-36598727143EB": {
+   "began": "2026-12-04T06:30:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36598727143EB",
+   "lat": 40.58703,
+   "lon": -102.32187,
+   "mp_end": "",
+   "mp_start": 452.9990021480323,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6 eastbound: Bridge construction.",
+   "type": "routine"
+  },
   "winterDriving:COSEG-522873": {
    "began": "2026-11-23T19:16:02.258000-07:00",
    "class": "winterDriving",
@@ -1889,7 +1973,7 @@
   }
  },
  "forecast_last": "2026-11-26T11:30:47+00:00",
- "last_run": "2026-11-26T06:30:46-07:00",
+ "last_run": "2026-11-26T06:45:48-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-26": {
@@ -2630,7 +2714,7 @@
  },
  "snotel_last": {
   "abasin": "2026-11-26 05:00",
-  "aspen": "2026-11-26 04:00",
+  "aspen": "2026-11-26 05:00",
   "beavercreek": "2026-11-26 05:00",
   "breck": "2026-11-26 05:00",
   "cooper": "2026-11-26 05:00",
@@ -2638,14 +2722,14 @@
   "crestedbutte": "2026-11-26 05:00",
   "echo": "2026-11-26 05:00",
   "eldora": "2026-11-26 05:00",
-  "granby": "2026-11-26 04:00",
+  "granby": "2026-11-26 05:00",
   "keystone": "2026-11-26 05:00",
   "loveland": "2026-11-26 05:00",
-  "monarch": "2026-11-26 04:00",
+  "monarch": "2026-11-26 05:00",
   "powderhorn": "2026-11-26 05:00",
   "purgatory": "2026-11-26 05:00",
   "steamboat": "2026-11-26 05:00",
-  "sunlight": "2026-11-26 04:00",
+  "sunlight": "2026-11-26 05:00",
   "telluride": "2026-11-26 04:00",
   "vail": "2026-11-26 05:00",
   "winterpark": "2026-11-26 05:00",
@@ -2906,13 +2990,13 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-26T13:30:46+00:00",
- "tomtom_routing_last": "2026-11-26T13:30:46+00:00",
+ "tomtom_routing_last": "2026-11-26T13:45:48+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 2468
   },
   "routing": {
-   "2026-11": 2750
+   "2026-11": 2756
   }
  },
  "traffic_model_last": "2026-11-26T11:30:47+00:00"
