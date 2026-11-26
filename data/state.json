@@ -473,20 +473,6 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
-  "roadReports:CDOT-36602919156WB": {
-   "began": "2026-11-26T11:43:27-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36602919156WB",
-   "lat": 39.74413,
-   "lon": -105.15374,
-   "mp_end": "",
-   "mp_start": 263.0005817726473,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 westbound: Right lane closed.",
-   "type": "routine"
-  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -2099,7 +2085,7 @@
   }
  },
  "forecast_last": "2026-11-26T17:45:46+00:00",
- "last_run": "2026-11-26T11:45:47-07:00",
+ "last_run": "2026-11-26T12:02:29-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-26": {
@@ -2854,9 +2840,9 @@
   "monarch": "2026-11-26 10:00",
   "powderhorn": "2026-11-26 10:00",
   "purgatory": "2026-11-26 10:00",
-  "steamboat": "2026-11-26 10:00",
+  "steamboat": "2026-11-26 11:00",
   "sunlight": "2026-11-26 10:00",
-  "telluride": "2026-11-26 09:00",
+  "telluride": "2026-11-26 10:00",
   "vail": "2026-11-26 10:00",
   "winterpark": "2026-11-26 10:00",
   "wolfcreek": "2026-11-26 10:00"
@@ -3115,14 +3101,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-26T18:30:46+00:00",
- "tomtom_routing_last": "2026-11-26T18:45:47+00:00",
+ "tomtom_flow_last": "2026-11-26T19:02:29+00:00",
+ "tomtom_routing_last": "2026-11-26T19:02:29+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 2628
+   "2026-11": 2644
   },
   "routing": {
-   "2026-11": 2946
+   "2026-11": 2959
   }
  },
  "traffic_model_last": "2026-11-26T17:45:46+00:00"
