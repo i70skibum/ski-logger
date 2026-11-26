@@ -7405,7 +7405,7 @@
     "minutes": 30.2,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-26T05:30:53-07:00",
+    "at": "2026-11-26T05:45:47-07:00",
     "line": [
      [
       39.76107,
@@ -8572,7 +8572,7 @@
     "minutes": 30.3,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-26T05:30:53-07:00",
+    "at": "2026-11-26T05:45:47-07:00",
     "line": [
      [
       39.88623,
@@ -13921,10 +13921,10 @@
    "points_at": "2026-11-26T05:30:53-07:00",
    "W": {
     "delay_min": 0.0,
-    "minutes": 65.8,
+    "minutes": 66.0,
     "free_min": 66.7,
     "detour": false,
-    "at": "2026-11-26T05:30:53-07:00",
+    "at": "2026-11-26T05:45:47-07:00",
     "line": [
      [
       39.75702,
@@ -15293,8 +15293,8 @@
       "to": "boulder",
       "key": "i25i70>boulder",
       "km": 39.5,
-      "minutes": 24.0,
-      "free_min": 24.0,
+      "minutes": 24.1,
+      "free_min": 24.1,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -15933,8 +15933,8 @@
       "to": "eldora",
       "key": "nederland>eldora",
       "km": 8.0,
-      "minutes": 11.0,
-      "free_min": 11.0,
+      "minutes": 11.1,
+      "free_min": 11.1,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -27066,11 +27066,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 0.0,
-    "minutes": 25.3,
+    "delay_min": 0.2,
+    "minutes": 25.4,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-26T05:30:53-07:00",
+    "at": "2026-11-26T05:45:47-07:00",
     "line": [
      [
       39.74245,
@@ -27491,8 +27491,8 @@
       "to": "i25",
       "key": "i25>us6",
       "km": 15.8,
-      "minutes": 11.2,
-      "free_min": 11.2,
+      "minutes": 11.3,
+      "free_min": 11.3,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -27576,8 +27576,8 @@
       "key": "coors>i25",
       "km": 6.5,
       "minutes": 8.6,
-      "free_min": 8.6,
-      "delay_min": 0.0,
+      "free_min": 8.4,
+      "delay_min": 0.2,
       "jam_min": 0.0,
       "line": [
        [
@@ -27712,11 +27712,11 @@
    "points": [],
    "points_at": "2026-11-26T05:30:53-07:00",
    "W": {
-    "delay_min": 0.2,
-    "minutes": 29.2,
+    "delay_min": 0.5,
+    "minutes": 29.5,
     "free_min": 29.0,
     "detour": false,
-    "at": "2026-11-26T05:30:53-07:00",
+    "at": "2026-11-26T05:45:47-07:00",
     "line": [
      [
       39.75702,
@@ -28089,9 +28089,9 @@
       "to": "i25",
       "key": "coors>i25",
       "km": 6.3,
-      "minutes": 8.6,
-      "free_min": 8.4,
-      "delay_min": 0.2,
+      "minutes": 8.7,
+      "free_min": 8.2,
+      "delay_min": 0.5,
       "jam_min": 0.0,
       "line": [
        [
@@ -28197,8 +28197,8 @@
       "to": "us6",
       "key": "i25>us6",
       "km": 15.7,
-      "minutes": 9.9,
-      "free_min": 9.9,
+      "minutes": 10.0,
+      "free_min": 10.0,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -28249,8 +28249,8 @@
       "to": "golden",
       "key": "us6>golden",
       "km": 7.9,
-      "minutes": 10.7,
-      "free_min": 10.7,
+      "minutes": 10.8,
+      "free_min": 10.8,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -28502,11 +28502,11 @@
   "i25direct": {
    "name": "I-25 and I-70 direct (Coors Field to I-70 exit 244)",
    "W": {
-    "delay_min": 0.0,
-    "minutes": 35.2,
+    "delay_min": 0.1,
+    "minutes": 35.3,
     "free_min": 35.2,
     "detour": false,
-    "at": "2026-11-26T05:30:53-07:00",
+    "at": "2026-11-26T05:45:47-07:00",
     "line": [
      [
       39.75702,
@@ -29127,9 +29127,9 @@
       "to": "i25i70",
       "key": "coors>i25i70",
       "km": 3.5,
-      "minutes": 7.1,
+      "minutes": 7.2,
       "free_min": 7.1,
-      "delay_min": 0.0,
+      "delay_min": 0.1,
       "jam_min": 0.0,
       "line": [
        [
@@ -31163,10 +31163,10 @@
    "points_at": "2026-11-26T05:30:53-07:00"
   }
  },
- "updated": "2026-11-26T05:30:53-07:00",
+ "updated": "2026-11-26T05:45:47-07:00",
  "tomtom_use": {
   "flow": 2436,
-  "routing": 2712
+  "routing": 2718
  },
  "tomtom_caps": {
   "routing": 19000,
