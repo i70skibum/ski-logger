@@ -1750,33 +1750,47 @@ def log_cameras(state):
 
 
 def log_recent(state):
-    """What the roads actually did, hour by hour, yesterday and today (Denver time), for the dashboard's
-    logged bars. Same delay math as the traffic model: I-70 from Copper to downtown, and each TomTom route."""
+    """What the roads actually did, hour by hour, for the dashboard's logged bars. Same delay math as the traffic
+    model: I-70 from Copper to downtown, and each TomTom route. recent.json holds yesterday and today (Denver time);
+    history/YYYY-MM.json holds every logged day of a month, for the date picker. Only this month and last month are
+    rewritten each run, plus any month that has no file yet."""
     from collections import defaultdict
-    days = {(NOW - timedelta(days=i)).date().isoformat() for i in (0, 1)}
     i70 = defaultdict(lambda: defaultdict(list))      # day -> (dir, hour) -> delays
     rts = defaultdict(lambda: defaultdict(list))      # day -> (route, dir, hour) -> delays
     for t, w, e in corridor_delays():
         day = t.date().isoformat()
-        if day in days:
-            for d, v in (("W", w), ("E", e)):
-                if v is not None:
-                    i70[day][(d, t.hour)].append(v)
+        for d, v in (("W", w), ("E", e)):
+            if v is not None:
+                i70[day][(d, t.hour)].append(v)
     for t, rk, d, v in route_delays():
-        day = t.date().isoformat()
-        if day in days:
-            rts[day][(rk, d, t.hour)].append(v)
-    out = {}
-    for day in sorted(days):
+        rts[t.date().isoformat()][(rk, d, t.hour)].append(v)
+    cell = lambda v: {"mean": round(sum(v) / len(v), 1), "max": round(max(v), 1), "n": len(v)}
+
+    def one(day):
         x = {"i70": {"W": {}, "E": {}}, "routes": {}}
         for (d, h), v in i70[day].items():
-            x["i70"][d][str(h)] = {"mean": round(sum(v) / len(v), 1), "max": round(max(v), 1), "n": len(v)}
+            x["i70"][d][str(h)] = cell(v)
         for (rk, d, h), v in rts[day].items():
-            x["routes"].setdefault(rk, {"W": {}, "E": {}})[d][str(h)] = {"mean": round(sum(v) / len(v), 1), "max": round(max(v), 1), "n": len(v)}
-        out[day] = x
+            x["routes"].setdefault(rk, {"W": {}, "E": {}})[d][str(h)] = cell(v)
+        return x
+    recent = [(NOW - timedelta(days=i)).date().isoformat() for i in (1, 0)]
     with open(os.path.join(DATA, "recent.json"), "w") as f:
-        json.dump({"updated": NOW_ISO, "days": out}, f, separators=(",", ":"))
-    return f"{sum(len(v) for v in i70.values())} I-70 hours"
+        json.dump({"updated": NOW_ISO, "days": {d: one(d) for d in recent}}, f, separators=(",", ":"))
+    hdir = os.path.join(DATA, "history")
+    os.makedirs(hdir, exist_ok=True)
+    all_days = sorted(set(i70) | set(rts))
+    months = sorted({d[:7] for d in all_days})
+    fresh = {d[:7] for d in recent} | {(NOW.replace(day=1) - timedelta(days=1)).strftime("%Y-%m")}
+    wrote = 0
+    for m in months:
+        path = os.path.join(hdir, f"{m}.json")
+        if m in fresh or not os.path.exists(path):
+            with open(path, "w") as f:
+                json.dump({"updated": NOW_ISO, "days": {d: one(d) for d in all_days if d.startswith(m)}}, f, separators=(",", ":"))
+            wrote += 1
+    with open(os.path.join(hdir, "index.json"), "w") as f:
+        json.dump({"updated": NOW_ISO, "first_day": all_days[0] if all_days else None, "months": months}, f)
+    return f"{len(all_days)} days, {wrote} month files"
 
 
 def main():
