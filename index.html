@@ -239,7 +239,7 @@ footer { color: var(--ink2); font-size: 12px; }
   .fac { grid-template-columns: 90px minmax(0, 1fr) 64px; }
   .seg a, .seg button { padding: 8px 14px; }
   .dayarrow { display: none; }
-  .daynav .seg { flex: 1; } .daynav .seg button { flex: 1; }
+  .daynav .seg { flex: 1; } .daynav .seg button { flex: 1; min-width: 0; padding: 6px 8px; } .daynav .seg button span { font-size: 13px; }
   .daynav .note { margin-left: 0; }
   .zoom { position: static; flex-direction: row; width: max-content; margin-top: 10px; }
   .zoom button + button { border-top: 0; border-left: 1px solid var(--ink3); }
@@ -306,6 +306,15 @@ footer { color: var(--ink2); font-size: 12px; }
 .wh-bars { display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); gap: 3px; height: 96px; align-items: end; position: relative; } .wh-bars.hasnow { margin-top: 26px; }
 .wb { height: 100%; display: flex; align-items: flex-end; border-radius: 6px; position: relative; cursor: pointer; } .wb.win { background: rgba(127,209,255,.10); }
 .wb i { display: block; width: 100%; border-radius: 5px 5px 2px 2px; min-height: 6px; } .wb i.g { background: #3DD68C; } .wb i.a { background: #F5B841; } .wb i.r { background: #E8584A; }
+#v-today.past .nopast { display: none !important; }
+#v-today.past .top { grid-template-columns: 1fr !important; }
+.wb.fc i { opacity: .38; background-image: repeating-linear-gradient(135deg, transparent 0 3px, rgba(14,26,36,.55) 3px 5px); }
+.wh-leg i.fc { background: #3DD68C; opacity: .38; background-image: repeating-linear-gradient(135deg, transparent 0 3px, rgba(14,26,36,.55) 3px 5px); }
+.wh-recap { border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; display: flex; flex-direction: column; gap: 3px; background: rgba(127,209,255,.05); }
+.wh-recap small { font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--ink2); }
+.wh-recap b { font: 700 19px/1.2 "Space Grotesk", sans-serif; } .wh-recap b.g { color: #5BE3A1; } .wh-recap b.a { color: #F5C566; } .wh-recap b.r { color: #FF8A7F; }
+.wh-recap span { font-size: 13px; color: var(--ink3); }
+.wh-recap .row { display: flex; gap: 12px 28px; flex-wrap: wrap; } .wh-recap .row > div { display: flex; flex-direction: column; gap: 2px; }
 .wb.est i { opacity: .42; } .wb.past i { background: #3A5266; opacity: .55; } .wb.sel i { box-shadow: 0 0 0 2px #EAF1F6; opacity: 1; }
 .wb.cl i { height: 100% !important; opacity: 1; background: repeating-linear-gradient(135deg, #E8584A 0 4px, #8A2F27 4px 8px); }
 .wb .nowl { position: absolute; top: -4px; bottom: -4px; left: 50%; width: 2px; background: var(--accent); z-index: 3; }
@@ -396,16 +405,16 @@ footer { color: var(--ink2); font-size: 12px; }
     <div class="daynav" id="daynav"></div>
     <section class="top">
       <div class="verdict" id="verdict" aria-live="polite"><div class="kick">TODAY'S CALL</div><h1>Loading</h1></div>
-      <div class="panel ways"><h2>Ways up</h2><div id="ways"></div></div>
+      <div class="panel ways nopast"><h2>Ways up</h2><div id="ways"></div></div>
     </section>
 
-    <section style="display:flex;flex-direction:column;gap:12px">
+    <section class="nopast" style="display:flex;flex-direction:column;gap:12px">
       <h2>Heads up from COtrip</h2>
       <div class="cautions" id="cautions"></div>
       <details class="more" id="condwrap"><summary>All road conditions and minor reports on your routes</summary><div id="conds"></div></details>
     </section>
 
-    <section style="display:flex;flex-direction:column;gap:14px">
+    <section class="nopast" style="display:flex;flex-direction:column;gap:14px">
       <div class="sechead"><h2>Where to go</h2><div class="pills" id="passpills" role="group" aria-label="Resorts to include"></div></div>
       <div class="resorts" id="resorts"></div>
       <div class="shutlist" id="shut"></div>
@@ -416,9 +425,9 @@ footer { color: var(--ink2); font-size: 12px; }
 
     <section class="drive">
       <div class="sechead"><h2>The drive</h2><span class="dp-conf" id="dp-conf" hidden></span></div>
-      <div class="dp-ctrls"><div class="pills"><div class="seg" id="dirseg" role="group" aria-label="Direction on the line map"><button id="d-w" aria-label="Westbound, heading up">&larr; Westbound</button><div class="dirwrap" id="d-ewrap"><button id="d-e" aria-haspopup="menu" aria-label="Eastbound, heading home">Eastbound &rarr;</button><div class="dmenu" id="d-menu" role="menu" aria-label="Heading home from"></div></div></div><div class="seg" role="group" aria-label="Map style"><button id="b-line" class="on">Line map</button><button id="b-real">Real map</button></div></div></div>
+      <div class="dp-ctrls"><div class="pills"><div class="seg" id="dirseg" role="group" aria-label="Direction on the line map"><button id="d-w" aria-label="Westbound, heading up">&larr; Westbound</button><div class="dirwrap" id="d-ewrap"><button id="d-e" aria-haspopup="menu" aria-label="Eastbound, heading home">Eastbound &rarr;</button><div class="dmenu" id="d-menu" role="menu" aria-label="Heading home from"></div></div></div><div class="seg nopast" role="group" aria-label="Map style"><button id="b-line" class="on">Line map</button><button id="b-real">Real map</button></div></div></div>
       <section class="panel wh" id="whenbox"></section>
-      <div class="panel">
+      <div class="panel nopast">
         <div id="linebox">
           <div id="linewrap"><div id="lineinner" role="img"></div></div>
           <div class="zoom"><button id="z-in" aria-label="Zoom in">+</button><button id="z-out" aria-label="Zoom out">&minus;</button><button id="z-fit" class="fit" aria-label="Fit the whole map">FIT</button></div>
@@ -896,14 +905,14 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const [state, segRows, speedRows, snow, fc, rc, rs] = await Promise.all([
       get("state.json", true), get("speed/segments.csv").then(parseCSV), csv2("speed", month, day.slice(8) === "01"),
       csv2("snotel", month, true), csv2("forecast", month, true), csv2("road_conditions", month, true), get("resort_status.json", true)]);
-    const [outlook, model, routes, segGeo, camData] = await Promise.all([get("outlook.json", true), get("traffic_model.json", true), get("routes_now.json", true),
-      get("speed/segments_geo.json", true).catch(() => null), get("cameras.json", true).catch(() => ({}))]);
+    const [outlook, model, routes, segGeo, camData, recent] = await Promise.all([get("outlook.json", true), get("traffic_model.json", true), get("routes_now.json", true),
+      get("speed/segments_geo.json", true).catch(() => null), get("cameras.json", true).catch(() => ({})), get("recent.json", true).catch(() => ({}))]);
     if (!state.last_run) throw new Error("Could not load the logger data.");
     const segs = segments(segRows), refs = refSpeeds(speedRows, segs), speedRow = speedRows[speedRows.length - 1] || null;
     const allEv = Object.values(state.events || {}), nowMs = Date.now(), started = e => !e.began || Date.parse(e.began) <= nowMs;
     const ctx = { segs, refs, speedRow, events: allEv.filter(started), upcoming: allEv.filter(e => !started(e)), now: nowMs, conds: latestConds(rc), forecast: latestForecast(fc), snow: {}, status: rs.resorts || {}, statusDate: rs.checked || "", statusAuto: !!rs.auto, today: day, routes };
     for (const k in RESORTS) ctx.snow[k] = snowSummary(snow, k);
-    D = { now, day, state, ctx, outlook, model, cams: (camData && camData.cameras) || [], segRows, segGeo: segGeo || {}, speedRows, ranked: rank(ctx) };
+    D = { now, day, state, ctx, outlook, model, recent: recent || {}, cams: (camData && camData.cameras) || [], segRows, segGeo: segGeo || {}, speedRows, ranked: rank(ctx) };
     render();
   }
 
@@ -970,8 +979,11 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   let vday = 0;
   const viewDays = () => { const out = [D.day]; for (let i = 1; i <= 2; i++) { const d = new Date(D.day + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() + i); out.push(d.toISOString().slice(0, 10)); } return out; };
   const fut = () => vday > 0 ? viewDays()[vday] : null;
-  const dayLabel = i => i === 0 ? "Today" : i === 1 ? "Tomorrow" : new Date(viewDays()[i] + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long" });
-  function setDay(i) { vday = Math.max(0, Math.min(2, i)); render(); }
+  const yday = () => { const d = new Date(D.day + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() - 1); return d.toISOString().slice(0, 10); };
+  const dayIso = i => i < 0 ? yday() : viewDays()[i];
+  const past = () => vday < 0;
+  const dayLabel = i => i < 0 ? "Yesterday" : i === 0 ? "Today" : i === 1 ? "Tomorrow" : new Date(viewDays()[i] + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long" });
+  function setDay(i) { vday = Math.max(-1, Math.min(2, i)); selHour = null; render(); }
   // Swipe left or right on the verdict to change the day; arrow keys too, when nothing else has focus.
   { let x0 = null, y0 = null; const top = document.querySelector(".top");
     top.addEventListener("touchstart", ev => { x0 = ev.touches[0].clientX; y0 = ev.touches[0].clientY; }, { passive: true });
@@ -983,17 +995,19 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const box = $("daynav"); box.replaceChildren();
     const prev = el("button", "dayarrow", "\u2039"), next = el("button", "dayarrow", "\u203a");
     prev.setAttribute("aria-label", "Previous day"); next.setAttribute("aria-label", "Next day");
-    prev.disabled = vday === 0; next.disabled = vday === 2;
+    prev.disabled = vday === -1; next.disabled = vday === 2;
     prev.onclick = () => setDay(vday - 1); next.onclick = () => setDay(vday + 1);
     const seg = el("div", "seg"); seg.setAttribute("role", "tablist");
-    viewDays().forEach((iso, i) => {
-      const b = el("button", i === vday ? "on" : ""); b.setAttribute("role", "tab"); b.setAttribute("aria-selected", i === vday);
-      let cf = ""; try { cf = " \u00b7 " + Math.round(tripAt(dpOriginKey(), "W", iso, 7).conf * 100) + "%"; } catch (e) {}
+    [-1, 0, 1, 2].forEach(i => {
+      const iso = dayIso(i), b = el("button", i === vday ? "on" : ""); b.setAttribute("role", "tab"); b.setAttribute("aria-selected", i === vday);
+      let cf = ""; if (i >= 0) try { cf = " \u00b7 " + Math.round(tripAt(dpOriginKey(), "W", iso, 7).conf * 100) + "%"; } catch (e) {}
       b.append(el("span", "", dayLabel(i)), el("small", "", new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", month: "short", day: "numeric" }) + cf));
       b.onclick = () => setDay(i); seg.append(b);
     });
     box.append(prev, seg, next);
-    if (vday) box.append(el("span", "note", "Predicted from the traffic model and snow forecasts. Live roads are on Today."));
+    if (vday > 0) box.append(el("span", "note", "Predicted from the traffic model and snow forecasts. Live roads are on Today."));
+    else if (vday < 0) box.append(el("span", "note", "Logged: what the roads actually did. Live roads are on Today."));
+    $("v-today").classList.toggle("past", vday < 0);
   }
   // Inputs for dayScore, the same ones the 7-day tab uses.
   function weekInputs() {
@@ -1203,8 +1217,8 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   // haven't seen yet are held at 25%.
   const DP_UNSEEN = 0.25, DP_GENERIC = 0.12;
   let selHour = null;
-  const dpIso = () => viewDays()[vday];
-  const mapIso = () => vday > 0 || selHour != null ? dpIso() : null;
+  const dpIso = () => dayIso(vday);
+  const mapIso = () => vday > 0 || (vday === 0 && selHour != null) ? dpIso() : null;
   const dpDir = () => mapDir || (vday === 0 ? (denverHour() < 11 ? "W" : "E") : "W");
   const dpHour = dir => selHour != null ? selHour : vday === 0 ? Math.min(23, Math.max(0, denverHour())) : dir === "W" ? 7 : 16;
   const clock12 = h => `${h % 12 || 12} ${h < 12 ? "AM" : "PM"}`;
@@ -1233,9 +1247,24 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const conf = parts.reduce((a, x) => a + x.w * x.d.conf, 0) / W, n = parts.reduce((a, x) => a + x.w * x.d.n, 0) / W;
     return { free, extra, minutes: free + extra, pct: extra / free, conf: Math.max(0.1, conf), n };
   }
+  // What the roads actually did in an hour, from recent.json (yesterday and today, logged by the logger). null when not logged.
+  function loggedAt(key, dir, iso, h) {
+    const day = ((D.recent || {}).days || {})[iso]; if (!day) return null;
+    const R = RESORTS[key], via = VIA_ROUTE[key], free = Math.max(20, R.hrs * 60);
+    let extra = 0;
+    if (R.westLon != null) { const x = ((day.i70 || {})[dir] || {})[h]; if (!x) return null; extra += x.mean; }
+    if (via) { const x = (((day.routes || {})[via] || {})[dir] || {})[h]; if (!x) return null; extra += x.mean; }
+    return { free, extra, minutes: free + extra, pct: extra / free, conf: 1, n: 99, logged: true };
+  }
+  // Logged for hours already gone (today) or the whole day (yesterday); the model otherwise.
+  function tripOr(key, dir, iso, h, nowH) {
+    if (vday < 0 || (vday === 0 && h < nowH)) { const L = loggedAt(key, dir, iso, h); if (L) return L; }
+    return tripAt(key, dir, iso, h);
+  }
   const dpTone = p => p < 0.12 ? "g" : p <= 0.30 ? "a" : "r";
   // Is the resort's road closed in this direction (a closure COtrip lists now, or one planned for that day)?
   function dpClosed(key, dir, iso) {
+    if (vday < 0) return null;
     const R = RESORTS[key], evs = vday === 0 ? D.ctx.events.concat(plannedOn(iso, true)) : plannedOn(iso, true);
     const hit = evs.filter(e => isClosure(e) && forDir(e, dir) && onRoute(R, e.route, e.mp_start, e.mp_end));
     if (!hit.length) return null;
@@ -1287,26 +1316,53 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   const BAR_SCALE = { W: 20, E: 65 };
   const lvlOf = pct => dpTone(pct);
   const setHour = x => { selHour = Math.max(0, Math.min(23, x)); renderWhen(); renderCharts(); if (view === "line") drawLine(); renderMapNote(); };
+  // A line on what already happened: this morning's drive up (or this afternoon's drive home) today, both drives yesterday.
+  function whenRecap(key, iso, dir, nowH) {
+    const worstOf = (d, a, b) => { let w = null; for (let x = a; x <= b; x++) { const t = loggedAt(key, d, iso, x); if (t && (!w || t.extra > w.t.extra)) w = { x, t }; } return w; };
+    const box = el("div", "wh-recap");
+    if (vday < 0) {
+      const up = worstOf("W", 5, 11), home = worstOf("E", 11, 19); if (!up && !home) return null;
+      const row = el("div", "row"), one = (k, w) => { const d = el("div"); d.append(el("small", "", k), el("b", lvlOf(w.t.pct), w.t.extra < 1 ? "Empty road" : `+${Math.round(w.t.extra)} min`), el("span", "", w.t.extra < 1 ? "all day" : `worst, around ${clock12(w.x)}`)); row.append(d); };
+      if (up) one("UP, 5 TO 11 AM", up); if (home) one("HOME, 11 AM TO 7 PM", home);
+      box.append(row); return box;
+    }
+    if (vday !== 0) return null;
+    // Today: the morning's drive up, whichever way the card points, plus the drive home so far once the afternoon is under way.
+    const up = worstOf("W", 5, Math.min(11, nowH - 1)); if (!up) return null;
+    const w = up, b = Math.min(11, nowH - 1);
+    const head = w.t.pct < 0.12 ? "You didn't miss much." : w.t.pct <= 0.30 ? "A moderate rush." : "You missed a real rush.";
+    let clearH = null; for (let x = w.x + 1; x <= b; x++) { const t = loggedAt(key, "W", iso, x); if (t && t.extra < Math.max(2, w.t.extra * 0.4)) { if (clearH == null) clearH = x; } else clearH = null; }
+    let sub = w.t.extra < 1 ? "About an empty road the whole time." : `Worst was +${Math.round(w.t.extra)} min around ${clock12(w.x)}.`;
+    if (w.t.extra >= 2 && clearH != null) sub += ` Back near an empty road since ${clock12(clearH)}.`;
+    box.append(el("small", "", "THIS MORNING'S DRIVE UP · LOGGED"), el("b", lvlOf(w.t.pct), head), el("span", "", sub));
+    const home = nowH >= 13 ? worstOf("E", 12, nowH - 1) : null;
+    if (home) box.append(el("span", "", home.t.extra < 1 ? "Drive home so far: about an empty road." : `Drive home so far: worst +${Math.round(home.t.extra)} min around ${clock12(home.x)}.`));
+    return box;
+  }
   function renderWhen() {
     const box = $("whenbox"); box.replaceChildren();
     const dir = dpDir(), iso = dpIso(), h = dpHour(dir), key = origin, org = ORIGINS.find(o => o.key === key) || ORIGINS[0], rname = org.name;
-    const trips = []; for (let x = 0; x < 24; x++) trips.push(tripAt(key, dir, iso, x));
-    const cl = dpClosed(key, dir, iso), isCl = x => !!cl && x >= cl.from, nowH = vday === 0 ? denverHour() : -1;
+    const nowH = vday === 0 ? denverHour() : -1;
+    const trips = []; for (let x = 0; x < 24; x++) trips.push(tripOr(key, dir, iso, x, nowH));
+    const cl = dpClosed(key, dir, iso), isCl = x => !!cl && x >= cl.from, anyLog = trips.some(t => t.logged);
     const day = [...Array(15).keys()].map(i => i + 5);   // 5 AM to 7 PM: the whole day, past hours too
     const best = day.reduce((a, x) => trips[x].extra < trips[a].extra - 0.5 ? x : a, day[0]), worst = day.reduce((a, x) => trips[x].extra > trips[a].extra ? x : a, day[0]);
+    const flat = trips[worst].extra - trips[best].extra < 1;
+    const tag = x => trips[x].logged ? " · logged" : x < nowH ? " · passed" : "";
     const sel = PRESETS.findIndex(p => h >= p[1] && h <= p[2]);
     // Top: the question and three numbers.
     const top = el("div", "wh-top"), q = el("div", "wh-q"), qh = el("h2");
-    qh.append(dir === "W" ? "Leaving Coors at " : `Leaving ${rname} at `, el("span", "hr", clock12(h)));
+    const lv = vday < 0 ? "Left" : "Leaving"; qh.append(dir === "W" ? `${lv} Coors at ` : `${lv} ${rname} at `, el("span", "hr", clock12(h)));
     const st = el("span", "wh-step"), pb = el("button", "", "‹"), nb = el("button", "", "›");
     pb.setAttribute("aria-label", "Earlier hour"); nb.setAttribute("aria-label", "Later hour"); pb.onclick = () => setHour(h - 1); nb.onclick = () => setHour(h + 1); st.append(pb, nb); qh.append(st);
-    q.append(el("div", "kick", "WHEN"), qh, el("p", "note", `${dayLabel(vday)} · ${dir === "W" ? "westbound to " + rname : "eastbound, home to Coors"}`));
+    q.append(el("div", "kick", "WHEN"), qh, el("p", "note", `${dayLabel(vday)} · ${dir === "W" ? "westbound to " + rname : "eastbound, home to Coors"}` + (vday < 0 ? " · logged" : "")));
     const stat = (cls, k, big, sub) => { const d = el("div", "wh-stat " + cls); d.append(el("small", "", k), el("b", "", big), el("span", "", sub)); return d; };
     const stats = el("div", "wh-stats"), cur = trips[h];
-    stats.append(isCl(h) ? stat("r", "DRIVE TIME", "Closed", cl.titles[0]) : stat(lvlOf(cur.pct), "DRIVE TIME", hmm(cur.minutes), cur.extra < 1 ? "about the same as an empty road" : `+${Math.round(cur.extra)} min over an empty road`),
-      stat("g", "BEST TIME", clock12(best), `+${Math.round(trips[best].extra)} min` + (best < nowH ? " · passed" : "")),
-      stat(lvlOf(trips[worst].pct), "SLOWEST", clock12(worst), `+${Math.round(trips[worst].extra)} min` + (worst < nowH ? " · passed" : "")));
+    stats.append(isCl(h) ? stat("r", "DRIVE TIME", "Closed", cl.titles[0]) : stat(lvlOf(cur.pct), "DRIVE TIME", hmm(cur.minutes), (cur.extra < 1 ? "about the same as an empty road" : `+${Math.round(cur.extra)} min over an empty road`) + (cur.logged ? " · logged" : "")),
+      stat("g", "BEST TIME", clock12(best), `+${Math.round(trips[best].extra)} min` + tag(best)),
+      flat ? stat("g", "SLOWEST", "None", "every hour within a minute") : stat(lvlOf(trips[worst].pct), "SLOWEST", clock12(worst), `+${Math.round(trips[worst].extra)} min` + tag(worst)));
     top.append(q, stats);
+    const recap = whenRecap(key, iso, dir, nowH);
     // Windows.
     const pre = el("div", "wh-pre");
     PRESETS.forEach(([nm, a, b, win], i) => {
@@ -1315,7 +1371,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       const em = el("em"), dot = el("i", "");
       const closedIn = [...Array(b - a + 1).keys()].map(k => a + k).find(isCl);
       if (dis && outside) { dot.className = "n"; em.append(dot, "Past"); }
-      else if (dis) { dot.className = "n"; em.append(dot, `+${Math.round(peak)} min · past`); }
+      else if (dis) { dot.className = trips.slice(a, b + 1).some(t => t.logged) ? lvlOf(pk) : "n"; em.append(dot, `+${Math.round(peak)} min · ` + (trips.slice(a, b + 1).some(t => t.logged) ? "logged" : "past")); }
       else if (closedIn != null) { dot.className = "r"; em.append(dot, `Closed from ${clockS(closedIn)}`); }
       else if (outside) { dot.className = "n"; em.append(dot, "Partial data"); }
       else { dot.className = lvlOf(pk); em.append(dot, `+${Math.round(peak)} min peak`); }
@@ -1325,10 +1381,10 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     // Bars, one per hour.
     const bars = el("div", "wh-bars" + (nowH >= 0 ? " hasnow" : "")), mx = BAR_SCALE[dir], [wa, wb] = sel >= 0 ? [PRESETS[sel][1], PRESETS[sel][2]] : [-1, -1];
     trips.forEach((t, x) => {
-      const c = el("div", "wb" + (x >= wa && x <= wb ? " win" : "") + (x < 5 || x >= 20 ? " est" : "") + (x < nowH ? " past" : "") + (isCl(x) ? " cl" : "") + (x === h ? " sel" : ""));
+      const c = el("div", "wb" + (x >= wa && x <= wb ? " win" : "") + (x < 5 || x >= 20 ? " est" : "") + (t.logged ? " log" : x < nowH ? " past" : anyLog ? " fc" : "") + (isCl(x) ? " cl" : "") + (x === h ? " sel" : ""));
       if (x === nowH) { c.append(el("span", "nowl"), el("span", "nowtag", "Now " + fmtTime(new Date()))); }
       const i = el("i", lvlOf(t.pct)); i.style.height = Math.max(7, Math.min(100, t.extra / mx * 100)) + "%";
-      c.append(i); c.dataset.tip = `${clock12(x)}: ${isCl(x) ? "closed" : hmm(t.minutes) + " (+" + Math.round(t.extra) + " min)"}`; c.onclick = () => setHour(x);
+      c.append(i); c.dataset.tip = `${clock12(x)}: ${isCl(x) ? "closed" : hmm(t.minutes) + " (+" + Math.round(t.extra) + " min" + (t.logged ? ", logged" : "") + ")"}`; c.onclick = () => setHour(x);
       c.addEventListener("pointermove", ev => showTip(ev, c.dataset.tip)); c.addEventListener("pointerleave", hideTip);
       bars.append(c);
     });
@@ -1337,10 +1393,12 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const ax = el("div", "wh-ax"); for (let x = 0; x < 24; x++) ax.append(el("span", x === h ? "sel" : "", x === h || (x % 3 === 0 && Math.abs(x - h) > 1) ? clockS(x) : ""));
     const lg = el("div", "wh-leg"), li = (cls, t) => { const sp = el("span"); sp.append(el("i", cls), t); lg.append(sp); };
     li("g", "Under 12% over empty road"); li("a", "12 to 30%"); li("r", "Over 30%");
-    li("est", "Lighter bars: no TomTom times logged (before 5 AM, after 8 PM). I-70 itself is still logged all night.");
+    if (vday < 0) lg.append(el("span", "", "Every bar is what the road actually did, averaged over each hour."));
+    else if (anyLog) { li("", "Solid: what the road actually did"); lg.lastChild.firstChild.className = "g"; li("fc", "Faded: forecast"); }
+    if (vday >= 0) li("est", "Lighter bars: no TomTom times logged (before 5 AM, after 8 PM). I-70 itself is still logged all night.");
     lg.append(el("span", "", `Bar height is extra minutes over an empty road, same scale on every day (${mx} min tall).`));
-    if (nowH >= 0) li("past", "Already past"); if (cl) li("cl", vday === 0 ? "Closed (COtrip)" : "Closed (planned, from COtrip)");
-    box.append(top, pre, bars, slide, ax, lg);
+    if (nowH >= 0 && trips.some((t, x) => x < nowH && !t.logged)) li("past", "Already past, not logged"); if (cl) li("cl", vday === 0 ? "Closed (COtrip)" : "Closed (planned, from COtrip)");
+    box.append(top); if (recap) box.append(recap); box.append(pre, bars, slide, ax, lg);
     if (vday === 0 && selHour != null) { const b = el("button", "wh-live", "Back to now"); b.onclick = () => { selHour = null; renderWhen(); renderCharts(); if (view === "line") drawLine(); renderMapNote(); }; q.append(b); }
   }
   function chartKeys() {
@@ -1357,10 +1415,11 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const lg = el("div", "legend"); [["#3DD68C", "Under 12% over empty road"], ["#F5B841", "12 to 30%"], ["#E8584A", "Over 30%"]].forEach(([c, t]) => { const sp = el("span"), sw = el("span", "lsw"); sw.style.background = c; sp.append(sw, t); lg.append(sp); });
     box.append(lg);
     const nowH = vday === 0 ? denverHour() : -1;
+    if (vday < 0) { hd.firstChild.textContent = `Logged drive time at ${clock12(h)} ${dname}`; }
     let headConf = null;
     keys.forEach((k, ci) => {
       const R = RESORTS[k] || { name: k }, open = !RESORTS[k] || isOpen(D.ctx, k), grp = el("div", "dp-grp");
-      const trips = []; for (let x = 0; x < 24; x++) trips.push(tripAt(k, dir, iso, x));
+      const trips = []; for (let x = 0; x < 24; x++) trips.push(tripOr(k, dir, iso, x, nowH));
       const org = ORIGINS.find(o => o.key === k), name = (org || R).name || R.name;
       const cl = dpClosed(k, dir, iso), cur = trips[h];
       if (ci === 0) headConf = cur;
@@ -1372,25 +1431,27 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       const ax = el("div", "dp-row dp-axrow"); ax.append(tiles);
       const tl = el("div", "dp-tiles");
       trips.forEach((t, x) => {
-        const closed = cl && x >= cl.from, c = el("div", "dp-tile " + (closed ? "x" : dpTone(t.pct)) + (x === h ? " sel" : "") + (x < 5 || x >= 20 ? " lite" : "") + (x < nowH ? " past" : "") + (x < 4 ? " edgeL" : x > 19 ? " edgeR" : "") + (x % 12 < 2 ? " eL" : x % 12 > 9 ? " eR" : ""));
+        const closed = cl && x >= cl.from, c = el("div", "dp-tile " + (closed ? "x" : dpTone(t.pct)) + (x === h ? " sel" : "") + (x < 5 || x >= 20 ? " lite" : "") + (x < nowH && !t.logged ? " past" : "") + (x < 4 ? " edgeL" : x > 19 ? " edgeR" : "") + (x % 12 < 2 ? " eL" : x % 12 > 9 ? " eR" : ""));
         c.dataset.h = clockS(x);
         const pop = el("div", "dp-pop");
-        pop.append(el("span", "p1", clock12(x) + (x === nowH ? " · now" : x < nowH ? " · passed" : "")), el("span", "p2", closed ? "Closed" : hmm(t.minutes)),
+        pop.append(el("span", "p1", clock12(x) + (x === nowH ? " · now" : t.logged ? " · logged" : x < nowH ? " · passed" : "")), el("span", "p2", closed ? "Closed" : hmm(t.minutes)),
           el("span", "p3", closed ? cl.titles[0] : t.extra < 1 ? "about the same as an empty road" : `+${Math.round(t.extra)} min vs empty road`));
         c.append(pop); c.onclick = () => setHour(x);
         tl.append(c);
       });
       const rt = el("div", "dp-rt"), bar = el("span", "bar"), fill = el("i"); fill.style.width = Math.round(cur.conf * 100) + "%"; bar.append(fill);
-      rt.append(el("span", "pct", Math.round(cur.conf * 100) + "%"), bar, el("span", "muted", "confidence"));
+      if (cur.logged) rt.append(el("span", "pct", "Logged"), el("span", "muted", "actual"));
+      else rt.append(el("span", "pct", Math.round(cur.conf * 100) + "%"), bar, el("span", "muted", "confidence"));
       row.append(tl, rt); const axr = el("div", "dp-row dp-axr"); axr.append(tiles, el("span"));
       grp.append(gh, axr, row); box.append(grp);
     });
     box.append(el("p", "note dp-foot", "Lighter boxes before 5 AM and after 8 PM lean on I-70 sensors and the known pattern; TomTom isn't logged then. Confidence is how many typical weekends we have logged for each stretch, out of 6. Closed boxes follow COtrip's closure for that direction."));
-    const pill = $("dp-conf"); if (headConf) { pill.hidden = false; pill.textContent = `${F ? "Forecast confidence" : "Confidence"} ${Math.round(headConf.conf * 100)}%`; }
+    const pill = $("dp-conf"); if (headConf) { pill.hidden = false; pill.textContent = headConf.logged ? "Logged" : `${F ? "Forecast confidence" : "Confidence"} ${Math.round(headConf.conf * 100)}%`; }
   }
 
   function renderVerdict() {
     if (fut()) return renderVerdictFuture(fut());
+    if (vday < 0) return renderVerdictPast();
     const { ctx, ranked } = D, box = $("verdict"); box.replaceChildren();
     const anyShown = Object.keys(RESORTS).some(shown);
     let v = null;
@@ -1401,6 +1462,21 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const period = hr < 11 ? "about the drive up, until 11" : !afternoon ? "today's driving is done, tap Tomorrow" : dir === "E" ? `heading home from ${oname}` : `going up to ${oname} this afternoon`;
     box.append(el("div", "kick", "TODAY'S CALL"), el("div", "kick-sub", period), el("h1", "", v.line), el("p", "", v.why));
     if (afternoon) { try { box.append(leaveCard(hr, dir)); } catch (e) { console.error(e); } }
+  }
+  // Yesterday: how the drive up and the drive home actually went, for the picked resort.
+  function renderVerdictPast() {
+    const box = $("verdict"); box.replaceChildren(); box.className = "verdict";
+    const key = dpOriginKey(), iso = yday(), R = RESORTS[key];
+    const worst = (d, a, b) => { let w = null; for (let x = a; x <= b; x++) { const t = loggedAt(key, d, iso, x); if (t && (!w || t.extra > w.t.extra)) w = { x, t }; } return w; };
+    const up = worst("W", 5, 11), home = worst("E", 11, 19), all = [up, home].filter(Boolean);
+    const when = new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long", month: "short", day: "numeric" });
+    if (!all.length) { box.append(el("div", "kick", "LOOKING BACK"), el("div", "kick-sub", when), el("h1", "", "Nothing logged."), el("p", "", "The logger has no drive times for yesterday.")); return; }
+    const top = Math.max(...all.map(w => w.t.pct)), lvl = top < 0.12 ? "good" : top <= 0.30 ? "warn" : "crit";
+    box.className = "verdict " + lvl;
+    const line = top < 0.12 ? "Easy day on the roads." : top <= 0.30 ? "Some slowdowns." : "A rough traffic day.";
+    const part = (k, w) => !w ? "" : w.t.extra < 1 ? `${k} was about an empty road.` : `${k} peaked at +${Math.round(w.t.extra)} min around ${clock12(w.x)}.`;
+    box.append(el("div", "kick", "LOOKING BACK"), el("div", "kick-sub", `${when} · Coors Field and ${R.name}`), el("h1", "", line),
+      el("p", "", [part("The drive up", up), part("The drive home", home)].filter(Boolean).join(" ")));
   }
   // After 11 AM the question is usually when to leave the mountain, so that is the default; one tap flips it to going up.
   // The day's pick stays on the card either way.
@@ -1746,7 +1822,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const PH = PHONE(); $("lineinner").style.width = (PH ? 420 : 1320) + "px"; $("lineinner").style.height = (PH ? 1250 : 580) + "px";
     const P_ = (x1, y1, x2, y2, k, t, i) => PH ? piece(box, ...tfP(x1, y1), ...tfP(x2, y2), k, t, i) : piece(box, x1, y1, x2, y2, k, t, i);
     const A_ = (cls, x, y, w, h, text) => PH ? at(box, cls, ...tfP(x, y), w, h, text) : at(box, cls, x, y, w, h, text);
-    const dir = mapDir || (denverHour() < 11 ? "W" : "E"), dname = dir === "W" ? "westbound" : "eastbound";
+    const dir = dpDir(), dname = dir === "W" ? "westbound" : "eastbound";
     $("d-w").classList.toggle("on", dir === "W"); $("d-e").classList.toggle("on", dir === "E");
     dpOriginKey();
     drawOriginMenu(dir);
