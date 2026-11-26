@@ -473,20 +473,6 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
-  "roadReports:CDOT-36599055494EB": {
-   "began": "2026-11-26T06:56:48-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36599055494EB",
-   "lat": 39.74348,
-   "lon": -105.44336,
-   "mp_end": "",
-   "mp_start": 244.00539291801527,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Road closed.",
-   "type": "critical"
-  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -2071,7 +2057,7 @@
   }
  },
  "forecast_last": "2026-11-26T14:30:47+00:00",
- "last_run": "2026-11-26T08:00:47-07:00",
+ "last_run": "2026-11-26T08:15:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-26": {
@@ -2811,7 +2797,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-26 06:00",
+  "abasin": "2026-11-26 07:00",
   "aspen": "2026-11-26 06:00",
   "beavercreek": "2026-11-26 06:00",
   "breck": "2026-11-26 06:00",
@@ -2821,12 +2807,12 @@
   "echo": "2026-11-26 06:00",
   "eldora": "2026-11-26 06:00",
   "granby": "2026-11-26 06:00",
-  "keystone": "2026-11-26 06:00",
+  "keystone": "2026-11-26 07:00",
   "loveland": "2026-11-26 06:00",
   "monarch": "2026-11-26 06:00",
   "powderhorn": "2026-11-26 06:00",
   "purgatory": "2026-11-26 06:00",
-  "steamboat": "2026-11-26 06:00",
+  "steamboat": "2026-11-26 07:00",
   "sunlight": "2026-11-26 06:00",
   "telluride": "2026-11-26 06:00",
   "vail": "2026-11-26 06:00",
@@ -3088,13 +3074,13 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-26T15:00:47+00:00",
- "tomtom_routing_last": "2026-11-26T15:00:47+00:00",
+ "tomtom_routing_last": "2026-11-26T15:15:46+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 2516
   },
   "routing": {
-   "2026-11": 2807
+   "2026-11": 2813
   }
  },
  "traffic_model_last": "2026-11-26T14:30:47+00:00"
