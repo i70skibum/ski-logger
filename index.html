@@ -55,6 +55,7 @@ header { display: flex; flex-wrap: wrap; align-items: center; justify-content: s
 .verdict.crit .kick { color: var(--badtext); } .verdict.warn .kick { color: var(--slowtext); } .verdict.good .kick { color: var(--goodtext); }
 .verdict h1 { margin: 0; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: clamp(40px, 6vw, 66px); line-height: 1.03; letter-spacing: -.02em; }
 .verdict p { margin: 0; font-size: 19px; line-height: 1.5; color: var(--ink3); max-width: 580px; }
+.ways { align-self: start; }   /* sized to its rows, not stretched to the verdict column */
 .ways h2 { font-size: 20px; margin-bottom: 6px; }
 .way { display: grid; grid-template-columns: 14px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 13px 0; border-top: 1px solid var(--line); }
 .dot { width: 14px; height: 14px; border-radius: 50%; display: inline-block; }
