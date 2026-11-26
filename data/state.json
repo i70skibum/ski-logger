@@ -2069,37 +2069,23 @@
    "title": "CO 82: Seasonal Closure.",
    "type": "standard"
   },
-  "winterDriving:COSEG-589905": {
-   "began": "2026-11-26T08:38:39.449000-07:00",
+  "winterDriving:COSEG-589963": {
+   "began": "2026-11-26T12:55:15.029000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-589905",
+   "id": "COSEG-589963",
    "lat": 37.68247,
    "lon": -108.0335,
-   "mp_end": 71.57274062998921,
+   "mp_end": 116.87899764402346,
    "mp_start": 46.43321074882593,
    "pos_bearing": "N",
    "route": "CO 145",
-   "title": "CO 145: Icy spots.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-589906": {
-   "began": "2026-11-26T08:38:33.958000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-589906",
-   "lat": 37.95047,
-   "lon": -107.87306,
-   "mp_end": 116.87899764402346,
-   "mp_start": 71.57274062998921,
-   "pos_bearing": "N",
-   "route": "CO 145",
-   "title": "CO 145: Icy spots.",
+   "title": "CO 145: Wet in areas.",
    "type": "standard"
   }
  },
  "forecast_last": "2026-11-26T20:45:47+00:00",
- "last_run": "2026-11-26T14:45:46-07:00",
+ "last_run": "2026-11-26T15:00:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-26": {
@@ -2755,7 +2741,7 @@
   "winterpark": "https://api.weather.gov/gridpoints/BOU/36,70",
   "wolfcreek": "https://api.weather.gov/gridpoints/PUB/15,36"
  },
- "outlook_last": "2026-11-26T18:45:47+00:00",
+ "outlook_last": "2026-11-26T22:00:47+00:00",
  "road_conditions": {
   "100": "3 - dry",
   "101": "3 - dry",
@@ -2856,7 +2842,7 @@
   "purgatory": "2026-11-26 13:00",
   "steamboat": "2026-11-26 13:00",
   "sunlight": "2026-11-26 13:00",
-  "telluride": "2026-11-26 12:00",
+  "telluride": "2026-11-26 13:00",
   "vail": "2026-11-26 13:00",
   "winterpark": "2026-11-26 13:00",
   "wolfcreek": "2026-11-26 13:00"
@@ -3115,14 +3101,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-26T21:30:45+00:00",
- "tomtom_routing_last": "2026-11-26T21:45:46+00:00",
+ "tomtom_flow_last": "2026-11-26T22:00:47+00:00",
+ "tomtom_routing_last": "2026-11-26T22:00:47+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 2724
+   "2026-11": 2740
   },
   "routing": {
-   "2026-11": 3060
+   "2026-11": 3073
   }
  },
  "traffic_model_last": "2026-11-26T20:45:47+00:00"
