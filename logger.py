@@ -1041,6 +1041,15 @@ def split_route(rk, d, route, geo):
                     "minutes": round(live / 60, 1), "free_min": round(free / 60, 1),
                     "delay_min": round(max(0.0, live - free) / 60, 1), "jam_min": round(jam / 60, 1),
                     "line": simplify_line(pts[i0:i1 + 1], 120)})
+    # The speed limits overstate an empty road on curvy roads (no one does the limit down Loveland Pass), so
+    # the stretches never add up to more delay than TomTom gives the whole route: where the delay is still
+    # comes from the stretches, how much from the route.
+    total = max(0.0, (live_total or 0) - (none_total or 0)) / 60
+    raw = sum(g["delay_min"] for g in out)
+    if raw > total:
+        for g in out:
+            g["delay_min"] = round(g["delay_min"] * total / raw, 1) if raw else 0.0
+            g["free_min"] = round(max(g["minutes"] - g["delay_min"], 0.1), 1)
     return out
 
 
