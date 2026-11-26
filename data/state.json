@@ -293,6 +293,20 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
+  "roadReports:CDOT-36588608387EB": {
+   "began": "2026-11-25T18:03:06-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36588608387EB",
+   "lat": 37.43457,
+   "lon": -106.88718,
+   "mp_end": 161.00776195784866,
+   "mp_start": 158.00000000158616,
+   "pos_bearing": "E",
+   "route": "US 160",
+   "title": "US 160 eastbound: Rocks on the road.",
+   "type": "routine"
+  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -1609,6 +1623,20 @@
    "title": "US 6 eastbound: Bridge construction.",
    "type": "routine"
   },
+  "roadWork:CDOT-36588608274BOTH": {
+   "began": "2026-12-03T18:00:00-07:00",
+   "class": "roadWork",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36588608274BOTH",
+   "lat": 38.33712,
+   "lon": -104.74968,
+   "mp_end": 309.3045208768581,
+   "mp_start": 306.9948618018382,
+   "pos_bearing": "E",
+   "route": "US 50",
+   "title": "US 50 in both directions: Right lane closed.",
+   "type": "routine"
+  },
   "winterDriving:COSEG-522873": {
    "began": "2026-11-23T19:16:02.258000-07:00",
    "class": "winterDriving",
@@ -1695,7 +1723,7 @@
   }
  },
  "forecast_last": "2026-11-25T22:45:51+00:00",
- "last_run": "2026-11-25T18:00:50-07:00",
+ "last_run": "2026-11-25T18:15:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-25": {
@@ -2435,7 +2463,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-25 16:00",
+  "abasin": "2026-11-25 17:00",
   "aspen": "2026-11-25 16:00",
   "beavercreek": "2026-11-25 16:00",
   "breck": "2026-11-25 16:00",
@@ -2445,7 +2473,7 @@
   "echo": "2026-11-25 16:00",
   "eldora": "2026-11-25 16:00",
   "granby": "2026-11-25 16:00",
-  "keystone": "2026-11-25 16:00",
+  "keystone": "2026-11-25 17:00",
   "loveland": "2026-11-25 16:00",
   "monarch": "2026-11-25 16:00",
   "powderhorn": "2026-11-25 16:00",
@@ -2712,13 +2740,13 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-26T01:00:50+00:00",
- "tomtom_routing_last": "2026-11-26T01:00:50+00:00",
+ "tomtom_routing_last": "2026-11-26T01:15:46+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 2356
   },
   "routing": {
-   "2026-11": 2617
+   "2026-11": 2623
   }
  },
  "traffic_model_last": "2026-11-25T22:45:51+00:00"
