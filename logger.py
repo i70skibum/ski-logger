@@ -967,9 +967,11 @@ def tomtom_budget(state, kind, need, gap_min=12):
 def split_route(rk, d, route, geo):
     """Cut one TomTom route at the line-map nodes it passes. Returns one dict per stretch, in driving order:
     the two node ids, its key in ski-direction order ("coors>i25"), length, minutes with traffic, minutes on an
-    empty road, delay, and its line. The delay is TomTom's own traffic sections (jams) that fall on that stretch,
-    so a jam is charged where it is. Minutes come from the turn-by-turn times when TomTom sends them, else
-    the empty-road time is shared out by length."""
+    empty road, delay, and its line. Minutes with traffic come from TomTom's turn-by-turn times (time from the
+    start at each turn). The empty-road total is shared out along the route by the speed limits TomTom sends,
+    so a 35 mph city street gets more of it than the freeway. Delay is the difference. TomTom's named jams on
+    the stretch are kept too (jam_min); they miss slowness spread along a road, so they aren't the delay
+    (Nov 25: 6th Ave ran 4 minutes slow with no jam listed)."""
     import math
     names = ROUTE_NODES.get(rk)
     if not names or len(geo) < 2:
@@ -1005,30 +1007,39 @@ def split_route(rk, d, route, geo):
             if i0 <= i <= i1:
                 return t0 if cum[i1] == cum[i0] else t0 + (t1 - t0) * (cum[i] - cum[i0]) / (cum[i1] - cum[i0])
         return live_total
-    jams = [s for s in route.get("sections", []) if s.get("sectionType") == "TRAFFIC" and s.get("delayInSeconds")]
+    secs = route.get("sections", [])
+    jams = [x for x in secs if x.get("sectionType") == "TRAFFIC" and x.get("delayInSeconds")]
+    # Empty-road weight of each piece of line: its length over its speed limit (60 km/h where none is given).
+    limit = [None] * len(pts)
+    for x in secs:
+        if x.get("sectionType") == "SPEED_LIMIT" and x.get("maxSpeedLimitInKmh"):
+            for i in range(max(0, x.get("startPointIndex", 0)), min(len(pts) - 1, x.get("endPointIndex", 0))):
+                limit[i] = x["maxSpeedLimitInKmh"]
+    wcum = [0.0]
+    for i in range(len(pts) - 1):
+        wcum.append(wcum[-1] + (cum[i + 1] - cum[i]) / (limit[i] or 60))
     out = []
     for (a, i0), (b, i1) in zip(cuts, cuts[1:]):
         if i1 <= i0:
             continue
-        delay = 0.0
-        for s in jams:
-            s0, s1 = s.get("startPointIndex", 0), s.get("endPointIndex", 0)
+        jam = 0.0
+        for x in jams:
+            s0, s1 = x.get("startPointIndex", 0), x.get("endPointIndex", 0)
             span = cum[min(s1, len(cum) - 1)] - cum[min(s0, len(cum) - 1)]
             lo, hi = max(s0, i0), min(s1, i1)
             if hi > lo and span > 0:
-                delay += s["delayInSeconds"] * (cum[hi] - cum[lo]) / span
+                jam += x["delayInSeconds"] * (cum[hi] - cum[lo]) / span
             elif s0 == s1 and i0 <= s0 < i1:
-                delay += s["delayInSeconds"]
-        frac = (cum[i1] - cum[i0]) / (cum[-1] or 1)
+                jam += x["delayInSeconds"]
+        free = (none_total or 0) * (wcum[i1] - wcum[i0]) / (wcum[-1] or 1)
         if len(marks) > 2:
             live = live_at(i1) - live_at(i0)
-            free = max(live - delay, 0.0)
         else:
-            free = (none_total or 0) * frac
-            live = free + delay
+            live = free + jam
         key = f"{a}>{b}" if d == "W" else f"{b}>{a}"
         out.append({"from": a, "to": b, "key": key, "km": round((cum[i1] - cum[i0]) * scale / 1000, 1),
-                    "minutes": round(live / 60, 1), "free_min": round(free / 60, 1), "delay_min": round(delay / 60, 1),
+                    "minutes": round(live / 60, 1), "free_min": round(free / 60, 1),
+                    "delay_min": round(max(0.0, live - free) / 60, 1), "jam_min": round(jam / 60, 1),
                     "line": simplify_line(pts[i0:i1 + 1], 120)})
     return out
 
@@ -1092,7 +1103,7 @@ def log_routes(state):
             for d, pts in [(jd, jp) for jk, jd, jp in jobs if jk == rk]:
                 locs = ":".join(f"{lat},{lon}" for lat, lon in pts)
                 j = tomtom_get(TOMTOM_ROUTE.format(locs) + f"?key={key}&traffic=true&computeTravelTimeFor=all"
-                               "&routeType=fastest&travelMode=car&sectionType=traffic&instructionsType=coded",
+                               "&routeType=fastest&travelMode=car&sectionType=traffic&sectionType=speedLimit&instructionsType=coded",
                                key, f"routes:{rk}:{d}")
                 if j and j.get("no_route"):
                     rows.append([NOW_ISO, rk, d, "", "", "", "", "", True])
@@ -1124,14 +1135,14 @@ def log_routes(state):
                         segs = []
                     if segs:
                         out[d]["segs"] = segs
-                        seg_rows += [[NOW_ISO, rk, d, g["key"], g["from"], g["to"], g["km"], g["minutes"], g["free_min"], g["delay_min"]] for g in segs]
+                        seg_rows += [[NOW_ISO, rk, d, g["key"], g["from"], g["to"], g["km"], g["minutes"], g["free_min"], g["delay_min"], g["jam_min"]] for g in segs]
                     else:
                         out[d].pop("segs", None)
         append_rows("routes", ["snapshot_time", "route", "dir", "length_m", "travel_s", "no_traffic_s",
                                "historic_s", "delay_s", "detour"], rows)
         # One row per stretch between line-map nodes (since Nov 25), so each road has its own history.
         append_rows("route_segments", ["snapshot_time", "route", "dir", "segment", "from", "to", "km",
-                                       "minutes", "free_min", "delay_min"], seg_rows)
+                                       "minutes", "free_min", "delay_min", "jam_min"], seg_rows)
         did.append("routing")
 
     flow_sets = {**ROUTE_POINTS, **FLOW_ONLY}
