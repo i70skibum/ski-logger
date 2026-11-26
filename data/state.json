@@ -2069,15 +2069,29 @@
    "title": "CO 82: Seasonal Closure.",
    "type": "standard"
   },
-  "winterDriving:COSEG-589963": {
+  "winterDriving:COSEG-589972": {
    "began": "2026-11-26T12:55:15.029000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-589963",
+   "id": "COSEG-589972",
    "lat": 37.68247,
    "lon": -108.0335,
-   "mp_end": 116.87899764402346,
+   "mp_end": 71.57274062998921,
    "mp_start": 46.43321074882593,
+   "pos_bearing": "N",
+   "route": "CO 145",
+   "title": "CO 145: Wet in areas.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-589973": {
+   "began": "2026-11-26T12:55:15.029000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-589973",
+   "lat": 37.95047,
+   "lon": -107.87306,
+   "mp_end": 116.87899764402346,
+   "mp_start": 71.57274062998921,
    "pos_bearing": "N",
    "route": "CO 145",
    "title": "CO 145: Wet in areas.",
@@ -2085,7 +2099,7 @@
   }
  },
  "forecast_last": "2026-11-26T20:45:47+00:00",
- "last_run": "2026-11-26T16:00:46-07:00",
+ "last_run": "2026-11-26T16:15:49-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-26": {
@@ -2825,7 +2839,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-26 14:00",
+  "abasin": "2026-11-26 15:00",
   "aspen": "2026-11-26 14:00",
   "beavercreek": "2026-11-26 14:00",
   "breck": "2026-11-26 14:00",
@@ -2835,12 +2849,12 @@
   "echo": "2026-11-26 14:00",
   "eldora": "2026-11-26 14:00",
   "granby": "2026-11-26 14:00",
-  "keystone": "2026-11-26 14:00",
+  "keystone": "2026-11-26 15:00",
   "loveland": "2026-11-26 14:00",
   "monarch": "2026-11-26 14:00",
   "powderhorn": "2026-11-26 14:00",
   "purgatory": "2026-11-26 14:00",
-  "steamboat": "2026-11-26 14:00",
+  "steamboat": "2026-11-26 15:00",
   "sunlight": "2026-11-26 14:00",
   "telluride": "2026-11-26 14:00",
   "vail": "2026-11-26 14:00",
@@ -3102,13 +3116,13 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-26T23:00:46+00:00",
- "tomtom_routing_last": "2026-11-26T23:00:46+00:00",
+ "tomtom_routing_last": "2026-11-26T23:15:49+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 2772
   },
   "routing": {
-   "2026-11": 3111
+   "2026-11": 3117
   }
  },
  "traffic_model_last": "2026-11-26T20:45:47+00:00"
