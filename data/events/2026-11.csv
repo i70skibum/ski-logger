@@ -1886,3 +1886,5 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-25T23:00:46-07:00,start,CDOT-36592424781WB,roadClosures,critical,I-70,NEGATIVE_DIRECTION,,260.8651,,I-70 westbound: Exit ramp closed.,2026-11-25T22:46:09-07:00
 2026-11-25T23:00:46-07:00,start,CDOT-36592424781WB,roadReports,critical,I-70,NEGATIVE_DIRECTION,,260.8651,,I-70 westbound: Exit ramp closed.,2026-11-25T22:46:09-07:00
 2026-11-25T23:45:51-07:00,end,CDOT-36592424781WB,roadClosures,critical,I-70,NEGATIVE_DIRECTION,,260.8651,,I-70 westbound: Exit ramp closed.,2026-11-25T22:46:09-07:00
+2026-11-26T00:00:46-07:00,end,CDOT-36592424781WB,roadReports,critical,I-70,NEGATIVE_DIRECTION,,260.8651,,I-70 westbound: Exit ramp closed.,2026-11-25T22:46:09-07:00
+2026-11-26T00:00:46-07:00,end,CDOT-36013917804WB,roadWork,routine,US 24,NEGATIVE_DIRECTION,E,309.7830527958764,309.9040957661558,US 24 westbound: Road construction.,2026-10-27T11:15:00-06:00
