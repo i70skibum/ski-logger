@@ -16,6 +16,7 @@ It runs on GitHub Actions (free for public repos) and saves everything as CSV fi
 | `data/speed/` | CDOT COtrip (key) | every 15 min | I-70 speeds (mph) from Copper to C-470: one row per snapshot, one column per road segment. `segments.csv` gives each segment's direction and coordinates. Blank means CDOT's confidence was low |
 | `data/road_conditions/` | CDOT COtrip (key) | changes only | Official condition reports (dry, wet, snow packed, icy) for I-70 in the mountains, US 40 including Berthoud Pass, US 6 including Loveland Pass, CO 119 |
 | `data/travel/` | CDOT COtrip (key) | when reported | I-70 segment travel times, kept only when CDOT reports a nonzero value |
+| `data/route_segments/` | TomTom | every 15-30 min | The TomTom route times split at each node on the dashboard's line map (I-25 from Coors Field to 6th Ave, 6th Ave to I-70, and so on): minutes, empty-road minutes and delay per stretch, with jams charged to the stretch they are on |
 | `data/errors.csv` | | | Any source that failed on a given run |
 
 Files are split by month (`2026-11.csv`). SNOTEL times are Mountain Standard Time (the

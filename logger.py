@@ -796,6 +796,31 @@ def log_outlook(state):
 # Each has a monthly cap below 20,000, and runs closer than 12 minutes apart are skipped.
 
 TOMTOM_ROUTE = "https://api.tomtom.com/routing/1/calculateRoute/{}/json"
+# The junctions drawn as nodes on the dashboard's line map. Every TomTom route is split at the nodes it
+# passes, so each stretch between two nodes gets its own time and delay (Nov 25: the 6th Ave route was one
+# reading from Coors Field, so a jam on I-25 painted 6th Ave too). Coordinates sit on the roads, checked
+# against TomTom's own route lines. A route's first and last nodes are always its two ends.
+NODES = {
+    "coors": (39.7562, -104.9942), "i25": (39.7258, -105.0150), "i25i70": (39.7800, -104.9810),
+    "x261": (39.7800, -105.1400), "us6": (39.7252, -105.1980), "golden": (39.7555, -105.2211),
+    "floyd": (39.7425, -105.4313), "empire": (39.7611, -105.6831), "winterpark": (39.8863, -105.7618),
+    "x216": (39.6801, -105.8946), "abasin": (39.6420, -105.8710), "keystone": (39.6046, -105.9440),
+    "silverthorne": (39.6284, -106.0653), "boulder": (40.0150, -105.2705), "coal": (39.8660, -105.2330),
+    "blackhawk": (39.7969, -105.4939), "nederland": (39.9614, -105.5108), "eldora": (39.9375, -105.5830),
+}
+NODE_SNAP_M = 1200   # a middle node counts as passed when the route comes this close to it
+# Each route's nodes in the ski direction (heading up). Heading home uses the same list reversed.
+ROUTE_NODES = {
+    "sixth": ["coors", "i25", "us6", "golden"],
+    "canyon": ["coors", "i25i70", "x261", "golden", "floyd"],
+    "pass": ["x216", "abasin", "keystone"],
+    "berthoud": ["empire", "winterpark"],
+    "dillon": ["silverthorne", "keystone"],
+    "eldora_boulder": ["coors", "i25i70", "boulder", "nederland", "eldora"],
+    "eldora_coal": ["coors", "i25i70", "x261", "golden", "coal", "nederland", "eldora"],
+    "eldora_119": ["coors", "i25i70", "x261", "golden", "blackhawk", "nederland", "eldora"],
+    "i25direct": ["coors", "i25i70", "x261", "us6", "floyd"],
+}
 TOMTOM_FLOW = "https://api.tomtom.com/traffic/services/4/flowSegmentData/absolute/12/json"
 TOMTOM_CAPS = {"routing": 19000, "flow": 19000}
 ROUTE_POINTS = {
@@ -939,6 +964,75 @@ def tomtom_budget(state, kind, need, gap_min=12):
     return True
 
 
+def split_route(rk, d, route, geo):
+    """Cut one TomTom route at the line-map nodes it passes. Returns one dict per stretch, in driving order:
+    the two node ids, its key in ski-direction order ("coors>i25"), length, minutes with traffic, minutes on an
+    empty road, delay, and its line. The delay is TomTom's own traffic sections (jams) that fall on that stretch,
+    so a jam is charged where it is. Minutes come from the turn-by-turn times when TomTom sends them, else
+    the empty-road time is shared out by length."""
+    import math
+    names = ROUTE_NODES.get(rk)
+    if not names or len(geo) < 2:
+        return []
+    if d == "E":
+        names = list(reversed(names))
+    pts = [(p["latitude"], p["longitude"]) for p in geo]
+    cum = [0.0]
+    for (a, b), (c, e) in zip(pts, pts[1:]):
+        cum.append(cum[-1] + math.hypot((c - a) * 110540, (e - b) * 111320 * math.cos(math.radians(a))))
+    summ = route["summary"]
+    scale = (summ.get("lengthInMeters") or cum[-1]) / (cum[-1] or 1)
+    # Where each middle node falls on the line, kept only when it is in driving order.
+    cuts, last = [(names[0], 0)], 0
+    for n in names[1:-1]:
+        lat, lon = NODES[n]
+        kx = 111320 * math.cos(math.radians(lat))
+        i, dist = min(((i, math.hypot((p[0] - lat) * 110540, (p[1] - lon) * kx)) for i, p in enumerate(pts)), key=lambda x: x[1])
+        if dist <= NODE_SNAP_M and i > last:
+            cuts.append((n, i))
+            last = i
+    cuts.append((names[-1], len(pts) - 1))
+    # Live time at any point index, from the turn-by-turn instructions (time from the start at each turn).
+    marks = sorted({(ins["pointIndex"], ins["travelTimeInSeconds"]) for ins in (route.get("guidance") or {}).get("instructions", [])
+                    if isinstance(ins.get("pointIndex"), int) and isinstance(ins.get("travelTimeInSeconds"), (int, float))
+                    and 0 <= ins["pointIndex"] < len(pts)})
+    live_total, none_total = summ.get("travelTimeInSeconds"), summ.get("noTrafficTravelTimeInSeconds")
+    if marks and live_total:
+        marks = [(0, 0)] + [m for m in marks if m[0] > 0] + [(len(pts) - 1, live_total)]
+
+    def live_at(i):
+        for (i0, t0), (i1, t1) in zip(marks, marks[1:]):
+            if i0 <= i <= i1:
+                return t0 if cum[i1] == cum[i0] else t0 + (t1 - t0) * (cum[i] - cum[i0]) / (cum[i1] - cum[i0])
+        return live_total
+    jams = [s for s in route.get("sections", []) if s.get("sectionType") == "TRAFFIC" and s.get("delayInSeconds")]
+    out = []
+    for (a, i0), (b, i1) in zip(cuts, cuts[1:]):
+        if i1 <= i0:
+            continue
+        delay = 0.0
+        for s in jams:
+            s0, s1 = s.get("startPointIndex", 0), s.get("endPointIndex", 0)
+            span = cum[min(s1, len(cum) - 1)] - cum[min(s0, len(cum) - 1)]
+            lo, hi = max(s0, i0), min(s1, i1)
+            if hi > lo and span > 0:
+                delay += s["delayInSeconds"] * (cum[hi] - cum[lo]) / span
+            elif s0 == s1 and i0 <= s0 < i1:
+                delay += s["delayInSeconds"]
+        frac = (cum[i1] - cum[i0]) / (cum[-1] or 1)
+        if len(marks) > 2:
+            live = live_at(i1) - live_at(i0)
+            free = max(live - delay, 0.0)
+        else:
+            free = (none_total or 0) * frac
+            live = free + delay
+        key = f"{a}>{b}" if d == "W" else f"{b}>{a}"
+        out.append({"from": a, "to": b, "key": key, "km": round((cum[i1] - cum[i0]) * scale / 1000, 1),
+                    "minutes": round(live / 60, 1), "free_min": round(free / 60, 1), "delay_min": round(delay / 60, 1),
+                    "line": simplify_line(pts[i0:i1 + 1], 120)})
+    return out
+
+
 def simplify_line(pts, max_pts=380):
     """Douglas-Peucker: keep the vertices where the road bends, drop the ones on straight stretches. Starts at
     10 m and loosens until the line fits in max_pts. (Every-nth thinning cut corners: Boulder Canyon showed as
@@ -992,13 +1086,14 @@ def log_routes(state):
 
     jobs = route_jobs()
     if jobs and tomtom_budget(state, "routing", len(jobs)):
-        rows = []
+        rows, seg_rows = [], []
         for rk, R in ROUTE_POINTS.items():
             out = now["routes"].setdefault(rk, {"name": R["name"]})
             for d, pts in [(jd, jp) for jk, jd, jp in jobs if jk == rk]:
                 locs = ":".join(f"{lat},{lon}" for lat, lon in pts)
                 j = tomtom_get(TOMTOM_ROUTE.format(locs) + f"?key={key}&traffic=true&computeTravelTimeFor=all"
-                               "&routeType=fastest&travelMode=car", key, f"routes:{rk}:{d}")
+                               "&routeType=fastest&travelMode=car&sectionType=traffic&instructionsType=coded",
+                               key, f"routes:{rk}:{d}")
                 if j and j.get("no_route"):
                     rows.append([NOW_ISO, rk, d, "", "", "", "", "", True])
                     out[d] = {"delay_min": None, "minutes": None, "free_min": None, "detour": True, "no_route": True, "at": NOW_ISO}
@@ -1021,8 +1116,22 @@ def log_routes(state):
                 if not detour and geo:
                     # The whole road, end to end, for the dashboard map (thinned to about 150 points).
                     out[d]["line"] = simplify_line([(p["latitude"], p["longitude"]) for p in geo])
+                    # Each stretch between line-map nodes, on its own.
+                    try:
+                        segs = split_route(rk, d, j["routes"][0], geo)
+                    except Exception as e:
+                        log_error(f"routes:{rk}:{d}:split", e)
+                        segs = []
+                    if segs:
+                        out[d]["segs"] = segs
+                        seg_rows += [[NOW_ISO, rk, d, g["key"], g["from"], g["to"], g["km"], g["minutes"], g["free_min"], g["delay_min"]] for g in segs]
+                    else:
+                        out[d].pop("segs", None)
         append_rows("routes", ["snapshot_time", "route", "dir", "length_m", "travel_s", "no_traffic_s",
                                "historic_s", "delay_s", "detour"], rows)
+        # One row per stretch between line-map nodes (since Nov 25), so each road has its own history.
+        append_rows("route_segments", ["snapshot_time", "route", "dir", "segment", "from", "to", "km",
+                                       "minutes", "free_min", "delay_min"], seg_rows)
         did.append("routing")
 
     flow_sets = {**ROUTE_POINTS, **FLOW_ONLY}
