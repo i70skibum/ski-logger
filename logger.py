@@ -1749,6 +1749,36 @@ def log_cameras(state):
     return f"{len(cams)} cameras"
 
 
+def log_recent(state):
+    """What the roads actually did, hour by hour, yesterday and today (Denver time), for the dashboard's
+    logged bars. Same delay math as the traffic model: I-70 from Copper to downtown, and each TomTom route."""
+    from collections import defaultdict
+    days = {(NOW - timedelta(days=i)).date().isoformat() for i in (0, 1)}
+    i70 = defaultdict(lambda: defaultdict(list))      # day -> (dir, hour) -> delays
+    rts = defaultdict(lambda: defaultdict(list))      # day -> (route, dir, hour) -> delays
+    for t, w, e in corridor_delays():
+        day = t.date().isoformat()
+        if day in days:
+            for d, v in (("W", w), ("E", e)):
+                if v is not None:
+                    i70[day][(d, t.hour)].append(v)
+    for t, rk, d, v in route_delays():
+        day = t.date().isoformat()
+        if day in days:
+            rts[day][(rk, d, t.hour)].append(v)
+    out = {}
+    for day in sorted(days):
+        x = {"i70": {"W": {}, "E": {}}, "routes": {}}
+        for (d, h), v in i70[day].items():
+            x["i70"][d][str(h)] = {"mean": round(sum(v) / len(v), 1), "max": round(max(v), 1), "n": len(v)}
+        for (rk, d, h), v in rts[day].items():
+            x["routes"].setdefault(rk, {"W": {}, "E": {}})[d][str(h)] = {"mean": round(sum(v) / len(v), 1), "max": round(max(v), 1), "n": len(v)}
+        out[day] = x
+    with open(os.path.join(DATA, "recent.json"), "w") as f:
+        json.dump({"updated": NOW_ISO, "days": out}, f, separators=(",", ":"))
+    return f"{sum(len(v) for v in i70.values())} I-70 hours"
+
+
 def main():
     state = load_state()
     STATE_REF.clear()
@@ -1756,7 +1786,7 @@ def main():
     state = STATE_REF
     jobs = [("snotel", log_snotel), ("forecast", log_forecast), ("afd", log_afd),
             ("events", log_events), ("cdot", log_cdot), ("resort_status", log_resort_status),
-            ("routes", log_routes), ("plows", log_plows), ("cameras", log_cameras), ("outlook", log_outlook), ("traffic_model", log_traffic_model)]
+            ("routes", log_routes), ("plows", log_plows), ("cameras", log_cameras), ("outlook", log_outlook), ("traffic_model", log_traffic_model), ("recent", log_recent)]
     for name, fn in jobs:
         try:
             print(f"{name}: {fn(state)}")
