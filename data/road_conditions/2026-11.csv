@@ -931,3 +931,8 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-27T09:30:47-07:00,491,US 40,I-70 to Winter Park (Berthoud Pass),231.5,258.3,1 - high wind; 3 - dry,"US 40, between Moffat Road (Winter Park) and I-70 (near Empire)"
 2026-11-27T11:45:48-07:00,72,CO 65,Grand Mesa,0.0,51.2,6 - snow,"CO 65, between CO 92 and CO 330 (Grand Mesa)"
 2026-11-27T11:45:48-07:00,152,CO 145,"Telluride/Keystone, Lawson, Norwood hills",71.6,116.9,4s - wet in areas; 9 - icy spots,"CO 145, between Colorado Avenue (near Telluride) and US 141 (13 miles north of the Norwood area)"
+2026-11-27T14:15:46-07:00,49,CO 9,Hoosier Pass - Frisco,66.6,97.2,1 - high wind,"CO 9, between 3rd Street (1 mile north of Fairplay) and I-70; County Road 1231 (Frisco)"
+2026-11-27T14:15:46-07:00,412,US 285,Grant-Bailey-Pine Jct,213.1,229.0,1 - high wind,"US 285 (Hampden Ave), between MP 213 (near Kenosha Pass) and MP 229 (Pine Junction)"
+2026-11-27T14:15:46-07:00,411,US 285,Kenosha Pass,199.0,213.1,1 - high wind,"US 285 (Hampden Ave), between Willard Street and River Street (near Kenosha Pass)"
+2026-11-27T14:15:46-07:00,410,US 285,Antero Jct-Fairplay-Jefferson (South Park),161.8,199.0,1 - high wind,"US 285 (Hampden Ave), between US 24 (Antero Junction) and MP 199 (near Kenosha Pass)"
+2026-11-27T14:15:46-07:00,47,CO 9,US 24 to Fairplay,47.6,63.7,1 - high wind,"CO 9, between US 24 and US 285 (Fairplay)"
