@@ -633,20 +633,6 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
-  "roadReports:CDOT-36615806508NB": {
-   "began": "2026-11-27T03:36:40-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36615806508NB",
-   "lat": 39.35509,
-   "lon": -105.82281,
-   "mp_end": "",
-   "mp_start": 198.92319354827572,
-   "pos_bearing": "N",
-   "route": "US 285",
-   "title": "US 285 northbound: Crash.",
-   "type": "routine"
-  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -2287,7 +2273,7 @@
   }
  },
  "forecast_last": "2026-11-27T09:00:48+00:00",
- "last_run": "2026-11-27T04:00:48-07:00",
+ "last_run": "2026-11-27T04:15:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-27": {
@@ -3027,7 +3013,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-27 02:00",
+  "abasin": "2026-11-27 03:00",
   "aspen": "2026-11-27 02:00",
   "beavercreek": "2026-11-27 02:00",
   "breck": "2026-11-27 02:00",
@@ -3037,12 +3023,12 @@
   "echo": "2026-11-27 02:00",
   "eldora": "2026-11-27 02:00",
   "granby": "2026-11-27 02:00",
-  "keystone": "2026-11-27 02:00",
+  "keystone": "2026-11-27 03:00",
   "loveland": "2026-11-27 02:00",
   "monarch": "2026-11-27 02:00",
   "powderhorn": "2026-11-27 02:00",
   "purgatory": "2026-11-27 02:00",
-  "steamboat": "2026-11-27 02:00",
+  "steamboat": "2026-11-27 03:00",
   "sunlight": "2026-11-27 02:00",
   "telluride": "2026-11-27 02:00",
   "vail": "2026-11-27 02:00",
