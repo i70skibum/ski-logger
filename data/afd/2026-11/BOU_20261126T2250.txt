@@ -1,0 +1,168 @@
+
+000
+FXUS65 KBOU 270550
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1050 PM MST Thu Nov 26 2026
+
+.KEY MESSAGES... 
+
+- Hazardous travel Friday night - Saturday evening for the
+  northern mountains and I-70 mountain corridor due to snow and 
+  blowing snow. Local snowfall amounts greater than 12" possible.
+
+- Banded rain/snow for the the plains and I-25 Corridor Saturday
+  to Saturday evening. Brief heavy snow with generally light 
+  accumulations possible, including potential for Denver's first 
+  measurable snowfall of the season. 
+
+- Gusty winds expected along the northern Front Range and northern
+  border area Friday, spreading to all the plains Saturday.
+
+- Return of mostly dry weather Sunday - Tuesday, next disturbance
+  may arrive by Wednesday or Thursday.  
+
+&&
+
+.DISCUSSION /Through Thursday/...
+Issued at 114 PM MST Thu Nov 26 2026
+
+Mild Thanksgiving weather will be replaced by unsettled weather
+Friday night and Saturday which will affect post holiday travel
+plans.
+
+In the meantime, tonight will feature dry conditions with only 
+passing high clouds. Temperatures will settle closer to normal 
+overnight lows once again. Friday is still on track to bring 
+increasing winds to the Front Range and northern plains as the 
+upper level ridge over us today breaks down and a stronger zonal 
+flow develops across the Central Rockies. That means a return of 
+gusty winds to the higher foothills and mountains, with gusts of 
+45-60 mph above timberline and higher wind prone areas. 
+Ingredients like stability and increasing forward shear do not 
+favor significant mountain wave amplification, so we think those 
+higher wind gusts should stay out of the adjacent plains. That 
+said, it will still be breezy in some of the local favored 
+downslope areas like Highway 93, while daytime mixing also
+supports locations closer to the Wyoming border getting breezy 
+with gusts of 30-35 mph in the late morning and afternoon. We'll 
+introduce the first chance of snow to the northern mountains 
+through the day as mid level moisture is now forecast to increase 
+sufficiently for light snow showers, mainly north of Rabbit Ears 
+Pass. 
+
+The main focus shifts to Friday night and Saturday as a fast
+moving shortwave drives through the Central Rockies in strong
+west/northwest flow aloft. As discussed last night, models remain
+in good agreement with this feature. However, most have sped up 
+this disturbance by a few hours and not surprisingly as we're in 
+such strong zonal flow. This means snow will start in earnest 
+across the northern mountains Friday night. We'll first see this 
+more significant snowfall develop in the northern tier of 
+mountains where westerly orographic flow is more favorable and 
+moisture is deeper, but even the I-70 Corridor should start to get
+into the heavier snow after midnight tomorrow night as large 
+scale QG ascent occurs ahead of the shortwave and in the left 
+exit region of a 120 kt jet. Those favorable features, along with 
+passage of a mid level front and brief but rather pronounced 
+frontogenesis, will support snow through the day Saturday. In 
+fact, it's not impossible that we see a brief period of very heavy
+snow or snow squalls with the frontal passage in the late morning
+to early afternoon hours. We'll continue to message avoiding 
+post-Thanksgiving travel on Saturday through the high country if 
+possible. The earlier start also supports more snowfall, backed up
+by the latest uptick in ensemble and operational guidance. That 
+suggests the northern tier of mountains get 8-14" with the I-70 
+mountain corridor and Summit County now in the 5-10" range. That 
+puts us on the higher end of Winter Weather Advisory Criteria. If 
+trends continue, then we'll likely have to upgrade the northern 
+tier of mountain zones to a Winter Storm Warning since they'll be
+beneficiaries of the earlier start. 
+
+Now, back down to the I-25 Corridor and plains...The instability 
+and favorable ingredients mentioned above will also be conducive 
+to showers spreading off the higher terrain through the day. With
+the earlier frontal passage, we've also trimmed forecast 
+temperatures with anywhere north of Denver likely not getting out 
+of the 40s before the frontal passage. The entire forecast area 
+will see temperatures drop with the frontal passage as it sweeps 
+quickly southward across the plains. It may arrive as early as mid
+morning especially as trends continue with the faster shortwave. 
+And, it should be noted we expect quite the blast of northerly 
+wind across all of the plains with near high wind criteria being 
+met during and shortly after the frontal passage. Widespread gusts
+to 40-55 mph are expected at this point, with a 10-20% chance of 
+gusts >58 mph (high wind criteria) east of I-25. Now, back to 
+precip...an earlier frontal arrival would mean a higher chance 
+that the synoptic scale lift and shallow anticyclonic upslope 
+behind the front would be able to join forces. Thus, we've bumped 
+precipitation chances further for Saturday afternoon especially 
+over and south of metro Denver (more favored in N-NNE flow). 
+Temperatures will also be turning colder more quickly, which 
+supports more snow vs rain and a growing chance (50-60%) of our 
+first official measurable snow for Denver. With the strong F-gen 
+and mid level instability, we can't rule out bands of heavier snow
+as well with localized amounts of 1-3" or more (favoring south 
+metro into the foothills west and southwest of Denver). Any 
+heavier bands could also result in brief slush accumulation on 
+roads, with propensity for greater impacts in the colder foothills
+and Palmer Divide should the heavier snow bands develop there. 
+
+We do expect snow to taper off fairly quickly Saturday evening as
+the system is now trending faster, but some travel impacts may 
+linger in the mountains into early Sunday morning due to residual
+road snow. Those conditions will improve rather quickly however
+with return of sunshine, so Sunday is shaping up to be a much
+better post-holiday travel day than Saturday. 
+
+Mainly dry weather will then persist into Monday and Tuesday,
+although the flow appears to become zonal enough to have a chance
+of light snow showers for the high country. After a chilly Sunday,
+temperatures will be warming back to above normal levels both
+days. 
+
+While models still indicate a weakening trough to impact the area
+by Wednesday or Thursday, the latest runs hinted at a weak closed
+low structure remaining in tact and also tracking a bit further
+northward. This will mean another chance of rain/snow showers for
+the forecast area with temperatures cooling to near normal levels
+again. 
+
+&&
+
+.AVIATION /06Z TAFS through 06Z Saturday/...
+Issued at 1038 PM MST Thu Nov 26 2026
+
+VFR conditions expected through the TAF period. Winds are
+currently transitioning to drainage and will continue through
+tonight, with speeds ranging from 9-13 kts. At BJC, expect
+gusty westerly winds of 20-28 kts periodically through tonight.
+
+Still some uncertainty with with the winds for Friday as flow
+aloft increases ahead of an incoming system. This should bring 
+gusty westerly winds to all terminals by the late morning/early 
+afternoon. However, depending on where the winds channel, APA and
+DEN could see lighter westerly/northwesterly flow. For now, have
+kept the stronger west/northwest winds in the TAF, but will
+continue to monitor model trends. 
+
+Winds should weaken by 23Z-01Z and turn anticyclonically through
+the evening, with drainage flow returning by 03Z-05Z.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+Winter Storm Warning from 5 PM Friday to midnight MST Saturday 
+night for COZ031.
+
+Winter Weather Advisory from midnight Friday night to midnight 
+MST Saturday night for COZ033-034.
+
+&&
+
+$$
+
+DISCUSSION...20
+AVIATION...MAI
