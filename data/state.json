@@ -661,6 +661,34 @@
    "title": "US 550 northbound: Road closed.",
    "type": "critical"
   },
+  "roadReports:CDOT-36620967269EB": {
+   "began": "2026-11-27T10:00:56-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36620967269EB",
+   "lat": 39.72571,
+   "lon": -105.42065,
+   "mp_end": "",
+   "mp_start": 245.99989798135664,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Right lane closed.",
+   "type": "routine"
+  },
+  "roadReports:CDOT-36621025048WB": {
+   "began": "2026-11-27T10:04:22-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36621025048WB",
+   "lat": 38.98558,
+   "lon": -105.8681,
+   "mp_end": "",
+   "mp_start": 234.0058758124842,
+   "pos_bearing": "E",
+   "route": "US 24",
+   "title": "US 24 westbound: Debris on roadway.",
+   "type": "routine"
+  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -2455,7 +2483,7 @@
   }
  },
  "forecast_last": "2026-11-27T15:15:49+00:00",
- "last_run": "2026-11-27T10:00:48-07:00",
+ "last_run": "2026-11-27T10:15:52-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-27": {
@@ -3195,7 +3223,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-27 08:00",
+  "abasin": "2026-11-27 09:00",
   "aspen": "2026-11-27 08:00",
   "beavercreek": "2026-11-27 08:00",
   "breck": "2026-11-27 08:00",
@@ -3205,12 +3233,12 @@
   "echo": "2026-11-27 08:00",
   "eldora": "2026-11-27 08:00",
   "granby": "2026-11-27 08:00",
-  "keystone": "2026-11-27 08:00",
+  "keystone": "2026-11-27 09:00",
   "loveland": "2026-11-27 08:00",
   "monarch": "2026-11-27 08:00",
   "powderhorn": "2026-11-27 08:00",
   "purgatory": "2026-11-27 08:00",
-  "steamboat": "2026-11-27 08:00",
+  "steamboat": "2026-11-27 09:00",
   "sunlight": "2026-11-27 08:00",
   "telluride": "2026-11-27 08:00",
   "vail": "2026-11-27 08:00",
@@ -3472,13 +3500,13 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-27T17:00:48+00:00",
- "tomtom_routing_last": "2026-11-27T17:00:48+00:00",
+ "tomtom_routing_last": "2026-11-27T17:15:52+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 3060
   },
   "routing": {
-   "2026-11": 3453
+   "2026-11": 3459
   }
  },
  "traffic_model_last": "2026-11-27T15:15:49+00:00"
