@@ -1977,3 +1977,4 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-27T11:45:48-07:00,start,CDOT-36622252836WB,roadReports,routine,I-70,NEGATIVE_DIRECTION,E,217.00008732412675,,I-70 westbound: Left lane closed.,2026-11-27T11:36:13-07:00
 2026-11-27T12:30:46-07:00,end,CDOT-36622005371EB,roadReports,routine,US 24,POSITIVE_DIRECTION,E,248.01942862612194,,US 24 eastbound: Debris on roadway.,2026-11-27T11:16:53-07:00
 2026-11-27T12:30:46-07:00,end,CDOT-36622252836WB,roadReports,routine,I-70,NEGATIVE_DIRECTION,E,217.00008732412675,,I-70 westbound: Left lane closed.,2026-11-27T11:36:13-07:00
+2026-11-27T13:00:47-07:00,start,CDOT-36623300473NB,roadReports,routine,US 285,POSITIVE_DIRECTION,N,198.92319354827572,,US 285 northbound: Right shoulder closed.,2026-11-27T12:53:13-07:00
