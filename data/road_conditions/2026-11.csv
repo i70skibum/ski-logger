@@ -928,3 +928,4 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-27T08:30:46-07:00,411,US 285,Kenosha Pass,199.0,213.1,1 - high wind; 3 - dry,"US 285 (Hampden Ave), between Willard Street and River Street (near Kenosha Pass)"
 2026-11-27T09:15:47-07:00,270,I-70,Eisenhower/Johnson tunnels-Georgetown,212.5,226.9,1 - high wind; 3 - dry,"I-70, between Exit 205: CO 9; US 6; Silverthorne (near Eisenhower Tunnel) and Exit 228: Georgetown (near Georgetown)"
 2026-11-27T09:15:47-07:00,271,I-70,Georgetown-Idaho Springs,226.9,238.7,1 - high wind; 3 - dry,"I-70, between Exit 226: Silver Plume (near Georgetown) and Exit 239: I-70B Argo Mill; Idaho Springs (near Idaho Springs)"
+2026-11-27T09:30:47-07:00,491,US 40,I-70 to Winter Park (Berthoud Pass),231.5,258.3,1 - high wind; 3 - dry,"US 40, between Moffat Road (Winter Park) and I-70 (near Empire)"
