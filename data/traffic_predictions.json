@@ -71,5 +71,467 @@
    "typical"
   ],
   "mean_error_min": 16.5
+ },
+ "2026-11-28": {
+  "made": "2026-11-27T02:00:48-07:00",
+  "holiday": "Thanksgiving",
+  "day": {
+   "0": {
+    "type": "holiday",
+    "tags": [
+     "Thanksgiving",
+     "Epic Local blackout",
+     "School break: Colorado (Denver Public Schools, Jeffco, CU Boulder and Boulder Valley)"
+    ]
+   },
+   "1": {
+    "type": "holiday",
+    "tags": [
+     "Thanksgiving",
+     "Epic Local blackout",
+     "School break: Colorado (Denver Public Schools, Jeffco, CU Boulder and Boulder Valley)"
+    ]
+   },
+   "2": {
+    "type": "holiday",
+    "tags": [
+     "Thanksgiving",
+     "School break: Colorado (Denver Public Schools, Jeffco, CU Boulder and Boulder Valley)"
+    ]
+   }
+  },
+  "windows": {
+   "fri_pm_W": {
+    "source": "profile",
+    "by_hour": {
+     "14": 0.6,
+     "15": 0.6,
+     "16": 0.8,
+     "17": 1.6,
+     "18": 0.8,
+     "19": 0.8
+    }
+   },
+   "sat_am_W": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 2,
+     "6": 6,
+     "7": 15,
+     "8": 20,
+     "9": 15
+    }
+   },
+   "sun_am_W": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 3,
+     "7": 10,
+     "8": 12,
+     "9": 10
+    }
+   },
+   "sat_pm_E": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 8,
+     "14": 15,
+     "15": 20,
+     "16": 20,
+     "17": 15,
+     "18": 8
+    }
+   },
+   "sun_pm_E": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 15,
+     "14": 30,
+     "15": 40,
+     "16": 40,
+     "17": 30,
+     "18": 15
+    }
+   },
+   "canyon:sat_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 2,
+     "8": 3,
+     "9": 2
+    }
+   },
+   "canyon:sun_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 0,
+     "8": 0,
+     "9": 0
+    }
+   },
+   "canyon:sat_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 0,
+     "14": 0,
+     "15": 0,
+     "16": 0,
+     "17": 0,
+     "18": 0
+    }
+   },
+   "canyon:sun_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 3,
+     "14": 6,
+     "15": 8,
+     "16": 8,
+     "17": 5,
+     "18": 0
+    }
+   },
+   "pass:sat_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 0,
+     "8": 2,
+     "9": 3
+    }
+   },
+   "pass:sun_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 0,
+     "8": 0,
+     "9": 0
+    }
+   },
+   "pass:sat_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 0,
+     "14": 0,
+     "15": 0,
+     "16": 0,
+     "17": 0,
+     "18": 0
+    }
+   },
+   "pass:sun_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 2,
+     "14": 3,
+     "15": 3,
+     "16": 0,
+     "17": 0,
+     "18": 0
+    }
+   },
+   "berthoud:sat_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 3,
+     "8": 5,
+     "9": 5
+    }
+   },
+   "berthoud:sun_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 0,
+     "8": 0,
+     "9": 0
+    }
+   },
+   "berthoud:sat_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 0,
+     "14": 0,
+     "15": 0,
+     "16": 0,
+     "17": 0,
+     "18": 0
+    }
+   },
+   "berthoud:sun_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 4,
+     "14": 6,
+     "15": 7,
+     "16": 6,
+     "17": 3,
+     "18": 0
+    }
+   },
+   "dillon:sat_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 0,
+     "8": 2,
+     "9": 3
+    }
+   },
+   "dillon:sun_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 0,
+     "8": 0,
+     "9": 0
+    }
+   },
+   "dillon:sat_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 0,
+     "14": 0,
+     "15": 0,
+     "16": 0,
+     "17": 0,
+     "18": 0
+    }
+   },
+   "dillon:sun_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 0,
+     "14": 2,
+     "15": 3,
+     "16": 3,
+     "17": 0,
+     "18": 0
+    }
+   },
+   "sixth:sat_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 2,
+     "8": 3,
+     "9": 2
+    }
+   },
+   "sixth:sun_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 0,
+     "8": 0,
+     "9": 0
+    }
+   },
+   "sixth:sat_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 0,
+     "14": 0,
+     "15": 0,
+     "16": 0,
+     "17": 0,
+     "18": 0
+    }
+   },
+   "sixth:sun_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 0,
+     "14": 2,
+     "15": 4,
+     "16": 4,
+     "17": 2,
+     "18": 0
+    }
+   },
+   "eldora_boulder:sat_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 3,
+     "8": 5,
+     "9": 5
+    }
+   },
+   "eldora_boulder:sun_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 0,
+     "8": 0,
+     "9": 0
+    }
+   },
+   "eldora_boulder:sat_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 0,
+     "14": 0,
+     "15": 0,
+     "16": 0,
+     "17": 0,
+     "18": 0
+    }
+   },
+   "eldora_boulder:sun_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 0,
+     "14": 4,
+     "15": 7,
+     "16": 7,
+     "17": 4,
+     "18": 0
+    }
+   },
+   "eldora_coal:sat_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 2,
+     "8": 3,
+     "9": 3
+    }
+   },
+   "eldora_coal:sun_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 0,
+     "8": 0,
+     "9": 0
+    }
+   },
+   "eldora_coal:sat_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 0,
+     "14": 0,
+     "15": 0,
+     "16": 0,
+     "17": 0,
+     "18": 0
+    }
+   },
+   "eldora_coal:sun_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 0,
+     "14": 2,
+     "15": 4,
+     "16": 4,
+     "17": 2,
+     "18": 0
+    }
+   },
+   "eldora_119:sat_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 2,
+     "8": 3,
+     "9": 3
+    }
+   },
+   "eldora_119:sun_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 0,
+     "8": 0,
+     "9": 0
+    }
+   },
+   "eldora_119:sat_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 0,
+     "14": 0,
+     "15": 0,
+     "16": 0,
+     "17": 0,
+     "18": 0
+    }
+   },
+   "eldora_119:sun_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 0,
+     "14": 3,
+     "15": 4,
+     "16": 4,
+     "17": 3,
+     "18": 0
+    }
+   },
+   "i25direct:sat_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 0,
+     "8": 0,
+     "9": 0
+    }
+   },
+   "i25direct:sun_am": {
+    "source": "estimate",
+    "by_hour": {
+     "5": 0,
+     "6": 0,
+     "7": 0,
+     "8": 0,
+     "9": 0
+    }
+   },
+   "i25direct:sat_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 0,
+     "14": 0,
+     "15": 0,
+     "16": 0,
+     "17": 0,
+     "18": 0
+    }
+   },
+   "i25direct:sun_pm": {
+    "source": "estimate",
+    "by_hour": {
+     "13": 0,
+     "14": 0,
+     "15": 0,
+     "16": 0,
+     "17": 0,
+     "18": 0
+    }
+   }
+  }
  }
 }
