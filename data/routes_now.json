@@ -7402,10 +7402,10 @@
    "name": "Berthoud Pass (US 40, Empire to Winter Park)",
    "W": {
     "delay_min": 0.0,
-    "minutes": 30.2,
+    "minutes": 30.3,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-27T05:30:51-07:00",
+    "at": "2026-11-27T05:45:46-07:00",
     "line": [
      [
       39.76107,
@@ -8158,7 +8158,7 @@
       "to": "winterpark",
       "key": "empire>winterpark",
       "km": 38.8,
-      "minutes": 30.2,
+      "minutes": 30.3,
       "free_min": 31.6,
       "delay_min": 0.0,
       "jam_min": 0.0,
@@ -8572,7 +8572,7 @@
     "minutes": 30.4,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-27T05:30:51-07:00",
+    "at": "2026-11-27T05:45:46-07:00",
     "line": [
      [
       39.88623,
@@ -13921,10 +13921,10 @@
    "points_at": "2026-11-27T05:30:51-07:00",
    "W": {
     "delay_min": 0.0,
-    "minutes": 65.8,
+    "minutes": 66.0,
     "free_min": 66.7,
     "detour": false,
-    "at": "2026-11-27T05:30:51-07:00",
+    "at": "2026-11-27T05:45:46-07:00",
     "line": [
      [
       39.75702,
@@ -15541,8 +15541,8 @@
       "to": "nederland",
       "key": "boulder>nederland",
       "km": 26.6,
-      "minutes": 23.8,
-      "free_min": 23.8,
+      "minutes": 23.9,
+      "free_min": 23.9,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -27095,10 +27095,10 @@
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
     "delay_min": 0.0,
-    "minutes": 25.0,
+    "minutes": 25.1,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-27T05:30:51-07:00",
+    "at": "2026-11-27T05:45:46-07:00",
     "line": [
      [
       39.74245,
@@ -27519,8 +27519,8 @@
       "to": "i25",
       "key": "i25>us6",
       "km": 15.8,
-      "minutes": 11.1,
-      "free_min": 11.1,
+      "minutes": 11.2,
+      "free_min": 11.2,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -27603,8 +27603,8 @@
       "to": "coors",
       "key": "coors>i25",
       "km": 6.5,
-      "minutes": 8.6,
-      "free_min": 8.6,
+      "minutes": 8.5,
+      "free_min": 8.5,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -27741,10 +27741,10 @@
    "points_at": "2026-11-27T05:30:51-07:00",
    "W": {
     "delay_min": 0.0,
-    "minutes": 28.5,
+    "minutes": 28.7,
     "free_min": 29.0,
     "detour": false,
-    "at": "2026-11-27T05:30:51-07:00",
+    "at": "2026-11-27T05:45:46-07:00",
     "line": [
      [
       39.75702,
@@ -28277,8 +28277,8 @@
       "to": "golden",
       "key": "us6>golden",
       "km": 7.9,
-      "minutes": 10.1,
-      "free_min": 10.1,
+      "minutes": 10.2,
+      "free_min": 10.2,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -28534,7 +28534,7 @@
     "minutes": 35.2,
     "free_min": 35.2,
     "detour": false,
-    "at": "2026-11-27T05:30:51-07:00",
+    "at": "2026-11-27T05:45:46-07:00",
     "line": [
      [
       39.75702,
@@ -29155,8 +29155,8 @@
       "to": "i25i70",
       "key": "coors>i25i70",
       "km": 3.5,
-      "minutes": 7.0,
-      "free_min": 7.0,
+      "minutes": 7.1,
+      "free_min": 7.1,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -29487,8 +29487,8 @@
       "to": "floyd",
       "key": "us6>floyd",
       "km": 25.4,
-      "minutes": 15.7,
-      "free_min": 15.7,
+      "minutes": 15.8,
+      "free_min": 15.8,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -31191,10 +31191,10 @@
    "points_at": "2026-11-27T05:30:51-07:00"
   }
  },
- "updated": "2026-11-27T05:30:51-07:00",
+ "updated": "2026-11-27T05:45:46-07:00",
  "tomtom_use": {
   "flow": 2916,
-  "routing": 3282
+  "routing": 3288
  },
  "tomtom_caps": {
   "routing": 19000,
