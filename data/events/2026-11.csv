@@ -1950,3 +1950,4 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-27T06:45:51-07:00,start,CDOT-36618165560EB,roadWork,routine,US 6,POSITIVE_DIRECTION,E,452.9990021480323,,US 6 eastbound: Bridge construction.,2026-12-05T06:30:00-07:00
 2026-11-27T06:45:51-07:00,start,CDOT-36618165136EB,roadWork,routine,US 6,POSITIVE_DIRECTION,E,455.99674105752536,,US 6 eastbound: Bridge construction.,2026-12-05T06:30:00-07:00
 2026-11-27T06:45:51-07:00,end,CDOT-36617321168WB,roadReports,routine,US 24,NEGATIVE_DIRECTION,E,203.99965652885024,,US 24 westbound: Rocks on the road.,2026-11-27T05:28:35-07:00
+2026-11-27T07:00:46-07:00,start,CDOT-36618355585EB,roadReports,routine,US 6,POSITIVE_DIRECTION,E,280.8349999964121,,US 6 eastbound: Lane(s) reopened to traffic.,2026-11-27T06:45:58-07:00
