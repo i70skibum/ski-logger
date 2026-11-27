@@ -3,11 +3,11 @@
   "canyon": {
    "name": "Clear Creek Canyon (US 6, Golden to I-70 exit 244)",
    "W": {
-    "delay_min": 0.5,
-    "minutes": 40.5,
-    "free_min": 40.0,
+    "delay_min": 0.2,
+    "minutes": 40.3,
+    "free_min": 40.1,
     "detour": false,
-    "at": "2026-11-26T18:30:46-07:00",
+    "at": "2026-11-26T19:00:47-07:00",
     "line": [
      [
       39.75702,
@@ -912,9 +912,9 @@
       "to": "i25i70",
       "key": "coors>i25i70",
       "km": 3.5,
-      "minutes": 7.3,
-      "free_min": 6.9,
-      "delay_min": 0.4,
+      "minutes": 7.2,
+      "free_min": 7.0,
+      "delay_min": 0.2,
       "jam_min": 0.0,
       "line": [
        [
@@ -1260,8 +1260,8 @@
       "to": "floyd",
       "key": "golden>floyd",
       "km": 23.5,
-      "minutes": 20.3,
-      "free_min": 20.3,
+      "minutes": 20.2,
+      "free_min": 20.2,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -1650,11 +1650,11 @@
     ]
    },
    "E": {
-    "delay_min": 0.6,
-    "minutes": 41.4,
+    "delay_min": 0.3,
+    "minutes": 41.1,
     "free_min": 40.8,
     "detour": false,
-    "at": "2026-11-26T18:30:46-07:00",
+    "at": "2026-11-26T19:00:47-07:00",
     "line": [
      [
       39.74237,
@@ -2555,8 +2555,8 @@
       "to": "golden",
       "key": "golden>floyd",
       "km": 23.5,
-      "minutes": 21.3,
-      "free_min": 21.3,
+      "minutes": 21.1,
+      "free_min": 21.1,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -2947,8 +2947,8 @@
       "to": "x261",
       "key": "x261>golden",
       "km": 8.0,
-      "minutes": 4.8,
-      "free_min": 4.8,
+      "minutes": 4.7,
+      "free_min": 4.7,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -3203,9 +3203,9 @@
       "to": "coors",
       "key": "coors>i25i70",
       "km": 3.3,
-      "minutes": 7.7,
-      "free_min": 7.1,
-      "delay_min": 0.6,
+      "minutes": 7.6,
+      "free_min": 7.3,
+      "delay_min": 0.3,
       "jam_min": 0.0,
       "line": [
        [
@@ -4171,16 +4171,16 @@
      ]
     }
    ],
-   "points_at": "2026-11-26T18:30:46-07:00"
+   "points_at": "2026-11-26T19:00:47-07:00"
   },
   "pass": {
    "name": "Loveland Pass (US 6, I-70 exit 216 to Keystone)",
    "W": {
     "delay_min": 0.0,
-    "minutes": 20.7,
+    "minutes": 20.6,
     "free_min": 21.1,
     "detour": false,
-    "at": "2026-11-26T18:30:46-07:00",
+    "at": "2026-11-26T19:00:47-07:00",
     "line": [
      [
       39.68008,
@@ -5288,10 +5288,10 @@
    },
    "E": {
     "delay_min": 0.0,
-    "minutes": 20.4,
+    "minutes": 20.2,
     "free_min": 20.7,
     "detour": false,
-    "at": "2026-11-26T18:30:46-07:00",
+    "at": "2026-11-26T19:00:47-07:00",
     "line": [
      [
       39.6046,
@@ -5840,8 +5840,8 @@
       "to": "abasin",
       "key": "abasin>keystone",
       "km": 9.0,
-      "minutes": 9.4,
-      "free_min": 9.4,
+      "minutes": 9.3,
+      "free_min": 9.3,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -6040,8 +6040,8 @@
       "to": "x216",
       "key": "x216>abasin",
       "km": 11.7,
-      "minutes": 11.0,
-      "free_min": 11.0,
+      "minutes": 10.9,
+      "free_min": 10.9,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -7396,16 +7396,16 @@
      ]
     }
    ],
-   "points_at": "2026-11-26T18:30:46-07:00"
+   "points_at": "2026-11-26T19:00:47-07:00"
   },
   "berthoud": {
    "name": "Berthoud Pass (US 40, Empire to Winter Park)",
    "W": {
     "delay_min": 0.0,
-    "minutes": 30.5,
+    "minutes": 30.6,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-26T18:45:45-07:00",
+    "at": "2026-11-26T19:00:47-07:00",
     "line": [
      [
       39.76107,
@@ -8158,7 +8158,7 @@
       "to": "winterpark",
       "key": "empire>winterpark",
       "km": 38.8,
-      "minutes": 30.5,
+      "minutes": 30.6,
       "free_min": 31.6,
       "delay_min": 0.0,
       "jam_min": 0.0,
@@ -8572,7 +8572,7 @@
     "minutes": 30.8,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-26T18:45:45-07:00",
+    "at": "2026-11-26T19:00:47-07:00",
     "line": [
      [
       39.88623,
@@ -10881,7 +10881,7 @@
      ]
     }
    ],
-   "points_at": "2026-11-26T18:30:46-07:00"
+   "points_at": "2026-11-26T19:00:47-07:00"
   },
   "dillon": {
    "name": "US 6 through Dillon (I-70 exit 205 at Silverthorne to Keystone)",
@@ -11293,11 +11293,11 @@
     ]
    },
    "E": {
-    "delay_min": 0.2,
-    "minutes": 16.1,
-    "free_min": 15.8,
+    "delay_min": 0.1,
+    "minutes": 16.0,
+    "free_min": 15.9,
     "detour": false,
-    "at": "2026-11-26T18:30:46-07:00",
+    "at": "2026-11-26T19:00:47-07:00",
     "line": [
      [
       39.6046,
@@ -11510,9 +11510,9 @@
       "to": "silverthorne",
       "key": "silverthorne>keystone",
       "km": 14.3,
-      "minutes": 16.1,
-      "free_min": 15.8,
-      "delay_min": 0.2,
+      "minutes": 16.0,
+      "free_min": 15.9,
+      "delay_min": 0.1,
       "jam_min": 0.0,
       "line": [
        [
@@ -11725,16 +11725,16 @@
    },
    "closed": false,
    "points": [],
-   "points_at": "2026-11-26T18:30:46-07:00"
+   "points_at": "2026-11-26T19:00:47-07:00"
   },
   "eldora_boulder": {
    "name": "Coors Field to Eldora by Boulder Canyon (US 36, CO 119)",
    "E": {
-    "delay_min": 1.0,
-    "minutes": 68.6,
+    "delay_min": 0.7,
+    "minutes": 68.3,
     "free_min": 67.6,
     "detour": false,
-    "at": "2026-11-26T18:45:45-07:00",
+    "at": "2026-11-26T19:00:47-07:00",
     "line": [
      [
       39.93746,
@@ -12984,8 +12984,8 @@
       "key": "nederland>eldora",
       "km": 8.0,
       "minutes": 11.2,
-      "free_min": 11.0,
-      "delay_min": 0.2,
+      "free_min": 11.1,
+      "delay_min": 0.1,
       "jam_min": 0.0,
       "line": [
        [
@@ -13203,8 +13203,8 @@
       "to": "boulder",
       "key": "boulder>nederland",
       "km": 27.1,
-      "minutes": 25.5,
-      "free_min": 25.5,
+      "minutes": 25.4,
+      "free_min": 25.4,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -13595,8 +13595,8 @@
       "to": "i25i70",
       "key": "i25i70>boulder",
       "km": 39.5,
-      "minutes": 24.2,
-      "free_min": 24.2,
+      "minutes": 24.0,
+      "free_min": 24.0,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -13836,8 +13836,8 @@
       "key": "coors>i25i70",
       "km": 3.6,
       "minutes": 7.7,
-      "free_min": 6.9,
-      "delay_min": 0.8,
+      "free_min": 7.1,
+      "delay_min": 0.6,
       "jam_min": 0.0,
       "line": [
        [
@@ -13918,7 +13918,7 @@
    },
    "closed": false,
    "points": [],
-   "points_at": "2026-11-26T18:30:46-07:00",
+   "points_at": "2026-11-26T19:00:47-07:00",
    "W": {
     "delay_min": 1.5,
     "minutes": 68.3,
@@ -16167,13 +16167,13 @@
    "name": "Coors Field to Eldora by Coal Creek Canyon (I-70, US 6, CO 93, CO 72)",
    "closed": false,
    "points": [],
-   "points_at": "2026-11-26T18:30:46-07:00",
+   "points_at": "2026-11-26T19:00:47-07:00",
    "E": {
-    "delay_min": 0.5,
-    "minutes": 83.1,
-    "free_min": 82.6,
+    "delay_min": 0.1,
+    "minutes": 82.7,
+    "free_min": 82.7,
     "detour": false,
-    "at": "2026-11-26T18:30:46-07:00",
+    "at": "2026-11-26T19:00:47-07:00",
     "line": [
      [
       39.93746,
@@ -17443,8 +17443,8 @@
       "key": "nederland>eldora",
       "km": 8.0,
       "minutes": 11.2,
-      "free_min": 11.1,
-      "delay_min": 0.1,
+      "free_min": 11.2,
+      "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
        [
@@ -17662,8 +17662,8 @@
       "to": "coal",
       "key": "coal>nederland",
       "km": 37.3,
-      "minutes": 37.6,
-      "free_min": 37.6,
+      "minutes": 37.5,
+      "free_min": 37.5,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -18154,9 +18154,9 @@
       "to": "golden",
       "key": "golden>coal",
       "km": 13.6,
-      "minutes": 14.0,
+      "minutes": 13.9,
       "free_min": 13.9,
-      "delay_min": 0.1,
+      "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
        [
@@ -18334,8 +18334,8 @@
       "to": "x261",
       "key": "x261>golden",
       "km": 8.0,
-      "minutes": 4.9,
-      "free_min": 4.9,
+      "minutes": 4.8,
+      "free_min": 4.8,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -18594,9 +18594,9 @@
       "to": "coors",
       "key": "coors>i25i70",
       "km": 3.3,
-      "minutes": 7.6,
-      "free_min": 7.3,
-      "delay_min": 0.3,
+      "minutes": 7.5,
+      "free_min": 7.5,
+      "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
        [
@@ -21279,13 +21279,13 @@
    "name": "Coors Field to Eldora by CO 119 through Black Hawk",
    "closed": false,
    "points": [],
-   "points_at": "2026-11-26T18:30:46-07:00",
+   "points_at": "2026-11-26T19:00:47-07:00",
    "E": {
     "delay_min": 0.0,
-    "minutes": 99.7,
+    "minutes": 99.4,
     "free_min": 100.6,
     "detour": false,
-    "at": "2026-11-26T18:30:46-07:00",
+    "at": "2026-11-26T19:00:47-07:00",
     "line": [
      [
       39.93746,
@@ -23934,8 +23934,8 @@
       "to": "i25i70",
       "key": "i25i70>x261",
       "km": 13.3,
-      "minutes": 7.8,
-      "free_min": 7.8,
+      "minutes": 7.7,
+      "free_min": 7.7,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -24102,8 +24102,8 @@
       "to": "coors",
       "key": "coors>i25i70",
       "km": 3.3,
-      "minutes": 7.6,
-      "free_min": 7.6,
+      "minutes": 7.5,
+      "free_min": 7.5,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -27110,7 +27110,7 @@
     "minutes": 26.1,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-26T18:45:45-07:00",
+    "at": "2026-11-26T19:00:47-07:00",
     "line": [
      [
       39.74245,
@@ -27407,8 +27407,8 @@
       "to": "us6",
       "key": "us6>golden",
       "km": 7.2,
-      "minutes": 5.7,
-      "free_min": 5.7,
+      "minutes": 5.6,
+      "free_min": 5.6,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -27531,8 +27531,8 @@
       "to": "i25",
       "key": "i25>us6",
       "km": 15.8,
-      "minutes": 11.6,
-      "free_min": 11.6,
+      "minutes": 11.5,
+      "free_min": 11.5,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -27615,8 +27615,8 @@
       "to": "coors",
       "key": "coors>i25",
       "km": 6.5,
-      "minutes": 8.8,
-      "free_min": 8.0,
+      "minutes": 8.9,
+      "free_min": 8.1,
       "delay_min": 0.8,
       "jam_min": 0.0,
       "line": [
@@ -27750,13 +27750,13 @@
    },
    "closed": false,
    "points": [],
-   "points_at": "2026-11-26T18:30:46-07:00",
+   "points_at": "2026-11-26T19:00:47-07:00",
    "W": {
-    "delay_min": 0.9,
-    "minutes": 29.9,
+    "delay_min": 0.7,
+    "minutes": 29.7,
     "free_min": 29.0,
     "detour": false,
-    "at": "2026-11-26T18:45:45-07:00",
+    "at": "2026-11-26T19:00:47-07:00",
     "line": [
      [
       39.75702,
@@ -28129,9 +28129,9 @@
       "to": "i25",
       "key": "coors>i25",
       "km": 6.3,
-      "minutes": 9.2,
+      "minutes": 9.0,
       "free_min": 8.3,
-      "delay_min": 0.9,
+      "delay_min": 0.7,
       "jam_min": 0.0,
       "line": [
        [
@@ -29878,13 +29878,13 @@
    },
    "closed": false,
    "points": [],
-   "points_at": "2026-11-26T18:30:46-07:00",
+   "points_at": "2026-11-26T19:00:47-07:00",
    "E": {
     "delay_min": null,
-    "minutes": 52.4,
+    "minutes": 52.2,
     "free_min": 51.3,
     "detour": true,
-    "at": "2026-11-26T18:45:45-07:00"
+    "at": "2026-11-26T19:00:47-07:00"
    }
   },
   "corridor": {
@@ -31240,13 +31240,13 @@
      ]
     }
    ],
-   "points_at": "2026-11-26T18:30:46-07:00"
+   "points_at": "2026-11-26T19:00:47-07:00"
   }
  },
- "updated": "2026-11-26T18:45:45-07:00",
+ "updated": "2026-11-26T19:00:47-07:00",
  "tomtom_use": {
-  "flow": 2852,
-  "routing": 3212
+  "flow": 2868,
+  "routing": 3225
  },
  "tomtom_caps": {
   "routing": 19000,
