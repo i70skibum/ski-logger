@@ -2229,20 +2229,6 @@
    "title": "CO 65: Icy and snow packed spots.",
    "type": "standard"
   },
-  "winterDriving:COSEG-588454": {
-   "began": "2026-11-26T12:51:02.897000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-588454",
-   "lat": 38.49131,
-   "lon": -107.88106,
-   "mp_end": 190.283999779025,
-   "mp_start": 92.43700153238498,
-   "pos_bearing": "E",
-   "route": "US 50",
-   "title": "US 50: Snow packed spots.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-589046": {
    "began": "2026-11-22T18:22:59.216000-07:00",
    "class": "winterDriving",
@@ -2256,38 +2242,10 @@
    "route": "CO 82",
    "title": "CO 82: Seasonal Closure.",
    "type": "standard"
-  },
-  "winterDriving:COSEG-589972": {
-   "began": "2026-11-26T12:55:15.029000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-589972",
-   "lat": 37.68247,
-   "lon": -108.0335,
-   "mp_end": 71.57274062998921,
-   "mp_start": 46.43321074882593,
-   "pos_bearing": "N",
-   "route": "CO 145",
-   "title": "CO 145: Wet in areas.",
-   "type": "standard"
-  },
-  "winterDriving:COSEG-589973": {
-   "began": "2026-11-26T12:55:15.029000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-589973",
-   "lat": 37.95047,
-   "lon": -107.87306,
-   "mp_end": 116.87899764402346,
-   "mp_start": 71.57274062998921,
-   "pos_bearing": "N",
-   "route": "CO 145",
-   "title": "CO 145: Wet in areas.",
-   "type": "standard"
   }
  },
  "forecast_last": "2026-11-27T12:00:51+00:00",
- "last_run": "2026-11-27T06:02:13-07:00",
+ "last_run": "2026-11-27T06:15:50-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-27": {
@@ -2953,8 +2911,8 @@
   "132": "3 - dry",
   "141": "3 - dry",
   "150": "3 - dry",
-  "151": "3 - dry; 4s - wet in areas",
-  "152": "3 - dry; 4s - wet in areas",
+  "151": "3 - dry",
+  "152": "3 - dry",
   "198": "3 - dry",
   "199": "3 - dry",
   "200": "3 - dry",
@@ -2984,7 +2942,7 @@
   "322": "3 - dry",
   "335": "3 - dry",
   "336": "3 - dry",
-  "390": "11 - snow packed spots; 3 - dry",
+  "390": "3 - dry",
   "393": "3 - dry",
   "394": "3 - dry",
   "395": "3 - dry",
@@ -3022,12 +2980,12 @@
   "516": "3 - dry",
   "517": "3 - dry",
   "70": "3 - dry",
-  "72": "11 - snow packed spots; 3 - dry; 9 - icy spots",
+  "72": "9-11 icy spots, snow packed spots",
   "97": "3 - dry",
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-27 04:00",
+  "abasin": "2026-11-27 05:00",
   "aspen": "2026-11-27 04:00",
   "beavercreek": "2026-11-27 04:00",
   "breck": "2026-11-27 04:00",
@@ -3037,7 +2995,7 @@
   "echo": "2026-11-27 04:00",
   "eldora": "2026-11-27 04:00",
   "granby": "2026-11-27 04:00",
-  "keystone": "2026-11-27 04:00",
+  "keystone": "2026-11-27 05:00",
   "loveland": "2026-11-27 04:00",
   "monarch": "2026-11-27 04:00",
   "powderhorn": "2026-11-27 04:00",
@@ -3304,13 +3262,13 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-27T13:02:13+00:00",
- "tomtom_routing_last": "2026-11-27T13:02:13+00:00",
+ "tomtom_routing_last": "2026-11-27T13:15:50+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 2932
   },
   "routing": {
-   "2026-11": 3301
+   "2026-11": 3307
   }
  },
  "traffic_model_last": "2026-11-27T12:00:51+00:00"
