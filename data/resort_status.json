@@ -1,5 +1,5 @@
 {
-  "checked": "Nov 27, 6:02 AM",
+  "checked": "Nov 27, 12:02 PM",
   "resorts": {
     "copper": {
       "open": true,
@@ -22,15 +22,14 @@
       "trails": "4 of 63"
     },
     "steamboat": {
-      "open": false,
-      "note": "Opening Day with you this Friday, November 27",
-      "lifts": "0 of 23",
-      "trails": "0 of 184"
+      "open": true,
+      "lifts": "6 of 23",
+      "trails": "2 of 184"
     },
     "aspen": {
       "open": true,
       "lifts": "6 of 36",
-      "trails": "5 of 363"
+      "trails": "4 of 363"
     },
     "beavercreek": {
       "open": false,
