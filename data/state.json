@@ -2271,6 +2271,20 @@
    "title": "US 160 eastbound: Road construction.",
    "type": "routine"
   },
+  "roadWork:CDOT-36620193873EB": {
+   "began": "2026-12-05T09:00:00-07:00",
+   "class": "roadWork",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36620193873EB",
+   "lat": 39.65631,
+   "lon": -106.8331,
+   "mp_end": 147.57783429632516,
+   "mp_start": 146.26590481961975,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Right shoulder closed.",
+   "type": "routine"
+  },
   "winterDriving:COSEG-522873": {
    "began": "2026-11-27T08:20:26.903000-07:00",
    "class": "winterDriving",
@@ -2327,6 +2341,34 @@
    "title": "US 285: High wind.",
    "type": "standard"
   },
+  "winterDriving:COSEG-590054": {
+   "began": "2026-11-27T09:13:08.677000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-590054",
+   "lat": 39.6766,
+   "lon": -105.95504,
+   "mp_end": 226.92501014010733,
+   "mp_start": 212.51810153359827,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: High wind.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-590055": {
+   "began": "2026-11-27T09:13:08.677000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-590055",
+   "lat": 39.70337,
+   "lon": -105.70516,
+   "mp_end": 238.72646079049417,
+   "mp_start": 226.92501014010733,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: High wind.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-590125": {
    "began": "2026-11-27T08:20:10.912000-07:00",
    "class": "winterDriving",
@@ -2343,7 +2385,7 @@
   }
  },
  "forecast_last": "2026-11-27T15:15:49+00:00",
- "last_run": "2026-11-27T09:00:47-07:00",
+ "last_run": "2026-11-27T09:15:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-27": {
@@ -3031,8 +3073,8 @@
   "249": "3 - dry",
   "261": "3 - dry",
   "262": "3 - dry",
-  "270": "3 - dry",
-  "271": "3 - dry",
+  "270": "1 - high wind; 3 - dry",
+  "271": "1 - high wind; 3 - dry",
   "272": "3 - dry",
   "273": "3 - dry",
   "274": "3 - dry",
@@ -3083,7 +3125,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-27 07:00",
+  "abasin": "2026-11-27 08:00",
   "aspen": "2026-11-27 07:00",
   "beavercreek": "2026-11-27 07:00",
   "breck": "2026-11-27 07:00",
@@ -3093,7 +3135,7 @@
   "echo": "2026-11-27 07:00",
   "eldora": "2026-11-27 07:00",
   "granby": "2026-11-27 07:00",
-  "keystone": "2026-11-27 07:00",
+  "keystone": "2026-11-27 08:00",
   "loveland": "2026-11-27 07:00",
   "monarch": "2026-11-27 07:00",
   "powderhorn": "2026-11-27 07:00",
@@ -3360,13 +3402,13 @@
   "I70W088"
  ],
  "tomtom_flow_last": "2026-11-27T16:00:47+00:00",
- "tomtom_routing_last": "2026-11-27T16:00:47+00:00",
+ "tomtom_routing_last": "2026-11-27T16:15:47+00:00",
  "tomtom_use": {
   "flow": {
    "2026-11": 3028
   },
   "routing": {
-   "2026-11": 3415
+   "2026-11": 3421
   }
  },
  "traffic_model_last": "2026-11-27T15:15:49+00:00"
