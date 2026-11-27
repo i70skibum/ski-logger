@@ -7405,7 +7405,7 @@
     "minutes": 30.2,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-27T05:00:51-07:00",
+    "at": "2026-11-27T05:15:47-07:00",
     "line": [
      [
       39.76107,
@@ -8572,7 +8572,7 @@
     "minutes": 30.4,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-27T05:00:51-07:00",
+    "at": "2026-11-27T05:15:47-07:00",
     "line": [
      [
       39.88623,
@@ -13921,10 +13921,10 @@
    "points_at": "2026-11-27T05:00:51-07:00",
    "W": {
     "delay_min": 0.0,
-    "minutes": 65.5,
+    "minutes": 65.6,
     "free_min": 66.7,
     "detour": false,
-    "at": "2026-11-27T05:00:51-07:00",
+    "at": "2026-11-27T05:15:47-07:00",
     "line": [
      [
       39.75702,
@@ -15205,8 +15205,8 @@
       "to": "i25i70",
       "key": "coors>i25i70",
       "km": 3.5,
-      "minutes": 7.0,
-      "free_min": 7.0,
+      "minutes": 6.9,
+      "free_min": 6.9,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -15541,8 +15541,8 @@
       "to": "nederland",
       "key": "boulder>nederland",
       "km": 26.6,
-      "minutes": 23.6,
-      "free_min": 23.6,
+      "minutes": 23.7,
+      "free_min": 23.7,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -27066,11 +27066,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 0.4,
-    "minutes": 25.7,
+    "delay_min": 0.0,
+    "minutes": 25.1,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-27T05:00:51-07:00",
+    "at": "2026-11-27T05:15:47-07:00",
     "line": [
      [
       39.74245,
@@ -27367,8 +27367,8 @@
       "to": "us6",
       "key": "us6>golden",
       "km": 7.2,
-      "minutes": 5.6,
-      "free_min": 5.6,
+      "minutes": 5.4,
+      "free_min": 5.4,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -27491,8 +27491,8 @@
       "to": "i25",
       "key": "i25>us6",
       "km": 15.8,
-      "minutes": 11.5,
-      "free_min": 11.5,
+      "minutes": 11.1,
+      "free_min": 11.1,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -27575,9 +27575,9 @@
       "to": "coors",
       "key": "coors>i25",
       "km": 6.5,
-      "minutes": 8.6,
-      "free_min": 8.2,
-      "delay_min": 0.4,
+      "minutes": 8.5,
+      "free_min": 8.5,
+      "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
        [
@@ -27713,10 +27713,10 @@
    "points_at": "2026-11-27T05:00:51-07:00",
    "W": {
     "delay_min": 0.0,
-    "minutes": 28.3,
+    "minutes": 28.4,
     "free_min": 29.0,
     "detour": false,
-    "at": "2026-11-27T05:00:51-07:00",
+    "at": "2026-11-27T05:15:47-07:00",
     "line": [
      [
       39.75702,
@@ -28197,8 +28197,8 @@
       "to": "us6",
       "key": "i25>us6",
       "km": 15.7,
-      "minutes": 9.8,
-      "free_min": 9.8,
+      "minutes": 9.9,
+      "free_min": 9.9,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -28249,8 +28249,8 @@
       "to": "golden",
       "key": "us6>golden",
       "km": 7.9,
-      "minutes": 9.9,
-      "free_min": 9.9,
+      "minutes": 10.0,
+      "free_min": 10.0,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -28506,7 +28506,7 @@
     "minutes": 35.2,
     "free_min": 35.2,
     "detour": false,
-    "at": "2026-11-27T05:00:51-07:00",
+    "at": "2026-11-27T05:15:47-07:00",
     "line": [
      [
       39.75702,
@@ -29215,8 +29215,8 @@
       "to": "x261",
       "key": "i25i70>x261",
       "km": 13.5,
-      "minutes": 7.9,
-      "free_min": 7.9,
+      "minutes": 7.8,
+      "free_min": 7.8,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -29459,8 +29459,8 @@
       "to": "floyd",
       "key": "us6>floyd",
       "km": 25.4,
-      "minutes": 15.7,
-      "free_min": 15.7,
+      "minutes": 15.8,
+      "free_min": 15.8,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -31163,10 +31163,10 @@
    "points_at": "2026-11-27T05:00:51-07:00"
   }
  },
- "updated": "2026-11-27T05:00:51-07:00",
+ "updated": "2026-11-27T05:15:47-07:00",
  "tomtom_use": {
   "flow": 2900,
-  "routing": 3263
+  "routing": 3269
  },
  "tomtom_caps": {
   "routing": 19000,
