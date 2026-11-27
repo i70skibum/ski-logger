@@ -7405,7 +7405,7 @@
     "minutes": 30.9,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-27T14:30:49-07:00",
+    "at": "2026-11-27T14:45:45-07:00",
     "line": [
      [
       39.76107,
@@ -8572,7 +8572,7 @@
     "minutes": 30.8,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-27T14:30:49-07:00",
+    "at": "2026-11-27T14:45:45-07:00",
     "line": [
      [
       39.88623,
@@ -11730,11 +11730,11 @@
   "eldora_boulder": {
    "name": "Coors Field to Eldora by Boulder Canyon (US 36, CO 119)",
    "E": {
-    "delay_min": 5.6,
-    "minutes": 73.3,
+    "delay_min": 6.3,
+    "minutes": 74.1,
     "free_min": 67.8,
     "detour": false,
-    "at": "2026-11-27T14:30:49-07:00",
+    "at": "2026-11-27T14:45:45-07:00",
     "line": [
      [
       39.93746,
@@ -13019,9 +13019,9 @@
       "to": "nederland",
       "key": "nederland>eldora",
       "km": 8.0,
-      "minutes": 11.5,
+      "minutes": 11.6,
       "free_min": 10.4,
-      "delay_min": 1.1,
+      "delay_min": 1.2,
       "jam_min": 0.0,
       "line": [
        [
@@ -13631,9 +13631,9 @@
       "to": "i25i70",
       "key": "i25i70>boulder",
       "km": 39.4,
-      "minutes": 28.7,
-      "free_min": 28.7,
-      "delay_min": 0.0,
+      "minutes": 29.3,
+      "free_min": 28.8,
+      "delay_min": 0.5,
       "jam_min": 0.0,
       "line": [
        [
@@ -13875,9 +13875,9 @@
       "to": "coors",
       "key": "coors>i25i70",
       "km": 3.6,
-      "minutes": 8.3,
-      "free_min": 4.0,
-      "delay_min": 4.3,
+      "minutes": 8.5,
+      "free_min": 4.1,
+      "delay_min": 4.4,
       "jam_min": 0.0,
       "line": [
        [
@@ -27022,11 +27022,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 3.0,
-    "minutes": 28.2,
+    "delay_min": 3.6,
+    "minutes": 28.9,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-27T14:30:49-07:00",
+    "at": "2026-11-27T14:45:45-07:00",
     "line": [
      [
       39.74245,
@@ -27323,8 +27323,8 @@
       "to": "us6",
       "key": "us6>golden",
       "km": 7.2,
-      "minutes": 5.9,
-      "free_min": 5.9,
+      "minutes": 6.0,
+      "free_min": 6.0,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -27447,8 +27447,8 @@
       "to": "i25",
       "key": "i25>us6",
       "km": 15.8,
-      "minutes": 12.6,
-      "free_min": 12.1,
+      "minutes": 12.5,
+      "free_min": 12.0,
       "delay_min": 0.5,
       "jam_min": 0.0,
       "line": [
@@ -27531,9 +27531,9 @@
       "to": "coors",
       "key": "coors>i25",
       "km": 6.5,
-      "minutes": 9.7,
-      "free_min": 7.3,
-      "delay_min": 2.4,
+      "minutes": 10.5,
+      "free_min": 7.4,
+      "delay_min": 3.1,
       "jam_min": 0.0,
       "line": [
        [
@@ -27668,11 +27668,11 @@
    "points": [],
    "points_at": "2026-11-27T14:30:49-07:00",
    "W": {
-    "delay_min": 1.8,
-    "minutes": 30.9,
+    "delay_min": 2.0,
+    "minutes": 31.0,
     "free_min": 29.0,
     "detour": false,
-    "at": "2026-11-27T14:30:49-07:00",
+    "at": "2026-11-27T14:45:45-07:00",
     "line": [
      [
       39.75702,
@@ -28045,9 +28045,9 @@
       "to": "i25",
       "key": "coors>i25",
       "km": 6.3,
-      "minutes": 9.5,
-      "free_min": 7.7,
-      "delay_min": 1.8,
+      "minutes": 9.4,
+      "free_min": 7.4,
+      "delay_min": 2.0,
       "jam_min": 0.0,
       "line": [
        [
@@ -28153,8 +28153,8 @@
       "to": "us6",
       "key": "i25>us6",
       "km": 15.7,
-      "minutes": 10.6,
-      "free_min": 10.6,
+      "minutes": 10.8,
+      "free_min": 10.8,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -29757,10 +29757,10 @@
    "points_at": "2026-11-27T14:30:49-07:00",
    "E": {
     "delay_min": null,
-    "minutes": 54.7,
+    "minutes": 54.3,
     "free_min": 51.2,
     "detour": true,
-    "at": "2026-11-27T14:30:49-07:00"
+    "at": "2026-11-27T14:45:45-07:00"
    }
   },
   "corridor": {
@@ -31119,10 +31119,10 @@
    "points_at": "2026-11-27T14:30:49-07:00"
   }
  },
- "updated": "2026-11-27T14:30:49-07:00",
+ "updated": "2026-11-27T14:45:45-07:00",
  "tomtom_use": {
   "flow": 3204,
-  "routing": 3624
+  "routing": 3630
  },
  "tomtom_caps": {
   "routing": 19000,
