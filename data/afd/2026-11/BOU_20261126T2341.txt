@@ -1,0 +1,135 @@
+
+000
+FXUS65 KBOU 270641
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+1141 PM MST Thu Nov 26 2026
+
+.KEY MESSAGES... 
+
+- Hazardous travel Friday night - Saturday evening for the
+  northern mountains and I-70 mountain corridor due to snow and 
+  blowing snow. Local snowfall amounts greater than 12" possible.
+
+- Banded rain/snow for the the plains and I-25 Corridor Saturday
+  to Saturday evening. Brief heavy snow with generally light 
+  accumulations possible, including potential for Denver's first 
+  measurable snowfall of the season. 
+
+- Gusty winds expected along the northern Front Range and northern
+  border area Friday, spreading to all the plains Saturday.
+
+- Return of mostly dry weather Sunday - Tuesday, next disturbance
+  may arrive by Wednesday or Thursday.  
+
+&&
+
+.DISCUSSION /Through Thursday/...
+Issued at 1121 PM MST Thu Nov 26 2026
+
+The system for this weekend is still on track. We're starting to 
+see winds increase in the higher terrain, with gusts around 30 to 
+50mph already. Northwest flow aloft will continue to strengthen 
+through Friday afternoon, remaining strong through late Saturday. 
+Wind gusts above tree line will be around 50 to 70mph late Friday 
+morning through the early afternoon. The strongest winds will be 
+confined to the highest elevations, but wind gusts will still
+reach around 30 to 50mph in the northern foothills. The strong 
+northwest winds are expected to move off of the Cheyenne Ridge and
+into our northern counties in the early morning, producing gusts 
+around 30 to 50mph in the northern plains. 
+
+While snow could start in the mountains on Friday, the peak lifting 
+from the upper level shortwave and left entrance of the upper jet
+will hit early Saturday morning continuing into the early 
+afternoon. Mountains snow will start to increase overnight 
+Friday into Saturday, with the heaviest snow Saturday morning and
+early afternoon. There will be two potential big impacts to 
+mountain travel on Saturday. The first potential impact is 
+blowing snow. Wind gusts will be around 50 to 60mph at times, 
+which when combined with fresh snow on the ground and snow falling
+around 0.5 to 1 inch an hour at times, could cause serious 
+visibility issues. The second potential impact is snow squalls. 
+Strong frontogenesis and some weak instability could be enough for
+snow squalls to develop in the mountains. Snow squalls cause 
+rapid changes to visibilities and driving conditions, creating 
+very hazardous travel. QPF amounts continue to trend higher for 
+our higher elevations. This combined with the strong winds leading
+to blowing snow and the holiday weekend travel has led us to 
+upgrade our Park Range zone to a Winter Storm Warning. As of right
+now, we've left our Front Range zones in a Winter Weather 
+Advisory, due to the lower snow totals, but travel conditions 
+could still be very hazardous if snow banding or snow squalls 
+develop. 
+
+The timing of the cold front Saturday is still uncertain. A few 
+of the high res models are trending faster, with the front 
+entering our northern counties between 7 and 8am, reaching the 
+metro around 9, and exiting our southern counties by 11am (which 
+is before the GFS even brings it into our northern counties). If 
+this happens, it would give the plains a much quicker transition 
+from rain to snow and colder afternoon temperatures. We are 
+leaning towards the quicker front solutions and have adjusted the 
+forecast accordingly. A trace to a few tenths of snow still looks
+possible for the metro Saturday afternoon, but it will depend on
+that front timing. the south metro, Palmer, and southern 
+foothills will be favored for better precip chances and snow 
+totals given the north/northeast flow behind the front. We are
+also monitoring the potential for snow bands to develop due to 
+the strong frontogenesis. Areas that see a heavier snow bands 
+will be more likely for brief snow accumulations on roads and 
+potential travel impacts. 
+
+Snow chances will decrease Saturday evening as the shortwave and
+jet move out of our area. Dry conditions will prevail Sunday 
+through Tuesday for much of the area, with warmer temperature for 
+the start of next week. We could see a weak upper level 
+disturbance bring brief snow chances to the mountains on Monday, 
+but little to no impacts are expected. Models are showing an upper
+level low developing off the southwest coast on Tuesday, moving 
+east over the four corners and then near our area. The exact 
+progression of the low is still uncertain in both timing and 
+location, but this will be our next chance for both mountain and 
+plains snowfall. Right now, the best chance for precip with this 
+system will be late Wednesday into Thursday. Temperatures are 
+forecast to drop back closer to normal behind the cold front 
+associated with this system. 
+
+&&
+
+.AVIATION /06Z TAFS through 06Z Saturday/...
+Issued at 1038 PM MST Thu Nov 26 2026
+
+VFR conditions expected through the TAF period. Winds are
+currently transitioning to drainage and will continue through
+tonight, with speeds ranging from 9-13 kts. At BJC, expect
+gusty westerly winds of 20-28 kts periodically through tonight.
+
+Still some uncertainty with with the winds for Friday as flow
+aloft increases ahead of an incoming system. This should bring 
+gusty westerly winds to all terminals by the late morning/early 
+afternoon. However, depending on where the winds channel, APA and
+DEN could see lighter westerly/northwesterly flow. For now, have
+kept the stronger west/northwest winds in the TAF, but will
+continue to monitor model trends. 
+
+Winds should weaken by 23Z-01Z and turn anticyclonically through
+the evening, with drainage flow returning by 03Z-05Z.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+Winter Storm Warning from 5 PM Friday to midnight MST Saturday 
+night for COZ031.
+
+Winter Weather Advisory from midnight Friday night to midnight 
+MST Saturday night for COZ033-034.
+
+&&
+
+$$
+
+DISCUSSION...AP
+AVIATION...MAI
