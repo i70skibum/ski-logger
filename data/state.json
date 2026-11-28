@@ -661,34 +661,6 @@
    "title": "US 24 in both directions: Crash.",
    "type": "routine"
   },
-  "roadReports:CDOT-36627984715NB": {
-   "began": "2026-11-27T18:41:34-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36627984715NB",
-   "lat": 39.87831,
-   "lon": -105.24107,
-   "mp_end": "",
-   "mp_start": 8.269668567629251,
-   "pos_bearing": "N",
-   "route": "CO 93",
-   "title": "CO 93 northbound: Crash.",
-   "type": "routine"
-  },
-  "roadReports:CDOT-36628036407NB": {
-   "began": "2026-11-27T18:45:22-07:00",
-   "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36628036407NB",
-   "lat": 39.8656,
-   "lon": -105.24006,
-   "mp_end": 8.816385172412566,
-   "mp_start": 7.553119129514776,
-   "pos_bearing": "N",
-   "route": "CO 93",
-   "title": "CO 93 northbound: Road closed.",
-   "type": "critical"
-  },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
    "class": "roadWork",
@@ -2467,6 +2439,20 @@
    "title": "CO 145: Icy spots.",
    "type": "standard"
   },
+  "winterDriving:COSEG-589989": {
+   "began": "2026-11-27T20:08:53.733000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-589989",
+   "lat": 39.60889,
+   "lon": -106.0798,
+   "mp_end": 212.51810153359827,
+   "mp_start": 203.7258464806865,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Wet in areas with icy spots.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-590054": {
    "began": "2026-11-27T09:13:08.677000-07:00",
    "class": "winterDriving",
@@ -2525,7 +2511,7 @@
   }
  },
  "forecast_last": "2026-11-28T00:45:46+00:00",
- "last_run": "2026-11-27T20:00:47-07:00",
+ "last_run": "2026-11-27T20:15:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-27": {
@@ -3245,7 +3231,7 @@
   "456": "3 - dry",
   "457": "3 - dry",
   "458": "3 - dry",
-  "459": "3 - dry",
+  "459": "4s-9 - wet in areas, icy spots",
   "47": "1 - high wind",
   "483": "3 - dry",
   "484": "3 - dry",
@@ -3265,7 +3251,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-27 18:00",
+  "abasin": "2026-11-27 19:00",
   "aspen": "2026-11-27 18:00",
   "beavercreek": "2026-11-27 18:00",
   "breck": "2026-11-27 18:00",
@@ -3275,12 +3261,12 @@
   "echo": "2026-11-27 18:00",
   "eldora": "2026-11-27 18:00",
   "granby": "2026-11-27 18:00",
-  "keystone": "2026-11-27 18:00",
+  "keystone": "2026-11-27 19:00",
   "loveland": "2026-11-27 18:00",
   "monarch": "2026-11-27 18:00",
   "powderhorn": "2026-11-27 18:00",
   "purgatory": "2026-11-27 18:00",
-  "steamboat": "2026-11-27 18:00",
+  "steamboat": "2026-11-27 19:00",
   "sunlight": "2026-11-27 18:00",
   "telluride": "2026-11-27 18:00",
   "vail": "2026-11-27 18:00",
