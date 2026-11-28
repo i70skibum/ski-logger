@@ -12,9 +12,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python probe/probe.py && python probe/probe2.py
+      - run: python probe/probe3.py
         env:
           TOMTOM_API_KEY: ${{ secrets.TOMTOM_API_KEY }}
       - run: |
           git config user.name probe && git config user.email probe@users.noreply.github.com
-          git add probe_out && git commit -qm "probe output [skip ci]" && git push -q origin HEAD:probe-crowd
+          git add probe_img && git commit -qm "probe output [skip ci]" && git push -q origin HEAD:probe-crowd
