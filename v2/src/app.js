@@ -125,6 +125,9 @@ const tractionFor = k => (D.events || []).filter(e => started(e) && e.class === 
 // ---- Snow and status ------------------------------------------------------------------------------------
 const snowOf = k => { const s = (D.snow || {})[k] || {}, f = (D.forecast24 || {})[k] || {};
   return { new24: num(s.new24_in) || 0, depth: num(s.depth_in), temp: num(s.temp_f), fc24: num(f.snow_in) || 0, gust: num(f.gust_max_mph), tmin: num(f.temp_min_f), tmax: num(f.temp_max_f) }; };
+// People counted in a base-area webcam frame (latest, if from the last 2 hours).
+const CAMS_FOR_CROWD = ["abasin"];
+const camOf = k => { const c = ((D.crowd || {})[k] || {})["camera:base"]; if (!c) return null; return (Date.now() - Date.parse(c.snapshot_time)) / 36e5 > 2 ? null : { n: num(c.value), at: c.snapshot_time }; };
 const statusOf = k => (((D.status || {}).resorts) || {})[k] || {};
 const isOpen = k => statusOf(k).open !== false;
 const crowdOf = k => { const c = ((D.crowd || {})[k] || {}).last_mile; if (!c) return null; const age = (Date.now() - Date.parse(c.snapshot_time)) / 36e5;
@@ -340,7 +343,9 @@ function mountainDetail(r, i, R) {
     <div style="display:flex;flex-wrap:wrap;gap:6px">${chips.join("")}</div>
     <div style="border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:12px">
       <div class="kick">Crowd: what it's based on</div>
-      <ul class="plain small">${((D.sources || {}).crowd_sources || []).map(c => `<li class="row" style="justify-content:space-between;padding:6px 0"><span class="muted">${esc(c.name)}</span><span>${c.status === "trial" ? (cr ? "reading" : "trial, no reading yet") : "not yet"}</span></li>`).join("")}</ul>
+      <ul class="plain small">${((D.sources || {}).crowd_sources || []).map(c => { const cam = c.key === "cameras" ? camOf(k) : null;
+        const txt = c.key === "cameras" ? (cam ? `${cam.n} people in view, ${fmtTime(cam.at)}` : (CAMS_FOR_CROWD.includes(k) ? "trial, no reading yet" : "no usable camera yet")) : c.status === "trial" ? (cr ? "reading" : "trial, no reading yet") : "not yet";
+        return `<li class="row" style="justify-content:space-between;padding:6px 0"><span class="muted">${esc(c.name)}</span><span>${txt}</span></li>`; }).join("")}</ul>
       ${crowdStrip(k, iso, hour)}
       <div class="kick">Cameras</div>${camsFor(k)}
       <div class="kick">Snow</div>
