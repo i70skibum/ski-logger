@@ -163,6 +163,20 @@
    "title": "I-70 westbound: Commercial motor vehicle chain law.",
    "type": "standard"
   },
+  "chainLaws:CDOT-36635552681WB": {
+   "began": "2026-11-28T04:01:31-07:00",
+   "class": "chainLaws",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36635552681WB",
+   "lat": 39.69173,
+   "lon": -105.81084,
+   "mp_end": 214.99426860245345,
+   "mp_start": 220.99927431583055,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Commercial motor vehicle chain law.",
+   "type": "standard"
+  },
   "roadClosures:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadClosures",
@@ -2607,6 +2621,34 @@
    "title": "I-70: Wet in areas with icy spots.",
    "type": "standard"
   },
+  "winterDriving:COSEG-590030": {
+   "began": "2026-11-28T04:06:19.664000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-590030",
+   "lat": 39.54932,
+   "lon": -107.32833,
+   "mp_end": 11.536687588057866,
+   "mp_start": 0,
+   "pos_bearing": "E",
+   "route": "CO 82",
+   "title": "CO 82: Icy.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-590031": {
+   "began": "2026-11-28T04:06:43.026000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-590031",
+   "lat": 39.41609,
+   "lon": -107.22462,
+   "mp_end": 41.9266038100445,
+   "mp_start": 11.536687588057866,
+   "pos_bearing": "E",
+   "route": "CO 82",
+   "title": "CO 82: Icy.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-590035": {
    "began": "2026-11-27T23:11:59.418000-07:00",
    "class": "winterDriving",
@@ -2775,6 +2817,20 @@
    "title": "US 40: Icy spots.",
    "type": "standard"
   },
+  "winterDriving:COSEG-590190": {
+   "began": "2026-11-28T04:01:01.140000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-590190",
+   "lat": 40.48569,
+   "lon": -107.02222,
+   "mp_end": 137.32318525182112,
+   "mp_start": 121.26224323617745,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40: Wet.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-590247": {
    "began": "2026-11-28T03:30:12.348000-07:00",
    "class": "winterDriving",
@@ -2791,7 +2847,7 @@
   }
  },
  "forecast_last": "2026-11-28T10:00:49+00:00",
- "last_run": "2026-11-28T04:00:50-07:00",
+ "last_run": "2026-11-28T04:15:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-28": {
@@ -3449,8 +3505,8 @@
  },
  "outlook_last": "2026-11-28T09:00:47+00:00",
  "road_conditions": {
-  "100": "3 - dry",
-  "101": "3 - dry",
+  "100": "4 - wet; 8 - icy",
+  "101": "4 - wet; 8 - icy",
   "102": "seasonal closure",
   "118": "3 - dry",
   "131": "3 - dry",
@@ -3461,7 +3517,7 @@
   "152": "3 - dry",
   "198": "3 - dry",
   "199": "3 - dry",
-  "200": "3 - dry",
+  "200": "4 - wet",
   "201": "4s - wet in areas; 6 - snow; 9 - icy spots",
   "202": "4s - wet in areas; 6 - snow; 9 - icy spots",
   "214": "3 - dry",
@@ -3531,7 +3587,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-28 02:00",
+  "abasin": "2026-11-28 03:00",
   "aspen": "2026-11-28 02:00",
   "beavercreek": "2026-11-28 02:00",
   "breck": "2026-11-28 02:00",
@@ -3541,7 +3597,7 @@
   "echo": "2026-11-28 02:00",
   "eldora": "2026-11-28 02:00",
   "granby": "2026-11-28 02:00",
-  "keystone": "2026-11-28 02:00",
+  "keystone": "2026-11-28 03:00",
   "loveland": "2026-11-28 02:00",
   "monarch": "2026-11-28 02:00",
   "powderhorn": "2026-11-28 02:00",
