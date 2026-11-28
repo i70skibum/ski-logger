@@ -620,7 +620,7 @@ function renderSettings() {
     <div><b>Season</b><div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:8px">${[["auto", "Auto"], ["regular", "Regular"], ["off", "Off-season"]].map(([k, n]) => `<button class="pill${S.season === k ? " on" : ""}" data-season="${k}" style="padding:0 6px">${n}</button>`).join("")}</div></div>
     <span class="kick">Home Screen</span>
     <p style="margin:0">Add Ski Day to your Home Screen to open it full screen: in Safari, tap Share, then Add to Home Screen.</p>
-    <p class="small muted" style="margin:0">This is 2.0 at /v2/. <a href="../">The current page</a> stays up until the switch.</p>`;
+    <p class="small muted" style="margin:0">Ski Day 2.0. The old page is still up at <a href="classic/">/classic/</a>.</p>`;
 }
 
 // ---- Render and events ------------------------------------------------------------------------------------------
@@ -695,7 +695,7 @@ async function load(first) {
     }
   } catch (e) {
     console.error(e);
-    if (!D) $("main").innerHTML = `<div class="err"><b>Couldn't load the latest run.</b> ${esc(e.message)} <a href="../">Use the current page</a> in the meantime.</div>`;
+    if (!D) $("main").innerHTML = `<div class="err"><b>Couldn't load the latest run.</b> ${esc(e.message)} <a href="classic/">Use the old page</a> in the meantime.</div>`;
   }
 }
 load(true);
