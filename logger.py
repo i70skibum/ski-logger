@@ -1891,20 +1891,31 @@ CROWD_POINTS = {
     "copper": {"name": "CO 91 into Copper", "point": (39.4990, -106.1445)},
     "winterpark": {"name": "US 40 at Winter Park base", "point": (39.8880, -105.7620)},
     "abasin": {"name": "US 6 at A-Basin", "point": (39.6425, -105.8717)},
-    "eldora": {"name": "Eldora Ski Road", "point": (39.9440, -105.5520), "zoom": 10},
+    "eldora": {"name": "Eldora Ski Road", "point": (39.9506, -105.5390), "zoom": 14},   # 39.944,-105.552 returned HTTP 400
 }
 # Base-area webcams with a plain image URL (no signed stream). People are counted with YOLOv8n (crowd_count.py).
+# Copper's cams are hdrelay streams; the public poster endpoint returns the current frame as a JPEG.
+HDRELAY_POSTER = "https://watch.hdrelay.io/api/public/poster/"
 CROWD_CAMS = {
     "abasin": [("base", "Mountain Goat Plaza and Black Mountain Express",
                 "https://dirigo-resorts-f4e2bde5azc2cne6.z02.azurefd.net/arapahoe/images/medium/webcams/abasincam1001m.jpg")],
+    "copper": [("center_village", "Center Village plaza", HDRELAY_POSTER + "cam_copper_mountain___center_village_1791904709663"),
+               ("super_bee", "Super Bee lift, Center Village", HDRELAY_POSTER + "cam_copper_mountain___super_bee_1791911334637"),
+               ("excelerator", "Excelerator lift", HDRELAY_POSTER + "cam_copper_mountain___excelerator_1791911614707"),
+               ("union", "Union Creek base", HDRELAY_POSTER + "cam_copper_mountain___union_1790871057199")],
 }
+# Winter Park's base cams are YouTube streams and Eldora's are not plain images, so neither has a camera count yet.
+# Parking: A-Basin's parking page renders its lot status (Empty to All Lots Full) into the page.
+PARKING_PAGES = {"abasin": "https://www.arapahoebasin.com/parking/"}
+PARKING_LEVELS = {"empty": 1, "mostly-open": 2, "filling-up": 3, "filling": 3, "mostly-full": 3, "full": 4, "all-lots-full": 4}
 CROWD_CAM_HOURS = (7, 17)   # lifts open about 8:30 to 4; count from 7 to see the line form
 CROWD_SOURCES = [
     {"key": "last_mile", "name": "Traffic on the last mile into each base area (TomTom flow)", "status": "trial"},
     {"key": "cameras", "name": "People counted in base-area webcam lift lines", "status": "trial"},
     {"key": "app_waits", "name": "Lift waits in the Copper and Winter Park apps", "status": "skipped",
      "note": "App-only; reading it would mean a private API, likely against the apps' terms"},
-    {"key": "parking", "name": "Parking lot status and reservations left", "status": "not yet"},
+    {"key": "parking", "name": "Parking lot status and reservations left", "status": "trial",
+     "note": "A-Basin lot status from its parking page; Copper, Winter Park and Eldora publish no lot status"},
 ]
 TOMTOM_HOURS["crowd"] = (6, 18)
 TOMTOM_CAPS["crowd"] = 3000      # 4 points every 30 minutes, 6 AM to 6 PM: about 2,900 in a 31-day month
@@ -1979,6 +1990,33 @@ def log_crowd_cams(state):
                 img.save(os.path.join(DATA, "crowd", "frames", f"{rk}-{key}-{NOW.date().isoformat()}.jpg"), quality=70)
     append_rows("crowd", ["snapshot_time", "resort", "source", "value", "unit", "level", "detail"], rows)
     return f"{len(rows)} frames counted"
+
+
+def log_crowd_parking(state):
+    """Lot status from resort parking pages, every 30 minutes from 6 AM to 6 PM."""
+    if not (6 <= NOW.hour < 18):
+        return "outside parking hours"
+    last = state.get("parking_last")
+    if last and (NOW - datetime.fromisoformat(last)).total_seconds() < 25 * 60:
+        return "skipped (cadence)"
+    import urllib.request
+    rows = []
+    for rk, url in PARKING_PAGES.items():
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "ski-logger (github.com/i70skibum/ski-logger)"})
+            with urllib.request.urlopen(req, timeout=20) as r:
+                html = r.read().decode("utf-8", "replace")
+            m = re.search(r'class=["\']boxes-container\s+([A-Za-z-]+)', html)
+            if not m:
+                log_error(f"parking:{rk}", "status element not found")
+                continue
+            word = m.group(1)
+            rows.append([NOW_ISO, rk, "parking", word, "status", PARKING_LEVELS.get(word.lower(), ""), url])
+        except Exception as e:
+            log_error(f"parking:{rk}", str(e)[:300])
+    state["parking_last"] = NOW_ISO
+    append_rows("crowd", ["snapshot_time", "resort", "source", "value", "unit", "level", "detail"], rows)
+    return f"{len(rows)} lots"
 
 
 # ---------------------------------------------------------------------------
@@ -2144,7 +2182,7 @@ def main():
     jobs = [("snotel", log_snotel), ("forecast", log_forecast), ("afd", log_afd),
             ("events", log_events), ("cdot", log_cdot), ("resort_status", log_resort_status),
             ("routes", log_routes), ("plows", log_plows), ("cameras", log_cameras), ("outlook", log_outlook), ("traffic_model", log_traffic_model), ("recent", log_recent),
-            ("crowd", log_crowd), ("crowd_cams", log_crowd_cams), ("daily_predictions", log_daily_predictions), ("dashboard", build_dashboard)]
+            ("crowd", log_crowd), ("crowd_cams", log_crowd_cams), ("crowd_parking", log_crowd_parking), ("daily_predictions", log_daily_predictions), ("dashboard", build_dashboard)]
     for name, fn in jobs:
         try:
             print(f"{name}: {fn(state)}")
