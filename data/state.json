@@ -293,6 +293,20 @@
    "title": "US 50 eastbound: Passenger vehicle traction law.",
    "type": "standard"
   },
+  "chainLaws:CDOT-36638603827BOTH": {
+   "began": "2026-11-28T07:46:18-07:00",
+   "class": "chainLaws",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36638603827BOTH",
+   "lat": 39.55805,
+   "lon": -106.40106,
+   "mp_end": 153.99239322653926,
+   "mp_start": 148.02879946520554,
+   "pos_bearing": "E",
+   "route": "US 24",
+   "title": "US 24 in both directions: Commercial motor vehicle chain law.",
+   "type": "standard"
+  },
   "roadClosures:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadClosures",
@@ -915,20 +929,6 @@
    "pos_bearing": "E",
    "route": "US 160",
    "title": "US 160 in both directions: Traffic impacts.",
-   "type": "routine"
-  },
-  "roadReports:CDOT-36637743887WB": {
-   "began": "2026-11-28T06:42:45-07:00",
-   "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36637743887WB",
-   "lat": 39.69571,
-   "lon": -105.79286,
-   "mp_end": "",
-   "mp_start": 221.9991628969449,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 westbound: Left lane closed.",
    "type": "routine"
   },
   "roadReports:CDOT-36638531013WB": {
@@ -2751,20 +2751,6 @@
    "title": "CO 91: Snow with ice and snow packed.",
    "type": "standard"
   },
-  "winterDriving:COSEG-522967": {
-   "began": "2026-11-28T05:49:48.790000-07:00",
-   "class": "winterDriving",
-   "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-522967",
-   "lat": 36.99999,
-   "lon": -107.86952,
-   "mp_end": 16.560998660277097,
-   "mp_start": 1.5510674771853932e-07,
-   "pos_bearing": "N",
-   "route": "US 550",
-   "title": "US 550: Snow.",
-   "type": "standard"
-  },
   "winterDriving:COSEG-586962": {
    "began": "2026-11-27T20:27:43.310000-07:00",
    "class": "winterDriving",
@@ -3171,6 +3157,20 @@
    "title": "US 40: Icy spots.",
    "type": "standard"
   },
+  "winterDriving:COSEG-590189": {
+   "began": "2026-11-28T07:52:11.214000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-590189",
+   "lat": 40.51239,
+   "lon": -107.55183,
+   "mp_end": 121.26224323617745,
+   "mp_start": 90.59834604336295,
+   "pos_bearing": "E",
+   "route": "US 40",
+   "title": "US 40: Icy spots.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-590190": {
    "began": "2026-11-28T04:01:01.140000-07:00",
    "class": "winterDriving",
@@ -3257,7 +3257,7 @@
   }
  },
  "forecast_last": "2026-11-28T13:02:30+00:00",
- "last_run": "2026-11-28T07:45:58-07:00",
+ "last_run": "2026-11-28T08:01:01-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-28": {
@@ -3913,7 +3913,7 @@
   "winterpark": "https://api.weather.gov/gridpoints/BOU/36,70",
   "wolfcreek": "https://api.weather.gov/gridpoints/PUB/15,36"
  },
- "outlook_last": "2026-11-28T12:00:47+00:00",
+ "outlook_last": "2026-11-28T15:01:01+00:00",
  "parking_last": "2026-11-28T07:45:58-07:00",
  "road_conditions": {
   "100": "4 - wet; 6 - snow; 9 - icy spots",
@@ -3927,8 +3927,8 @@
   "151": "6 - snow",
   "152": "6 - snow",
   "198": "4 - wet; 6 - snow; 9 - icy spots",
-  "199": "3 - dry",
-  "200": "6 - snow",
+  "199": "4 - wet; 9 - icy spots",
+  "200": "6 - snow; 7 - slushy; 9 - icy spots",
   "201": "6 - snow; 9 - icy spots",
   "202": "6 - snow; 9 - icy spots",
   "214": "3 - dry",
@@ -3938,11 +3938,11 @@
   "228": "3 - dry",
   "229": "3 - dry",
   "230": "3 - dry",
-  "243": "6 - snow",
+  "243": "3 - dry",
   "245": "6 - snow",
   "246": "6 - snow",
   "247": "6 - snow",
-  "248": "6 - snow",
+  "248": "6-9-11 snow, icy spots, snow packed spots",
   "249": "4 - wet; 8 - icy",
   "261": "3 - dry",
   "262": "4 - wet; 9 - icy spots",
@@ -4015,7 +4015,7 @@
   "purgatory": "2026-11-28 06:00",
   "steamboat": "2026-11-28 06:00",
   "sunlight": "2026-11-28 06:00",
-  "telluride": "2026-11-28 05:00",
+  "telluride": "2026-11-28 06:00",
   "vail": "2026-11-28 06:00",
   "winterpark": "2026-11-28 06:00",
   "wolfcreek": "2026-11-28 06:00"
@@ -4274,18 +4274,18 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_crowd_last": "2026-11-28T14:30:56+00:00",
- "tomtom_flow_last": "2026-11-28T14:30:56+00:00",
- "tomtom_routing_last": "2026-11-28T14:45:58+00:00",
+ "tomtom_crowd_last": "2026-11-28T15:01:01+00:00",
+ "tomtom_flow_last": "2026-11-28T15:01:01+00:00",
+ "tomtom_routing_last": "2026-11-28T15:01:01+00:00",
  "tomtom_use": {
   "crowd": {
-   "2026-11": 16
+   "2026-11": 20
   },
   "flow": {
-   "2026-11": 3460
+   "2026-11": 3476
   },
   "routing": {
-   "2026-11": 3934
+   "2026-11": 3947
   }
  },
  "traffic_model_last": "2026-11-28T13:02:30+00:00"

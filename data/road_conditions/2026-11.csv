@@ -1048,3 +1048,7 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-28T07:45:58-07:00,458,I-70,Copper Mtn-Silverthorne,194.3,203.7,"6-9-11 snow, icy spots, snow packed spots","I-70, between Exit 190: Vail Pass Summit (Vail Pass) and Exit 205: CO 9; US 6; Silverthorne (near Frisco)"
 2026-11-28T07:45:58-07:00,262,I-70,Rifle -Glenwood Springs,90.2,116.2,4 - wet; 9 - icy spots,"I-70, between Exit 87: US 6; Rifle (Rifle) and Exit 116: CO 82; Glenwood Springs (Glenwood Canyon)"
 2026-11-28T07:45:58-07:00,485,US 6,Silverthorne to Arapahoe Basin,208.7,219.9,"4s-9 - wet in areas, icy spots; 6 - snow","US 6, between I-70; CO 9 (Silverthorne) and I-70 (near Loveland Pass)"
+2026-11-28T08:01:01-07:00,200,US 40,Steamboat Springs,121.3,137.3,6 - snow; 7 - slushy; 9 - icy spots,"US 40, between Foss Drive (near Milner) and County Road 20 (near Rabbit Ears Pass)"
+2026-11-28T08:01:01-07:00,199,US 40,Craig-Hayden-Milner,90.6,121.3,4 - wet; 9 - icy spots,"US 40, between Taylor Street (Craig) and Main Street (near Milner)"
+2026-11-28T08:01:01-07:00,248,US 550,Silverton-Red Mountain Pass,74.9,98.1,"6-9-11 snow, icy spots, snow packed spots","US 550, between South Mineral (near South Red Mountain Pass) and White House Vista Lane (1 mile north of the Ouray area)"
+2026-11-28T08:01:01-07:00,243,US 550,Bondad Hill-Durango,0.0,16.6,3 - dry,"US 550, between the New Mexico Border (13 miles south of the Durango area) and US 160 (near Durango)"
