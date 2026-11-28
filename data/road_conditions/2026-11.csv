@@ -973,3 +973,6 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-27T21:00:46-07:00,486,US 6,Loveland Pass,219.9,229.9,"21 - scattered showers; 6-9-11 snow, icy spots, snow packed spots","US 6, between Montezuma Road and I-70 (Loveland Pass)"
 2026-11-27T21:00:46-07:00,491,US 40,I-70 to Winter Park (Berthoud Pass),231.5,258.3,21 - scattered showers; 4s - wet in areas; 9 - icy spots,"US 40, between Moffat Road (Winter Park) and I-70 (near Empire)"
 2026-11-27T21:15:46-07:00,49,CO 9,Hoosier Pass - Frisco,66.6,97.2,"4s - wet in areas; 6-9-11 snow, icy spots, snow packed spots","CO 9, between 3rd Street (1 mile north of Fairplay) and I-70; County Road 1231 (Frisco)"
+2026-11-27T22:15:47-07:00,49,CO 9,Hoosier Pass - Frisco,66.6,97.2,"6-9-11 snow, icy spots, snow packed spots","CO 9, between 3rd Street (1 mile north of Fairplay) and I-70; County Road 1231 (Frisco)"
+2026-11-27T22:15:47-07:00,410,US 285,Antero Jct-Fairplay-Jefferson (South Park),161.8,199.0,3 - dry,"US 285 (Hampden Ave), between US 24 (Antero Junction) and MP 199 (near Kenosha Pass)"
+2026-11-27T22:15:47-07:00,47,CO 9,US 24 to Fairplay,47.6,63.7,3 - dry,"CO 9, between US 24 and US 285 (Fairplay)"
