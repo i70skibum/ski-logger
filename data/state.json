@@ -591,20 +591,6 @@
    "title": "I-70 eastbound: Road closed.",
    "type": "critical"
   },
-  "roadClosures:CDOT-36627334861BOTH": {
-   "began": "2026-11-27T17:52:40-07:00",
-   "class": "roadClosures",
-   "direction": "BOTH_DIRECTIONS",
-   "id": "CDOT-36627334861BOTH",
-   "lat": 38.84458,
-   "lon": -104.86534,
-   "mp_end": "",
-   "mp_start": 301.4300000156654,
-   "pos_bearing": "E",
-   "route": "US 24",
-   "title": "US 24 in both directions: Road closed.",
-   "type": "critical"
-  },
   "roadClosures:COSEG-589046": {
    "began": "2026-11-22T18:22:59.216000-07:00",
    "class": "roadClosures",
@@ -2411,6 +2397,20 @@
    "title": "US 6: Snow.",
    "type": "standard"
   },
+  "winterDriving:COSEG-586963": {
+   "began": "2026-11-27T20:45:48.704000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-586963",
+   "lat": 39.6341,
+   "lon": -105.89647,
+   "mp_end": 229.8959999796789,
+   "mp_start": 219.86348555050597,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6: Snow with icy and snow packed spots.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-587590": {
    "began": "2026-11-27T09:20:37.392000-07:00",
    "class": "winterDriving",
@@ -2679,7 +2679,7 @@
   }
  },
  "forecast_last": "2026-11-28T03:45:47+00:00",
- "last_run": "2026-11-27T20:45:47-07:00",
+ "last_run": "2026-11-27T21:00:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-27": {
@@ -3404,11 +3404,11 @@
   "483": "3 - dry",
   "484": "4s - wet in areas; 6 - snow",
   "485": "4s - wet in areas; 6 - snow",
-  "486": "3 - dry",
+  "486": "21 - scattered showers; 6-9-11 snow, icy spots, snow packed spots",
   "489": "3 - dry",
   "49": "1 - high wind",
   "490": "3 - dry",
-  "491": "1 - high wind; 3 - dry",
+  "491": "21 - scattered showers; 4s - wet in areas; 9 - icy spots",
   "492": "4s - wet in areas; 6 - snow; 9 - icy spots",
   "501": "3 - dry",
   "516": "3 - dry",
@@ -3436,7 +3436,7 @@
   "purgatory": "2026-11-27 19:00",
   "steamboat": "2026-11-27 19:00",
   "sunlight": "2026-11-27 19:00",
-  "telluride": "2026-11-27 18:00",
+  "telluride": "2026-11-27 19:00",
   "vail": "2026-11-27 19:00",
   "winterpark": "2026-11-27 19:00",
   "wolfcreek": "2026-11-27 19:00"

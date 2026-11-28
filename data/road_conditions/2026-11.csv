@@ -970,3 +970,5 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-27T20:30:49-07:00,492,US 40,Granby-Winter Park,211.6,231.5,4s - wet in areas; 6 - snow; 9 - icy spots,"US 40, between US 34 (near Granby) and Lakota Trail (Winter Park)"
 2026-11-27T20:30:49-07:00,458,I-70,Copper Mtn-Silverthorne,194.3,203.7,4s - wet in areas; 6 - snow,"I-70, between Exit 190: Vail Pass Summit (Vail Pass) and Exit 205: CO 9; US 6; Silverthorne (near Frisco)"
 2026-11-27T20:30:49-07:00,485,US 6,Silverthorne to Arapahoe Basin,208.7,219.9,4s - wet in areas; 6 - snow,"US 6, between I-70; CO 9 (Silverthorne) and I-70 (near Loveland Pass)"
+2026-11-27T21:00:46-07:00,486,US 6,Loveland Pass,219.9,229.9,"21 - scattered showers; 6-9-11 snow, icy spots, snow packed spots","US 6, between Montezuma Road and I-70 (Loveland Pass)"
+2026-11-27T21:00:46-07:00,491,US 40,I-70 to Winter Park (Berthoud Pass),231.5,258.3,21 - scattered showers; 4s - wet in areas; 9 - icy spots,"US 40, between Moffat Road (Winter Park) and I-70 (near Empire)"
