@@ -2060,7 +2060,7 @@ def build_dashboard(state):
     for name in sorted(os.listdir(DATA)):
         p = os.path.join(DATA, name)
         if os.path.isdir(p):
-            cur = [f for f in os.listdir(p) if f.startswith(month)]
+            cur = [f for f in os.listdir(p) if f.startswith(month) and os.path.isfile(os.path.join(p, f))]
             if cur:
                 files.append({"path": f"{name}/{cur[0]}", "bytes": os.path.getsize(os.path.join(p, cur[0]))})
         elif name.endswith(".json") and name != "dashboard.json":
