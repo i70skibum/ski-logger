@@ -1988,7 +1988,7 @@ def i70_stretches():
                 n += 1
                 tot += max(0, ln / max(float(last[sid]), 3) - ln / ref) * 60
                 norm += ln / ref * 60
-            out[key][d] = {"delay_min": round(tot, 1), "pct": round(tot / norm, 3) if norm else None} if n else None
+            out[key][d] = {"delay_min": round(tot, 1), "norm_min": round(norm, 1), "pct": round(tot / norm, 3) if norm else None} if n else None
     return out
 
 
