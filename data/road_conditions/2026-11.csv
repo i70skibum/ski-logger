@@ -1001,3 +1001,5 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-28T04:15:46-07:00,100,CO 82,Basalt-Glenwood Springs,0.0,11.5,4 - wet; 8 - icy,"CO 82, between I-70 (Glenwood Springs) and CO 133 (near Carbondale)"
 2026-11-28T04:15:46-07:00,200,US 40,Steamboat Springs,121.3,137.3,4 - wet,"US 40, between Foss Drive (near Milner) and County Road 20 (near Rabbit Ears Pass)"
 2026-11-28T04:15:46-07:00,101,CO 82,Aspen-Basalt,11.5,41.9,4 - wet; 8 - icy,"CO 82, between Satank Road (near Carbondale) and Riverside Drive (Aspen)"
+2026-11-28T05:00:47-07:00,430,US 50,Monarch Pass,190.3,208.3,4s - wet in areas; 9 - icy spots,"US 50, between MP 190 (1 mile west of the Monarch Pass area) and MP 209 (near Monarch Pass)"
+2026-11-28T05:00:47-07:00,98,CO 72,Nederland - Ward,32.4,54.1,4 - wet,"CO 72, between CO 119 (Nederland) and CO 7 (8 miles north of the Ward area)"
