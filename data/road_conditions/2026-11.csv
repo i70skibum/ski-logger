@@ -1031,3 +1031,8 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-28T07:01:01-07:00,408,US 285,Poncha Springs - Buena Vista,126.9,148.1,4s - wet in areas,"US 285, between US 50 (Poncha Springs) and US 24 (Trout Creek Pass)"
 2026-11-28T07:01:01-07:00,47,CO 9,US 24 to Fairplay,47.6,63.7,4s - wet in areas,"CO 9, between US 24 and US 285 (Fairplay)"
 2026-11-28T07:15:59-07:00,72,CO 65,Grand Mesa,0.0,51.2,10 - snow packed; 6 - snow,"CO 65, between CO 92 and CO 330 (Grand Mesa)"
+2026-11-28T07:30:56-07:00,201,US 40,Rabbit Ears Pass,137.3,178.7,6 - snow; 9 - icy spots,"US 40, between Kemry Lane (near Rabbit Ears Pass) and Utility Road (3 miles west of the Kremmling area)"
+2026-11-28T07:30:56-07:00,202,US 40,Kremmling-Granby,178.7,211.6,6 - snow; 9 - icy spots,"US 40, between CO 134 (3 miles west of the Kremmling area) and Mesa Street (near Granby)"
+2026-11-28T07:30:56-07:00,215,US 50,Delta-Montrose,66.6,92.4,4s - wet in areas,"US 50, between Alkali Basin Road (Delta) and 65.3 Road (Montrose)"
+2026-11-28T07:30:56-07:00,492,US 40,Granby-Winter Park,211.6,231.5,6 - snow; 9 - icy spots,"US 40, between US 34 (near Granby) and Lakota Trail (Winter Park)"
+2026-11-28T07:30:56-07:00,390,US 50,Montrose-Cerro Summit-Blue Mesa-Gunnison,92.4,190.3,4 - wet; 9 - icy spots,"US 50, between Park Avenue (Montrose) and County Road 32YY (1 mile west of the Monarch Pass area)"
