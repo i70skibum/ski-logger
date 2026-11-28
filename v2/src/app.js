@@ -126,8 +126,11 @@ const tractionFor = k => (D.events || []).filter(e => started(e) && e.class === 
 const snowOf = k => { const s = (D.snow || {})[k] || {}, f = (D.forecast24 || {})[k] || {};
   return { new24: num(s.new24_in) || 0, depth: num(s.depth_in), temp: num(s.temp_f), fc24: num(f.snow_in) || 0, gust: num(f.gust_max_mph), tmin: num(f.temp_min_f), tmax: num(f.temp_max_f) }; };
 // People counted in a base-area webcam frame (latest, if from the last 2 hours).
-const CAMS_FOR_CROWD = ["abasin"];
-const camOf = k => { const c = ((D.crowd || {})[k] || {})["camera:base"]; if (!c) return null; return (Date.now() - Date.parse(c.snapshot_time)) / 36e5 > 2 ? null : { n: num(c.value), at: c.snapshot_time }; };
+const CAMS_FOR_CROWD = ["abasin", "copper"];
+const camOf = k => { const c = Object.entries((D.crowd || {})[k] || {}).filter(([src, v]) => src.startsWith("camera:") && (Date.now() - Date.parse(v.snapshot_time)) / 36e5 <= 2);
+  if (!c.length) return null; return { n: c.reduce((a, [, v]) => a + (num(v.value) || 0), 0), cams: c.length, at: c.map(([, v]) => v.snapshot_time).sort().pop() }; };
+const PARK_WORD = { "empty": "Empty", "mostly-open": "Mostly open", "filling-up": "Filling up", "filling": "Filling up", "mostly-full": "Mostly full", "full": "Full", "all-lots-full": "All lots full" };
+const parkOf = k => { const v = ((D.crowd || {})[k] || {}).parking; if (!v || (Date.now() - Date.parse(v.snapshot_time)) / 36e5 > 2) return null; return { word: PARK_WORD[String(v.value).toLowerCase()] || v.value, level: num(v.level), at: v.snapshot_time }; };
 const statusOf = k => (((D.status || {}).resorts) || {})[k] || {};
 const isOpen = k => statusOf(k).open !== false;
 const crowdOf = k => { const c = ((D.crowd || {})[k] || {}).last_mile; if (!c) return null; const age = (Date.now() - Date.parse(c.snapshot_time)) / 36e5;
@@ -304,6 +307,7 @@ function flagChips(r, { crowd = true, short = false } = {}) {
   const rc = roadCond(k); if (rc) out.push(`<span class="chip"${rc === "Snowy" || rc === "Icy" ? ' style="border-color:#7A6A35;color:#FFC566"' : ""}>${rc}${short ? "" : " roads"}</span>`);
   if (tractionFor(k).length) out.push(`<span class="chip" style="border-color:#7A6A35;color:#FFC566">Traction law</span>`);
   if (r.closed) out.push(`<span class="chip" style="border-color:#7A3A35;color:#FF8A7F">Closure on the way</span>`);
+  const pk = parkOf(k); if (pk) out.push(`<span class="chip"${pk.level >= 3 ? ' style="border-color:#7A6A35;color:#FFC566"' : ""}>Parking: ${esc(pk.word.toLowerCase())}</span>`);
   if (k === "abasin") out.push(`<span class="chip">${iso >= "2027-01-02" && iso <= "2027-05-02" ? (pyDow(iso) >= 5 ? "Parking reservation required" : "No reservation needed today") : "No parking reservation until Jan 2"}</span>`);
   return out.join(" ");
 }
@@ -451,7 +455,8 @@ function renderPlanner(iso, dir, hour, phone) {
   const cur = vals[sel] || 0, ahead = [...Array(24).keys()].filter(h => h >= hour && (dir === "W" ? h >= 5 && h < Math.max(S.flip, hour + 1) : h >= S.flip && h < 20));
   const byH = Object.fromEntries(ahead.map(h => [h, vals[h]])), bh = !ahead.length ? null : dir === "W" ? bestLeave(byH) : ahead.reduce((a, h) => vals[h] < vals[a] - 0.5 ? h : a, ahead[0]);
   const best = bh == null ? null : { start: bh, end: bh, val: vals[bh], lbl: bh === hour ? "Now" : clock(bh) };
-  const worst = rangeAt(vals, ahead, "max", hour), flat = !best || !worst || worst.val - Math.min(...ahead.map(h => vals[h])) < 2;
+  let worst = rangeAt(vals, ahead, "max", hour), flat = !best || !worst || worst.val - Math.min(...ahead.map(h => vals[h])) < 2;
+  if (best && worst && best.start === worst.start) { const q = ahead.reduce((a, h) => vals[h] < vals[a] ? h : a, ahead[0]); if (q !== best.start) { best.start = best.end = q; best.val = vals[q]; best.lbl = q === hour ? "Now" : clock(q); } else flat = true; }
   const from = dir === "W" ? "Coors" : M.name;
   const pick = `<button data-pick style="padding:0;border:0;background:none;font:inherit;color:#9FB2C1;cursor:pointer" aria-label="Change destination">${dir === "W" ? "for" : "from"} ${esc(M.name)} <span style="color:#7FD1FF">▾</span></button>`;
   const chip = (i, full) => { const on = i === w; return `<button class="chip" data-win="${i}" style="height:${phone ? 32 : 36}px;${phone ? "padding:0;justify-content:center;" : "padding:0 14px;"}${on ? "background:#EAF1F6;color:#0E1A24;border-color:#EAF1F6;font-weight:600" : "background:none"};cursor:pointer">${winLbl(WINS[i], full)}</button>`; };
@@ -502,7 +507,9 @@ const EV_NAME = (key, k) => ({ cameras: "Base-area cameras", parking: "Parking",
 function evidence(k, cr) {
   const order = ["cameras", "parking", "last_mile"];
   const rows = ((D.sources || {}).crowd_sources || []).filter(c => c.status !== "skipped" && EV_NAME(c.key, k)).sort((a, b) => order.indexOf(a.key) - order.indexOf(b.key)).map(c => { const cam = c.key === "cameras" ? camOf(k) : null;
-    const txt = c.key === "cameras" ? (cam ? `${cam.n} people in view, ${fmtTime(cam.at)}` : (CAMS_FOR_CROWD.includes(k) ? "no reading yet today" : "no usable camera yet"))
+    const pk = c.key === "parking" ? parkOf(k) : null;
+    const txt = c.key === "cameras" ? (cam ? `${cam.n} ${cam.n === 1 ? "person" : "people"} in view${cam.cams > 1 ? ` across ${cam.cams} cameras` : ""}, ${fmtTime(cam.at)}` : (CAMS_FOR_CROWD.includes(k) ? "counts from 7 AM to 5 PM" : "no usable camera yet"))
+      : c.key === "parking" ? (pk ? `Lots ${pk.word.toLowerCase()}, ${fmtTime(pk.at)}` : k === "abasin" ? "reads from 6 AM to 6 PM" : "no public lot status")
       : c.key === "last_mile" || c.status === "trial" ? (cr ? `${cr.ratio > 1.02 ? "+" + Math.round((cr.ratio - 1) * 100) + "%" : "moving freely"}, ${fmtTime(cr.at)}` : "no reading yet") : "not collected yet";
     return `<li style="display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-top:1px solid #22364A;font-size:12px"><span style="color:#9FB2C1">${esc(EV_NAME(c.key, k))}</span><span style="text-align:right">${esc(txt)}</span></li>`; }).join("");
   return `<div class="kick">Crowd: what it's based on</div><ul style="margin:0;padding:0;list-style:none">${rows}</ul>`;
@@ -838,7 +845,7 @@ function renderData() {
   const lastG = (m.graded || []).slice(-1)[0], dg = Object.values(D.daily_predictions || {}).filter(p => p.mean_error_min != null), dErr = dg.length ? r1(dg.reduce((a, p) => a + p.mean_error_min, 0) / dg.length) : null;
   const smart = barRow("Traffic, I-70", conf, `${Math.round(conf / 100 * 42)} of 42 typical days logged (6 of each weekday window). Holidays and breaks don't count.`, "#7FD1FF") +
     barRow("Alternate routes", rconf, "Weekend windows on each alternate, 6 typical weekends each.", "#7FD1FF") +
-    barRow("Crowd", crowdOn ? 1 : 0, crowdOn ? "Last-mile traffic and A-Basin's base camera are logging. Parking comes next; app lift waits are skipped (app-only)." : "Starts with the first crowd reading (last-mile traffic trial).", "#8C7FE0") +
+    barRow("Crowd", crowdOn ? 1 : 0, crowdOn ? "Logging: last-mile traffic at all four, people counts from Copper and A-Basin base cameras, and A-Basin's lot status. App lift waits are skipped (app-only)." : "Starts with the first crowd reading (last-mile traffic trial).", "#8C7FE0") +
     `<div class="row" style="justify-content:space-between;padding-top:8px;border-top:1px solid var(--line)"><span class="small" style="color:var(--ink3)">${dErr != null ? `Accuracy, ${dg.length} graded day${dg.length > 1 ? "s" : ""}` : "Accuracy, last graded weekend"}</span><span><b class="sg" style="font-size:18px">${dErr != null ? dErr : lastG ? r1(lastG.mean_error_min) : "n/a"} min</b> <span class="small muted">off on average</span> <a href="#history" class="small" style="font-weight:600">History ›</a></span></div>`;
   // Training progress: running confidence after each logged day, plus where it heads at this pace.
   const counts = {}, series = (m.daily || []).map(x => { const dow = pyDow(x.d); if (x.typical) ["amW", "pmW", "pmE"].forEach((w, j) => { if (x.win[j]) counts[dow + "-" + w] = (counts[dow + "-" + w] || 0) + 1; });
@@ -876,9 +883,9 @@ function renderData() {
     ["SNOTEL snow", "Hourly", src.snotel ? src.snotel.replace(" ", "T") + ":00-07:00" : null, "", "snotel"], ["Resort lifts and trails", "Twice a day", null, (D.status || {}).checked || "", "resort_status"],
     ["COtrip cameras", "Daily", src.cameras, "", "cameras"]].map(([n, cad, at, x, key]) => { const e = errs[key] || 0, a = age(at), st = e >= 3 ? "a" : a != null && a > 240 && !/Daily|Twice/.test(cad) ? "a" : "g";
       return `<li class="row" style="gap:10px;align-items:flex-start"><span class="dot" style="width:8px;height:8px;margin-top:6px;background:${TONE[st]}"></span><span style="flex:1;min-width:0"><b style="display:block">${n}</b><span class="small muted">${cad}${at ? " · " + esc(fmtDayTime(at)) : ""}${x ? " · " + esc(x) : ""}${e ? ` · ${e} error${e > 1 ? "s" : ""} in 48 h, retried` : ""}</span></span><span class="small" style="font-weight:600;color:${TONE_T[st]}">${st === "g" ? "OK" : "Flaky"}</span></li>`; }).join("") +
-    (() => { const cs = src.crowd_sources || [], on = cs.filter(c => c.status === "trial").map(c => ({ last_mile: "last mile", cameras: "cameras" })[c.key] || c.key), next = cs.filter(c => c.status === "not yet").map(c => ({ parking: "parking" })[c.key] || c.key), skip = cs.filter(c => c.status === "skipped").map(c => ({ app_waits: "app lift waits" })[c.key] || c.key);
+    (() => { const cs = src.crowd_sources || [], on = cs.filter(c => c.status === "trial").map(c => ({ last_mile: "last mile", cameras: "cameras", parking: "parking" })[c.key] || c.key), next = cs.filter(c => c.status === "not yet").map(c => ({ parking: "parking" })[c.key] || c.key), skip = cs.filter(c => c.status === "skipped").map(c => ({ app_waits: "app lift waits" })[c.key] || c.key);
       const st = on.length ? (crowdOn ? "g" : "a") : "n";
-      return `<li class="row" style="gap:10px;align-items:flex-start"><span class="dot" style="width:8px;height:8px;margin-top:6px;background:${st === "n" ? "#5A7184" : TONE[st]}"></span><span style="flex:1;min-width:0"><b style="display:block">Crowd: ${esc([...on, ...next].join(", "))}</b><span class="small muted">${on.length ? `${esc(on.join(" and "))} trial: last mile every 30 min, cameras hourly` : "Not started"}${next.length ? ` · ${esc(next.join(", "))} next` : ""}${skip.length ? ` · ${esc(skip.join(", "))} skipped` : ""}${src.crowd ? " · " + esc(fmtDayTime(src.crowd)) : ""}</span></span><span class="small" style="font-weight:600;color:${st === "n" ? "#9FB2C1" : TONE_T[st]}">${st === "g" ? "Trial" : st === "a" ? "Waiting" : "Not yet"}</span></li>`; })();
+      return `<li class="row" style="gap:10px;align-items:flex-start"><span class="dot" style="width:8px;height:8px;margin-top:6px;background:${st === "n" ? "#5A7184" : TONE[st]}"></span><span style="flex:1;min-width:0"><b style="display:block">Crowd: ${esc([...on, ...next].join(", "))}</b><span class="small muted">${on.length ? `Trial: last mile every 30 min; cameras (Copper, A-Basin) and A-Basin parking from each run` : "Not started"}${next.length ? ` · ${esc(next.join(", "))} next` : ""}${skip.length ? ` · ${esc(skip.join(", "))} skipped` : ""}${src.crowd ? " · " + esc(fmtDayTime(src.crowd)) : ""}</span></span><span class="small" style="font-weight:600;color:${st === "n" ? "#9FB2C1" : TONE_T[st]}">${st === "g" ? "Trial" : st === "a" ? "Waiting" : "Not yet"}</span></li>`; })();
   // Calendar and conditions
   const today = nowParts().iso, up = (m.holidays || []).filter(([a, b]) => b >= today).slice(0, 4);
   const md = iso => dayMed(iso).replace(/^\w+, /, "");
