@@ -931,19 +931,19 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
-  "roadReports:CDOT-36638531013WB": {
-   "began": "2026-11-28T07:40:53-07:00",
+  "roadReports:CDOT-36638788868EB": {
+   "began": "2026-11-28T07:59:52-07:00",
    "class": "roadReports",
-   "direction": "NEGATIVE_DIRECTION",
-   "id": "CDOT-36638531013WB",
-   "lat": 39.6962,
-   "lon": -105.82859,
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36638788868EB",
+   "lat": 39.65301,
+   "lon": -106.00991,
    "mp_end": "",
-   "mp_start": 219.99880245427764,
+   "mp_start": 208.99856549053115,
    "pos_bearing": "E",
    "route": "I-70",
-   "title": "I-70 westbound: Right lane closed.",
-   "type": "routine"
+   "title": "I-70 eastbound: Two right lanes closed.",
+   "type": "urgent"
   },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
@@ -3241,15 +3241,29 @@
    "title": "US 550: Snow.",
    "type": "standard"
   },
-  "winterDriving:COSEG-590299": {
-   "began": "2026-11-28T05:48:06.994000-07:00",
+  "winterDriving:COSEG-590317": {
+   "began": "2026-11-28T07:26:59.318000-07:00",
    "class": "winterDriving",
    "direction": "NOT_DIRECTIONAL",
-   "id": "COSEG-590299",
+   "id": "COSEG-590317",
    "lat": 37.6873,
    "lon": -107.77926,
-   "mp_end": 74.88257952888567,
+   "mp_end": 65.88309991558688,
    "mp_start": 55.7869149410012,
+   "pos_bearing": "N",
+   "route": "US 550",
+   "title": "US 550: Snow.",
+   "type": "standard"
+  },
+  "winterDriving:COSEG-590318": {
+   "began": "2026-11-28T07:26:59.318000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-590318",
+   "lat": 37.75647,
+   "lon": -107.68076,
+   "mp_end": 74.88257952888567,
+   "mp_start": 65.88309991558688,
    "pos_bearing": "N",
    "route": "US 550",
    "title": "US 550: Snow.",
@@ -3257,7 +3271,7 @@
   }
  },
  "forecast_last": "2026-11-28T13:02:30+00:00",
- "last_run": "2026-11-28T08:01:01-07:00",
+ "last_run": "2026-11-28T08:16:01-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-28": {
@@ -3914,7 +3928,7 @@
   "wolfcreek": "https://api.weather.gov/gridpoints/PUB/15,36"
  },
  "outlook_last": "2026-11-28T15:01:01+00:00",
- "parking_last": "2026-11-28T07:45:58-07:00",
+ "parking_last": "2026-11-28T08:16:01-07:00",
  "road_conditions": {
   "100": "4 - wet; 6 - snow; 9 - icy spots",
   "101": "4 - wet; 6 - snow; 9 - icy spots",
@@ -3946,7 +3960,7 @@
   "249": "4 - wet; 8 - icy",
   "261": "3 - dry",
   "262": "4 - wet; 9 - icy spots",
-  "270": "6-9-11 snow, icy spots, snow packed spots",
+  "270": "21 - scattered showers; 6-9-11 snow, icy spots, snow packed spots",
   "271": "4s-9 - wet in areas, icy spots",
   "272": "3 - dry",
   "273": "3 - dry",
@@ -3964,8 +3978,8 @@
   "407": "4s - wet in areas",
   "408": "4s - wet in areas",
   "410": "4 - wet; 9 - icy spots",
-  "411": "1 - high wind; 4 - wet; 9 - icy spots",
-  "412": "1 - high wind; 4 - wet; 9 - icy spots",
+  "411": "1 - high wind; 7-9-11 - slushy, icy spots, snow packed spots",
+  "412": "1 - high wind; 7-9-11 - slushy, icy spots, snow packed spots",
   "413": "3 - dry",
   "414": "3 - dry",
   "429": "3 - dry",
@@ -3978,12 +3992,12 @@
   "456": "6-9-11 snow, icy spots, snow packed spots",
   "457": "6-9-11 snow, icy spots, snow packed spots",
   "458": "6-9-11 snow, icy spots, snow packed spots",
-  "459": "6-9-11 snow, icy spots, snow packed spots",
+  "459": "21 - scattered showers; 6-9-11 snow, icy spots, snow packed spots",
   "47": "4s - wet in areas",
   "483": "4 - wet; 9 - icy spots",
   "484": "6 - snow; 7 - slushy; 9 - icy spots",
   "485": "4s-9 - wet in areas, icy spots; 6 - snow",
-  "486": "6-8-10 snow, icy, snow packed",
+  "486": "21 - scattered showers; 6-9-11 snow, icy spots, snow packed spots",
   "489": "8 - icy",
   "49": "6-8-10 snow, icy, snow packed",
   "490": "6-8-10 snow, icy, snow packed",
@@ -3998,7 +4012,7 @@
   "98": "4 - wet"
  },
  "snotel_last": {
-  "abasin": "2026-11-28 06:00",
+  "abasin": "2026-11-28 07:00",
   "aspen": "2026-11-28 06:00",
   "beavercreek": "2026-11-28 06:00",
   "breck": "2026-11-28 06:00",
@@ -4008,12 +4022,12 @@
   "echo": "2026-11-28 06:00",
   "eldora": "2026-11-28 06:00",
   "granby": "2026-11-28 06:00",
-  "keystone": "2026-11-28 06:00",
+  "keystone": "2026-11-28 07:00",
   "loveland": "2026-11-28 06:00",
   "monarch": "2026-11-28 06:00",
   "powderhorn": "2026-11-28 06:00",
   "purgatory": "2026-11-28 06:00",
-  "steamboat": "2026-11-28 06:00",
+  "steamboat": "2026-11-28 07:00",
   "sunlight": "2026-11-28 06:00",
   "telluride": "2026-11-28 06:00",
   "vail": "2026-11-28 06:00",
@@ -4276,7 +4290,7 @@
  ],
  "tomtom_crowd_last": "2026-11-28T15:01:01+00:00",
  "tomtom_flow_last": "2026-11-28T15:01:01+00:00",
- "tomtom_routing_last": "2026-11-28T15:01:01+00:00",
+ "tomtom_routing_last": "2026-11-28T15:16:01+00:00",
  "tomtom_use": {
   "crowd": {
    "2026-11": 20
@@ -4285,7 +4299,7 @@
    "2026-11": 3476
   },
   "routing": {
-   "2026-11": 3947
+   "2026-11": 3953
   }
  },
  "traffic_model_last": "2026-11-28T13:02:30+00:00"
