@@ -28,6 +28,17 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
+      # The webcam people counter needs onnxruntime, numpy and Pillow. If this step fails, the logger still runs
+      # and simply skips the camera counts.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-crowd.txt
+      - name: Install the people counter
+        continue-on-error: true
+        run: pip install -q -r requirements-crowd.txt
+
       - name: Collect data
         run: python3 logger.py
 

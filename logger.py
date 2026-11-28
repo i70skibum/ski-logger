@@ -1893,9 +1893,15 @@ CROWD_POINTS = {
     "abasin": {"name": "US 6 at A-Basin", "point": (39.6425, -105.8717)},
     "eldora": {"name": "Eldora Ski Road", "point": (39.9440, -105.5520)},
 }
+# Base-area webcams with a plain image URL (no signed stream). People are counted with YOLOv8n (crowd_count.py).
+CROWD_CAMS = {
+    "abasin": [("base", "Mountain Goat Plaza and Black Mountain Express",
+                "https://dirigo-resorts-f4e2bde5azc2cne6.z02.azurefd.net/arapahoe/images/medium/webcams/abasincam1001m.jpg")],
+}
+CROWD_CAM_HOURS = (7, 17)   # lifts open about 8:30 to 4; count from 7 to see the line form
 CROWD_SOURCES = [
     {"key": "last_mile", "name": "Traffic on the last mile into each base area (TomTom flow)", "status": "trial"},
-    {"key": "cameras", "name": "People counted in base-area webcam lift lines", "status": "not yet"},
+    {"key": "cameras", "name": "People counted in base-area webcam lift lines", "status": "trial"},
     {"key": "app_waits", "name": "Lift waits in the Copper and Winter Park apps", "status": "not yet"},
     {"key": "parking", "name": "Parking lot status and reservations left", "status": "not yet"},
 ]
@@ -1932,6 +1938,42 @@ def log_crowd(state):
         rows.append([NOW_ISO, rk, "last_mile", ratio, "ratio", crowd_level(ratio), detail])
     append_rows("crowd", ["snapshot_time", "resort", "source", "value", "unit", "level", "detail"], rows)
     return f"{len(rows)} rows"
+
+
+def log_crowd_cams(state):
+    """Count people in each base-area webcam frame. Once a day (the 11 o'clock run) keep a small frame with the
+    boxes drawn, so the counts can be checked by eye."""
+    if not (CROWD_CAM_HOURS[0] <= NOW.hour < CROWD_CAM_HOURS[1]):
+        return "outside camera hours"
+    try:
+        from PIL import Image, ImageDraw
+        from crowd_count import count_people
+    except ImportError as e:
+        return f"counter not installed ({e.name})"
+    import io
+    import urllib.request
+    model = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models", "yolov8n.onnx")
+    rows = []
+    for rk, cams in CROWD_CAMS.items():
+        for key, name, url in cams:
+            try:
+                req = urllib.request.Request(url, headers={"User-Agent": "ski-logger (github.com/i70skibum/ski-logger)"})
+                with urllib.request.urlopen(req, timeout=20) as r:
+                    img = Image.open(io.BytesIO(r.read())).convert("RGB")
+                boxes = count_people(img, model)
+            except Exception as e:
+                log_error(f"crowd_cam:{rk}:{key}", str(e)[:300])
+                continue
+            rows.append([NOW_ISO, rk, f"camera:{key}", len(boxes), "people", "", f"{img.size[0]}x{img.size[1]} {name}"])
+            if NOW.hour == 11 and NOW.minute < 15:
+                os.makedirs(os.path.join(DATA, "crowd", "frames"), exist_ok=True)
+                d = ImageDraw.Draw(img)
+                for b in boxes:
+                    d.rectangle(b[:4], outline=(127, 209, 255), width=2)
+                img.thumbnail((960, 960))
+                img.save(os.path.join(DATA, "crowd", "frames", f"{rk}-{key}-{NOW.date().isoformat()}.jpg"), quality=70)
+    append_rows("crowd", ["snapshot_time", "resort", "source", "value", "unit", "level", "detail"], rows)
+    return f"{len(rows)} frames counted"
 
 
 # ---------------------------------------------------------------------------
@@ -2090,7 +2132,7 @@ def main():
     jobs = [("snotel", log_snotel), ("forecast", log_forecast), ("afd", log_afd),
             ("events", log_events), ("cdot", log_cdot), ("resort_status", log_resort_status),
             ("routes", log_routes), ("plows", log_plows), ("cameras", log_cameras), ("outlook", log_outlook), ("traffic_model", log_traffic_model), ("recent", log_recent),
-            ("crowd", log_crowd), ("daily_predictions", log_daily_predictions), ("dashboard", build_dashboard)]
+            ("crowd", log_crowd), ("crowd_cams", log_crowd_cams), ("daily_predictions", log_daily_predictions), ("dashboard", build_dashboard)]
     for name, fn in jobs:
         try:
             print(f"{name}: {fn(state)}")
