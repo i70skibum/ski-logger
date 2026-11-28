@@ -1,5 +1,5 @@
 {
- "afd_last": "0d8f6d7c-88f3-4fbb-b13c-f809483f2176",
+ "afd_last": "da8cc5fe-fd8f-41e4-ac22-d1e87cf22a86",
  "cameras_last": "2026-11-27T15:45:46+00:00",
  "cameras_v": 2,
  "err_seen": {
@@ -633,18 +633,18 @@
    "title": "US 160 in both directions: Traffic impacts.",
    "type": "routine"
   },
-  "roadReports:CDOT-36626983929EB": {
-   "began": "2026-11-27T17:27:32-07:00",
+  "roadReports:CDOT-36627334861BOTH": {
+   "began": "2026-11-27T17:52:40-07:00",
    "class": "roadReports",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36626983929EB",
-   "lat": 39.69571,
-   "lon": -105.79285,
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36627334861BOTH",
+   "lat": 38.84458,
+   "lon": -104.86534,
    "mp_end": "",
-   "mp_start": 221.99947439894592,
+   "mp_start": 301.4300000156654,
    "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Stalled vehicle.",
+   "route": "US 24",
+   "title": "US 24 in both directions: Crash.",
    "type": "routine"
   },
   "roadWork:CDOT-35509814419BOTH": {
@@ -2483,7 +2483,7 @@
   }
  },
  "forecast_last": "2026-11-28T00:45:46+00:00",
- "last_run": "2026-11-27T17:45:46-07:00",
+ "last_run": "2026-11-27T18:00:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-27": {
@@ -3240,7 +3240,7 @@
   "purgatory": "2026-11-27 16:00",
   "steamboat": "2026-11-27 16:00",
   "sunlight": "2026-11-27 16:00",
-  "telluride": "2026-11-27 15:00",
+  "telluride": "2026-11-27 16:00",
   "vail": "2026-11-27 16:00",
   "winterpark": "2026-11-27 16:00",
   "wolfcreek": "2026-11-27 16:00"
@@ -3499,14 +3499,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-28T00:30:45+00:00",
- "tomtom_routing_last": "2026-11-28T00:45:46+00:00",
+ "tomtom_flow_last": "2026-11-28T01:00:47+00:00",
+ "tomtom_routing_last": "2026-11-28T01:00:47+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 3300
+   "2026-11": 3316
   },
   "routing": {
-   "2026-11": 3744
+   "2026-11": 3757
   }
  },
  "traffic_model_last": "2026-11-28T00:45:46+00:00"
