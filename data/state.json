@@ -51,20 +51,6 @@
    "title": "I-70 eastbound: Passenger vehicle traction law.",
    "type": "standard"
   },
-  "chainLaws:CDOT-36630851826EB": {
-   "began": "2026-11-27T22:13:44-07:00",
-   "class": "chainLaws",
-   "direction": "POSITIVE_DIRECTION",
-   "id": "CDOT-36630851826EB",
-   "lat": 39.64413,
-   "lon": -106.34175,
-   "mp_end": 190.00647076056157,
-   "mp_start": 178.00084672700905,
-   "pos_bearing": "E",
-   "route": "I-70",
-   "title": "I-70 eastbound: Commercial motor vehicle chain law.",
-   "type": "standard"
-  },
   "chainLaws:CDOT-36630918433WB": {
    "began": "2026-11-27T22:18:42-07:00",
    "class": "chainLaws",
@@ -757,6 +743,34 @@
    "pos_bearing": "E",
    "route": "US 160",
    "title": "US 160 in both directions: Traffic impacts.",
+   "type": "routine"
+  },
+  "roadReports:CDOT-36630851826EB": {
+   "began": "2026-11-27T22:13:44-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36630851826EB",
+   "lat": 39.64413,
+   "lon": -106.34175,
+   "mp_end": 190.00647076056157,
+   "mp_start": 178.00084672700905,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Roadway reopened to traffic.",
+   "type": "urgent"
+  },
+  "roadReports:CDOT-36632809108WB": {
+   "began": "2026-11-28T00:38:13-07:00",
+   "class": "roadReports",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36632809108WB",
+   "lat": 39.5944,
+   "lon": -106.25139,
+   "mp_end": "",
+   "mp_start": 185.0021710360963,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Right lane closed.",
    "type": "routine"
   },
   "roadWork:CDOT-35509814419BOTH": {
@@ -2735,7 +2749,7 @@
   }
  },
  "forecast_last": "2026-11-28T07:00:46+00:00",
- "last_run": "2026-11-28T01:45:45-07:00",
+ "last_run": "2026-11-28T02:00:47-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-28": {
@@ -3391,7 +3405,7 @@
   "winterpark": "https://api.weather.gov/gridpoints/BOU/36,70",
   "wolfcreek": "https://api.weather.gov/gridpoints/PUB/15,36"
  },
- "outlook_last": "2026-11-28T06:00:46+00:00",
+ "outlook_last": "2026-11-28T09:00:47+00:00",
  "road_conditions": {
   "100": "3 - dry",
   "101": "3 - dry",
@@ -3490,9 +3504,9 @@
   "monarch": "2026-11-28 00:00",
   "powderhorn": "2026-11-28 00:00",
   "purgatory": "2026-11-28 00:00",
-  "steamboat": "2026-11-28 00:00",
+  "steamboat": "2026-11-28 01:00",
   "sunlight": "2026-11-28 00:00",
-  "telluride": "2026-11-27 23:00",
+  "telluride": "2026-11-28 00:00",
   "vail": "2026-11-28 00:00",
   "winterpark": "2026-11-28 00:00",
   "wolfcreek": "2026-11-28 00:00"
