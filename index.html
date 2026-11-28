@@ -181,6 +181,12 @@ th:first-child, td:first-child { text-align: left; font-weight: 600; }
 
 /* 7 days */
 .wgrid { display: grid; gap: 6px; min-width: 900px; }
+.wgrid.narrow { min-width: 0; gap: 3px; }
+.wgrid.narrow .wday { padding: 4px 2px; align-items: center; text-align: center; }
+.wgrid.narrow .wday b { font-size: 12px; } .wgrid.narrow .wday .tag, .wgrid.narrow .wday .lv { display: none; }
+.wgrid.narrow .wname { padding: 4px 0; } .wgrid.narrow .wname b { font-size: 12px; } .wgrid.narrow .wname span { display: none; }
+.wgrid.narrow .wcell { padding: 6px 2px; align-items: center; border-radius: 8px; }
+.wgrid.narrow .wcell .s { font-size: 15px; } .wgrid.narrow .wcell .t { display: none; }
 .wday { display: flex; flex-direction: column; gap: 1px; padding: 6px 8px; border-radius: 10px; border: 0; background: transparent; color: var(--ink); text-align: left; font: inherit; cursor: pointer; }
 .wday.sel { background: var(--card2); }
 .wday b { font-size: 15px; } .wday .tag { font-size: 12px; font-weight: 600; color: var(--slowtext); min-height: 17px; }
@@ -697,12 +703,24 @@ function hourly(model, iso, dir, h0, h1, win) {
   return { byHour: out, weekends: cov, tier: hol ? "Estimate" : tierOf(cov), holiday: hol };
 }
 const clock = h => `${h % 12 || 12} ${h < 12 ? "AM" : "PM"}`;
+// The hour the page switches from the drive up to the drive home. One value, used everywhere.
+const FLIP_HOUR = 11;
+// Best time to leave (Ian's rule): before the rush, never after, and not just the earliest hour. It's the latest hour
+// before the road first gets more than halfway from the window's quietest hour to its worst. No real rush
+// (worst within 2 minutes of the quietest) means the quietest hour.
+function bestLeaveHour(byHour) {
+  const hs = Object.keys(byHour).map(Number).sort((a, b) => a - b); if (!hs.length) return null;
+  const vs = hs.map(h => byHour[h]), q = Math.min(...vs), w = Math.max(...vs);
+  if (w - q < 2) return hs[vs.indexOf(q)];
+  const first = hs.find(h => byHour[h] > q + (w - q) / 2);
+  return Math.max(hs[0], first - 1);
+}
 function trafficDay(model, iso) {
   const up = hourly(model, iso, "W", 5, 11, "amW"), home = hourly(model, iso, "E", 12, 20, "pmE");
   const upBad = Object.keys(up.byHour).map(Number).filter(h => up.byHour[h] >= 10);
   const homeBad = Object.keys(home.byHour).map(Number).filter(h => home.byHour[h] >= 15);
   return {
-    leave: upBad.length ? `Leave before ${clock(upBad[0])}` : "No rush going up",
+    leave: upBad.length ? `Leave by ${clock(bestLeaveHour(up.byHour))}` : "No rush going up",
     home: homeBad.length ? `Home before ${clock(homeBad[0])} or after ${clock(homeBad[homeBad.length - 1] + 1)}` : "No rush coming home",
     upPeak: Math.max(0, ...Object.values(up.byHour)), homePeak: Math.max(0, ...Object.values(home.byHour)),
     tier: up.tier, homeTier: home.tier, holiday: up.holiday, up, homeHours: home,
@@ -838,20 +856,21 @@ function verdict(ctx, ranked, model, hour) {
   const row = ctx.speedRow, up = row ? delayMin(row, ctx.segs, ctx.refs, "W", RESORTS.copper.westLon) || 0 : 0;
   const home = row ? delayMin(row, ctx.segs, ctx.refs, "E", RESORTS.copper.westLon) || 0 : 0;
   const top = ranked[0], day = dayInfo(model, iso), prof = trafficDay(model, iso);
+  const offDay = day.type === "holiday" || day.type === "break", busy = weekend || offDay;
   const easeAfter = (byHour, from, limit) => Object.keys(byHour).map(Number).filter(h => h > from && byHour[h] < limit)[0];
-  const morning = hour < 12, texas = day.tags.some(t => /Texas/.test(t));
+  const morning = hour < FLIP_HOUR, texas = day.tags.some(t => /Texas/.test(t));
   if (!top) return null;
   if (morning && upShut.length && (canyon || westOf244))
     return { level: "crit", line: "Keep your ass at home.", why: `I-70 westbound is closed${canyon ? " and so is Clear Creek Canyon" : " past where the canyon comes in"}. There's no way up right now.` };
   if (morning && upShut.length)
     return { level: "crit", line: "Canyon or couch.", why: "I-70 westbound is closed near Floyd Hill. Clear Creek Canyon is open, so it's US 6 or nothing." };
-  if (!morning && weekend && homeShut.length)
+  if (!morning && busy && homeShut.length)
     return { level: "crit", line: "Order another round.", why: "I-70 eastbound is closed. Nobody's getting back to Denver for a while, so get comfortable." };
   if (morning && up >= 40) {
     const h = Math.max(hour + 2, easeAfter(prof.up.byHour, hour, 10) || 12);
     return { level: "crit", line: `Keep your ass at home until traffic breaks around ${clock(h)}.`, why: `I-70 westbound is already ${up} minutes slow to Copper.` };
   }
-  if (!morning && weekend && home >= 30) {
+  if (!morning && busy && home >= 30) {
     const h = easeAfter(prof.homeHours.byHour, hour, 15) || 19;
     return { level: "warn", line: `Après until ${clock(h)} or sit in it.`, why: `I-70 eastbound is ${home} minutes slow and it usually loosens up around then.` };
   }
@@ -864,11 +883,13 @@ function verdict(ctx, ranked, model, hour) {
     return { level: "good", line: "Clear roads, deep snow. Full send.", why: `${top.new24}" new at ${top.name} and I-70 is moving.` };
   if (top.fc24 >= 6)
     return { level: "warn", line: "It's about to dump. Plan to leave early.", why: `${top.fc24}" forecast at ${top.name} in the next 24 hours. The roads will get ugly before they get good.` };
-  if (morning && weekend && (day.type === "holiday" || day.type === "break"))
-    return { level: "warn", line: texas ? "Half of Texas is on I-70. Leave before 6 or keep your ass at home." : "Everybody's off this week. Leave before 6 or keep your ass at home.", why: day.tags.join(". ") + "." };
-  if (!weekend && top.new24 >= 3)
+  if (morning && offDay && hour >= 7 && up < 12)
+    return { level: "good", line: "Holiday, but the roads are empty. Go now.", why: day.tags.join(". ") + "." };
+  if (morning && offDay)
+    return { level: "warn", line: prof.leave === "No rush going up" ? "Everybody's off, but the roads should be fine." : (texas ? "Half of Texas is on I-70. " : "Everybody's off this week. ") + `${prof.leave} or keep your ass at home.`, why: day.tags.join(". ") + "." };
+  if (!busy && top.new24 >= 3)
     return { level: "good", line: "Fresh snow on a weekday. Call in sick.", why: `${top.new24}" new at ${top.name} and nobody else is up there.` };
-  if (!weekend)
+  if (!busy)
     return { level: "good", line: "Empty roads, empty lifts.", why: "Weekday. Nothing to fight through." };
   return { level: "good", line: top.new24 >= 1 ? "Roads are fine. Go get it." : "Clear roads, old snow. Groomer day.", why: `${top.name} is the pick.` + (morning ? ` ${prof.leave === "No rush going up" ? "No rush heading up." : prof.leave + " to beat the usual rush."}` : "") };
 }
@@ -912,6 +933,8 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const [state, segRows, speedRows, snow, fc, rc, rs] = await Promise.all([
       get("state.json", true), get("speed/segments.csv").then(parseCSV), csv2("speed", month, day.slice(8) === "01"),
       csv2("snotel", month, true), csv2("forecast", month, true), csv2("road_conditions", month, true), get("resort_status.json", true)]);
+    // Lift and trail counts as logged each day, so a past day shows that day's numbers, not today's.
+    const statusRows = await csv2("resort_status", month, true).catch(() => []);
     const [outlook, model, routes, segGeo, camData, recent] = await Promise.all([get("outlook.json", true), get("traffic_model.json", true), get("routes_now.json", true),
       get("speed/segments_geo.json", true).catch(() => null), get("cameras.json", true).catch(() => ({})), get("recent.json", true).catch(() => ({}))]);
     if (!state.last_run) throw new Error("Could not load the logger data.");
@@ -919,7 +942,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const allEv = Object.values(state.events || {}), nowMs = Date.now(), started = e => !e.began || Date.parse(e.began) <= nowMs;
     const ctx = { segs, refs, speedRow, events: allEv.filter(started), upcoming: allEv.filter(e => !started(e)), now: nowMs, conds: latestConds(rc), forecast: latestForecast(fc), snow: {}, status: rs.resorts || {}, statusDate: rs.checked || "", statusAuto: !!rs.auto, today: day, routes };
     for (const k in RESORTS) ctx.snow[k] = snowSummary(snow, k);
-    D = { now, day, state, ctx, outlook, model, recent: recent || {}, cams: (camData && camData.cameras) || [], segRows, segGeo: segGeo || {}, speedRows, ranked: rank(ctx) };
+    D = { now, day, state, ctx, snowRows: snow, statusRows, outlook, model, recent: recent || {}, cams: (camData && camData.cameras) || [], segRows, segGeo: segGeo || {}, speedRows, ranked: rank(ctx) };
     render();
   }
 
@@ -960,7 +983,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     return { closures, sp, kind: closures.length ? "closed" : dir ? kindOf(sp[dir]) : worse(kindOf(sp.W), kindOf(sp.E)) };
   }
   function i70Overall() {
-    const { ctx } = D, row = ctx.speedRow, morning = denverHour() < 11;
+    const { ctx } = D, row = ctx.speedRow, morning = denverHour() < FLIP_HOUR;
     const closures = ctx.events.filter(e => isClosure(e) && normRoute(e.route) === "I70" && overlaps(e.mp_start, e.mp_end, 195, 276));
     const up = row ? delayMin(row, ctx.segs, ctx.refs, "W", RESORTS.copper.westLon) : null;
     const home = row ? delayMin(row, ctx.segs, ctx.refs, "E", RESORTS.copper.westLon) : null;
@@ -1068,7 +1091,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     if (!top) v = { level: "", line: "Nothing's open that day.", why: "None of the mountains you picked are scheduled to be open." };
     else if (upShut.length) v = { level: "crit", line: "Plan on keeping your ass at home.", why: `COtrip has I-70 westbound closures planned that day. ${upShut[0].title}` };
     else if (top.snow >= 6) v = { level: "good", line: "Powder day incoming. Set an alarm.", why: `About ${Math.round(top.snow)}" forecast at ${RESORTS[top.key].name}. ${t.leave === "No rush going up" ? "Traffic should be light." : t.leave + " to beat the usual rush."}` };
-    else if (weekend && (info.type === "holiday" || info.type === "break")) v = { level: "warn", line: "Everybody's off. Leave before 6 or keep your ass at home.", why: info.tags.join(". ") + "." };
+    else if (weekend && (info.type === "holiday" || info.type === "break")) v = { level: "warn", line: t.leave === "No rush going up" ? "Everybody's off, but the roads should be fine." : `Everybody's off. ${t.leave} or keep your ass at home.`, why: info.tags.join(". ") + "." };
     else if (t.upPeak >= 25) v = { level: "warn", line: `${t.leave.replace("Leave before", "Leave before")} or don't bother.`, why: `I-70 westbound usually runs about ${t.upPeak} minutes slow at the worst of it on a ${new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { timeZone: "UTC", weekday: "long" })}.` };
     else if (!weekend) v = { level: "good", line: top.snow >= 3 ? "Fresh snow on a weekday. Call in sick." : "Empty roads, empty lifts.", why: `${RESORTS[top.key].name} looks best${top.snow >= 1 ? ` with about ${Math.round(top.snow)}" forecast` : ""}.` };
     else v = { level: "good", line: top.snow >= 1 ? "Should be a good one. Go get it." : "Old snow, normal traffic. Groomer day.", why: `${RESORTS[top.key].name} looks best. ${t.leave === "No rush going up" ? "No rush heading up." : t.leave + " to beat the usual rush."}` };
@@ -1077,6 +1100,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   }
   function renderWaysFuture(iso) {
     const box = $("ways"); box.replaceChildren();
+    { const h = document.querySelector(".panel.ways h2"); if (h) h.textContent = "Ways up"; }
     const up = i70Pred(iso, "W"), home = i70Pred(iso, "E"), plan = plannedOn(iso).filter(e => normRoute(e.route) === "I70" && overlaps(e.mp_start, e.mp_end, 195, 276));
     const pk = x => x.peak >= 1 ? `+${x.peak} min around ${clock(x.at)}` : "no real rush";
     box.append(wayRow("I-70", plan.length ? "Planned: " + plan[0].title.replace(/\.$/, "") : `Up ${pk(up)} \u00b7 home ${pk(home)} \u00b7 ${up.tier}`, up.peak >= 1 ? `+${up.peak} min` : "", plan.length ? "closed" : peakKind(up.peak), plan.length ? "Planned closure" : null));
@@ -1119,12 +1143,20 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     body.push(a);
     openSheet(m[1], "", body);
   }
+  // A past day's numbers for one mountain: new snow from that day's SNOTEL depth, lifts from that day's last report.
+  function pastResort(k, iso) {
+    const rows = (D.snowRows || []).filter(r => r.resort === k && (r.obs_time_mst || "").startsWith(iso)).map(r => num(r.depth_in)).filter(v => v != null);
+    const snow = rows.length ? Math.max(0, rows[rows.length - 1] - rows[0]) : null;
+    const st = (D.statusRows || []).filter(r => r.resort === k && (r.checked_at || "").startsWith(iso)).pop();
+    return { new24: snow, lifts: st ? st.lifts : null };
+  }
   function resortSheet() {
     const dir = dpDir(), iso = dpIso(), h = dpHour(dir), list = dpOrigin(), best = dpBest();
     const rows = list.map(o => {
       const k = o.key, open = !RESORTS[k] || isOpen(D.ctx, k), cl = open ? dpClosed(k, dir, iso) : null, t = tripAt(k, dir, iso, h), r = (D.ranked || []).find(x => x.key === k), st = D.ctx.status[k] || {};
       const row = el("button", "sh-row" + (k === origin ? " on" : "")), l = el("div"), rt = el("b", "", !open ? "Closed" : cl && h >= cl.from ? "Closed" : hmm(t.minutes));
-      l.append(el("b", "", o.name + (k === best ? "  ·  best pick" : "")), el("small", "", open ? `${r ? r.new24 : 0}″ new${st.lifts ? " · " + st.lifts.replace(" of ", "/") + " lifts" : ""}` : "Not open yet"));
+      const pr = vday < 0 && RESORTS[k] ? pastResort(k, iso) : null, nw = pr ? pr.new24 : r ? r.new24 : 0, lifts = pr ? pr.lifts : st.lifts;
+      l.append(el("b", "", o.name + (k === best ? "  ·  best pick" : "")), el("small", "", open ? `${nw == null ? "no snow reading" : nw + "″ new"}${lifts ? " · " + lifts.replace(" of ", "/") + " lifts" : ""}${pr ? " that day" : ""}` : "Not open yet"));
       const w = el("div", "sh-rt"); w.append(rt, el("small", "", open ? (dir === "W" ? "from Coors" : "to Coors") : ""));
       row.append(l, w); row.onclick = () => { pickOrigin(k); closeSheet(); render(); }; return row;
     });
@@ -1196,7 +1228,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       const big = el("div", "big"); big.append(el("b", "", `${Math.round(r.snow)}"`), el("span", "", "forecast, night before and that day" + (r.agree || r.snow < 1 ? "" : " \u00b7 models split")));
       const rh = via ? routeHourly(W.model, iso, via, 5, 11) : null, peak = (R.westLon != null ? t.upPeak : 0) + (rh ? rh.peak : 0);
       const kv = (k, v) => { const d = el("div", "kv"); d.append(el("span", "", k), el("span", "", v)); return d; };
-      c.append(hd, big, kv("Drive", peak >= 1 ? `usual peak +${peak} min` : "no usual rush"), kv("Leave", R.westLon != null ? t.leave.replace("Leave before", "before") : "any time"), kv("Score", `${r.score} / 100`));
+      c.append(hd, big, kv("Drive", peak >= 1 ? `usual peak +${peak} min` : "no usual rush"), kv("Leave", R.westLon != null ? t.leave.replace("Leave by", "by") : "any time"), kv("Score", `${r.score} / 100`));
       const chips = el("div", "chips"); r.chips.filter(x => !/^\d+"/.test(x)).forEach(x => chips.append(el("span", "chip bad", x)));
       if (chips.childNodes.length) c.append(chips);
       box.append(c);
@@ -1235,10 +1267,12 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   // Confidence is typical weekends logged (out of 6) for each stretch, weighted by drive time. Days like holidays we
   // haven't seen yet are held at 25%.
   const DP_UNSEEN = 0.25, DP_GENERIC = 0.12;
+  // The one confidence number shown everywhere: typical days logged (out of 6) for each of the 21 weekday windows, averaged.
+  function modelConfidence(m) { const cov = (m || {}).coverage || {}, ks = Object.keys(cov); return ks.length ? ks.reduce((a, k) => a + Math.min(1, (cov[k].n || 0) / 6), 0) / ks.length : 0; }
   let selHour = null;
   const dpIso = () => dayIso(vday);
   const mapIso = () => vday > 0 || (vday === 0 && selHour != null) ? dpIso() : null;
-  const dpDir = () => mapDir || (vday === 0 ? (denverHour() < 11 ? "W" : "E") : "W");
+  const dpDir = () => mapDir || (vday === 0 ? (denverHour() < FLIP_HOUR ? "W" : "E") : "W");
   const dpHour = dir => selHour != null ? selHour : vday === 0 ? Math.min(23, Math.max(0, denverHour())) : dir === "W" ? 7 : 16;
   const clock12 = h => `${h % 12 || 12} ${h < 12 ? "AM" : "PM"}`;
   const clockS = h => `${h % 12 || 12}${h < 12 ? "a" : "p"}`;
@@ -1354,6 +1388,13 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     }
     if (vday !== 0) return null;
     // Today: the morning's drive up, whichever way the card points, plus the drive home so far once the afternoon is under way.
+    // Pointing home: recap the drive home so far. Pointing up: recap this morning's drive up.
+    if (dir === "E") {
+      const hm = nowH >= 12 ? worstOf("E", 11, nowH - 1) : null; if (!hm) return null;
+      box.append(el("small", "", "THE DRIVE HOME SO FAR · LOGGED"), el("b", lvlOf(hm.t.pct), hm.t.extra < 1 ? "About an empty road so far." : hm.t.pct <= 0.30 ? "Building, but moving." : "Already a real jam."),
+        el("span", "", hm.t.extra < 1 ? "Nothing over a minute since 11 AM." : `Worst so far +${Math.round(hm.t.extra)} min around ${clock12(hm.x)}.`));
+      return box;
+    }
     const up = worstOf("W", 5, Math.min(11, nowH - 1)); if (!up) return null;
     const w = up, b = Math.min(11, nowH - 1);
     const head = w.t.pct < 0.12 ? "You didn't miss much." : w.t.pct <= 0.30 ? "A moderate rush." : "You missed a real rush.";
@@ -1371,7 +1412,8 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const nowH = vday === 0 ? denverHour() : -1;
     const trips = []; for (let x = 0; x < 24; x++) trips.push(tripOr(key, dir, iso, x, nowH));
     const cl = dpClosed(key, dir, iso), isCl = x => !!cl && x >= cl.from, anyLog = trips.some(t => t.logged);
-    const day = [...Array(15).keys()].map(i => i + 5);   // 5 AM to 7 PM: the whole day, past hours too
+    const day = [...Array(15).keys()].map(i => i + 5).filter(x => nowH < 0 || x >= nowH);   // 5 AM to 7 PM; today only the hours still ahead
+    if (!day.length) day.push(Math.min(23, Math.max(0, nowH)));
     const best = day.reduce((a, x) => trips[x].extra < trips[a].extra - 0.5 ? x : a, day[0]), worst = day.reduce((a, x) => trips[x].extra > trips[a].extra ? x : a, day[0]);
     const flat = trips[worst].extra - trips[best].extra < 1;
     const tag = x => trips[x].logged ? " · logged" : x < nowH ? " · passed" : "";
@@ -1385,8 +1427,8 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const stat = (cls, k, big, sub) => { const d = el("div", "wh-stat " + cls); d.append(el("small", "", k), el("b", "", big), el("span", "", sub)); return d; };
     const stats = el("div", "wh-stats"), cur = trips[h];
     stats.append(isCl(h) ? stat("r", "DRIVE TIME", "Closed", cl.titles[0]) : stat(lvlOf(cur.pct), "DRIVE TIME", hmm(cur.minutes), (cur.extra < 1 ? "about the same as an empty road" : `+${Math.round(cur.extra)} min over an empty road`) + (cur.logged ? " · logged" : "")),
-      stat("g", "BEST TIME", clock12(best), `+${Math.round(trips[best].extra)} min` + tag(best)),
-      flat ? stat("g", "SLOWEST", "None", "every hour within a minute") : stat(lvlOf(trips[worst].pct), "SLOWEST", clock12(worst), `+${Math.round(trips[worst].extra)} min` + tag(worst)));
+      stat("g", vday === 0 ? "BEST AHEAD" : "BEST TIME", clock12(best), `+${Math.round(trips[best].extra)} min` + tag(best)),
+      flat ? stat("g", vday === 0 ? "SLOWEST AHEAD" : "SLOWEST", "None", "every hour within a minute") : stat(lvlOf(trips[worst].pct), vday === 0 ? "SLOWEST AHEAD" : "SLOWEST", clock12(worst), `+${Math.round(trips[worst].extra)} min` + tag(worst)));
     top.append(q, stats);
     const recap = whenRecap(key, iso, dir, nowH);
     // Windows.
@@ -1467,12 +1509,12 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       });
       const rt = el("div", "dp-rt"), bar = el("span", "bar"), fill = el("i"); fill.style.width = Math.round(cur.conf * 100) + "%"; bar.append(fill);
       if (cur.logged) rt.append(el("span", "pct", "Logged"), el("span", "muted", "actual"));
-      else rt.append(el("span", "pct", Math.round(cur.conf * 100) + "%"), bar, el("span", "muted", "confidence"));
+      else rt.append(el("span", "pct", Math.round(cur.conf * 100) + "%"), bar, el("span", "muted", "this hour"));
       row.append(tl, rt); const axr = el("div", "dp-row dp-axr"); axr.append(tiles, el("span"));
       grp.append(gh, axr, row); box.append(grp);
     });
     box.append(el("p", "note dp-foot", "Lighter boxes before 5 AM and after 8 PM lean on I-70 sensors and the known pattern; TomTom isn't logged then. Confidence is how many typical weekends we have logged for each stretch, out of 6. Closed boxes follow COtrip's closure for that direction."));
-    const pill = $("dp-conf"); if (headConf) { pill.hidden = false; pill.textContent = headConf.logged ? "Logged" : `${F ? "Forecast confidence" : "Confidence"} ${Math.round(headConf.conf * 100)}%`; }
+    const pill = $("dp-conf"); if (headConf) { pill.hidden = false; pill.textContent = headConf.logged ? "Logged" : `Model ${Math.round(modelConfidence(D.model) * 100)}% trained`; }
   }
 
   function renderVerdict() {
@@ -1484,8 +1526,8 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     try { v = ranked.length ? verdict(ctx, ranked, D.model, denverHour()) : null; } catch (e) { console.error(e); }
     if (!v) v = { level: "", line: anyShown ? "Nothing's open yet." : "Pick a pass below.", why: anyShown ? "None of the mountains you picked are open yet." : "Turn on at least one group of resorts." };
     box.className = "verdict " + v.level;
-    const hr = denverHour(), afternoon = hr >= 11 && hr < 20, dir = dpDir(), oname = RESORTS[dpOriginKey()].name;
-    const period = hr < 11 ? "about the drive up, until 11" : !afternoon ? "today's driving is done, tap Tomorrow" : dir === "E" ? `heading home from ${oname}` : `going up to ${oname} this afternoon`;
+    const hr = denverHour(), afternoon = hr >= FLIP_HOUR && hr < 20, dir = dpDir(), oname = RESORTS[dpOriginKey()].name;
+    const period = hr < FLIP_HOUR ? "about the drive up, until 11" : !afternoon ? "today's driving is done, tap Tomorrow" : dir === "E" ? `heading home from ${oname}` : `going up to ${oname} this afternoon`;
     box.append(el("div", "kick", "TODAY'S CALL"), el("div", "kick-sub", period), el("h1", "", v.line), el("p", "", v.why));
     if (afternoon) { try { box.append(leaveCard(hr, dir)); } catch (e) { console.error(e); } }
   }
@@ -1520,7 +1562,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       else if (bad[0] > hr) { const last = bad[bad.length - 1]; head = home ? `Leave before ${clock12(bad[0])}` : `Go before ${clock12(bad[0])}`; sub = `Slow from about ${clock12(bad[0])}` + (last < 19 ? ` to ${clock12(last + 1)}` : " into the evening") + `: about ${hmm(now.minutes)} ${where} now, ${hmm(Math.max(...rows.map(([, t]) => t.minutes)))} at the worst.`; }
       else { const last = bad[bad.length - 1]; head = last < 19 ? `Wait until ${clock12(last + 1)}` : "It's slow all evening"; sub = `Expected ${hmm(now.minutes)} ${where} now, ${now.extra >= 1 ? "+" + Math.round(now.extra) + " min" : "normal"} over an empty road` + (last < 19 ? `, easing after ${clock12(last + 1)}.` : "."); }
       if (live != null && live >= 15 && bad.length && bad[0] !== hr) sub += ` I-70 ${home ? "eastbound" : "westbound"} is ${live} minutes slow right now.`;
-      c.append(el("b", "", head), el("span", "", sub + ` ${conf}% confidence.`));
+      c.append(el("b", "", head), el("span", "", sub + ` Model ${Math.round(modelConfidence(D.model) * 100)}% trained.`));
     }
     if (top) c.append(el("span", "leavepick", `Today's pick: ${top.name}${top.new24 >= 1 ? `, ${top.new24}" new` : ""}${top.via ? `, ${top.via}` : ""}.`));
     return c;
@@ -1537,6 +1579,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     if (fut()) return renderWaysFuture(fut());
     const box = $("ways"); box.replaceChildren();
     const I = i70Overall(), dir = I.morning ? "W" : "E", way = dir === "W" ? "up" : "home";
+    { const h = document.querySelector(".panel.ways h2"); if (h) h.textContent = dir === "W" ? "Ways up" : "Ways home"; }
     const i70note = I.closures.length ? I.closures[0].title.replace(/\.$/, "") + (I.closures.length > 1 ? ` (+${I.closures.length - 1} more)` : "")
       : `Coors Field to Copper \u00b7 up ${plus(I.up)}, home ${plus(I.home)}`;
     box.append(wayRow("I-70", i70note, plus(I.morning ? I.up : I.home), I.kind));
@@ -1655,9 +1698,9 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   // Drawn on a 1320 x 580 canvas with Denver on the right, like a real map. Every route starts at Coors Field.
   const MW = 1320, MH = 480, TOP = 96, Y = 420, CX = 1200, LW = 10;
   const PHONE = () => matchMedia("(max-width: 760px)").matches;
-  const PX0 = 238, PSC = 0.78, PT = 36;   // phone: Denver at the top, the mountains down the page, branches left (north) and right (south)
-  const tfP = (x, y) => [PX0 + (y - Y) * PSC, PT + (CX - x)];
-  const geo = () => PHONE() ? { w: 420, h: 1250, top: 0 } : { w: MW, h: MH, top: TOP };   // canvas runs from y = TOP to TOP + MH
+  const PX0 = 238, PSC = 0.78, PT = 36, PV = 0.58, PHH = 760;   // PV squeezes the phone map down the page so it fits on one screen   // phone: Denver at the top, the mountains down the page, branches left (north) and right (south)
+  const tfP = (x, y) => [PX0 + (y - Y) * PSC, PT + (CX - x) * PV];
+  const geo = () => PHONE() ? { w: 420, h: PHH, top: 0 } : { w: MW, h: MH, top: TOP };   // canvas runs from y = TOP to TOP + MH
   // I-70 stretches: x on the line map, mileposts (closures) and longitudes (speed sensors).
   const I70_BANDS = [
     { x: [1080, CX], p: [[1080, 340], [CX, 340]], stub: [CX, Y, CX, 340], mp: [266, 276], lon: [-105.14, -104.98], name: "I-25 to the Golden freeway" },
@@ -1845,7 +1888,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
   function at(box, cls, x, y, w, h, text) { const d = el("div", cls, text); Object.assign(d.style, { left: (x - w / 2) + "px", top: (y - h / 2) + "px", width: w + "px", height: h + "px" }); box.append(d); return d; }
   function drawLine() {
     const { ctx, ranked } = D, box = $("lineinner"); box.replaceChildren();
-    const PH = PHONE(); $("lineinner").style.width = (PH ? 420 : 1320) + "px"; $("lineinner").style.height = (PH ? 1250 : 580) + "px";
+    const PH = PHONE(); $("lineinner").style.width = (PH ? 420 : 1320) + "px"; $("lineinner").style.height = (PH ? PHH : 580) + "px";
     const P_ = (x1, y1, x2, y2, k, t, i) => PH ? piece(box, ...tfP(x1, y1), ...tfP(x2, y2), k, t, i) : piece(box, x1, y1, x2, y2, k, t, i);
     const A_ = (cls, x, y, w, h, text) => PH ? at(box, cls, ...tfP(x, y), w, h, text) : at(box, cls, x, y, w, h, text);
     const dir = dpDir(), dname = dir === "W" ? "westbound" : "eastbound";
@@ -1929,8 +1972,11 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       if (PH) {
         if (rot || (t === "I-25" && y === 372) || /^(US 6|CO 93|Golden freeway|Boulder Canyon|Peak to Peak)/.test(t)) return;
         if (/Coal Creek/.test(t)) d.textContent = "Coal Creek";
+        if (/^Berthoud/.test(t)) d.textContent = "Berthoud";
+        // The squeezed phone map puts a few labels on top of others: nudge them (phone pixels).
+        const NUDGE = { "Coal Creek": -16, "Berthoud": -14, "Loveland Pass": -14 }, ny = NUDGE[d.textContent] || 0;
         const [X, Yp] = tfP(anchor === "l" ? x : anchor === "r" ? x - 10 : x, y + 7), right = anchor === "r" || (anchor === "c" && y < Y - 5);
-        Object.assign(d.style, { width: "auto", maxWidth: "150px", left: right ? "auto" : (X + 9) + "px", right: right ? (420 - X + 9) + "px" : "auto", top: (Yp - (t.includes("\n") ? 15 : 8)) + "px", textAlign: right ? "right" : "left" });
+        Object.assign(d.style, { width: "auto", maxWidth: "150px", left: right ? "auto" : (X + 9) + "px", right: right ? (420 - X + 9) + "px" : "auto", top: (Yp + ny - (t.includes("\n") ? 15 : 8)) + "px", textAlign: right ? "right" : "left" });
         box.append(d); return;
       }
       Object.assign(d.style, { left: (anchor === "l" ? x : anchor === "r" ? x - 220 : x - 110) + "px", top: y + "px", textAlign: anchor === "l" ? "left" : anchor === "r" ? "right" : "center" });
@@ -1998,7 +2044,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
 
   function renderMapNote() {
     $("mapnote").textContent = (mapIso() ? (view === "line" ? `Expected for ${dayLabel(vday)} at ${clock12(dpHour(dpDir()))}: each road colored by what the traffic model expects at that hour, with closures COtrip has planned. ` : "The real map always shows the roads right now, not the forecast. ") : "") + (view === "line"
-      ? "Not to scale. Shows one direction at a time: westbound until noon, eastbound after, or tap the toggle. I-70 is CDOT's sensors; the passes, the canyon and the Eldora routes are TomTom times against an empty road. Tap or hover a line for details, drag to move, + and − to zoom."
+      ? "Not to scale. Shows one direction at a time: westbound until 11 AM, eastbound after, or tap the toggle. I-70 is CDOT's sensors; the passes, the canyon and the Eldora routes are TomTom times against an empty road. Tap or hover a line for details, drag to move, + and − to zoom."
       : "On I-70 the upper line is westbound and the lower is eastbound (CDOT sensors). Other roads are TomTom, colored against that road's normal speed; dashed means TomTom thinks it's blocked but COtrip doesn't. Tap a stretch for its speed.");
   }
   function renderDrive() {
@@ -2007,7 +2053,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     if (view === "line") drawLine(); else drawMap();
     const lg = $("maplegend"); lg.replaceChildren();
     const sw = bg => { const s = el("span", "lsw"); s.style.background = bg; return s; };
-    [[COL.good, "Moving"], [COL.slow, "Slow"], [COL.bad, "Crawling or closed"], [`repeating-linear-gradient(90deg, ${COL.slow} 0 6px, transparent 6px 10px)`, "Check COtrip"], [COL.none, "No reading"]]
+    [[COL.good, "Under 12% slower than normal"], [COL.slow, "12 to 30%"], [COL.bad, "Over 30% or closed"], [`repeating-linear-gradient(90deg, ${COL.slow} 0 6px, transparent 6px 10px)`, "Check COtrip"], [COL.none, "No reading"]]
       .forEach(([c, t]) => { const s = el("span"); s.append(sw(c), t); lg.append(s); });
     { const s = el("span"); s.append(el("span", "closeicon"), "Closed (COtrip)"); lg.append(s); }
     renderMapNote();
@@ -2061,12 +2107,13 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
       map.fitBounds(L.latLngBounds(pts).pad(0.08)); fitMap = false;
     }
     layer.clearLayers();
-    const col = v => v == null ? "#6B7F8E" : v >= 50 ? COL.good : v >= 30 ? COL.slow : COL.bad;
+    // Same scale as the line map: time lost versus this stretch's normal speed. Under 12% green, 12 to 30% amber, over 30% red.
+    const col = (v, ref) => { if (v == null) return "#6B7F8E"; const p = (ref || 58) / Math.max(v, 3) - 1; return p < 0.12 ? COL.good : p <= 0.30 ? COL.slow : COL.bad; };
     D.segRows.forEach(s => {
-      const v = num(row[s.segment_id]), west = /W$/.test(s.route), off = west ? 0.004 : -0.004, g = D.segGeo[s.segment_id];
+      const v = num(row[s.segment_id]), ref = (ctx.refs || {})[s.segment_id], west = /W$/.test(s.route), off = west ? 0.004 : -0.004, g = D.segGeo[s.segment_id];
       const pts = g && g.length > 1 ? g.map(([a, b]) => [a + off, b]) : [[+s.start_lat + off, +s.start_lon], [+s.end_lat + off, +s.end_lon]];
-      L.polyline(pts, { color: col(v), weight: 5, opacity: 0.95 })
-        .bindTooltip(`${west ? "Westbound" : "Eastbound"} near ${nearLandmark((+s.start_lon + +s.end_lon) / 2)}: ${v == null ? "no reading" : v + " mph, " + speedWord(v)}`, { sticky: true }).addTo(layer);
+      L.polyline(pts, { color: col(v, ref), weight: 5, opacity: 0.95 })
+        .bindTooltip(`${west ? "Westbound" : "Eastbound"} near ${nearLandmark((+s.start_lon + +s.end_lon) / 2)}: ${v == null ? "no reading" : v + " mph, " + Math.max(0, Math.round(((ref || 58) / Math.max(v, 3) - 1) * 100)) + "% slower than normal"}`, { sticky: true }).addTo(layer);
     });
     const tt = (ctx.routes || {}).routes || {}, drawn = new Set();
     const i70pts = Object.entries(D.segGeo).filter(([id]) => /^I70/.test(id)).flatMap(([, g]) => g);
@@ -2189,7 +2236,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const { outlook, model, ctx } = D, grid = $("wgrid");
     grid.replaceChildren(); $("leavebox").replaceChildren(); $("whybox").replaceChildren();
     if (!outlook || !outlook.days || !outlook.days.length) { $("weekdesc").textContent = "The 7-day outlook fills in after the logger's next forecast run, within 3 hours."; renderModel(); return; }
-    const afterNoon = denverHour() >= 12;
+    const afterNoon = denverHour() >= FLIP_HOUR;
     const idx = outlook.days.map((d, i) => i).filter(i => outlook.days[i] > D.day || (outlook.days[i] === D.day && !afterNoon)).slice(0, 7);
     const W = { outlook, model, status: ctx.status, upcoming: ctx.upcoming, traffic: outlook.days.map(d => trafficDay(model, d)),
       new24: Object.fromEntries(Object.keys(RESORTS).map(k => [k, ctx.snow[k] && ctx.snow[k].new24 ? ctx.snow[k].new24.inches : 0])) };
@@ -2198,13 +2245,15 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const best = {}; idx.forEach(i => { let top = null; keys.forEach(k => { const r = S[k + i]; if (r && !r.closed && (!top || r.score > top.score)) top = r; }); best[i] = top; });
     if (selDay == null || !idx.includes(selDay)) selDay = idx.reduce((a, i) => best[i] && (!best[a] || best[i].score > best[a].score) ? i : a, idx[0]);
     $("weekdesc").textContent = `Brighter blue = more snow · orange bar = traffic going up · outlined = best pick that day · tap a day for details`;
-    grid.style.gridTemplateColumns = `130px repeat(${idx.length}, minmax(104px, 1fr))`;
+    const narrow = innerWidth < 720;
+    grid.classList.toggle("narrow", narrow);
+    grid.style.gridTemplateColumns = narrow ? `64px repeat(${idx.length}, minmax(0, 1fr))` : `130px repeat(${idx.length}, minmax(104px, 1fr))`;
     grid.append(el("div"));
     idx.forEach(i => {
       const iso = outlook.days[i], t = W.traffic[i], info = dayInfo(model, iso);
       const b = el("button", "wday" + (i === selDay ? " sel" : "")); b.onclick = () => { selDay = i; renderWeek(); };
       const tag = t.holiday || (info.type === "disrupted" ? "Disrupted" : (info.tags[0] || "").replace(/ \(.*$/, "").replace(/;.*$/, ""));
-      b.append(el("b", "", shortDay(iso)), el("span", "tag", tag), el("span", "lv", t.leave.replace("Leave before", "Leave by")));
+      b.append(el("b", "", shortDay(iso)), el("span", "tag", tag), el("span", "lv", t.leave));
       grid.append(b);
     });
     const shade = n => n >= 6 ? ["#7FD1FF", "#0B1F2E", "#0B1F2E"] : n >= 3 ? ["#2D6A9A", "#FFFFFF", "#DCEBF7"] : n >= 1 ? ["#1E3A52", "#EAF1F6", "#B9CCDB"] : ["#15232F", "#EAF1F6", "#9FB2C1"];
@@ -2269,16 +2318,17 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const rows = [
       ["Fresh snow", Math.min(1, Math.min(40, r.fresh >= 1 ? 6 * r.fresh : 0) / 40), `${Math.round(r.snow)}"`],
       ["Drive", 1 - (up + rp) / 25, drivePeak >= 1 ? `+${drivePeak}m` : "clear"],
-      ["Lifts open", lm ? +lm[1] / +lm[2] : 0, lm ? `${lm[1]}/${lm[2]}` : "n/a"],
       ["Wind", gust == null ? 1 : 1 - Math.min(20, Math.max(0, gust - 35)) / 20, gust == null ? "n/a" : `${Math.round(gust)} mph`],
+      ["Snowy drive", r.snow >= 6 ? 0.4 : r.snow >= 3 ? 0.7 : 1, r.snow >= 6 ? "−6" : r.snow >= 3 ? "−3" : "none"],
+      ["Closures", r.chips.includes("Planned closure") ? 0 : 1, r.chips.includes("Planned closure") ? "−40" : "none"],
       ["Pass", R.pass === "ikon" ? 1 : 0.4, R.pass === "ikon" ? "Ikon" : "Ticket"]];
     rows.forEach(([name, v, val]) => {
-      const f = el("div", "fac"), tk = el("div", "tk"), bar = el("i", v < 0.5 && !/snow|Lifts/.test(name) ? "neg" : "");
+      const f = el("div", "fac"), tk = el("div", "tk"), bar = el("i", v < 0.5 && name !== "Fresh snow" ? "neg" : "");
       bar.style.width = Math.round(Math.max(0.03, Math.min(1, v)) * 100) + "%"; tk.append(bar);
       f.append(el("span", "", name), tk, el("b", "", val)); box.append(f);
     });
     const runner = idx.length ? Object.keys(RESORTS).filter(shown).map(k => S[k + selDay]).filter(x => x && !x.closed && x.key !== key).sort((a, b) => b.score - a.score)[0] : null;
-    const p = el("p", "note", `Score ${r.score} out of 100` + (runner ? `, next best ${RESORTS[runner.key].name} at ${runner.score}` : "") + `. Lifts are today's count. ${r.chips.length ? "Flags: " + r.chips.join(", ") + "." : ""}`);
+    const p = el("p", "note", `Score ${r.score} out of 100` + (runner ? `, next best ${RESORTS[runner.key].name} at ${runner.score}` : "") + `. ${r.chips.length ? "Flags: " + r.chips.join(", ") + "." : ""}`);
     p.style.marginTop = "10px"; box.append(p);
   }
 
@@ -2301,7 +2351,7 @@ if (typeof module !== "undefined") module.exports = { verdict, dayInfo, busyLift
     const kw = m.key_windows, ns = KEYCOLS.map(([k]) => (kw[k] || {}).n || 0), avg = ns.reduce((a, n) => a + pct6(n), 0) / ns.length;
     // 1. Headline
     const p1 = el("section", "panel trust"), hd = el("div", "sechead"); hd.append(el("h2", "", "Traffic time confidence"));
-    const row = el("div", "tbig"), big = el("div", "tnum"); big.append(el("b", "", Math.round(avg * 100) + "%"), el("span", "", "average across the five key windows"));
+    const row = el("div", "tbig"), big = el("div", "tnum"); big.append(el("b", "", Math.round(modelConfidence(m) * 100) + "%"), el("span", "", "trained: typical days logged, 6 needed for each weekday window"));
     const txt = el("div"); txt.append(el("p", "", `The model has ${m.days_logged || 0} days of logging, since ${dayName(m.first_day)}. Each typical weekend adds about ${Math.round(100 / 6)} points to a window, and every route time on the dashboard carries the percentage that goes with it.`));
     const tiers = el("div", "tiers"); [["Estimate", "0 weekends, 0%"], ["Rough", "1 to 2, 17 to 33%"], ["Decent", "3 to 5, 50 to 83%"], ["Solid", "6 or more, 100%"]].forEach(([t, d]) => { const x = el("span", "tier " + TIER_CLASS[t]); x.append(el("b", "", t), " " + d); tiers.append(x); });
     txt.append(tiers); row.append(big, txt); p1.append(hd, row); box.append(p1);
