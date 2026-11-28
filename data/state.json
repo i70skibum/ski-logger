@@ -591,6 +591,80 @@
    "title": "US 24 in both directions: Road closed.",
    "type": "critical"
   },
+  "roadClosures:CDOT-36627984715NB": {
+   "began": "2026-11-27T18:41:34-07:00",
+   "class": "roadClosures",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36627984715NB",
+   "lat": 39.87831,
+   "lon": -105.24107,
+   "mp_end": "",
+   "mp_start": 8.269668567629251,
+   "pos_bearing": "N",
+   "route": "CO 93",
+   "title": "CO 93 northbound: Road closed.",
+   "type": "critical"
+  },
+  "roadClosures:CDOT-36628036407NB": {
+   "began": "2026-11-27T18:45:22-07:00",
+   "class": "roadClosures",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36628036407NB",
+   "lat": 39.8656,
+   "line": [
+    [
+     39.8656,
+     -105.24006
+    ],
+    [
+     39.86588,
+     -105.24027
+    ],
+    [
+     39.8666,
+     -105.24059
+    ],
+    [
+     39.86743,
+     -105.24088
+    ],
+    [
+     39.86783,
+     -105.24098
+    ],
+    [
+     39.8682,
+     -105.24105
+    ],
+    [
+     39.86864,
+     -105.24107
+    ],
+    [
+     39.86888,
+     -105.24108
+    ],
+    [
+     39.86939,
+     -105.24106
+    ],
+    [
+     39.88534,
+     -105.24107
+    ],
+    [
+     39.88534,
+     -105.24107
+    ]
+   ],
+   "lon": -105.24006,
+   "mp_end": 8.816385172412566,
+   "mp_start": 7.553119129514776,
+   "pos_bearing": "N",
+   "route": "CO 93",
+   "title": "CO 93 northbound: Road closed.",
+   "type": "critical"
+  },
   "roadClosures:COSEG-589046": {
    "began": "2026-11-22T18:22:59.216000-07:00",
    "class": "roadClosures",
@@ -674,6 +748,20 @@
    "route": "CO 93",
    "title": "CO 93 northbound: Crash.",
    "type": "routine"
+  },
+  "roadReports:CDOT-36628036407NB": {
+   "began": "2026-11-27T18:45:22-07:00",
+   "class": "roadReports",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36628036407NB",
+   "lat": 39.8656,
+   "lon": -105.24006,
+   "mp_end": 8.816385172412566,
+   "mp_start": 7.553119129514776,
+   "pos_bearing": "N",
+   "route": "CO 93",
+   "title": "CO 93 northbound: Road closed.",
+   "type": "critical"
   },
   "roadWork:CDOT-35509814419BOTH": {
    "began": "2026-10-01T14:10:00-06:00",
@@ -2511,7 +2599,7 @@
   }
  },
  "forecast_last": "2026-11-28T00:45:46+00:00",
- "last_run": "2026-11-27T18:45:45-07:00",
+ "last_run": "2026-11-27T19:00:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-27": {
@@ -3268,7 +3356,7 @@
   "purgatory": "2026-11-27 17:00",
   "steamboat": "2026-11-27 17:00",
   "sunlight": "2026-11-27 17:00",
-  "telluride": "2026-11-27 16:00",
+  "telluride": "2026-11-27 17:00",
   "vail": "2026-11-27 17:00",
   "winterpark": "2026-11-27 17:00",
   "wolfcreek": "2026-11-27 17:00"
@@ -3527,14 +3615,14 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_flow_last": "2026-11-28T01:30:46+00:00",
- "tomtom_routing_last": "2026-11-28T01:45:45+00:00",
+ "tomtom_flow_last": "2026-11-28T02:00:46+00:00",
+ "tomtom_routing_last": "2026-11-28T02:00:46+00:00",
  "tomtom_use": {
   "flow": {
-   "2026-11": 3332
+   "2026-11": 3348
   },
   "routing": {
-   "2026-11": 3782
+   "2026-11": 3795
   }
  },
  "traffic_model_last": "2026-11-28T00:45:46+00:00"
