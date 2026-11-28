@@ -1902,7 +1902,8 @@ CROWD_CAM_HOURS = (7, 17)   # lifts open about 8:30 to 4; count from 7 to see th
 CROWD_SOURCES = [
     {"key": "last_mile", "name": "Traffic on the last mile into each base area (TomTom flow)", "status": "trial"},
     {"key": "cameras", "name": "People counted in base-area webcam lift lines", "status": "trial"},
-    {"key": "app_waits", "name": "Lift waits in the Copper and Winter Park apps", "status": "not yet"},
+    {"key": "app_waits", "name": "Lift waits in the Copper and Winter Park apps", "status": "skipped",
+     "note": "App-only; reading it would mean a private API, likely against the apps' terms"},
     {"key": "parking", "name": "Parking lot status and reservations left", "status": "not yet"},
 ]
 TOMTOM_HOURS["crowd"] = (6, 18)
