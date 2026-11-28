@@ -93,6 +93,48 @@
    "title": "I-70 in both directions: Passenger vehicle traction law.",
    "type": "standard"
   },
+  "chainLaws:CDOT-36631258888WB": {
+   "began": "2026-11-27T22:43:47-07:00",
+   "class": "chainLaws",
+   "direction": "NEGATIVE_DIRECTION",
+   "id": "CDOT-36631258888WB",
+   "lat": 39.50381,
+   "lon": -106.14668,
+   "mp_end": 190.00648817541213,
+   "mp_start": 195.0400157431849,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 westbound: Commercial motor vehicle chain law.",
+   "type": "standard"
+  },
+  "chainLaws:CDOT-36631286264EB": {
+   "began": "2026-11-27T22:45:47-07:00",
+   "class": "chainLaws",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36631286264EB",
+   "lat": 39.62509,
+   "lon": -106.07195,
+   "mp_end": 213.03048826018272,
+   "mp_start": 205.0228791353092,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Commercial motor vehicle chain law.",
+   "type": "standard"
+  },
+  "chainLaws:CDOT-36631335920BOTH": {
+   "began": "2026-11-27T22:49:37-07:00",
+   "class": "chainLaws",
+   "direction": "BOTH_DIRECTIONS",
+   "id": "CDOT-36631335920BOTH",
+   "lat": 39.63508,
+   "lon": -105.89447,
+   "mp_end": 228.99849663202585,
+   "mp_start": 219.99962298631988,
+   "pos_bearing": "E",
+   "route": "US 6",
+   "title": "US 6 in both directions: Commercial motor vehicle chain law.",
+   "type": "standard"
+  },
   "roadClosures:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadClosures",
@@ -2707,7 +2749,7 @@
   }
  },
  "forecast_last": "2026-11-28T03:45:47+00:00",
- "last_run": "2026-11-27T22:45:47-07:00",
+ "last_run": "2026-11-27T23:00:46-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-27": {
@@ -3363,7 +3405,7 @@
   "winterpark": "https://api.weather.gov/gridpoints/BOU/36,70",
   "wolfcreek": "https://api.weather.gov/gridpoints/PUB/15,36"
  },
- "outlook_last": "2026-11-28T02:45:46+00:00",
+ "outlook_last": "2026-11-28T06:00:46+00:00",
  "road_conditions": {
   "100": "3 - dry",
   "101": "3 - dry",
@@ -3462,9 +3504,9 @@
   "monarch": "2026-11-27 21:00",
   "powderhorn": "2026-11-27 21:00",
   "purgatory": "2026-11-27 21:00",
-  "steamboat": "2026-11-27 21:00",
+  "steamboat": "2026-11-27 22:00",
   "sunlight": "2026-11-27 21:00",
-  "telluride": "2026-11-27 20:00",
+  "telluride": "2026-11-27 21:00",
   "vail": "2026-11-27 21:00",
   "winterpark": "2026-11-27 21:00",
   "wolfcreek": "2026-11-27 21:00"
