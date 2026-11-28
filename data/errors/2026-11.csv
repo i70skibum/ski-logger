@@ -413,3 +413,10 @@ RuntimeError: fetch fail"
   File ""/home/runner/work/ski-logger/ski-logger/logger.py"", line 736, in log_outlook
     data = fetch_json(url)
 RuntimeError: fetch fail"
+2026-11-27T22:45:47-07:00,outlook,"api.open-meteo.com: <urlopen error _ssl.c:1063: The handshake operation timed out> | Traceback (most recent call last):
+  File ""/home/runner/work/ski-logger/ski-logger/logger.py"", line 2096, in main
+    print(f""{name}: {fn(state)}"")
+                     ~~^^^^^^^
+  File ""/home/runner/work/ski-logger/ski-logger/logger.py"", line 736, in log_outlook
+    data = fetch_json(url)
+RuntimeError: fetch fail"
