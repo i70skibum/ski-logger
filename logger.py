@@ -1891,7 +1891,7 @@ CROWD_POINTS = {
     "copper": {"name": "CO 91 into Copper", "point": (39.4990, -106.1445)},
     "winterpark": {"name": "US 40 at Winter Park base", "point": (39.8880, -105.7620)},
     "abasin": {"name": "US 6 at A-Basin", "point": (39.6425, -105.8717)},
-    "eldora": {"name": "Eldora Ski Road", "point": (39.9440, -105.5520)},
+    "eldora": {"name": "Eldora Ski Road", "point": (39.9440, -105.5520), "zoom": 10},
 }
 # Base-area webcams with a plain image URL (no signed stream). People are counted with YOLOv8n (crowd_count.py).
 CROWD_CAMS = {
@@ -1925,14 +1925,18 @@ def log_crowd(state):
     rows = []
     for rk, P in CROWD_POINTS.items():
         lat, lon = P["point"]
-        j = tomtom_get(f"{TOMTOM_FLOW}?point={lat},{lon}&unit=mph&key={key}", key, f"crowd:{rk}")
+        url = TOMTOM_FLOW.replace("/absolute/12/", f"/absolute/{P.get('zoom', 12)}/")
+        j = tomtom_get(f"{url}?point={lat},{lon}&unit=mph&key={key}", key, f"crowd:{rk}")
         if not j or "flowSegmentData" not in j:
             continue
         d = j["flowSegmentData"]
         cur, free = d.get("currentTravelTime"), d.get("freeFlowTravelTime")
         ratio = round(cur / free, 2) if cur and free else None
-        c0 = (d.get("coordinates", {}).get("coordinate") or [{}])[0]
-        detail = f"{d.get('frc', '')} {c0.get('latitude', '')},{c0.get('longitude', '')} speed {d.get('currentSpeed', '')}/{d.get('freeFlowSpeed', '')}"
+        # Log the point on the matched road nearest the query, and how far it is, so a wrong road shows up.
+        pts = d.get("coordinates", {}).get("coordinate") or []
+        near = min(pts, key=lambda c: (c["latitude"] - lat) ** 2 + ((c["longitude"] - lon) * 0.77) ** 2) if pts else {}
+        dist_m = round(((near.get("latitude", lat) - lat) ** 2 + ((near.get("longitude", lon) - lon) * 0.77) ** 2) ** 0.5 * 111000) if pts else ""
+        detail = f"{d.get('frc', '')} nearest {near.get('latitude', '')},{near.get('longitude', '')} ({dist_m} m) speed {d.get('currentSpeed', '')}/{d.get('freeFlowSpeed', '')}"
         if d.get("roadClosure"):
             detail += " closed"
         rows.append([NOW_ISO, rk, "last_mile", ratio, "ratio", crowd_level(ratio), detail])

@@ -30,7 +30,7 @@ jobs:
 
       # The webcam people counter needs onnxruntime, numpy and Pillow. If this step fails, the logger still runs
       # and simply skips the camera counts.
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
