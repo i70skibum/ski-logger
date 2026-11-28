@@ -121,6 +121,20 @@
    "title": "US 40 in both directions: Passenger vehicle traction law.",
    "type": "standard"
   },
+  "chainLaws:CDOT-36634935282EB": {
+   "began": "2026-11-28T03:15:41-07:00",
+   "class": "chainLaws",
+   "direction": "POSITIVE_DIRECTION",
+   "id": "CDOT-36634935282EB",
+   "lat": 39.62509,
+   "lon": -106.07195,
+   "mp_end": 213.03048826018272,
+   "mp_start": 205.0228791353092,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70 eastbound: Commercial motor vehicle chain law.",
+   "type": "standard"
+  },
   "roadClosures:CDOT-20653903231BOTH": {
    "began": "2026-11-20T08:48:39-07:00",
    "class": "roadClosures",
@@ -2735,7 +2749,7 @@
   }
  },
  "forecast_last": "2026-11-28T10:00:49+00:00",
- "last_run": "2026-11-28T03:15:46-07:00",
+ "last_run": "2026-11-28T03:30:49-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-28": {
@@ -3477,25 +3491,25 @@
  "snotel_last": {
   "abasin": "2026-11-28 02:00",
   "aspen": "2026-11-28 01:00",
-  "beavercreek": "2026-11-28 01:00",
-  "breck": "2026-11-28 01:00",
-  "cooper": "2026-11-28 01:00",
-  "copper": "2026-11-28 01:00",
-  "crestedbutte": "2026-11-28 01:00",
-  "echo": "2026-11-28 01:00",
-  "eldora": "2026-11-28 01:00",
+  "beavercreek": "2026-11-28 02:00",
+  "breck": "2026-11-28 02:00",
+  "cooper": "2026-11-28 02:00",
+  "copper": "2026-11-28 02:00",
+  "crestedbutte": "2026-11-28 02:00",
+  "echo": "2026-11-28 02:00",
+  "eldora": "2026-11-28 02:00",
   "granby": "2026-11-28 01:00",
   "keystone": "2026-11-28 02:00",
-  "loveland": "2026-11-28 01:00",
+  "loveland": "2026-11-28 02:00",
   "monarch": "2026-11-28 01:00",
-  "powderhorn": "2026-11-28 01:00",
-  "purgatory": "2026-11-28 01:00",
+  "powderhorn": "2026-11-28 02:00",
+  "purgatory": "2026-11-28 02:00",
   "steamboat": "2026-11-28 02:00",
   "sunlight": "2026-11-28 01:00",
   "telluride": "2026-11-28 01:00",
-  "vail": "2026-11-28 01:00",
-  "winterpark": "2026-11-28 01:00",
-  "wolfcreek": "2026-11-28 01:00"
+  "vail": "2026-11-28 02:00",
+  "winterpark": "2026-11-28 02:00",
+  "wolfcreek": "2026-11-28 02:00"
  },
  "speed_geo": [
   "I70E024",
