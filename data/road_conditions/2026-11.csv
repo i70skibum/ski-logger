@@ -995,3 +995,6 @@ observed_at,segment_id,route,area,start_mp,end_mp,condition,description
 2026-11-28T02:15:46-07:00,459,I-70,Silverthorne-Eisenhower/Johnson tunnels,203.7,212.5,"4s-9 - wet in areas, icy spots","I-70, between Exit 203: CO 9; East Frisco (near Frisco) and Exit 216: US 6; Loveland Pass (near Eisenhower Tunnel)"
 2026-11-28T02:15:46-07:00,262,I-70,Rifle -Glenwood Springs,90.2,116.2,4 - wet,"I-70, between Exit 87: US 6; Rifle (Rifle) and Exit 116: CO 82; Glenwood Springs (Glenwood Canyon)"
 2026-11-28T02:30:46-07:00,483,I-70,Glenwood-Eagle,116.2,145.8,4 - wet; 9 - icy spots,"I-70, between Exit 114: West Glenwood (Glenwood Canyon) and Exit 147: Eagle (near Eagle)"
+2026-11-28T03:45:46-07:00,270,I-70,Eisenhower/Johnson tunnels-Georgetown,212.5,226.9,"6-9-11 snow, icy spots, snow packed spots","I-70, between Exit 205: CO 9; US 6; Silverthorne (near Eisenhower Tunnel) and Exit 228: Georgetown (near Georgetown)"
+2026-11-28T03:45:46-07:00,261,I-70,Grand Junction-Palisade-Rifle,30.5,90.2,4 - wet,"I-70, between Exit 28: 24 Road (Grand Junction) and Exit 90: CO 13; Rifle (Rifle)"
+2026-11-28T03:45:46-07:00,459,I-70,Silverthorne-Eisenhower/Johnson tunnels,203.7,212.5,"6-9-11 snow, icy spots, snow packed spots","I-70, between Exit 203: CO 9; East Frisco (near Frisco) and Exit 216: US 6; Loveland Pass (near Eisenhower Tunnel)"
