@@ -1,5 +1,5 @@
 {
- "afd_last": "da8cc5fe-fd8f-41e4-ac22-d1e87cf22a86",
+ "afd_last": "5fbd1050-53e3-47b6-92ea-4837b20459f0",
  "cameras_last": "2026-11-27T15:45:46+00:00",
  "cameras_v": 2,
  "err_seen": {
@@ -2579,6 +2579,20 @@
    "title": "I-70: Wet in areas with icy spots.",
    "type": "standard"
   },
+  "winterDriving:COSEG-590035": {
+   "began": "2026-11-27T23:11:59.418000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-590035",
+   "lat": 39.55119,
+   "lon": -107.33065,
+   "mp_end": 145.78001438944648,
+   "mp_start": 116.20486386191877,
+   "pos_bearing": "E",
+   "route": "I-70",
+   "title": "I-70: Wet in areas.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-590054": {
    "began": "2026-11-27T09:13:08.677000-07:00",
    "class": "winterDriving",
@@ -2749,7 +2763,7 @@
   }
  },
  "forecast_last": "2026-11-28T03:45:47+00:00",
- "last_run": "2026-11-27T23:00:46-07:00",
+ "last_run": "2026-11-27T23:15:51-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-27": {
@@ -3471,7 +3485,7 @@
   "458": "4s - wet in areas; 6 - snow",
   "459": "21 - scattered showers; 6-9-11 snow, icy spots, snow packed spots",
   "47": "3 - dry",
-  "483": "3 - dry",
+  "483": "4s - wet in areas",
   "484": "6-8-10 snow, icy, snow packed",
   "485": "4s - wet in areas; 6 - snow",
   "486": "21 - scattered showers; 6-9-11 snow, icy spots, snow packed spots",
@@ -3489,7 +3503,7 @@
   "98": "3 - dry"
  },
  "snotel_last": {
-  "abasin": "2026-11-27 21:00",
+  "abasin": "2026-11-27 22:00",
   "aspen": "2026-11-27 21:00",
   "beavercreek": "2026-11-27 21:00",
   "breck": "2026-11-27 21:00",
@@ -3499,7 +3513,7 @@
   "echo": "2026-11-27 21:00",
   "eldora": "2026-11-27 21:00",
   "granby": "2026-11-27 21:00",
-  "keystone": "2026-11-27 21:00",
+  "keystone": "2026-11-27 22:00",
   "loveland": "2026-11-27 21:00",
   "monarch": "2026-11-27 21:00",
   "powderhorn": "2026-11-27 21:00",
