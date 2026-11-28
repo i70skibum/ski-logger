@@ -61,7 +61,7 @@ header.top { display: flex; align-items: center; justify-content: space-between;
 .brand { display: flex; flex-direction: column; }
 .brand b { font-family: "Space Grotesk", sans-serif; font-size: 16px; letter-spacing: .18em; }
 .brand span { font-size: 12px; color: var(--ink2); display: flex; align-items: center; gap: 6px; }
-nav.tabs { display: none; } #headchip { display: none; } @media (min-width: 900px) { #headchip { display: inline; } }
+nav.tabs { display: none; } #headchip:empty { display: none; }
 nav.bottom { position: fixed; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); background: #101F2B; padding: 6px 8px calc(10px + env(safe-area-inset-bottom)); z-index: 20; }
 nav.bottom a { height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: var(--ink2); font-size: 12px; }
 nav.bottom a.on { color: var(--accent); font-weight: 600; }
@@ -120,7 +120,9 @@ table.mt td { padding: 8px; border-top: 1px solid var(--line); vertical-align: m
 .sheet { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 50; display: none; align-items: flex-end; justify-content: center; }
 .sheet.on { display: flex; }
 .sheet .pane { width: 100%; max-width: 560px; max-height: 88vh; overflow: auto; background: var(--card); border: 1px solid var(--line); border-radius: 20px 20px 0 0; padding: 16px 16px 32px; display: flex; flex-direction: column; gap: 14px; }
-@media (min-width: 900px) { .sheet { align-items: center; } .sheet .pane { border-radius: 20px; } }
+@media (max-width: 899px) { .sheet.full { background: var(--bg); } .sheet.full .pane { max-width: none; height: 100%; max-height: 100vh; border: 0; border-radius: 0; background: var(--bg); padding: 14px 16px 40px; } }
+@media (min-width: 900px) { .sheet { align-items: center; } .sheet .pane { border-radius: 20px; } .sheet.full .pane { max-width: 960px; padding: 28px 32px; gap: 20px; } }
+.switch.on { background: #3BA0E0 !important; }
 .it { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-top: 1px solid var(--line); }
 .switch { width: 44px; height: 26px; border-radius: 13px; background: #2C4459; position: relative; flex: none; border: 0; cursor: pointer; }
 .switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: var(--ink); transition: left .15s; }
