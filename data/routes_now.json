@@ -7402,10 +7402,10 @@
    "name": "Berthoud Pass (US 40, Empire to Winter Park)",
    "W": {
     "delay_min": 0.0,
-    "minutes": 30.7,
+    "minutes": 30.9,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-28T05:30:46-07:00",
+    "at": "2026-11-28T05:45:46-07:00",
     "line": [
      [
       39.76107,
@@ -8158,7 +8158,7 @@
       "to": "winterpark",
       "key": "empire>winterpark",
       "km": 38.8,
-      "minutes": 30.7,
+      "minutes": 30.9,
       "free_min": 31.6,
       "delay_min": 0.0,
       "jam_min": 0.0,
@@ -8569,10 +8569,10 @@
    },
    "E": {
     "delay_min": 0.0,
-    "minutes": 30.4,
+    "minutes": 30.5,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-28T05:30:46-07:00",
+    "at": "2026-11-28T05:45:46-07:00",
     "line": [
      [
       39.88623,
@@ -9321,7 +9321,7 @@
       "to": "empire",
       "key": "empire>winterpark",
       "km": 38.7,
-      "minutes": 30.4,
+      "minutes": 30.5,
       "free_min": 31.7,
       "delay_min": 0.0,
       "jam_min": 0.0,
@@ -13921,10 +13921,10 @@
    "points_at": "2026-11-28T05:30:46-07:00",
    "W": {
     "delay_min": 0.0,
-    "minutes": 66.3,
+    "minutes": 66.6,
     "free_min": 66.7,
     "detour": false,
-    "at": "2026-11-28T05:30:46-07:00",
+    "at": "2026-11-28T05:45:46-07:00",
     "line": [
      [
       39.75702,
@@ -15541,8 +15541,8 @@
       "to": "nederland",
       "key": "boulder>nederland",
       "km": 26.6,
-      "minutes": 24.0,
-      "free_min": 24.0,
+      "minutes": 24.1,
+      "free_min": 24.1,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -15933,8 +15933,8 @@
       "to": "eldora",
       "key": "nederland>eldora",
       "km": 8.0,
-      "minutes": 11.6,
-      "free_min": 11.6,
+      "minutes": 11.7,
+      "free_min": 11.7,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -27095,10 +27095,10 @@
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
     "delay_min": 0.0,
-    "minutes": 25.0,
+    "minutes": 25.2,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-28T05:30:46-07:00",
+    "at": "2026-11-28T05:45:46-07:00",
     "line": [
      [
       39.74245,
@@ -27519,8 +27519,8 @@
       "to": "i25",
       "key": "i25>us6",
       "km": 15.8,
-      "minutes": 11.0,
-      "free_min": 11.0,
+      "minutes": 11.2,
+      "free_min": 11.2,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -27744,7 +27744,7 @@
     "minutes": 28.5,
     "free_min": 29.0,
     "detour": false,
-    "at": "2026-11-28T05:30:46-07:00",
+    "at": "2026-11-28T05:45:46-07:00",
     "line": [
      [
       39.75702,
@@ -28531,10 +28531,10 @@
    "name": "I-25 and I-70 direct (Coors Field to I-70 exit 244)",
    "W": {
     "delay_min": 0.1,
-    "minutes": 35.2,
+    "minutes": 35.1,
     "free_min": 35.1,
     "detour": false,
-    "at": "2026-11-28T05:30:46-07:00",
+    "at": "2026-11-28T05:45:46-07:00",
     "line": [
      [
       39.75702,
@@ -29175,8 +29175,8 @@
       "to": "i25i70",
       "key": "coors>i25i70",
       "km": 3.5,
-      "minutes": 7.0,
-      "free_min": 6.9,
+      "minutes": 7.1,
+      "free_min": 7.0,
       "delay_min": 0.1,
       "jam_min": 0.0,
       "line": [
@@ -29507,8 +29507,8 @@
       "to": "floyd",
       "key": "us6>floyd",
       "km": 26.6,
-      "minutes": 15.7,
-      "free_min": 15.7,
+      "minutes": 15.6,
+      "free_min": 15.6,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -31231,10 +31231,10 @@
    "points_at": "2026-11-28T05:30:46-07:00"
   }
  },
- "updated": "2026-11-28T05:30:46-07:00",
+ "updated": "2026-11-28T05:45:46-07:00",
  "tomtom_use": {
   "flow": 3396,
-  "routing": 3852
+  "routing": 3858
  },
  "tomtom_caps": {
   "routing": 19000,

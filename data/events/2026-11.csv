@@ -2105,3 +2105,5 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-28T05:30:46-07:00,start,CDOT-36636576925BOTH,chainLaws,standard,US 40,BOTH_DIRECTIONS,E,233.95376005897188,256.0046343778515,US 40 in both directions: Commercial motor vehicle chain law.,2026-11-28T05:16:59-07:00
 2026-11-28T05:30:46-07:00,start,CDOT-36636646474BOTH,chainLaws,standard,US 40,BOTH_DIRECTIONS,E,258.04585490357783,243.00000000839646,US 40 in both directions: Passenger vehicle traction law.,2026-11-28T05:22:09-07:00
 2026-11-28T05:30:46-07:00,start,CDOT-36636610691BOTH,chainLaws,standard,US 40,BOTH_DIRECTIONS,E,258.04585490357783,243.00000000839646,US 40 in both directions: Passenger vehicle traction law.,2026-11-28T05:19:29-07:00
+2026-11-28T05:45:46-07:00,start,CDOT-36636827479BOTH,chainLaws,standard,US 40,BOTH_DIRECTIONS,E,139.0086264740911,159.00058410956444,US 40 in both directions: Passenger vehicle traction law.,2026-11-28T05:35:26-07:00
+2026-11-28T05:45:46-07:00,start,CDOT-36636766317BOTH,chainLaws,standard,US 40,BOTH_DIRECTIONS,E,258.04585490357783,243.00000000839646,US 40 in both directions: Passenger vehicle traction law.,2026-11-28T05:30:41-07:00
