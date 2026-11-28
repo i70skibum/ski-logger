@@ -420,3 +420,4 @@ RuntimeError: fetch fail"
   File ""/home/runner/work/ski-logger/ski-logger/logger.py"", line 736, in log_outlook
     data = fetch_json(url)
 RuntimeError: fetch fail"
+2026-11-28T06:02:30-07:00,crowd:eldora,api.tomtom.com: HTTP Error 400: Bad Request
