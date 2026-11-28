@@ -51,3 +51,12 @@ snapshot_time,resort,source,value,unit,level,detail
 2026-11-28T08:16:01-07:00,copper,camera:excelerator,1,people,,1280x720 Excelerator lift
 2026-11-28T08:16:01-07:00,copper,camera:union,0,people,,1280x720 Union Creek base
 2026-11-28T08:16:01-07:00,abasin,parking,Empty,status,1,https://www.arapahoebasin.com/parking/
+2026-11-28T08:30:55-07:00,copper,last_mile,1.0,ratio,1,"FRC3 nearest 39.50051403392907,-106.1395182381709 (458 m) speed 60/60"
+2026-11-28T08:30:55-07:00,winterpark,last_mile,1.33,ratio,3,"FRC2 nearest 39.88770159020628,-105.76060525275781 (124 m) speed 38/50"
+2026-11-28T08:30:55-07:00,abasin,last_mile,1.0,ratio,1,"FRC2 nearest 39.64280921014356,-105.87131208876876 (48 m) speed 42/42"
+2026-11-28T08:30:55-07:00,eldora,last_mile,1.0,ratio,1,"FRC6 nearest 39.94863068756853,-105.53787461610928 (239 m) speed 38/38"
+2026-11-28T08:30:55-07:00,abasin,camera:base,26,people,,1200x675 Mountain Goat Plaza and Black Mountain Express
+2026-11-28T08:30:55-07:00,copper,camera:center_village,7,people,,1280x720 Center Village plaza
+2026-11-28T08:30:55-07:00,copper,camera:super_bee,2,people,,"1280x720 Super Bee lift, Center Village"
+2026-11-28T08:30:55-07:00,copper,camera:excelerator,1,people,,1280x720 Excelerator lift
+2026-11-28T08:30:55-07:00,copper,camera:union,0,people,,1280x720 Union Creek base
