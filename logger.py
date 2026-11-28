@@ -1793,6 +1793,253 @@ def log_recent(state):
     return f"{len(all_days)} days, {wrote} month files"
 
 
+# ---------------------------------------------------------------------------
+# Daily forecasts and grades (2.0): a forecast for every day, not just weekend windows
+# ---------------------------------------------------------------------------
+# Each evening the logger saves tomorrow's expected I-70 delay to Copper, hour by hour, for the drive up
+# (5 to 11 AM, westbound) and the drive home (11 AM to 7 PM, eastbound). A day that has passed is graded against
+# what the speeds showed: mean absolute error over every hour with 3 or more snapshots, plus the two peaks.
+DAILY_UP, DAILY_HOME = (5, 11, "W"), (11, 19, "E")
+
+
+def daily_forecast(model, day):
+    """Expected I-70 delay (minutes) by hour for one day, from the typical profile for its weekday, scaled for
+    holidays and breaks by how far those days have run above typical. Falls back to the generic pattern."""
+    slots, gen = model.get("slots", {}), model.get("generic", {})
+    dow = day.weekday()
+    kind = (model.get("days", {}).get(day.isoformat()) or {}).get("type", "typical")
+    lift = ((model.get("day_types", {}).get(kind) or {}).get("lift") or (1.4 if kind in ("holiday", "break") else 1.0)) if kind != "typical" else 1.0
+    out, src = {}, set()
+    for h0, h1, d in (DAILY_UP, DAILY_HOME):
+        out[d] = {}
+        for h in range(h0, h1):
+            got = [slots[k]["median"] for k in (f"{dow}-{h:02d}00-{d}", f"{dow}-{h:02d}30-{d}") if k in slots]
+            if got:
+                v = sum(got) / len(got)
+                src.add("profile")
+            else:
+                g = (gen.get(d) or {}).get(str(dow)) or (gen.get(d) or {}).get(dow) or {}
+                v = g.get(str(h), g.get(h, 0))
+                src.add("estimate")
+            out[d][str(h)] = round(v * lift, 1)
+    return {"type": kind, "lift": lift, "source": "profile" if src == {"profile"} else "estimate" if src == {"estimate"} else "mixed", "by_hour": out}
+
+
+def log_daily_predictions(state):
+    path = os.path.join(DATA, "daily_predictions.json")
+    try:
+        with open(path) as f:
+            preds = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        preds = {}
+    try:
+        with open(os.path.join(DATA, "traffic_model.json")) as f:
+            model = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return "no traffic model yet"
+    today, made = NOW.date(), 0
+    # Tomorrow's forecast after 6 PM; today's too if somehow missing (marked late, still graded).
+    want = [(today + timedelta(days=1), False)] if NOW.hour >= 18 else []
+    want.append((today, NOW.hour >= 5))
+    for day, late in want:
+        k = day.isoformat()
+        if k not in preds:
+            preds[k] = {"made": NOW_ISO, "late": late, **daily_forecast(model, day)}
+            made += 1
+    # Grade every past day that has logged hours.
+    hist = {}
+    for m in sorted({k[:7] for k in preds}):
+        try:
+            with open(os.path.join(DATA, "history", f"{m}.json")) as f:
+                hist.update(json.load(f).get("days", {}))
+        except (FileNotFoundError, json.JSONDecodeError):
+            pass
+    graded = 0
+    for k, pr in preds.items():
+        if "graded" in pr or k >= today.isoformat() or k not in hist:
+            continue
+        res = {}
+        for h0, h1, d in (DAILY_UP, DAILY_HOME):
+            act = hist[k].get("i70", {}).get(d, {})
+            pairs = [(pr["by_hour"][d][str(h)], act[str(h)]["mean"]) for h in range(h0, h1)
+                     if str(h) in act and act[str(h)].get("n", 0) >= 3]
+            if len(pairs) >= 0.8 * (h1 - h0):
+                p_pk = max(range(h0, h1), key=lambda h: pr["by_hour"][d][str(h)])
+                a_pk = max((h for h in range(h0, h1) if str(h) in act), key=lambda h: act[str(h)]["mean"])
+                res[d] = {"error_min": round(sum(abs(a - b) for a, b in pairs) / len(pairs), 1),
+                          "pred_peak": [p_pk, pr["by_hour"][d][str(p_pk)]], "logged_peak": [a_pk, round(act[str(a_pk)]["mean"], 1)]}
+        pr["graded"], pr["result"] = NOW_ISO, res
+        errs = [v["error_min"] for v in res.values()]
+        pr["mean_error_min"] = round(sum(errs) / len(errs), 1) if errs else None
+        graded += 1
+    # Keep a season: drop anything older than 400 days.
+    cut = (today - timedelta(days=400)).isoformat()
+    preds = {k: v for k, v in sorted(preds.items()) if k >= cut}
+    with open(path, "w") as f:
+        json.dump(preds, f, separators=(",", ":"))
+    return f"{made} made, {graded} graded"
+
+
+# ---------------------------------------------------------------------------
+# Crowd log (2.0)
+# ---------------------------------------------------------------------------
+# One row per mountain per source per run, plus a combined level 1 to 4. Live now: TomTom flow on the last
+# stretch of road into each base area (trial: points are best guesses, the returned road is logged so they
+# can be checked). Planned, not yet fetched: people counted in base-area webcams, lift waits from the Copper
+# and Winter Park apps, parking lot status and reservations. Those show as "not yet" on the Data tab.
+CROWD_POINTS = {
+    "copper": {"name": "CO 91 into Copper", "point": (39.4990, -106.1445)},
+    "winterpark": {"name": "US 40 at Winter Park base", "point": (39.8880, -105.7620)},
+    "abasin": {"name": "US 6 at A-Basin", "point": (39.6425, -105.8717)},
+    "eldora": {"name": "Eldora Ski Road", "point": (39.9440, -105.5520)},
+}
+CROWD_SOURCES = [
+    {"key": "last_mile", "name": "Traffic on the last mile into each base area (TomTom flow)", "status": "trial"},
+    {"key": "cameras", "name": "People counted in base-area webcam lift lines", "status": "not yet"},
+    {"key": "app_waits", "name": "Lift waits in the Copper and Winter Park apps", "status": "not yet"},
+    {"key": "parking", "name": "Parking lot status and reservations left", "status": "not yet"},
+]
+TOMTOM_HOURS["crowd"] = (6, 18)
+TOMTOM_CAPS["crowd"] = 3000      # 4 points every 30 minutes, 6 AM to 6 PM: about 2,900 in a 31-day month
+
+
+def crowd_level(ratio):
+    """Slowdown on the last mile (travel time over free flow) as a 1 to 4 level."""
+    if ratio is None:
+        return None
+    return 1 if ratio < 1.1 else 2 if ratio < 1.3 else 3 if ratio < 1.6 else 4
+
+
+def log_crowd(state):
+    key = os.environ.get("TOMTOM_API_KEY")
+    if not key:
+        return "no TomTom key"
+    if not tomtom_budget(state, "crowd", len(CROWD_POINTS), gap_min=25):
+        return "skipped (hours, cadence or budget)"
+    rows = []
+    for rk, P in CROWD_POINTS.items():
+        lat, lon = P["point"]
+        j = tomtom_get(f"{TOMTOM_FLOW}?point={lat},{lon}&unit=mph&key={key}", key, f"crowd:{rk}")
+        if not j or "flowSegmentData" not in j:
+            continue
+        d = j["flowSegmentData"]
+        cur, free = d.get("currentTravelTime"), d.get("freeFlowTravelTime")
+        ratio = round(cur / free, 2) if cur and free else None
+        c0 = (d.get("coordinates", {}).get("coordinate") or [{}])[0]
+        detail = f"{d.get('frc', '')} {c0.get('latitude', '')},{c0.get('longitude', '')} speed {d.get('currentSpeed', '')}/{d.get('freeFlowSpeed', '')}"
+        if d.get("roadClosure"):
+            detail += " closed"
+        rows.append([NOW_ISO, rk, "last_mile", ratio, "ratio", crowd_level(ratio), detail])
+    append_rows("crowd", ["snapshot_time", "resort", "source", "value", "unit", "level", "detail"], rows)
+    return f"{len(rows)} rows"
+
+
+# ---------------------------------------------------------------------------
+# dashboard.json (2.0): everything the page shows, in one small file
+# ---------------------------------------------------------------------------
+def _read_json(rel, default=None):
+    try:
+        with open(os.path.join(DATA, rel)) as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return default
+
+
+def _read_csv_tail(rel, n=4000):
+    import csv
+    try:
+        with open(os.path.join(DATA, rel), newline="") as f:
+            rows = list(csv.DictReader(f))
+        return rows[-n:]
+    except FileNotFoundError:
+        return []
+
+
+def build_dashboard(state):
+    month = NOW.strftime("%Y-%m")
+    rn = _read_json("routes_now.json", {}) or {}
+    roads = {}
+    for rk, r in (rn.get("routes") or {}).items():
+        x = {"name": r.get("name"), "closed": bool(r.get("closed"))}
+        for d in ("W", "E"):
+            v = r.get(d)
+            if v:
+                x[d] = {k: v.get(k) for k in ("minutes", "free_min", "delay_min", "detour", "at")}
+                x[d]["segs"] = [{k: sg.get(k) for k in ("key", "name", "minutes", "free_min", "delay_min") if k in sg} for sg in (v.get("segs") or []) if isinstance(sg, dict)]
+        roads[rk] = x
+    # I-70: latest corridor delay each way (Copper to downtown), same math as the model.
+    i70 = {}
+    for t, w, e in corridor_delays():
+        if t.date() == NOW.date():
+            i70 = {"at": t.isoformat(), "W": None if w is None else round(w, 1), "E": None if e is None else round(e, 1)}
+    # Snow: latest SNOTEL depth and the change over 24 hours; forecast: the newest 0-24 h NWS window.
+    snow = {}
+    for r in _read_csv_tail(f"snotel/{month}.csv", 6000):
+        k = r["resort"]
+        try:
+            dep = float(r["depth_in"]) if r["depth_in"] else None
+        except ValueError:
+            dep = None
+        s = snow.setdefault(k, {"series": []})
+        s["series"].append((r["obs_time_mst"], dep, r.get("temp_f")))
+    for k, s in snow.items():
+        ser = [x for x in s.pop("series") if x[1] is not None]
+        if ser:
+            last = ser[-1]
+            day_ago = [x for x in ser if x[0] <= (datetime.fromisoformat(last[0]) - timedelta(hours=24)).strftime("%Y-%m-%d %H:%M")]
+            s.update({"obs": last[0], "depth_in": last[1], "temp_f": last[2],
+                      "new24_in": max(0, last[1] - day_ago[-1][1]) if day_ago else None})
+    fc = {}
+    for r in _read_csv_tail(f"forecast/{month}.csv", 3000):
+        if r.get("window") == "0-24h":
+            fc[r["resort"]] = {k: r.get(k) for k in ("snapshot_time", "snow_in", "temp_min_f", "temp_max_f", "gust_max_mph")}
+    # Crowd: the latest reading per mountain and source.
+    crowd = {}
+    for r in _read_csv_tail(f"crowd/{month}.csv", 2000):
+        crowd.setdefault(r["resort"], {})[r["source"]] = {k: r.get(k) for k in ("snapshot_time", "value", "unit", "level", "detail")}
+    # Model: the parts the page needs, plus one confidence number.
+    m = _read_json("traffic_model.json", {}) or {}
+    cov = m.get("coverage") or {}
+    conf = round(sum(min(1, (c.get("n") or 0) / 6) for c in cov.values()) / len(cov), 3) if cov else 0
+    model = {k: m.get(k) for k in ("updated", "first_day", "days_logged", "daily", "coverage", "key_windows", "conditions_seen",
+                                   "holidays", "days", "day_types", "pass_blackouts", "graded", "slots", "generic")}
+    model["confidence"] = conf
+    model["routes"] = {rk: {"first_day": r.get("first_day"), "coverage": r.get("coverage")} for rk, r in (m.get("routes") or {}).items()}
+    daily = _read_json("daily_predictions.json", {}) or {}
+    # Sources: when each last ran, and errors in the last 48 hours.
+    cut = (NOW - timedelta(hours=48)).isoformat()
+    errs = {}
+    for r in _read_csv_tail(f"errors/{month}.csv", 3000):
+        if r.get("time", "") >= cut:
+            src = (r.get("source") or "").split(":")[0]
+            errs[src] = errs.get(src, 0) + 1
+    sources = {"last_run": NOW_ISO, "forecast": state.get("forecast_last"), "outlook": state.get("outlook_last"),
+               "tomtom_flow": state.get("tomtom_flow_last"), "tomtom_routing": state.get("tomtom_routing_last"),
+               "cameras": state.get("cameras_last"), "traffic_model": state.get("traffic_model_last"),
+               "snotel": max((state.get("snotel_last") or {}).values(), default=None), "crowd": state.get("tomtom_crowd_last"),
+               "tomtom_use": state.get("tomtom_use"), "tomtom_caps": TOMTOM_CAPS, "errors_48h": errs, "crowd_sources": CROWD_SOURCES}
+    # Files: this month's size for each logged folder, plus the top-level JSON.
+    files = []
+    for name in sorted(os.listdir(DATA)):
+        p = os.path.join(DATA, name)
+        if os.path.isdir(p):
+            cur = [f for f in os.listdir(p) if f.startswith(month)]
+            if cur:
+                files.append({"path": f"{name}/{cur[0]}", "bytes": os.path.getsize(os.path.join(p, cur[0]))})
+        elif name.endswith(".json") and name != "dashboard.json":
+            files.append({"path": name, "bytes": os.path.getsize(p)})
+    events = [e for e in (state.get("events") or {}).values()
+              if e.get("class") in ("roadClosures", "chainLaws") or re.search(r"road closed", e.get("title", ""), re.I)]
+    events = [{k: e.get(k) for k in ("class", "route", "title", "began", "mp_start", "mp_end", "lat", "lon", "type")} for e in events]
+    dash = {"updated": NOW_ISO, "today": NOW.date().isoformat(), "roads": roads, "i70": i70,
+            "status": _read_json("resort_status.json", {}), "snow": snow, "forecast24": fc, "outlook": _read_json("outlook.json", {}),
+            "recent": _read_json("recent.json", {}), "crowd": crowd, "model": model, "daily_predictions": daily,
+            "weekend_predictions": _read_json("traffic_predictions.json", {}), "events": events, "sources": sources, "files": files}
+    with open(os.path.join(DATA, "dashboard.json"), "w") as f:
+        json.dump(dash, f, separators=(",", ":"))
+    return f"{os.path.getsize(os.path.join(DATA, 'dashboard.json')) // 1024} KB"
+
+
 def main():
     state = load_state()
     STATE_REF.clear()
@@ -1800,7 +2047,8 @@ def main():
     state = STATE_REF
     jobs = [("snotel", log_snotel), ("forecast", log_forecast), ("afd", log_afd),
             ("events", log_events), ("cdot", log_cdot), ("resort_status", log_resort_status),
-            ("routes", log_routes), ("plows", log_plows), ("cameras", log_cameras), ("outlook", log_outlook), ("traffic_model", log_traffic_model), ("recent", log_recent)]
+            ("routes", log_routes), ("plows", log_plows), ("cameras", log_cameras), ("outlook", log_outlook), ("traffic_model", log_traffic_model), ("recent", log_recent),
+            ("crowd", log_crowd), ("daily_predictions", log_daily_predictions), ("dashboard", build_dashboard)]
     for name, fn in jobs:
         try:
             print(f"{name}: {fn(state)}")
