@@ -30,3 +30,9 @@ snapshot_time,resort,source,value,unit,level,detail
 2026-11-28T07:30:56-07:00,copper,camera:super_bee,0,people,,"1280x720 Super Bee lift, Center Village"
 2026-11-28T07:30:56-07:00,copper,camera:excelerator,0,people,,1280x720 Excelerator lift
 2026-11-28T07:30:56-07:00,copper,camera:union,0,people,,1280x720 Union Creek base
+2026-11-28T07:45:58-07:00,abasin,camera:base,3,people,,1200x675 Mountain Goat Plaza and Black Mountain Express
+2026-11-28T07:45:58-07:00,copper,camera:center_village,2,people,,1280x720 Center Village plaza
+2026-11-28T07:45:58-07:00,copper,camera:super_bee,0,people,,"1280x720 Super Bee lift, Center Village"
+2026-11-28T07:45:58-07:00,copper,camera:excelerator,0,people,,1280x720 Excelerator lift
+2026-11-28T07:45:58-07:00,copper,camera:union,0,people,,1280x720 Union Creek base
+2026-11-28T07:45:58-07:00,abasin,parking,Empty,status,1,https://www.arapahoebasin.com/parking/
