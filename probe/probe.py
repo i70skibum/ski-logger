@@ -38,7 +38,7 @@ for name in list(summary):
         ids = sorted(set(re.findall(r"[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}", open(p).read())))
         summary[name]["uuids"] = ids[:80]; print("UUIDS", name, ids[:80])
 # Eldora last-mile: try several points and zooms
-key = os.environ.get("TOMTOM_API_KEY", "")
+key = ""
 if key:
     for lat, lon in [(39.9440, -105.5520), (39.9387, -105.5717), (39.9506, -105.5390), (39.9580, -105.5150)]:
         for z in (10, 12, 14):
