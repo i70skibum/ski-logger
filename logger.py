@@ -2114,6 +2114,13 @@ def build_dashboard(state):
     events = [e for e in (state.get("events") or {}).values()
               if e.get("class") in ("roadClosures", "chainLaws") or re.search(r"road closed", e.get("title", ""), re.I)]
     events = [{k: e.get(k) for k in ("class", "route", "title", "began", "mp_start", "mp_end", "lat", "lon", "type")} for e in events]
+    # Road conditions: the latest CDOT report for each segment (the log only records changes, so read back two months).
+    conds = {}
+    prev_month = (NOW.replace(day=1) - timedelta(days=1)).strftime("%Y-%m")
+    for mo in (prev_month, month):
+        for r in _read_csv_tail(f"road_conditions/{mo}.csv", 4000):
+            conds[r["segment_id"]] = {"route": r["route"], "area": r["area"], "mp_start": r["start_mp"], "mp_end": r["end_mp"],
+                                      "condition": r["condition"], "at": r["observed_at"]}
     try:
         stretches = i70_stretches()
     except Exception as e:
@@ -2122,7 +2129,7 @@ def build_dashboard(state):
     dash = {"updated": NOW_ISO, "today": NOW.date().isoformat(), "roads": roads, "i70": i70, "i70_stretches": stretches,
             "status": _read_json("resort_status.json", {}), "snow": snow, "forecast24": fc, "outlook": _read_json("outlook.json", {}),
             "recent": _read_json("recent.json", {}), "crowd": crowd, "model": model, "daily_predictions": daily,
-            "weekend_predictions": _read_json("traffic_predictions.json", {}), "events": events, "sources": sources, "files": files}
+            "weekend_predictions": _read_json("traffic_predictions.json", {}), "events": events, "conditions": list(conds.values()), "sources": sources, "files": files}
     with open(os.path.join(DATA, "dashboard.json"), "w") as f:
         json.dump(dash, f, separators=(",", ":"))
     return f"{os.path.getsize(os.path.join(DATA, 'dashboard.json')) // 1024} KB"
