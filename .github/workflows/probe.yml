@@ -1,7 +1,7 @@
 name: probe
 on:
   push:
-    branches: [probe]
+    branches: [probe-crowd]
 jobs:
   probe:
     runs-on: ubuntu-latest
