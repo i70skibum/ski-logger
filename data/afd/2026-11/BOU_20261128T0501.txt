@@ -1,0 +1,153 @@
+
+000
+FXUS65 KBOU 281201
+AFDBOU
+
+Area Forecast Discussion
+National Weather Service Denver/Boulder CO
+501 AM MST Sat Nov 28 2026
+
+.KEY MESSAGES... 
+
+- Hazardous travel through this evening for the northern 
+  mountains and I-70 mountain corridor due to snow and blowing 
+  snow. Snowfall amounts greater than 12" likely in the northern 
+  tier of mountains.
+
+- Potential for snow squalls late this morning to early afternoon
+  with greatest threat in the mountains.
+
+- Banded snow (initially mixed with rain) for the the plains and
+  I-25 Corridor today to early this evening. Brief heavy snow but
+  generally light accumulations possible. 
+ 
+- Gusty winds in the higher terrain this morning, with gusty winds
+  spreading across the plains this afternoon behind the front.
+
+- Return of mostly dry weather Sunday - Tuesday, next system may 
+  arrive by Wednesday or Thursday. 
+
+&&
+
+.DISCUSSION /Through Friday/...
+Issued at 1108 PM MST Fri Nov 27 2026
+
+Snow is ongoing across the Winter Storm Warning and Advisory 
+areas as of late this evening. The northern Front Range zone, 
+which includes Rocky Mountain NP, was upgraded to a Winter Storm 
+Warning for Saturday. Looking at webcams, snow is already coming 
+down with pretty decent rates and the best lift is yet to come. 
+Lift will maximize in the early to mid morning to early afternoon
+as the upper level trough approaches and the left exit region of 
+the jet is over the area. At the same time, a strong cold front 
+will be moving through the area. Models continue to trend higher 
+with QPF or the mountains, and therefore snowfall amounts. As the
+previous AFDs have mentioned, there is potential for snow squalls
+this morning and afternoon (primarily along and following the 
+front). The best chance for snow squalls today will be in the 
+mountains, but we can't rule one out on the plains. Even if the 
+plains and foothills don't see a snow squall, there is still a 
+chance for banded precipitation this afternoon and early evening.
+What will likely start as rain will transition to snow as 
+temperatures drop behind the front. Areas that see heavy snow 
+bands will experience significant decreases in visiblities and 
+hazardous driving conditions. 
+
+High res models are showing an anticyclonic turning of the winds at 
+the surface to around 750 to 700mb near the southern foothills. This 
+will allow for decent upslope in the south metro, southern 
+foothills, and Palmer Divide area. Right now, we're keeping snow 
+accumulations below Advisory criteria with models showing a low 
+chance (<15%) this area exceeds the 4 inch Advisory threshold.
+But, we still considered a Winter Weather Advisory for our 
+southern foothills zone given the ingredients in place and the 
+potential impacts if a heavy band does form there. For now though,
+we've decided to hold off on the Winter Weather Advisory in this
+area. For the metro, we are expecting rain to transition to snow 
+behind the front, with the potential for some light accumulation 
+on grasses. Road temperatures will be fairly warm, so unless a 
+very heavy snow band develops over the area, roads should remain 
+mostly clear on the plains. The main travel impact with any snow 
+in the plains will be lowering visibilities. 
+
+Snow will taper off in the evening as subsidence builds in behind 
+the departing shortwave. Temperatures will remain cooler on Sunday, 
+with highs in the 40s to near 50 across the plains. More zonal 
+flow will set up on Monday, with a weak disturbance moving through
+the flow aloft in the evening. We could see some light snow 
+showers in the mountains as the disturbance approaches and moves 
+through, but impacts should remain minimal. 
+
+Our next system will develop off the West Coast late Tuesday. An 
+upper level low is forecast to move over southern California and 
+towards the four corners region Wednesday. The exact track of this 
+system remains relatively uncertain and it will have a big impact on 
+the potential for precip and snow on the plains. If the track ends 
+up trending more south, our snow chances would decrease 
+significantly. But if the track of the upper low is closer to what 
+the current Euro is showing, we're looking at our next chance for
+mountains and plains snow late Wednesday through Thursday. The 
+current NBM has a medium chance (40%-60%) for at least a trace of 
+snow south of I-76 with this event and around a 20% to 50% chance 
+for at least an inch of snow for the metro and south. While 
+there's still a lot of uncertainty with the track, these are the 
+best probabilities for snow in the plains that I've seen so far 
+this season. 
+
+&&
+
+.AVIATION /12Z TAFS through 12Z Sunday/...
+Issued at 434 AM MST Sat Nov 28 2026
+
+VFR conditions expected this morning, before a cold front brings a
+chance of rain/snow showers to all terminals with visibilities
+dropping to 1 SM (potentially 1/2SM) and ceilings as low as 800 to
+1,000 feet AGL. VFR conditions expected to return by 23Z-01Z. 
+
+Winds are currently south/southeast at all terminals and will
+likely remain there with speeds between 05-10 kts. Downsloping
+winds at BJC may result in brief westerly winds there this 
+morning, so have introduced a TEMPO to reflect that potential. By
+16Z-18Z, lee cyclogenesis will occur, allowing downsloping winds 
+to impact all terminals with westerly wind gusts of 20-30 kts
+possible at times. In these kind of set-ups, winds tend to
+channel, so don't expect westerly winds to continuously gust
+throughout the morning. For this reason, have introduced a TEMPO
+rather than keeping those winds in the prevailing group. Model
+guidance has been consistent with a strong cold front racing
+through the terminals between 20Z-22Z. Still some uncertainty with
+the magnitude of the northerly winds behind the frontal passage,
+but gusts of 40-50 kts is possible. After the initial frontal
+passage, northerly winds will weaken a bit. However, generally
+expect northerly winds gusting up to 25-35 kts through 02Z-04Z.
+After that, winds will weaken to less than 12 kts, before
+transitioning to drainage by 09Z-11Z. 
+
+In terms of precipitation, all terminals are still on track to
+see rain/snow showers with the frontal passage. There may be light
+rain showers ahead of the front (<20% chance), but once the front
+passes through, any precipitation that does fall during that time
+will transition to all snow. Given decent instability and strong
+low-level winds, snow-banding will likely develop, which will 
+cause briefly moderate-to-heavy snowfall. Although warm ground 
+temperatures will keep from snow accumulating on the ground. 
+Snow-banding will also reduce visibilities to 1/2SM - 1SM. All 
+precipitation should end by 23Z/24Z, with ceilings improving as 
+well. However, a few low clouds may linger through 06Z.
+
+&&
+
+.BOU WATCHES/WARNINGS/ADVISORIES...
+Winter Storm Warning until midnight MST tonight for COZ031-033.
+
+Winter Weather Advisory until midnight MST tonight for COZ034.
+
+High Wind Warning from 2 PM this afternoon to 8 PM MST this 
+evening for COZ047.
+
+&&
+
+$$
+
+DISCUSSION...AP
+AVIATION...MAI
