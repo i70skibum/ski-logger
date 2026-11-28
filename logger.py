@@ -1955,6 +1955,43 @@ def _read_csv_tail(rel, n=4000):
         return []
 
 
+I70_BANDS = [("i25_golden", -105.14, -104.98, 266, 276), ("golden_us6", -105.19, -105.14, 260, 266), ("us6_floyd", -105.43, -105.19, 244, 260),
+             ("floyd_idaho", -105.51, -105.43, 240, 244), ("idaho_empire", -105.66, -105.51, 232, 240), ("empire_georgetown", -105.71, -105.66, 228, 232),
+             ("georgetown_216", -105.88, -105.71, 216, 228), ("x216_silverthorne", -106.07, -105.88, 205, 216), ("silverthorne_copper", -106.16, -106.07, 195, 205)]
+
+
+def i70_stretches():
+    """Latest delay on each I-70 stretch, each way: extra minutes over its normal speed, and that as a share
+    of the stretch's normal time. Normal is the 85th-percentile speed this month (same as the corridor math)."""
+    segs = []
+    with open(os.path.join(DATA, "speed", "segments.csv")) as f:
+        for r in csv.DictReader(f):
+            if not r["route"].startswith("I70"):
+                continue
+            lon0, lon1 = float(r["start_lon"]), float(r["end_lon"])
+            segs.append((r["segment_id"], "W" if r["route"].endswith("W") else "E", (lon0 + lon1) / 2,
+                         miles(lon0, float(r["start_lat"]), lon1, float(r["end_lat"]))))
+    rows = _read_csv_tail(f"speed/{NOW.strftime('%Y-%m')}.csv", 3000)
+    if not rows:
+        return {}
+    last, out = rows[-1], {"at": rows[-1].get("snapshot_time")}
+    for key, w, e, mp0, mp1 in I70_BANDS:
+        out[key] = {"mp": [mp0, mp1]}
+        for d in "WE":
+            tot = norm = 0.0
+            n = 0
+            for sid, sd, mid, ln in segs:
+                if sd != d or not (w <= mid <= e) or not last.get(sid):
+                    continue
+                v = sorted(float(r[sid]) for r in rows if r.get(sid))
+                ref = max(45, min(65, v[int(len(v) * 0.85)] if len(v) >= 48 else 58))
+                n += 1
+                tot += max(0, ln / max(float(last[sid]), 3) - ln / ref) * 60
+                norm += ln / ref * 60
+            out[key][d] = {"delay_min": round(tot, 1), "pct": round(tot / norm, 3) if norm else None} if n else None
+    return out
+
+
 def build_dashboard(state):
     month = NOW.strftime("%Y-%m")
     rn = _read_json("routes_now.json", {}) or {}
@@ -2031,7 +2068,12 @@ def build_dashboard(state):
     events = [e for e in (state.get("events") or {}).values()
               if e.get("class") in ("roadClosures", "chainLaws") or re.search(r"road closed", e.get("title", ""), re.I)]
     events = [{k: e.get(k) for k in ("class", "route", "title", "began", "mp_start", "mp_end", "lat", "lon", "type")} for e in events]
-    dash = {"updated": NOW_ISO, "today": NOW.date().isoformat(), "roads": roads, "i70": i70,
+    try:
+        stretches = i70_stretches()
+    except Exception as e:
+        log_error("dashboard:i70_stretches", str(e))
+        stretches = {}
+    dash = {"updated": NOW_ISO, "today": NOW.date().isoformat(), "roads": roads, "i70": i70, "i70_stretches": stretches,
             "status": _read_json("resort_status.json", {}), "snow": snow, "forecast24": fc, "outlook": _read_json("outlook.json", {}),
             "recent": _read_json("recent.json", {}), "crowd": crowd, "model": model, "daily_predictions": daily,
             "weekend_predictions": _read_json("traffic_predictions.json", {}), "events": events, "sources": sources, "files": files}
