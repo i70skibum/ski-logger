@@ -7401,11 +7401,11 @@
   "berthoud": {
    "name": "Berthoud Pass (US 40, Empire to Winter Park)",
    "W": {
-    "delay_min": 1.6,
-    "minutes": 33.2,
+    "delay_min": 1.1,
+    "minutes": 32.7,
     "free_min": 31.6,
     "detour": false,
-    "at": "2026-11-28T10:00:59-07:00",
+    "at": "2026-11-28T10:16:00-07:00",
     "line": [
      [
       39.76107,
@@ -8158,9 +8158,9 @@
       "to": "winterpark",
       "key": "empire>winterpark",
       "km": 38.8,
-      "minutes": 33.2,
+      "minutes": 32.7,
       "free_min": 31.6,
-      "delay_min": 1.6,
+      "delay_min": 1.1,
       "jam_min": 0.0,
       "line": [
        [
@@ -8568,11 +8568,11 @@
     ]
    },
    "E": {
-    "delay_min": 1.4,
-    "minutes": 33.1,
+    "delay_min": 0.9,
+    "minutes": 32.6,
     "free_min": 31.7,
     "detour": false,
-    "at": "2026-11-28T10:00:59-07:00",
+    "at": "2026-11-28T10:16:00-07:00",
     "line": [
      [
       39.88623,
@@ -9321,9 +9321,9 @@
       "to": "empire",
       "key": "empire>winterpark",
       "km": 38.7,
-      "minutes": 33.1,
+      "minutes": 32.6,
       "free_min": 31.7,
-      "delay_min": 1.4,
+      "delay_min": 0.9,
       "jam_min": 0.0,
       "line": [
        [
@@ -13920,11 +13920,11 @@
    "points": [],
    "points_at": "2026-11-28T10:00:59-07:00",
    "W": {
-    "delay_min": 3.4,
-    "minutes": 70.4,
+    "delay_min": 4.2,
+    "minutes": 71.2,
     "free_min": 67.0,
     "detour": false,
-    "at": "2026-11-28T10:00:59-07:00",
+    "at": "2026-11-28T10:16:00-07:00",
     "line": [
      [
       39.75702,
@@ -15205,9 +15205,9 @@
       "to": "i25i70",
       "key": "coors>i25i70",
       "km": 3.5,
-      "minutes": 7.2,
-      "free_min": 5.6,
-      "delay_min": 1.6,
+      "minutes": 7.3,
+      "free_min": 5.4,
+      "delay_min": 1.9,
       "jam_min": 0.0,
       "line": [
        [
@@ -15293,8 +15293,8 @@
       "to": "boulder",
       "key": "i25i70>boulder",
       "km": 39.2,
-      "minutes": 24.2,
-      "free_min": 24.2,
+      "minutes": 24.4,
+      "free_min": 24.4,
       "delay_min": 0.0,
       "jam_min": 0.0,
       "line": [
@@ -15533,9 +15533,9 @@
       "to": "nederland",
       "key": "boulder>nederland",
       "km": 26.9,
-      "minutes": 26.1,
-      "free_min": 25.5,
-      "delay_min": 0.6,
+      "minutes": 26.5,
+      "free_min": 25.7,
+      "delay_min": 0.8,
       "jam_min": 0.0,
       "line": [
        [
@@ -15929,9 +15929,9 @@
       "to": "eldora",
       "key": "nederland>eldora",
       "km": 8.0,
-      "minutes": 12.8,
-      "free_min": 11.6,
-      "delay_min": 1.2,
+      "minutes": 13.0,
+      "free_min": 11.5,
+      "delay_min": 1.5,
       "jam_min": 0.0,
       "line": [
        [
@@ -27090,11 +27090,11 @@
   "sixth": {
    "name": "6th Ave (US 6) from Coors Field to Golden",
    "E": {
-    "delay_min": 1.2,
-    "minutes": 26.5,
+    "delay_min": 1.3,
+    "minutes": 26.6,
     "free_min": 25.3,
     "detour": false,
-    "at": "2026-11-28T10:00:59-07:00",
+    "at": "2026-11-28T10:16:00-07:00",
     "line": [
      [
       39.74245,
@@ -27599,9 +27599,9 @@
       "to": "coors",
       "key": "coors>i25",
       "km": 6.5,
-      "minutes": 8.9,
-      "free_min": 7.8,
-      "delay_min": 1.1,
+      "minutes": 9.0,
+      "free_min": 7.7,
+      "delay_min": 1.3,
       "jam_min": 0.0,
       "line": [
        [
@@ -27736,11 +27736,11 @@
    "points": [],
    "points_at": "2026-11-28T10:00:59-07:00",
    "W": {
-    "delay_min": 1.5,
-    "minutes": 30.5,
+    "delay_min": 1.6,
+    "minutes": 30.6,
     "free_min": 29.0,
     "detour": false,
-    "at": "2026-11-28T10:00:59-07:00",
+    "at": "2026-11-28T10:16:00-07:00",
     "line": [
      [
       39.75702,
@@ -28113,9 +28113,9 @@
       "to": "i25",
       "key": "coors>i25",
       "km": 6.3,
-      "minutes": 9.2,
+      "minutes": 9.3,
       "free_min": 7.7,
-      "delay_min": 1.5,
+      "delay_min": 1.6,
       "jam_min": 0.0,
       "line": [
        [
@@ -28530,7 +28530,7 @@
     "minutes": 35.4,
     "free_min": 35.1,
     "detour": false,
-    "at": "2026-11-28T10:00:59-07:00",
+    "at": "2026-11-28T10:16:00-07:00",
     "line": [
      [
       39.75702,
@@ -31227,11 +31227,11 @@
    "points_at": "2026-11-28T10:00:59-07:00"
   }
  },
- "updated": "2026-11-28T10:00:59-07:00",
+ "updated": "2026-11-28T10:16:00-07:00",
  "tomtom_use": {
-  "crowd": 32,
+  "crowd": 36,
   "flow": 3540,
-  "routing": 4023
+  "routing": 4029
  },
  "tomtom_caps": {
   "routing": 19000,
