@@ -2035,3 +2035,4 @@ observed_at,change,id,class,type,route,direction,pos_bearing,mp_start,mp_end,tit
 2026-11-27T18:00:47-07:00,start,CDOT-36627334861BOTH,roadReports,routine,US 24,BOTH_DIRECTIONS,E,301.4300000156654,,US 24 in both directions: Crash.,2026-11-27T17:52:40-07:00
 2026-11-27T18:00:47-07:00,end,CDOT-36626983929EB,roadReports,routine,I-70,POSITIVE_DIRECTION,E,221.99947439894592,,I-70 eastbound: Stalled vehicle.,2026-11-27T17:27:32-07:00
 2026-11-27T18:15:46-07:00,start,CDOT-36627334861BOTH,roadClosures,critical,US 24,BOTH_DIRECTIONS,E,301.4300000156654,,US 24 in both directions: Road closed.,2026-11-27T17:52:40-07:00
+2026-11-27T18:45:45-07:00,start,CDOT-36627984715NB,roadReports,routine,CO 93,POSITIVE_DIRECTION,N,8.269668567629251,,CO 93 northbound: Crash.,2026-11-27T18:41:34-07:00

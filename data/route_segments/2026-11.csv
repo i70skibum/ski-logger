@@ -3243,3 +3243,15 @@ snapshot_time,route,dir,segment,from,to,km,minutes,free_min,delay_min,jam_min
 2026-11-27T18:30:46-07:00,eldora_119,E,x261>golden,golden,x261,8.0,4.7,4.7,0.0,0.0
 2026-11-27T18:30:46-07:00,eldora_119,E,i25i70>x261,x261,i25i70,13.3,7.8,7.8,0.0,0.0
 2026-11-27T18:30:46-07:00,eldora_119,E,coors>i25i70,i25i70,coors,3.3,7.8,6.2,1.6,0.0
+2026-11-27T18:45:45-07:00,berthoud,W,empire>winterpark,empire,winterpark,38.8,31.4,31.6,0.0,0.0
+2026-11-27T18:45:45-07:00,berthoud,E,empire>winterpark,winterpark,empire,38.7,31.3,31.7,0.0,0.0
+2026-11-27T18:45:45-07:00,sixth,W,coors>i25,coors,i25,6.3,9.6,8.0,1.6,0.0
+2026-11-27T18:45:45-07:00,sixth,W,i25>us6,i25,us6,15.7,10.4,10.4,0.0,0.0
+2026-11-27T18:45:45-07:00,sixth,W,us6>golden,us6,golden,7.9,10.6,10.6,0.0,0.0
+2026-11-27T18:45:45-07:00,sixth,E,us6>golden,golden,us6,7.2,5.8,5.8,0.0,0.0
+2026-11-27T18:45:45-07:00,sixth,E,i25>us6,us6,i25,15.8,11.9,11.8,0.1,0.0
+2026-11-27T18:45:45-07:00,sixth,E,coors>i25,i25,coors,6.5,9.6,7.6,2.0,0.0
+2026-11-27T18:45:45-07:00,eldora_boulder,E,nederland>eldora,eldora,nederland,8.0,11.5,11.1,0.4,0.0
+2026-11-27T18:45:45-07:00,eldora_boulder,E,boulder>nederland,nederland,boulder,26.5,25.1,24.9,0.2,0.0
+2026-11-27T18:45:45-07:00,eldora_boulder,E,i25i70>boulder,boulder,i25i70,39.4,25.4,25.4,0.0,0.0
+2026-11-27T18:45:45-07:00,eldora_boulder,E,coors>i25i70,i25i70,coors,3.6,8.0,6.4,1.6,0.0
