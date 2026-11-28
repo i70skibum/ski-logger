@@ -4,7 +4,7 @@
  "cameras_v": 2,
  "err_seen": {
   "crowd|HTTP Error 400": {
-   "n": 0,
+   "n": 1,
    "t": "2026-11-28T13:02:30+00:00"
   },
   "outlook|timed out": {
@@ -2639,6 +2639,20 @@
    "title": "CO 9: High wind.",
    "type": "standard"
   },
+  "winterDriving:COSEG-522935": {
+   "began": "2026-11-28T06:30:42.025000-07:00",
+   "class": "winterDriving",
+   "direction": "NOT_DIRECTIONAL",
+   "id": "COSEG-522935",
+   "lat": 38.0208,
+   "lon": -108.06113,
+   "mp_end": 23.413999986179988,
+   "mp_start": 1.6892547705932946e-06,
+   "pos_bearing": "E",
+   "route": "CO 62",
+   "title": "CO 62: Icy.",
+   "type": "standard"
+  },
   "winterDriving:COSEG-522937": {
    "began": "2026-11-23T05:40:17.436000-07:00",
    "class": "winterDriving",
@@ -3131,7 +3145,7 @@
   }
  },
  "forecast_last": "2026-11-28T13:02:30+00:00",
- "last_run": "2026-11-28T06:16:00-07:00",
+ "last_run": "2026-11-28T06:30:58-07:00",
  "nws_daily": {
   "abasin": {
    "2026-11-28": {
@@ -3860,7 +3874,7 @@
   "489": "8 - icy",
   "49": "6-9-11 snow, icy spots, snow packed spots",
   "490": "6-8-10 snow, icy, snow packed",
-  "491": "4s-9 - wet in areas, icy spots",
+  "491": "4s-9 - wet in areas, icy spots; 6 - snow",
   "492": "4s - wet in areas; 6 - snow; 9 - icy spots",
   "501": "3 - dry",
   "516": "3 - dry",
@@ -3873,25 +3887,25 @@
  "snotel_last": {
   "abasin": "2026-11-28 05:00",
   "aspen": "2026-11-28 04:00",
-  "beavercreek": "2026-11-28 04:00",
-  "breck": "2026-11-28 04:00",
-  "cooper": "2026-11-28 04:00",
-  "copper": "2026-11-28 04:00",
-  "crestedbutte": "2026-11-28 04:00",
-  "echo": "2026-11-28 04:00",
-  "eldora": "2026-11-28 04:00",
+  "beavercreek": "2026-11-28 05:00",
+  "breck": "2026-11-28 05:00",
+  "cooper": "2026-11-28 05:00",
+  "copper": "2026-11-28 05:00",
+  "crestedbutte": "2026-11-28 05:00",
+  "echo": "2026-11-28 05:00",
+  "eldora": "2026-11-28 05:00",
   "granby": "2026-11-28 04:00",
   "keystone": "2026-11-28 05:00",
-  "loveland": "2026-11-28 04:00",
+  "loveland": "2026-11-28 05:00",
   "monarch": "2026-11-28 04:00",
-  "powderhorn": "2026-11-28 04:00",
-  "purgatory": "2026-11-28 04:00",
+  "powderhorn": "2026-11-28 05:00",
+  "purgatory": "2026-11-28 05:00",
   "steamboat": "2026-11-28 05:00",
   "sunlight": "2026-11-28 04:00",
   "telluride": "2026-11-28 04:00",
-  "vail": "2026-11-28 04:00",
-  "winterpark": "2026-11-28 04:00",
-  "wolfcreek": "2026-11-28 04:00"
+  "vail": "2026-11-28 05:00",
+  "winterpark": "2026-11-28 05:00",
+  "wolfcreek": "2026-11-28 05:00"
  },
  "speed_geo": [
   "I70E024",
@@ -4147,18 +4161,18 @@
   "I70W083",
   "I70W088"
  ],
- "tomtom_crowd_last": "2026-11-28T13:02:30+00:00",
- "tomtom_flow_last": "2026-11-28T13:02:30+00:00",
- "tomtom_routing_last": "2026-11-28T13:16:00+00:00",
+ "tomtom_crowd_last": "2026-11-28T13:30:58+00:00",
+ "tomtom_flow_last": "2026-11-28T13:30:58+00:00",
+ "tomtom_routing_last": "2026-11-28T13:30:58+00:00",
  "tomtom_use": {
   "crowd": {
-   "2026-11": 4
+   "2026-11": 8
   },
   "flow": {
-   "2026-11": 3412
+   "2026-11": 3428
   },
   "routing": {
-   "2026-11": 3877
+   "2026-11": 3890
   }
  },
  "traffic_model_last": "2026-11-28T13:02:30+00:00"
